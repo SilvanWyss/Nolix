@@ -2,7 +2,7 @@
 package ch.nolix.core.commontypetool;
 
 import ch.nolix.coreapi.commontypetoolapi.characterproperty.CharacterType;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class
 final class PascalCaseCreator {

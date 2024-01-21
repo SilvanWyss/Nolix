@@ -5,10 +5,10 @@ package ch.nolix.core.document.node;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.CharacterCatalogue;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class

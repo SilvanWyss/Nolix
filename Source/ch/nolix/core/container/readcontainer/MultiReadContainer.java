@@ -9,10 +9,10 @@ import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.CharacterCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 
 //class
 public final class MultiReadContainer<E> extends Container<E> {

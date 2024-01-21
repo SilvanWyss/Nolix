@@ -5,7 +5,7 @@ package ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest;
 import ch.nolix.core.reflection.GlobalFieldHelper;
 import ch.nolix.core.reflection.GlobalMemberHelper;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class

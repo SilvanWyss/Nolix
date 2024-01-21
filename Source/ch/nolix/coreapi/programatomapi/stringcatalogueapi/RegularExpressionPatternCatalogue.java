@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.commontypetoolapi.stringtoolapi;
+package ch.nolix.coreapi.programatomapi.stringcatalogueapi;
 
 //own imports
 import java.util.regex.Pattern;

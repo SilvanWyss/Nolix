@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest} package
- * defines tests for the {@link ch.nolix.coreapi.commontypetoolapi.stringtoolapi}
+ * defines tests for the {@link ch.nolix.coreapi.programatomapi.stringcatalogueapi}
  * package.
  * 
  * @author Silvan Wyss
