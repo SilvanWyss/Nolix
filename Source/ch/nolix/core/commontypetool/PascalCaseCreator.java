@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.core.commontypetool;
 
+//own imports
 import ch.nolix.coreapi.commontypetoolapi.characterproperty.CharacterType;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class
@@ -32,6 +34,7 @@ final class PascalCaseCreator {
         stringBuilder.append(firstCharacter);
     }
 
+    var previousCharacter = firstCharacter;
     var previousCharacterType = firstCharacterType;
     for (var i = 1; i < string.length(); i++) {
 
@@ -40,7 +43,7 @@ final class PascalCaseCreator {
 
       switch (characterType) {
         case LOWER_CASE_LETTER:
-          if (previousCharacterType == CharacterType.UNDERSCORE) {
+          if (previousCharacter == CharacterCatalogue.UNDERSCORE) {
             stringBuilder.append(Character.toUpperCase(character));
           } else {
             stringBuilder.append(character);
@@ -48,19 +51,20 @@ final class PascalCaseCreator {
           break;
         case UPPER_CASE_LETTER:
           if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
-          || previousCharacterType == CharacterType.UNDERSCORE) {
+          || previousCharacter == CharacterCatalogue.UNDERSCORE) {
             stringBuilder.append(character);
           } else {
             stringBuilder.append(Character.toLowerCase(character));
           }
           break;
-        case UNDERSCORE:
-          break;
         case OTHER:
-          stringBuilder.append(character);
+          if (character != CharacterCatalogue.UNDERSCORE) {
+            stringBuilder.append(character);
+          }
           break;
       }
 
+      previousCharacter = character;
       previousCharacterType = characterType;
     }
 

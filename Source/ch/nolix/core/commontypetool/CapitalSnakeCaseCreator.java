@@ -34,10 +34,11 @@ final class CapitalSnakeCaseCreator {
       case UPPER_CASE_LETTER:
         stringBuilder.append(firstCharacter);
         break;
-      case UNDERSCORE:
-        break;
       case OTHER:
-        stringBuilder.append(firstCharacter);
+        if (firstCharacter != CharacterCatalogue.UNDERSCORE) {
+          stringBuilder.append(firstCharacter);
+        }
+        break;
     }
 
     var previousCharacterType = firstCharacterType;
@@ -59,7 +60,7 @@ final class CapitalSnakeCaseCreator {
           stringBuilder.append(character);
 
           break;
-        case UNDERSCORE, OTHER:
+        case OTHER:
           stringBuilder.append(Character.toUpperCase(character));
           break;
         default:

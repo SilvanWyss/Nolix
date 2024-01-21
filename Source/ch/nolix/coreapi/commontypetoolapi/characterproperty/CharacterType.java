@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.coreapi.commontypetoolapi.characterproperty;
 
+//own imports
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 
 //enum
 public enum CharacterType {
   UPPER_CASE_LETTER,
   LOWER_CASE_LETTER,
-  UNDERSCORE,
   OTHER;
 
   //static method
@@ -75,8 +75,6 @@ public enum CharacterType {
       CharacterCatalogue.LOWER_CASE_OE,
       CharacterCatalogue.LOWER_CASE_UE ->
         CharacterType.LOWER_CASE_LETTER;
-      case '_' ->
-        CharacterType.UNDERSCORE;
       default ->
         CharacterType.OTHER;
     };
