@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.controlstyle;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
@@ -39,10 +39,10 @@ implements IControlStyle<ECS> {
   public static final int DEFAULT_PADDING = 0;
 
   //constant
-  private static final String WIDTH_HEADER = PascalCaseCatalogue.WIDTH;
+  private static final String WIDTH_HEADER = PascalCaseVariableCatalogue.WIDTH;
 
   //constant
-  private static final String HEIGHT_HEADER = PascalCaseCatalogue.HEIGHT;
+  private static final String HEIGHT_HEADER = PascalCaseVariableCatalogue.HEIGHT;
 
   //constant
   private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";

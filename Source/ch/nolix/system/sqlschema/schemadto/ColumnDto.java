@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
@@ -34,8 +34,8 @@ public final class ColumnDto implements IColumnDto {
   //constructor
   public ColumnDto(final String name, final IDataTypeDto dataType, final IContainer<IConstraintDto> constraints) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
-    GlobalValidator.assertThat(dataType).thatIsNamed(LowerCaseCatalogue.DATA_TYPE).isNotNull();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
+    GlobalValidator.assertThat(dataType).thatIsNamed(LowerCaseVariableCatalogue.DATA_TYPE).isNotNull();
 
     this.name = name;
     this.dataType = dataType;

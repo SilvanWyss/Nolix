@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
@@ -86,7 +86,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
           break;
         default:
           throw InvalidArgumentException.forArgumentNameAndArgument(
-            LowerCaseCatalogue.SPECIFICATION,
+            LowerCaseVariableCatalogue.SPECIFICATION,
             specification);
       }
     }

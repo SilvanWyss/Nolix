@@ -3,7 +3,7 @@ package ch.nolix.core.commontypetool;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -41,7 +41,7 @@ public final class GlobalCharacterHelper {
     if (letter < 65
     || (letter > 90 && letter < 97)
     || letter > 122) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LETTER, letter);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.LETTER, letter);
     }
 
     //Enumerates the given letter.

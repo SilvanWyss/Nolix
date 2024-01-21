@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
@@ -30,7 +30,7 @@ extends Control<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
 
   //constant
-  private static final String ERROR_HEADER = PascalCaseCatalogue.ERROR;
+  private static final String ERROR_HEADER = PascalCaseVariableCatalogue.ERROR;
 
   //attribute
   private final MutableOptionalValue<Throwable> error = new MutableOptionalValue<>(

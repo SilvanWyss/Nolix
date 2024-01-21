@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
@@ -29,11 +29,11 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
     final IContainer<IContentFieldDto> updatedContentFields) {
 
     if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
     }
 
     if (saveStamp == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SAVE_STAMP);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.SAVE_STAMP);
     }
 
     if (updatedContentFields == null) {

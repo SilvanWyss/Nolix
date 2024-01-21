@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
@@ -26,10 +26,10 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
   //constant
-  private static final String ID_HEADER = PascalCaseCatalogue.ID;
+  private static final String ID_HEADER = PascalCaseVariableCatalogue.ID;
 
   //constant
-  private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
   //constant
   private static final String SELECTION_FLAG_HEADER = "Selected";
@@ -250,7 +250,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   //method
   private void setId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
     this.id.setValue(id);
   }

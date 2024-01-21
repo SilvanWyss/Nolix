@@ -4,7 +4,7 @@ package ch.nolix.core.container.pair;
 import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.pairapi.IKeyValuePair;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
@@ -21,11 +21,11 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   private KeyValuePair(final K key, final V value) {
 
     if (key == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.KEY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.KEY);
     }
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.VALUE);
     }
 
     this.key = key;

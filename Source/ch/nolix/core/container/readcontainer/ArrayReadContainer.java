@@ -15,7 +15,7 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -51,7 +51,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     //Asserts that the given array is not null.
     GlobalValidator
       .assertThat(array)
-      .thatIsNamed(LowerCaseCatalogue.ARRAY)
+      .thatIsNamed(LowerCaseVariableCatalogue.ARRAY)
       .isNotNull();
 
     //Sets the array of the current ArrayReadContainer.
@@ -85,8 +85,8 @@ public final class ArrayReadContainer<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
+    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
+    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isNotBiggerThan(getElementCount());
 
     return array[p1BasedIndex - 1];
   }

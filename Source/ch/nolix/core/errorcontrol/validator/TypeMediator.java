@@ -6,14 +6,14 @@ import java.lang.reflect.Modifier;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 
   //constructor
   protected TypeMediator(final Class<T> argument) {
-    super(LowerCaseCatalogue.TYPE, argument);
+    super(LowerCaseVariableCatalogue.TYPE, argument);
   }
 
   //constructor

@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -63,7 +63,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 
     //Asserts that the given type is not null.
     if (type == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TYPE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TYPE);
     }
 
     //Handles the case that the current extended thrown exception mediator

@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyExceptio
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -111,7 +111,7 @@ public abstract class License implements INameHolder {
    */
   private String getFilteredKey(final String key) {
 
-    GlobalValidator.assertThat(key).thatIsNamed(LowerCaseCatalogue.KEY).isNotNull();
+    GlobalValidator.assertThat(key).thatIsNamed(LowerCaseVariableCatalogue.KEY).isNotNull();
 
     return key
       .replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING)

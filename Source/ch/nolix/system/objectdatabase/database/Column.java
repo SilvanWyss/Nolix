@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType;
@@ -32,8 +32,8 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     final IParameterizedPropertyType parameterizedPropertyType,
     final Table<IEntity> parentTable) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
     GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(IParameterizedPropertyType.class).isNotNull();
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 

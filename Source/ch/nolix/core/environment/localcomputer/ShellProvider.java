@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class ShellProvider {
@@ -25,7 +25,7 @@ public final class ShellProvider {
   //static method
   public static void run(final String[] command) {
 
-    GlobalValidator.assertThat(command).thatIsNamed(LowerCaseCatalogue.COMMAND).isNotNull();
+    GlobalValidator.assertThat(command).thatIsNamed(LowerCaseVariableCatalogue.COMMAND).isNotNull();
 
     final var runtimeCommand = createRuntimeCommandFromCommand(command);
 
@@ -61,12 +61,12 @@ public final class ShellProvider {
 
     GlobalValidator
       .assertThat(url)
-      .thatIsNamed(LowerCaseCatalogue.URL)
+      .thatIsNamed(LowerCaseVariableCatalogue.URL)
       .isNotBlank();
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
       .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     run(new String[] { "start", "firefox", "--url", url + ":" + port });

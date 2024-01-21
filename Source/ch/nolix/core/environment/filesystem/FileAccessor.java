@@ -15,7 +15,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -44,7 +44,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     //file.
     if (!FileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.FILE_PATH,
+        LowerCaseVariableCatalogue.FILE_PATH,
         filePath,
         "is not a file");
     }

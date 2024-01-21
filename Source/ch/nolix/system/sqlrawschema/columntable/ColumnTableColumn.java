@@ -5,17 +5,17 @@ package ch.nolix.system.sqlrawschema.columntable;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.tabletype.SchemaTableType;
 
 //enum
 public enum ColumnTableColumn implements INameHolder {
-  ID(PascalCaseCatalogue.ID),
+  ID(PascalCaseVariableCatalogue.ID),
   PARENT_TABLE_ID("ParentTableId"),
-  NAME(PascalCaseCatalogue.NAME),
+  NAME(PascalCaseVariableCatalogue.NAME),
   PROPERTY_TYPE("PropertyType"),
-  DATA_TYPE(PascalCaseCatalogue.DATA_TYPE),
+  DATA_TYPE(PascalCaseVariableCatalogue.DATA_TYPE),
   REFERENCED_TABLE_ID("ReferencedTableId"),
   BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
 
@@ -28,7 +28,7 @@ public enum ColumnTableColumn implements INameHolder {
   //constructor
   ColumnTableColumn(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
 
     this.name = name;
   }

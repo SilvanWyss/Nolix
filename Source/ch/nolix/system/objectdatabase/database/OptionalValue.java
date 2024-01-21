@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalValueHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.OptionalValueValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
@@ -113,7 +113,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
   //method
   private void updateStateForSetValue(final V value) {
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
 
     internalValue = value;
   }

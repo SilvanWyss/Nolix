@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdatabase.databasedto;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDto;
 
 //class
@@ -19,7 +19,7 @@ public final class LoadedContentFieldDto implements ILoadedContentFieldDto {
   public LoadedContentFieldDto(final String columnName) {
 
     if (columnName == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.COLUMN_NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.COLUMN_NAME);
     }
 
     this.columnName = columnName;
@@ -30,11 +30,11 @@ public final class LoadedContentFieldDto implements ILoadedContentFieldDto {
   public LoadedContentFieldDto(final String columnName, final Object value) {
 
     if (columnName == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.COLUMN_NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.COLUMN_NAME);
     }
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.VALUE);
     }
 
     this.columnName = columnName;

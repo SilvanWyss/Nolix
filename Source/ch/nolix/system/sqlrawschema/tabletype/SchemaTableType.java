@@ -4,13 +4,13 @@ package ch.nolix.system.sqlrawschema.tabletype;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 //enum
 public enum SchemaTableType implements IQualifiedNameHolder {
-  TABLE(PascalCaseCatalogue.TABLE),
-  COLUMN(PascalCaseCatalogue.COLUMN);
+  TABLE(PascalCaseVariableCatalogue.TABLE),
+  COLUMN(PascalCaseVariableCatalogue.COLUMN);
 
   //constant
   private static final String QUALIFYING_PREFIX = TableType.SCHEMA_TABLE.getQualifyingPrefix();
@@ -21,7 +21,7 @@ public enum SchemaTableType implements IQualifiedNameHolder {
   //constructor
   SchemaTableType(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
 
     this.name = name;
   }

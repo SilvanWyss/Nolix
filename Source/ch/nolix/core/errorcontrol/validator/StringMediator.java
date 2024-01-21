@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -61,7 +61,7 @@ public class StringMediator extends ArgumentMediator<String> {
 
     //Asserts that the given length is not negative.
     if (length < 0) {
-      throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LENGTH, length);
+      throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.LENGTH, length);
     }
 
     //Asserts that the argument of the current StringMediator is not null.

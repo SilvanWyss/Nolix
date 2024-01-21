@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programstructureapi.cachingapi.ICachingContainer;
 
 //class
@@ -97,7 +97,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public String registerAndGetId(final E element) {
 
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
 
     assertDoesNotContain(element);
 
@@ -111,8 +111,8 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public void registerAtId(final String id, final E element) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
 
     assertDoesNotContainId(id);
     assertDoesNotContain(element);
@@ -128,7 +128,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
     if (pair == null) {
 
-      GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+      GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
 
       final var id = createNextAutoId();
       elements.addAtEnd(new Pair<>(id, element));
@@ -167,7 +167,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   private void assertDoesNotContainId(final String id) {
     if (containsWithId(id)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.ID,
+        LowerCaseVariableCatalogue.ID,
         id,
         "is already used");
     }

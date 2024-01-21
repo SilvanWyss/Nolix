@@ -5,7 +5,7 @@ package ch.nolix.tech.relationaldoc.dataadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableObjectEvaluator;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
@@ -38,7 +38,7 @@ public final class DataAdapter implements IDataAdapter {
 
     final var nodeDataAdapter = NodeDataAdapter
       .forNodeDatabase(nodeDatabase)
-      .withName(LowerCaseCatalogue.DATABASE)
+      .withName(LowerCaseVariableCatalogue.DATABASE)
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     return new DataAdapter(nodeDataAdapter);

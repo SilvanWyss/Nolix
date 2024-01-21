@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
@@ -37,7 +37,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
 
   //constant
-  private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
   //constant
   private static final String TEXT_MODE_HEADER = "TextMode";

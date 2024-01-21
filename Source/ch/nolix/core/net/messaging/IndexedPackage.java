@@ -4,7 +4,7 @@ package ch.nolix.core.net.messaging;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -33,7 +33,7 @@ public class IndexedPackage<C> {
   public IndexedPackage(final int index, final C content) {
 
     //Asserts that the given content is not null.
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotNull();
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNotNull();
 
     //Sets the index of the current IndexedPackage.
     this.index = index;

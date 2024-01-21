@@ -4,7 +4,7 @@ package ch.nolix.core.math.stochastic;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -65,11 +65,11 @@ public abstract class StatisticalModel {
   //method
   protected final double getValueFromBack(final int index) {
 
-    GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+    GlobalValidator.assertThat(index).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
 
     GlobalValidator
       .assertThat(index)
-      .thatIsNamed(LowerCaseCatalogue.INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
       .isNotBiggerThan(inputValues.length + forecasts.getElementCount());
 
     if (index > forecasts.getElementCount()) {

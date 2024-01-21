@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
@@ -20,7 +20,7 @@ public abstract class Container<C extends IContainer<C, ECS>, ECS extends IContr
 extends Control<C, ECS> implements IContainer<C, ECS> {
 
   //constant
-  private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
 
   //attribute
   private final MutableOptionalValue<ContainerRole> role = new MutableOptionalValue<>(

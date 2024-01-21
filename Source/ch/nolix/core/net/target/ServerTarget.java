@@ -5,7 +5,7 @@ package ch.nolix.core.net.target;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
@@ -27,7 +27,7 @@ public class ServerTarget implements IServerTarget {
     final SecurityMode securityLevelForConnections) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isPort();
 
     GlobalValidator
       .assertThat(securityLevelForConnections)

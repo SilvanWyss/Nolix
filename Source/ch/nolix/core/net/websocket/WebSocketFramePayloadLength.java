@@ -7,7 +7,7 @@ import java.math.BigInteger;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public record WebSocketFramePayloadLength(long value) {
@@ -15,7 +15,7 @@ public record WebSocketFramePayloadLength(long value) {
   //constructor
   public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNegative();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNegative();
 
     this.value = value;
   }

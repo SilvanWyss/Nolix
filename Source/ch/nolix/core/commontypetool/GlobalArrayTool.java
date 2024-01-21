@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class GlobalArrayTool {
@@ -38,7 +38,7 @@ public final class GlobalArrayTool {
   //static method
   public static double[] createCopyOfArray(final double[] array) {
 
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
+    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
 
     return Arrays.copyOf(array, array.length);
   }
@@ -46,7 +46,7 @@ public final class GlobalArrayTool {
   //static method
   public static <E> E[] createCopyOfArray(final E[] array) {
 
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
+    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
 
     return Arrays.copyOf(array, array.length);
   }

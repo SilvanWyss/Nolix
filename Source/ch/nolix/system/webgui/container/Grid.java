@@ -7,8 +7,8 @@ import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.basecontainer.Container;
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
   //constant
-  private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
+  private static final String CELL_HEADER = PascalCaseVariableCatalogue.CELL;
 
   //constant
   private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
@@ -175,7 +175,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   //method
   private void expandColumnsTo(final int columnIndex) {
 
-    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
+    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
@@ -196,7 +196,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   //method
   private void expandRowsTo(final int rowIndex) {
 
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();
+    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));

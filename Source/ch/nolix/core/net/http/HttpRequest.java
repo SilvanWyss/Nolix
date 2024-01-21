@@ -4,7 +4,7 @@ package ch.nolix.core.net.http;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public record HttpRequest(String content) {
@@ -31,7 +31,7 @@ public record HttpRequest(String content) {
   //constructor
   public HttpRequest(final String content) { //NOSONAR: This constructor does more than the default one.
 
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNotBlank();
 
     this.content = content;
   }

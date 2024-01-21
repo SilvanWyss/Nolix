@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -37,7 +37,7 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     final BooleanSupplier valuePresenceChecker,
     final Supplier<Node> getter) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseVariableCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
     GlobalValidator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
     GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.propertyvalidator.MultiValueValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
@@ -98,7 +98,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   @Override
   void internalSetOrClearDirectlyFromContent(final Object content) {
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
   //method

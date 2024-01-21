@@ -5,15 +5,15 @@ package ch.nolix.system.sqlrawschema.multivalueentrytable;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.tabletype.MultiEntryTableType;
 
 //enum
 public enum MultiValueEntryTableColumn implements INameHolder {
   MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
   ENTITY_ID("EntityId"),
-  VALUE(PascalCaseCatalogue.VALUE);
+  VALUE(PascalCaseVariableCatalogue.VALUE);
 
   //constant
   private static final String NAME_PREFIX = MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
@@ -25,7 +25,7 @@ public enum MultiValueEntryTableColumn implements INameHolder {
   //constructor
   MultiValueEntryTableColumn(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
 
     this.name = name;
   }

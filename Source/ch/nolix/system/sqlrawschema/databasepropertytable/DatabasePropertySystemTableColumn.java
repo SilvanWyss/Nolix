@@ -4,8 +4,8 @@ package ch.nolix.system.sqlrawschema.databasepropertytable;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 //class
 public enum DatabasePropertySystemTableColumn implements ILabelHolder {
@@ -13,7 +13,7 @@ public enum DatabasePropertySystemTableColumn implements ILabelHolder {
   //'Key' is a reserved word in MSSQL databases.
   KEY("ValueKey"),
 
-  VALUE(PascalCaseCatalogue.VALUE);
+  VALUE(PascalCaseVariableCatalogue.VALUE);
 
   //attribute
   private final String label;
@@ -21,7 +21,7 @@ public enum DatabasePropertySystemTableColumn implements ILabelHolder {
   //constructor
   DatabasePropertySystemTableColumn(final String label) {
 
-    GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
+    GlobalValidator.assertThat(label).thatIsNamed(LowerCaseVariableCatalogue.LABEL).isNotBlank();
 
     this.label = label;
   }

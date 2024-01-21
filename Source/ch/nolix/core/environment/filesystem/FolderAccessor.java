@@ -5,7 +5,7 @@ package ch.nolix.core.environment.filesystem;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -43,7 +43,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     //Asserts that the file system item with the given path is actually a folder.
     if (!FileSystemAccessor.isFolder(path)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.PATH,
+        LowerCaseVariableCatalogue.PATH,
         path,
         "is not a folder");
     }

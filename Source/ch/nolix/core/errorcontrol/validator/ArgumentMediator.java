@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -69,7 +69,7 @@ public class ArgumentMediator<A> extends Mediator {
 
     //Asserts that the given condition is not null.
     if (condition == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.CONDITION);
     }
 
     //Asserts that the argument of the current ArgumentMediator fulfills the given

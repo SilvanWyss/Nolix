@@ -5,7 +5,7 @@ package ch.nolix.core.testing.basetest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public record OccurancePlace(String className, int lineNumber) {
@@ -24,7 +24,7 @@ public record OccurancePlace(String className, int lineNumber) {
     }
 
     if (lineNumber < 1) {
-      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LINE_NUMBER, lineNumber);
+      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.LINE_NUMBER, lineNumber);
     }
 
     this.className = className;

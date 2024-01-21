@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
@@ -22,7 +22,7 @@ implements IBaseParameterizedValueType<V> {
   //constructor
   protected BaseParameterizedValueType(final Class<V> valueType) {
 
-    GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseCatalogue.VALUE_TYPE).isNotNull();
+    GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalogue.VALUE_TYPE).isNotNull();
 
     this.valueType = valueType;
   }

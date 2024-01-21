@@ -14,7 +14,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -55,7 +55,7 @@ public final class GlobalStringHelper {
     //Asserts that the given string is not longer than the given length.
     if (string.length() > length) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.STRING,
+        LowerCaseVariableCatalogue.STRING,
         string,
         "is longer than " + length + " with a length of " + string.length());
     }
@@ -112,7 +112,7 @@ public final class GlobalStringHelper {
   public static String getInBraces(final String string) {
 
     if (string == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.STRING);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);
     }
 
     return ("{" + string + "}");
@@ -129,7 +129,7 @@ public final class GlobalStringHelper {
   public static String getInParantheses(final String string) {
 
     if (string == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.STRING);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);
     }
 
     return ("(" + string + ")");
@@ -146,7 +146,7 @@ public final class GlobalStringHelper {
   public static String getInQuotes(final String string) {
 
     if (string == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.STRING);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);
     }
 
     return ("'" + string + "'");

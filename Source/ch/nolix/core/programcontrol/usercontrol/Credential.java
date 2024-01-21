@@ -4,7 +4,7 @@ package ch.nolix.core.programcontrol.usercontrol;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPasswordCapturer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class Credential {
@@ -27,8 +27,8 @@ public final class Credential {
   //constructor
   Credential(final String loginName, final String password) {
 
-    GlobalValidator.assertThat(loginName).thatIsNamed(LowerCaseCatalogue.LOGIN_NAME).isNotBlank();
-    GlobalValidator.assertThat(password).thatIsNamed(LowerCaseCatalogue.PASSWORD).isNotBlank();
+    GlobalValidator.assertThat(loginName).thatIsNamed(LowerCaseVariableCatalogue.LOGIN_NAME).isNotBlank();
+    GlobalValidator.assertThat(password).thatIsNamed(LowerCaseVariableCatalogue.PASSWORD).isNotBlank();
 
     this.loginName = loginName;
     this.password = password;

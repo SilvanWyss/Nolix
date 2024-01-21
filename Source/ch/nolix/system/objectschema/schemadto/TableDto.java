@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
@@ -35,11 +35,11 @@ public final class TableDto implements ITableDto {
     final IContainer<IColumnDto> columnDtos) {
 
     if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
     }
 
     if (name == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.NAME);
     }
 
     if (saveStampConfiguration == null) {

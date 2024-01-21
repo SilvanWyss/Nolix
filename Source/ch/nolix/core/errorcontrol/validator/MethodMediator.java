@@ -9,14 +9,14 @@ import java.lang.reflect.Method;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public class MethodMediator extends ArgumentMediator<Method> {
 
   //constructor
   MethodMediator(final Method argument) {
-    super(LowerCaseCatalogue.METHOD, argument);
+    super(LowerCaseVariableCatalogue.METHOD, argument);
   }
 
   //constructor

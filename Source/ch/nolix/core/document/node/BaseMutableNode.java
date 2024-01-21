@@ -9,7 +9,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends BaseNode<MN> implements IMutableNode<MN> {
@@ -22,7 +22,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   public final MN addPostfixToHeader(final String postfix) {
 
     //Asserts that the given postfix is not blank.
-    GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
+    GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalogue.POSTFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
@@ -44,7 +44,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   public final MN addPrefixToHeader(final String prefix) {
 
     //Asserts that the given prefix is not blank.
-    GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
+    GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalogue.PREFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {

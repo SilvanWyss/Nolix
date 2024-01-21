@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdatabase.databasedto;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 
 //class
@@ -14,11 +14,11 @@ public record EntityHeadDto(String id, String saveStamp) implements IEntityHeadD
                                                                   //arguments.
 
     if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
     }
 
     if (saveStamp == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SAVE_STAMP);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.SAVE_STAMP);
     }
 
     this.id = id;

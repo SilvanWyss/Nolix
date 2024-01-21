@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.independent.container.List;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class TestCaseResult {
@@ -32,7 +32,7 @@ public final class TestCaseResult {
     final List<Error> expectationErrors) {
 
     if (testCase == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CASE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TEST_CASE);
     }
 
     if (runtimeInMilliseconds < 0) {

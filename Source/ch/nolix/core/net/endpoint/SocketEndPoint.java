@@ -19,7 +19,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -94,7 +94,7 @@ public final class SocketEndPoint extends NetEndPoint {
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
       .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     peerType = PeerType.FRONTEND;
@@ -129,7 +129,7 @@ public final class SocketEndPoint extends NetEndPoint {
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
       .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     peerType = PeerType.FRONTEND;

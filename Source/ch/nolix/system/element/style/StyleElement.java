@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.element.style;
 
-//own imports
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
@@ -21,7 +20,7 @@ extends StylableElement<SE>
 implements IStyleElement<SE> {
 
   //constant
-  private static final String CONFIGURATION_HEADER = PascalCaseCatalogue.CONFIGURATION;
+  private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalogue.CONFIGURATION;
 
   //attribute
   private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(

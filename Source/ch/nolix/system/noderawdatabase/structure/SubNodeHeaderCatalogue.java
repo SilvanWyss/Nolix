@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.noderawdatabase.structure;
 
-//own imports
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 //class
 public final class SubNodeHeaderCatalogue {
 
   //constant
-  public static final String ENTITY = PascalCaseCatalogue.ENTITY;
+  public static final String ENTITY = PascalCaseVariableCatalogue.ENTITY;
 
   //constructor
   private SubNodeHeaderCatalogue() {

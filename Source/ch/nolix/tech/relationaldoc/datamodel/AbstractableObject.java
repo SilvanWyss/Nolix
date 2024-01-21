@@ -4,7 +4,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PluralPascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.MultiReference;
 import ch.nolix.system.objectdatabase.database.Value;
@@ -16,7 +16,7 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 public final class AbstractableObject extends Entity implements IAbstractableObject {
 
   //constant
-  public static final String DEFAULT_NAME = PluralPascalCaseCatalogue.FIELD;
+  public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalogue.FIELD;
 
   //constant
   public static final boolean DEFAULT_ABSTRACT_FLAG = false;

@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
@@ -58,7 +58,7 @@ public final class Table extends SchemaObject implements ITable {
   //constructor
   public Table(final String id, final String name) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
     this.id = id;
     setName(name);

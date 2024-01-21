@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -25,7 +25,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
 extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 
   //constant
-  private static final String ITEM_HEADER = PascalCaseCatalogue.ITEM;
+  private static final String ITEM_HEADER = PascalCaseVariableCatalogue.ITEM;
 
   //attribute
   private final MultiValue<IItemMenuItem<?>> items = new MultiValue<>(

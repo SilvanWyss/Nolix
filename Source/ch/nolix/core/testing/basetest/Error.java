@@ -4,7 +4,7 @@ package ch.nolix.core.testing.basetest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class Error {
@@ -27,12 +27,12 @@ public final class Error {
   public Error(final String errorMessage, final OccurancePlace occurancePlace) {
 
     if (errorMessage == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ERROR_MESSAGE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ERROR_MESSAGE);
     }
 
     if (errorMessage.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.ERROR_MESSAGE,
+        LowerCaseVariableCatalogue.ERROR_MESSAGE,
         errorMessage,
         "is blank");
     }

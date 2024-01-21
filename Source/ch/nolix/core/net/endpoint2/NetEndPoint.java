@@ -13,7 +13,7 @@ import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -322,7 +322,7 @@ public final class NetEndPoint extends EndPoint {
       case ERROR_RESPONSE ->
         throw GeneralException.withErrorMessage(response.getStoredContent());
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, response);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REPLY, response);
     };
   }
 

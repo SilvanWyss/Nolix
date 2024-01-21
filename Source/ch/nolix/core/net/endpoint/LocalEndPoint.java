@@ -10,7 +10,7 @@ import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -176,7 +176,7 @@ public final class LocalEndPoint extends EndPoint {
   public void sendMessage(final String message) {
 
     //Asserts that the given message is not null.
-    GlobalValidator.assertThat(message).thatIsNamed(LowerCaseCatalogue.MESSAGE).isNotNull();
+    GlobalValidator.assertThat(message).thatIsNamed(LowerCaseVariableCatalogue.MESSAGE).isNotNull();
 
     //Asserts that the current LocalEndPoint is open.
     assertIsOpen();

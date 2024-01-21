@@ -15,7 +15,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -491,7 +491,7 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the current ChainedNode has a header.
     if (header == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.HEADER);
     }
 
     return getEscapeStringFor(header);
@@ -524,7 +524,7 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the current ChainedNode has a header.
     if (header == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.HEADER);
     }
 
     return header;
@@ -1072,13 +1072,13 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the given header is not null.
     if (header == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.HEADER);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.HEADER);
     }
 
     //Asserts that the given header is not blank.
     if (header.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.HEADER,
+        LowerCaseVariableCatalogue.HEADER,
         header,
         "is blank");
     }

@@ -3,7 +3,7 @@ package ch.nolix.core.language;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class GlobalEnglishNounHelper {
@@ -17,7 +17,7 @@ public final class GlobalEnglishNounHelper {
   //static method
   public static String getPlural(final String noun) {
 
-    GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseCatalogue.NOUN).isNotBlank();
+    GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalogue.NOUN).isNotBlank();
 
     return switch (noun) {
       case "child" ->

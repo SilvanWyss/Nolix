@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileExce
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.noderawdatabase.structure.EntityNodeSearcher;
 import ch.nolix.system.noderawdatabase.structure.TableNodeSearcher;
 import ch.nolix.system.noderawdatabase.tabledefinition.FieldIndexCatalogue;
@@ -163,7 +163,7 @@ final class DatabaseUpdater {
 
     if (!containsEntity) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.DATABASE,
+        LowerCaseVariableCatalogue.DATABASE,
         databaseNode,
         "does not contain a " + tableName + " with the id " + entityId);
     }

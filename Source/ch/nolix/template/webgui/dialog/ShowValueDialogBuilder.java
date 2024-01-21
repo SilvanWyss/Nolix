@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 
   //constant
-  private static final String DEFAULT_VALUE_NAME = LowerCaseCatalogue.VALUE;
+  private static final String DEFAULT_VALUE_NAME = LowerCaseVariableCatalogue.VALUE;
 
   //constant
   private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;

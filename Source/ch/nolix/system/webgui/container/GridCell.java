@@ -5,8 +5,8 @@ package ch.nolix.system.webgui.container;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.Value;
@@ -17,10 +17,10 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public final class GridCell extends MutableElement implements Clearable {
 
   //constant
-  private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;
+  private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalogue.ROW_INDEX;
 
   //constant
-  private static final String COLUMN_INDEX_HEADER = PascalCaseCatalogue.COLUMN_INDEX;
+  private static final String COLUMN_INDEX_HEADER = PascalCaseVariableCatalogue.COLUMN_INDEX;
 
   //constant
   private static final String CONTROL_HEADER = "Control";
@@ -102,7 +102,7 @@ public final class GridCell extends MutableElement implements Clearable {
   //method
   private void setColumnIndex(final int columnIndex) {
 
-    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
+    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX).isPositive();
 
     this.columnIndex.setValue(columnIndex);
   }
@@ -110,7 +110,7 @@ public final class GridCell extends MutableElement implements Clearable {
   //method
   private void setRowIndex(final int rowIndex) {
 
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();
+    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isPositive();
 
     this.rowIndex.setValue(rowIndex);
   }

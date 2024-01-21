@@ -5,7 +5,7 @@ package ch.nolix.core.programstructure.builder.andargumentcapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
@@ -47,7 +47,7 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
       .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     return setArgumentAndGetNext(port);

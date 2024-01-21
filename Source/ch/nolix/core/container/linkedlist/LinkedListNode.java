@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -111,7 +111,7 @@ final class LinkedListNode<E> {
     //Asserts that the given element is not null.
     GlobalValidator
       .assertThat(element)
-      .thatIsNamed(LowerCaseCatalogue.ELEMENT)
+      .thatIsNamed(LowerCaseVariableCatalogue.ELEMENT)
       .isNotNull();
 
     //Sets the element of the current list node.

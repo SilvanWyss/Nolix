@@ -7,7 +7,7 @@ import java.io.File;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -40,7 +40,7 @@ public class FileSystemItemAccessor {
     //Asserts that the given file path does not point to a directory.
     if (!internalAccessor.exists()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.PATH,
+        LowerCaseVariableCatalogue.PATH,
         path,
         "is not a file system item");
     }

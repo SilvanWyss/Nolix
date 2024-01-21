@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
@@ -167,7 +167,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   @Override
   void internalSetOrClearDirectlyFromContent(final Object content) {
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
   //method

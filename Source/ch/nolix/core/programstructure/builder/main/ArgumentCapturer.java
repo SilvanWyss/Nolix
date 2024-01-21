@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not have abstract methods.
@@ -61,7 +61,7 @@ A, N> {
       ((ArgumentCapturer<?, ?>) nextArgumentCapturer).setBuilder(builder);
     } else {
 
-      GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
+      GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseVariableCatalogue.BUILDER).isNotNull();
 
       this.builder = (Supplier<N>) builder;
     }

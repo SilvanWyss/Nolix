@@ -23,7 +23,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalogue;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -199,7 +199,7 @@ public final class NetEndPoint extends EndPoint {
       case MessageHeaderCatalogue.ERROR_HEADER ->
         throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REPLY, reply);
     };
   }
 
@@ -266,7 +266,7 @@ public final class NetEndPoint extends EndPoint {
         case MessageHeaderCatalogue.ERROR_HEADER:
           throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
         default:
-          throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
+          throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REPLY, reply);
       }
     }
   }
@@ -325,7 +325,7 @@ public final class NetEndPoint extends EndPoint {
         + GlobalStringHelper.getInParantheses(
           receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.MESSAGE, message);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.MESSAGE, message);
     }
   }
 }

@@ -7,8 +7,8 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MultiValueExtractor;
@@ -41,7 +41,7 @@ public final class WebGui //NOSONAR: A WebGui is a central object with many depe
 extends StyleElement<WebGui> implements IWebGui<WebGui> {
 
   //constant
-  public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
+  public static final String DEFAULT_TITLE = PascalCaseVariableCatalogue.GUI;
 
   //constant
   public static final Image DEFAULT_ICON = IconCatalogue.NOLIX_ICON;
@@ -50,16 +50,16 @@ extends StyleElement<WebGui> implements IWebGui<WebGui> {
   public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
   //constant
-  private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
+  private static final String TITLE_HEADER = PascalCaseVariableCatalogue.TITLE;
 
   //constant
-  private static final String ICON_HEADER = PascalCaseCatalogue.ICON;
+  private static final String ICON_HEADER = PascalCaseVariableCatalogue.ICON;
 
   //constant
-  private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
+  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalogue.BACKGROUND;
 
   //constant
-  private static final String LAYER_HEADER = PascalCaseCatalogue.LAYER;
+  private static final String LAYER_HEADER = PascalCaseVariableCatalogue.LAYER;
 
   //constant
   private static final WebGuiHtmlBuilder WEB_GUI_HTML_BUILDER = new WebGuiHtmlBuilder();
@@ -376,7 +376,7 @@ extends StyleElement<WebGui> implements IWebGui<WebGui> {
   @Override
   public WebGui setTitle(final String title) {
 
-    GlobalValidator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
+    GlobalValidator.assertThat(title).thatIsNamed(LowerCaseVariableCatalogue.TITLE).isNotBlank();
 
     this.title.setValue(title);
 

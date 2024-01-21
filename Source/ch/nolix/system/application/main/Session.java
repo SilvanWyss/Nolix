@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 
 //class
@@ -161,7 +161,7 @@ implements IRefreshableSubscriber {
   final Object internalGetStoredResult() {
 
     if (result == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RESULT);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RESULT);
     }
 
     return result;
@@ -199,7 +199,7 @@ implements IRefreshableSubscriber {
   //method
   final void internalSetResult(final Object result) {
 
-    GlobalValidator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
+    GlobalValidator.assertThat(result).thatIsNamed(LowerCaseVariableCatalogue.RESULT).isNotNull();
 
     this.result = result;
   }

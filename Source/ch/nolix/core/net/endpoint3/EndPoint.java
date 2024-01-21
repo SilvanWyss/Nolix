@@ -10,7 +10,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -103,7 +103,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
       .waitUntil(this::hasReceivingDataProviderController);
 
     if (!hasReceivingDataProviderController()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RECEIVER);
     }
 
     return receiverController;

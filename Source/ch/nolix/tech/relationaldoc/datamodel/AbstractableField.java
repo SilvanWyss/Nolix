@@ -3,7 +3,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PluralPascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.OptionalReference;
@@ -17,7 +17,7 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 public final class AbstractableField extends Entity implements IAbstractableField {
 
   //constant
-  public static final String DEFAULT_NAME = PluralPascalCaseCatalogue.FIELD;
+  public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalogue.FIELD;
 
   //constant
   public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;

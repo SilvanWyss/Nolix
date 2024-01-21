@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -96,7 +96,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 
     //Asserts that the given message is not null.
     if (message == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.MESSAGE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MESSAGE);
     }
 
     //Handles the case that the current ThrownExceptionMediator has an exception.
@@ -189,7 +189,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
     //For a better performance, this implementation does not use all comfortable
     //methods.
     if (exception == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.EXCEPTION);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.EXCEPTION);
     }
 
     return exception;

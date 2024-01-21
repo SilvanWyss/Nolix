@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -361,7 +361,7 @@ public final class Node extends BaseNode<Node> {
    */
   private static String getValidHeaderFromHeader(final String header) {
 
-    GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+    GlobalValidator.assertThat(header).thatIsNamed(LowerCaseVariableCatalogue.HEADER).isNotBlank();
 
     return header;
   }
@@ -399,7 +399,7 @@ public final class Node extends BaseNode<Node> {
   public String getHeader() {
 
     if (header == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.HEADER);
     }
 
     return header;

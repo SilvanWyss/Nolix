@@ -14,7 +14,7 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -59,14 +59,14 @@ final class ContainerView<E> extends Container<E> {
    */
   public ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
 
-    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
+    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalogue.CONTAINER).isNotNull();
+    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalogue.START_INDEX).isPositive();
+    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isPositive();
+    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 
     GlobalValidator
       .assertThat(endIndex)
-      .thatIsNamed(LowerCaseCatalogue.END_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.END_INDEX)
       .isNotBiggerThan(container.getElementCount());
 
     this.container = container;
@@ -90,8 +90,8 @@ final class ContainerView<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
+    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
+    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isNotBiggerThan(getElementCount());
 
     return container.getStoredAt1BasedIndex(startIndex + p1BasedIndex - 1);
   }

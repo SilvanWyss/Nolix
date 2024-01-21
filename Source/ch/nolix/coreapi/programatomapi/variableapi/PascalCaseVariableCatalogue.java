@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.coreapi.programatomapi.variablenameapi;
+package ch.nolix.coreapi.programatomapi.variableapi;
 
 //class
 /**
- * Of the {@link PascalCaseCatalogue} an instance cannot be created.
+ * Of the {@link PascalCaseVariableCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
  */
-public final class PascalCaseCatalogue {
+public final class PascalCaseVariableCatalogue {
 
   //constant
   public static final String AGE = "Age";
@@ -627,8 +627,8 @@ public final class PascalCaseCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link PascalCaseCatalogue} can be created.
+   * Prevents that an instance of the {@link PascalCaseVariableCatalogue} can be created.
    */
-  private PascalCaseCatalogue() {
+  private PascalCaseVariableCatalogue() {
   }
 }

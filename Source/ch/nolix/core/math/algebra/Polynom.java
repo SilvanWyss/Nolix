@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -100,7 +100,7 @@ public final class Polynom {
 
     //Asserts that the given degree is between 0 and the degree of the current
     //Polynom.
-    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isBetween(0, getDegree());
+    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalogue.DEGREE).isBetween(0, getDegree());
 
     return coefficients[coefficients.length - degree - 1];
   }

@@ -20,7 +20,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.programcontrol.worker.Worker;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 final class ServerSocketProcessor extends Worker {
@@ -139,7 +139,7 @@ final class ServerSocketProcessor extends Worker {
       final var line = GlobalInputStreamHelper.readLineFrom(inputStream);
 
       if (line == null) {
-        throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.LINE);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.LINE);
       }
 
       if (line.isEmpty()) {

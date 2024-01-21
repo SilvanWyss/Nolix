@@ -3,7 +3,7 @@ package ch.nolix.tech.relationaldoc.datavalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.tech.relationaldoc.dataevaluator.ConcreteValueContentEvaluator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
@@ -18,7 +18,7 @@ public final class ConcreteValueContentValidator {
   //method
   public void assertCanAddValue(final IConcreteValueContent concreteValueContent, final String value) {
     if (!CONCRETE_VALUE_CONTENT_EVALUATOR.canAddValue(concreteValueContent, value)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.VALUE, value);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.VALUE, value);
     }
   }
 

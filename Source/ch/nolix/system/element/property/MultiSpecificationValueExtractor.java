@@ -11,7 +11,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -32,7 +32,7 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     final Consumer<INode<?>> adder,
     final Supplier<IContainer<INode<?>>> getter) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseVariableCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();
     GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
 

@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.element.base.Element;
@@ -152,7 +152,7 @@ public final class Background extends Element implements IBackground {
   private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
     final INode<?> specification) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-      LowerCaseCatalogue.SPECIFICATION,
+      LowerCaseVariableCatalogue.SPECIFICATION,
       specification,
       Background.class);
   }

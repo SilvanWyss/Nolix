@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
@@ -32,7 +32,7 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
     GlobalValidator.assertThat(parentMultiValue).thatIsNamed("parent MultiValue").isNotNull();
     GlobalValidator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
 
     this.parentMultiValue = parentMultiValue;
     state = initialState;

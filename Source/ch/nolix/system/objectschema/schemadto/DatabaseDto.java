@@ -5,8 +5,8 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IDatabaseDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
@@ -25,11 +25,11 @@ public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implemen
                                                                                  //the given arguments.
 
     if (name == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.NAME);
     }
 
     if (tables == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseCatalogue.TABLES);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.TABLES);
     }
 
     this.name = name;

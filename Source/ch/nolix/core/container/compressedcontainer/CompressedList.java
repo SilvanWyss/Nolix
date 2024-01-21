@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class CompressedList<E> extends Container<E> {
@@ -61,7 +61,7 @@ public final class CompressedList<E> extends Container<E> {
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
     if (p1BasedIndex < 1) {
-      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.INDEX, p1BasedIndex);
+      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.INDEX, p1BasedIndex);
     }
 
     if (isEmpty()) {

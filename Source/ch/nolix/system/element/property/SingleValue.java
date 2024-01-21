@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -85,7 +85,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
       throw ArgumentDoesNotHaveAttributeException.forArgumentNameAndArgumentAndAttributeName(
         getName(),
         this,
-        LowerCaseCatalogue.VALUE);
+        LowerCaseVariableCatalogue.VALUE);
     }
 
     return value;
@@ -112,7 +112,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
   public final void setValue(final V value) {
 
     //Asserts that the given value is not null.
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
 
     //Asserts that the current SingleProperty is mutable or does not have already a
     //value.

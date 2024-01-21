@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
 public final class GlobalBasicCalculator {
@@ -111,7 +111,7 @@ public final class GlobalBasicCalculator {
     }
 
     if (count == 0) {
-      throw EmptyArgumentException.forArgumentNameAndArgument(PluralLowerCaseCatalogue.VALUES, values);
+      throw EmptyArgumentException.forArgumentNameAndArgument(PluralLowerCaseVariableCatalogue.VALUES, values);
     }
 
     return (sum / count);

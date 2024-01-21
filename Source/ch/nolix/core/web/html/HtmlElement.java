@@ -7,7 +7,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
@@ -37,7 +37,7 @@ public final class HtmlElement implements IHtmlElement {
     final String innerText,
     final IContainer<? extends IHtmlElement> childElements) {
 
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotBlank();
     GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
     this.type = type;

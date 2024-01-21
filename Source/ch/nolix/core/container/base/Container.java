@@ -26,7 +26,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //interface
 /**
@@ -1702,7 +1702,7 @@ public abstract class Container<E> implements IContainer<E> {
   private String toStringWhenContainsSeveralElements(final String separator) {
 
     //Asserts that the given separator is not null.
-    GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseCatalogue.SEPARATOR).isNotNull();
+    GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalogue.SEPARATOR).isNotNull();
 
     //Creates a StringBuilder.
     final var stringBuilder = new StringBuilder();

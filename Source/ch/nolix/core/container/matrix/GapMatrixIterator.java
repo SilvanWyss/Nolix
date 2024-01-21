@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 final class GapMatrixIterator<E> implements CopyableIterator<E> {
@@ -84,7 +84,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   //method
   private void assertHasNextElement() throws NoSuchElementException {
     if (!hasNext()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT)
         .toNoSuchElementException();
     }
   }

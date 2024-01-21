@@ -15,7 +15,7 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -52,7 +52,7 @@ public final class IterableReadContainer<E> extends Container<E> {
     //Asserts that the given container is not null.
     GlobalValidator
       .assertThat(container)
-      .thatIsNamed(LowerCaseCatalogue.CONTAINER)
+      .thatIsNamed(LowerCaseVariableCatalogue.CONTAINER)
       .isNotNull();
 
     //Sets the container of the current IterableReadContainer.

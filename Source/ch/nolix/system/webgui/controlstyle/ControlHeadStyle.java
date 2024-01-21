@@ -4,8 +4,8 @@ package ch.nolix.system.webgui.controlstyle;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -36,16 +36,16 @@ implements IControlHeadStyle<CS> {
   public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 
   //constant
-  private static final String OPACITY_HEADER = PascalCaseCatalogue.OPACITY;
+  private static final String OPACITY_HEADER = PascalCaseVariableCatalogue.OPACITY;
 
   //constant
-  private static final String FONT_HEADER = PascalCaseCatalogue.FONT;
+  private static final String FONT_HEADER = PascalCaseVariableCatalogue.FONT;
 
   //constant
   private static final String BOLD_TEXT_FLAG_HEADER = "BoldText";
 
   //constant
-  private static final String TEXT_SIZE_HEADER = PascalCaseCatalogue.TEXT_SIZE;
+  private static final String TEXT_SIZE_HEADER = PascalCaseVariableCatalogue.TEXT_SIZE;
 
   //constant
   private static final String TEXT_COLOR_HEADER = "TextColor";
@@ -184,7 +184,7 @@ implements IControlHeadStyle<CS> {
   @Override
   public final CS setOpacityForState(final ControlState state, final double opacity) {
 
-    GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
+    GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalogue.OPACITY).isBetween(0.0, 1.0);
 
     this.opacity.setValueForState(state, opacity);
 
@@ -204,7 +204,7 @@ implements IControlHeadStyle<CS> {
   @Override
   public final CS setTextSizeForState(final ControlState state, final int textSize) {
 
-    GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
+    GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalogue.TEXT_SIZE).isPositive();
 
     this.textSize.setValueForState(state, textSize);
 

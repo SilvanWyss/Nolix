@@ -8,7 +8,7 @@ import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -173,7 +173,7 @@ public final class Vector {
    */
   public double getValueAt1BasedIndex(int p1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getSize());
+    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isBetween(1, getSize());
 
     return values[p1BasedIndex - 1];
   }

@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 
@@ -24,7 +24,7 @@ public record NewEntityDto(String id, ImmutableList<IContentFieldDto> contentFie
     final ImmutableList<IContentFieldDto> contentFields) {
 
     if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
     }
 
     if (contentFields == null) {

@@ -4,7 +4,7 @@ package ch.nolix.system.sqlschema.schemadto;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
 
 //class
@@ -19,7 +19,7 @@ public final class DataTypeDto implements IDataTypeDto {
   //constructor
   public DataTypeDto(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
 
     this.name = name;
     parameter = null;
@@ -28,8 +28,8 @@ public final class DataTypeDto implements IDataTypeDto {
   //constructor
   public DataTypeDto(final String name, final String parameter) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
-    GlobalValidator.assertThat(parameter).thatIsNamed(LowerCaseCatalogue.PARAMETER).isNotNull();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
+    GlobalValidator.assertThat(parameter).thatIsNamed(LowerCaseVariableCatalogue.PARAMETER).isNotNull();
 
     this.name = name;
     this.parameter = parameter;
@@ -58,7 +58,7 @@ public final class DataTypeDto implements IDataTypeDto {
   //method
   private void assertHasParameter() {
     if (!hasParameter()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.PARAMETER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.PARAMETER);
     }
   }
 }

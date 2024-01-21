@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.independent.container.List;
 import ch.nolix.coreapi.methodapi.loggingapi.ILinePrinter;
 import ch.nolix.coreapi.methodapi.mutationapi.Runnable;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -203,13 +203,13 @@ public abstract class TestPool implements Runnable {
 
     //Asserts that the given testClass is not null.
     if (testClass == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CLASS);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TEST_CLASS);
     }
 
     //Asserts that the given testClass is a sub class of BaseTest.
     if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.TEST_CLASS,
+        LowerCaseVariableCatalogue.TEST_CLASS,
         testClass,
         "is not a sub class of " + BaseTest.class.getName());
     }
@@ -217,7 +217,7 @@ public abstract class TestPool implements Runnable {
     //Asserts that the given testClass is not abstract.
     if (ReflectionHelper.isAbstract(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.TEST_CLASS,
+        LowerCaseVariableCatalogue.TEST_CLASS,
         testClass,
         "is abstract");
     }
@@ -225,7 +225,7 @@ public abstract class TestPool implements Runnable {
     //Asserts that the given testClass has a default constructor.
     if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseCatalogue.TEST_CLASS,
+        LowerCaseVariableCatalogue.TEST_CLASS,
         testClass,
         "does not have a default constructor");
     }

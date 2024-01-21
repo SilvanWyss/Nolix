@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
 public final class JobMerger {
@@ -13,7 +13,7 @@ public final class JobMerger {
   //method
   public Runnable createMergedJobForJobs(IContainer<Runnable> jobs) {
 
-    GlobalValidator.assertThat(jobs).thatIsNamed(PluralLowerCaseCatalogue.JOBS).isNotNull();
+    GlobalValidator.assertThat(jobs).thatIsNamed(PluralLowerCaseVariableCatalogue.JOBS).isNotNull();
 
     return () -> runJobs(jobs);
   }

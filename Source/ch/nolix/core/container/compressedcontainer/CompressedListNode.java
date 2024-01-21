@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 final class CompressedListNode<E> {
@@ -26,11 +26,11 @@ final class CompressedListNode<E> {
   private CompressedListNode(final E element, final int elementCount) {
 
     if (element == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
     }
 
     if (elementCount < 1) {
-      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ELEMENT_COUNT, elementCount);
+      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.ELEMENT_COUNT, elementCount);
     }
 
     this.element = element;

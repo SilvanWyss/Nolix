@@ -9,7 +9,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.sqlapi.databaseconnectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
@@ -57,7 +57,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
     final String loginPassword) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isBetween(0, 65_535);
     GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 

@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schemadto;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
@@ -28,11 +28,11 @@ public final class ColumnDto implements IColumnDto {
     final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto) {
 
     if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
     }
 
     if (name == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.HEADER);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.HEADER);
     }
 
     if (parameterizedPropertyTypeDto == null) {

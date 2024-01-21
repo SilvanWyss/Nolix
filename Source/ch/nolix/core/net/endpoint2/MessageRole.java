@@ -4,7 +4,7 @@ package ch.nolix.core.net.endpoint2;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRolePrefixCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //enum
 /**
@@ -62,7 +62,7 @@ public enum MessageRole {
    */
   private static UnrepresentingArgumentException createUnrepresentingArgumentExceptionForPrefix(final char prefix) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-      LowerCaseCatalogue.PREFIX,
+      LowerCaseVariableCatalogue.PREFIX,
       prefix,
       MessageRole.class);
   }

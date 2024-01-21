@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploaderStyle;
@@ -93,7 +93,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   @Override
   public void technicalSetFile(final byte[] file) {
 
-    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseCatalogue.FILE).isNotNull();
+    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseVariableCatalogue.FILE).isNotNull();
 
     this.file = file; //NOSONAR: A Uploader operates on the original input.
   }
@@ -125,7 +125,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   //method
   private void assertHasFile() {
     if (!hasFile()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.FILE);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.FILE);
     }
   }
 

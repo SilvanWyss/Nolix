@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//own imports
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -16,7 +15,7 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 public final class InvalidPortException extends InvalidArgumentException {
 
   //constant
-  private static final String ARGUMENT_NAME = LowerCaseCatalogue.PORT;
+  private static final String ARGUMENT_NAME = LowerCaseVariableCatalogue.PORT;
 
   //constant
   private static final String ERROR_PREDICATE = "is not valid";

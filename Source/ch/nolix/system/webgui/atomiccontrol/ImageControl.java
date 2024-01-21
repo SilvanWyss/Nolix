@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
@@ -29,7 +29,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
 
   //constant
-  private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
+  private static final String IMAGE_HEADER = PascalCaseVariableCatalogue.IMAGE;
 
   //constant
   private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();

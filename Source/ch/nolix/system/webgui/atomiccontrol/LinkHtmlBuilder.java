@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
@@ -57,7 +57,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
       case NEW_TAB ->
         HtmlAttribute.withNameAndValue("target", "_blank");
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.TARGET, target);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.TARGET, target);
     };
   }
 }

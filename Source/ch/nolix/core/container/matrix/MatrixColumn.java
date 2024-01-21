@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class MatrixColumn<E> extends Container<E> {
@@ -34,7 +34,7 @@ public final class MatrixColumn<E> extends Container<E> {
 
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
       .isPositive();
 
     this.parentMatrix = parentMatrix;

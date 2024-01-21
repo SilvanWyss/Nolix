@@ -4,7 +4,7 @@ package ch.nolix.tech.relationaldoc.datavalidator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 
@@ -52,7 +52,7 @@ public final class AbstractableFieldValidator {
   //method
   public void assertCanSetName(final IAbstractableField abstractableField, final String name) {
     if (!ABSTRACTABLE_FIELD_EVALUATOR.canSetName(abstractableField, name)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.NAME, name);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.NAME, name);
     }
   }
 }

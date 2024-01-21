@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -48,9 +48,9 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
   public ContainerViewIterator(final IContainer<E> parentContainer, final int startIndex, final int endIndex) {
 
     GlobalValidator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
+    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalogue.START_INDEX).isPositive();
+    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isPositive();
+    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 
     this.parentContainer = parentContainer;
 
@@ -94,7 +94,7 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
 
     //Asserts that the current @link SubContainerIterator has a next element.
     if (!hasNext()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT);
     }
 
     currentIndex++;

@@ -19,8 +19,8 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
 /**
@@ -53,7 +53,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   public static <E2> LinkedList<E2> fromArray(final E2[] array) {
 
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
+    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
 
     final var list = new LinkedList<E2>();
     list.addAtEnd(array);
@@ -180,7 +180,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   public void addAtBegin(final Iterable<? extends E> elements) {
 
     //Asserts that the given elements is not null.
-    GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
+    GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalogue.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
     if (GlobalIterableHelper.containsAny(elements)) {
@@ -882,7 +882,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   private void removeNextNode(final LinkedListNode<E> node) {
 
     //Asserts that the given node is not null.
-    GlobalValidator.assertThat(node).thatIsNamed(LowerCaseCatalogue.NODE).isNotNull();
+    GlobalValidator.assertThat(node).thatIsNamed(LowerCaseVariableCatalogue.NODE).isNotNull();
 
     final var nextNode = node.getNextNode();
 

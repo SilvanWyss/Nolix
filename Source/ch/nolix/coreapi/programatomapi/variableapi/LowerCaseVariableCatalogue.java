@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.coreapi.programatomapi.variablenameapi;
+package ch.nolix.coreapi.programatomapi.variableapi;
 
 //class
 /**
- * Of the {@link LowerCaseCatalogue} an instance cannot be created.
+ * Of the {@link LowerCaseVariableCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-11-13
  */
-public final class LowerCaseCatalogue {
+public final class LowerCaseVariableCatalogue {
 
   //constant
   public static final String AGE = "age";
@@ -627,8 +627,8 @@ public final class LowerCaseCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link LowerCaseCatalogue} can be created.
+   * Prevents that an instance of the {@link LowerCaseVariableCatalogue} can be created.
    */
-  private LowerCaseCatalogue() {
+  private LowerCaseVariableCatalogue() {
   }
 }

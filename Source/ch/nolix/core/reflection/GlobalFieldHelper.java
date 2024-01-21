@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class GlobalFieldHelper {
@@ -53,7 +53,7 @@ public final class GlobalFieldHelper {
   public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TYPE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TYPE);
     }
 
     if (!isStatic(field)) {

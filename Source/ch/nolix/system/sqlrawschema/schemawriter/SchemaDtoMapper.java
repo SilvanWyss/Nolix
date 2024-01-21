@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.structure.SqlDatatypeCatalogue;
 import ch.nolix.system.sqlrawschema.tabletype.TableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
@@ -18,12 +18,12 @@ final class SchemaDtoMapper {
   //constant
   private static final //
   ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto SQL_ID_COLUMN_DTO = //
-  new ColumnDto(PascalCaseCatalogue.ID, SqlDatatypeCatalogue.TEXT);
+  new ColumnDto(PascalCaseVariableCatalogue.ID, SqlDatatypeCatalogue.TEXT);
 
   //constant
   private static final //
   ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
-  new ColumnDto(PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
+  new ColumnDto(PascalCaseVariableCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 
   //method
   public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto createSqlColumnDtoFrom(

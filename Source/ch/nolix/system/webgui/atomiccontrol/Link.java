@@ -12,8 +12,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
@@ -41,10 +41,10 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   private static final String DISPLAY_TEXT_HEADER = "DisplayText";
 
   //constant
-  private static final String TARGET_HEADER = PascalCaseCatalogue.TARGET;
+  private static final String TARGET_HEADER = PascalCaseVariableCatalogue.TARGET;
 
   //constant
-  private static final String URL_HEADER = PascalCaseCatalogue.URL;
+  private static final String URL_HEADER = PascalCaseVariableCatalogue.URL;
 
   //constant
   private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
@@ -167,7 +167,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   @Override
   public ILink setUrl(final String url) {
 
-    GlobalValidator.assertThat(url).thatIsNamed(LowerCaseCatalogue.URL).isNotBlank();
+    GlobalValidator.assertThat(url).thatIsNamed(LowerCaseVariableCatalogue.URL).isNotBlank();
 
     this.url.setValue(url);
 

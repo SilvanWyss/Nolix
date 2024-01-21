@@ -5,8 +5,8 @@ package ch.nolix.system.element.style;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.base.StructureSpecificationCreator;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MultiValue;
@@ -20,10 +20,10 @@ extends MutableElement
 implements IStylableElement<SE> {
 
   //constant
-  private static final String ID_HEADER = PascalCaseCatalogue.ID;
+  private static final String ID_HEADER = PascalCaseVariableCatalogue.ID;
 
   //constant
-  private static final String TOKEN_HEADER = PascalCaseCatalogue.TOKEN;
+  private static final String TOKEN_HEADER = PascalCaseVariableCatalogue.TOKEN;
 
   //constant
   private static final StructureSpecificationCreator STRUCTURE_SPECIFICATION_CREATOR = //
@@ -39,7 +39,7 @@ implements IStylableElement<SE> {
   @Override
   public final SE addToken(final String token) {
 
-    GlobalValidator.assertThat(token).thatIsNamed(LowerCaseCatalogue.TOKEN).isNotBlank();
+    GlobalValidator.assertThat(token).thatIsNamed(LowerCaseVariableCatalogue.TOKEN).isNotBlank();
 
     tokens.add(token);
 
@@ -128,7 +128,7 @@ implements IStylableElement<SE> {
   @Override
   public final SE setId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
     this.id.setValue(id);
 

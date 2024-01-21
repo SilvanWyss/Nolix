@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
@@ -38,10 +38,10 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 
   //constant
-  private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
 
   //constant
-  private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
   //constant
   private static final IValidationLabelHelper VALIDATION_LABEL_HELPER = new ValidationLabelHelper();

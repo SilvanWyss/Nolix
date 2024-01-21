@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdatabase.schemainfo;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
@@ -33,7 +33,7 @@ implements IColumnInfo {
     }
 
     if (columnName == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.COLUMN_NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.COLUMN_NAME);
     }
 
     if (columnPropertyType == null) {

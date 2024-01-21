@@ -17,7 +17,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class GapMatrix<E> extends Container<E> implements Clearable {
@@ -38,8 +38,8 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
   //constructor
   public GapMatrix(final int rowCount, final int columnCount) {
 
-    GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseCatalogue.ROW_COUNT).isNotNegative();
-    GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT).isNotNegative();
+    GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalogue.ROW_COUNT).isNotNegative();
+    GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseVariableCatalogue.COLUMN_COUNT).isNotNegative();
 
     rows = new Object[rowCount][columnCount];
     this.columnCount = columnCount;
@@ -164,7 +164,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     final int p1BasedColumnIndex,
     final E element) {
 
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
 
     assertCanContainElementAt(p1BasedRowIndex, p1BasedColumnIndex);
 
@@ -210,22 +210,22 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
       .isPositive();
 
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
       .isNotBiggerThan(getRowCount());
 
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
       .isPositive();
 
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
       .isNotBiggerThan(getColumnCount());
   }
 

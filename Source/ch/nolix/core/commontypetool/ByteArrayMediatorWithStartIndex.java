@@ -3,7 +3,7 @@ package ch.nolix.core.commontypetool;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class ByteArrayMediatorWithStartIndex {
@@ -21,7 +21,7 @@ public final class ByteArrayMediatorWithStartIndex {
 
     GlobalValidator
       .assertThat(startIndex)
-      .thatIsNamed(LowerCaseCatalogue.START_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalogue.START_INDEX)
       .isBetween(0, byteArray.length);
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.

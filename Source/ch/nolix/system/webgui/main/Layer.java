@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
@@ -44,13 +44,13 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 
   //constant
-  private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
 
   //constant
-  private static final String OPACITY_HEADER = PascalCaseCatalogue.OPACITY;
+  private static final String OPACITY_HEADER = PascalCaseVariableCatalogue.OPACITY;
 
   //constant
-  private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
+  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalogue.BACKGROUND;
 
   //constant
   private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";

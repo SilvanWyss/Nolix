@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.Cleanup;
 import ch.nolix.coreapi.testingapi.testapi.IgnoreTimeout;
 import ch.nolix.coreapi.testingapi.testapi.Setup;
@@ -36,7 +36,7 @@ public final class TestCaseWrapper {
     }
 
     if (testCase == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CASE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TEST_CASE);
     }
 
     this.parentTest = parentTest;
@@ -134,14 +134,14 @@ public final class TestCaseWrapper {
   //method
   private void supposeHasCleanup() {
     if (!hasCleanup()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.CLEANUP);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.CLEANUP);
     }
   }
 
   //method
   private void supposeHasSetup() {
     if (!hasSetup()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.SETUP);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.SETUP);
     }
   }
 }

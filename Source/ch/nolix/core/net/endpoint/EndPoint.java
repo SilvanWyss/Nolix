@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -69,7 +69,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   public final void setReceiver(final Consumer<String> receiver) {
 
     //Asserts that the given receiver is not null.
-    GlobalValidator.assertThat(receiver).thatIsNamed(LowerCaseCatalogue.RECEIVER).isNotNull();
+    GlobalValidator.assertThat(receiver).thatIsNamed(LowerCaseVariableCatalogue.RECEIVER).isNotNull();
 
     //Asserts that the current EndPoint is open.
     assertIsOpen();
@@ -135,7 +135,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    */
   private void assertHasCustomTargetSlot() {
     if (!hasCustomTargetSlot()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.TARGET);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.TARGET);
     }
   }
 
@@ -146,7 +146,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    */
   private void assertHasReceiver() {
     if (!hasReceiver()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RECEIVER);
     }
   }
 }

@@ -4,7 +4,7 @@ package ch.nolix.core.programstructure.builder.andargumentcapturer;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public class AndDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
@@ -21,7 +21,7 @@ public class AndDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
   //method
   public final N andDatabase(final String databaseName) {
 
-    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
+    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalogue.DATABASE_NAME).isNotBlank();
 
     return setArgumentAndGetNext(databaseName);
   }

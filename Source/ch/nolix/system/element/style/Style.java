@@ -8,7 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
@@ -72,7 +72,7 @@ public final class Style extends BaseStyle implements IStyle {
           break;
         default:
           throw InvalidArgumentException.forArgumentNameAndArgument(
-            LowerCaseCatalogue.SPECIFICATION,
+            LowerCaseVariableCatalogue.SPECIFICATION,
             specification);
       }
     }

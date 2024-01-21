@@ -5,14 +5,14 @@ package ch.nolix.system.sqlrawschema.tabletable;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.tabletype.SchemaTableType;
 
 //enum
 public enum TableTableColumn implements INameHolder {
-  ID(PascalCaseCatalogue.ID),
-  NAME(PascalCaseCatalogue.NAME);
+  ID(PascalCaseVariableCatalogue.ID),
+  NAME(PascalCaseVariableCatalogue.NAME);
 
   //constant
   private static final String NAME_PREFIX = SchemaTableType.TABLE.getQualifiedName() + StringCatalogue.DOT;
@@ -23,7 +23,7 @@ public enum TableTableColumn implements INameHolder {
   //constructor
   TableTableColumn(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
 
     this.name = name;
   }
