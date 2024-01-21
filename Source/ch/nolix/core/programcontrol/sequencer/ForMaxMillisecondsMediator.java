@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.GlobalFunctionHelper;
-import ch.nolix.coreapi.programcontrolapi.timeapi.TimeUnitCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
 //class
 /**
@@ -69,7 +69,7 @@ public final class ForMaxMillisecondsMediator {
     GlobalValidator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 
     //Creates and returns a new ForMaxMillisecondsMediator.
-    return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
+    return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND);
   }
 
   //method

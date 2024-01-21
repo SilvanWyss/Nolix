@@ -8,7 +8,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programcontrolapi.timeapi.TimeUnitCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
 //class
 /**
@@ -65,7 +65,7 @@ public final class AsLongAsMediator {
    * @return a new {@link AfterEveryMediator} with a time interval of 1 second.
    */
   public AfterEveryMediator afterEverySecond() {
-    return afterEveryMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
+    return afterEveryMilliseconds(TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND);
   }
 
   //method

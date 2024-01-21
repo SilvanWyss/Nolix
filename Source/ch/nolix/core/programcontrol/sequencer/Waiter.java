@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programcontrolapi.timeapi.TimeUnitCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
 //class
 /**
@@ -37,7 +37,7 @@ final class Waiter {
     //Asserts that the given duractionInSeconds is not negative.
     GlobalValidator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 
-    waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
+    waitForMilliseconds(TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
   }
 
   //static method

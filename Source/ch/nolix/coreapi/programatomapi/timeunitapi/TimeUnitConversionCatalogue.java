@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.coreapi.programcontrolapi.timeapi;
+package ch.nolix.coreapi.programatomapi.timeunitapi;
 
 //class
 /**
- * Of the {@link TimeUnitCatalogue} an instance cannot be created.
+ * Of the {@link TimeUnitConversionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-02-05
  */
-public final class TimeUnitCatalogue {
+public final class TimeUnitConversionCatalogue {
 
   //constant
   public static final int NANOSECONDS_PER_MICROSECOND = 1000;
@@ -75,8 +75,8 @@ public final class TimeUnitCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link TimeUnitCatalogue} can be created.
+   * Prevents that an instance of the {@link TimeUnitConversionCatalogue} can be created.
    */
-  private TimeUnitCatalogue() {
+  private TimeUnitConversionCatalogue() {
   }
 }

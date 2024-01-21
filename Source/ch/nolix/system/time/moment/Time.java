@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programcontrolapi.timeapi.TimeUnitCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructure.Month;
@@ -371,7 +371,7 @@ public final class Time extends Element implements ITime {
    * @return the number of days from the current {@link Time} to the given time.
    */
   public int getDaysTo(final Time time) {
-    return (int) (getMillisecondsTo(time) / TimeUnitCatalogue.MILLISECONDS_PER_DAY);
+    return (int) (getMillisecondsTo(time) / TimeUnitConversionCatalogue.MILLISECONDS_PER_DAY);
   }
 
   //method
