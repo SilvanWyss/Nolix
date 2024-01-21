@@ -8,6 +8,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 public enum CharacterType {
   UPPER_CASE_LETTER,
   LOWER_CASE_LETTER,
+  NUMBER,
   OTHER;
 
   //static method
@@ -43,7 +44,7 @@ public enum CharacterType {
       CharacterCatalogue.UPPERCASE_AE,
       CharacterCatalogue.UPPERCASE_OE,
       CharacterCatalogue.UPPERCASE_UE ->
-        CharacterType.UPPER_CASE_LETTER;
+        UPPER_CASE_LETTER;
       case
       'a',
       'b',
@@ -74,9 +75,21 @@ public enum CharacterType {
       CharacterCatalogue.LOWER_CASE_AE,
       CharacterCatalogue.LOWER_CASE_OE,
       CharacterCatalogue.LOWER_CASE_UE ->
-        CharacterType.LOWER_CASE_LETTER;
+        LOWER_CASE_LETTER;
+      case
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9' ->
+        NUMBER;
       default ->
-        CharacterType.OTHER;
+        OTHER;
     };
   }
 }

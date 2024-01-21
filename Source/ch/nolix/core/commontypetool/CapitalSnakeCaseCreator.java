@@ -34,6 +34,9 @@ final class CapitalSnakeCaseCreator {
       case UPPER_CASE_LETTER:
         stringBuilder.append(firstCharacter);
         break;
+      case NUMBER:
+        stringBuilder.append(firstCharacter);
+        break;
       case OTHER:
         if (firstCharacter != CharacterCatalogue.UNDERSCORE) {
           stringBuilder.append(firstCharacter);

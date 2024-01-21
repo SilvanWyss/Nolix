@@ -57,6 +57,9 @@ final class PascalCaseCreator {
             stringBuilder.append(Character.toLowerCase(character));
           }
           break;
+        case NUMBER:
+          stringBuilder.append(character);
+          break;
         case OTHER:
           if (character != CharacterCatalogue.UNDERSCORE) {
             stringBuilder.append(character);
