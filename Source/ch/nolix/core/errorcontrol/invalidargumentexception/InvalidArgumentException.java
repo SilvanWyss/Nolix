@@ -134,6 +134,7 @@ public class InvalidArgumentException extends RuntimeException {
    * @param argumentName
    * @param argument
    * @param errorPredicate
+   * @param cause
    * @throws IllegalArgumentException if the given argumentName is null.
    * @throws IllegalArgumentException if the given argumentName is blank.
    * @throws IllegalArgumentException if the given errorPredicate is null.
