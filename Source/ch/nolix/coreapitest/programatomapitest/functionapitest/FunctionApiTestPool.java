@@ -9,6 +9,6 @@ public final class FunctionApiTestPool extends TestPool {
 
   //constructor
   public FunctionApiTestPool() {
-    super(FunctionCatalogueTest.class);
+    super();
   }
 }

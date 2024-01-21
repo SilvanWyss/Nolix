@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.coreapitest.programatomapitest.functionapitest;
+package ch.nolix.coretest.programatomtest.functiontest;
 
-import ch.nolix.core.programatom.function.FunctionCatalogue;
 //own imports
+import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 

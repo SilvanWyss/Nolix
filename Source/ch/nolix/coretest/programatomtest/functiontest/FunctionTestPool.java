@@ -9,6 +9,6 @@ public final class FunctionTestPool extends TestPool {
 
   //constructor
   public FunctionTestPool() {
-    super(GlobalFunctionHelperTest.class);
+    super(FunctionCatalogueTest.class, GlobalFunctionHelperTest.class);
   }
 }
