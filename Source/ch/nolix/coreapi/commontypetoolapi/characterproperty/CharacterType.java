@@ -11,7 +11,7 @@ public enum CharacterType {
   OTHER;
 
   //static method
-  public static CharacterType fromCharacter(final char character) {
+  public static CharacterType ofCharacter(final char character) {
     return switch (character) {
       case
       'A',
