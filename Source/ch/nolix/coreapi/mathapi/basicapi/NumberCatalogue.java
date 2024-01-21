@@ -3,6 +3,9 @@ package ch.nolix.coreapi.mathapi.basicapi;
 
 //class
 /**
+ * The {@link NumberCatalogue} provides special numbers that are often used in
+ * mathematics.
+ * 
  * Of the {@link NumberCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
@@ -11,22 +14,19 @@ package ch.nolix.coreapi.mathapi.basicapi;
 public final class NumberCatalogue {
 
   //constant
-  public static final double EULERS_NUMBER = Math.E;
+  public static final double EULERS_NUMBER = 2.718281828459045;
 
   //constant
-  public static final double LOGARITHMUS_DECIMALIS_OF_2 = Math.log(2.0);
+  public static final double PI = 3.141592653589793;
 
   //constant
-  public static final double PI = Math.PI;
+  public static final double SQUARE_ROOT_OF_2 = 1.414213562373095;
 
   //constant
-  public static final double SQUARE_ROOT_OF_2 = Math.sqrt(2.0);
+  public static final double SQUARE_ROOT_OF_3 = 1.732050807568877;
 
   //constant
-  public static final double SQUARE_ROOT_OF_3 = Math.sqrt(3.0);
-
-  //constant
-  public static final double SQUARE_ROOT_OF_5 = Math.sqrt(5.0);
+  public static final double SQUARE_ROOT_OF_5 = 2.236067977499790;
 
   //constructor
   /**
