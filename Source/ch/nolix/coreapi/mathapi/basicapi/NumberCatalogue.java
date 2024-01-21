@@ -17,6 +17,9 @@ public final class NumberCatalogue {
   public static final double EULERS_NUMBER = 2.718281828459045;
 
   //constant
+  public static final double GOLDEN_RATIO = 1.618033988749894;
+
+  //constant
   public static final double PI = 3.141592653589793;
 
   //constant
