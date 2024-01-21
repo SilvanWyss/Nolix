@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
+import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
@@ -300,7 +301,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is empty.
-    if (GlobalIterableHelper.containsAny(getStoredArgument())) {
+    if (!GlobalIterableHelper.isEmpty(getStoredArgument())) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
