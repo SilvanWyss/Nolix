@@ -10,14 +10,12 @@ import ch.nolix.system.noderawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.structure.TableNodeSearcher;
-import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class SchemaReader implements ISchemaReader {
@@ -176,7 +174,6 @@ public final class SchemaReader implements ISchemaReader {
     return new TableDto(
       TABLE_NODE_SEARCHER.getStoredIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
       TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
-      new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP),
       loadColumnsFromTableNode(tableNode));
   }
 }

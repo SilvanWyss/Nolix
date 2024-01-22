@@ -9,7 +9,6 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
-import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -18,8 +17,6 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class Table extends SchemaObject implements ITable {
@@ -155,7 +152,7 @@ public final class Table extends SchemaObject implements ITable {
   //method
   @Override
   public TableDto toDto() {
-    return new TableDto(getId(), getName(), createSaveStampConfigurationDto(), createColumnDtos());
+    return new TableDto(getId(), getName(), createColumnDtos());
   }
 
   //method
@@ -208,11 +205,6 @@ public final class Table extends SchemaObject implements ITable {
   //method
   private IContainer<IColumnDto> createColumnDtos() {
     return getStoredColumns().to(IColumn::toDto);
-  }
-
-  //method
-  private ISaveStampConfigurationDto createSaveStampConfigurationDto() {
-    return new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP);
   }
 
   //method

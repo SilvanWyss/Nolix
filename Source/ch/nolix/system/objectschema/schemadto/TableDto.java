@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
@@ -19,9 +18,6 @@ public final class TableDto implements ITableDto {
   //attribute
   private final String name;
 
-  //attribute
-  private final ISaveStampConfigurationDto saveStampConfiguration;
-
   //multi-attribute
   private final IContainer<IColumnDto> columnDtos;
 
@@ -31,7 +27,6 @@ public final class TableDto implements ITableDto {
   public TableDto(
     final String id,
     final String name,
-    final ISaveStampConfigurationDto saveStampConfiguration,
     final IContainer<IColumnDto> columnDtos) {
 
     if (id == null) {
@@ -42,17 +37,12 @@ public final class TableDto implements ITableDto {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.NAME);
     }
 
-    if (saveStampConfiguration == null) {
-      throw ArgumentIsNullException.forArgumentType(ISaveStampConfigurationDto.class);
-    }
-
     if (columnDtos == null) {
       throw ArgumentIsNullException.forArgumentName("column DTOs");
     }
 
     this.id = id;
     this.name = name;
-    this.saveStampConfiguration = saveStampConfiguration;
     this.columnDtos = LinkedList.fromIterable(columnDtos);
   }
 
@@ -72,11 +62,5 @@ public final class TableDto implements ITableDto {
   @Override
   public String getName() {
     return name;
-  }
-
-  //method
-  @Override
-  public ISaveStampConfigurationDto getSaveStampConfiguration() {
-    return saveStampConfiguration;
   }
 }

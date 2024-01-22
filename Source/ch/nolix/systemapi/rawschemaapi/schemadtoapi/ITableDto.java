@@ -15,7 +15,4 @@ public interface ITableDto {
 
   //method declaration
   String getName();
-
-  //method declaration
-  ISaveStampConfigurationDto getSaveStampConfiguration();
 }

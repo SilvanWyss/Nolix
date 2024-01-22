@@ -7,7 +7,6 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.tabletable.TableDtoMapper;
@@ -17,7 +16,6 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
@@ -159,7 +157,6 @@ public final class SchemaReader implements ISchemaReader {
     return new TableDto(
       flatTable.getId(),
       flatTable.getName(),
-      new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP),
       loadColumnsByTableId(flatTable.getId()));
   }
 }
