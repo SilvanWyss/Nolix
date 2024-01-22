@@ -3,10 +3,10 @@ package ch.nolix.coreapi.netapi.endpointprotocol;
 
 //enum
 public enum MessageType {
-  TARGET_MESSAGE("T"),
-  DEFAULT_TARGET_MESSAGE("A"),
-  CONTENT_MESSAGE("M"),
-  CLOSE_MESSAGE("C");
+  TARGET_MESSAGE(MessagePrefixCatalogue.TARGET_MESSAGE),
+  DEFAULT_TARGET_MESSAGE(MessagePrefixCatalogue.DEFAULT_TARGET_MESSAGE),
+  CONTENT_MESSAGE(MessagePrefixCatalogue.CONTENT_MESSAGE),
+  CLOSE_MESSAGE(MessagePrefixCatalogue.CLOSE_MESSAGE);
 
   //attribute
   private final String prefix;
@@ -19,13 +19,13 @@ public enum MessageType {
   //static method
   public static MessageType forPrefix(final String prefix) {
     return switch (prefix) {
-      case "T" ->
+      case MessagePrefixCatalogue.TARGET_MESSAGE ->
         TARGET_MESSAGE;
-      case "A" ->
+      case MessagePrefixCatalogue.DEFAULT_TARGET_MESSAGE ->
         DEFAULT_TARGET_MESSAGE;
-      case "M" ->
+      case MessagePrefixCatalogue.CONTENT_MESSAGE ->
         CONTENT_MESSAGE;
-      case "C" ->
+      case MessagePrefixCatalogue.CLOSE_MESSAGE ->
         CLOSE_MESSAGE;
       default ->
         throw new IllegalArgumentException("The given prefix '" + prefix + "' is not valid.");
