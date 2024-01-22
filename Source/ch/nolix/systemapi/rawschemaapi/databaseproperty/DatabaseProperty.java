@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawschema.databasepropertytable;
+package ch.nolix.systemapi.rawschemaapi.databaseproperty;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

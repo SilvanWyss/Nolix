@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
-//own imports
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
+import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

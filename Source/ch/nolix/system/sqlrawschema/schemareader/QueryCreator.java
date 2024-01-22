@@ -3,11 +3,11 @@ package ch.nolix.system.sqlrawschema.schemareader;
 
 //own imports
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.tabletype.SchemaTableType;
+import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 
 //class
 final class QueryCreator {
