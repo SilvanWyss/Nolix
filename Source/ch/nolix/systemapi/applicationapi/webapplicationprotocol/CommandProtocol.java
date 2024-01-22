@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.application.webapplicationprotocol;
+package ch.nolix.systemapi.applicationapi.webapplicationprotocol;
 
 //class
 public final class CommandProtocol {
