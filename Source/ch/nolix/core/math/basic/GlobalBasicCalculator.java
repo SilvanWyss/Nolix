@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.math.base;
+package ch.nolix.core.math.basic;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;

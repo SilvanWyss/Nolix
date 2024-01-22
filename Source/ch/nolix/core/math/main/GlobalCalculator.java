@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
-import ch.nolix.core.math.base.GlobalBasicCalculator;
+import ch.nolix.core.math.basic.GlobalBasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
