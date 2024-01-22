@@ -46,7 +46,7 @@ final class SslServerSslContextCreator {
       keystore.setKeyEntry("key-alias", key, password.toCharArray(), new Certificate[] { cert });
 
       final var keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-      keyManagerFactory.init(keystore, "my_password".toCharArray());
+      keyManagerFactory.init(keystore, password.toCharArray());
 
       final var sslContext = SSLContext.getInstance("TLS");
       sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
