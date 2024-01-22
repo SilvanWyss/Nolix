@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.commontypetool;
 
+//own imports
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
@@ -15,11 +16,11 @@ final class PascalCaseCreator {
       return StringCatalogue.EMPTY_STRING;
     }
 
-    return toPascalCaseWhenStringNotEmpty(string);
+    return toPascalCaseWhenStringIsNotEmpty(string);
   }
 
   //method
-  private String toPascalCaseWhenStringNotEmpty(final String string) {
+  private String toPascalCaseWhenStringIsNotEmpty(final String string) {
 
     final var stringBuilder = new StringBuilder();
 
@@ -42,19 +43,13 @@ final class PascalCaseCreator {
 
       switch (characterType) {
         case LOWER_CASE_LETTER:
-          if (previousCharacter == CharacterCatalogue.UNDERSCORE) {
-            stringBuilder.append(Character.toUpperCase(character));
-          } else {
-            stringBuilder.append(character);
-          }
+          stringBuilder.append(
+            getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(character, previousCharacter));
           break;
         case UPPER_CASE_LETTER:
-          if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
-          || previousCharacter == CharacterCatalogue.UNDERSCORE) {
-            stringBuilder.append(character);
-          } else {
-            stringBuilder.append(Character.toLowerCase(character));
-          }
+          stringBuilder.append(
+            getTargetCharacterWhenSourceCharacterIsNotAtBeginAndUpperCaseLetter(
+              character, previousCharacter, previousCharacterType));
           break;
         case NUMBER:
           stringBuilder.append(character);
@@ -71,5 +66,31 @@ final class PascalCaseCreator {
     }
 
     return stringBuilder.toString();
+  }
+
+  //method
+  private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(
+    final char sourceCharacter,
+    final char previousCharacter) {
+
+    if (previousCharacter == CharacterCatalogue.UNDERSCORE) {
+      return Character.toUpperCase(sourceCharacter);
+    }
+
+    return sourceCharacter;
+  }
+
+  //method
+  private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndUpperCaseLetter(
+    final char sourceCharacter,
+    final char previousCharacter,
+    final CharacterType previousCharacterType) {
+
+    if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
+    || previousCharacter == CharacterCatalogue.UNDERSCORE) {
+      return sourceCharacter;
+    }
+
+    return Character.toLowerCase(sourceCharacter);
   }
 }
