@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.programatomtest.nametest;
+package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
 //class
 public final class Launcher {
@@ -10,6 +10,6 @@ public final class Launcher {
 
   //main method
   public static void main(String[] args) {
-    new NameTestPool().run();
+    new VariableApiTestPool().run();
   }
 }

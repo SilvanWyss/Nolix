@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.programatomtest.nametest;
+package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
 import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class LowerCaseCatalogueTest extends Test {
+public final class LowerCaseVariableCatalogueTest extends Test {
 
   //method
   @TestCase
