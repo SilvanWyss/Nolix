@@ -14,17 +14,17 @@ public final class IntRoundingMediator {
 
   //method
   public int downToNext(final int step) {
-    return new IntRoundingWithModeMediator(value, RoundingMode.DOWN).toNext(step);
+    return new IntRoundingWithModeMediator(value, RoundingMode.DOWN_WHEN_DELTA_IS_SMALLER_THAN_HALF_STEP).toNext(step);
   }
 
   //method
   public int toNext(final int step) {
-    return withMode(RoundingMode.UP_WHEN_REST_IS_HALF_STEP).toNext(step);
+    return withMode(RoundingMode.UP_WHEN_DELTA_IS_UP_TO_HALF_STEP).toNext(step);
   }
 
   //method
   public int upToNext(final int step) {
-    return new IntRoundingWithModeMediator(value, RoundingMode.UP).toNext(step);
+    return new IntRoundingWithModeMediator(value, RoundingMode.UP_WHEN_DELTA_IS_SMALLER_THAN_HALF_STEP).toNext(step);
   }
 
   //method

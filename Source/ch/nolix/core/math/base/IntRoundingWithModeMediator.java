@@ -38,16 +38,16 @@ public final class IntRoundingWithModeMediator {
     }
 
     switch (roundingMode) {
-      case DOWN:
+      case DOWN_WHEN_DELTA_IS_SMALLER_THAN_HALF_STEP:
         return (value - rest);
-      case DOWN_WHEN_REST_IS_HALF_STEP:
+      case DOWN_WHEN_DELTA_IS_UP_TO_HALF_STEP:
 
         if (rest <= step / 2) {
           return (value - rest);
         }
 
         return (value - rest + step);
-      case UP:
+      case UP_WHEN_DELTA_IS_SMALLER_THAN_HALF_STEP:
         return (value - rest + step);
       default:
 
