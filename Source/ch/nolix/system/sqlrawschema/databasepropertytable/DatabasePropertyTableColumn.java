@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 //class
-public enum DatabasePropertySystemTableColumn implements ILabelHolder {
+public enum DatabasePropertyTableColumn implements ILabelHolder {
 
   //'Key' is a reserved word in MSSQL databases.
   KEY("ValueKey"),
@@ -19,7 +19,7 @@ public enum DatabasePropertySystemTableColumn implements ILabelHolder {
   private final String label;
 
   //constructor
-  DatabasePropertySystemTableColumn(final String label) {
+  DatabasePropertyTableColumn(final String label) {
 
     GlobalValidator.assertThat(label).thatIsNamed(LowerCaseVariableCatalogue.LABEL).isNotBlank();
 

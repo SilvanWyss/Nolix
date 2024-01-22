@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.schemareader;
 
 //own imports
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.tabletype.SchemaTableType;
@@ -114,11 +114,11 @@ final class QueryCreator {
   //method
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
-    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getLabel()
     + " FROM "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
-    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getLabel()
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }

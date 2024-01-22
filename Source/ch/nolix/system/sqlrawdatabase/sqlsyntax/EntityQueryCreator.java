@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.tabletype.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
@@ -67,11 +67,11 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
-    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getLabel()
     + " FROM "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
-    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getLabel()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
     + "';";

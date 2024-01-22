@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParameterizedPropertyTypeSqlRecordMapper;
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
@@ -165,11 +165,11 @@ final class SystemDataWriterSqlStatementCreator {
     return "UPDATE "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " SET "
-    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getLabel()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "' WHERE "
-    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getLabel()
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }

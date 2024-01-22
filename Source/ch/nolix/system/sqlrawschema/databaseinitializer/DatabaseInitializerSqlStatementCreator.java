@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -15,9 +15,9 @@ public final class DatabaseInitializerSqlStatementCreator {
     "INSERT INTO "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " ("
-    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getLabel()
     + ", "
-    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getLabel()
     + ") VALUES ("
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
     + ", '"

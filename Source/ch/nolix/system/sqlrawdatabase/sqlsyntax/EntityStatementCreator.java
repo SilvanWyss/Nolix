@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.tabletype.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
@@ -36,11 +36,11 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "IF NOT EXISTS (SELECT * FROM "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
-    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getLabel()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
     + "' AND "
-    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getLabel()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
