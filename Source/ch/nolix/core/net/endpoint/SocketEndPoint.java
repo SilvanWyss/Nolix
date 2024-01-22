@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalogue;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
@@ -246,7 +247,7 @@ public final class SocketEndPoint extends NetEndPoint {
   public void noteClose() {
     if (canWork()) {
       try {
-        sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+        sendRawMessage(MessageType.CLOSE_MESSAGE.getPrefix());
         socket.close();
       } catch (final IOException pIOException) {
         throw WrapperException.forError(pIOException);

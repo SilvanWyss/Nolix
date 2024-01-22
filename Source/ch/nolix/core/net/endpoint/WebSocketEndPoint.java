@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
@@ -86,7 +87,7 @@ final class WebSocketEndPoint extends NetEndPoint {
   public void noteClose() {
 
     if (canWork()) {
-      sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
+      sendRawMessage(MessageType.CLOSE_MESSAGE.getPrefix());
     }
 
     try {

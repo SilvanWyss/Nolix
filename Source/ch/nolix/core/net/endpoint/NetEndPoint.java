@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -72,7 +73,7 @@ public abstract class NetEndPoint extends EndPoint {
    */
   @Override
   public final void sendMessage(final String message) {
-    sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
+    sendRawMessage(MessageType.CONTENT_MESSAGE.getPrefix() + message);
   }
 
   //method
@@ -148,11 +149,11 @@ public abstract class NetEndPoint extends EndPoint {
 
     //Handles the case that the current BaseNetEndPoint has a target.
     if (!hasCustomTargetSlot()) {
-      return String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX);
+      return MessageType.DEFAULT_TARGET_MESSAGE.getPrefix();
     }
 
     //Handles the case that the current BaseNetEndPoint does not have a target.
-    return (NetEndPointProtocol.TARGET_PREFIX + getCustomTargetSlot());
+    return (MessageType.TARGET_MESSAGE.getPrefix() + getCustomTargetSlot());
   }
 
   //method
@@ -179,25 +180,28 @@ public abstract class NetEndPoint extends EndPoint {
    */
   void receiveRawMessage(final String rawMessage) {
 
-    //Enumerates the first character of the given rawMessage.
-    switch (rawMessage.charAt(0)) {
-      case NetEndPointProtocol.MAIN_TARGET_PREFIX:
+    //Determinate the message type of the given rawMessage.
+    final var messageType = MessageType.forPrefix(rawMessage.substring(0, 1));
 
-        if (!rawMessage.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
+    //Enumerates the messageType.
+    switch (messageType) {
+      case DEFAULT_TARGET_MESSAGE:
+
+        if (!rawMessage.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
           throw InvalidArgumentException.forArgumentNameAndArgument(RAW_MESSAGE_VARIABLE_NAME, rawMessage);
         }
 
         confirmReceivedTargetInfo();
 
         break;
-      case NetEndPointProtocol.TARGET_PREFIX:
+      case TARGET_MESSAGE:
         setCustomTargetSlot(rawMessage.substring(1));
         confirmReceivedTargetInfo();
         break;
-      case NetEndPointProtocol.MESSAGE_PREFIX:
+      case CONTENT_MESSAGE:
         receiveMessage(rawMessage.substring(1));
         break;
-      case NetEndPointProtocol.CLOSE_PREFIX:
+      case CLOSE_MESSAGE:
         GlobalValidator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
         close();
         break;

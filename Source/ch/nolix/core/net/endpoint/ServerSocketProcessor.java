@@ -20,6 +20,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -153,11 +154,11 @@ final class ServerSocketProcessor extends Worker {
   //method
   private NetEndPointCreationType getNetEndPointCreationTypeFromFirstReceivedLine(final String firstReceivedLine) {
 
-    if (firstReceivedLine.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
+    if (firstReceivedLine.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
       return NetEndPointCreationType.REGULAR_SOCKET_WITH_DEFAULT_TARGET;
     }
 
-    if (firstReceivedLine.startsWith(String.valueOf(NetEndPointProtocol.TARGET_PREFIX))) {
+    if (firstReceivedLine.startsWith(MessageType.TARGET_MESSAGE.getPrefix())) {
       return NetEndPointCreationType.REGULAR_SOCKET_WITH_CUSTOM_TARGET;
     }
 
