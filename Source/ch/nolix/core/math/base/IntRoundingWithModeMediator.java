@@ -3,6 +3,7 @@ package ch.nolix.core.math.base;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.mathapi.basicapi.RoundingMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class

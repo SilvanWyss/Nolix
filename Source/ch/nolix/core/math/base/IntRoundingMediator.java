@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.math.base;
 
+import ch.nolix.coreapi.mathapi.basicapi.RoundingMode;
+
 //class
 public final class IntRoundingMediator {
 

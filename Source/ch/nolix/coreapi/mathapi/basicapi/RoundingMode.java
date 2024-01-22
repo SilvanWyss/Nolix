@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.math.base;
+package ch.nolix.coreapi.mathapi.basicapi;
 
 //enum
 public enum RoundingMode {
