@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.nolixtest;
 
-//own imports
-import ch.nolix.core.errorcontrol.logger.GlobalLogger;
+import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 
 //class
 /**

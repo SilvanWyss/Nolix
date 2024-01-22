@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.errorcontrol.logger;
+package ch.nolix.core.errorcontrol.logging;
 
 //own imports
 import ch.nolix.core.independent.container.List;
