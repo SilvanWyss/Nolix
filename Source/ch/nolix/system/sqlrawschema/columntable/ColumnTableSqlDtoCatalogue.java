@@ -2,8 +2,8 @@
 package ch.nolix.system.sqlrawschema.columntable;
 
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
-import ch.nolix.system.sqlrawschema.tabletype.SchemaTableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;

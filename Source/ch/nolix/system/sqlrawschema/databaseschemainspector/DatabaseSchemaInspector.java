@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databaseschemainspector;
 
-import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
+import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 

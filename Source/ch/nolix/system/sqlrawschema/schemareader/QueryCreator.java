@@ -4,9 +4,9 @@ package ch.nolix.system.sqlrawschema.schemareader;
 //own imports
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
+import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
-import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
-import ch.nolix.system.sqlrawschema.tabletype.SchemaTableType;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 
 //class

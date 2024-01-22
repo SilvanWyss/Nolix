@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawschema.tabletype;
+package ch.nolix.system.sqlrawschema.structure;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

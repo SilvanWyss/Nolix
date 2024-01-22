@@ -2,8 +2,8 @@
 package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
-import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
-import ch.nolix.system.sqlrawschema.tabletype.TableType;
+import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
+import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;

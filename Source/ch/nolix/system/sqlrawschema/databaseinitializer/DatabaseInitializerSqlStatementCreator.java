@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
-import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
+import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
