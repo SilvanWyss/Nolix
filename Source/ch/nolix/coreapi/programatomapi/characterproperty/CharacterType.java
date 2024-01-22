@@ -76,6 +76,14 @@ public enum CharacterType {
       CharacterCatalogue.LOWER_CASE_OE,
       CharacterCatalogue.LOWER_CASE_UE ->
         LOWER_CASE_LETTER;
+      default ->
+        ofNonLetterCharacter(character);
+    };
+  }
+
+  //static method
+  private static CharacterType ofNonLetterCharacter(final char nonLetterCharacter) {
+    return switch (nonLetterCharacter) {
       case
       '0',
       '1',
