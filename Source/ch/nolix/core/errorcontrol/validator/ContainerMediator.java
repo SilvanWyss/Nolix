@@ -68,7 +68,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                                not contain the given element.
    */
   public void contains(final Object element) {
-    if (!ch.nolix.core.independent.containerhelper.GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
+    if (!GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
         getArgumentName(),
         getStoredArgument(),
@@ -210,7 +210,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  element for several times.
    */
   public void containsOnce(final Object element) {
-    if (!ch.nolix.core.independent.containerhelper.GlobalIterableHelper.containsElementOnce(getStoredArgument(),
+    if (!GlobalIterableHelper.containsElementOnce(getStoredArgument(),
       element)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
