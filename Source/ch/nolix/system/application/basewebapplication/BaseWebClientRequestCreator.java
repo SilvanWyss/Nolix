@@ -3,7 +3,7 @@ package ch.nolix.system.application.basewebapplication;
 
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.system.application.basewebapplicationprotocol.RequestProtocol;
+import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.RequestProtocol;
 
 //class
 final class BaseWebClientRequestCreator {

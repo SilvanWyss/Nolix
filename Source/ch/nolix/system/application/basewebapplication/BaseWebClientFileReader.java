@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
 //class
 final class BaseWebClientFileReader {

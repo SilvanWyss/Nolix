@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.application.basewebapplicationprotocol;
+package ch.nolix.systemapi.applicationapi.basewebapplicationprotocol;
 
 //class
 public final class ObjectProtocol {

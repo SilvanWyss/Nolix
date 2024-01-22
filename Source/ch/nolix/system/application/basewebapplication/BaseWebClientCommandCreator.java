@@ -9,8 +9,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
-import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
-import ch.nolix.system.application.basewebapplicationprotocol.ObjectProtocol;
+import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.ObjectProtocol;
 
 //class
 final class BaseWebClientCommandCreator {
