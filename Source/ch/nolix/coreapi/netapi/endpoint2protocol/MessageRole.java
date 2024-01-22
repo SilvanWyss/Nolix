@@ -1,9 +1,8 @@
 //package declaration
-package ch.nolix.core.net.endpoint2;
+package ch.nolix.coreapi.netapi.endpoint2protocol;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRolePrefixCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //enum
