@@ -4,6 +4,7 @@ package ch.nolix.core.errorcontrol.logger;
 //own imports
 import ch.nolix.core.errorcontrol.errormapping.StackTraceMapper;
 import ch.nolix.core.independent.container.ImmutableList;
+import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
 
 //class
 public final class LogEntry {

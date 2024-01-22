@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.errorcontrol.logger;
 
+//own imports
+import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
+
 //class
 public abstract class LogHandler {
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.errorcontrol.logger;
+package ch.nolix.coreapi.errorcontrolapi.loggingapi;
 
 //enum
 public enum HarmLevel {
