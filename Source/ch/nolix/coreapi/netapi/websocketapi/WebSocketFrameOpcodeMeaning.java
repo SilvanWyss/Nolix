@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.websocket;
+package ch.nolix.coreapi.netapi.websocketapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
