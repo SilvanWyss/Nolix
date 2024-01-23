@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi}
- * package declares helpers for the types of
+ * package declares tools for the types of
  * {@link ch.nolix.systemapi.databaseobjectapi.databaseobjectapi}.
  * 
  * @author Silvan Wyss

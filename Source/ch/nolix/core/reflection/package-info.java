@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.reflection} package defines helpers for reflection.
+ * The {@link ch.nolix.core.reflection} package defines tools for reflection.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.webgui.controlhelper} package defines helpers for
+ * The {@link ch.nolix.system.webgui.controlhelper} package defines tools for
  * {@link ch.nolix.systemapi.webguiapi.mainapi.IControl}s.
  * 
  * @author Silvan Wyss

@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.commontypetool} package defines helpers and wrappers for
+ * The {@link ch.nolix.core.commontypetool} package defines tools and wrappers for
  * common types.
  * 
  * @author Silvan Wyss

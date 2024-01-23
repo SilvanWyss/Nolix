@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.independent.containertool} package defines helpers
+ * The {@link ch.nolix.core.independent.containertool} package defines tools
  * for common types. These helpers do not have a dependency.
  * 
  * @author Silvan Wyss
