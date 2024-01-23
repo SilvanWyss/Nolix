@@ -8,7 +8,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.function.GlobalFunctionHelper;
+import ch.nolix.core.programatom.function.GlobalFunctionTool;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
 //class
@@ -104,7 +104,7 @@ public final class ForMaxMillisecondsMediator {
   public AsLongAsMediator until(final BooleanSupplier condition) {
 
     //Calls other method.
-    return asLongAs(GlobalFunctionHelper.createNegatorForBooleanSupplier(condition));
+    return asLongAs(GlobalFunctionTool.createNegatorForBooleanSupplier(condition));
   }
 
   //method
@@ -136,6 +136,6 @@ public final class ForMaxMillisecondsMediator {
   public void waitUntil(final BooleanSupplier condition) {
 
     //Calls other method.
-    waitAsLongAs(GlobalFunctionHelper.createNegatorForBooleanSupplier(condition));
+    waitAsLongAs(GlobalFunctionTool.createNegatorForBooleanSupplier(condition));
   }
 }

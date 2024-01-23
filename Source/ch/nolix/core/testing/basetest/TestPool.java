@@ -207,7 +207,7 @@ public abstract class TestPool implements Runnable {
     }
 
     //Asserts that the given testClass is a sub class of BaseTest.
-    if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
+    if (!ReflectionTool.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalogue.TEST_CLASS,
         testClass,
@@ -215,7 +215,7 @@ public abstract class TestPool implements Runnable {
     }
 
     //Asserts that the given testClass is not abstract.
-    if (ReflectionHelper.isAbstract(testClass)) {
+    if (ReflectionTool.isAbstract(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalogue.TEST_CLASS,
         testClass,
@@ -223,7 +223,7 @@ public abstract class TestPool implements Runnable {
     }
 
     //Asserts that the given testClass has a default constructor.
-    if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
+    if (!ReflectionTool.hasDefaultConstructor(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalogue.TEST_CLASS,
         testClass,

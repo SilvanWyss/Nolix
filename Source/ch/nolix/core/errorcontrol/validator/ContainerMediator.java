@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
-import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
+import ch.nolix.core.independent.containertool.GlobalArrayTool;
+import ch.nolix.core.independent.containertool.GlobalIterableTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
@@ -68,7 +68,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                                not contain the given element.
    */
   public void contains(final Object element) {
-    if (!GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
+    if (!GlobalIterableTool.containsElement(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
         getArgumentName(),
         getStoredArgument(),
@@ -146,7 +146,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsExactly(final Object firstElement, final Object... elements) {
 
-    final var allElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
+    final var allElements = GlobalArrayTool.createArrayWithElement(firstElement, elements);
 
     hasElementCount(allElements.length);
 
@@ -156,7 +156,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked") E... elements) {
 
-    final var localElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
+    final var localElements = GlobalArrayTool.createArrayWithElement(firstElement, elements);
 
     containsExactlyEqualing(localElements);
   }
@@ -183,7 +183,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked") E... elements) {
 
-    final var localElements = GlobalArrayHelper.createArrayWithElement(element, elements);
+    final var localElements = GlobalArrayTool.createArrayWithElement(element, elements);
 
     containsAsManyElementsAs(localElements);
 
@@ -210,7 +210,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  element for several times.
    */
   public void containsOnce(final Object element) {
-    if (!GlobalIterableHelper.containsElementOnce(getStoredArgument(),
+    if (!GlobalIterableTool.containsElementOnce(getStoredArgument(),
       element)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
@@ -301,7 +301,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is empty.
-    if (!GlobalIterableHelper.isEmpty(getStoredArgument())) {
+    if (!GlobalIterableTool.isEmpty(getStoredArgument())) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
@@ -319,7 +319,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is not empty.
-    if (GlobalIterableHelper.isEmpty(getStoredArgument())) {
+    if (GlobalIterableTool.isEmpty(getStoredArgument())) {
       throw EmptyArgumentException.forArgument(getStoredArgument());
     }
   }

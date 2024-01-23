@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
+import ch.nolix.core.independent.containertool.GlobalArrayTool;
 
 //class
 /**
@@ -51,7 +51,7 @@ public class MultiArgumentMediator<A> {
   MultiArgumentMediator(final A[] arguments) {
 
     //Calls other constructor.
-    this(GlobalArrayHelper.createIterable(arguments));
+    this(GlobalArrayTool.createIterable(arguments));
   }
 
   //method

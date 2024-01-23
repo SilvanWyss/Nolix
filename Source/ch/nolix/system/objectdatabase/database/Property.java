@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.reflection.GlobalReflectionHelper;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyflyweight.VoidPropertyFlyWeight;
@@ -52,7 +52,7 @@ public abstract class Property implements IProperty {
     }
 
     if (belongsToEntity()) {
-      return GlobalReflectionHelper.getFieldName(getStoredParentEntity(), this);
+      return GlobalReflectionTool.getFieldName(getStoredParentEntity(), this);
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");

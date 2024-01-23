@@ -2,7 +2,7 @@
 package ch.nolix.core.license;
 
 //own imports
-import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
+import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 
 //class
 /**
@@ -33,6 +33,6 @@ public final class LicenseEnvironment {
    * @return the path of the license folder on the local computer.
    */
   public static String getLocalLicenseFolderPath() {
-    return (GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + "/" + LOCAL_LICENSE_FOLDER_NAME);
+    return (GlobalNolixEnvironmentTool.getLocalNolixFolderPath() + "/" + LOCAL_LICENSE_FOLDER_NAME);
   }
 }

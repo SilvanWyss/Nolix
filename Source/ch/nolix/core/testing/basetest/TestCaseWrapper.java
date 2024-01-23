@@ -88,7 +88,7 @@ public final class TestCaseWrapper {
 
   //method
   public boolean testCaseHasTimeout() {
-    return !ReflectionHelper.elementHasAnnotation(getStoredTestCase(), IgnoreTimeout.class);
+    return !ReflectionTool.elementHasAnnotation(getStoredTestCase(), IgnoreTimeout.class);
   }
 
   //method
@@ -97,7 +97,7 @@ public final class TestCaseWrapper {
     Method lCleanup = null;
     for (final var m : parentTest.getClass().getMethods()) {
 
-      if (ReflectionHelper.elementHasAnnotation(m, Cleanup.class)) {
+      if (ReflectionTool.elementHasAnnotation(m, Cleanup.class)) {
 
         if (lCleanup != null) {
           throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(),
@@ -117,7 +117,7 @@ public final class TestCaseWrapper {
     Method lSetup = null;
     for (final var m : parentTest.getClass().getMethods()) {
 
-      if (ReflectionHelper.elementHasAnnotation(m, Setup.class)) {
+      if (ReflectionTool.elementHasAnnotation(m, Setup.class)) {
 
         if (lSetup != null) {
           throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(),

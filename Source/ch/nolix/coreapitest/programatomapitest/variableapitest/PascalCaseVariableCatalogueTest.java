@@ -3,7 +3,7 @@ package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.reflection.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
@@ -19,7 +19,7 @@ public final class PascalCaseVariableCatalogueTest extends Test {
     final var exceptions = LinkedList.withElement(PascalCaseVariableCatalogue.GUI, PascalCaseVariableCatalogue.URL);
 
     //verification
-    for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(PascalCaseVariableCatalogue.class)) {
+    for (final var c : GlobalClassTool.getPublicStaticFieldValuesOfClass(PascalCaseVariableCatalogue.class)) {
 
       expect(c).isOfType(String.class);
 

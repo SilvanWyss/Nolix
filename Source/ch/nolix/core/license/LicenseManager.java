@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.reflection.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
@@ -52,7 +52,7 @@ public final class LicenseManager {
 
     final var key = readKeyFromLicenseFile(licenseType);
 
-    final var license = GlobalClassHelper.createInstanceFromDefaultConstructorOf(License.class);
+    final var license = GlobalClassTool.createInstanceFromDefaultConstructorOf(License.class);
     license.activate(key);
 
     addLicense(license);

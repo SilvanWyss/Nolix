@@ -6,12 +6,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class GlobalEnglishNounHelper {
+public final class GlobalEnglishNounTool {
 
   private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
 
   //constructor
-  private GlobalEnglishNounHelper() {
+  private GlobalEnglishNounTool() {
   }
 
   //static method

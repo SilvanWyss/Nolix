@@ -7,19 +7,19 @@ import java.lang.reflect.Method;
 
 //class
 /**
- * The {@link GlobalMethodHelper} provides methods to handle methods. Of the
- * {@link GlobalMethodHelper} an instance cannot be created.
+ * The {@link GlobalMethodTool} provides methods to handle methods. Of the
+ * {@link GlobalMethodTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
  */
-public final class GlobalMethodHelper {
+public final class GlobalMethodTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalMethodHelper} can be created.
+   * Prevents that an instance of the {@link GlobalMethodTool} can be created.
    */
-  private GlobalMethodHelper() {
+  private GlobalMethodTool() {
   }
 
   //static method

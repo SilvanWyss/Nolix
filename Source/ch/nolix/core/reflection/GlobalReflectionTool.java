@@ -9,10 +9,10 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 //class
-public final class GlobalReflectionHelper {
+public final class GlobalReflectionTool {
 
   //constructor
-  private GlobalReflectionHelper() {
+  private GlobalReflectionTool() {
   }
 
   //static method

@@ -1,25 +1,25 @@
 //package declaration
-package ch.nolix.core.independent.containerhelper;
+package ch.nolix.core.independent.containertool;
 
 //Java imports
 import java.util.Objects;
 
 //class
 /**
- * The {@link GlobalIterableHelper} provides methods to handle
- * {@link Iterable}s. Of the {@link GlobalIterableHelper} an instance cannot be
+ * The {@link GlobalIterableTool} provides methods to handle
+ * {@link Iterable}s. Of the {@link GlobalIterableTool} an instance cannot be
  * created.
  * 
  * @author Silvan Wyss
  * @date 2017-12-16
  */
-public final class GlobalIterableHelper {
+public final class GlobalIterableTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalIterableHelper} can be created.
+   * Prevents that an instance of the {@link GlobalIterableTool} can be created.
    */
-  private GlobalIterableHelper() {
+  private GlobalIterableTool() {
   }
 
   //static method

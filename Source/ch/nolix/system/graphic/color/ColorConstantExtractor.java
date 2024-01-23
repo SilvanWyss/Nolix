@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.reflection.GlobalFieldHelper;
+import ch.nolix.core.reflection.GlobalFieldTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
@@ -22,7 +22,7 @@ final class ColorConstantExtractor {
 
   //method
   private boolean declaresColor(final Field field) {
-    return GlobalFieldHelper.isStaticAndStoresValueOfGivenType(field, Color.class);
+    return GlobalFieldTool.isStaticAndStoresValueOfGivenType(field, Color.class);
   }
 
   //method
@@ -32,7 +32,7 @@ final class ColorConstantExtractor {
 
     for (final var f : Color.class.getDeclaredFields()) {
       if (declaresColor(f)) {
-        final Color color = GlobalFieldHelper.getValueFromStaticField(f);
+        final Color color = GlobalFieldTool.getValueFromStaticField(f);
         lColors.addAtEnd(color);
       }
     }

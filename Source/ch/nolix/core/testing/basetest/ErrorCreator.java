@@ -11,7 +11,7 @@ final class ErrorCreator {
   private static final OccurancePlaceFinder OCCURANCE_PLACE_FINDER = new OccurancePlaceFinder();
 
   //constant
-  private static final ThrowableHelper THROWABLE_HELPER = new ThrowableHelper();
+  private static final ThrowableTool THROWABLE_HELPER = new ThrowableTool();
 
   //method
   public Error createErrorFromInvocationTargetExceptionInInstance(

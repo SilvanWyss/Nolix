@@ -2,8 +2,8 @@
 package ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest;
 
 //own imports
-import ch.nolix.core.reflection.GlobalFieldHelper;
-import ch.nolix.core.reflection.GlobalMemberHelper;
+import ch.nolix.core.reflection.GlobalFieldTool;
+import ch.nolix.core.reflection.GlobalMemberTool;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
@@ -17,9 +17,9 @@ public final class StringCatalogueTest extends Test {
 
     //verification
     for (final var f : StringCatalogue.class.getFields()) {
-      expect(GlobalMemberHelper.isPublic(f));
-      expect(GlobalFieldHelper.isStatic(f));
-      expect(GlobalFieldHelper.getValueFromStaticField(f).getClass()).is(String.class);
+      expect(GlobalMemberTool.isPublic(f));
+      expect(GlobalFieldTool.isStatic(f));
+      expect(GlobalFieldTool.getValueFromStaticField(f).getClass()).is(String.class);
     }
   }
 }

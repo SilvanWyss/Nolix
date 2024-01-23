@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.reflection.GlobalFieldHelper;
+import ch.nolix.core.reflection.GlobalFieldTool;
 
 //class
 final class PropertyFromEntityExtractor {
@@ -55,7 +55,7 @@ final class PropertyFromEntityExtractor {
 
   //method
   private boolean fieldIsProperty(final Field field) {
-    return GlobalFieldHelper.hasGivenTypeOrSuperType(field, Property.class);
+    return GlobalFieldTool.hasGivenTypeOrSuperType(field, Property.class);
   }
 
   //method

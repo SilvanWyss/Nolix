@@ -12,10 +12,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class GlobalFieldHelper {
+public final class GlobalFieldTool {
 
   //constructor
-  private GlobalFieldHelper() {
+  private GlobalFieldTool() {
   }
 
   //static method

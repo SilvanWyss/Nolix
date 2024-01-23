@@ -10,7 +10,7 @@ import java.nio.file.StandardOpenOption;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
+import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 
 //class
 public final class FileLogHandler extends LogHandler {
@@ -24,7 +24,7 @@ public final class FileLogHandler extends LogHandler {
   //static method
   public static String getLocalNolixLogFilePath() {
 
-    final var localNolixFilePath = GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + FOLDER_DELIMITER
+    final var localNolixFilePath = GlobalNolixEnvironmentTool.getLocalNolixFolderPath() + FOLDER_DELIMITER
     + NOLIX_LOG_FILE_NAME;
     createFileIfDoesNotExist(localNolixFilePath);
 

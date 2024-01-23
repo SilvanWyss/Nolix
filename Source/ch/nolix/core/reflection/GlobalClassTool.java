@@ -10,15 +10,15 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
-public final class GlobalClassHelper {
+public final class GlobalClassTool {
 
   //constructor
-  private GlobalClassHelper() {
+  private GlobalClassTool() {
   }
 
   //static method
   public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
-    return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
+    return GlobalConstructorTool.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
   }
 
   //static method
@@ -44,7 +44,7 @@ public final class GlobalClassHelper {
     for (final var f : paramClass.getDeclaredFields()) {
 
       //Handles the case that the current field is static.
-      if (GlobalFieldHelper.isStatic(f) && GlobalMemberHelper.isPublic(f)) {
+      if (GlobalFieldTool.isStatic(f) && GlobalMemberTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));
         } catch (final IllegalAccessException illegalAccessException) {

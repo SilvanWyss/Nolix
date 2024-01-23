@@ -2,7 +2,7 @@
 package ch.nolix.core.testing.basetest;
 
 //class
-final class ThrowableHelper {
+final class ThrowableTool {
 
   //constant
   public static final String DEFAULT_ERROR_MESSAGE = "An error occured.";

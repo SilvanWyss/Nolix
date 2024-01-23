@@ -194,7 +194,7 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
    */
   private BaseTest getCopy() {
     try {
-      return ReflectionHelper.getDefaultConstructor(getClass()).newInstance();
+      return ReflectionTool.getDefaultConstructor(getClass()).newInstance();
     } catch (final
     IllegalAccessException
     | InstantiationException
@@ -230,6 +230,6 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
    * @return true if the given method is a test case.
    */
   private boolean isTestCase(final Method method) {
-    return (method != null && ReflectionHelper.elementHasAnnotation(method, TestCase.class));
+    return (method != null && ReflectionTool.elementHasAnnotation(method, TestCase.class));
   }
 }

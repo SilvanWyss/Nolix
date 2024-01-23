@@ -8,10 +8,10 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
-public final class GlobalFunctionHelper {
+public final class GlobalFunctionTool {
 
   //constructor
-  private GlobalFunctionHelper() {
+  private GlobalFunctionTool() {
   }
 
   //static method

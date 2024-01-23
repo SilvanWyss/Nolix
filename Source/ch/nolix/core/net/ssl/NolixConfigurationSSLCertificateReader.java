@@ -3,7 +3,7 @@ package ch.nolix.core.net.ssl;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
+import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 
@@ -82,7 +82,7 @@ public final class NolixConfigurationSSLCertificateReader {
   //method
   private INode<?> getLocalNolixConfiguration() {
 
-    final var localNolixConfigurationFilePath = GlobalNolixEnvironmentHelper.getLocalNolixConfigurationFilePath();
+    final var localNolixConfigurationFilePath = GlobalNolixEnvironmentTool.getLocalNolixConfigurationFilePath();
 
     return Node.fromFile(localNolixConfigurationFilePath);
   }

@@ -18,7 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.reflection.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
@@ -321,7 +321,7 @@ implements IApplication<AC> {
    */
   private BC createBackendClientWithEndPoint(final IEndPoint endPoint) {
 
-    final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(getClientClass());
+    final var backendClient = GlobalClassTool.createInstanceFromDefaultConstructorOf(getClientClass());
     backendClient.internalSetEndPoint(endPoint);
 
     return backendClient;

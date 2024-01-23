@@ -6,10 +6,10 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 
 //class
-public final class GlobalMemberHelper {
+public final class GlobalMemberTool {
 
   //constructor
-  private GlobalMemberHelper() {
+  private GlobalMemberTool() {
   }
 
   //static method

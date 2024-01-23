@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 //class
-public final class GlobalNolixEnvironmentHelper {
+public final class GlobalNolixEnvironmentTool {
 
   //constant
   public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
@@ -23,7 +23,7 @@ public final class GlobalNolixEnvironmentHelper {
   private static final char FOLDER_DELIMITER = '/';
 
   //constructor
-  private GlobalNolixEnvironmentHelper() {
+  private GlobalNolixEnvironmentTool() {
   }
 
   //static method

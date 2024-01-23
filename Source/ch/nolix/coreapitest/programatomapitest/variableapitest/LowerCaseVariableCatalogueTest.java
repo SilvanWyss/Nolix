@@ -3,7 +3,7 @@ package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.reflection.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
@@ -19,7 +19,7 @@ public final class LowerCaseVariableCatalogueTest extends Test {
     final var exceptions = LinkedList.withElement(LowerCaseVariableCatalogue.GUI, LowerCaseVariableCatalogue.URL);
 
     //verification
-    for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(LowerCaseVariableCatalogue.class)) {
+    for (final var c : GlobalClassTool.getPublicStaticFieldValuesOfClass(LowerCaseVariableCatalogue.class)) {
 
       expect(c).isOfType(String.class);
 

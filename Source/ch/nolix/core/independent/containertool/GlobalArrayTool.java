@@ -1,24 +1,24 @@
 //package declaration
-package ch.nolix.core.independent.containerhelper;
+package ch.nolix.core.independent.containertool;
 
 //own imports
 import ch.nolix.core.independent.container.List;
 
 //class
 /**
- * The {@link GlobalArrayHelper} provides functions to handle arrays. Of the
- * {@link GlobalArrayHelper} class an instance cannot be created.
+ * The {@link GlobalArrayTool} provides functions to handle arrays. Of the
+ * {@link GlobalArrayTool} class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-08-14
  */
-public final class GlobalArrayHelper {
+public final class GlobalArrayTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalArrayHelper} can be created.
+   * Prevents that an instance of the {@link GlobalArrayTool} can be created.
    */
-  private GlobalArrayHelper() {
+  private GlobalArrayTool() {
   }
 
   //static method

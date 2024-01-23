@@ -11,10 +11,10 @@ import java.lang.reflect.Modifier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
-final class ReflectionHelper {
+final class ReflectionTool {
 
   //constructor
-  private ReflectionHelper() {
+  private ReflectionTool() {
   }
 
   //static method

@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.reflection.GlobalReflectionHelper;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
@@ -116,7 +116,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
   private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty property) {
     final var propertyParentEntity = property.getStoredParentEntity();
 
-    final var propertyField = GlobalReflectionHelper.getStoredField(propertyParentEntity, property);
+    final var propertyField = GlobalReflectionTool.getStoredField(propertyParentEntity, property);
 
     final var propertyDeclaredType = (ParameterizedType) propertyField.getGenericType();
 

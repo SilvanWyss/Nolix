@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapitest.environmentapitest.filesystemapitest;
 
-import ch.nolix.core.reflection.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.environmentapi.filesystemapi.FileExtensionCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
@@ -14,7 +14,7 @@ public final class FileExtensionCatalogueTest extends Test {
   public void testCase_constants() {
 
     //verification
-    for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(FileExtensionCatalogue.class)) {
+    for (final var c : GlobalClassTool.getPublicStaticFieldValuesOfClass(FileExtensionCatalogue.class)) {
       expect(c).isOfType(String.class);
     }
   }
