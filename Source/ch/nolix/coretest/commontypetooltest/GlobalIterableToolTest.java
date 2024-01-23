@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.coretest.commontypetooltest.commontypehelpertest;
+package ch.nolix.coretest.commontypetooltest;
 
-import ch.nolix.core.commontypetool.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalIterableHelperTest extends Test {
+public final class GlobalIterableToolTest extends Test {
 
   //method
   @TestCase
@@ -17,7 +17,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = null;
 
     //execution
-    final var result = GlobalIterableHelper.containsAny(iterable);
+    final var result = GlobalIterableTool.containsAny(iterable);
 
     //verification
     expectNot(result);
@@ -31,7 +31,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>();
 
     //execution
-    final var result = GlobalIterableHelper.containsAny(iterable);
+    final var result = GlobalIterableTool.containsAny(iterable);
 
     //verification
     expectNot(result);
@@ -45,7 +45,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>(new String[] { "x" });
 
     //execution
-    final var result = GlobalIterableHelper.containsAny(iterable);
+    final var result = GlobalIterableTool.containsAny(iterable);
 
     //verification
     expect(result);
@@ -59,7 +59,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx" });
 
     //execution
-    final var result = GlobalIterableHelper.containsAny(iterable);
+    final var result = GlobalIterableTool.containsAny(iterable);
 
     //verification
     expect(result);
@@ -73,7 +73,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = null;
 
     //execution
-    final var result = GlobalIterableHelper.containsEqualing(iterable, "x");
+    final var result = GlobalIterableTool.containsEqualing(iterable, "x");
 
     //verification
     expectNot(result);
@@ -87,7 +87,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>();
 
     //execution
-    final var result = GlobalIterableHelper.containsEqualing(iterable, "x");
+    final var result = GlobalIterableTool.containsEqualing(iterable, "x");
 
     //verification
     expectNot(result);
@@ -101,7 +101,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
 
     //execution
-    final var result = GlobalIterableHelper.containsEqualing(iterable, "xxxx");
+    final var result = GlobalIterableTool.containsEqualing(iterable, "xxxx");
 
     //verification
     expectNot(result);
@@ -115,7 +115,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
 
     //execution
-    final var result = GlobalIterableHelper.containsEqualing(iterable, "xx");
+    final var result = GlobalIterableTool.containsEqualing(iterable, "xx");
 
     //verification
     expect(result);
@@ -129,7 +129,7 @@ public final class GlobalIterableHelperTest extends Test {
     final Iterable<Object> iterable = new List<>(new String[] { "x", "x", "x" });
 
     //execution
-    final var result = GlobalIterableHelper.containsEqualing(iterable, "x");
+    final var result = GlobalIterableTool.containsEqualing(iterable, "x");
 
     //verification
     expect(result);

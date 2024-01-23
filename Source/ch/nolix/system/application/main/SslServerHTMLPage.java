@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
@@ -65,7 +65,7 @@ record SslServerHtmlPage(String serverDomain, int serverPort) {
 
   //method
   private String getServerDomainInQuotes() {
-    return GlobalStringHelper.getInQuotes(getServerDomain());
+    return GlobalStringTool.getInQuotes(getServerDomain());
   }
 
   //method

@@ -9,10 +9,10 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.core.container.linkedlist.LinkedList;
 
 //class
-public final class GlobalInputStreamHelper {
+public final class GlobalInputStreamTool {
 
   //constructor
-  private GlobalInputStreamHelper() {
+  private GlobalInputStreamTool() {
   }
 
   //static method

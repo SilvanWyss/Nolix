@@ -13,7 +13,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
-import ch.nolix.core.commontypetool.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -211,7 +211,7 @@ public abstract class Container<E> implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getElementCount() == GlobalIterableHelper.getElementCount(container));
+    return (getElementCount() == GlobalIterableTool.getElementCount(container));
   }
 
   //method
@@ -276,7 +276,7 @@ public abstract class Container<E> implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getElementCount() < GlobalIterableHelper.getElementCount(container));
+    return (getElementCount() < GlobalIterableTool.getElementCount(container));
   }
 
   //method
@@ -294,7 +294,7 @@ public abstract class Container<E> implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getElementCount() > GlobalIterableHelper.getElementCount(container));
+    return (getElementCount() > GlobalIterableTool.getElementCount(container));
   }
 
   //method
@@ -460,7 +460,7 @@ public abstract class Container<E> implements IContainer<E> {
   public final boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container) {
 
     for (final var e : this) {
-      if (!GlobalIterableHelper.containsEqualing(container, e)) {
+      if (!GlobalIterableTool.containsEqualing(container, e)) {
         return false;
       }
     }

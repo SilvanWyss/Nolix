@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -193,7 +193,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   protected final void setValueFromSpecification(final INode<?> specification) {
 
     for (final var s : parent.getAvailableStates()) {
-      if (GlobalStringHelper.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
+      if (GlobalStringTool.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
         setValueFromSpecificationToState(s, specification);
         return;
       }

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.web.css;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -31,7 +31,7 @@ public final class Css implements ICss {
   //method
   @Override
   public String toString() {
-    return GlobalStringHelper.getInBraces(toStringWithoutEnclosingBrackets());
+    return GlobalStringTool.getInBraces(toStringWithoutEnclosingBrackets());
   }
 
   //method

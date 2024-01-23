@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -56,7 +56,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
-      .append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
+      .append(GlobalStringTool.createTabulators(leadingTabulatorCount))
       .append('<')
       .append(mutableXmlNode.getName());
 
@@ -74,7 +74,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
       } else {
         stringBuilder
           .append(CharacterCatalogue.NEW_LINE)
-          .append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
+          .append(GlobalStringTool.createTabulators(leadingTabulatorCount + 1))
           .append(mutableXmlNode.getValue())
           .append(CharacterCatalogue.NEW_LINE);
 
@@ -93,7 +93,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     if (mutableXmlNode.containsChildNodes()) {
-      stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
+      stringBuilder.append(GlobalStringTool.createTabulators(leadingTabulatorCount));
     }
 
     stringBuilder

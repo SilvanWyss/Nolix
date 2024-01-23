@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.test.Test;
@@ -26,7 +26,7 @@ public final class PluralLowerCaseVariableCatalogueTest extends Test {
 
       final var stringValue = c.toString();
       if (!exceptions.containsEqualing(stringValue)) {
-        expect(stringValue).fulfills(GlobalStringHelper::isLowerCase);
+        expect(stringValue).fulfills(GlobalStringTool::isLowerCase);
       }
     }
   }

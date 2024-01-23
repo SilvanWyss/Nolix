@@ -5,7 +5,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -183,7 +183,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalogue.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
-    if (GlobalIterableHelper.containsAny(elements)) {
+    if (GlobalIterableTool.containsAny(elements)) {
 
       final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
 

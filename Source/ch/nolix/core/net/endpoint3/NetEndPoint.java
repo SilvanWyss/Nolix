@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -322,7 +322,7 @@ public final class NetEndPoint extends EndPoint {
         return MessageHeaderCatalogue.DONE_HEADER;
       case MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER:
         return MessageHeaderCatalogue.MULTI_DATA_HEADER
-        + GlobalStringHelper.getInParantheses(
+        + GlobalStringTool.getInParantheses(
           receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.MESSAGE, message);

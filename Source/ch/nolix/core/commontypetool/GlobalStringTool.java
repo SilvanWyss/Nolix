@@ -18,19 +18,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * The {@link GlobalStringHelper} provides methods to handle {@link String}s. Of
- * the {@link GlobalStringHelper} an instance cannot be created.
+ * The {@link GlobalStringTool} provides methods to handle {@link String}s. Of
+ * the {@link GlobalStringTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class GlobalStringHelper {
+public final class GlobalStringTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalStringHelper} can be created.
+   * Prevents that an instance of the {@link GlobalStringTool} can be created.
    */
-  private GlobalStringHelper() {
+  private GlobalStringTool() {
   }
 
   //static method

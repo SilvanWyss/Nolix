@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
-import ch.nolix.core.commontypetool.GlobalInputStreamHelper;
+import ch.nolix.core.commontypetool.GlobalInputStreamTool;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.worker.Worker;
 
@@ -26,7 +26,7 @@ final class SocketEndPointMessageListener extends Worker {
   protected void run() {
     while (parentNetEndPoint.isOpen()) {
 
-      final var line = GlobalInputStreamHelper.readLineFrom(parentNetEndPoint.getStoredInputStream());
+      final var line = GlobalInputStreamTool.readLineFrom(parentNetEndPoint.getStoredInputStream());
 
       if (line == null) {
         parentNetEndPoint.close();

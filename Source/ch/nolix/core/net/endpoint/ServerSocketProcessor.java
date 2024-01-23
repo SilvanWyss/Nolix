@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
-import ch.nolix.core.commontypetool.GlobalInputStreamHelper;
+import ch.nolix.core.commontypetool.GlobalInputStreamTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -90,7 +90,7 @@ final class ServerSocketProcessor extends Worker {
   //method
   private Optional<NetEndPoint> createOptionalNetEndPoint() {
 
-    final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
+    final var firstReveivedLine = GlobalInputStreamTool.readLineFrom(socketInputStream);
 
     GlobalLogger.logInfo("The current ServerSocketProcessor received the first line: " + firstReveivedLine);
 
@@ -137,7 +137,7 @@ final class ServerSocketProcessor extends Worker {
   private void fillUpUntilEmptyLineFollows(final LinkedList<String> lines, final InputStream inputStream) {
     while (true) {
 
-      final var line = GlobalInputStreamHelper.readLineFrom(inputStream);
+      final var line = GlobalInputStreamTool.readLineFrom(inputStream);
 
       if (line == null) {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.LINE);

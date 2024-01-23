@@ -8,19 +8,19 @@ import java.util.Locale;
 
 //class
 /**
- * The {@link GlobalDoubleHelper} provides methods to handle doubles. Of the
- * {@link GlobalDoubleHelper} an instance cannot be created.
+ * The {@link GlobalDoubleTool} provides methods to handle doubles. Of the
+ * {@link GlobalDoubleTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
  */
-public final class GlobalDoubleHelper {
+public final class GlobalDoubleTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalDoubleHelper} can be created.
+   * Prevents that an instance of the {@link GlobalDoubleTool} can be created.
    */
-  private GlobalDoubleHelper() {
+  private GlobalDoubleTool() {
   }
 
   //static method

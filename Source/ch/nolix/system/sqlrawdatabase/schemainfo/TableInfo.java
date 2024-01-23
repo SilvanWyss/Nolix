@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.schemainfo;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -70,6 +70,6 @@ implements ITableInfo {
   //method
   @Override
   public String getTableNameInQuotes() {
-    return GlobalStringHelper.getInQuotes(getTableName());
+    return GlobalStringTool.getInQuotes(getTableName());
   }
 }

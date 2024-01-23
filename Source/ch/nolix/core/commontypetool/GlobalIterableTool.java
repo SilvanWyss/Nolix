@@ -5,10 +5,10 @@ package ch.nolix.core.commontypetool;
 import java.util.Objects;
 
 //class
-public final class GlobalIterableHelper {
+public final class GlobalIterableTool {
 
   //constructor
-  private GlobalIterableHelper() {
+  private GlobalIterableTool() {
   }
 
   //static method

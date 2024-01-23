@@ -2,7 +2,7 @@
 package ch.nolix.core.math.algebra;
 
 import ch.nolix.core.commontypetool.GlobalArrayTool;
-import ch.nolix.core.commontypetool.GlobalDoubleHelper;
+import ch.nolix.core.commontypetool.GlobalDoubleTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -372,7 +372,7 @@ public final class Polynom {
           stringBuilder.append("+");
         }
 
-        stringBuilder.append(GlobalDoubleHelper.toString(constant));
+        stringBuilder.append(GlobalDoubleTool.toString(constant));
       }
     }
   }
@@ -393,7 +393,7 @@ public final class Polynom {
         }
 
         if (coefficient != 1.0) {
-          stringBuilder.append(GlobalDoubleHelper.toString(coefficient));
+          stringBuilder.append(GlobalDoubleTool.toString(coefficient));
         }
 
         final var coefficientDegree = degree - i;
@@ -414,7 +414,7 @@ public final class Polynom {
           stringBuilder.append("+");
         }
 
-        stringBuilder.append(GlobalDoubleHelper.toString(linearCoefficient) + parameterSymbol);
+        stringBuilder.append(GlobalDoubleTool.toString(linearCoefficient) + parameterSymbol);
       }
     }
   }

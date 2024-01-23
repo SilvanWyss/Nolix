@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import ch.nolix.core.commontypetool.GlobalArrayTool;
-import ch.nolix.core.commontypetool.GlobalDoubleHelper;
+import ch.nolix.core.commontypetool.GlobalDoubleTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -1133,7 +1133,7 @@ public final class Matrix {
 
       for (var j = 0; j < getColumnCount(); j++) {
 
-        stringBuilder.append(GlobalDoubleHelper.toString(values[i][j]));
+        stringBuilder.append(GlobalDoubleTool.toString(values[i][j]));
 
         if (j < getColumnCount() - 1) {
           stringBuilder.append(',');

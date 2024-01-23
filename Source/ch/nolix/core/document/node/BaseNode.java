@@ -4,7 +4,7 @@ package ch.nolix.core.document.node;
 //Java imports
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -293,7 +293,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   @Override
   public final boolean toBoolean() {
-    return GlobalStringHelper.toBoolean(toString());
+    return GlobalStringTool.toBoolean(toString());
   }
 
   //method
@@ -302,7 +302,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   @Override
   public final double toDouble() {
-    return GlobalStringHelper.toDouble(toString());
+    return GlobalStringTool.toDouble(toString());
   }
 
   //method
@@ -433,7 +433,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
       }
 
       stringBuilder
-        .append(GlobalStringHelper.createTabulators(leadingTabulators))
+        .append(GlobalStringTool.createTabulators(leadingTabulators))
         .append(CharacterCatalogue.CLOSED_BRACKET);
     }
   }
@@ -485,7 +485,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
     final var stringBuilder = new StringBuilder();
 
-    stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulators));
+    stringBuilder.append(GlobalStringTool.createTabulators(leadingTabulators));
 
     //Handles the case that the current specification has a header.
     if (hasHeader()) {

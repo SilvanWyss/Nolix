@@ -5,7 +5,7 @@ package ch.nolix.core.container.immutablelist;
 import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.GlobalArrayTool;
-import ch.nolix.core.commontypetool.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
@@ -89,7 +89,7 @@ public final class ImmutableList<E> extends Container<E> {
       return (ImmutableList<E2>) container;
     }
 
-    final var elementCount = GlobalIterableHelper.getElementCount(container);
+    final var elementCount = GlobalIterableTool.getElementCount(container);
     final var elements = new Object[elementCount];
     var index = 0;
     for (final var e : container) {

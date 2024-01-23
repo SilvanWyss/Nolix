@@ -7,13 +7,13 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * The {@link GlobalCharacterHelper} provides methods to handle characters. Of
- * the {@link GlobalCharacterHelper} an instance cannot be created.
+ * The {@link GlobalCharacterTool} provides methods to handle characters. Of
+ * the {@link GlobalCharacterTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class GlobalCharacterHelper {
+public final class GlobalCharacterTool {
 
   //constant
   private static final String ARTICLE_A = "a";
@@ -23,10 +23,10 @@ public final class GlobalCharacterHelper {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalCharacterHelper} can be
+   * Prevents that an instance of the {@link GlobalCharacterTool} can be
    * created.
    */
-  private GlobalCharacterHelper() {
+  private GlobalCharacterTool() {
   }
 
   //static method
