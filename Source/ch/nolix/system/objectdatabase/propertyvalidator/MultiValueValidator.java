@@ -3,16 +3,16 @@ package ch.nolix.system.objectdatabase.propertyvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdatabase.propertyhelper.MultiValueHelper;
+import ch.nolix.system.objectdatabase.propertytool.MultiValueTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IMultiValueTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueValidator;
 
 //class
 public final class MultiValueValidator extends PropertyValidator implements IMultiValueValidator {
 
   //constant
-  private static final IMultiValueHelper MULTI_VALUE_HELPER = new MultiValueHelper();
+  private static final IMultiValueTool MULTI_VALUE_HELPER = new MultiValueTool();
 
   //method
   @Override

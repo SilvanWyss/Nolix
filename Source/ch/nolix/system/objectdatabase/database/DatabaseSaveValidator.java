@@ -1,35 +1,34 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-//own imports
-import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
-import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceEntryHelper;
-import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.system.objectdatabase.databasetool.DatabaseTool;
+import ch.nolix.system.objectdatabase.databasetool.EntityTool;
+import ch.nolix.system.objectdatabase.propertytool.MultiReferenceEntryTool;
+import ch.nolix.system.objectdatabase.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceEntryHelper;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IDatabaseTool;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IEntityTool;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IMultiReferenceEntryTool;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IPropertyTool;
 
 //class
 public final class DatabaseSaveValidator {
 
   //constant
-  private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
 
   //constant
-  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+  private static final IEntityTool ENTITY_HELPER = new EntityTool();
 
   //constant
-  private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
+  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
 
   //constant
-  private static final IMultiReferenceEntryHelper MULTI_REFERENCE_ENTRY_HELPER = new MultiReferenceEntryHelper();
+  private static final IMultiReferenceEntryTool MULTI_REFERENCE_ENTRY_HELPER = new MultiReferenceEntryTool();
 
   //method
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(final Database database) {

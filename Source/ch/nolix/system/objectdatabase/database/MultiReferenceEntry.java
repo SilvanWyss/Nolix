@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectTool;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
 
   //constant
-  private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
+  private static final DatabaseObjectTool DATABASE_OBJECT_HELPER = new DatabaseObjectTool();
 
   //attribute
   private final IMultiReference<E> parentMultiReference;

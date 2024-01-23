@@ -6,24 +6,24 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedBackReferenceType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedReferenceType;
-import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
-import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
-import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.system.objectschema.schematool.ColumnTool;
+import ch.nolix.system.objectschema.schematool.DatabaseTool;
+import ch.nolix.system.objectschema.schematool.TableTool;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 //class
 final class TableMutationValidator {
 
   //constant
-  private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
 
   //constant
-  private static final ITableHelper TABLE_HELPER = new TableHelper();
+  private static final ITableTool TABLE_HELPER = new TableTool();
 
   //constant
-  private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
+  private static final IColumnTool COLUMN_HELPER = new ColumnTool();
 
   //method
   public void assertCanAddColumnToTable(final Table table, final Column column) {

@@ -7,14 +7,14 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.caching.CachingProperty;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdatabase.databasehelper.TableHelper;
+import ch.nolix.system.objectdatabase.databasetool.TableTool;
 import ch.nolix.system.objectdatabase.databasevalidator.TableValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.ITableTool;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 
@@ -25,7 +25,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
   //constant
-  private static final ITableHelper TABLE_HELPER = new TableHelper();
+  private static final ITableTool TABLE_HELPER = new TableTool();
 
   //constant
   private static final EntityMapper ENTITY_MAPPER = new EntityMapper();

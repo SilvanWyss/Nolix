@@ -13,12 +13,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedPropertyType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
-import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
+import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //class
@@ -42,7 +42,7 @@ public final class Column extends SchemaObject implements IColumn {
   private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
 
   //constant
-  private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
+  private static final IColumnTool COLUMN_HELPER = new ColumnTool();
 
   //attribute
   private final String id;

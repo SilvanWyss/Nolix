@@ -5,8 +5,8 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
-import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
+import ch.nolix.system.objectdatabase.databasetool.EntityTool;
+import ch.nolix.system.objectdatabase.propertytool.OptionalReferenceTool;
 import ch.nolix.system.objectdatabase.propertyvalidator.OptionalReferenceValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
@@ -14,8 +14,8 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IEntityTool;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
@@ -26,10 +26,10 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
 
   //constant
-  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+  private static final IEntityTool ENTITY_HELPER = new EntityTool();
 
   //constant
-  private static final IOptionalReferenceHelper OPTIONAL_REFERENCE_HELPER = new OptionalReferenceHelper();
+  private static final IOptionalReferenceTool OPTIONAL_REFERENCE_HELPER = new OptionalReferenceTool();
 
   //optional attribute
   private String referencedEntityId;

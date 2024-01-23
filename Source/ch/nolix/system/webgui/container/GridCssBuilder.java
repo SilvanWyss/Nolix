@@ -10,7 +10,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.basecontrolservice.ControlCssBuilder;
-import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
+import ch.nolix.system.webgui.controlhelper.ControlCssValueTool;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 
   //constant
-  private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper();
+  private static final ControlCssValueTool CONTROL_CSS_VALUE_HELPER = new ControlCssValueTool();
 
   //method
   @Override

@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectTool;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //constant
-  private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
+  private static final DatabaseObjectTool DATABASE_OBJECT_HELPER = new DatabaseObjectTool();
 
   //attribute
   private final IMultiValue<V> parentMultiValue;

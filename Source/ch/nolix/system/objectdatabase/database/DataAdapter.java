@@ -7,11 +7,11 @@ import java.util.function.Supplier;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
+import ch.nolix.system.objectdatabase.databasetool.DatabaseTool;
 import ch.nolix.systemapi.objectdatabaseapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
   //constant
-  private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
 
   //constant
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();

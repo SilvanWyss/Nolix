@@ -86,7 +86,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   //static method
   public static MutableImage fromBytes(final byte[] bytes) {
-    return fromBufferedImage(GlobalBufferedImageHelper.fromBytes(bytes));
+    return fromBufferedImage(GlobalBufferedImageTool.fromBytes(bytes));
   }
 
   //static method
@@ -113,7 +113,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //static method
   public static MutableImage fromFile(final String filePath) {
 
-    final var bufferedImage = GlobalBufferedImageHelper.fromFile(filePath);
+    final var bufferedImage = GlobalBufferedImageTool.fromFile(filePath);
 
     return fromBufferedImage(bufferedImage);
   }

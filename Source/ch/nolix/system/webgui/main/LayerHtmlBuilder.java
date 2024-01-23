@@ -8,14 +8,14 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
-import ch.nolix.system.webgui.layerhelper.LayerHelper;
+import ch.nolix.system.webgui.layertool.LayerTool;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
 public final class LayerHtmlBuilder {
 
   //constant
-  private static final LayerHelper LAYER_HELPER = new LayerHelper();
+  private static final LayerTool LAYER_HELPER = new LayerTool();
 
   //method
   public IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {

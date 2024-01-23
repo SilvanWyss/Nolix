@@ -4,16 +4,16 @@ package ch.nolix.system.objectdatabase.propertyvalidator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdatabase.propertyhelper.OptionalValueHelper;
+import ch.nolix.system.objectdatabase.propertytool.OptionalValueTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueValidator;
 
 //class
 public final class OptionalValueValidator extends PropertyValidator implements IOptionalValueValidator {
 
   //constant
-  private static final IOptionalValueHelper OPTIONAL_VALUE_HELPER = new OptionalValueHelper();
+  private static final IOptionalValueTool OPTIONAL_VALUE_HELPER = new OptionalValueTool();
 
   //method
   @Override

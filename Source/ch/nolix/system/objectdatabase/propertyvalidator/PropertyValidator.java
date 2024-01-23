@@ -6,17 +6,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.system.objectdatabase.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IPropertyTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValidator;
 
 //class
 public class PropertyValidator implements IPropertyValidator {
 
   //constant
-  private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
+  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
 
   //method
   @Override

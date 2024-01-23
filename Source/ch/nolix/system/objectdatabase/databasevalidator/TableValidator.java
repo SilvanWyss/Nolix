@@ -3,17 +3,17 @@ package ch.nolix.system.objectdatabase.databasevalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdatabase.databasehelper.TableHelper;
+import ch.nolix.system.objectdatabase.databasetool.TableTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.ITableTool;
 import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.ITableValidator;
 
 //class
 public final class TableValidator implements ITableValidator {
 
   //constant
-  private static final ITableHelper TABLE_HELPER = new TableHelper();
+  private static final ITableTool TABLE_HELPER = new TableTool();
 
   //method
   @Override

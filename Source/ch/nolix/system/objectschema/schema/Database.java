@@ -5,17 +5,17 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
+import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class Database extends SchemaObject implements IDatabase {
 
   //constant
-  private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
 
   //constant
   private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();

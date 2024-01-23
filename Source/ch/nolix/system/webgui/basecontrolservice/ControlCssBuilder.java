@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
+import ch.nolix.system.webgui.controlhelper.ControlCssValueTool;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -25,7 +25,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
 implements IControlCssBuilder<C, CS> {
 
   //constant
-  private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper();
+  private static final ControlCssValueTool CONTROL_CSS_VALUE_HELPER = new ControlCssValueTool();
 
   //TODO: Refactor this method.
   //method

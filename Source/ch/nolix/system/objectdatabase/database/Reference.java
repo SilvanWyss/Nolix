@@ -5,15 +5,15 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
-import ch.nolix.system.objectdatabase.propertyhelper.ReferenceValidator;
+import ch.nolix.system.objectdatabase.databasetool.EntityTool;
+import ch.nolix.system.objectdatabase.propertytool.ReferenceValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
@@ -24,7 +24,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
   //constant
-  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+  private static final IEntityTool ENTITY_HELPER = new EntityTool();
 
   //optional attribute
   private String referencedEntityId;

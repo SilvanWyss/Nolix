@@ -6,19 +6,19 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.system.objectdatabase.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IPropertyTool;
 
 //class
 public abstract class BaseBackReference<E extends IEntity> extends Property
 implements IBaseBackReference<E> {
 
   //constant
-  private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
+  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
 
   //attribute
   private final String backReferencedTableName;

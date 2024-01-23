@@ -3,17 +3,17 @@ package ch.nolix.system.objectdatabase.propertyvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceHelper;
+import ch.nolix.system.objectdatabase.propertytool.MultiReferenceTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IMultiReferenceTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReferenceValidator;
 
 //class
 public final class MultiReferenceValidator extends PropertyValidator implements IMultiReferenceValidator {
 
   //constant
-  private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();
+  private static final IMultiReferenceTool MULTI_REFERENCE_HELPER = new MultiReferenceTool();
 
   //method
   @Override

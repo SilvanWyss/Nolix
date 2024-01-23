@@ -8,17 +8,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
+import ch.nolix.system.objectdatabase.databasetool.EntityTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IEntityValidator;
 
 //class
 public final class EntityValidator implements IEntityValidator {
 
   //constant
-  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+  private static final IEntityTool ENTITY_HELPER = new EntityTool();
 
   //method
   @Override

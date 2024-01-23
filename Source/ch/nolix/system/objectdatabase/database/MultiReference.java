@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceHelper;
+import ch.nolix.system.objectdatabase.propertytool.MultiReferenceTool;
 import ch.nolix.system.objectdatabase.propertyvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IMultiReferenceTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
   //constant
-  private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();
+  private static final IMultiReferenceTool MULTI_REFERENCE_HELPER = new MultiReferenceTool();
 
   //constant
   private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();

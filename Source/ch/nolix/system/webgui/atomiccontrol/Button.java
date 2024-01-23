@@ -24,7 +24,7 @@ import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButtonStyle;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelHelper;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelTool;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -44,7 +44,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
   //constant
-  private static final IValidationLabelHelper VALIDATION_LABEL_HELPER = new ValidationLabelHelper();
+  private static final IValidationLabelTool VALIDATION_LABEL_HELPER = new ValidationLabelTool();
 
   //constant
   private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();

@@ -10,11 +10,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
-import ch.nolix.system.objectschema.schemahelper.TableHelper;
+import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
@@ -28,7 +28,7 @@ public final class Table extends SchemaObject implements ITable {
   private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
 
   //constant
-  private static final ITableHelper TABLE_HELPER = new TableHelper();
+  private static final ITableTool TABLE_HELPER = new TableTool();
 
   //attribute
   private final String id;

@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
+import ch.nolix.system.objectdatabase.databasetool.EntityTool;
 import ch.nolix.system.objectdatabase.databasevalidator.EntityValidator;
 import ch.nolix.system.objectdatabase.entityflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdatabase.entityflyweight.VoidEntityFlyWeight;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IEntityFlyWeight;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IEntityTool;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
@@ -33,7 +33,7 @@ public abstract class BaseEntity implements IEntity {
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
   //constant
-  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+  private static final IEntityTool ENTITY_HELPER = new EntityTool();
 
   //attribute
   private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();

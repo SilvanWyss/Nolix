@@ -23,7 +23,7 @@ import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.element.style.StylableElement;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.system.webgui.controlhelper.ControlTool;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -66,7 +66,7 @@ implements IControl<C, CS> {
   private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalogue.CURSOR_ICON;
 
   //constant
-  private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+  private static final ControlTool CONTROL_HELPER = new ControlTool();
 
   //constant
   private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //

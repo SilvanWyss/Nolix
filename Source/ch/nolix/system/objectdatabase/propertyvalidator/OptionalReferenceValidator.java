@@ -4,17 +4,17 @@ package ch.nolix.system.objectdatabase.propertyvalidator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
+import ch.nolix.system.objectdatabase.propertytool.OptionalReferenceTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalReferenceValidator;
 
 //class
 public final class OptionalReferenceValidator extends PropertyValidator implements IOptionalReferenceValidator {
 
   //constant
-  private static final IOptionalReferenceHelper OPTIONAL_REFERENCE_HELPER = new OptionalReferenceHelper();
+  private static final IOptionalReferenceTool OPTIONAL_REFERENCE_HELPER = new OptionalReferenceTool();
 
   //method
   @Override

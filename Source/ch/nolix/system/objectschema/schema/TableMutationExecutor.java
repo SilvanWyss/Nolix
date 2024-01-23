@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
-import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.system.objectschema.schematool.TableTool;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 //class
 final class TableMutationExecutor {
 
   //constant
-  private static final ITableHelper TABLE_HELPER = new TableHelper();
+  private static final ITableTool TABLE_HELPER = new TableTool();
 
   //method
   public void addColumnToTable(final Table table, final Column column) {

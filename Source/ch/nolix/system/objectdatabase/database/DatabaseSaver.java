@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-//own imports
-import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
+import ch.nolix.system.objectdatabase.databasetool.DatabaseTool;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IDatabaseTool;
 
 //class
 final class DatabaseSaver {
 
   //constant
-  private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
 
   //constant
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();

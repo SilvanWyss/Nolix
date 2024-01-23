@@ -1,24 +1,23 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-//own imports
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
-import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.system.objectdatabase.databasetool.EntityTool;
+import ch.nolix.system.objectdatabase.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IEntityTool;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IPropertyTool;
 
 //class
 public final class EntitySaver {
 
   //constant
-  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+  private static final IEntityTool ENTITY_HELPER = new EntityTool();
 
   //constant
-  private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
+  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
 
   //constant
   private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();

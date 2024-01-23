@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-//own imports
-import ch.nolix.system.objectdatabase.propertyhelper.ValueHelper;
+import ch.nolix.system.objectdatabase.propertytool.ValueTool;
 import ch.nolix.system.objectdatabase.propertyvalidator.ValueValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IValueTool;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
@@ -19,7 +18,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 
   //constant
-  private static final IValueHelper VALUE_HELPER = new ValueHelper();
+  private static final IValueTool VALUE_HELPER = new ValueTool();
 
   //constant
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
