@@ -9,6 +9,6 @@ public final class FileSystemTestPool extends TestPool {
 
   //constructor
   public FileSystemTestPool() {
-    super(FileExtensionCatalogueTest.class);
+    super();
   }
 }

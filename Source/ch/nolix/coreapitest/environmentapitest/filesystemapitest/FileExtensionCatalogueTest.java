@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.environmenttest.filesystemtest;
+package ch.nolix.coreapitest.environmentapitest.filesystemapitest;
 
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.test.Test;
