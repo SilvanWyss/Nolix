@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.controlhelper;
+package ch.nolix.system.webgui.controltool;
 
 //own imports
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;

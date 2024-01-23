@@ -8,7 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
-import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;

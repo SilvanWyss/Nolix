@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schematool;
 
-//own imports
-import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedPropertyTypeTool;

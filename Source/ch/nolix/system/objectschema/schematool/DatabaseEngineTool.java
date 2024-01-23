@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schematool;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseEngineTool;
