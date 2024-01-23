@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.commontypetooltest.unsignedbytetest;
+package ch.nolix.coretest.programatomtest.unsignedbytetest;
 
 //class
 public final class Launcher {

@@ -4,12 +4,13 @@ package ch.nolix.coretest.programatomtest;
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.programatomtest.functiontest.FunctionTestPool;
+import ch.nolix.coretest.programatomtest.unsignedbytetest.UnsignedTypeTestPool;
 
 //class
 public final class ProgramAtomTestPool extends TestPool {
 
   //constructor
   public ProgramAtomTestPool() {
-    super(new FunctionTestPool());
+    super(new FunctionTestPool(), new UnsignedTypeTestPool());
   }
 }
