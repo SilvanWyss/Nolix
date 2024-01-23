@@ -441,7 +441,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
     childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
   }
 
-  //TODO: Create ControlHelper.
+  //TODO: Use ControlTool.
   //method
   private boolean firstControlContainsSecondControl(final IControl<?, ?> control1, final IControl<?, ?> control2) {
 
