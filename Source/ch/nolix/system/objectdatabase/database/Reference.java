@@ -8,6 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.databasetool.EntityTool;
 import ch.nolix.system.objectdatabase.propertytool.ReferenceValidator;
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -124,6 +125,8 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
     updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
 
+    insertEntityIntoDatabaseIfPossible(entity);
+
     setAsEditedAndRunProbableUpdateAction();
   }
 
@@ -205,6 +208,16 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   //method
   private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
     return ENTITY_TOOL.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
+  }
+
+  //method
+  private void insertEntityIntoDatabaseIfPossible(final E entity) {
+    if (belongsToEntity()
+    && getStoredParentEntity().belongsToTable()
+    && entity.getState() == DatabaseObjectState.NEW
+    && !entity.belongsToTable()) {
+      getStoredParentEntity().getStoredParentDatabase().insertEntity(entity);
+    }
   }
 
   //method
