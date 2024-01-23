@@ -24,7 +24,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
   //constant
-  private static final IEntityTool ENTITY_HELPER = new EntityTool();
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //optional attribute
   private String referencedEntityId;
@@ -204,7 +204,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-    return ENTITY_HELPER.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
+    return ENTITY_TOOL.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
   }
 
   //method

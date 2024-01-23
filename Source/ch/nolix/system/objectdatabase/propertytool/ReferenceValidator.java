@@ -13,12 +13,12 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValid
 public class ReferenceValidator extends PropertyValidator implements IReferenceValidator {
 
   //constant
-  private static final IReferenceTool REFERENCE_HELPER = new ReferenceTool();
+  private static final IReferenceTool REFERENCE_TOOL = new ReferenceTool();
 
   //method
   @Override
   public void assertCanSetGivenEntity(final IReference<?> reference, final IEntity entity) {
-    if (!REFERENCE_HELPER.canSetGivenEntity(reference, entity)) {
+    if (!REFERENCE_TOOL.canSetGivenEntity(reference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(reference, "cannot reference the given entity");
     }
   }

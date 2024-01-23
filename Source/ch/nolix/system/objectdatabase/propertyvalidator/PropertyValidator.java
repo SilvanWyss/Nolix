@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValida
 public class PropertyValidator implements IPropertyValidator {
 
   //constant
-  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
+  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //method
   @Override
@@ -45,7 +45,7 @@ public class PropertyValidator implements IPropertyValidator {
   //method
   @Override
   public final void assertIsNotMandatoryAndEmptyBoth(final IProperty property) {
-    if (PROPERTY_HELPER.isMandatoryAndEmptyBoth(property)) {
+    if (PROPERTY_TOOL.isMandatoryAndEmptyBoth(property)) {
       throw EmptyArgumentException.forArgument(property);
     }
   }

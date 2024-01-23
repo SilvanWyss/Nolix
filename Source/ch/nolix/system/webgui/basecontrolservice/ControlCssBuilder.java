@@ -25,7 +25,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
 implements IControlCssBuilder<C, CS> {
 
   //constant
-  private static final ControlCssValueTool CONTROL_CSS_VALUE_HELPER = new ControlCssValueTool();
+  private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
   //TODO: Refactor this method.
   //method
@@ -144,7 +144,7 @@ implements IControlCssBuilder<C, CS> {
         String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.BORDER_LEFT_COLOR,
-        CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getLeftBorderColorWhenHasState(state))),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getLeftBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.PADDING_LEFT,
         String.valueOf(style.getLeftPaddingWhenHasState(state)) + "px"),
@@ -153,7 +153,7 @@ implements IControlCssBuilder<C, CS> {
         String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.BORDER_RIGHT_COLOR,
-        CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getRightBorderColorWhenHasState(state))),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getRightBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.PADDING_RIGHT,
         String.valueOf(style.getRightPaddingWhenHasState(state)) + "px"),
@@ -162,7 +162,7 @@ implements IControlCssBuilder<C, CS> {
         String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.BORDER_TOP_COLOR,
-        CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getTopBorderColorWhenHasState(state))),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getTopBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.PADDING_TOP,
         String.valueOf(style.getTopPaddingWhenHasState(state)) + "px"),
@@ -171,7 +171,7 @@ implements IControlCssBuilder<C, CS> {
         String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
-        CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getBottomBorderColorWhenHasState(state))),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getBottomBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.PADDING_BOTTOM,
         String.valueOf(style.getBottomPaddingWhenHasState(state)) + "px"));
@@ -191,7 +191,7 @@ implements IControlCssBuilder<C, CS> {
       list.addAtEnd(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalogue.WIDTH,
-          CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
+          CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             style.getWidthForState(state),
             "vw")));
     }
@@ -200,7 +200,7 @@ implements IControlCssBuilder<C, CS> {
       list.addAtEnd(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalogue.HEIGHT,
-          CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
+          CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             style.getHeightForState(state),
             "vh")));
     }
@@ -274,7 +274,7 @@ implements IControlCssBuilder<C, CS> {
       list.addAtEnd(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalogue.MIN_WIDTH,
-          CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
+          CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMinWidth(),
             "vw")));
     }
@@ -283,7 +283,7 @@ implements IControlCssBuilder<C, CS> {
       list.addAtEnd(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalogue.MIN_HEIGHT,
-          CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
+          CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMinHeight(),
             "vh")));
     }
@@ -292,7 +292,7 @@ implements IControlCssBuilder<C, CS> {
       list.addAtEnd(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalogue.MAX_WIDTH,
-          CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
+          CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMaxWidth(),
             "vw")));
     }
@@ -301,7 +301,7 @@ implements IControlCssBuilder<C, CS> {
       list.addAtEnd(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalogue.MAX_HEIGHT,
-          CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
+          CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMaxHeight(),
             "vh")));
     }
@@ -333,7 +333,7 @@ implements IControlCssBuilder<C, CS> {
     list.addAtEnd(
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.COLOR,
-        CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getTextColorWhenHasState(state))),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getTextColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalogue.FONT_FAMILY,
         style.getFontWhenHasState(state).getCode().toLowerCase(Locale.ENGLISH)),

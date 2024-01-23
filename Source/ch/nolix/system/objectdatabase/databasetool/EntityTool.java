@@ -21,14 +21,14 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
 
   //constant
-  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
+  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //method
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
 
     if (isNewOrEdited(entity)) {
-      return entity.technicalGetStoredProperties().containsOnly(PROPERTY_HELPER::isSetForCaseIsNewOrEditedAndMandatory);
+      return entity.technicalGetStoredProperties().containsOnly(PROPERTY_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
     }
 
     return true;
@@ -84,7 +84,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
-    return entity.technicalGetStoredProperties().getStoredSelected(PROPERTY_HELPER::isEdited);
+    return entity.technicalGetStoredProperties().getStoredSelected(PROPERTY_TOOL::isEdited);
   }
 
   //method
@@ -140,6 +140,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty property) {
     return isBaseValueOrBaseReference(property)
-    && PROPERTY_HELPER.isMandatoryAndEmptyBoth(property);
+    && PROPERTY_TOOL.isMandatoryAndEmptyBoth(property);
   }
 }

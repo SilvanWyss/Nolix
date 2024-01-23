@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public final class ParameterizedMultiValueTypeMapper implements IParameterizedPropertyTypeMapper<IMultiValue<?>> {
 
   //constant
-  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
+  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //method
   @Override
@@ -24,7 +24,7 @@ public final class ParameterizedMultiValueTypeMapper implements IParameterizedPr
     final IMultiValue<?> property,
     final IContainer<ITable> referencedTables) {
 
-    final var dataType = DataType.forType(PROPERTY_HELPER.getDataType(property));
+    final var dataType = DataType.forType(PROPERTY_TOOL.getDataType(property));
 
     return ParameterizedMultiValueType.forDataType(dataType);
   }

@@ -24,7 +24,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
   //constant
-  private static final IMultiReferenceTool MULTI_REFERENCE_HELPER = new MultiReferenceTool();
+  private static final IMultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
 
   //constant
   private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
@@ -100,7 +100,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     extractReferencedEntityIdsIfNeeded();
 
     return localEntries
-      .getStoredSelected(MULTI_REFERENCE_HELPER::isNewOrLoaded)
+      .getStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoaded)
       .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
@@ -237,7 +237,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   private boolean shouldExtractReferencedEntityIds() {
     return !extractedReferencedEntityIds()
-    && MULTI_REFERENCE_HELPER.belongsToLoadedEntity(this);
+    && MULTI_REFERENCE_TOOL.belongsToLoadedEntity(this);
   }
 
   //method

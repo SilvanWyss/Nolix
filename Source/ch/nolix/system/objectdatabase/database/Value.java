@@ -18,7 +18,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 
   //constant
-  private static final IValueTool VALUE_HELPER = new ValueTool();
+  private static final IValueTool VALUE_TOOL = new ValueTool();
 
   //constant
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
@@ -80,7 +80,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
     @SuppressWarnings("unchecked")
     final var value = (V) VALUE_CREATOR.createValueOfDataTypeFromString(
-      DataType.forType(VALUE_HELPER.getDataType(this)),
+      DataType.forType(VALUE_TOOL.getDataType(this)),
       string);
 
     setValue(value);

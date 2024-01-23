@@ -42,7 +42,7 @@ public final class Column extends SchemaObject implements IColumn {
   private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
 
   //constant
-  private static final IColumnTool COLUMN_HELPER = new ColumnTool();
+  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   //attribute
   private final String id;
@@ -121,7 +121,7 @@ public final class Column extends SchemaObject implements IColumn {
   @Override
   public Table getParentTable() {
 
-    COLUMN_HELPER.assertBelongsToTable(this);
+    COLUMN_TOOL.assertBelongsToTable(this);
 
     return parentTable;
   }
@@ -130,7 +130,7 @@ public final class Column extends SchemaObject implements IColumn {
   @Override
   public boolean isEmpty() {
 
-    if (COLUMN_HELPER.isNew(this)) {
+    if (COLUMN_TOOL.isNew(this)) {
       return true;
     }
 
@@ -187,7 +187,7 @@ public final class Column extends SchemaObject implements IColumn {
   //method
   IContainer<IColumn> getStoredBackReferencingColumns() {
 
-    if (!COLUMN_HELPER.isAReferenceColumn(this)) {
+    if (!COLUMN_TOOL.isAReferenceColumn(this)) {
       return new LinkedList<>();
     }
 
@@ -196,13 +196,13 @@ public final class Column extends SchemaObject implements IColumn {
 
   //method
   RawSchemaAdapter internalGetRefRawSchemaAdapter() {
-    return ((Database) COLUMN_HELPER.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
+    return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
   }
 
   //method
   boolean isBackReferenced() {
 
-    if (!COLUMN_HELPER.isAReferenceColumn(this)) {
+    if (!COLUMN_TOOL.isAReferenceColumn(this)) {
       return false;
     }
 
@@ -239,17 +239,17 @@ public final class Column extends SchemaObject implements IColumn {
   //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
 
-    if (COLUMN_HELPER.belongsToDatabase(this)) {
-      return COLUMN_HELPER
+    if (COLUMN_TOOL.belongsToDatabase(this)) {
+      return COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
         .toFromGroups(
-          t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
+          t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
 
     if (belongsToTable()) {
       return getParentTable().getStoredColumns()
-        .getStoredSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
+        .getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
     return new LinkedList<>();
@@ -258,15 +258,15 @@ public final class Column extends SchemaObject implements IColumn {
   //method
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
 
-    if (COLUMN_HELPER.belongsToDatabase(this)) {
-      return COLUMN_HELPER
+    if (COLUMN_TOOL.belongsToDatabase(this)) {
+      return COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
-        .containsAny(t -> t.getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
+        .containsAny(t -> t.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
 
     if (belongsToTable()) {
-      return getParentTable().getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
+      return getParentTable().getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
     return false;

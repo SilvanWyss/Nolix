@@ -32,7 +32,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 
   //constant
-  private static final IFractalTool FRACTAL_HELPER = new FractalTool();
+  private static final IFractalTool FRACTAL_TOOL = new FractalTool();
 
   //attribute
   private final IFractal fractal;
@@ -53,7 +53,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 
     this.fractal = fractal;
 
-    squaredMinMagnitudeForDivergence = FRACTAL_HELPER.getSquaredMinMagnitudeForDivergence(fractal);
+    squaredMinMagnitudeForDivergence = FRACTAL_TOOL.getSquaredMinMagnitudeForDivergence(fractal);
 
     image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 
@@ -156,14 +156,14 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   //method
   private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
     return new ComplexNumber(
-      FRACTAL_HELPER.getMinX(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
-      FRACTAL_HELPER.getMinY(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
+      FRACTAL_TOOL.getMinX(fractal).add(FRACTAL_TOOL.getUnitsForHorizontalPixelCount(fractal, x)),
+      FRACTAL_TOOL.getMinY(fractal).add(FRACTAL_TOOL.getUnitsForVerticalPixelCount(fractal, y)));
   }
 
   //method
   private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
     final IComplexNumber complexNumber) {
-    return FRACTAL_HELPER.getIterationCountForStartNumberWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
+    return FRACTAL_TOOL.getIterationCountForStartNumberWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
       fractal,
       complexNumber,
       squaredMinMagnitudeForDivergence);

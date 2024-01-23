@@ -26,10 +26,10 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
 
   //constant
-  private static final IEntityTool ENTITY_HELPER = new EntityTool();
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final IOptionalReferenceTool OPTIONAL_REFERENCE_HELPER = new OptionalReferenceTool();
+  private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();
 
   //optional attribute
   private String referencedEntityId;
@@ -202,7 +202,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-    return ENTITY_HELPER.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
+    return ENTITY_TOOL.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
   }
 
   //method
@@ -237,7 +237,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //method
   private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
 
-    final var backReferencingProperty = OPTIONAL_REFERENCE_HELPER.getStoredBackReferencingPropertyOrNull(this);
+    final var backReferencingProperty = OPTIONAL_REFERENCE_TOOL.getStoredBackReferencingPropertyOrNull(this);
 
     if (backReferencingProperty != null) {
       updateBackReferencingPropertyForClear(backReferencingProperty);

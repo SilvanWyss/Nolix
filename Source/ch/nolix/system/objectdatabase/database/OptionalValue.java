@@ -24,7 +24,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
   private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
   //constant
-  private static final IOptionalValueTool OPTIONAL_VALUE_HELPER = new OptionalValueTool();
+  private static final IOptionalValueTool OPTIONAL_VALUE_TOOL = new OptionalValueTool();
 
   //optional attribute
   private V internalValue;
@@ -82,7 +82,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 
     @SuppressWarnings("unchecked")
     final var value = (V) VALUE_CREATOR.createValueOfDataTypeFromString(
-      DataType.forType(OPTIONAL_VALUE_HELPER.getDataType(this)),
+      DataType.forType(OPTIONAL_VALUE_TOOL.getDataType(this)),
       string);
 
     setValue(value);

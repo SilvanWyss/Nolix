@@ -44,7 +44,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
   //constant
-  private static final IValidationLabelTool VALIDATION_LABEL_HELPER = new ValidationLabelTool();
+  private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
 
   //constant
   private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
@@ -129,7 +129,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public void pressLeftMouseButton() {
     if (hasLeftMouseButtonPressAction()) {
-      VALIDATION_LABEL_HELPER.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+      VALIDATION_LABEL_TOOL.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
         this,
         leftMouseButtonPressAction);
     }
@@ -152,7 +152,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public void releaseLeftMouseButton() {
     if (hasLeftMouseButtonReleaseAction()) {
-      VALIDATION_LABEL_HELPER.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+      VALIDATION_LABEL_TOOL.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
         this,
         leftMouseButtonReleaseAction);
     }

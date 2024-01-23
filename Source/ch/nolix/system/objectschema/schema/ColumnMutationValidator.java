@@ -20,32 +20,32 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 final class ColumnMutationValidator {
 
   //constant
-  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
+  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
-  private static final IColumnTool COLUMN_HELPER = new ColumnTool();
+  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   //constant
-  private static final IParameterizedPropertyTypeTool PARAMETERIZED_PROPERTY_TYPE_HELPER = //
+  private static final IParameterizedPropertyTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
   new ParameterizedPropertyTypeTool();
 
   //method
   public void assertCanDeleteColumn(final Column column) {
-    COLUMN_HELPER.assertIsOpen(column);
-    COLUMN_HELPER.assertIsNotDeleted(column);
+    COLUMN_TOOL.assertIsOpen(column);
+    COLUMN_TOOL.assertIsNotDeleted(column);
     column.assertIsNotBackReferenced();
   }
 
   //method
   public void assertCanSetNameToColumn(final Column column, final String name) {
 
-    COLUMN_HELPER.assertIsOpen(column);
+    COLUMN_TOOL.assertIsOpen(column);
 
     if (column.belongsToTable()) {
-      TABLE_HELPER.assertDoesNotContainColumnWithGivenName(column.getParentTable(), name);
+      TABLE_TOOL.assertDoesNotContainColumnWithGivenName(column.getParentTable(), name);
     }
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
@@ -56,30 +56,30 @@ final class ColumnMutationValidator {
     final Column column,
     final IParameterizedPropertyType parameterizedPropertyType) {
 
-    COLUMN_HELPER.assertIsOpen(column);
+    COLUMN_TOOL.assertIsOpen(column);
     column.assertIsEmpty();
 
-    if (PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)
-    && COLUMN_HELPER.belongsToDatabase(column)) {
+    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedPropertyType)
+    && COLUMN_TOOL.belongsToDatabase(column)) {
 
       final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) parameterizedPropertyType;
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
-      DATABASE_HELPER.assertContainsGivenTable(COLUMN_HELPER.getParentDatabase(column), referencedTable);
+      DATABASE_TOOL.assertContainsGivenTable(COLUMN_TOOL.getParentDatabase(column), referencedTable);
     }
 
-    if (!PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)) {
+    if (!PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedPropertyType)) {
       column.assertIsNotBackReferenced();
     }
 
-    if (PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(parameterizedPropertyType)
-    && COLUMN_HELPER.belongsToDatabase(column)) {
+    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseBackReferenceType(parameterizedPropertyType)
+    && COLUMN_TOOL.belongsToDatabase(column)) {
 
       final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) parameterizedPropertyType;
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
-      DATABASE_HELPER.assertContainsTableWithGivenColumn(
-        COLUMN_HELPER.getParentDatabase(column),
+      DATABASE_TOOL.assertContainsTableWithGivenColumn(
+        COLUMN_TOOL.getParentDatabase(column),
         backReferencedColumn);
     }
   }
@@ -87,9 +87,9 @@ final class ColumnMutationValidator {
   //method
   public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
 
-    COLUMN_HELPER.assertIsOpen(column);
-    COLUMN_HELPER.assertDoesNotBelongToTable(column);
+    COLUMN_TOOL.assertIsOpen(column);
+    COLUMN_TOOL.assertDoesNotBelongToTable(column);
 
-    TABLE_HELPER.assertDoesNotContainGivenColumn(parentTable, column);
+    TABLE_TOOL.assertDoesNotContainGivenColumn(parentTable, column);
   }
 }

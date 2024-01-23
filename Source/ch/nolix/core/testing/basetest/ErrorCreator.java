@@ -11,7 +11,7 @@ final class ErrorCreator {
   private static final OccurancePlaceFinder OCCURANCE_PLACE_FINDER = new OccurancePlaceFinder();
 
   //constant
-  private static final ThrowableTool THROWABLE_HELPER = new ThrowableTool();
+  private static final ThrowableTool THROWABLE_TOOL = new ThrowableTool();
 
   //method
   public Error createErrorFromInvocationTargetExceptionInInstance(
@@ -23,7 +23,7 @@ final class ErrorCreator {
   //method
   public Error createErrorFromThrowableInInstance(final Throwable throwable, final Object instance) {
     return new Error(
-      THROWABLE_HELPER.getMessageFromThrowableOrDefaultErrorMessage(throwable),
+      THROWABLE_TOOL.getMessageFromThrowableOrDefaultErrorMessage(throwable),
       OCCURANCE_PLACE_FINDER.findOccurancePlaceOfThrowableInInstance(throwable, instance));
   }
 }

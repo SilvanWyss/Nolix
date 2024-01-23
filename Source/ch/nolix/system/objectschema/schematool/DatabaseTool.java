@@ -19,15 +19,15 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseTool {
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
-  private static final IColumnTool COLUMN_HELPER = new ColumnTool();
+  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   //method
   @Override
   public boolean allBackReferencesAreValid(final IDatabase database) {
-    return getStoredAllBackReferenceColumns(database).containsOnly(COLUMN_HELPER::isAValidBackReferenceColumn);
+    return getStoredAllBackReferenceColumns(database).containsOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
   }
 
   //method
@@ -118,7 +118,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   @Override
   public boolean canAddGivenTable(final IDatabase database, final ITable table) {
     return canAddTable(database)
-    && TABLE_HELPER.canBeAddedToDatabase(table)
+    && TABLE_TOOL.canBeAddedToDatabase(table)
     && !containsTableWithGivenName(database, table.getName())
     && canAddGivenTableBecauseOfColumns(database, table);
   }
@@ -150,11 +150,11 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
 
     //This check is theoretically not necessary, but provides a better performance
     //for some cases.
-    if (!COLUMN_HELPER.isAReferenceColumn(column)) {
+    if (!COLUMN_TOOL.isAReferenceColumn(column)) {
       return false;
     }
 
-    return database.getStoredTables().containsAny(t -> COLUMN_HELPER.referencesGivenTable(column, t));
+    return database.getStoredTables().containsAny(t -> COLUMN_TOOL.referencesGivenTable(column, t));
   }
 
   //method
@@ -165,18 +165,18 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
 
     //This check is theoretically not necessary, but provides a better performance
     //for some cases.
-    if (!COLUMN_HELPER.isABackReferenceColumn(column)) {
+    if (!COLUMN_TOOL.isABackReferenceColumn(column)) {
       return false;
     }
 
     return database.getStoredTables()
-      .containsAny(t -> TABLE_HELPER.containsColumnBackReferencedByGivenColumn(t, column));
+      .containsAny(t -> TABLE_TOOL.containsColumnBackReferencedByGivenColumn(t, column));
   }
 
   //method
   @Override
   public boolean containsTableWithGivenColumn(final IDatabase database, final IColumn column) {
-    return database.getStoredTables().containsAny(t -> TABLE_HELPER.containsGivenColumn(t, column));
+    return database.getStoredTables().containsAny(t -> TABLE_TOOL.containsGivenColumn(t, column));
   }
 
   //method
@@ -194,7 +194,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   //method
   @Override
   public IContainer<IColumn> getStoredAllBackReferenceColumns(final IDatabase database) {
-    return database.getStoredTables().toFromGroups(TABLE_HELPER::getStoredBackReferenceColumns);
+    return database.getStoredTables().toFromGroups(TABLE_TOOL::getStoredBackReferenceColumns);
   }
 
   //method
@@ -219,7 +219,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
     final IDatabase database,
     final ITable table,
     final IColumn column) {
-    return switch (COLUMN_HELPER.getBasePropertyType(column)) {
+    return switch (COLUMN_TOOL.getBasePropertyType(column)) {
       case BASE_VALUE ->
         true;
       case BASE_REFERENCE ->
@@ -237,6 +237,6 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
     final ITable table,
     final IColumn referenceColumn) {
     return containsTableReferencedByGivenColumn(database, referenceColumn)
-    || COLUMN_HELPER.referencesGivenTable(referenceColumn, table);
+    || COLUMN_TOOL.referencesGivenTable(referenceColumn, table);
   }
 }

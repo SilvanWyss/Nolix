@@ -28,7 +28,7 @@ public final class Table extends SchemaObject implements ITable {
   private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //attribute
   private final String id;
@@ -190,7 +190,7 @@ public final class Table extends SchemaObject implements ITable {
   void setParentDatabase(final Database parentDatabase) {
 
     GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
-    TABLE_HELPER.assertDoesNotBelongToDatabase(this);
+    TABLE_TOOL.assertDoesNotBelongToDatabase(this);
 
     this.parentDatabase = parentDatabase;
   }
@@ -238,6 +238,6 @@ public final class Table extends SchemaObject implements ITable {
 
   //method
   private boolean needsToLoadColumnsFromDatabase() {
-    return (TABLE_HELPER.isLoaded(this) && !hasLoadedColumnsFromDatabase());
+    return (TABLE_TOOL.isLoaded(this) && !hasLoadedColumnsFromDatabase());
   }
 }

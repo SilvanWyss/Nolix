@@ -14,12 +14,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.ITableTool;
 public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseTool {
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //method
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
-    return database.getStoredTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
+    return database.getStoredTables().containsOnly(TABLE_TOOL::allNewAndEditedMandatoryPropertiesAreSet);
   }
 
   //method
@@ -48,6 +48,6 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   //method
   @Override
   public boolean hasChanges(final IDatabase database) {
-    return database.getStoredTables().containsAny(TABLE_HELPER::hasChanges);
+    return database.getStoredTables().containsAny(TABLE_TOOL::hasChanges);
   }
 }

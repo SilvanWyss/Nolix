@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IDatabaseTool;
 final class DatabaseSaver {
 
   //constant
-  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
+  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
@@ -49,7 +49,7 @@ final class DatabaseSaver {
   //method
   private void prepareChangesOfDatabase(final Database database) {
 
-    final var entitiesInLocalData = DATABASE_HELPER.getStoredEntitiesInLocalData(database);
+    final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
       ENTITY_SAVER.saveChangesOfEntity(e, database);

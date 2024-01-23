@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IEntityValidato
 public final class EntityValidator implements IEntityValidator {
 
   //constant
-  private static final IEntityTool ENTITY_HELPER = new EntityTool();
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //method
   @Override
@@ -31,7 +31,7 @@ public final class EntityValidator implements IEntityValidator {
   //method
   @Override
   public void assertCanBeDeleted(final IEntity entity) {
-    if (!ENTITY_HELPER.canBeDeleted(entity)) {
+    if (!ENTITY_TOOL.canBeDeleted(entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be deleted");
     }
   }
@@ -56,7 +56,7 @@ public final class EntityValidator implements IEntityValidator {
   //method
   @Override
   public void assertIsNotReferenced(final IEntity entity) {
-    if (ENTITY_HELPER.isReferenced(entity)) {
+    if (ENTITY_TOOL.isReferenced(entity)) {
       throw ReferencedArgumentException.forArgument(entity);
     }
   }

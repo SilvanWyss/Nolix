@@ -25,7 +25,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
   private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
@@ -44,7 +44,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //attribute
   private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable = new CachingProperty<>(
-    () -> TABLE_HELPER.getColumsThatReferenceGivenTable(this));
+    () -> TABLE_TOOL.getColumsThatReferenceGivenTable(this));
 
   //attribute
   private boolean loadedAllEntitiesInLocalData;
@@ -272,7 +272,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
-    if (!TABLE_HELPER.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
+    if (!TABLE_TOOL.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
       entitiesInLocalData.addAtEnd(createLoadedEntityFromDto(loadedEntity));
     }
   }

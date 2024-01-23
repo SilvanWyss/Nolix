@@ -17,57 +17,57 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 final class TableMutationValidator {
 
   //constant
-  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
+  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
-  private static final IColumnTool COLUMN_HELPER = new ColumnTool();
+  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   //method
   public void assertCanAddColumnToTable(final Table table, final Column column) {
 
-    TABLE_HELPER.assertIsOpen(table);
-    TABLE_HELPER.assertDoesNotContainColumnWithGivenName(table, column.getName());
+    TABLE_TOOL.assertIsOpen(table);
+    TABLE_TOOL.assertDoesNotContainColumnWithGivenName(table, column.getName());
 
-    COLUMN_HELPER.assertIsOpen(column);
-    COLUMN_HELPER.assertIsNew(column);
+    COLUMN_TOOL.assertIsOpen(column);
+    COLUMN_TOOL.assertIsNew(column);
 
-    if (COLUMN_HELPER.isAReferenceColumn(column) && table.belongsToDatabase()) {
+    if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
 
       final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) column.getParameterizedPropertyType();
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
-      DATABASE_HELPER.assertContainsGivenTable(table.getParentDatabase(), referencedTable);
+      DATABASE_TOOL.assertContainsGivenTable(table.getParentDatabase(), referencedTable);
     }
 
-    if (COLUMN_HELPER.isABackReferenceColumn(column) && table.belongsToDatabase()) {
+    if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
 
       final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) column
         .getParameterizedPropertyType();
 
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
-      DATABASE_HELPER.assertContainsTableWithGivenColumn(table.getParentDatabase(), backReferencedColumn);
+      DATABASE_TOOL.assertContainsTableWithGivenColumn(table.getParentDatabase(), backReferencedColumn);
     }
   }
 
   //method
   public void assertCanDeleteTable(final Table table) {
-    TABLE_HELPER.assertIsOpen(table);
-    TABLE_HELPER.assertIsNotNew(table);
-    TABLE_HELPER.assertIsNotDeleted(table);
-    TABLE_HELPER.assertIsNotReferenced(table);
+    TABLE_TOOL.assertIsOpen(table);
+    TABLE_TOOL.assertIsNotNew(table);
+    TABLE_TOOL.assertIsNotDeleted(table);
+    TABLE_TOOL.assertIsNotReferenced(table);
   }
 
   //method
   public void assertCanSetNameToTable(final Table table, final String name) {
 
-    TABLE_HELPER.assertIsOpen(table);
+    TABLE_TOOL.assertIsOpen(table);
 
     if (table.belongsToDatabase()) {
-      DATABASE_HELPER.assertDoesNotContainTableWithGivenName(table.getParentDatabase(), name);
+      DATABASE_TOOL.assertDoesNotContainTableWithGivenName(table.getParentDatabase(), name);
     }
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();

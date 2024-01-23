@@ -12,12 +12,12 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueVali
 public final class MultiValueValidator extends PropertyValidator implements IMultiValueValidator {
 
   //constant
-  private static final IMultiValueTool MULTI_VALUE_HELPER = new MultiValueTool();
+  private static final IMultiValueTool MULTI_VALUE_TOOL = new MultiValueTool();
 
   //method
   @Override
   public void assertCanAddGivenValue(final IMultiValue<?> multiValue, final Object value) {
-    if (!MULTI_VALUE_HELPER.canAddGivenValue(multiValue, value)) {
+    if (!MULTI_VALUE_TOOL.canAddGivenValue(multiValue, value)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot add the given value");
     }
   }
@@ -25,7 +25,7 @@ public final class MultiValueValidator extends PropertyValidator implements IMul
   //method
   @Override
   public void assertCanClear(final IMultiValue<?> multiValue) {
-    if (!MULTI_VALUE_HELPER.canClear(multiValue)) {
+    if (!MULTI_VALUE_TOOL.canClear(multiValue)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot clear");
     }
   }
@@ -33,7 +33,7 @@ public final class MultiValueValidator extends PropertyValidator implements IMul
   //method
   @Override
   public <V> void assertCanRemoveValue(final IMultiValue<V> multiValue, final V value) {
-    if (!MULTI_VALUE_HELPER.canRemoveValue(multiValue, value)) {
+    if (!MULTI_VALUE_TOOL.canRemoveValue(multiValue, value)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         multiValue,
         "cannot remove the given value '" + value + "'");

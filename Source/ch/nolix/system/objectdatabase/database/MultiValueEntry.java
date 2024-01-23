@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //constant
-  private static final DatabaseObjectTool DATABASE_OBJECT_HELPER = new DatabaseObjectTool();
+  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
   //attribute
   private final IMultiValue<V> parentMultiValue;
@@ -106,6 +106,6 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //method
   private void assertIsLoaded() {
-    DATABASE_OBJECT_HELPER.assertIsLoaded(this);
+    DATABASE_OBJECT_TOOL.assertIsLoaded(this);
   }
 }

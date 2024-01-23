@@ -33,7 +33,7 @@ public abstract class BaseEntity implements IEntity {
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
   //constant
-  private static final IEntityTool ENTITY_HELPER = new EntityTool();
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //attribute
   private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
@@ -236,7 +236,7 @@ public abstract class BaseEntity implements IEntity {
   //method
   final void internalSetLoaded() {
 
-    ENTITY_HELPER.assertIsNew(this);
+    ENTITY_TOOL.assertIsNew(this);
 
     state = DatabaseObjectState.LOADED;
   }
@@ -322,7 +322,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   private void updateBackReferencingPropertiesForDeletion() {
-    ENTITY_HELPER.getStoredBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
+    ENTITY_TOOL.getStoredBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
   }
 
   //method

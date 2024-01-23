@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedPropertyTy
 public final class ColumnTool extends DatabaseObjectTool implements IColumnTool {
 
   //constant
-  private static final IParameterizedPropertyTypeTool PARAMETERIZED_PROPERTY_TYPE_HELPER = //
+  private static final IParameterizedPropertyTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
   new ParameterizedPropertyTypeTool();
 
   //method
@@ -80,19 +80,19 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
   //method
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(column.getParameterizedPropertyType());
+    return PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseBackReferenceType(column.getParameterizedPropertyType());
   }
 
   //method
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(column.getParameterizedPropertyType());
+    return PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(column.getParameterizedPropertyType());
   }
 
   //method
   @Override
   public boolean isAValueColumn(final IColumn column) {
-    return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseValueType(column.getParameterizedPropertyType());
+    return PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseValueType(column.getParameterizedPropertyType());
   }
 
   //method
@@ -110,7 +110,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
 
     final var backReferencedColumnParameterizedPropertyType = backReferencedColumn.getParameterizedPropertyType();
 
-    if (!PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(backReferencedColumnParameterizedPropertyType)) {
+    if (!PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(backReferencedColumnParameterizedPropertyType)) {
       return false;
     }
 

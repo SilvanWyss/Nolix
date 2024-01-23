@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
 
   //constant
-  private static final DatabaseObjectTool DATABASE_OBJECT_HELPER = new DatabaseObjectTool();
+  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
   //attribute
   private final IMultiReference<E> parentMultiReference;
@@ -121,6 +121,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   private void assertIsLoaded() {
-    DATABASE_OBJECT_HELPER.assertIsLoaded(this);
+    DATABASE_OBJECT_TOOL.assertIsLoaded(this);
   }
 }

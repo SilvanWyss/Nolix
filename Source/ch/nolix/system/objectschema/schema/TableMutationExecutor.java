@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 final class TableMutationExecutor {
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //method
   public void addColumnToTable(final Table table, final Column column) {
@@ -39,8 +39,8 @@ final class TableMutationExecutor {
   public void setNameToTable(final Table table, final String name) {
 
     final var oldTableName = table.getName();
-    final var referencingColumns = TABLE_HELPER.getStoredReferencingColumns(table);
-    final var backReferencingColumns = TABLE_HELPER.getStoredBackReferencingColumns(table);
+    final var referencingColumns = TABLE_TOOL.getStoredReferencingColumns(table);
+    final var backReferencingColumns = TABLE_TOOL.getStoredBackReferencingColumns(table);
 
     table.setNameAttribute(name);
 

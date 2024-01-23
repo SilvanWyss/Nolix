@@ -66,7 +66,7 @@ implements IControl<C, CS> {
   private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalogue.CURSOR_ICON;
 
   //constant
-  private static final ControlTool CONTROL_HELPER = new ControlTool();
+  private static final ControlTool CONTROL_TOOL = new ControlTool();
 
   //constant
   private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
@@ -174,7 +174,7 @@ implements IControl<C, CS> {
 
     final var html = getHtmlBuilder().createHtmlElementForControl(asConcrete());
 
-    return html.withAttribute(CONTROL_HELPER.createIdHtmlAttributeForControl(this));
+    return html.withAttribute(CONTROL_TOOL.createIdHtmlAttributeForControl(this));
   }
 
   //method

@@ -18,7 +18,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
 implements IBaseBackReference<E> {
 
   //constant
-  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
+  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //attribute
   private final String backReferencedTableName;
@@ -79,7 +79,7 @@ implements IBaseBackReference<E> {
   //method
   @Override
   public final boolean referencesBackProperty(final IProperty property) {
-    return PROPERTY_HELPER.belongsToEntity(property)
+    return PROPERTY_TOOL.belongsToEntity(property)
     && belongsToEntity()
     && getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
     && getBackReferencedPropertyName().equals(property.getName())

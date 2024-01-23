@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 
   //constant
-  private static final ControlCssValueTool CONTROL_CSS_VALUE_HELPER = new ControlCssValueTool();
+  private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
   //method
   @Override
@@ -57,7 +57,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
           CssProperty.withNameAndValue("border-collapse", "collapse"),
           CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
           CssProperty.withNameAndValue("border-color",
-            CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor)))));
+            CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(gridcolor)))));
 
     list.addAtEnd(
       CssRule.withSelectorAndProperties(

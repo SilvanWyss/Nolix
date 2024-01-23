@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 public final class Database extends SchemaObject implements IDatabase {
 
   //constant
-  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
+  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
   private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
@@ -35,7 +35,7 @@ public final class Database extends SchemaObject implements IDatabase {
   //constructor
   public Database(final String name) {
 
-    DATABASE_HELPER.assertCanSetGivenNameToDatabase(name);
+    DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
     this.name = name;
   }
@@ -44,7 +44,7 @@ public final class Database extends SchemaObject implements IDatabase {
   @Override
   public Database addTable(final ITable table) {
 
-    DATABASE_HELPER.assertCanAddGivenTable(this, table);
+    DATABASE_TOOL.assertCanAddGivenTable(this, table);
     MUTATION_EXECUTOR.addTableToDatabase(this, (Table) table);
 
     return this;
@@ -113,7 +113,7 @@ public final class Database extends SchemaObject implements IDatabase {
   //method
   RawSchemaAdapter internalGetRefRawSchemaAdapter() {
 
-    DATABASE_HELPER.assertIsLinkedWithRealDatabase(this);
+    DATABASE_TOOL.assertIsLinkedWithRealDatabase(this);
 
     return rawSchemaAdapter;
   }
@@ -150,14 +150,14 @@ public final class Database extends SchemaObject implements IDatabase {
 
   //method
   private boolean needsToLoadTablesFromDatabase() {
-    return (DATABASE_HELPER.isLoaded(this) && !hasLoadedTablesFromDatabase());
+    return (DATABASE_TOOL.isLoaded(this) && !hasLoadedTablesFromDatabase());
   }
 
   //method
   private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 
     GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
-    DATABASE_HELPER.assertIsNotLinkedWithRealDatabase(this);
+    DATABASE_TOOL.assertIsNotLinkedWithRealDatabase(this);
 
     internalSetLoaded();
     this.rawSchemaAdapter = rawSchemaAdapter;

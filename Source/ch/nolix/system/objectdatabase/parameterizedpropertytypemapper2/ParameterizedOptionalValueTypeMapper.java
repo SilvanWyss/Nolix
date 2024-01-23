@@ -17,7 +17,7 @@ public final class ParameterizedOptionalValueTypeMapper
 implements IParameterizedPropertyTypeMapper<IOptionalValue<?>> {
 
   //constant
-  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
+  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //method
   @Override
@@ -25,7 +25,7 @@ implements IParameterizedPropertyTypeMapper<IOptionalValue<?>> {
     final IOptionalValue<?> property,
     final IContainer<ITable> referencedTables) {
 
-    final var dataType = DataType.forType(PROPERTY_HELPER.getDataType(property));
+    final var dataType = DataType.forType(PROPERTY_TOOL.getDataType(property));
 
     return ParameterizedOptionalValueType.forDataType(dataType);
   }

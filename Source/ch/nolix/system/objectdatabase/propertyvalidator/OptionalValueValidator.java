@@ -13,12 +13,12 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueV
 public final class OptionalValueValidator extends PropertyValidator implements IOptionalValueValidator {
 
   //constant
-  private static final IOptionalValueTool OPTIONAL_VALUE_HELPER = new OptionalValueTool();
+  private static final IOptionalValueTool OPTIONAL_VALUE_TOOL = new OptionalValueTool();
 
   //method
   @Override
   public <V> void assertCanSetGivenValue(final IOptionalValue<V> optionalValue, final V value) {
-    if (!OPTIONAL_VALUE_HELPER.canSetGivenValue(optionalValue, value)) {
+    if (!OPTIONAL_VALUE_TOOL.canSetGivenValue(optionalValue, value)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
     }
   }

@@ -14,10 +14,10 @@ import ch.nolix.systemapi.objectdatabaseapi.propertytoolapi.IPropertyTool;
 public final class EntitySaver {
 
   //constant
-  private static final IEntityTool ENTITY_HELPER = new EntityTool();
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final IPropertyTool PROPERTY_HELPER = new PropertyTool();
+  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //constant
   private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
@@ -47,7 +47,7 @@ public final class EntitySaver {
 
     database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
       newEntity.getParentTableName(),
-      ENTITY_HELPER.createNewEntityDtoForEntity(newEntity));
+      ENTITY_TOOL.createNewEntityDtoForEntity(newEntity));
 
     saveMultiPropertyChangesOfEntity(newEntity, database);
   }
@@ -57,7 +57,7 @@ public final class EntitySaver {
 
     database.internalGetRefDataAndSchemaAdapter().updateEntity(
       editedEntity.getParentTableName(),
-      ENTITY_HELPER.createEntityUpdateDtoForEntity(editedEntity));
+      ENTITY_TOOL.createEntityUpdateDtoForEntity(editedEntity));
 
     saveMultiPropertyChangesOfEntity(editedEntity, database);
   }
@@ -66,7 +66,7 @@ public final class EntitySaver {
   private void saveEntityDeletion(final IEntity deletedEntity, final Database database) {
     database.internalGetRefDataAndSchemaAdapter().deleteEntity(
       deletedEntity.getStoredParentTable().getName(),
-      ENTITY_HELPER.createEntityHeadDtoForEntity(deletedEntity));
+      ENTITY_TOOL.createEntityHeadDtoForEntity(deletedEntity));
   }
 
   //method
@@ -80,7 +80,7 @@ public final class EntitySaver {
 
   //method
   private void saveChangesOfPotentialMultiProperty(final Database database, final IProperty p) {
-    if (PROPERTY_HELPER.isNewOrEdited(p)) {
+    if (PROPERTY_TOOL.isNewOrEdited(p)) {
       saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(database, p);
     }
   }

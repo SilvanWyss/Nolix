@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 public abstract class SchemaAdapter implements ISchemaAdapter {
 
   //constant
-  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
+  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
@@ -65,7 +65,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   //method
   @Override
   public final ITable getStoredTableByName(final String name) {
-    return DATABASE_HELPER.getStoredTableWithGivenName(database, name);
+    return DATABASE_TOOL.getStoredTableWithGivenName(database, name);
   }
 
   //method
@@ -108,7 +108,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   public final void saveChanges() {
     try {
 
-      DATABASE_HELPER.assertAllBackReferencesAreValid(database);
+      DATABASE_TOOL.assertAllBackReferencesAreValid(database);
       rawSchemaAdapter.saveChanges();
 
       saveCount++;

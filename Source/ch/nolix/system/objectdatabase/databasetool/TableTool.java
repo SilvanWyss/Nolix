@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.ITableTool;
 public final class TableTool extends DatabaseObjectTool implements ITableTool {
 
   //constant
-  private static final EntityTool ENTITY_HELPER = new EntityTool();
+  private static final EntityTool ENTITY_TOOL = new EntityTool();
 
   //method
   @Override
@@ -22,7 +22,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return table
       .technicalGetRefEntitiesInLocalData()
       .containsOnly(
-        e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
+        e -> ENTITY_TOOL.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
       );
   }
 
@@ -36,7 +36,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   @Override
   public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
     return canInsertEntity(table)
-    && ENTITY_HELPER.canBeInsertedIntoTable(entity)
+    && ENTITY_TOOL.canBeInsertedIntoTable(entity)
     && !hasInsertedGivenEntityInLocalData(table, entity);
   }
 
@@ -66,7 +66,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   //method
   @Override
   public boolean hasChanges(final ITable<?> table) {
-    return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !ENTITY_HELPER.isLoaded(e));
+    return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !ENTITY_TOOL.isLoaded(e));
   }
 
   //method

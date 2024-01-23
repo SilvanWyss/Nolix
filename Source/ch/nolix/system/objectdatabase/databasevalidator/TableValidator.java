@@ -13,12 +13,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.ITableValidator
 public final class TableValidator implements ITableValidator {
 
   //constant
-  private static final ITableTool TABLE_HELPER = new TableTool();
+  private static final ITableTool TABLE_TOOL = new TableTool();
 
   //method
   @Override
   public void assertCanInsertGivenEntity(final ITable<?> table, final IEntity entity) {
-    if (!TABLE_HELPER.canInsertGivenEntity(table, entity)) {
+    if (!TABLE_TOOL.canInsertGivenEntity(table, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         entity,
         "cannot be inserted into the table " + table.getNameInQuotes());

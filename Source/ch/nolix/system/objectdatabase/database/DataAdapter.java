@@ -20,7 +20,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
   //constant
-  private static final IDatabaseTool DATABASE_HELPER = new DatabaseTool();
+  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
@@ -87,7 +87,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
   //method
   @Override
   public final boolean hasChanges() {
-    return DATABASE_HELPER.hasChanges(database);
+    return DATABASE_TOOL.hasChanges(database);
   }
 
   //method
