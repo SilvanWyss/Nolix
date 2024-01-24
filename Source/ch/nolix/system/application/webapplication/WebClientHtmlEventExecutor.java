@@ -78,9 +78,9 @@ public final class WebClientHtmlEventExecutor {
 
   //method
   private IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {
-  
+
     final var componentContainer = getOptionalStoredParentComponentOfControl(triggeredControl);
-  
+
     return componentContainer.orElse(triggeredControl);
   }
 }

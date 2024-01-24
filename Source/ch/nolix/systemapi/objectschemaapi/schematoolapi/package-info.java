@@ -1,8 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.objectschemaapi.schematoolapi} package
- * declares tools for the types of
- * {@link ch.nolix.systemapi.objectschemaapi.schemaapi}.
+ * The {@link ch.nolix.systemapi.objectschemaapi.schematoolapi} package declares
+ * tools for the types of {@link ch.nolix.systemapi.objectschemaapi.schemaapi}.
  * 
  * @author Silvan Wyss
  * @date 2021-11-27

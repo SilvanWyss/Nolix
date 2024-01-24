@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.programatom.unsignedbyte} package defines an unsigned
- * byte.
+ * The {@link ch.nolix.core.programatom.unsignedbyte} package defines an
+ * unsigned byte.
  * 
  * @author Silvan Wyss
  * @date 2023-11-18

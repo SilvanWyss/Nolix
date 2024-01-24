@@ -7,8 +7,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * The {@link GlobalCharacterTool} provides methods to handle characters. Of
- * the {@link GlobalCharacterTool} an instance cannot be created.
+ * The {@link GlobalCharacterTool} provides methods to handle characters. Of the
+ * {@link GlobalCharacterTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
@@ -23,8 +23,7 @@ public final class GlobalCharacterTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalCharacterTool} can be
-   * created.
+   * Prevents that an instance of the {@link GlobalCharacterTool} can be created.
    */
   private GlobalCharacterTool() {
   }

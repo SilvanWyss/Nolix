@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.applicationapi.basewebapplicationprotocol} package
- * defines protocols for base
+ * The {@link ch.nolix.systemapi.applicationapi.basewebapplicationprotocol}
+ * package defines protocols for base
  * {@link ch.nolix.system.application.main.Application} for web.
  * 
  * @author Silvan Wyss

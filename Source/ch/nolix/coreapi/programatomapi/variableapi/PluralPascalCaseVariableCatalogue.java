@@ -3,7 +3,8 @@ package ch.nolix.coreapi.programatomapi.variableapi;
 
 //class
 /**
- * Of the {@link PluralPascalCaseVariableCatalogue} an instance cannot be created.
+ * Of the {@link PluralPascalCaseVariableCatalogue} an instance cannot be
+ * created.
  * 
  * @author Silvan Wyss
  * @date 2018-04-26
@@ -627,8 +628,8 @@ public final class PluralPascalCaseVariableCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link PluralPascalCaseVariableCatalogue} can be
-   * created.
+   * Prevents that an instance of the {@link PluralPascalCaseVariableCatalogue}
+   * can be created.
    */
   private PluralPascalCaseVariableCatalogue() {
   }

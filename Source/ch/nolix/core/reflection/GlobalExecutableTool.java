@@ -17,8 +17,7 @@ public final class GlobalExecutableTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalExecutableTool} can be
-   * created.
+   * Prevents that an instance of the {@link GlobalExecutableTool} can be created.
    */
   private GlobalExecutableTool() {
   }

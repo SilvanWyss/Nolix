@@ -75,7 +75,8 @@ public final class TimeUnitConversionCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link TimeUnitConversionCatalogue} can be created.
+   * Prevents that an instance of the {@link TimeUnitConversionCatalogue} can be
+   * created.
    */
   private TimeUnitConversionCatalogue() {
   }

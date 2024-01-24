@@ -65,9 +65,8 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @param valueCreator
    * @param <E>          is the type of the value of the created
    *                     {@link MutableOptionalValue}.
-   * @return a new {@link MutableOptionalValue} that will store a
-   *         {@link IElement} and have the given name, setterMethod and
-   *         valueCreator.
+   * @return a new {@link MutableOptionalValue} that will store a {@link IElement}
+   *         and have the given name, setterMethod and valueCreator.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.

@@ -6,9 +6,8 @@ import java.util.Objects;
 
 //class
 /**
- * The {@link GlobalIterableTool} provides methods to handle
- * {@link Iterable}s. Of the {@link GlobalIterableTool} an instance cannot be
- * created.
+ * The {@link GlobalIterableTool} provides methods to handle {@link Iterable}s.
+ * Of the {@link GlobalIterableTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-12-16

@@ -627,7 +627,8 @@ public final class LowerCaseVariableCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link LowerCaseVariableCatalogue} can be created.
+   * Prevents that an instance of the {@link LowerCaseVariableCatalogue} can be
+   * created.
    */
   private LowerCaseVariableCatalogue() {
   }

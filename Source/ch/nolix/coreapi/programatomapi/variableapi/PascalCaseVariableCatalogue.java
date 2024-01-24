@@ -627,7 +627,8 @@ public final class PascalCaseVariableCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link PascalCaseVariableCatalogue} can be created.
+   * Prevents that an instance of the {@link PascalCaseVariableCatalogue} can be
+   * created.
    */
   private PascalCaseVariableCatalogue() {
   }
