@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.coreapi.functionapi.loggingapi.ILinePrinter;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
+import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class

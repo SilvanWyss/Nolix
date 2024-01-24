@@ -3,7 +3,7 @@ package ch.nolix.systemapi.sqlschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
+import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
