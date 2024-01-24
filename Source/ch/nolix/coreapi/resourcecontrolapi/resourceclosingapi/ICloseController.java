@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.programcontrolapi.resourceclosingapi;
+package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
 //interface
 /**

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
 //class
 public abstract class BaseEndPoint implements IBaseEndPoint {

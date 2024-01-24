@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.programcontrolapi.resourceclosingapi;
+package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

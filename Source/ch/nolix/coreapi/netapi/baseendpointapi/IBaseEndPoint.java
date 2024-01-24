@@ -5,7 +5,7 @@ package ch.nolix.coreapi.netapi.baseendpointapi;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
 //interface
 public interface IBaseEndPoint extends GroupCloseable {

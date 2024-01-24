@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
 //class
 /**

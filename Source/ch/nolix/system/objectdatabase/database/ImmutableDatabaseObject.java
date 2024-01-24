@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 

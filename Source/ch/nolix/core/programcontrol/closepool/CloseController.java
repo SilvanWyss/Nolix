@@ -5,9 +5,9 @@ package ch.nolix.core.programcontrol.closepool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.IClosePool;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
 
 //class
 /**

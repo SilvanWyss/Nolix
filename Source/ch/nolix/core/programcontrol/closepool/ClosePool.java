@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.IClosePool;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
 
 //class
 /**

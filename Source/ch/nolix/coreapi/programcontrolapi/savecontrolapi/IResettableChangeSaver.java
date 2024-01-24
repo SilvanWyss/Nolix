@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.programcontrolapi.savecontrolapi;
 
 import ch.nolix.coreapi.functionapi.mutationapi.Resettable;
-import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
 //interface
 public interface IResettableChangeSaver extends GroupCloseable, IChangeSaver, Resettable {
