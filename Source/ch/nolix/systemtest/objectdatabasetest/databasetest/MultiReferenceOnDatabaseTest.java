@@ -141,4 +141,46 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     //execution & verification
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
+
+  //method
+  @TestCase
+  public void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
+
+    //setup
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var john = new Person();
+    nodeDataAdapter.insert(john);
+    final var garfield = new Pet();
+
+    //execution
+    john.pets.addEntity(garfield);
+
+    //verification
+    expect(garfield.belongsToTable());
+  }
+
+  //method
+  @TestCase
+  public void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
+
+    //setup
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var john = new Person();
+    nodeDataAdapter.insert(john);
+    final var garfield = new Pet();
+
+    //execution
+    john.pets.addEntity(garfield);
+    nodeDataAdapter.saveChanges();
+
+    //verification
+    final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+    final var loadedGarfield = //
+    nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+    expect(loadedJohn.pets.getReferencedEntities().getStoredOne()).is(loadedGarfield);
+  }
 }
