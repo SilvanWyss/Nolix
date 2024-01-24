@@ -119,8 +119,7 @@ public final class ReferenceOnDatabaseTest extends Test {
     loadedGarfieldC.delete();
     nodeDataAdapterC.saveChanges();
 
-    //execution & verification: Tries to save when the referenced Entity is
-    //deleted.
+    //execution & verification: Tries to save when the referenced Entity is deleted.
     expectRunning(nodeDataAdapterB::saveChanges).throwsException();
   }
 
