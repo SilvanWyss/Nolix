@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.independent.container.List;
-import ch.nolix.coreapi.functionapi.loggingapi.ILinePrinter;
+import ch.nolix.coreapi.errorcontrolapi.loggingapi.ILinePrinter;
 
 //class
 public final class TestRun {

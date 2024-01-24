@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.container.List;
-import ch.nolix.coreapi.functionapi.loggingapi.ILinePrinter;
+import ch.nolix.coreapi.errorcontrolapi.loggingapi.ILinePrinter;
 import ch.nolix.coreapi.programcontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 

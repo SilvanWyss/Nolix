@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.testing.basetest;
 
-import ch.nolix.coreapi.functionapi.loggingapi.ILinePrinter;
+import ch.nolix.coreapi.errorcontrolapi.loggingapi.ILinePrinter;
 
 //class
 /**
