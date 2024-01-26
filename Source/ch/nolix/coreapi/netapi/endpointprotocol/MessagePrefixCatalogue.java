@@ -4,10 +4,6 @@ package ch.nolix.coreapi.netapi.endpointprotocol;
 //class
 public final class MessagePrefixCatalogue {
 
-  //constructor
-  private MessagePrefixCatalogue() {
-  }
-
   //constant
   public static final String TARGET_MESSAGE = "T";
 
@@ -19,4 +15,8 @@ public final class MessagePrefixCatalogue {
 
   //constant
   public static final String CLOSE_MESSAGE = "C";
+
+  //constructor
+  private MessagePrefixCatalogue() {
+  }
 }
