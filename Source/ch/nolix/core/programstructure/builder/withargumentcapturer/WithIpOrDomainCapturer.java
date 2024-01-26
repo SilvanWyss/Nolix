@@ -10,6 +10,10 @@ import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 public class WithIpOrDomainCapturer<N> extends ArgumentCapturer<String, N> {
 
   //constructor
+  public WithIpOrDomainCapturer() {
+  }
+
+  //constructor
   public WithIpOrDomainCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
@@ -22,7 +26,7 @@ public class WithIpOrDomainCapturer<N> extends ArgumentCapturer<String, N> {
   //method
   public final N withIpOrDomain(final String ipOrDomain) {
 
-    GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
+    GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or domain").isNotBlank();
 
     return setArgumentAndGetNext(ipOrDomain);
   }
