@@ -10,6 +10,9 @@ public final class CredentialBuilder extends WithLoginNameCapturer<AndPasswordCa
 
   //constructor
   private CredentialBuilder() {
+
+    super(new AndPasswordCapturer<>());
+
     setBuilder(this::buildCredential);
   }
 
