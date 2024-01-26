@@ -22,7 +22,7 @@ MsSqlDataAdapter //
 >>>>> {
 
   //constant
-  public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
+  public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
 
   //constructor
   public MsSqlDataAdapterBuilder(final String ipOrDomain) {

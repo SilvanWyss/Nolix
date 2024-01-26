@@ -9,7 +9,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 public final class MsSqlSchemaAdapter extends SchemaAdapter {
 
   //constant
-  public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
+  public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
 
   //constructor
   MsSqlSchemaAdapter(

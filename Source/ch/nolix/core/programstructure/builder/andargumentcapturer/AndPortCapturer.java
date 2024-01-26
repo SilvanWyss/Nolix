@@ -31,7 +31,7 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
 
   //method
   public final N andMsSqlPort() {
-    return andPort(PortCatalogue.MSSQL);
+    return andPort(PortCatalogue.MS_SQL);
   }
 
   //method

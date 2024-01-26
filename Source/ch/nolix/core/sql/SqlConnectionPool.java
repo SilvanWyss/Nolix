@@ -18,7 +18,7 @@ import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarget {
 
   //constant
-  public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
+  public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
 
   //constant
   private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.NONE;

@@ -29,7 +29,7 @@ public final class PortCatalogue {
   public static final int MAX_PORT = 65535;
 
   //constant
-  public static final int MSSQL = 1433;
+  public static final int MS_SQL = 1433;
 
   //constructor
   /**
