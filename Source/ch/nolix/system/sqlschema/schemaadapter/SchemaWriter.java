@@ -51,7 +51,8 @@ public final class SchemaWriter implements ISchemaWriter {
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ISchemaStatementCreator schemaStatementCreator) {
-    return new SchemaWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaStatementCreator);
+    return new SchemaWriter(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(),
+      schemaStatementCreator);
   }
 
   //method

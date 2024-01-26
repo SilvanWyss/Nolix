@@ -27,7 +27,6 @@ public final class SqlConnectionFactory {
       sqlConnectionPool.getIpOrDomain(),
       sqlConnectionPool.getPort(),
       sqlConnectionPool.getLoginName(),
-      sqlConnectionPool.getLoginPassword(),
-      sqlConnectionPool);
+      sqlConnectionPool.getLoginPassword());
   }
 }

@@ -49,7 +49,8 @@ final class SchemaReader implements ISchemaReader {
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ISchemaQueryCreator schemaQueryCreator) {
-    return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaQueryCreator);
+    return new SchemaReader(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(),
+      schemaQueryCreator);
   }
 
   //method

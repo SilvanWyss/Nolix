@@ -33,9 +33,6 @@ public abstract class SqlConnection implements GroupCloseable {
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //optional attribute
-  private final SqlConnectionPool parentSqlConnectionPool;
-
   //constructor
   protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 
@@ -44,7 +41,6 @@ public abstract class SqlConnection implements GroupCloseable {
 
     this.sqlDatabaseEngine = sqlDatabaseEngine;
     this.connection = connection;
-    parentSqlConnectionPool = null;
   }
 
   //constructor
@@ -80,60 +76,10 @@ public abstract class SqlConnection implements GroupCloseable {
     } catch (final SQLException sqlException) {
       throw WrapperException.forError(sqlException);
     }
-
-    parentSqlConnectionPool = null;
-  }
-
-  //constructor
-  protected SqlConnection(
-    final SqlDatabaseEngine sqlDatabaseEngine,
-    final String ip,
-    final int port,
-    final String userName,
-    final String userPassword,
-    final SqlConnectionPool parentSqlConnectionPool) {
-
-    GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
-    GlobalValidator.assertThat(parentSqlConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
-
-    GlobalValidator
-      .assertThat(parentSqlConnectionPool)
-      .thatIsNamed("parent SQLConnectionPool")
-      .fulfills(SqlConnectionPool::isOpen);
-
-    this.sqlDatabaseEngine = sqlDatabaseEngine;
-
-    registerSqlDatabaseEngineDriver();
-
-    try {
-      connection = DriverManager.getConnection(
-        "jdbc:sqlserver://" + ip + ':' + port,
-        userName,
-        userPassword);
-    } catch (final SQLException sqlException) {
-      throw WrapperException.forError(sqlException);
-    }
-
-    this.parentSqlConnectionPool = parentSqlConnectionPool;
   }
 
   //method
-  public final boolean belongsToSqlConnectionPool() {
-    return (parentSqlConnectionPool != null);
-  }
-
-  //method
-  @Override
-  public final void close() {
-    if (!belongsToSqlConnectionPool()) {
-      GroupCloseable.super.close();
-    } else {
-      giveBackSelfToParentSqlConnectionPool();
-    }
-  }
-
-  //method
-  public final SqlConnection execute(final Iterable<String> sqlStatements) {
+  public final void execute(final Iterable<String> sqlStatements) {
 
     try (final var statement = connection.createStatement()) {
 
@@ -155,18 +101,11 @@ public abstract class SqlConnection implements GroupCloseable {
 
       throw WrapperException.forError(sqlException);
     }
-
-    return this;
   }
 
   //method
-  public final SqlConnection execute(final String sqlStatement) {
-    return execute(ReadContainer.forElement(sqlStatement));
-  }
-
-  //method
-  public final SqlConnection execute(final String sqlStatement, final String... sqlStatements) {
-    return execute(ReadContainer.forElement(sqlStatement, sqlStatements));
+  public final void execute(final String sqlStatement, final String... sqlStatements) {
+    execute(ReadContainer.forElement(sqlStatement, sqlStatements));
   }
 
   //method
@@ -201,23 +140,7 @@ public abstract class SqlConnection implements GroupCloseable {
 
   //method
   @Override
-  public final boolean isClosed() {
-
-    if (!belongsToSqlConnectionPool()) {
-      return GroupCloseable.super.isClosed();
-    }
-
-    return parentSqlConnectionPool.isClosed();
-  }
-
-  //method
-  @Override
   public final void noteClose() {
-    internalCloseDirectly();
-  }
-
-  //method
-  final void internalCloseDirectly() {
     try {
       connection.close();
     } catch (final SQLException sqlException) {
@@ -257,11 +180,6 @@ public abstract class SqlConnection implements GroupCloseable {
     }
 
     return records;
-  }
-
-  //method
-  private void giveBackSelfToParentSqlConnectionPool() {
-    parentSqlConnectionPool.takeBackSqlConnection(this);
   }
 
   //method

@@ -2,23 +2,18 @@
 package ch.nolix.core.sql;
 
 //own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.core.resourcecontrol.resourcepool.ResourcePool;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.sqlapi.databaseconnectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
-public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarget {
-
-  //constant
-  public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
+public final class SqlConnectionPool extends ResourcePool<SqlConnectionWrapper, SqlConnection>
+implements ISqlDatabaseTarget {
 
   //constant
   private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.NONE;
@@ -40,12 +35,6 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 
   //attribute
   private final Credential credential;
-
-  //attribute
-  private final CloseController closeController = CloseController.forElement(this);
-
-  //multi-attribute
-  private final LinkedList<SqlConnectionWrapper> sqlConnections = new LinkedList<>();
 
   //constructor
   SqlConnectionPool(
@@ -71,22 +60,6 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
   //static method
   public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
     return new SqlConnectionPoolBuilder(ipOrDomain);
-  }
-
-  //method
-  public SqlConnection borrowSqlConnection() {
-
-    final var sqlConnection = getOrCreateAvailableSqlConnectionWrapper();
-
-    final var innerSqlConnection = sqlConnection.getStoredSqlConnection();
-    sqlConnection.setAsInUse();
-
-    return innerSqlConnection;
-  }
-
-  //method
-  public boolean containsAvailableSqlConnection() {
-    return sqlConnections.containsAny(SqlConnectionWrapper::isAvailable);
   }
 
   //method
@@ -121,12 +94,6 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 
   //method
   @Override
-  public CloseController getStoredCloseController() {
-    return closeController;
-  }
-
-  //method
-  @Override
   public SecurityMode getSecurityLevelForConnections() {
     return SECURITY_LEVEL_FOR_CONNECTIONS;
   }
@@ -139,42 +106,19 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 
   //method
   @Override
-  public void noteClose() {
-    for (final var sqlc : sqlConnections) {
-      sqlc.close();
-    }
-  }
-
-  //method
-  public void takeBackSqlConnection(final SqlConnection sqlConnection) {
-    sqlConnections.getStoredFirst(sqlc -> sqlc.contains(sqlConnection)).setAvailable();
-  }
-
-  //method
-  @Override
   public String toUrl() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "toUrl");
   }
 
   //method
-  private SqlConnectionWrapper createSqlConnectionWrapper() {
-
-    final var sqlConnectionWrapper = SqlConnectionWrapper
-      .forSqlConnection(SQL_CONNECTION_FACTORY.createSqlConnectionForSqlConnectionPool(this));
-
-    sqlConnections.addAtEnd(sqlConnectionWrapper);
-
-    return sqlConnectionWrapper;
+  @Override
+  protected SqlConnection createResource() {
+    return SQL_CONNECTION_FACTORY.createSqlConnectionForSqlConnectionPool(this);
   }
 
   //method
-  private SqlConnectionWrapper getOrCreateAvailableSqlConnectionWrapper() {
-
-    final var sqlConnectionWrapper = sqlConnections.getStoredFirstOrNull(SqlConnectionWrapper::isAvailable);
-    if (sqlConnectionWrapper != null) {
-      return sqlConnectionWrapper;
-    }
-
-    return createSqlConnectionWrapper();
+  @Override
+  protected SqlConnectionWrapper createWrapperResourceWithResource(final SqlConnection resource) {
+    return SqlConnectionWrapper.forSqlConnection(resource);
   }
 }

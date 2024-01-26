@@ -47,7 +47,8 @@ public final class DatabaseReader implements IDataReader {
     final SqlConnectionPool sqlConnectionPool,
     final IContainer<ITableInfo> tableInfos,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DatabaseReader(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
+    return new DatabaseReader(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(), tableInfos,
+      sqlSyntaxProvider);
   }
 
   //method

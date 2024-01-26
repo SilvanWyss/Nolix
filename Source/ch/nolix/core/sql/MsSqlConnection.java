@@ -47,22 +47,6 @@ public final class MsSqlConnection extends SqlConnection {
       userPassword);
   }
 
-  //constructor
-  public MsSqlConnection(
-    final String ip,
-    final int port,
-    final String userName,
-    final String userPassword,
-    final SqlConnectionPool parentSqlConnectionPool) {
-    super(
-      SQL_DATABASE_ENGINE,
-      ip,
-      port,
-      userName,
-      userPassword,
-      parentSqlConnectionPool);
-  }
-
   //method
   @Override
   protected String getSqlDatabaseEngineDriverClass() {

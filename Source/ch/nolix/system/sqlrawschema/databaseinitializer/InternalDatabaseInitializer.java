@@ -43,7 +43,7 @@ final class InternalDatabaseInitializer {
     final var sqlStatementToCreateSchemaTimestampEntry = //
     DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createSqlStatementToCreateSchemaTimestampEntry(now);
 
-    try (final var sqlConnection = sqlConnectionPool.borrowSqlConnection()) {
+    try (final var sqlConnection = sqlConnectionPool.borrowResource()) {
       sqlConnection.execute("USE " + databaseName);
       sqlConnection.execute(sqlStatementToCreateSchemaTimestampEntry);
     }

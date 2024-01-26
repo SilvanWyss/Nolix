@@ -49,7 +49,8 @@ public final class DatabaseWriter implements IDataWriter {
     final SqlConnectionPool sqlConnectionPool,
     final IContainer<ITableInfo> tableInfos,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
+    return new DatabaseWriter(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(), tableInfos,
+      sqlSyntaxProvider);
   }
 
   //method
