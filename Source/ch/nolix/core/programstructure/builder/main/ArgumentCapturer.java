@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not have abstract methods.
-A, N> {
+public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have abstract methods.
+<A, N> {
 
   //attribute
   private boolean hasArgument;
