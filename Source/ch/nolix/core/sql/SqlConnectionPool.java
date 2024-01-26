@@ -58,11 +58,6 @@ implements ISqlDatabaseTarget {
     credential = CredentialBuilder.createCredential().withLoginName(loginName).andPassword(loginPassword);
   }
 
-  //static method
-  public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
-    return new SqlConnectionPoolBuilder(ipOrDomain);
-  }
-
   //method
   @Override
   public String getDatabaseName() {

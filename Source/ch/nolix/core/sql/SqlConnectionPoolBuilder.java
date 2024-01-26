@@ -6,38 +6,45 @@ import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNam
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginNameCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
+import ch.nolix.core.programstructure.builder.forargumentcapturer.ForIpOrDomainCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
 
 //class
 public final class SqlConnectionPoolBuilder
 extends
-AndPortCapturer<AndDatabaseNameCapturer< //
+ForIpOrDomainCapturer< //
+AndPortCapturer< //
+AndDatabaseNameCapturer< //
 WithSqlDatabaseEngineCapturer< //
 AndLoginNameCapturer< //
-AndLoginPasswordCapturer< //
-SqlConnectionPool //
->>>>> {
+AndLoginPasswordCapturer<SqlConnectionPool>>>>>> {
 
   //constructor
-  public SqlConnectionPoolBuilder(final String ipOrDomain) {
+  private SqlConnectionPoolBuilder() {
 
     super(
-      new AndDatabaseNameCapturer<>(
-        new WithSqlDatabaseEngineCapturer<>(
-          new AndLoginNameCapturer<>(
-            new AndLoginPasswordCapturer<>()))));
+      new AndPortCapturer<>(
+        new AndDatabaseNameCapturer<>(
+          new WithSqlDatabaseEngineCapturer<>(
+            new AndLoginNameCapturer<>(
+              new AndLoginPasswordCapturer<>())))));
 
-    setBuilder(() -> build(ipOrDomain));
+    setBuilder(this::buildSqlConnectionPool);
+  }
+
+  //static method
+  public static SqlConnectionPoolBuilder createConnectionPool() {
+    return new SqlConnectionPoolBuilder();
   }
 
   //method
-  private SqlConnectionPool build(final String ipOrDomain) {
+  private SqlConnectionPool buildSqlConnectionPool() {
     return new SqlConnectionPool(
-      ipOrDomain,
-      getPort(),
-      next().getDatabaseName(),
-      next().next().getSqlDatabaseEngine(),
-      next().next().next().getLoginName(),
-      next().next().next().next().getLoginPassword());
+      getIpOrDomain(),
+      next().getPort(),
+      next().next().getDatabaseName(),
+      next().next().next().getSqlDatabaseEngine(),
+      next().next().next().next().getLoginName(),
+      next().next().next().next().next().getLoginPassword());
   }
 }
