@@ -2,10 +2,16 @@
 package ch.nolix.core.programstructure.builder.withargumentcapturer;
 
 //own imports
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public class WithNameCapturer<N> extends ArgumentCapturer<String, N> {
+
+  //constructor
+  public WithNameCapturer() {
+  }
 
   //constructor
   public WithNameCapturer(final N nextArgumentCapturer) {
@@ -19,6 +25,9 @@ public class WithNameCapturer<N> extends ArgumentCapturer<String, N> {
 
   //method
   public final N withName(final String name) {
+
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+
     return setArgumentAndGetNext(name);
   }
 }
