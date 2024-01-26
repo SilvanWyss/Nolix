@@ -7,8 +7,11 @@ import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
-public class WithSqlDatabaseEngineCapturer<N>
-extends ArgumentCapturer<SqlDatabaseEngine, N> {
+public class WithSqlDatabaseEngineCapturer<N> extends ArgumentCapturer<SqlDatabaseEngine, N> {
+
+  //constructor
+  public WithSqlDatabaseEngineCapturer() {
+  }
 
   //constructor
   public WithSqlDatabaseEngineCapturer(final N nextArgumentCapturer) {
