@@ -10,36 +10,28 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
 
-  //attribute
-  private final int defaultPort;
-
   //constructor
-  public AndPortCapturer(final int defaultPort) {
-
-    GlobalValidator
-      .assertThat(defaultPort)
-      .thatIsNamed("default port")
-      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
-
-    this.defaultPort = defaultPort;
+  public AndPortCapturer() {
   }
 
   //constructor
-  public AndPortCapturer(final int defaultPort, final N nextArgumentCapturer) {
-
+  public AndPortCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
-
-    GlobalValidator
-      .assertThat(defaultPort)
-      .thatIsNamed("default port")
-      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
-
-    this.defaultPort = defaultPort;
   }
 
   //method
-  public final N andDefaultPort() {
-    return andPort(defaultPort);
+  public final N andHttpPort() {
+    return andPort(PortCatalogue.HTTP);
+  }
+
+  //method
+  public final N andHttpsPort() {
+    return andPort(PortCatalogue.HTTPS);
+  }
+
+  //method
+  public final N andMsSqlPort() {
+    return andPort(PortCatalogue.MSSQL);
   }
 
   //method

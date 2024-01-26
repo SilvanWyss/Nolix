@@ -28,7 +28,6 @@ MsSqlDataAdapter //
   public MsSqlDataAdapterBuilder(final String ipOrDomain) {
 
     super(
-      DEFAULT_PORT,
       new ToDatabaseNameCapturer<>(
         new UsingLoginNameCapturer<>(
           new AndLoginPasswordCapturer<>(

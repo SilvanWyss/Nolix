@@ -32,7 +32,7 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 
   //static method
   public static MsSqlSchemaAdapterBuilder toIpOrAddress(final String ipOrDomain) {
-    return new MsSqlSchemaAdapterBuilder(ipOrDomain, DEFAULT_PORT);
+    return new MsSqlSchemaAdapterBuilder(ipOrDomain);
   }
 
   //static method

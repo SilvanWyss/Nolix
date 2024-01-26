@@ -19,10 +19,9 @@ SqlConnectionPool //
 >>>>> {
 
   //constructor
-  public SqlConnectionPoolBuilder(final String ipOrDomain, final int defaultPort) {
+  public SqlConnectionPoolBuilder(final String ipOrDomain) {
 
     super(
-      defaultPort,
       new AndDatabaseNameCapturer<>(
         new WithSqlDatabaseEngineCapturer<>(
           new UsingLoginNameCapturer<>(

@@ -70,7 +70,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 
   //static method
   public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
-    return new SqlConnectionPoolBuilder(ipOrDomain, DEFAULT_PORT);
+    return new SqlConnectionPoolBuilder(ipOrDomain);
   }
 
   //method

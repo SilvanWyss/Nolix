@@ -15,10 +15,9 @@ extends
 AndPortCapturer<ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCapturer<MsSqlSchemaAdapter>>>> {
 
   //constructor
-  public MsSqlSchemaAdapterBuilder(final String ipOrDomain, final int defaultPort) {
+  public MsSqlSchemaAdapterBuilder(final String ipOrDomain) {
 
     super(
-      defaultPort,
       new ToDatabaseNameCapturer<>(
         new UsingLoginNameCapturer<>(
           new AndLoginPasswordCapturer<>())));
