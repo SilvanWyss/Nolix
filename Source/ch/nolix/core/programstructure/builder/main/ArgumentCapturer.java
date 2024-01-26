@@ -47,11 +47,19 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   }
 
   //method
+  protected final A getStoredArgument() {
+
+    assertHasArgument();
+
+    return argument;
+  }
+
+  //method
   protected final N setArgumentAndGetNext(final A argument) {
 
     setArgument(argument);
 
-    return getNextArgumentCapturerOrResult();
+    return getStoredNextArgumentCapturerOrResult();
   }
 
   //method
@@ -68,14 +76,6 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   }
 
   //method
-  protected final A getStoredArgument() {
-
-    assertHasArgument();
-
-    return argument;
-  }
-
-  //method
   private void assertHasArgument() {
     if (!hasArgument()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "argument");
@@ -85,7 +85,7 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   //method
   private void assertHasBuilder() {
     if (!hasBuilder()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "builder");
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.BUILDER);
     }
   }
 
@@ -102,21 +102,21 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   }
 
   //method
-  private N getNextArgumentCapturerOrResult() {
-
-    if (hasNextArgumentCapturer()) {
-      return nextArgumentCapturer;
-    }
-
-    return build();
-  }
-
-  //method
   private Supplier<N> getStoredBuilder() {
 
     assertHasBuilder();
 
     return builder;
+  }
+
+  //method
+  private N getStoredNextArgumentCapturerOrResult() {
+  
+    if (hasNextArgumentCapturer()) {
+      return nextArgumentCapturer;
+    }
+  
+    return build();
   }
 
   //method
