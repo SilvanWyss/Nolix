@@ -27,6 +27,22 @@ public final class ClosedArgumentException extends InvalidArgumentException {
     super(argument, ERROR_PREDICATE);
   }
 
+  //constructor
+  /**
+   * Creates a new {@link ClosedArgumentException} for the given argumentName and
+   * argument.
+   * 
+   * @param argumentName
+   * @param argument
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  private ClosedArgumentException(final String argumentName, final Object argument) {
+
+    //Calls constructor of the base class.
+    super(argumentName, argument, ERROR_PREDICATE);
+  }
+
   //static method
   /**
    * @param argument
@@ -34,5 +50,20 @@ public final class ClosedArgumentException extends InvalidArgumentException {
    */
   public static ClosedArgumentException forArgument(final Object argument) {
     return new ClosedArgumentException(argument);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link ClosedArgumentException} for the given argumentName and
+   *         argument.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static ClosedArgumentException forArgumentNameAndArgument(
+    final String argumentName,
+    final Object argument) {
+    return new ClosedArgumentException(argumentName, argument);
   }
 }
