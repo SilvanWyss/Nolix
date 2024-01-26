@@ -6,6 +6,7 @@ import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNam
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
+import ch.nolix.core.programstructure.builder.toargumentcapturer.ToIpOrDomainCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
@@ -13,35 +14,42 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class MsSqlDataAdapterBuilder
 extends
+ToIpOrDomainCapturer< //
 AndPortCapturer< //
 AndDatabaseNameCapturer< //
 WithLoginNameCapturer< //
 AndLoginPasswordCapturer< //
-AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>> {
+AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>>> {
 
   //constant
   public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
 
   //constructor
-  public MsSqlDataAdapterBuilder(final String ipOrDomain) {
+  private MsSqlDataAdapterBuilder() {
 
     super(
-      new AndDatabaseNameCapturer<>(
-        new WithLoginNameCapturer<>(
-          new AndLoginPasswordCapturer<>(
-            new AndSchemaCapturer<>()))));
+      new AndPortCapturer<>(
+        new AndDatabaseNameCapturer<>(
+          new WithLoginNameCapturer<>(
+            new AndLoginPasswordCapturer<>(
+              new AndSchemaCapturer<>())))));
 
-    setBuilder(() -> build(ipOrDomain));
+    setBuilder(this::buildMsSqlDataAdapter);
+  }
+
+  //static method
+  public static MsSqlDataAdapterBuilder createMsSqlDataAdapter() {
+    return new MsSqlDataAdapterBuilder();
   }
 
   //method
-  private MsSqlDataAdapter build(final String ipOrDomain) {
+  private MsSqlDataAdapter buildMsSqlDataAdapter() {
     return new MsSqlDataAdapter(
-      ipOrDomain,
-      getPort(),
-      next().getDatabaseName(),
-      next().next().getLoginName(),
-      next().next().next().getLoginPassword(),
-      next().next().next().next().getStoredSchema());
+      getIpOrDomain(),
+      next().getPort(),
+      next().next().getDatabaseName(),
+      next().next().next().getLoginName(),
+      next().next().next().next().getLoginPassword(),
+      next().next().next().next().next().getStoredSchema());
   }
 }
