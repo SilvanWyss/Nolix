@@ -5,7 +5,7 @@ package ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
 //interface
-public interface IResourcePool<R extends AutoCloseable> extends GroupCloseable {
+public interface IResourcePool<R extends GroupCloseable> extends GroupCloseable {
 
   //method declaration
   R borrowResource();
