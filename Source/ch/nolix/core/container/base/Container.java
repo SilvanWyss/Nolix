@@ -13,6 +13,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -818,6 +819,27 @@ public abstract class Container<E> implements IContainer<E> {
     }
 
     //Handles the case that the current Container is empty.
+    return Optional.empty();
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(n) if the current
+   * {@link Container} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
+
+    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+
+    for (final var e : this) {
+      if (selector.test(e)) {
+        return Optional.of(e);
+      }
+    }
+
     return Optional.empty();
   }
 
