@@ -2,7 +2,8 @@
 package ch.nolix.system.objectdatabase.dataadapter;
 
 //own imports
-import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
+import ch.nolix.core.programstructure.builder.withargumentcapturer.WithNameCapturer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdatabase.databaseandschemaadapter.DataAndSchemaAdapter;
 import ch.nolix.system.objectdatabase.database.DataAdapter;
@@ -31,8 +32,9 @@ public final class NodeDataAdapter extends DataAdapter {
   }
 
   //static method
-  public static NodeDataAdapterBuilder forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return new NodeDataAdapterBuilder(nodeDatabase);
+  public static WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> forNodeDatabase(
+    final IMutableNode<?> nodeDatabase) {
+    return NodeDataAdapterBuilder.createNodeDataAdapter().forNodeDatabase(nodeDatabase);
   }
 
   //static method
@@ -44,11 +46,8 @@ public final class NodeDataAdapter extends DataAdapter {
   }
 
   //static method
-  public static NodeDataAdapterBuilder forTemporaryInMemoryDatabase() {
-
-    final var nodeDatabase = new MutableNode();
-
-    return forNodeDatabase(nodeDatabase);
+  public static WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> forTemporaryInMemoryDatabase() {
+    return NodeDataAdapterBuilder.createNodeDataAdapter().forTemporaryInMemoryNodeDatabase();
   }
 
   //method

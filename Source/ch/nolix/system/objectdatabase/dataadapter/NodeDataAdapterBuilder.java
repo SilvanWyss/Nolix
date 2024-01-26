@@ -3,27 +3,32 @@ package ch.nolix.system.objectdatabase.dataadapter;
 
 //own imports
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
+import ch.nolix.core.programstructure.builder.forargumentcapturer.ForNodeDatabaseCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithNameCapturer;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class NodeDataAdapterBuilder
-extends WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> {
+extends ForNodeDatabaseCapturer<WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>>> {
 
   //constructor
-  public NodeDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
+  private NodeDataAdapterBuilder() {
 
-    super(new AndSchemaCapturer<>());
+    super(new WithNameCapturer<>(new AndSchemaCapturer<>()));
 
-    setBuilder(() -> build(nodeDatabase));
+    setBuilder(this::buildNodeDataAdapter);
+  }
+
+  //static method
+  public static NodeDataAdapterBuilder createNodeDataAdapter() {
+    return new NodeDataAdapterBuilder();
   }
 
   //method
-  private NodeDataAdapter build(final IMutableNode<?> nodeDatabase) {
+  private NodeDataAdapter buildNodeDataAdapter() {
     return NodeDataAdapter.forDatabaseNameAndNodeDatabaseAndSchema(
-      getName(),
-      nodeDatabase,
-      next().getStoredSchema());
+      next().getName(),
+      getStoredNodeDatabase(),
+      next().next().getStoredSchema());
   }
 }
