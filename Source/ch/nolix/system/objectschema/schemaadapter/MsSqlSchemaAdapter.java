@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;

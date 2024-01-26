@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.system.objectdatabase.dataadapter;
 
+//own imports
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
-import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;
-import ch.nolix.core.programstructure.builder.usingargumentcapturer.UsingLoginNameCapturer;
+import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
@@ -13,13 +14,10 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 public final class MsSqlDataAdapterBuilder
 extends
 AndPortCapturer< //
-ToDatabaseNameCapturer< //
-UsingLoginNameCapturer< //
+AndDatabaseNameCapturer< //
+WithLoginNameCapturer< //
 AndLoginPasswordCapturer< //
-AndSchemaCapturer< //
-ISchema, //
-MsSqlDataAdapter //
->>>>> {
+AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>> {
 
   //constant
   public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
@@ -28,10 +26,10 @@ MsSqlDataAdapter //
   public MsSqlDataAdapterBuilder(final String ipOrDomain) {
 
     super(
-      new ToDatabaseNameCapturer<>(
-        new UsingLoginNameCapturer<>(
+      new AndDatabaseNameCapturer<>(
+        new WithLoginNameCapturer<>(
           new AndLoginPasswordCapturer<>(
-            new AndSchemaCapturer<>(null)))));
+            new AndSchemaCapturer<>()))));
 
     setBuilder(() -> build(ipOrDomain));
   }

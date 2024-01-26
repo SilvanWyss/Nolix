@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.dataadapter;
 
+//own imports
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
@@ -31,7 +32,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
         .andPort(port)
         .andDatabase(databaseName)
         .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
-        .usingLoginName(loginName)
+        .andLoginName(loginName)
         .andLoginPassword(loginPassword));
   }
 

@@ -3,9 +3,9 @@ package ch.nolix.core.sql;
 
 //own imports
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginNameCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
-import ch.nolix.core.programstructure.builder.usingargumentcapturer.UsingLoginNameCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
 
 //class
@@ -13,7 +13,7 @@ public final class SqlConnectionPoolBuilder
 extends
 AndPortCapturer<AndDatabaseNameCapturer< //
 WithSqlDatabaseEngineCapturer< //
-UsingLoginNameCapturer< //
+AndLoginNameCapturer< //
 AndLoginPasswordCapturer< //
 SqlConnectionPool //
 >>>>> {
@@ -24,7 +24,7 @@ SqlConnectionPool //
     super(
       new AndDatabaseNameCapturer<>(
         new WithSqlDatabaseEngineCapturer<>(
-          new UsingLoginNameCapturer<>(
+          new AndLoginNameCapturer<>(
             new AndLoginPasswordCapturer<>()))));
 
     setBuilder(() -> build(ipOrDomain));
