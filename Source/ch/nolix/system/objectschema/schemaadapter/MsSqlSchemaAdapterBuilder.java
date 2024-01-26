@@ -5,6 +5,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;
+import ch.nolix.core.programstructure.builder.toargumentcapturer.ToIpOrDomainCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
 import ch.nolix.core.sql.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
@@ -12,33 +13,47 @@ import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 //class
 public final class MsSqlSchemaAdapterBuilder
 extends
-AndPortCapturer<ToDatabaseNameCapturer<WithLoginNameCapturer<AndLoginPasswordCapturer<MsSqlSchemaAdapter>>>> {
+ToIpOrDomainCapturer< //
+AndPortCapturer< //
+ToDatabaseNameCapturer< //
+WithLoginNameCapturer< //
+AndLoginPasswordCapturer< //
+MsSqlSchemaAdapter>>>>> {
 
   //constructor
-  public MsSqlSchemaAdapterBuilder(final String ipOrDomain) {
+  private MsSqlSchemaAdapterBuilder() {
 
     super(
-      new ToDatabaseNameCapturer<>(
-        new WithLoginNameCapturer<>(
-          new AndLoginPasswordCapturer<>())));
+      new AndPortCapturer<>(
+        new ToDatabaseNameCapturer<>(
+          new WithLoginNameCapturer<>(
+            new AndLoginPasswordCapturer<>()))));
 
-    setBuilder(() -> build(ipOrDomain));
+    setBuilder(this::buildMsSqlSchemaAdapter);
+  }
+
+  //static method
+  public static MsSqlSchemaAdapterBuilder createMsSqlSchemaAdapter() {
+    return new MsSqlSchemaAdapterBuilder();
   }
 
   //method
-  private MsSqlSchemaAdapter build(final String ipOrDomain) {
+  private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
+
+    final var databaseName = next().next().getDatabaseName();
+
     return new MsSqlSchemaAdapter(
-      next().getDatabaseName(),
+      databaseName,
       ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter
         .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-          next().getDatabaseName(),
+          databaseName,
           SqlConnectionPoolBuilder
             .createConnectionPool()
-            .forIpOrDomain(ipOrDomain)
-            .andPort(getPort())
-            .andDatabase(next().getDatabaseName())
+            .forIpOrDomain(getIpOrDomain())
+            .andPort(next().getPort())
+            .andDatabase(databaseName)
             .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
-            .andLoginName(next().next().getLoginName())
-            .andLoginPassword(next().next().next().getLoginPassword())));
+            .andLoginName(next().next().next().getLoginName())
+            .andLoginPassword(next().next().next().next().getLoginPassword())));
   }
 }

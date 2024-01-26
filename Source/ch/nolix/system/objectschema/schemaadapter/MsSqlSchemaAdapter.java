@@ -3,7 +3,6 @@ package ch.nolix.system.objectschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 
 //class
@@ -29,15 +28,5 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
         .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
           databaseName,
           sqlConnectionPool));
-  }
-
-  //static method
-  public static MsSqlSchemaAdapterBuilder toIpOrAddress(final String ipOrDomain) {
-    return new MsSqlSchemaAdapterBuilder(ipOrDomain);
-  }
-
-  //static method
-  public static MsSqlSchemaAdapterBuilder toLocalhost() {
-    return toIpOrAddress(IPv4Catalogue.LOOP_BACK_ADDRESS);
   }
 }
