@@ -51,14 +51,14 @@ implements ICookieManager {
   }
 
   //method
-  public final String getUrlParameterValueByUrlParameterNameOrNull(final String urlParameterName) {
+  public final Optional<String> getOptionalUrlParameterValueByUrlParameterName(final String urlParameterName) {
 
     final var getUrlParameterValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
       .createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
 
     final var urlParameterValueReply = getDataFromCounterpart(getUrlParameterValueRequest);
 
-    return urlParameterValueReply.getOptionalHeader().orElse(null);
+    return urlParameterValueReply.getOptionalHeader();
   }
 
   //method
