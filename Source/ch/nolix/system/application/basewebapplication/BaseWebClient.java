@@ -58,7 +58,7 @@ implements ICookieManager {
 
     final var urlParameterValueReply = getDataFromCounterpart(getUrlParameterValueRequest);
 
-    return urlParameterValueReply.getHeaderOrNull();
+    return urlParameterValueReply.getOptionalHeader().orElse(null);
   }
 
   //method

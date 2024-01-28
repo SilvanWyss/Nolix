@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
@@ -38,16 +41,17 @@ public interface IOptionalHeaderHolder {
 
   //method
   /**
-   * @return the header of the current {@link IOptionalHeaderHolder} if the
-   *         current {@link IOptionalHeaderHolder} has a header, null otherwise.
+   * @return a new {@link Optional} with the header of the current
+   *         {@link IOptionalHeaderHolder} if it has a header, otherwise an empty
+   *         {@link Optional}.
    */
-  default String getHeaderOrNull() {
+  default Optional<String> getOptionalHeader() {
 
     if (!hasHeader()) {
-      return null;
+      return Optional.of(getHeader());
     }
 
-    return getHeader();
+    return Optional.empty();
   }
 
   //method declaration
