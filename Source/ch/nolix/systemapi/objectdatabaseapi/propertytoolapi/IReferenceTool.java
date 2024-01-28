@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.propertytoolapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -17,5 +20,5 @@ public interface IReferenceTool extends IPropertyTool {
   IEntityUpdateDto createEntityUpdateDtoForSetEntity(IReference<?> reference, IEntity entity);
 
   //method declaration
-  IProperty getStoredBackReferencingPropertyOrNull(IReference<?> reference);
+  Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(IReference<?> reference);
 }
