@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.main;
 
 //Java imports
+import java.util.Optional;
 import java.util.function.Consumer;
 
 //own imports
@@ -215,8 +216,8 @@ implements IControl<C, CS> {
 
   //method
   @Override
-  public final IControl<?, ?> getStoredChildControlOrNullByInternalId(final String internalId) {
-    return getStoredChildControls().getOptionalStoredFirst(cs -> cs.hasInternalId(internalId)).orElse(null);
+  public final Optional<IControl<?, ?>> getOptionalStoredChildControlByInternalId(final String internalId) {
+    return getStoredChildControls().getOptionalStoredFirst(cs -> cs.hasInternalId(internalId));
   }
 
   //method

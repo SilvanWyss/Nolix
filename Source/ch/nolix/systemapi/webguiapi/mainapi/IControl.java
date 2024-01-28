@@ -52,7 +52,7 @@ PresenceSettable<C> {
   Optional<String> getOptionalJavaScriptUserInputFunction();
 
   //method declaration
-  IControl<?, ?> getStoredChildControlOrNullByInternalId(String internalId);
+  Optional<IControl<?, ?>> getOptionalStoredChildControlByInternalId(String internalId);
 
   //method declaration
   IContainer<IControl<?, ?>> getStoredChildControls();

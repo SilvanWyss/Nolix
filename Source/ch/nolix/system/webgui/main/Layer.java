@@ -220,7 +220,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
       return localRootControl;
     }
 
-    return localRootControl.getStoredChildControlOrNullByInternalId(internalId);
+    return localRootControl.getOptionalStoredChildControlByInternalId(internalId).orElse(null);
   }
 
   //method
