@@ -436,7 +436,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return LinkedListIterator.withFirstNodeOrNull(firstNode);
+    return LinkedListIterator.withNullableFirstNode(firstNode);
   }
 
   //method

@@ -22,18 +22,18 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
 
   //constructor
   /**
-   * Creates a new {@link LinkedListIterator} with the given firstNode. The given
-   * firstNode be null.
+   * Creates a new {@link LinkedListIterator} with the given nullableFirstNode.
+   * The given nullableFirstNode can be null.
    * 
-   * @param firstNode
+   * @param nullableFirstNode
    */
-  private LinkedListIterator(final LinkedListNode<E> firstNode) {
-    nextNode = firstNode;
+  private LinkedListIterator(final LinkedListNode<E> nullableFirstNode) {
+    nextNode = nullableFirstNode;
   }
 
   //static method
-  public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
-    return new LinkedListIterator<>(firstNode);
+  public static <E2> LinkedListIterator<E2> withNullableFirstNode(final LinkedListNode<E2> nullableFirstNode) {
+    return new LinkedListIterator<>(nullableFirstNode);
   }
 
   //method
@@ -42,7 +42,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public CopyableIterator<E> getCopy() {
-    return withFirstNodeOrNull(nextNode);
+    return withNullableFirstNode(nextNode);
   }
 
   //method
