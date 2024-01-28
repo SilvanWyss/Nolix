@@ -51,13 +51,13 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   //method
   public Optional<String> getOptionalIdOf(final E element) {
 
-    final var pair = elements.getStoredFirstOrNull(e -> e.getStoredElement2() == element);
+    final var pair = elements.getOptionalStoredFirst(e -> e.getStoredElement2() == element);
 
-    if (pair == null) {
+    if (pair.isEmpty()) {
       return Optional.empty();
     }
 
-    return Optional.of(pair.getStoredElement1());
+    return Optional.of(pair.get().getStoredElement1());
   }
 
   //method
@@ -124,9 +124,9 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public String registerIfNotRegisteredAndGetId(final E element) {
 
-    final var pair = elements.getStoredFirstOrNull(e -> e.hasElement2(element));
+    final var pair = elements.getOptionalStoredFirst(e -> e.hasElement2(element));
 
-    if (pair == null) {
+    if (pair.isEmpty()) {
 
       GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
 
@@ -136,7 +136,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
       return id;
     }
 
-    return pair.getStoredElement1();
+    return pair.get().getStoredElement1();
   }
 
   //method

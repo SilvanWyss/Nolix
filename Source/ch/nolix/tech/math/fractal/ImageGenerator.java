@@ -75,13 +75,13 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   @Override
   public Throwable getError() {
 
-    final var futureWithError = futures.getStoredFirstOrNull(IFuture::caughtError);
+    final var futureWithError = futures.getOptionalStoredFirst(IFuture::caughtError);
 
-    if (futureWithError == null) {
+    if (futureWithError.isEmpty()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.ERROR);
     }
 
-    return futureWithError.getError();
+    return futureWithError.get().getError();
   }
 
   //method

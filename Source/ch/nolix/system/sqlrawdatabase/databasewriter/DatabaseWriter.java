@@ -208,6 +208,6 @@ public final class DatabaseWriter implements IDataWriter {
 
   //method
   private ITableInfo getTableDefinitionByTableName(final String tableName) {
-    return tableInfos.getStoredFirstOrNull(td -> td.getTableName().equals(tableName));
+    return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
   }
 }

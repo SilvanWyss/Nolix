@@ -954,27 +954,6 @@ public abstract class Container<E> implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final E getStoredFirstOrNull(final Predicate<? super E> selector) {
-
-    //Iterates the current IContainer.
-    for (final var e : this) {
-
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
-        return e;
-      }
-    }
-
-    return null;
-  }
-
-  //method
-  /**
    * The complexity of this implementation is O(n^2) if the current
    * {@link Container} contains n elements.
    * 
@@ -989,16 +968,16 @@ public abstract class Container<E> implements IContainer<E> {
     for (final var e : this) {
 
       final var groupKey = norm.apply(e);
-      final var group = groups.getStoredFirstOrNull(g -> g.containsAny(e2 -> norm.apply(e2).equals(groupKey)));
+      final var group = groups.getOptionalStoredFirst(g -> g.containsAny(e2 -> norm.apply(e2).equals(groupKey)));
 
-      if (group == null) {
+      if (group.isEmpty()) {
 
         final var list = createEmptyMutableList(new Marker<E>());
         list.addAtEnd(e);
 
         groups.addAtEnd(list);
       } else {
-        group.addAtEnd(e);
+        group.get().addAtEnd(e);
       }
     }
 

@@ -54,10 +54,10 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
 
     final var backReferencingProperty = getReferencedEntity().technicalGetStoredProperties()
-      .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
+      .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
 
-    if (backReferencingProperty != null) {
-      return ImmutableList.withElement(backReferencingProperty);
+    if (backReferencingProperty.isPresent()) {
+      return ImmutableList.withElement(backReferencingProperty.get());
     }
 
     return new ImmutableList<>();
@@ -207,7 +207,10 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-    return ENTITY_TOOL.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
+    return ENTITY_TOOL
+      .getStoredReferencingProperties(entity)
+      .getOptionalStoredFirst(rp -> rp.hasName(getName()))
+      .orElse(null);
   }
 
   //method

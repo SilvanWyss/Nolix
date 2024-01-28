@@ -216,7 +216,7 @@ implements IControl<C, CS> {
   //method
   @Override
   public final IControl<?, ?> getStoredChildControlOrNullByInternalId(final String internalId) {
-    return getStoredChildControls().getStoredFirstOrNull(cs -> cs.hasInternalId(internalId));
+    return getStoredChildControls().getOptionalStoredFirst(cs -> cs.hasInternalId(internalId)).orElse(null);
   }
 
   //method

@@ -59,7 +59,8 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   public IProperty getStoredBackReferencingPropertyOrNull() {
     return getReferencedEntity()
       .technicalGetStoredProperties()
-      .getStoredFirstOrNull(p -> p.referencesBackProperty(getStoredParentMultiReference()));
+      .getOptionalStoredFirst(p -> p.referencesBackProperty(getStoredParentMultiReference()))
+      .orElse(null);
   }
 
   //method

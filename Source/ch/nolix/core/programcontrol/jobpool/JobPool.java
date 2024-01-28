@@ -64,14 +64,14 @@ public final class JobPool {
   //method
   synchronized Optional<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
 
-    final var nextFreshJobWrapper = jobWrappers.getStoredFirstOrNull(JobWrapper::isFresh);
+    final var nextFreshJobWrapper = jobWrappers.getOptionalStoredFirst(JobWrapper::isFresh);
 
-    if (nextFreshJobWrapper == null) {
+    if (nextFreshJobWrapper.isEmpty()) {
       return Optional.empty();
     }
 
-    jobWrappers.removeStrictlyFirstOccurrenceOf(nextFreshJobWrapper);
-    return Optional.of(nextFreshJobWrapper);
+    jobWrappers.removeStrictlyFirstOccurrenceOf(nextFreshJobWrapper.get());
+    return Optional.of(nextFreshJobWrapper.get());
   }
 
   //method

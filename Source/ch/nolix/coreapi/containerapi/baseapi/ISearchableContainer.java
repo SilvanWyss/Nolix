@@ -94,14 +94,6 @@ public interface ISearchableContainer<E> {
    */
   E getStoredFirst(Predicate<? super E> selector);
 
-  //method declaration
-  /**
-   * @param selector
-   * @return the first element the given selector selects from the current
-   *         {@link ISearchableContainer} or null.
-   */
-  E getStoredFirstOrNull(Predicate<? super E> selector);
-
   //method
   /**
    * @param norm

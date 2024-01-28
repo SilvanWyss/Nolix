@@ -131,25 +131,25 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @Override
   public E getStoredEntityById(final String id) {
 
-    final var entity = technicalGetRefEntitiesInLocalData().getStoredFirstOrNull(e -> e.hasId(id));
+    final var entity = technicalGetRefEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
 
-    if (entity == null) {
+    if (entity.isEmpty()) {
 
       addEntityWithIdWhenIsNotAdded(id);
 
       return getStoredEntityByIdWhenIsInLocalData(id);
     }
 
-    return entity;
+    return entity.get();
   }
 
   //method
   @Override
   public E getStoredEntityByIdOrNull(final String id) {
 
-    final var entity = technicalGetRefEntitiesInLocalData().getStoredFirstOrNull(e -> e.hasId(id));
+    final var entity = technicalGetRefEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
 
-    if (entity == null) {
+    if (entity.isEmpty()) {
 
       if (internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
 
@@ -161,7 +161,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
       return null;
     }
 
-    return entity;
+    return entity.get();
   }
 
   //method

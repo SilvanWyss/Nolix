@@ -121,11 +121,11 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     final var webClientSession = (WebClientSession<AC>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
-    final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
+    final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
 
     //The Control could be removed on the server in the meanwhile.
-    if (control != null) {
-      runCommandOnControl(control, command);
+    if (control.isPresent()) {
+      runCommandOnControl(control.get(), command);
     }
   }
 
@@ -166,11 +166,11 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
       final var internalControlId = p.getChildNodeAt1BasedIndex(1).getHeader();
       final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-      final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
+      final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
 
       //The Control could be removed on the server in the meanwhile.
-      if (control != null) {
-        control.setUserInput(userInput);
+      if (control.isPresent()) {
+        control.get().setUserInput(userInput);
       }
     }
   }

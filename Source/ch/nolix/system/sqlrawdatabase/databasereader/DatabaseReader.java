@@ -130,6 +130,6 @@ public final class DatabaseReader implements IDataReader {
 
   //method
   private ITableInfo getTableInfoByTableName(final String tableName) {
-    return tableInfos.getStoredFirstOrNull(td -> td.getTableName().equals(tableName));
+    return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
   }
 }

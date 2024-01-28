@@ -42,7 +42,8 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
     return reference
       .getReferencedEntity()
       .technicalGetStoredProperties()
-      .getStoredFirstOrNull(p -> p.referencesBackProperty(reference));
+      .getOptionalStoredFirst(p -> p.referencesBackProperty(reference))
+      .orElse(null);
   }
 
   //method

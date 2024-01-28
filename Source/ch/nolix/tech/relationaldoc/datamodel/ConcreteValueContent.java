@@ -100,9 +100,9 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanRemoveValue(this);
 
     values.removeValue(value);
-    final var equalingValue = values.getStoredValues().getStoredFirstOrNull(v -> v.equals(value));
-    if (equalingValue != null) {
-      values.removeValue(equalingValue);
+    final var equalingValue = values.getStoredValues().getOptionalStoredFirst(v -> v.equals(value));
+    if (equalingValue.isPresent()) {
+      values.removeValue(equalingValue.get());
     }
   }
 

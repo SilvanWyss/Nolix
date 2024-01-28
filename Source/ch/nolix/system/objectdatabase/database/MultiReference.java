@@ -78,10 +78,10 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     for (final var re : getReferencedEntities()) {
 
       final var backReferencingProperty = re.technicalGetStoredProperties()
-        .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
+        .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
 
-      if (backReferencingProperty != null) {
-        backReferencingProperties.addAtEnd(backReferencingProperty);
+      if (backReferencingProperty.isPresent()) {
+        backReferencingProperties.addAtEnd(backReferencingProperty.get());
       }
     }
 

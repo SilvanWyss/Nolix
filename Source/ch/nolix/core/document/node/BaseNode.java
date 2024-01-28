@@ -197,7 +197,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   @Override
   public final BN getStoredFirstChildNodeThatOrNull(Predicate<INode<?>> selector) {
-    return getStoredChildNodes().getStoredFirstOrNull(selector);
+    return getStoredChildNodes().getOptionalStoredFirst(selector).orElse(null);
   }
 
   //method
