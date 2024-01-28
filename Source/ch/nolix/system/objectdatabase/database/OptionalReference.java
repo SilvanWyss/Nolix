@@ -60,24 +60,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
-  public IContainer<IProperty> getStoredBackReferencingProperties() {
-
-    if (isEmpty()) {
-      return new ImmutableList<>();
-    }
-
-    final var backReferencingProperty = getReferencedEntity().technicalGetStoredProperties()
-      .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
-
-    if (backReferencingProperty.isPresent()) {
-      return ImmutableList.withElement(backReferencingProperty.get());
-    }
-
-    return new ImmutableList<>();
-  }
-
-  //method
-  @Override
   public E getReferencedEntity() {
     return getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
@@ -89,6 +71,24 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
     return referencedEntityId;
+  }
+
+  //method
+  @Override
+  public IContainer<IProperty> getStoredBackReferencingProperties() {
+  
+    if (isEmpty()) {
+      return new ImmutableList<>();
+    }
+  
+    final var backReferencingProperty = getReferencedEntity().technicalGetStoredProperties()
+      .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
+  
+    if (backReferencingProperty.isPresent()) {
+      return ImmutableList.withElement(backReferencingProperty.get());
+    }
+  
+    return new ImmutableList<>();
   }
 
   //method
@@ -253,11 +253,9 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //method
   private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
 
-    final var backReferencingProperty = OPTIONAL_REFERENCE_TOOL.getStoredBackReferencingPropertyOrNull(this);
+    final var backReferencingProperty = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingProperty(this);
 
-    if (backReferencingProperty != null) {
-      updateBackReferencingPropertyForClear(backReferencingProperty);
-    }
+    backReferencingProperty.ifPresent(this::updateBackReferencingPropertyForClear);
   }
 
   //method

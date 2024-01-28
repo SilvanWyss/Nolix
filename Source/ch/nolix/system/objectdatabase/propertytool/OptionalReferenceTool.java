@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertytool;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.system.sqlrawdatabase.databasedto.EntityUpdateDto;
@@ -58,13 +61,12 @@ public final class OptionalReferenceTool extends PropertyTool implements IOption
 
   //method
   @Override
-  public IProperty getStoredBackReferencingPropertyOrNull(
+  public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(
     final IOptionalReference<?> optionalReference) {
     return optionalReference
       .getReferencedEntity()
       .technicalGetStoredProperties()
-      .getOptionalStoredFirst(p -> p.referencesBackProperty(optionalReference))
-      .orElse(null);
+      .getOptionalStoredFirst(p -> p.referencesBackProperty(optionalReference));
   }
 
   //method

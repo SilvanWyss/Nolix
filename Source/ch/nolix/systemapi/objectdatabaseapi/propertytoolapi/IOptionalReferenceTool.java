@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.propertytoolapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
@@ -23,5 +26,5 @@ public interface IOptionalReferenceTool {
   IEntityUpdateDto createEntityUpdateDtoForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 
   //method declaration
-  IProperty getStoredBackReferencingPropertyOrNull(IOptionalReference<?> optionalReference);
+  Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(IOptionalReference<?> optionalReference);
 }
