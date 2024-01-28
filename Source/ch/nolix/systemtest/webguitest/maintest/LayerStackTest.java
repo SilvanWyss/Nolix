@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
+//own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -13,7 +14,7 @@ public final class LayerStackTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getStoredControlOrNullByInternalId_whenIsEmpty() {
+  public void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {
 
     //setup
     final var control = new Label();
@@ -31,7 +32,7 @@ public final class LayerStackTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getStoredControlOrNullByInternalId_whenContainsSuchAControl() {
+  public void testCase_getOptionalStoredControlByInternalId_whenContainsSuchAControl() {
 
     //setup
     final var control = new Label();
@@ -42,7 +43,7 @@ public final class LayerStackTest extends Test {
     final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
     //verification
-    expect(result.get()).is(control);
+    expect(result.get()).is(control); //NOSONAR: The current test case expects a non-empty result.
   }
 
   //method
