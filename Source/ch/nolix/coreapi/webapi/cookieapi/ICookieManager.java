@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.webapi.cookieapi;
 
+//Java imports
+import java.util.Optional;
+
 //interface
 public interface ICookieManager {
 
@@ -8,7 +11,7 @@ public interface ICookieManager {
   void deleteCookieByName(String name);
 
   //method declaration
-  String getCookieValueByCookieNameOrNull(String cookieName);
+  Optional<String> getOptionalCookieValueByCookieName(String cookieName);
 
   //method declaration
   void setOrAddCookieWithNameAndValue(String name, String value);

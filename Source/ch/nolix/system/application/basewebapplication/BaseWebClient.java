@@ -42,12 +42,12 @@ implements ICookieManager {
 
   //method
   @Override
-  public final String getCookieValueByCookieNameOrNull(final String cookieName) {
+  public final Optional<String> getOptionalCookieValueByCookieName(final String cookieName) {
 
     final var getCookieValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
       .createGetCookieValueRequestForCookieName(cookieName);
 
-    return getCookieValueByCookieNameOrNullFromData(getDataFromCounterpart(getCookieValueRequest));
+    return getOptionalCookieValueByCookieNameFromData(getDataFromCounterpart(getCookieValueRequest));
   }
 
   //method
@@ -147,13 +147,8 @@ implements ICookieManager {
   }
 
   //method
-  private String getCookieValueByCookieNameOrNullFromData(final INode<?> data) {
-
-    if (!data.hasHeader()) {
-      return null;
-    }
-
-    return data.getHeader();
+  private Optional<String> getOptionalCookieValueByCookieNameFromData(final INode<?> data) {
+    return data.getOptionalHeader();
   }
 
   //method
