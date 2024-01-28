@@ -6,42 +6,10 @@ import ch.nolix.core.net.endpoint2.NetEndPoint;
 import ch.nolix.core.net.endpoint2.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
-import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class NetEndPointTest extends Test {
-
-  //constant
-  private static final class SlotMock implements ISlot {
-
-    //optional attribute
-    private String receivedMessage;
-
-    //method
-    @Override
-    public String getName() {
-      return "slot";
-    }
-
-    //method
-    public String getReceivedMessageOrNull() {
-      return receivedMessage;
-    }
-
-    //method
-    @Override
-    public void takeBackendEndPoint(final IEndPoint endPoint) {
-      endPoint.setReplier(this::getReply);
-    }
-
-    //method
-    private String getReply(final String message) {
-      receivedMessage = message;
-      return "REPLY";
-    }
-  }
 
   //method
   @TestCase
@@ -53,7 +21,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(50000)) {
 
       //setup
-      server.addDefaultSlot(new SlotMock());
+      server.addDefaultSlot(new MockSlot());
 
       //execution & verification
       expectRunning(
@@ -76,17 +44,17 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(50000)) {
 
       //setup
-      final var slot = new SlotMock();
+      final var slot = new MockSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
 
         //execution
-        final var result = testUnit.getReplyForRequest("MESSAGE");
+        final var result = testUnit.getReplyForRequest("message");
 
         //verification
-        expect(slot.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
-        expect(result).isEqualTo("REPLY");
+        expect(slot.getLatestReceivedMessage()).isEqualTo("message");
+        expect(result).isEqualTo(MockSlot.REPLY);
       }
     }
   }
