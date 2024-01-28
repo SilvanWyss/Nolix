@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
 //Java imports
+import java.util.Optional;
 import java.util.function.Consumer;
 
 //own imports
@@ -22,7 +23,7 @@ public interface IValidationLabelTool {
     Consumer<? super C> action);
 
   //method declaration
-  IValidationLabel getStoredNearestValidationLabelOfControlOrNull(IControl<?, ?> control);
+  Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(IControl<?, ?> control);
 
   //method declaration
   void showErrorInNearestValidationLabelOfControlOrSwallowError(IControl<?, ?> control, Throwable error);

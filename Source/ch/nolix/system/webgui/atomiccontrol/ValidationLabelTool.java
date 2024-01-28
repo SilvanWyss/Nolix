@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.atomiccontrol;
 
 //Java imports
+import java.util.Optional;
 import java.util.function.Consumer;
 
 //own imports
@@ -16,11 +17,9 @@ public final class ValidationLabelTool implements IValidationLabelTool {
   @Override
   public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
 
-    final var validationLabel = getStoredNearestValidationLabelOfControlOrNull(control);
+    final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);
 
-    if (validationLabel != null) {
-      validationLabel.clear();
-    }
+    validationLabel.ifPresent(IValidationLabel::clear);
   }
 
   //method
@@ -51,7 +50,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
 
   //method
   @Override
-  public IValidationLabel getStoredNearestValidationLabelOfControlOrNull(final IControl<?, ?> control) {
+  public Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(final IControl<?, ?> control) {
 
     if (control.belongsToControl()) {
 
@@ -59,14 +58,14 @@ public final class ValidationLabelTool implements IValidationLabelTool {
 
       for (final var cc : parentControl.getStoredChildControls()) {
         if (cc instanceof final IValidationLabel validationLabel) {
-          return validationLabel;
+          return Optional.of(validationLabel);
         }
       }
 
-      return getStoredNearestValidationLabelOfControlOrNull(parentControl);
+      return getOptionalStoredNearestValidationLabelOfControl(parentControl);
     }
 
-    return null;
+    return Optional.empty();
   }
 
   //method
@@ -75,10 +74,8 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     final IControl<?, ?> control,
     final Throwable error) {
 
-    final var validationLabel = getStoredNearestValidationLabelOfControlOrNull(control);
+    final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);
 
-    if (validationLabel != null) {
-      validationLabel.showError(error);
-    }
+    validationLabel.ifPresent(l -> l.showError(error));
   }
 }
