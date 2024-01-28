@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
@@ -8,7 +11,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 public interface IMultiReferenceEntry<E extends IEntity> extends IDatabaseObject {
 
   //method declaration
-  IProperty getStoredBackReferencingPropertyOrNull();
+  Optional<? extends IProperty> getOptionalStoredBackReferencingProperty();
 
   //method declaration
   E getReferencedEntity();

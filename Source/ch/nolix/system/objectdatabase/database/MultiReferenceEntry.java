@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
@@ -56,11 +58,10 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   @Override
-  public IProperty getStoredBackReferencingPropertyOrNull() {
+  public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty() {
     return getReferencedEntity()
       .technicalGetStoredProperties()
-      .getOptionalStoredFirst(p -> p.referencesBackProperty(getStoredParentMultiReference()))
-      .orElse(null);
+      .getOptionalStoredFirst(p -> p.referencesBackProperty(getStoredParentMultiReference()));
   }
 
   //method
