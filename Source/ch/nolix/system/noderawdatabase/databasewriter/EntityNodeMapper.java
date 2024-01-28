@@ -38,11 +38,11 @@ final class EntityNodeMapper {
       final var columnInfo = tableInfo.getColumnInfoByColumnName(cf.getColumnName());
       final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
 
-      final var string = cf.getValueAsStringOrNull();
-      if (string == null) {
+      final var valueAsString = cf.getOptionalValueAsString();
+      if (valueAsString.isEmpty()) {
         attributes[index] = Node.EMPTY_NODE;
       } else {
-        attributes[index] = Node.withHeader(string);
+        attributes[index] = Node.withHeader(valueAsString.get());
       }
     }
 

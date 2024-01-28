@@ -287,11 +287,11 @@ final class DatabaseUpdater {
       final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(columnIndex);
 
-      final var value = ucf.getValueAsStringOrNull();
-      if (value == null) {
+      final var valueAsString = ucf.getOptionalValueAsString();
+      if (valueAsString.isEmpty()) {
         contentFieldNode.removeHeader();
       } else {
-        contentFieldNode.setHeader(value);
+        contentFieldNode.setHeader(valueAsString.get());
       }
     }
   }
