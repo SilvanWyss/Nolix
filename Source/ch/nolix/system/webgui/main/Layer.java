@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -209,18 +212,18 @@ extends StylableElement<Layer> implements ILayer<Layer> {
 
   //method
   @Override
-  public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
+  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
 
     if (isEmpty()) {
-      return null;
+      return Optional.empty();
     }
 
     final var localRootControl = getStoredRootControl();
     if (localRootControl.hasInternalId(internalId)) {
-      return localRootControl;
+      return Optional.of(localRootControl);
     }
 
-    return localRootControl.getOptionalStoredChildControlByInternalId(internalId).orElse(null);
+    return localRootControl.getOptionalStoredChildControlByInternalId(internalId);
   }
 
   //method

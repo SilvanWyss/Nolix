@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
@@ -9,7 +12,7 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 public interface IRootControlOwner<RCO extends IRootControlOwner<RCO>> extends Clearable {
 
   //method declaration
-  IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
+  Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
   //method declaration
   IContainer<IControl<?, ?>> getStoredControls();

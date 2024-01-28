@@ -65,10 +65,10 @@ public final class LayerStack implements ILayerStack {
 
     for (final var l : getStoredLayers()) {
 
-      final var control = l.getStoredControlOrNullByInternalId(internalId);
+      final var control = l.getOptionalStoredControlByInternalId(internalId);
 
-      if (control != null) {
-        return Optional.of(control);
+      if (control.isPresent()) {
+        return control;
       }
     }
 
