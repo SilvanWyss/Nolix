@@ -3,6 +3,7 @@ package ch.nolix.core.testing.basetest;
 
 //Java imports
 import java.lang.reflect.InvocationTargetException;
+import java.util.Optional;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -103,15 +104,15 @@ public final class TestPoolRun {
   }
 
   //method
-  private <BT extends BaseTest> BT createTestOrNull(final Class<BT> testClass) {
+  private <BT extends BaseTest> Optional<BT> createOptionalTest(final Class<BT> testClass) {
     try {
-      return ReflectionTool.getDefaultConstructor(testClass).newInstance();
+      return Optional.of(ReflectionTool.getDefaultConstructor(testClass).newInstance());
     } catch (final //NOSONAR: The exception is logged.
     IllegalAccessException
     | InstantiationException
     | InvocationTargetException exception) {
       linePrinter.printErrorLine("-->Could not create a " + testClass.getName() + ".");
-      return null;
+      return Optional.empty();
     }
   }
 
@@ -134,10 +135,10 @@ public final class TestPoolRun {
   //method
   private <BT extends BaseTest> TestResult runTestAndGetResult(final Class<BT> testClass) {
 
-    final var test = createTestOrNull(testClass);
+    final var test = createOptionalTest(testClass);
 
-    if (test != null) {
-      return test.runAndGetResult(linePrinter);
+    if (test.isPresent()) {
+      return test.get().runAndGetResult(linePrinter);
     }
 
     return TestResult.forTestCaseResults(new List<>());
