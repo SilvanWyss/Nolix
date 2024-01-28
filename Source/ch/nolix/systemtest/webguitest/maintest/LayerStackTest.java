@@ -23,10 +23,10 @@ public final class LayerStackTest extends Test {
     expect(testUnit.isEmpty());
 
     //execution
-    final var result = testUnit.getStoredControlOrNullByInternalId(control.getInternalId());
+    final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
     //verification
-    expect(result).isNull();
+    expect(result.isEmpty());
   }
 
   //method
@@ -39,10 +39,10 @@ public final class LayerStackTest extends Test {
     testUnit.pushLayerWithRootControl(control);
 
     //execution
-    final var result = testUnit.getStoredControlOrNullByInternalId(control.getInternalId());
+    final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
     //verification
-    expect(result).is(control);
+    expect(result.get()).is(control);
   }
 
   //method

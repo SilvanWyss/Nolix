@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -207,14 +210,14 @@ extends StyleElement<WebGui> implements IWebGui<WebGui> {
 
   //method
   @Override
-  public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
-    return getStoredLayers();
+  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
+    return layerStack.getOptionalStoredControlByInternalId(internalId);
   }
 
   //method
   @Override
-  public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
-    return layerStack.getStoredControlOrNullByInternalId(internalId);
+  public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+    return getStoredLayers();
   }
 
   //method

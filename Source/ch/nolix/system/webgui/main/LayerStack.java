@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -58,18 +61,18 @@ public final class LayerStack implements ILayerStack {
 
   //method
   @Override
-  public IControl<?, ?> getStoredControlOrNullByInternalId(String internalId) {
+  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
 
     for (final var l : getStoredLayers()) {
 
       final var control = l.getStoredControlOrNullByInternalId(internalId);
 
       if (control != null) {
-        return control;
+        return Optional.of(control);
       }
     }
 
-    return null;
+    return Optional.empty();
   }
 
   //method
