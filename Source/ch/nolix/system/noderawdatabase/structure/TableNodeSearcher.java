@@ -18,9 +18,10 @@ public final class TableNodeSearcher {
 
   //method
   public IMutableNode<?> getStoredEntityNodeFromTableNodeOrNull(final IMutableNode<?> tableNode, final String id) {
-    return tableNode.getStoredFirstChildNodeThatOrNull(
+    return tableNode.getOptionalStoredFirstChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
+      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id))
+      .orElse(null);
   }
 
   //method

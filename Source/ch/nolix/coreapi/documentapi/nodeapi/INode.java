@@ -2,6 +2,7 @@
 package ch.nolix.coreapi.documentapi.nodeapi;
 
 //Java imports
+import java.util.Optional;
 import java.util.function.Predicate;
 
 //own imports
@@ -80,6 +81,15 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
 
   //method declaration
   /**
+   * @param selector
+   * @return a new {@link Optional} wit the first child {@link INode} the given
+   *         selector selects from the current {@link INode}, an empty
+   *         {@link Optional} otherwise.
+   */
+  Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector);
+
+  //method declaration
+  /**
    * @param p1BasedIndex
    * @return the child {@link INode} at the given p1BasedIndex from the current
    *         {@link INode}.
@@ -128,16 +138,6 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
    *                          child {@link INode} the given selector selects.
    */
   N getStoredFirstChildNodeThat(Predicate<INode<?>> selector);
-
-  //method declaration
-  /**
-   * @param selector
-   * @return the first child {@link INode} the given selector selects from the
-   *         current {@link INode} if the given selector selects a child
-   *         {@link INode} of the current {@link INode}. Otherwise null is
-   *         returned.
-   */
-  N getStoredFirstChildNodeThatOrNull(Predicate<INode<?>> selector);
 
   //method declaration
   /**

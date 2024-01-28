@@ -2,8 +2,10 @@
 package ch.nolix.core.document.node;
 
 //Java imports
+import java.util.Optional;
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
@@ -137,6 +139,11 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().to(INode::getHeader);
   }
 
+  @Override
+  public Optional<BN> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
+    return getStoredChildNodes().getOptionalStoredFirst(selector);
+  }
+
   //method declaration
   /**
    * {@inheritDoc}
@@ -189,15 +196,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
   @Override
   public final BN getStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredFirst(selector);
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final BN getStoredFirstChildNodeThatOrNull(Predicate<INode<?>> selector) {
-    return getStoredChildNodes().getOptionalStoredFirst(selector).orElse(null);
   }
 
   //method
