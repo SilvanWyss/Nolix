@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -102,12 +105,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   @Override
-  public IContainer<IColumn> getStoredColumns() {
-    return columns;
-  }
-
-  //method
-  @Override
   public String getId() {
     return id;
   }
@@ -116,6 +113,33 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @Override
   public String getName() {
     return name;
+  }
+
+  //method
+  @Override
+  public Optional<E> getOptionalStoredEntityById(final String id) {
+
+    final var entity = technicalGetRefEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
+
+    if (entity.isEmpty()) {
+
+      if (internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
+
+        addEntityWithIdWhenIsNotAdded(id);
+
+        return Optional.of(getStoredEntityByIdWhenIsInLocalData(id));
+      }
+
+      return Optional.empty();
+    }
+
+    return entity;
+  }
+
+  //method
+  @Override
+  public IContainer<IColumn> getStoredColumns() {
+    return columns;
   }
 
   //method
@@ -138,27 +162,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
       addEntityWithIdWhenIsNotAdded(id);
 
       return getStoredEntityByIdWhenIsInLocalData(id);
-    }
-
-    return entity.get();
-  }
-
-  //method
-  @Override
-  public E getStoredEntityByIdOrNull(final String id) {
-
-    final var entity = technicalGetRefEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
-
-    if (entity.isEmpty()) {
-
-      if (internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
-
-        addEntityWithIdWhenIsNotAdded(id);
-
-        return getStoredEntityByIdWhenIsInLocalData(id);
-      }
-
-      return null;
     }
 
     return entity.get();

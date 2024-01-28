@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
@@ -20,6 +23,9 @@ public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, I
   Class<E> getEntityType();
 
   //method declaration
+  Optional<E> getOptionalStoredEntityById(String id);
+
+  //method declaration
   IContainer<IColumn> getStoredColumns();
 
   //method declaration
@@ -27,9 +33,6 @@ public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, I
 
   //method declaration
   E getStoredEntityById(String id);
-
-  //method declaration
-  E getStoredEntityByIdOrNull(String id);
 
   //method declaration
   IDatabase getStoredParentDatabase();
