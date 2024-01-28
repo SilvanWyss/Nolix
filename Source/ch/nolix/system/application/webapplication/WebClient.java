@@ -3,6 +3,7 @@ package ch.nolix.system.application.webapplication;
 
 //Java imports
 import java.util.Base64;
+import java.util.Optional;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -71,18 +72,18 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   }
 
   //method
-  private IComponent getStoredParentComponentOrNullOfControl(final IControl<?, ?> control) {
+  private Optional<IComponent> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
 
     if (control.isLinkedToAnObject()
     && control.getStoredLinkedObjects().getStoredFirst() instanceof IComponent component) {
-      return component;
+      return Optional.of(component);
     }
 
     if (control.belongsToControl()) {
-      return getStoredParentComponentOrNullOfControl(control.getStoredParentControl());
+      return getOptionalStoredParentComponentOfControl(control.getStoredParentControl());
     }
 
-    return null;
+    return Optional.empty();
   }
 
   //method
@@ -191,11 +192,13 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
   //method
   private void updateCounterpartWhenOpen(final IControl<?, ?> control) {
-    final var component = getStoredParentComponentOrNullOfControl(control);
-    if (component == null) {
+
+    final var component = getOptionalStoredParentComponentOfControl(control);
+
+    if (component.isEmpty()) {
       refreshCounterpartGui();
     } else {
-      updateCounterpartWhenOpen(component);
+      updateCounterpartWhenOpen(component.get());
     }
   }
 }
