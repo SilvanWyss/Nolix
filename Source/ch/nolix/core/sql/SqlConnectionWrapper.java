@@ -3,6 +3,7 @@ package ch.nolix.core.sql;
 
 //own imports
 import ch.nolix.core.resourcecontrol.resourcepool.WrapperResource;
+import ch.nolix.core.sql.connection.SqlConnection;
 
 //class
 public final class SqlConnectionWrapper extends WrapperResource<SqlConnectionWrapper, SqlConnection> {

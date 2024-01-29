@@ -4,8 +4,8 @@ package ch.nolix.system.sqlschema.schemaadapter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
+import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;

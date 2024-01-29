@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.sql;
+package ch.nolix.core.sql.connection;
 
 //Java imports
 import java.sql.Connection;

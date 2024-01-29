@@ -4,6 +4,8 @@ package ch.nolix.core.sql;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
+import ch.nolix.core.sql.connection.MsSqlConnection;
+import ch.nolix.core.sql.connection.SqlConnection;
 
 //class
 public final class SqlConnectionFactory {

@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdatabase.databasewriter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SqlCollector;
-import ch.nolix.core.sql.SqlConnection;
+import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
