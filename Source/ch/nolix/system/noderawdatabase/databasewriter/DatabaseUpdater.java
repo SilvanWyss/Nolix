@@ -233,12 +233,13 @@ final class DatabaseUpdater {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database, tableName);
 
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
-    if (entityNode == null) {
+    final var entityNode = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode, entity.getId());
+
+    if (entityNode.isEmpty()) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
     }
 
-    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
+    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode.get());
 
     final var saveStamp = saveStampNode.getHeader();
     if (!saveStamp.equals(entity.getSaveStamp())) {
@@ -258,12 +259,14 @@ final class DatabaseUpdater {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database,
       tableInfo.getTableName());
 
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
-    if (entityNode == null) {
+    final var entityNode = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode,
+      entityUpdate.getId());
+
+    if (entityNode.isEmpty()) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
     }
 
-    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
+    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode.get());
 
     final var saveStamp = saveStampNode.getHeader();
     if (!saveStamp.equals(entityUpdate.getSaveStamp())) {
@@ -273,7 +276,7 @@ final class DatabaseUpdater {
     final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
     saveStampNode.setHeader(newSaveStamp);
 
-    updateEntityNode(entityNode, tableInfo, entityUpdate);
+    updateEntityNode(entityNode.get(), tableInfo, entityUpdate);
   }
 
   //method

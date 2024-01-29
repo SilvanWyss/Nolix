@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.noderawdatabase.structure;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -17,11 +20,11 @@ public final class TableNodeSearcher {
   }
 
   //method
-  public IMutableNode<?> getStoredEntityNodeFromTableNodeOrNull(final IMutableNode<?> tableNode, final String id) {
+  public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode,
+    final String id) {
     return tableNode.getOptionalStoredFirstChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id))
-      .orElse(null);
+      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
   //method
