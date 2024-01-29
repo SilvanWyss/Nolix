@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.system.objectdatabase.databasetool.DatabaseTool;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IDatabaseTool;
@@ -21,7 +22,7 @@ final class DataSaver {
   private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 
   //method
-  public void saveChangesOfDatabaseThreadSafe(final Database database) {
+  public void saveChangesOfDatabaseSynchronously(final Database database) {
     synchronized (DataSaver.class) {
       saveChangesOfDatabase(database);
     }

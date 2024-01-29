@@ -107,15 +107,15 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
   //method
   @Override
-  public final void reset() {
+  public final synchronized void reset() {
     database.internalReset();
   }
 
   //method
   @Override
-  public final void saveChanges() {
+  public final synchronized void saveChanges() {
     try {
-      justSaveChanges();
+      saveChangesAndIncrementSaveCount();
     } finally {
       reset();
     }
@@ -132,9 +132,9 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
   }
 
   //method
-  private void justSaveChanges() {
+  private synchronized void saveChangesAndIncrementSaveCount() {
 
-    DATA_SAVER.saveChangesOfDatabaseThreadSafe(database);
+    DATA_SAVER.saveChangesOfDatabaseSynchronously(database);
 
     saveCount++;
   }
