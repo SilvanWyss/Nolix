@@ -38,7 +38,7 @@ final class EntityMapper {
 
   //method
   private void addDataFromContentFieldToProperty(final ILoadedContentFieldDto contentField, final Property property) {
-    property.internalSetOrClearDirectlyFromContent(contentField.getValueOrNull());
+    property.internalSetOrClearDirectlyFromContent(contentField.getOptionalValue().orElse(null));
   }
 
   //method

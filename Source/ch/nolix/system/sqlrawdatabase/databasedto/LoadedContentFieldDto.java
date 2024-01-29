@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.databasedto;
 
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -49,7 +51,7 @@ public final class LoadedContentFieldDto implements ILoadedContentFieldDto {
 
   //method
   @Override
-  public Object getValueOrNull() {
-    return value;
+  public Optional<Object> getOptionalValue() {
+    return Optional.ofNullable(value);
   }
 }

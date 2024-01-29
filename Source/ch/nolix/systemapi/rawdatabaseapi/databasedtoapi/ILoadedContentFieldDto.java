@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.rawdatabaseapi.databasedtoapi;
 
+//Java imports
+import java.util.Optional;
+
 //interface
 public interface ILoadedContentFieldDto {
 
@@ -8,5 +11,5 @@ public interface ILoadedContentFieldDto {
   String getColumnName();
 
   //method declaration
-  Object getValueOrNull();
+  Optional<Object> getOptionalValue();
 }
