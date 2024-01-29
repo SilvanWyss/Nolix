@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.dataadapter;
 
-//own imports
-import ch.nolix.core.sql.SqlConnectionPool;
+import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlrawdatabase.sqlsyntax.SqlSyntaxProvider;
 import ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter;
 

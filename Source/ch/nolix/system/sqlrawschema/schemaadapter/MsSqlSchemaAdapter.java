@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemaadapter;
 
-//own imports
-import ch.nolix.core.sql.SqlConnectionPool;
+import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 
 //class
 public final class MsSqlSchemaAdapter extends SchemaAdapter {

@@ -7,7 +7,7 @@ import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapture
 import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.programstructure.builder.toargumentcapturer.ToIpOrDomainCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
-import ch.nolix.core.sql.SqlConnectionPoolBuilder;
+import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class

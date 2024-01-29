@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.sql;
+package ch.nolix.core.sql.connectionpool;
 
 //own imports
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;

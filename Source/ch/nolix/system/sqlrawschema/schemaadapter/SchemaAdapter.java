@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.SqlConnectionPool;
+import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;

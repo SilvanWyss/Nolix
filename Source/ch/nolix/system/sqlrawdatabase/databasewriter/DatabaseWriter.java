@@ -4,8 +4,8 @@ package ch.nolix.system.sqlrawdatabase.databasewriter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.connection.SqlConnection;
+import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
