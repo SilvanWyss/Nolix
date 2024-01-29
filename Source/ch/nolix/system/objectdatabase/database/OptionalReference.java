@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -76,18 +79,18 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //method
   @Override
   public IContainer<IProperty> getStoredBackReferencingProperties() {
-  
+
     if (isEmpty()) {
       return new ImmutableList<>();
     }
-  
+
     final var backReferencingProperty = getReferencedEntity().technicalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
-  
+
     if (backReferencingProperty.isPresent()) {
       return ImmutableList.withElement(backReferencingProperty.get());
     }
-  
+
     return new ImmutableList<>();
   }
 
@@ -204,11 +207,10 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   }
 
   //method
-  private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
+  private Optional<? extends IProperty> getOptionalPendantReferencingPropertyToEntity(final E entity) {
     return ENTITY_TOOL
       .getStoredReferencingProperties(entity)
-      .getOptionalStoredFirst(rp -> rp.hasName(getName()))
-      .orElse(null);
+      .getOptionalStoredFirst(rp -> rp.hasName(getName()));
   }
 
   //method
@@ -298,10 +300,10 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //method
   private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
 
-    final var pendantReferencingProperty = getPendantReferencingPropertyToEntityOrNull(entity);
+    final var pendantReferencingProperty = getOptionalPendantReferencingPropertyToEntity(entity);
 
-    if (pendantReferencingProperty != null) {
-      final var reference = (OptionalReference<?>) pendantReferencingProperty;
+    if (pendantReferencingProperty.isPresent()) {
+      final var reference = (OptionalReference<?>) pendantReferencingProperty.get();
       reference.clear();
     }
   }
