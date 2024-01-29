@@ -6,7 +6,7 @@ import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databasetoolapi.IDatabaseTool;
 
 //class
-final class DatabaseSaver {
+final class DataSaver {
 
   //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
@@ -22,7 +22,7 @@ final class DatabaseSaver {
 
   //method
   public void saveChangesOfDatabaseThreadSafe(final Database database) {
-    synchronized (DatabaseSaver.class) {
+    synchronized (DataSaver.class) {
       saveChangesOfDatabase(database);
     }
   }

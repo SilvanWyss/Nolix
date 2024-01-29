@@ -26,7 +26,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
   //constant
-  private static final DatabaseSaver DATABASE_SAVER = new DatabaseSaver();
+  private static final DataSaver DATA_SAVER = new DataSaver();
 
   //attribute
   private final String databaseName;
@@ -134,7 +134,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
   //method
   private void justSaveChanges() {
 
-    DATABASE_SAVER.saveChangesOfDatabaseThreadSafe(database);
+    DATA_SAVER.saveChangesOfDatabaseThreadSafe(database);
 
     saveCount++;
   }
