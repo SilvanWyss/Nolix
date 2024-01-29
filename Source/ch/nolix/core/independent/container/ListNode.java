@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.independent.container;
 
+//Java imports
+import java.util.NoSuchElementException;
+
 //class
 final class ListNode<E> {
 
@@ -31,7 +34,10 @@ final class ListNode<E> {
   }
 
   //method
-  public ListNode<E> getStoredNextNodeOrNull() {
+  public ListNode<E> getStoredNextNode() {
+
+    assertHasNextNode();
+
     return nextNode;
   }
 
@@ -53,5 +59,12 @@ final class ListNode<E> {
     }
 
     this.nextNode = nextNode;
+  }
+
+  //method
+  private void assertHasNextNode() {
+    if (!hasNextNode()) {
+      throw new NoSuchElementException("The current ListIterator does not have a next node.");
+    }
   }
 }

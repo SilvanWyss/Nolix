@@ -147,7 +147,7 @@ public final class List<E> implements Iterable<E> {
       beginNode = null;
       endNode = null;
     } else {
-      beginNode = beginNode.getStoredNextNodeOrNull();
+      beginNode = beginNode.getStoredNextNode();
     }
 
     elementCount--;
@@ -181,7 +181,7 @@ public final class List<E> implements Iterable<E> {
     var iteratorNode = beginNode;
     while (iteratorNode.hasNextNode()) {
 
-      final var nextNode = iteratorNode.getStoredNextNodeOrNull();
+      final var nextNode = iteratorNode.getStoredNextNode();
 
       if (nextNode.contains(element)) {
 
@@ -189,7 +189,7 @@ public final class List<E> implements Iterable<E> {
           iteratorNode.removeNextNode();
           endNode = iteratorNode;
         } else {
-          iteratorNode.setNextNode(nextNode.getStoredNextNodeOrNull());
+          iteratorNode.setNextNode(nextNode.getStoredNextNode());
         }
 
         elementCount--;

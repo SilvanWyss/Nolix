@@ -38,27 +38,25 @@ public final class ListIterator<E> implements Iterator<E> {
 
   //method
   @Override
-  public E next() {
+  public E next() throws NoSuchElementException {
 
     assertHasNext();
 
-    return nextWhenHasNext();
+    final var element = nextNode.getStoredElement();
+
+    if (nextNode.hasNextNode()) {
+      nextNode = nextNode.getStoredNextNode();
+    } else {
+      nextNode = null;
+    }
+
+    return element;
   }
 
   //method
   private void assertHasNext() throws NoSuchElementException {
-    if (!hasNext()) {
+    if (nextNode == null) {
       throw new NoSuchElementException("The current ListIterator does not have a next element.");
     }
-  }
-
-  //method
-  private E nextWhenHasNext() {
-
-    final var element = nextNode.getStoredElement();
-
-    nextNode = nextNode.getStoredNextNodeOrNull();
-
-    return element;
   }
 }
