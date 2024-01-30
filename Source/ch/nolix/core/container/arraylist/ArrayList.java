@@ -204,8 +204,8 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> iterator() {
-    return ArrayIterator.forArray(elements);
+  public boolean isMaterialized() {
+    return true;
   }
 
   //method
@@ -215,8 +215,8 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * {@inheritDoc}
    */
   @Override
-  public boolean isMaterialized() {
-    return true;
+  public CopyableIterator<E> iterator() {
+    return ArrayIterator.forArray(elements);
   }
 
   //method
