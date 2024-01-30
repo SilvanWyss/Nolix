@@ -3,6 +3,7 @@ package ch.nolix.coretest.containertest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
+import ch.nolix.coretest.containertest.arraylisttest.ArrayListTestPool;
 import ch.nolix.coretest.containertest.immutablelisttest.ImmutableListTestPool;
 import ch.nolix.coretest.containertest.linkedlisttest.LinkedListTestPool;
 import ch.nolix.coretest.containertest.matrixtest.MatrixTestPool;
@@ -21,6 +22,7 @@ public final class ContainerTestPool extends TestPool {
    */
   public ContainerTestPool() {
     super(
+      new ArrayListTestPool(),
       new ImmutableListTestPool(),
       new LinkedListTestPool(),
       new MatrixTestPool(),
