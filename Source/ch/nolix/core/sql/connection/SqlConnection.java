@@ -17,11 +17,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
-public abstract class SqlConnection implements GroupCloseable {
+public abstract class SqlConnection implements ISqlConnection {
 
   //attribute
   private final SqlDatabaseEngine sqlDatabaseEngine;
@@ -78,6 +78,7 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
+  @Override
   public final void executeStatements(final IContainer<String> statements) {
 
     try (final var statement = connection.createStatement()) {
@@ -103,16 +104,19 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
+  @Override
   public final void executeStatement(final String statement, final String... statements) {
     executeStatements(ReadContainer.forElement(statement, statements));
   }
 
   //method
+  @Override
   public final SqlDatabaseEngine getDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
   //method
+  @Override
   public final IContainer<? extends IContainer<String>> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
       return getRecorsFromStatement(query, statement);
@@ -122,13 +126,20 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
+  @Override
   public final IContainer<String> getRecordsHavingSinlgeEntryFromQuery(final String query) {
     return getRecordsFromQuery(query).to(IContainer::getStoredOne);
   }
 
   //method
+  @Override
   public final IContainer<String> getSingleRecordFromQuery(final String query) {
     return getRecordsFromQuery(query).getStoredOne();
+  }
+
+  @Override
+  public String getSingleRecordHavingSingleEntryFromQuery(final String query) {
+    return getRecordsFromQuery(query).getStoredOne().getStoredOne();
   }
 
   //method
