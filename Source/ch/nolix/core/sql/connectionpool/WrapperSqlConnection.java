@@ -9,18 +9,18 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
-public final class SqlConnectionWrapper
-extends WrapperResource<SqlConnectionWrapper, SqlConnection>
+public final class WrapperSqlConnection
+extends WrapperResource<WrapperSqlConnection, SqlConnection>
 implements ISqlConnection {
 
   //constructor
-  private SqlConnectionWrapper(final SqlConnection sqlConnection) {
+  private WrapperSqlConnection(final SqlConnection sqlConnection) {
     super(sqlConnection);
   }
 
   //static method
-  public static SqlConnectionWrapper forSqlConnection(final SqlConnection sqlConnection) {
-    return new SqlConnectionWrapper(sqlConnection);
+  public static WrapperSqlConnection forSqlConnection(final SqlConnection sqlConnection) {
+    return new WrapperSqlConnection(sqlConnection);
   }
 
   //method

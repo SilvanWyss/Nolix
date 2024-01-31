@@ -14,7 +14,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
-public final class SqlConnectionPool extends ResourcePool<SqlConnectionWrapper, SqlConnection>
+public final class SqlConnectionPool extends ResourcePool<WrapperSqlConnection, SqlConnection>
 implements ISqlDatabaseTarget {
 
   //constant
@@ -115,7 +115,7 @@ implements ISqlDatabaseTarget {
 
   //method
   @Override
-  protected SqlConnectionWrapper createWrapperResourceWithResource(final SqlConnection resource) {
-    return SqlConnectionWrapper.forSqlConnection(resource);
+  protected WrapperSqlConnection createWrapperResourceWithResource(final SqlConnection resource) {
+    return WrapperSqlConnection.forSqlConnection(resource);
   }
 }
