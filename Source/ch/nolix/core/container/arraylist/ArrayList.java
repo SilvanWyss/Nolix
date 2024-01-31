@@ -5,15 +5,14 @@ package ch.nolix.core.container.arraylist;
 import java.util.function.Function;
 
 //own imports
-import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
@@ -36,7 +35,8 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   private int elementCount;
 
   //multi-attribute
-  private E[] elements;
+  @SuppressWarnings("unchecked")
+  private E[] elements = (E[]) new Object[0];
 
   //constructor
   /**
@@ -44,47 +44,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * 
    * The complexity of this implementation is O(1).
    */
-  @SuppressWarnings("unchecked")
   public ArrayList() {
-    elements = (E[]) new Object[0];
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArrayList} with the given elements.
-   * 
-   * The complexity of this implementation is O(n) when n elements are given.
-   * 
-   * @param elements
-   * @throws ArgumentIsNullException if the given elements is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
-   */
-  private ArrayList(final E[] elements) {
-
-    GlobalValidator.assertThatTheElements(elements).areNotNull();
-
-    this.elements = elements.clone();
-
-    elementCount = this.elements.length;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ImmutableList} with the given element and elements.
-   * 
-   * @param element
-   * @param elements
-   * @throws ArgumentIsNullException if the given element is null.
-   * @throws ArgumentIsNullException if the given elements is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
-   */
-  private ArrayList(final E element, final E[] elements) {
-
-    this.elements = GlobalArrayTool.createArrayWithElement(element, elements);
-
-    GlobalValidator.assertThatTheElements(this.elements).areNotNull();
-
-    elementCount = this.elements.length;
   }
 
   //static method
@@ -98,7 +58,12 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   public static <E2> ArrayList<E2> withElement(final E2 element, final @SuppressWarnings("unchecked") E2... elements) {
-    return new ArrayList<>(element, elements);
+
+    final var arrayList = new ArrayList<E2>();
+
+    arrayList.addAtEnd(element, elements);
+
+    return arrayList;
   }
 
   //static method
@@ -112,7 +77,12 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   public static <E2> ArrayList<E2> withElements(final E2[] elements) {
-    return new ArrayList<>(elements);
+
+    final var arrayList = new ArrayList<E2>();
+
+    arrayList.addAtEnd(elements);
+
+    return arrayList;
   }
 
   //method
@@ -294,7 +264,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
       return Integer.MAX_VALUE;
     }
 
-    return (2 * capacity);
+    return GlobalCalculator.getMax(minimalCapacity, 2 * capacity);
   }
 
   //method
