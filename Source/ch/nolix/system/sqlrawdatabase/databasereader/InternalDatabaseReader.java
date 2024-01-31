@@ -49,13 +49,15 @@ final class InternalDatabaseReader {
     multiValueQueryCreator = sqlSyntaxProvider.getMultiValueQueryCreator();
     multiReferenceQueryCreator = sqlSyntaxProvider.getMultiReferenceQueryCreator();
 
-    sqlConnection.execute("USE " + databaseName);
+    sqlConnection.executeStatement("USE " + databaseName);
   }
 
   //method
   public Time getSchemaTimestamp() {
     return Time.fromString(
-      sqlConnection.getOneRecordFromQuery(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0));
+      sqlConnection
+        .getSingleRecordFromQuery(entityQueryCreator.createQueryToLoadSchemaTimestamp())
+        .getStoredAt1BasedIndex(1));
   }
 
   //method
@@ -67,7 +69,7 @@ final class InternalDatabaseReader {
         multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
           entityId,
           multiReferenceColumnInfo.getColumnId()))
-      .to(r -> r.get(0));
+      .to(r -> r.getStoredAt1BasedIndex(1));
   }
 
   //method
@@ -79,7 +81,7 @@ final class InternalDatabaseReader {
         multiValueQueryCreator.createQueryToLoadMultiValueEntries(
           entityId,
           multiValueColumnInfo.getColumnId()))
-      .to(r -> VALUE_MAPPER.createValueFromString(r.get(0), multiValueColumnInfo));
+      .to(r -> VALUE_MAPPER.createValueFromString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo));
   }
 
   //method
@@ -92,7 +94,7 @@ final class InternalDatabaseReader {
   //method
   public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
-      sqlConnection.getOneRecordFromQuery(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
+      sqlConnection.getSingleRecordFromQuery(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
       tableInfo);
   }
 
@@ -121,8 +123,8 @@ final class InternalDatabaseReader {
 
     final var entityCount = Integer.valueOf(
       sqlConnection
-        .getOneRecordFromQuery(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
-        .get(0));
+        .getSingleRecordFromQuery(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
+        .getStoredAt1BasedIndex(1));
 
     return entityCount > 0;
   }
@@ -156,11 +158,11 @@ final class InternalDatabaseReader {
     final String singleColumnName,
     final String value) {
     return Integer.valueOf(
-      sqlConnection.getOneRecordFromQuery(
+      sqlConnection.getSingleRecordFromQuery(
         entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
           tableName,
           singleColumnName,
           value))
-        .get(0)) > 0;
+        .getStoredAt1BasedIndex(1)) > 0;
   }
 }

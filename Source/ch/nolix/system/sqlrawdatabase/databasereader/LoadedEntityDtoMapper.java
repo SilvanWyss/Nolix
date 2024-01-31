@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.databasereader;
 
-//Java imports
-import java.util.List;
-
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -21,24 +18,24 @@ final class LoadedEntityDtoMapper {
 
   //method
   public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
-    final List<String> sqlRecordValues,
+    final IContainer<String> sqlRecordValues,
     final ITableInfo tableInfo) {
     return new LoadedEntityDto(
-      sqlRecordValues.get(0),
-      sqlRecordValues.get(1),
+      sqlRecordValues.getStoredAt1BasedIndex(1),
+      sqlRecordValues.getStoredAt1BasedIndex(2),
       getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo));
   }
 
   //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
-    final List<String> sqlRecordValues,
+    final IContainer<String> sqlRecordValues,
     final ITableInfo tableInfo) {
     return getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
   }
 
   //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
-    final List<String> sqlRecordValues,
+    final IContainer<String> sqlRecordValues,
     final IContainer<IColumnInfo> contentColumnDefinitions) {
 
     final var contentFields = new LinkedList<ILoadedContentFieldDto>();

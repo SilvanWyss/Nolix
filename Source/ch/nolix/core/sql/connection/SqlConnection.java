@@ -7,10 +7,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 //own imports
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -79,13 +78,13 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  public final void execute(final Iterable<String> sqlStatements) {
+  public final void executeStatements(final IContainer<String> statements) {
 
     try (final var statement = connection.createStatement()) {
 
       connection.setAutoCommit(false);
 
-      for (final var sqlStatement : sqlStatements) {
+      for (final var sqlStatement : statements) {
         statement.addBatch(sqlStatement);
       }
 
@@ -104,23 +103,17 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  public final void execute(final String sqlStatement, final String... sqlStatements) {
-    execute(ReadContainer.forElement(sqlStatement, sqlStatements));
+  public final void executeStatement(final String statement, final String... statements) {
+    executeStatements(ReadContainer.forElement(statement, statements));
   }
 
   //method
-  public final List<String> getOneRecordFromQuery(final String query) {
-    return getRecordsFromQuery(query).getStoredOne();
+  public final SqlDatabaseEngine getDatabaseEngine() {
+    return sqlDatabaseEngine;
   }
 
   //method
-  @Override
-  public final CloseController getStoredCloseController() {
-    return closeController;
-  }
-
-  //method
-  public final LinkedList<List<String>> getRecordsFromQuery(final String query) {
+  public final IContainer<? extends IContainer<String>> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
       return getRecorsFromStatement(query, statement);
     } catch (final SQLException sqlException) {
@@ -129,13 +122,19 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  public final IContainer<String> getRecordsAsStringsFromQuery(final String query) {
-    return getRecordsFromQuery(query).toStrings();
+  public final IContainer<String> getRecordsHavingSinlgeEntryFromQuery(final String query) {
+    return getRecordsFromQuery(query).to(IContainer::getStoredOne);
   }
 
   //method
-  public final SqlDatabaseEngine getSqlDatabaseEngine() {
-    return sqlDatabaseEngine;
+  public final IContainer<String> getSingleRecordFromQuery(final String query) {
+    return getRecordsFromQuery(query).getStoredOne();
+  }
+
+  //method
+  @Override
+  public final CloseController getStoredCloseController() {
+    return closeController;
   }
 
   //method
@@ -152,7 +151,7 @@ public abstract class SqlConnection implements GroupCloseable {
   protected abstract String getSqlDatabaseEngineDriverClass();
 
   //method
-  private LinkedList<List<String>> getRecorsFromStatement(
+  private IContainer<? extends IContainer<String>> getRecorsFromStatement(
     final String query,
     final Statement statement)
   throws SQLException {
@@ -162,18 +161,20 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  private final LinkedList<List<String>> getRecordsFromResultSet(final ResultSet resultSet) throws SQLException {
+  private final IContainer<? extends IContainer<String>> getRecordsFromResultSet(final ResultSet resultSet)
+  throws SQLException {
 
-    final var records = new LinkedList<List<String>>();
+    final var records = new LinkedList<IContainer<String>>();
 
     final var columnCount = resultSet.getMetaData().getColumnCount();
 
     while (resultSet.next()) {
 
+      //TODO: Create ArrayList.withInitialCapacity static method.
       final var entries = new ArrayList<String>();
 
       for (var i = 1; i <= columnCount; i++) {
-        entries.add(resultSet.getString(i));
+        entries.addAtEnd(resultSet.getString(i));
       }
 
       records.addAtEnd(entries);

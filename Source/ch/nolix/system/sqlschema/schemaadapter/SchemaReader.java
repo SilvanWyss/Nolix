@@ -41,7 +41,7 @@ final class SchemaReader implements ISchemaReader {
     this.schemaQueryCreator = schemaQueryCreator;
 
     createCloseDependencyTo(sqlConnection);
-    sqlConnection.execute("USE " + databaseName);
+    sqlConnection.executeStatement("USE " + databaseName);
   }
 
   //static method
@@ -73,14 +73,14 @@ final class SchemaReader implements ISchemaReader {
   public IContainer<IColumnDto> loadColumns(final String tableName) {
     return sqlConnection
       .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
-      .to(r -> new ColumnDto(r.get(0), new DataTypeDto(r.get(1))));
+      .to(r -> new ColumnDto(r.getStoredAt1BasedIndex(1), new DataTypeDto(r.getStoredAt1BasedIndex(2))));
   }
 
   //method
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return sqlConnection
-      .getRecordsAsStringsFromQuery(schemaQueryCreator.createQueryToLoadNameOfTables())
+      .getRecordsHavingSinlgeEntryFromQuery(schemaQueryCreator.createQueryToLoadNameOfTables())
       .to(FlatTableDto::new);
   }
 

@@ -48,7 +48,7 @@ public final class InternalDatabaseWriter {
     multiValueStatementCreator = sqlSyntaxProvider.getMultiValueStatemeentCreator();
     multiReferenceStatementCreator = sqlSyntaxProvider.getMultiReferenceStatemeentCreator();
 
-    sqlConnection.execute("USE " + databaseName);
+    sqlConnection.executeStatement("USE " + databaseName);
   }
 
   //method

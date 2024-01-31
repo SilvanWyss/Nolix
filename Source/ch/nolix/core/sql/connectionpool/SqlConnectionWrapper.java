@@ -20,7 +20,7 @@ public final class SqlConnectionWrapper extends WrapperResource<SqlConnectionWra
 
   //method
   public void execute(final String sqlStatement, final String... sqlStatements) {
-    getStoredResource().execute(sqlStatement, sqlStatements);
+    getStoredResource().executeStatement(sqlStatement, sqlStatements);
   }
 
   //TODO: Create ISqlConnection and delete this method.

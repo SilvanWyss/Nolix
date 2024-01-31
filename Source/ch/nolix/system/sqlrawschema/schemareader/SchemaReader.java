@@ -54,7 +54,7 @@ public final class SchemaReader implements ISchemaReader {
     createCloseDependencyTo(sqlConnection);
     createCloseDependencyTo(schemaAdapter);
 
-    sqlConnection.execute("USE " + databaseName);
+    sqlConnection.executeStatement("USE " + databaseName);
   }
 
   //static method
@@ -80,7 +80,10 @@ public final class SchemaReader implements ISchemaReader {
   //method
   @Override
   public int getTableCount() {
-    return Integer.valueOf(sqlConnection.getOneRecordFromQuery(QUERY_CREATOR.createQueryToGetTableCount()).get(0));
+    return Integer.valueOf(
+      sqlConnection
+        .getSingleRecordFromQuery(QUERY_CREATOR.createQueryToGetTableCount())
+        .getStoredAt1BasedIndex(1));
   }
 
   //method
@@ -103,14 +106,14 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public IFlatTableDto loadFlatTableById(final String id) {
     return TABLE_DTO_MAPPER.createTableDto(
-      sqlConnection.getOneRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableById(id)));
+      sqlConnection.getSingleRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableById(id)));
   }
 
   //method
   @Override
   public IFlatTableDto loadFlatTableByName(final String name) {
     return TABLE_DTO_MAPPER.createTableDto(
-      sqlConnection.getOneRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableByName(name)));
+      sqlConnection.getSingleRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableByName(name)));
   }
 
   //method
@@ -125,7 +128,10 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public Time loadSchemaTimestamp() {
     return Time.fromString(
-      sqlConnection.getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadSchemaTimestamp()).getStoredFirst().get(0));
+      sqlConnection
+        .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadSchemaTimestamp())
+        .getStoredFirst()
+        .getStoredAt1BasedIndex(1));
   }
 
   //method

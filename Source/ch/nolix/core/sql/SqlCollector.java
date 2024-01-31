@@ -49,7 +49,7 @@ public final class SqlCollector implements Clearable {
 
   //method
   public void executeUsingConnection(final SqlConnection sqlConnection) {
-    sqlConnection.execute(sqlStatements);
+    sqlConnection.executeStatements(sqlStatements);
   }
 
   //method

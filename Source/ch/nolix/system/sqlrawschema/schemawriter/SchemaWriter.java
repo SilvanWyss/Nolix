@@ -48,7 +48,7 @@ public final class SchemaWriter implements ISchemaWriter {
     internalSchemaWriter = new InternalSchemaWriter(schemaWriter);
 
     createCloseDependencyTo(sqlConnection);
-    sqlConnection.execute("USE " + databaseName);
+    sqlConnection.executeStatement("USE " + databaseName);
   }
 
   //static method
