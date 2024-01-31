@@ -4,9 +4,9 @@ package ch.nolix.system.sqlrawdatabase.databasereader;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
@@ -29,7 +29,7 @@ public final class DatabaseReader implements IDataReader {
   //constructor
   private DatabaseReader(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final IContainer<ITableInfo> tableInfos,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
 
@@ -47,7 +47,7 @@ public final class DatabaseReader implements IDataReader {
     final SqlConnectionPool sqlConnectionPool,
     final IContainer<ITableInfo> tableInfos,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DatabaseReader(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(), tableInfos,
+    return new DatabaseReader(databaseName, sqlConnectionPool.borrowResource(), tableInfos,
       sqlSyntaxProvider);
   }
 

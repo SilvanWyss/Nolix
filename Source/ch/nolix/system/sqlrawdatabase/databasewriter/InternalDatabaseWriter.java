@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawdatabase.databasewriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.connection.SqlConnection;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
@@ -24,7 +25,7 @@ public final class InternalDatabaseWriter {
   private final SqlCollector sqlCollector = new SqlCollector();
 
   //attribute
-  private final SqlConnection sqlConnection;
+  private final ISqlConnection sqlConnection;
 
   //attribute
   private final IEntityStatementCreator entityStatementCreator;
@@ -38,7 +39,7 @@ public final class InternalDatabaseWriter {
   //constructor
   public InternalDatabaseWriter(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();

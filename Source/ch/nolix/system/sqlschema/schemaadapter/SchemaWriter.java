@@ -5,9 +5,9 @@ package ch.nolix.system.sqlschema.schemaadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.SqlCollector;
-import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
@@ -23,7 +23,7 @@ public final class SchemaWriter implements ISchemaWriter {
   private final SqlCollector sqlCollector = new SqlCollector();
 
   //attribute
-  private final SqlConnection sqlConnection;
+  private final ISqlConnection sqlConnection;
 
   //attribute
   private final ISchemaStatementCreator schemaStatementCreator;
@@ -34,7 +34,7 @@ public final class SchemaWriter implements ISchemaWriter {
   //constructor
   private SchemaWriter(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final ISchemaStatementCreator schemaStatementCreator) {
 
     GlobalValidator.assertThat(schemaStatementCreator).thatIsNamed(ISchemaStatementCreator.class).isNotNull();
@@ -51,7 +51,9 @@ public final class SchemaWriter implements ISchemaWriter {
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ISchemaStatementCreator schemaStatementCreator) {
-    return new SchemaWriter(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(),
+    return new SchemaWriter(
+      databaseName,
+      sqlConnectionPool.borrowResource(),
       schemaStatementCreator);
   }
 

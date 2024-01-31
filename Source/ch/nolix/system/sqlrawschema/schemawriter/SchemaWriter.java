@@ -7,6 +7,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
@@ -33,12 +34,12 @@ public final class SchemaWriter implements ISchemaWriter {
   private final SqlCollector sqlCollector = new SqlCollector();
 
   //attribute
-  private final SqlConnection sqlConnection;
+  private final ISqlConnection sqlConnection;
 
   //constructor
   public SchemaWriter(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
@@ -58,7 +59,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final ISchemaAdapter schemaAdapter) {
     return new SchemaWriter(
       databaseName,
-      sqlConnectionPool.borrowResource().getStoredSqlConnection(),
+      sqlConnectionPool.borrowResource(),
       schemaAdapter);
   }
 

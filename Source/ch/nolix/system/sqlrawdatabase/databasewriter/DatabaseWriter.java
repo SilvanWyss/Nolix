@@ -4,9 +4,9 @@ package ch.nolix.system.sqlrawdatabase.databasewriter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
@@ -31,7 +31,7 @@ public final class DatabaseWriter implements IDataWriter {
   //constructor
   private DatabaseWriter(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final IContainer<ITableInfo> tableInfos,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
 
@@ -49,7 +49,7 @@ public final class DatabaseWriter implements IDataWriter {
     final SqlConnectionPool sqlConnectionPool,
     final IContainer<ITableInfo> tableInfos,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DatabaseWriter(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(), tableInfos,
+    return new DatabaseWriter(databaseName, sqlConnectionPool.borrowResource(), tableInfos,
       sqlSyntaxProvider);
   }
 

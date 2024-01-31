@@ -4,9 +4,9 @@ package ch.nolix.system.sqlschema.schemaadapter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 final class SchemaReader implements ISchemaReader {
 
   //attribute
-  private final SqlConnection sqlConnection;
+  private final ISqlConnection sqlConnection;
 
   //attribute
   private final ISchemaQueryCreator schemaQueryCreator;
@@ -32,7 +32,7 @@ final class SchemaReader implements ISchemaReader {
   //constructor
   private SchemaReader(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final ISchemaQueryCreator schemaQueryCreator) {
 
     GlobalValidator.assertThat(schemaQueryCreator).thatIsNamed(ISchemaQueryCreator.class).isNotNull();
@@ -49,7 +49,9 @@ final class SchemaReader implements ISchemaReader {
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ISchemaQueryCreator schemaQueryCreator) {
-    return new SchemaReader(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(),
+    return new SchemaReader(
+      databaseName,
+      sqlConnectionPool.borrowResource(),
       schemaQueryCreator);
   }
 

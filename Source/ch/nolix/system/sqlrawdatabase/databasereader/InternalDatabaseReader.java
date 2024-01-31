@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
@@ -25,7 +26,7 @@ final class InternalDatabaseReader {
   private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
   //attribute
-  private final SqlConnection sqlConnection;
+  private final ISqlConnection sqlConnection;
 
   //attribute
   private final IEntityQueryCreator entityQueryCreator;
@@ -39,7 +40,7 @@ final class InternalDatabaseReader {
   //constructor
   public InternalDatabaseReader(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final ISqlSyntaxProvider sqlSyntaxProvider) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();

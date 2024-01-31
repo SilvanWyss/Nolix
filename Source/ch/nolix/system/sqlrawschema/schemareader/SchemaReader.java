@@ -7,6 +7,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.structure.TableType;
@@ -34,7 +35,7 @@ public final class SchemaReader implements ISchemaReader {
   private final CloseController closeController = CloseController.forElement(this);
 
   //attribute
-  private final SqlConnection sqlConnection;
+  private final ISqlConnection sqlConnection;
 
   //attribute
   private final ISchemaAdapter schemaAdapter;
@@ -42,7 +43,7 @@ public final class SchemaReader implements ISchemaReader {
   //constructor
   private SchemaReader(
     final String databaseName,
-    final SqlConnection sqlConnection,
+    final ISqlConnection sqlConnection,
     final ISchemaAdapter schemaAdapter) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
@@ -62,7 +63,7 @@ public final class SchemaReader implements ISchemaReader {
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ISchemaAdapter schemaAdapter) {
-    return new SchemaReader(databaseName, sqlConnectionPool.borrowResource().getStoredSqlConnection(), schemaAdapter);
+    return new SchemaReader(databaseName, sqlConnectionPool.borrowResource(), schemaAdapter);
   }
 
   //method

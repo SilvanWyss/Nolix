@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 
 //class
 public final class SqlCollector implements Clearable {
@@ -48,7 +49,7 @@ public final class SqlCollector implements Clearable {
   }
 
   //method
-  public void executeUsingConnection(final SqlConnection sqlConnection) {
+  public void executeUsingConnection(final ISqlConnection sqlConnection) {
     sqlConnection.executeStatements(sqlStatements);
   }
 
