@@ -117,8 +117,8 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) when the current
-   * {@link ArrayList} contains n elements.
+   * The complexity of this implementation is O(n+m) when the current
+   * {@link ArrayList} contains n elements and m elements are given.
    * 
    * {@inheritDoc}
    */
@@ -134,6 +134,26 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     growToMinimalCapacityIfRequired(newElementCount);
     this.elements[localElementCount] = element;
     System.arraycopy(elements, 0, this.elements, localElementCount + 1, elements.length);
+    elementCount = newElementCount;
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(n+m) when the current
+   * {@link ArrayList} contains n elements and m elements are given.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void addAtEnd(E[] elements) {
+
+    GlobalValidator.assertThatTheElements(elements).areNotNull();
+
+    final var localElementCount = getElementCount();
+    final var newElementCount = localElementCount + elements.length;
+
+    growToMinimalCapacityIfRequired(newElementCount);
+    System.arraycopy(elements, 0, this.elements, localElementCount, elements.length);
     elementCount = newElementCount;
   }
 
