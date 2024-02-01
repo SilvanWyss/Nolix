@@ -47,7 +47,7 @@ public interface IOptionalHeaderHolder {
    */
   default Optional<String> getOptionalHeader() {
 
-    if (!hasHeader()) {
+    if (hasHeader()) {
       return Optional.of(getHeader());
     }
 
