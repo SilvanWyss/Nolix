@@ -66,6 +66,10 @@ public final class WebClientHtmlEventExecutor {
       return RefreshBehavior.DO_NOT_REFRESH_ANYTHING;
     }
 
+    if (!triggeredControl.belongsToGui()) {
+      return RefreshBehavior.REFRESH_GUI;
+    }
+
     final var gui = triggeredControl.getStoredParentGui();
     final var layerCount = gui.getLayerCount();
 
