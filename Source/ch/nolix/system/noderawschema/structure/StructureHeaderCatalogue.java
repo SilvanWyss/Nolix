@@ -29,6 +29,9 @@ public final class StructureHeaderCatalogue {
   public static final String ENTITY = PascalCaseVariableCatalogue.ENTITY;
 
   //constant
+  public static final String ENTITY_HEAD = "EntityHead";
+
+  //constant
   public static final String ENTITY_HEADS = "EntityHeads";
 
   //constant
