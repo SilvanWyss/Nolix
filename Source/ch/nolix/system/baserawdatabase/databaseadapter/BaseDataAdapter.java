@@ -141,8 +141,8 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   //method
   @Override
-  public final void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
-    dataWriter.insertNewEntity(tableName, newEntity);
+  public final void insertEntity(final String tableName, final INewEntityDto newEntity) {
+    dataWriter.insertEntity(tableName, newEntity);
   }
 
   @Override

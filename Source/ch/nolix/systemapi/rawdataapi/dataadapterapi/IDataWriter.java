@@ -100,6 +100,15 @@ public interface IDataWriter extends IResettableChangeSaver {
 
   //method declaration
   /**
+   * Inserts the given newEntity into the table with the given tableName.
+   * 
+   * @param tableName
+   * @param newEntity
+   */
+  void insertEntity(String tableName, INewEntityDto newEntity);
+
+  //method declaration
+  /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
    * 
@@ -125,15 +134,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param entry
    */
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
-
-  //method declaration
-  /**
-   * Inserts the given newEntity into the table with the given tableName.
-   * 
-   * @param tableName
-   * @param newEntity
-   */
-  void insertNewEntity(String tableName, INewEntityDto newEntity);
 
   //method declaration
   /**

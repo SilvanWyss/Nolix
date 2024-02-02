@@ -139,6 +139,12 @@ public final class DataWriter implements IDataWriter {
 
   //method
   @Override
+  public void insertEntity(final String tableName, final INewEntityDto newEntity) {
+    internalDataWriter.insertNewEntity(tableName, newEntity);
+  }
+
+  //method
+  @Override
   public void insertMultiReferenceEntry(
     final String tableName,
     final String entityId,
@@ -161,12 +167,6 @@ public final class DataWriter implements IDataWriter {
       entityId,
       getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
       entry);
-  }
-
-  //method
-  @Override
-  public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
-    internalDataWriter.insertNewEntity(tableName, newEntity);
   }
 
   //method

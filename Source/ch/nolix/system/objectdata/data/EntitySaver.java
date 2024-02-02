@@ -45,7 +45,7 @@ public final class EntitySaver {
   //method
   private void saveNewEntity(final IEntity newEntity, final Database database) {
 
-    database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
+    database.internalGetRefDataAndSchemaAdapter().insertEntity(
       newEntity.getParentTableName(),
       ENTITY_TOOL.createNewEntityDtoForEntity(newEntity));
 
