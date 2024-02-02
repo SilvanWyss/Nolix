@@ -31,6 +31,11 @@ public final class DatabaseNodeSearcher {
   }
 
   //method
+  public IMutableNode<?> getStoredEntityHeadsNodeFromDatabaseNode(final IMutableNode<?> databaseNode) {
+    return databaseNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.ENTITY_HEADS);
+  }
+
+  //method
   public IMutableNode<?> getStoredTableNodeByTableIdFromDatabaseNode(
     final IMutableNode<?> databaseNode,
     final String tableId) {

@@ -37,6 +37,9 @@ final class DatabaseUpdater {
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
   //constant
+  private static final EntityHeadNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityHeadNodeMapper();
+
+  //constant
   private static final EntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
   //method
@@ -170,6 +173,28 @@ final class DatabaseUpdater {
   }
 
   //method
+  public void insertEntityIntoTable(
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final INewEntityDto newEntity) {
+
+    insertEntityHeadIntoDatabase(databaseNode, tableInfo, newEntity);
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+      tableInfo.getTableName());
+
+    if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
+      throw ArgumentHasAttributeException.forArgumentAndAttributeName(
+        "table " + tableInfo.getTableNameInQuotes(),
+        "entity with the id '" + newEntity.getId() + "'");
+    }
+
+    final var entityNode = ENTITY_NODE_MAPPER.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
+
+    tableNode.addChildNode(entityNode);
+  }
+
+  //method
   public void insertEntryIntoMultiReference(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -207,25 +232,6 @@ final class DatabaseUpdater {
     final var multiValueColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
     multiValueColumnNode.addChildNode(Node.withHeader(entry));
-  }
-
-  //method
-  public void insertEntityIntoTable(
-    final IMutableNode<?> database,
-    final ITableInfo tableInfo,
-    final INewEntityDto newEntity) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database,
-      tableInfo.getTableName());
-
-    if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
-      throw ArgumentHasAttributeException.forArgumentAndAttributeName(
-        "table " + tableInfo.getTableNameInQuotes(),
-        "entity with the id '" + newEntity.getId() + "'");
-    }
-
-    final var entityNode = ENTITY_NODE_MAPPER.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
-
-    tableNode.addChildNode(entityNode);
   }
 
   //method
@@ -277,6 +283,19 @@ final class DatabaseUpdater {
     saveStampNode.setHeader(newSaveStamp);
 
     updateEntityNode(entityNode.get(), tableInfo, entityUpdate);
+  }
+
+  //method
+  private void insertEntityHeadIntoDatabase(
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final INewEntityDto newEntity) {
+
+    final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromDatabaseNode(databaseNode);
+
+    final var entityHeadNode = ENTITY_HEAD_NODE_MAPPER.createEntityHeadNode(tableInfo, newEntity);
+
+    entityHeadsNode.addChildNode(entityHeadNode);
   }
 
   //method
