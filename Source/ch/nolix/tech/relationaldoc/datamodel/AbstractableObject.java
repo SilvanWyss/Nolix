@@ -67,10 +67,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
     declaredFields.addEntity(field);
 
-    /*
-     * TODO: Add realisations of the given field to the sub types of the current
-     * AbstractableObject if the given field is abstract.
-     */
+    addRealisationOfFieldToAllConcreteSubTypesIfFieldIsAbstract(field);
 
     return this;
   }
@@ -133,18 +130,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return subTypes;
   }
 
-  //TODO: Create AbstractableObjectTool and move this method to it.
-  //method
-  private void fillUpSubTypesIntoList(final IAbstractableObject abstractableObject,
-    final ILinkedList<IAbstractableObject> list) {
-    for (final var dst : abstractableObject.getStoredDirectSubTypes()) {
-      if (!list.contains(dst)) {
-        list.addAtEnd(dst);
-        fillUpSubTypesIntoList(dst, list);
-      }
-    }
-  }
-
   //method
   @Override
   public boolean isAbstract() {
@@ -199,6 +184,42 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     this.name.setValue(name);
 
     return this;
+  }
+
+  //method
+  private void addRealisationOfFieldToAllConcreteSubTypesIfFieldIsAbstract(final IAbstractableField field) {
+    if (field.isAbstract()) {
+      addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(field);
+    }
+  }
+
+  //method
+  private void addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(final IAbstractableField field) {
+    for (final var cst : getStoredConcreteSubTypes()) {
+
+      final var realisation = new AbstractableField().setAsConcrete();
+
+      //TODO: Add getContentType method to IAbstractableField.
+      if (field.isForValues()) {
+        realisation.setForValues();
+      } else if (field.isForReferences()) {
+        realisation.setForReferences();
+      }
+
+      cst.addField(realisation);
+    }
+  }
+
+  //TODO: Create AbstractableObjectTool and move this method to it.
+  //method
+  private void fillUpSubTypesIntoList(final IAbstractableObject abstractableObject,
+    final ILinkedList<IAbstractableObject> list) {
+    for (final var dst : abstractableObject.getStoredDirectSubTypes()) {
+      if (!list.contains(dst)) {
+        list.addAtEnd(dst);
+        fillUpSubTypesIntoList(dst, list);
+      }
+    }
   }
 
   //method
