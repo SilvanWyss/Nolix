@@ -7,12 +7,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.propertyvalidator.MultiValueValidator;
-import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IMultiValueValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {

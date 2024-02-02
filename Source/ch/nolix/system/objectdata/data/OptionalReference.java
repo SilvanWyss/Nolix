@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.propertytool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.propertyvalidator.OptionalReferenceValidator;
-import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IOptionalReferenceValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
 public final class OptionalReference<E extends IEntity> extends BaseReference<E> implements IOptionalReference<E> {

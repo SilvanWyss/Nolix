@@ -5,17 +5,17 @@ package ch.nolix.system.objectdata.datatool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
-import ch.nolix.system.sqlrawdatabase.databasedto.EntityHeadDto;
-import ch.nolix.system.sqlrawdatabase.databasedto.EntityUpdateDto;
-import ch.nolix.system.sqlrawdatabase.databasedto.NewEntityDto;
+import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
+import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
+import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 
 //class
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {

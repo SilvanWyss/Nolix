@@ -3,14 +3,13 @@ package ch.nolix.system.objectdata.propertytool;
 
 import java.util.Optional;
 
-//own imports
-import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
-import ch.nolix.system.sqlrawdatabase.databasedto.EntityUpdateDto;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
+import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IReferenceTool;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //class
 public final class ReferenceTool extends PropertyTool implements IReferenceTool {

@@ -8,7 +8,7 @@ import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //interface
 public interface IProperty extends EmptinessRequestable, IDatabaseObject, MandatorynessRequestable, INameHolder {

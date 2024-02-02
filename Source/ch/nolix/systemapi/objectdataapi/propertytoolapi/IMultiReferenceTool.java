@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.propertytoolapi;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //interface
 public interface IMultiReferenceTool extends IPropertyTool {

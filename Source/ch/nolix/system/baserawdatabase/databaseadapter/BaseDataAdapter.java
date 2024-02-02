@@ -5,13 +5,13 @@ package ch.nolix.system.baserawdatabase.databaseadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataAdapter;
-import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataReader;
-import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

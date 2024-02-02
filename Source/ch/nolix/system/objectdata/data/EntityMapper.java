@@ -3,8 +3,8 @@ package ch.nolix.system.objectdata.data;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 
 //class
 final class EntityMapper {

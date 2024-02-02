@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.baserawschema} package defines some base types for
- * the types that are declared in the {@link ch.nolix.systemapi.rawdatabaseapi}
+ * the types that are declared in the {@link ch.nolix.systemapi.rawdataapi}
  * package.
  * 
  * @author Silvan Wyss

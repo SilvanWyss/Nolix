@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 
 //interface
 public interface IEntityTool extends IDatabaseObjectTool {
