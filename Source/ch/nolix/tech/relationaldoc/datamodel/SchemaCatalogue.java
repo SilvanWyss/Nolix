@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//own imports
-import ch.nolix.system.objectdatabase.schema.Schema;
-import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
+import ch.nolix.system.objectdata.schema.Schema;
+import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
 //class
 public final class SchemaCatalogue {

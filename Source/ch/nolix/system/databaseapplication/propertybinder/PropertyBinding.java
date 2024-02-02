@@ -7,7 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.webgui.atomiccontrol.Label;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

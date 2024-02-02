@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
 //class

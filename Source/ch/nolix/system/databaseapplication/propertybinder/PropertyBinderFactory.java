@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
 public final class PropertyBinderFactory {

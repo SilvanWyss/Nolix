@@ -7,9 +7,9 @@ import java.util.function.Predicate;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.database.BackReference;
-import ch.nolix.system.objectdatabase.database.MultiValue;
-import ch.nolix.system.objectdatabase.database.OptionalValue;
+import ch.nolix.system.objectdata.data.BackReference;
+import ch.nolix.system.objectdata.data.MultiValue;
+import ch.nolix.system.objectdata.data.OptionalValue;
 import ch.nolix.tech.relationaldoc.datavalidator.ConcreteValueContentValidator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;

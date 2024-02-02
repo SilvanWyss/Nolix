@@ -5,7 +5,7 @@ package ch.nolix.techtest.relationaldoctest.datamodeltest;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
-import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
+import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
 import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;

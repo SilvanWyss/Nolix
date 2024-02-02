@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//own imports
-import ch.nolix.system.objectdatabase.database.Entity;
+import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 
 //class

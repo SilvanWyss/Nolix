@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
+import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableObjectEvaluator;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
 import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
@@ -20,10 +20,10 @@ public final class DataAdapter implements IDataAdapter {
   private static final AbstractableObjectEvaluator ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectEvaluator();
 
   //attribute
-  private final ch.nolix.system.objectdatabase.database.DataAdapter internalDataAdapter;
+  private final ch.nolix.system.objectdata.data.DataAdapter internalDataAdapter;
 
   //constructor
-  private DataAdapter(final ch.nolix.system.objectdatabase.database.DataAdapter internalDataAdapter) {
+  private DataAdapter(final ch.nolix.system.objectdata.data.DataAdapter internalDataAdapter) {
 
     GlobalValidator
       .assertThat(internalDataAdapter)

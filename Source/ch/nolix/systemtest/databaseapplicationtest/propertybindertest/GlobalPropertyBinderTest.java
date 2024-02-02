@@ -4,7 +4,7 @@ package ch.nolix.systemtest.databaseapplicationtest.propertybindertest;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.databaseapplication.propertybinder.GlobalPropertyBinder;
-import ch.nolix.system.objectdatabase.database.Value;
+import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
