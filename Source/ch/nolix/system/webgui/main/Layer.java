@@ -20,6 +20,7 @@ import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StylableElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.background.Background;
+import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
@@ -70,6 +71,9 @@ extends StylableElement<Layer> implements ILayer<Layer> {
 
   //constant
   private static final LayerValidator LAYER_VALIDATOR = new LayerValidator();
+
+  //constant
+  private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
 
   //attribute
   //For CSS an id works only when it begins with a letter.
@@ -430,7 +434,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
       return true;
     }
 
-    return firstControlContainsSecondControl(localRootControl, control);
+    return CONTROL_ANALYSER.firstControlContainsSecondControl(localRootControl, control);
   }
 
   //method
@@ -442,19 +446,6 @@ extends StylableElement<Layer> implements ILayer<Layer> {
 
     list.addAtEnd(childControls);
     childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
-  }
-
-  //TODO: Use ControlTool.
-  //method
-  private boolean firstControlContainsSecondControl(final IControl<?, ?> control1, final IControl<?, ?> control2) {
-
-    for (final var cc : control1.getStoredChildControls()) {
-      if (cc == control2 || firstControlContainsSecondControl(cc, control2)) {
-        return true;
-      }
-    }
-
-    return false;
   }
 
   //method
