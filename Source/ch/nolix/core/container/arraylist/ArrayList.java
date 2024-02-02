@@ -76,6 +76,29 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return arrayList;
   }
 
+  //static method
+  /**
+   * The complexity of this implementation is O(1).
+   * 
+   * @param initialCapacity
+   * @param <E2>            is the type of the elements of the created
+   *                        {@link ArrayList}.
+   * @return a new {@link ArrayList} with the given initialCapacity
+   * @NegativeArgumentException if the given initialCapacity is negative.
+   */
+  public static <E2> ArrayList<E2> withInitialCapacity(final int initialCapacity) {
+
+    GlobalValidator
+      .assertThat(initialCapacity)
+      .thatIsNamed(LowerCaseVariableCatalogue.INITIAL_CAPACITY)
+      .isNotNegative();
+
+    final var arrayList = new ArrayList<E2>();
+    arrayList.growToCapacity(initialCapacity);
+
+    return arrayList;
+  }
+
   //method
   /**
    * The complexity of this implementation is O(n+m) when the current
@@ -283,12 +306,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
     final var newCapacity = calculateNewCapacityForMinimalCapacity(minimalCapacity);
 
-    @SuppressWarnings("unchecked")
-    final var newElements = (E[]) new Object[newCapacity];
-
-    System.arraycopy(elements, 0, newElements, 0, getElementCount());
-
-    elements = newElements;
+    growToCapacity(newCapacity);
   }
 
   //method
@@ -302,6 +320,47 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     if (isRequiredToGrowToMinimalCapacity(minimalCapacity)) {
       growToMinimalCapacity(minimalCapacity);
     }
+  }
+
+  //method
+  /**
+   * Lets the current {@link ArayList} grow to the given capacity.
+   * 
+   * @param capacity
+   * @throws SmallerThanArgumentException if the given capacity is smaller than
+   *                                      the capacity of the current
+   *                                      {@link ArayList}.
+   */
+  private void growToCapacity(final int capacity) {
+
+    final var currentCapacity = getCapacity();
+
+    GlobalValidator
+      .assertThat(capacity)
+      .thatIsNamed(LowerCaseVariableCatalogue.CAPACITY)
+      .isNotSmallerThan(currentCapacity);
+
+    if (capacity > currentCapacity) {
+      growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(capacity);
+    }
+  }
+
+  //method
+  /**
+   * Lets the current {@link ArayList} grow to the given capacity for the case
+   * when the given capacity is bigger than the capacity of the current
+   * {@link ArrayList}.
+   * 
+   * @param capacity
+   */
+  private void growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(final int capacity) {
+
+    @SuppressWarnings("unchecked")
+    final var newElements = (E[]) new Object[capacity];
+
+    System.arraycopy(elements, 0, newElements, 0, getElementCount());
+
+    elements = newElements;
   }
 
   //method

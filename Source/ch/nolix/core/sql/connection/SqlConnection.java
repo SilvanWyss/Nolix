@@ -181,8 +181,7 @@ public abstract class SqlConnection implements ISqlConnection {
 
     while (resultSet.next()) {
 
-      //TODO: Create ArrayList.withInitialCapacity static method.
-      final var entries = new ArrayList<String>();
+      final ArrayList<String> entries = ArrayList.withInitialCapacity(columnCount);
 
       for (var i = 1; i <= columnCount; i++) {
         entries.addAtEnd(resultSet.getString(i));
