@@ -279,6 +279,19 @@ public class LongMediator extends Mediator {
 
   //method
   /**
+   * @param min
+   * @throws PositiveArgumentException if the argument of the current
+   *                                   {@link LongMediator} is smaller than the
+   *                                   given min.
+   */
+  public final void isNotSmallerThan(final int min) {
+    if (getArgument() < min) {
+      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), getArgument(), min);
+    }
+  }
+
+  //method
+  /**
    * @throws InvalidPortException if the argument of the current
    *                              {@link LongMediator} is not a port.
    */
