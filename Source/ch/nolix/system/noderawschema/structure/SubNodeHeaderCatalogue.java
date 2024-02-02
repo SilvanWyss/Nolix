@@ -54,6 +54,9 @@ public final class SubNodeHeaderCatalogue {
   //constant
   public static final String ENTITY = PascalCaseVariableCatalogue.ENTITY;
 
+  //constant
+  public static final String ENTITY_HEADS = "EntityHeads";
+
   //constructor
   private SubNodeHeaderCatalogue() {
   }
