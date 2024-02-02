@@ -97,6 +97,12 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
   }
 
   //method
+  @Override
+  public boolean isNew() {
+    return (getState() == DatabaseObjectState.NEW);
+  }
+
+  //method
   void internalSetDeleted() {
 
     assertIsLoaded();

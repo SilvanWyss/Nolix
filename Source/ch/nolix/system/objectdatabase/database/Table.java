@@ -205,13 +205,19 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   @Override
   public boolean isDeleted() {
-    return parentDatabase.isDeleted();
+    return false;
   }
 
   //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return parentDatabase.isLinkedWithRealDatabase();
+  }
+
+  //method
+  @Override
+  public boolean isNew() {
+    return false;
   }
 
   //method

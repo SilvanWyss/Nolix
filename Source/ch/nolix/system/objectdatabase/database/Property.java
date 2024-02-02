@@ -114,6 +114,17 @@ public abstract class Property implements IProperty {
 
   //method
   @Override
+  public final boolean isNew() {
+
+    if (!belongsToEntity()) {
+      return true;
+    }
+
+    return getStoredParentEntity().isNew();
+  }
+
+  //method
+  @Override
   public final boolean knowsParentColumn() {
     return (parentColumn != null);
   }

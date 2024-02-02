@@ -126,6 +126,12 @@ public final class Database implements IDatabase {
   }
 
   //method
+  @Override
+  public boolean isNew() {
+    return false;
+  }
+
+  //method
   void internalClose() {
     for (final var t : getStoredTables()) {
       ((Table<?>) t).internalClose();

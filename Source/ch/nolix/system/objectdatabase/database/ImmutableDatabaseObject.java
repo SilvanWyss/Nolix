@@ -39,6 +39,12 @@ abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObjec
 
   //method
   @Override
+  public final boolean isNew() {
+    return false;
+  }
+
+  //method
+  @Override
   public final void noteClose() {
   }
 }

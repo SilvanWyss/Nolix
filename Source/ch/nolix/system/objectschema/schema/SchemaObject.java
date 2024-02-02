@@ -33,6 +33,12 @@ abstract class SchemaObject implements IDatabaseObject {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
+  //method
+  @Override
+  public final boolean isNew() {
+    return (getState() == DatabaseObjectState.NEW);
+  }
+
   //method declaration
   protected abstract void noteClose();
 

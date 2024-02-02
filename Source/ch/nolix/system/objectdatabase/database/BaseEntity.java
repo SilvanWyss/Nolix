@@ -151,6 +151,12 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   @Override
+  public final boolean isNew() {
+    return (getState() == DatabaseObjectState.NEW);
+  }
+
+  //method
+  @Override
   public final boolean isReferencedInPersistedData() {
 
     if (!belongsToTable()) {
