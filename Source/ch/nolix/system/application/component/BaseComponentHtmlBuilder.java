@@ -7,7 +7,7 @@ import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
 //class
 public final class BaseComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {

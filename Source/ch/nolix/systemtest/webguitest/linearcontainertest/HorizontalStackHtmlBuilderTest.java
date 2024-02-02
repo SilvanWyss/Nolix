@@ -8,7 +8,7 @@ import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStackHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
-import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlHtmlBuilderTest;
+import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 
 //class
 public final class HorizontalStackHtmlBuilderTest

@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.systemtest.webguitest.basecontrolservicetest;
+package ch.nolix.systemtest.webguitest.basecontroltooltest;
 
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class

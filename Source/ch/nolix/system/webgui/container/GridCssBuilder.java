@@ -9,7 +9,7 @@ import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.system.webgui.basecontrolservice.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;

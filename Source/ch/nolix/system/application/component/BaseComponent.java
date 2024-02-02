@@ -13,8 +13,8 @@ import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponentStyle;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class

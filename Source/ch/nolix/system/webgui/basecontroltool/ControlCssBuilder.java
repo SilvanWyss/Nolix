@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.basecontrolservice;
+package ch.nolix.system.webgui.basecontroltool;
 
 //Java imports
 import java.util.Locale;
@@ -15,8 +15,8 @@ import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

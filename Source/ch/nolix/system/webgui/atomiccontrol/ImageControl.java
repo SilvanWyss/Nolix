@@ -20,8 +20,8 @@ import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
