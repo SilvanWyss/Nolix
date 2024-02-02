@@ -291,6 +291,9 @@ public final class PluralPascalCaseVariableCatalogue {
   public static final String INFO_STRINGS = "InfoStrings";
 
   //constant
+  public static final String INITIAL_CAPACITIES = "InitialCapacities";
+
+  //constant
   public static final String INPUTS = "Inputs";
 
   //constant

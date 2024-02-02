@@ -290,6 +290,9 @@ public final class PascalCaseVariableCatalogue {
   public static final String INFO_STRING = "InfoString";
 
   //constant
+  public static final String INITIAL_CAPACITY = "InitialCapacity";
+
+  //constant
   public static final String INPUT = "Input";
 
   //constant

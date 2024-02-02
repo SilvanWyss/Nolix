@@ -291,6 +291,9 @@ public final class PluralLowerCaseVariableCatalogue {
   public static final String INFO_STRINGS = "info strings";
 
   //constant
+  public static final String INITIAL_CAPACITIES = "initial capacities";
+
+  //constant
   public static final String INPUTS = "inputs";
 
   //constant

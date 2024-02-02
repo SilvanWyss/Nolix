@@ -290,6 +290,9 @@ public final class LowerCaseVariableCatalogue {
   public static final String INFO_STRING = "info string";
 
   //constant
+  public static final String INITIAL_CAPACITY = "initial capacity";
+
+  //constant
   public static final String INPUT = "input";
 
   //constant
