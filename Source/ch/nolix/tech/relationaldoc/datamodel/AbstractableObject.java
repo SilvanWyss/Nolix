@@ -2,10 +2,13 @@
 package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
 import ch.nolix.system.objectdatabase.database.Entity;
+import ch.nolix.system.objectdatabase.database.MultiBackReference;
 import ch.nolix.system.objectdatabase.database.MultiReference;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableObjectValidator;
@@ -32,6 +35,10 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
   //multi-attribute
   private final MultiReference<AbstractableObject> directBaseTypes = MultiReference.forEntity(AbstractableObject.class);
+
+  //multi-attribute
+  private final MultiBackReference<AbstractableObject> directSubTypes = //
+  MultiBackReference.forEntityTypeAndPropertyName(AbstractableObject.class, "directBaseTypes");
 
   //multi-attribute
   private final MultiReference<AbstractableField> declaredFields = MultiReference.forEntity(AbstractableField.class);
@@ -104,12 +111,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectSubTypes() {
-
-    //TODO: Create MultiBackReference.
-    return getStoredParentDatabase()
-      .getStoredTableByEntityType(AbstractableObject.class)
-      .getStoredEntities()
-      .getStoredSelected(ao -> ao.getStoredDirectBaseTypes().contains(this));
+    return directSubTypes.getStoredBackReferencedEntities();
   }
 
   //method
@@ -124,11 +126,23 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   @Override
   public IContainer<? extends IAbstractableObject> getStoredSubTypes() {
 
-    //TODO: Create MultiBackReference.
-    return getStoredParentDatabase()
-      .getStoredTableByEntityType(AbstractableObject.class)
-      .getStoredEntities()
-      .getStoredSelected(ao -> ao.getStoredBaseTypes().contains(this));
+    final var subTypes = new LinkedList<IAbstractableObject>();
+
+    fillUpSubTypesIntoList(this, subTypes);
+
+    return subTypes;
+  }
+
+  //TODO: Create AbstractableObjectTool and move this method to it.
+  //method
+  private void fillUpSubTypesIntoList(final IAbstractableObject abstractableObject,
+    final ILinkedList<IAbstractableObject> list) {
+    for (final var dst : abstractableObject.getStoredDirectSubTypes()) {
+      if (!list.contains(dst)) {
+        list.addAtEnd(dst);
+        fillUpSubTypesIntoList(dst, list);
+      }
+    }
   }
 
   //method
