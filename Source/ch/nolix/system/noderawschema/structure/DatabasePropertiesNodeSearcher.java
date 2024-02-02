@@ -19,6 +19,6 @@ public final class DatabasePropertiesNodeSearcher {
   //method
   public IMutableNode<?> getStoredSchemaTimestampNodeFromDatabasePropertiesNode(
     final IMutableNode<?> databasePropertiesNode) {
-    return databasePropertiesNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
+    return databasePropertiesNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.SCHEMA_TIMESTAMP);
   }
 }

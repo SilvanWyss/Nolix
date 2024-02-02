@@ -9,21 +9,21 @@ public final class ColumnNodeSearcher {
 
   //method
   public boolean columnNodeContainsEntityNode(final IMutableNode<?> columnNode) {
-    return columnNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.ENTITY);
+    return columnNode.containsChildNodeWithHeader(StructureHeaderCatalogue.ENTITY);
   }
 
   //method
   public IMutableNode<?> getStoredIdNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
+    return columnNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.ID);
   }
 
   //method
   public IMutableNode<?> getStoredNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+    return columnNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.NAME);
   }
 
   //method
   public IMutableNode<?> getStoredParameterizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE);
+    return columnNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE);
   }
 }

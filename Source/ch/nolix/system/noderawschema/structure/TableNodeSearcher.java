@@ -22,17 +22,17 @@ public final class TableNodeSearcher {
 
   //method
   public IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
+    return tableNode.getStoredChildNodesWithHeader(StructureHeaderCatalogue.COLUMN);
   }
 
   //method
   public IMutableNode<?> getStoredIdNodeFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
+    return tableNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.ID);
   }
 
   //method
   public IMutableNode<?> getStoredNameNodeFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+    return tableNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.NAME);
   }
 
   //method

@@ -27,7 +27,7 @@ public final class DatabaseNodeSearcher {
 
   //method
   public IMutableNode<?> getStoredDatabasePropertiesNodeFromDatabaseNode(final IMutableNode<?> databaseNode) {
-    return databaseNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
+    return databaseNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.DATABASE_PROPERTIES);
   }
 
   //method
@@ -35,7 +35,7 @@ public final class DatabaseNodeSearcher {
     final IMutableNode<?> databaseNode,
     final String tableId) {
     return getStoredTableNodesFromDatabaseNode(databaseNode).getStoredFirst(
-      tsn -> tsn.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getStoredSingleChildNode()
+      tsn -> tsn.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.ID).getStoredSingleChildNode()
         .hasHeader(tableId));
   }
 
@@ -45,18 +45,18 @@ public final class DatabaseNodeSearcher {
     final String tableName) {
     return getStoredTableNodesFromDatabaseNode(databaseNode).getStoredFirst(
       tsn -> tsn
-        .getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME)
+        .getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.NAME)
         .getStoredSingleChildNode()
         .hasHeader(tableName));
   }
 
   //method
   public IContainer<? extends IMutableNode<?>> getStoredTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
-    return databaseNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
+    return databaseNode.getStoredChildNodesWithHeader(StructureHeaderCatalogue.TABLE);
   }
 
   //method
   public int getTableNodeCount(final IMutableNode<?> databaseNode) {
-    return databaseNode.getStoredChildNodes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
+    return databaseNode.getStoredChildNodes().getCount(a -> a.hasHeader(StructureHeaderCatalogue.TABLE));
   }
 }

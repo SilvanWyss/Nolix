@@ -11,24 +11,24 @@ public final class ParameterizedPropertyTypeNodeSearcher {
   public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
     return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(
-      SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
+      StructureHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
   }
 
   //method
   public IMutableNode<?> getStoredDataTypeNodeFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATA_TYPE);
+    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.DATA_TYPE);
   }
 
   //method
   public IMutableNode<?> getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PROPERTY_TYPE);
+    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.PROPERTY_TYPE);
   }
 
   //method
   public IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedPropertyTypeNode(
     IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.REFERENCED_TABLE_ID);
+    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
   }
 }

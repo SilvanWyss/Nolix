@@ -4,7 +4,7 @@ package ch.nolix.system.noderawschema.structure;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 //class
-public final class SubNodeHeaderCatalogue {
+public final class StructureHeaderCatalogue {
 
   //constant
   public static final String DATABASE = PascalCaseVariableCatalogue.DATABASE;
@@ -58,6 +58,6 @@ public final class SubNodeHeaderCatalogue {
   public static final String ENTITY_HEADS = "EntityHeads";
 
   //constructor
-  private SubNodeHeaderCatalogue() {
+  private StructureHeaderCatalogue() {
   }
 }

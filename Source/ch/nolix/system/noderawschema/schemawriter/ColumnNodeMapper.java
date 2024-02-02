@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.schemawriter;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.system.noderawschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //class
@@ -16,7 +16,7 @@ public final class ColumnNodeMapper {
   //method
   public Node createColumnNodeFrom(final IColumnDto column) {
     return Node.withHeaderAndChildNode(
-      SubNodeHeaderCatalogue.COLUMN,
+      StructureHeaderCatalogue.COLUMN,
       createIdNodeFrom(column),
       createNameNodeFrom(column),
       createParameterizedPropertyTypeNodeFrom(column));
@@ -24,12 +24,12 @@ public final class ColumnNodeMapper {
 
   //method
   private Node createIdNodeFrom(final IColumnDto column) {
-    return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.ID, column.getId());
+    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.ID, column.getId());
   }
 
   //method
   private Node createNameNodeFrom(final IColumnDto column) {
-    return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.NAME, column.getName());
+    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.NAME, column.getName());
   }
 
   //method

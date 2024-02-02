@@ -4,7 +4,7 @@ package ch.nolix.system.noderawschema.schemawriter;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.noderawschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
@@ -31,15 +31,15 @@ public final class ParameterizedPropertyTypeNodeMapper {
   private Node createParameterizedPropertyTypeNodeFrom(
     IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
-      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.PROPERTY_TYPE,
+        StructureHeaderCatalogue.PROPERTY_TYPE,
         baseParameterizedBackReferenceType.getPropertyType().toString()),
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.DATA_TYPE,
+        StructureHeaderCatalogue.DATA_TYPE,
         baseParameterizedBackReferenceType.getDataType().name()),
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
+        StructureHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
         baseParameterizedBackReferenceType.getBackReferencedColumnId()));
   }
 
@@ -47,15 +47,15 @@ public final class ParameterizedPropertyTypeNodeMapper {
   private Node createParameterizedPropertyTypeNodeFrom(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
-      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.PROPERTY_TYPE,
+        StructureHeaderCatalogue.PROPERTY_TYPE,
         baseParameterizedReferenceType.getPropertyType().toString()),
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.DATA_TYPE,
+        StructureHeaderCatalogue.DATA_TYPE,
         baseParameterizedReferenceType.getDataType().name()),
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
+        StructureHeaderCatalogue.REFERENCED_TABLE_ID,
         baseParameterizedReferenceType.getReferencedTableId()));
   }
 
@@ -63,12 +63,12 @@ public final class ParameterizedPropertyTypeNodeMapper {
   private Node createParameterizedPropertyTypeNodeFrom(
     final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(
-      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.PROPERTY_TYPE,
+        StructureHeaderCatalogue.PROPERTY_TYPE,
         baseParameterizedValueType.getPropertyType().toString()),
       Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.DATA_TYPE,
+        StructureHeaderCatalogue.DATA_TYPE,
         baseParameterizedValueType.getDataType().name()));
   }
 }

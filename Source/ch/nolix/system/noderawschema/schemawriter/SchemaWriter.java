@@ -9,7 +9,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.structure.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.noderawschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.noderawschema.structure.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
@@ -98,7 +98,7 @@ public final class SchemaWriter implements ISchemaWriter {
       tableName);
 
     tableNode.removeFirstChildNodeThat(
-      (final IMutableNode<?> a) -> a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
+      (final IMutableNode<?> a) -> a.hasHeader(StructureHeaderCatalogue.COLUMN)
       && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(a).getStoredSingleChildNode()
         .hasHeader(columnName));
 
@@ -110,7 +110,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteTable(final String tableName) {
 
     editedDatabaseNode.removeFirstChildNodeThat(
-      (final IMutableNode<?> a) -> a.hasHeader(SubNodeHeaderCatalogue.TABLE)
+      (final IMutableNode<?> a) -> a.hasHeader(StructureHeaderCatalogue.TABLE)
       && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(a).getStoredSingleChildNode().hasHeader(tableName));
 
     hasChanges = true;
@@ -186,7 +186,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
       parameterizedPropertyTypeNodeMapper.createParameterizedPropertyTypeNodeFrom(parameterizedPropertyType));
 
     hasChanges = true;
