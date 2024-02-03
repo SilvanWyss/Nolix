@@ -91,20 +91,19 @@ public final class InternalDataWriter {
 
   //method
   public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-    sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToDeleteEntity(tableName, entity));
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToDeleteEntityHead(entity.getId()));
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToDeleteEntity(tableName, entity));
   }
 
   //method
   public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
-    sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp));
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp));
   }
 
   //method
   public void expectTableContainsEntity(final String tableName, final String entityId) {
-    sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToExpectTableContainsEntity(tableName, entityId));
+    sqlCollector
+      .addSqlStatement(entityStatementCreator.createStatementToExpectTableContainsEntity(tableName, entityId));
   }
 
   //method
@@ -140,8 +139,7 @@ public final class InternalDataWriter {
 
   //method
   public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
-    sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToInsertEntity(tableName, newEntity));
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToInsertEntity(tableName, newEntity));
   }
 
   //method
@@ -166,7 +164,6 @@ public final class InternalDataWriter {
 
   //method
   public void updateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
-    sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate));
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate));
   }
 }
