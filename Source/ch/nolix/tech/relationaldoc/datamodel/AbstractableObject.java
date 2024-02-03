@@ -212,7 +212,8 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
   //TODO: Create AbstractableObjectTool and move this method to it.
   //method
-  private void fillUpSubTypesIntoList(final IAbstractableObject abstractableObject,
+  private void fillUpSubTypesIntoList(
+    final IAbstractableObject abstractableObject,
     final ILinkedList<IAbstractableObject> list) {
     for (final var dst : abstractableObject.getStoredDirectSubTypes()) {
       if (!list.contains(dst)) {

@@ -103,7 +103,8 @@ public final class DatabaseSaveValidator {
   }
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
-    final IMultiReference<?> multiReference, final Database database) {
+    final IMultiReference<?> multiReference,
+    final Database database) {
 
     final var referencedTableName = multiReference.getReferencedTableName();
 
@@ -129,7 +130,8 @@ public final class DatabaseSaveValidator {
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(
-    final IReference<?> reference, final Database database) {
+    final IReference<?> reference,
+    final Database database) {
     database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
       reference.getReferencedTableName(),
       reference.getReferencedEntityId());

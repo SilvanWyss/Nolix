@@ -111,11 +111,11 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
 
   //method
   private N getStoredNextArgumentCapturerOrResult() {
-  
+
     if (hasNextArgumentCapturer()) {
       return nextArgumentCapturer;
     }
-  
+
     return build();
   }
 

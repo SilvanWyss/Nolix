@@ -29,9 +29,9 @@ public class ForNodeDatabaseCapturer<N> extends ArgumentCapturer<IMutableNode<?>
 
   //method
   public final N forTemporaryInMemoryNodeDatabase() {
-  
+
     final var nodeDatabase = new MutableNode();
-  
+
     return forNodeDatabase(nodeDatabase);
   }
 

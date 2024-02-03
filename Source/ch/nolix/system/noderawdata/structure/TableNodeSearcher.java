@@ -20,7 +20,8 @@ public final class TableNodeSearcher {
   }
 
   //method
-  public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode,
+  public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
+    final IMutableNode<?> tableNode,
     final String id) {
     return tableNode.getOptionalStoredFirstChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)

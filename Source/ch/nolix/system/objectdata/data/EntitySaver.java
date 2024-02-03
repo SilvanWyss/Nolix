@@ -86,7 +86,8 @@ public final class EntitySaver {
   }
 
   //method
-  private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(final Database database,
+  private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(
+    final Database database,
     final IProperty p) {
     switch (p.getType()) {
       case MULTI_VALUE:

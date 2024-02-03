@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.objectdata.propertytool} packages implements
- * the types that are declared in the
+ * The {@link ch.nolix.system.objectdata.propertytool} packages implements the
+ * types that are declared in the
  * {@link ch.nolix.systemapi.objectdataapi.propertytoolapi} package.
  * 
  * @author Silvan Wyss

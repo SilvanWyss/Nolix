@@ -1,8 +1,7 @@
 //package declaration
 /**
- * The {@link ch.nolix.systemapi.objectdataapi.dataflyweightapi}
- * declares flyweights for
- * {@link ch.nolix.systemapi.objectdataapi.dataapi.IProperty}s.
+ * The {@link ch.nolix.systemapi.objectdataapi.dataflyweightapi} declares
+ * flyweights for {@link ch.nolix.systemapi.objectdataapi.dataapi.IProperty}s.
  * 
  * @author Silvan Wyss
  * @date 2022-03-10

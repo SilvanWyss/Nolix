@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.noderawdata.structure} package defines types
- * for the structure of databases that base on
+ * The {@link ch.nolix.system.noderawdata.structure} package defines types for
+ * the structure of databases that base on
  * {@link ch.nolix.core.document.node.BaseNode}s..
  * 
  * @author Silvan Wyss

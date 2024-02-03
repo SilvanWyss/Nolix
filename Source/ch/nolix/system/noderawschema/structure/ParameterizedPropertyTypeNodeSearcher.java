@@ -29,6 +29,7 @@ public final class ParameterizedPropertyTypeNodeSearcher {
   //method
   public IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedPropertyTypeNode(
     IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
+    return parameterizedPropertyTypeNode
+      .getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
   }
 }

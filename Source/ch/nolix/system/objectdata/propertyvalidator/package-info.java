@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.objectdata.propertyvalidator} packages
- * implements the types that are declared in the
+ * The {@link ch.nolix.system.objectdata.propertyvalidator} packages implements
+ * the types that are declared in the
  * {@link ch.nolix.systemapi.objectdataapi.propertyvalidatorapi} package.
  * 
  * @author Silvan Wyss
