@@ -28,7 +28,7 @@ public final class MultiValueEntryTableSqlDtoCatalogue {
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  public static final ITableDto MULTI_VALUE_ENTRY_TABLE_SQL_DTO = new TableDto(
+  public static final ITableDto MULTI_VALUE_ENTRY_TABLE_SQL_DTO = TableDto.withNameAndColumn(
     MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName(),
     MULTI_VALUE_COLUMN_COLUMN_SQL_DTO,
     ENTITY_COLUMN_SQL_DTO,

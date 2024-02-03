@@ -89,7 +89,7 @@ final class SchemaReader implements ISchemaReader {
   //method
   @Override
   public IContainer<ITableDto> loadTables() {
-    return loadFlatTables().to(t -> new TableDto(t.getName(), loadColumns(t.getName())));
+    return loadFlatTables().to(t -> TableDto.withNameAndColumns(t.getName(), loadColumns(t.getName())));
   }
 
   //method

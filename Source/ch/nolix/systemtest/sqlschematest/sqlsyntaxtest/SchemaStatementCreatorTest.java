@@ -31,7 +31,7 @@ public final class SchemaStatementCreatorTest extends Test {
   public void testCase_createStatementToAddTable() {
 
     //setup
-    final var tableDto = new TableDto(
+    final var tableDto = TableDto.withNameAndColumn(
       "Pet",
       new ColumnDto("Name", new DataTypeDto("nvarchar(100)")),
       new ColumnDto("WeightInKilogram", new DataTypeDto("Float")));

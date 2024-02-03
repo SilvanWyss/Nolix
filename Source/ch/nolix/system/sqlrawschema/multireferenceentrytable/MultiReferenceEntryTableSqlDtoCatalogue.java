@@ -26,7 +26,7 @@ public final class MultiReferenceEntryTableSqlDtoCatalogue {
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  public static final ITableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = new TableDto(
+  public static final ITableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = TableDto.withNameAndColumn(
     MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName(),
     MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
     ENTITY_COLUMN_SQL_DTO,

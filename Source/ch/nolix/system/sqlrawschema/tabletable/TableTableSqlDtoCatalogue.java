@@ -21,7 +21,8 @@ public final class TableTableSqlDtoCatalogue {
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  public static final ITableDto TABLE_TABLE_SQL_DTO = new TableDto(SchemaTableType.TABLE.getQualifiedName(),
+  public static final ITableDto TABLE_TABLE_SQL_DTO = TableDto.withNameAndColumn(
+    SchemaTableType.TABLE.getQualifiedName(),
     ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO);
 
   //constructor

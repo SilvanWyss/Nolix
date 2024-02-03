@@ -20,18 +20,23 @@ public final class TableDto implements ITableDto {
   private final IContainer<IColumnDto> columns;
 
   //constructor
-  public TableDto(final String name, final IColumnDto column, final IColumnDto... columns) {
-    this(name, ReadContainer.forElement(column, columns));
-  }
-
-  //constructor
-  public TableDto(final String name, final IContainer<IColumnDto> columns) {
+  private TableDto(final String name, final IContainer<IColumnDto> columns) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
 
     this.name = name;
 
     this.columns = LinkedList.fromIterable(columns);
+  }
+
+  //static method
+  public static TableDto withNameAndColumn(final String name, final IColumnDto column, final IColumnDto... columns) {
+    return withNameAndColumns(name, ReadContainer.forElement(column, columns));
+  }
+
+  //static method
+  public static TableDto withNameAndColumns(final String name, final IContainer<IColumnDto> columns) {
+    return new TableDto(name, columns);
   }
 
   //method

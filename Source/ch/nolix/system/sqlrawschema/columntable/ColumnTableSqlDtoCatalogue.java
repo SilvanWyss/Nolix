@@ -40,7 +40,7 @@ public final class ColumnTableSqlDtoCatalogue {
     ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DatatypeTypeCatalogue.TEXT);
 
   //constant
-  public static final ITableDto COLUMN_TABLE_SQL_DTO = new TableDto(
+  public static final ITableDto COLUMN_TABLE_SQL_DTO = TableDto.withNameAndColumn(
     SchemaTableType.COLUMN.getQualifiedName(),
     ID_SQL_DTO,
     PARENT_TABLE_ID_SQL_DTO,
