@@ -13,30 +13,34 @@ import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 public final class ColumnTableSqlDtoCatalogue {
 
   //constant
-  private static final IColumnDto ID_SQL_DTO = new ColumnDto(TableTableColumn.ID.getName(), DatatypeTypeCatalogue.TEXT);
-
-  //constant
-  private static final IColumnDto PARENT_TABLE_ID_SQL_DTO = new ColumnDto(ColumnTableColumn.PARENT_TABLE_ID.getName(),
+  private static final IColumnDto ID_SQL_DTO = ColumnDto.withNameAndDataType(TableTableColumn.ID.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto NAME_SQL_DTO = new ColumnDto(ColumnTableColumn.NAME.getName(),
+  private static final IColumnDto PARENT_TABLE_ID_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.PARENT_TABLE_ID.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto PROPERTY_TYPE_SQL_DTO = new ColumnDto(ColumnTableColumn.PROPERTY_TYPE.getName(),
+  private static final IColumnDto NAME_SQL_DTO = ColumnDto.withNameAndDataType(ColumnTableColumn.NAME.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto DATA_TYPE_SQL_DTO = new ColumnDto(ColumnTableColumn.DATA_TYPE.getName(),
+  private static final IColumnDto PROPERTY_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.PROPERTY_TYPE.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto REFERENCED_TABLE_SQL_DTO = new ColumnDto(
+  private static final IColumnDto DATA_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.DATA_TYPE.getName(),
+    DatatypeTypeCatalogue.TEXT);
+
+  //constant
+  private static final IColumnDto REFERENCED_TABLE_SQL_DTO = ColumnDto.withNameAndDataType(
     ColumnTableColumn.REFERENCED_TABLE_ID.getName(), DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto BACK_REFERENCED_COLUMN_ID_SQL_DTO = new ColumnDto(
+  private static final IColumnDto BACK_REFERENCED_COLUMN_ID_SQL_DTO = ColumnDto.withNameAndDataType(
     ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DatatypeTypeCatalogue.TEXT);
 
   //constant

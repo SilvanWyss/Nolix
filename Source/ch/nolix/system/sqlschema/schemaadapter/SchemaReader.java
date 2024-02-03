@@ -75,7 +75,8 @@ final class SchemaReader implements ISchemaReader {
   public IContainer<IColumnDto> loadColumns(final String tableName) {
     return sqlConnection
       .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
-      .to(r -> new ColumnDto(r.getStoredAt1BasedIndex(1), new DataTypeDto(r.getStoredAt1BasedIndex(2))));
+      .to(
+        r -> ColumnDto.withNameAndDataType(r.getStoredAt1BasedIndex(1), new DataTypeDto(r.getStoredAt1BasedIndex(2))));
   }
 
   //method

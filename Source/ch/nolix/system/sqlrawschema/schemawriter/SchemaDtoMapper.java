@@ -18,17 +18,17 @@ final class SchemaDtoMapper {
   //constant
   private static final //
   ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto SQL_ID_COLUMN_DTO = //
-  new ColumnDto(PascalCaseVariableCatalogue.ID, DatatypeTypeCatalogue.TEXT);
+  ColumnDto.withNameAndDataType(PascalCaseVariableCatalogue.ID, DatatypeTypeCatalogue.TEXT);
 
   //constant
   private static final //
   ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
-  new ColumnDto(PascalCaseVariableCatalogue.SAVE_STAMP, DatatypeTypeCatalogue.INTEGER);
+  ColumnDto.withNameAndDataType(PascalCaseVariableCatalogue.SAVE_STAMP, DatatypeTypeCatalogue.INTEGER);
 
   //method
   public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto createSqlColumnDtoFrom(
     final IColumnDto column) {
-    return new ColumnDto(column.getName(), DatatypeTypeCatalogue.TEXT);
+    return ColumnDto.withNameAndDataType(column.getName(), DatatypeTypeCatalogue.TEXT);
   }
 
   //method

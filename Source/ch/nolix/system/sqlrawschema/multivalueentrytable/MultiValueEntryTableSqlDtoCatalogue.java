@@ -14,16 +14,16 @@ import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 public final class MultiValueEntryTableSqlDtoCatalogue {
 
   //constant
-  private static final IColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = new ColumnDto(
+  private static final IColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto ENTITY_COLUMN_SQL_DTO = new ColumnDto(
+  private static final IColumnDto ENTITY_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiReferenceEntryTableColumn.ENTITY_ID.getName(), DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto VALUE_COLUMN_SQL_DTO = new ColumnDto(
+  private static final IColumnDto VALUE_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiValueEntryTableColumn.VALUE.getName(),
     DatatypeTypeCatalogue.TEXT);
 

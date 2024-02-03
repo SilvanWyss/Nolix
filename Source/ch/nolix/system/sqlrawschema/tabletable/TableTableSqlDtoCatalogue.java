@@ -12,12 +12,12 @@ import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 public final class TableTableSqlDtoCatalogue {
 
   //constant
-  private static final IColumnDto ID_COLUMN_SQL_DTO = new ColumnDto(
+  private static final IColumnDto ID_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     TableTableColumn.ID.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final IColumnDto NAME_COLUMN_SQL_DTO = new ColumnDto(TableTableColumn.NAME.getName(),
+  private static final IColumnDto NAME_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(TableTableColumn.NAME.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant

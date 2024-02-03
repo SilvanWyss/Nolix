@@ -10,11 +10,12 @@ import ch.nolix.system.sqlschema.schemadto.TableDto;
 public final class DatabasePropertyTableSqlDtoCatalogue {
 
   //constant
-  private static final ColumnDto KEY_COLUMN_SQL_DTO = new ColumnDto(DatabasePropertyTableColumn.KEY.getLabel(),
+  private static final ColumnDto KEY_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
+    DatabasePropertyTableColumn.KEY.getLabel(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant
-  private static final ColumnDto VALUE_COLUMN_SQL_DTO = new ColumnDto(
+  private static final ColumnDto VALUE_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     DatabasePropertyTableColumn.VALUE.getLabel(), DatatypeTypeCatalogue.TEXT);
 
   //constant

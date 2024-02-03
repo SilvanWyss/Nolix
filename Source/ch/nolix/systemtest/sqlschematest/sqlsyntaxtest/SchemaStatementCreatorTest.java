@@ -16,7 +16,7 @@ public final class SchemaStatementCreatorTest extends Test {
   public void testCase_createStatementToAddColumn() {
 
     //setup
-    final var columnDto = new ColumnDto("Name", new DataTypeDto("nvarchar(100)"));
+    final var columnDto = ColumnDto.withNameAndDataType("Name", new DataTypeDto("nvarchar(100)"));
     final var testUnit = new SchemaStatementCreator();
 
     //execution
@@ -33,8 +33,8 @@ public final class SchemaStatementCreatorTest extends Test {
     //setup
     final var tableDto = TableDto.withNameAndColumn(
       "Pet",
-      new ColumnDto("Name", new DataTypeDto("nvarchar(100)")),
-      new ColumnDto("WeightInKilogram", new DataTypeDto("Float")));
+      ColumnDto.withNameAndDataType("Name", new DataTypeDto("nvarchar(100)")),
+      ColumnDto.withNameAndDataType("WeightInKilogram", new DataTypeDto("Float")));
     final var testUnit = new SchemaStatementCreator();
 
     //execution
