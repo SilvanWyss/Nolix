@@ -126,6 +126,8 @@ final class DatabaseUpdater {
     final String tableName,
     final IEntityHeadDto entity) {
 
+    deleteEntityHeadFromDatabase(database, entity);
+
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database, tableName);
 
     final var entityNode = TABLE_NODE_SEARCHER.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.getId());
@@ -283,6 +285,15 @@ final class DatabaseUpdater {
     saveStampNode.setHeader(newSaveStamp);
 
     updateEntityNode(entityNode.get(), tableInfo, entityUpdate);
+  }
+
+  //method
+  private void deleteEntityHeadFromDatabase(final IMutableNode<?> databaseNode, final IEntityHeadDto entity) {
+
+    final var entityId = entity.getId();
+    final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromDatabaseNode(databaseNode);
+
+    entityHeadsNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));
   }
 
   //method
