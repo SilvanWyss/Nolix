@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlsyntax;
 
+//own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
@@ -63,7 +64,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   //method
   @Override
-  public String createStatementToInsertNewEntity(final String tableName, final INewEntityDto newEntity) {
+  public String createStatementToInsertEntity(final String tableName, final INewEntityDto newEntity) {
     return "INSERT INTO "
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " (Id, SaveStamp, "

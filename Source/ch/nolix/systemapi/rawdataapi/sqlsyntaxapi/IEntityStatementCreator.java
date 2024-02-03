@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.sqlsyntaxapi;
 
+//own imports
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
@@ -12,14 +13,14 @@ public interface IEntityStatementCreator {
   //method declaration
   String createStatementToDeleteEntity(String tableName, IEntityHeadDto entity);
 
-  //method
+  //method declaration
   String createStatementToExpectGivenSchemaTimestamp(ITime schemaTimestamp);
 
-  //method
+  //method declaration
   String createStatementToExpectTableContainsEntity(String tableName, String entityId);
 
   //method declaration
-  String createStatementToInsertNewEntity(String tableName, INewEntityDto newEntity);
+  String createStatementToInsertEntity(String tableName, INewEntityDto newEntity);
 
   //method declaration
   String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDto entity);

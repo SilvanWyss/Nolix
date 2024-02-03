@@ -141,7 +141,7 @@ public final class InternalDataWriter {
   //method
   public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
     sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToInsertNewEntity(tableName, newEntity));
+      entityStatementCreator.createStatementToInsertEntity(tableName, newEntity));
   }
 
   //method

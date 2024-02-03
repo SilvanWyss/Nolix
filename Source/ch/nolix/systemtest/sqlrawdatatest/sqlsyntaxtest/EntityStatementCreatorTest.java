@@ -64,7 +64,7 @@ public final class EntityStatementCreatorTest extends Test {
         new ContentFieldDto("MyColumn3", "my_value3")));
 
     //execution
-    final var result = testUnit.createStatementToInsertNewEntity("MyTable", newEntityDto);
+    final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
 
     //verification
     final var expectedResult = "INSERT INTO EMyTable (Id, SaveStamp, MyColumn1, MyColumn2, MyColumn3) "
