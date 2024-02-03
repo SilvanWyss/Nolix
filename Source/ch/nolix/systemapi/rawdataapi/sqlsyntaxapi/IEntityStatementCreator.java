@@ -23,6 +23,9 @@ public interface IEntityStatementCreator {
   String createStatementToInsertEntity(String tableName, INewEntityDto newEntity);
 
   //method declaration
+  String createStatementToInsertEntityHead(String tableId, String entityId);
+
+  //method declaration
   String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDto entity);
 
   //method declaration

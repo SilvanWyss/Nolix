@@ -1,8 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlsyntax;
 
+import ch.nolix.core.commontypetool.GlobalStringTool;
 //own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
+import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
+import ch.nolix.system.sqlrawschema.structure.IndexTableType;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
@@ -75,6 +78,22 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + 1
     + "', "
     + newEntity.getContentFields().to(this::getSqlValueRepresentationOfContentField).toStringWithSeparator(", ")
+    + ");";
+  }
+
+  //method
+  @Override
+  public String createStatementToInsertEntityHead(final String tableId, final String entityId) {
+    return "INSERT INTO "
+    + IndexTableType.ENTITY_HEAD.getQualifiedName()
+    + "("
+    + EntityHeadTableColumn.TABLE_ID.getName()
+    + ", "
+    + EntityHeadTableColumn.ENTITY_ID.getName()
+    + ") VALUES ("
+    + GlobalStringTool.getInQuotes(tableId)
+    + ", "
+    + GlobalStringTool.getInQuotes(entityId)
     + ");";
   }
 
