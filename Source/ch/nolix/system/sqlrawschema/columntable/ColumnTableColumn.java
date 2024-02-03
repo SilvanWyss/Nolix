@@ -4,10 +4,8 @@ package ch.nolix.system.sqlrawschema.columntable;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
-import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 
 //enum
 public enum ColumnTableColumn implements INameHolder {
@@ -18,9 +16,6 @@ public enum ColumnTableColumn implements INameHolder {
   DATA_TYPE(PascalCaseVariableCatalogue.DATA_TYPE),
   REFERENCED_TABLE_ID("ReferencedTableId"),
   BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
-
-  //constant
-  private static final String NAME_PREFIX = SchemaTableType.COLUMN.getQualifiedName() + StringCatalogue.DOT;
 
   //attribute
   private final String name;
@@ -37,15 +32,5 @@ public enum ColumnTableColumn implements INameHolder {
   @Override
   public String getName() {
     return name;
-  }
-
-  //method
-  public String getQualifiedName() {
-    return (getQualifyingPrefix() + getName());
-  }
-
-  //method
-  public String getQualifyingPrefix() {
-    return NAME_PREFIX;
   }
 }
