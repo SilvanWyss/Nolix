@@ -65,7 +65,7 @@ record SslServerHtmlPage(String serverDomain, int serverPort) {
 
   //method
   private String getServerDomainInQuotes() {
-    return GlobalStringTool.getInQuotes(getServerDomain());
+    return GlobalStringTool.getInSingleQuotes(getServerDomain());
   }
 
   //method

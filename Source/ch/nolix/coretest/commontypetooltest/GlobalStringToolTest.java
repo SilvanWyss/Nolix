@@ -65,10 +65,10 @@ public final class GlobalStringToolTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getInQuotes_whenGivenStringIsEmpty() {
+  public void testCase_getInSingleQuotes_whenTheGivenStringIsEmpty() {
 
     //execution
-    final var result = GlobalStringTool.getInQuotes("");
+    final var result = GlobalStringTool.getInSingleQuotes("");
 
     //verification
     expect(result).isEqualTo("''");
@@ -76,10 +76,10 @@ public final class GlobalStringToolTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getInQuotes_whenGivenStringIsNotEmpty() {
+  public void testCase_getInSingleQuotes_whenTheGivenStringIsNotEmpty() {
 
     //execution
-    final var result = GlobalStringTool.getInQuotes("Zebra");
+    final var result = GlobalStringTool.getInSingleQuotes("Zebra");
 
     //verification
     expect(result).isEqualTo("'Zebra'");

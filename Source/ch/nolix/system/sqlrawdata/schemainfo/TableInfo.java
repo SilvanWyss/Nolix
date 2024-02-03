@@ -70,6 +70,6 @@ implements ITableInfo {
   //method
   @Override
   public String getTableNameInQuotes() {
-    return GlobalStringTool.getInQuotes(getTableName());
+    return GlobalStringTool.getInSingleQuotes(getTableName());
   }
 }

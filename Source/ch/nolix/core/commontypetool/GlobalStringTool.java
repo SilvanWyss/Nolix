@@ -136,14 +136,13 @@ public final class GlobalStringTool {
   }
 
   //static method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param string
    * @return the given string in quotes
    * @throws ArgumentIsNullException if the given string is null.
    */
-  public static String getInQuotes(final String string) {
+  public static String getInSingleQuotes(final String string) {
 
     if (string == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);

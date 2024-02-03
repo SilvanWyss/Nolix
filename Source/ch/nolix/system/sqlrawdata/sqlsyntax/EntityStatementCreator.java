@@ -91,9 +91,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ", "
     + EntityHeadTableColumn.ENTITY_ID.getName()
     + ") VALUES ("
-    + GlobalStringTool.getInQuotes(tableId)
+    + GlobalStringTool.getInSingleQuotes(tableId)
     + ", "
-    + GlobalStringTool.getInQuotes(entityId)
+    + GlobalStringTool.getInSingleQuotes(entityId)
     + ");";
   }
 
