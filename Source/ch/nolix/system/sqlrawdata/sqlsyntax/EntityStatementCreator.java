@@ -36,6 +36,16 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   //method
   @Override
+  public String createStatementToDeleteEntityHead(final String entityId) {
+    return "DELETE FROM "
+    + IndexTableType.ENTITY_HEAD.getQualifiedName()
+    + " WHERE EntityId = "
+    + GlobalStringTool.getInSingleQuotes(entityId)
+    + ";";
+  }
+
+  //method
+  @Override
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return "IF NOT EXISTS (SELECT * FROM "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()

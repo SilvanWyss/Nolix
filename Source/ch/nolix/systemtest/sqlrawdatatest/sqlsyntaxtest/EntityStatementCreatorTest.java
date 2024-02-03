@@ -33,6 +33,21 @@ public final class EntityStatementCreatorTest extends Test {
 
   //method
   @TestCase
+  public void testCase_createStatementToDeleteEntityHead() {
+
+    //setup
+    final var testUnit = new EntityStatementCreator();
+
+    //execution
+    final var result = testUnit.createStatementToDeleteEntityHead("test_id");
+
+    //verification
+    final var expectedResult = "DELETE FROM IEntityHead WHERE EntityId = 'test_id';";
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
   public void testCase_createStatementToExpectTableContainsEntity() {
 
     //setup

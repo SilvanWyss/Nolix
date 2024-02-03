@@ -14,6 +14,9 @@ public interface IEntityStatementCreator {
   String createStatementToDeleteEntity(String tableName, IEntityHeadDto entity);
 
   //method declaration
+  String createStatementToDeleteEntityHead(String entityId);
+
+  //method declaration
   String createStatementToExpectGivenSchemaTimestamp(ITime schemaTimestamp);
 
   //method declaration
