@@ -199,11 +199,13 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
       final var realisation = new AbstractableField().setAsConcrete();
 
-      //TODO: Add getContentType method to IAbstractableField.
-      if (field.isForValues()) {
-        realisation.setForValues();
-      } else if (field.isForReferences()) {
-        realisation.setForReferences();
+      switch (field.getContentType()) { //NOSONAR: Use switch statement to restrict criteria to content type.
+        case VALUE:
+          realisation.setForValues();
+          break;
+        case REFERENCE:
+          realisation.setForReferences();
+          break;
       }
 
       cst.addField(realisation);

@@ -3,6 +3,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Entity;
@@ -58,6 +59,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   //constructor
   public AbstractableField() {
     initialize();
+  }
+
+  //method
+  @Override
+  public ContentType getContentType() {
+    return getStoredContent().getContentType();
   }
 
   //method

@@ -2,6 +2,7 @@
 package ch.nolix.coreapi.datamodelapi.fieldrequestapi;
 
 //own imports
+import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -14,6 +15,12 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ContentTypeRequestable {
+
+  //method declaration
+  /**
+   * @return the content type of the current {@link ContentTypeRequestable}.
+   */
+  ContentType getContentType();
 
   //method
   /**
