@@ -140,7 +140,7 @@ public final class DataWriter implements IDataWriter {
   //method
   @Override
   public void insertEntity(final String tableName, final INewEntityDto newEntity) {
-    internalDataWriter.insertNewEntity(tableName, newEntity);
+    internalDataWriter.insertEntity(tableName, newEntity);
   }
 
   //method
