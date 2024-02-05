@@ -55,10 +55,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @Override
   @SuppressWarnings("unchecked")
   public void addEntity(final Object entity) {
-
-    final var entityOfConcreteType = (E) entity;
-
-    addEntityOfConcreteType(entityOfConcreteType);
+    addCastedEntity((E) entity);
   }
 
   //method
@@ -148,15 +145,9 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public void removeEntity(final E entity) {
-
-    MULTI_REFERENCE_VALIDATOR.assertCanRemoveEntity(this, entity);
-
-    extractReferencedEntityIdsIfNeeded();
-
-    localEntries.getStoredFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
-
-    setAsEditedAndRunProbableUpdateAction();
+  @SuppressWarnings("unchecked")
+  public void removeEntity(final Object entity) {
+    removeCastedEntity((E) entity);
   }
 
   //method
@@ -182,7 +173,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   }
 
   //method
-  private void addEntityOfConcreteType(final E entity) {
+  private void addCastedEntity(final E entity) {
 
     assertCanAddEntity(entity);
 
@@ -245,6 +236,18 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
       getStoredParentEntity().getId(),
       getName())
       .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
+  }
+
+  //method
+  private void removeCastedEntity(final E entity) {
+
+    MULTI_REFERENCE_VALIDATOR.assertCanRemoveEntity(this, entity);
+
+    extractReferencedEntityIdsIfNeeded();
+
+    localEntries.getStoredFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
+
+    setAsEditedAndRunProbableUpdateAction();
   }
 
   //method

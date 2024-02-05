@@ -125,7 +125,6 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
       }
     }
 
-    //TODO: Avoid casting here.
-    this.referencedType.setEntity((AbstractableObject) referenceType);
+    this.referencedType.setEntity(referenceType);
   }
 }

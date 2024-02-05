@@ -13,7 +13,7 @@ public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseR
   String getReferencedEntityId();
 
   //method declaration
-  void setEntity(E entity);
+  void setEntity(Object entity);
 
   //method declaration
   void setEntityById(String id);

@@ -129,21 +129,9 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
-  public void setEntity(final E entity) {
-
-    assertCanSetEntity(entity);
-
-    updatePropbableBackReferencingPropertyOfEntityForClear(entity);
-
-    clear();
-
-    updateStateForSetEntity(entity);
-
-    updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
-
-    insertEntityIntoDatabaseIfPossible(entity);
-
-    setAsEditedAndRunProbableUpdateAction();
+  @SuppressWarnings("unchecked")
+  public void setEntity(final Object entity) {
+    setCastedEntity((E) entity);
   }
 
   //method
@@ -221,6 +209,24 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     && !entity.belongsToTable()) {
       getStoredParentEntity().getStoredParentDatabase().insertEntity(entity);
     }
+  }
+
+  //method
+  private void setCastedEntity(final E entity) {
+
+    assertCanSetEntity(entity);
+
+    updatePropbableBackReferencingPropertyOfEntityForClear(entity);
+
+    clear();
+
+    updateStateForSetEntity(entity);
+
+    updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
+
+    insertEntityIntoDatabaseIfPossible(entity);
+
+    setAsEditedAndRunProbableUpdateAction();
   }
 
   //method

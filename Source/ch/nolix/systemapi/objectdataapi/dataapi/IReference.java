@@ -11,7 +11,7 @@ public interface IReference<E extends IEntity> extends IBaseReference<E> {
   String getReferencedEntityId();
 
   //method declaration
-  void setEntity(E entity);
+  void setEntity(Object entity);
 
   //method declaration
   void setEntityById(String id);
