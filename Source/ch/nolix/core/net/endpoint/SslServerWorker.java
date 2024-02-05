@@ -9,6 +9,7 @@ import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //Netty imports
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -33,6 +34,9 @@ final class SslServerWorker extends Worker {
 
   //attribute
   private final ISSLCertificate mSSLCertificate;
+
+  //attribute
+  private Channel channel;
 
   //constructor
   public SslServerWorker(
@@ -70,7 +74,7 @@ final class SslServerWorker extends Worker {
         .handler(new LoggingHandler(LogLevel.INFO))
         .childHandler(new SslServerInitializer(parentWebSocketServer, htmlPage, sslContext));
 
-      final var channel = serverBootstrab.bind(port).sync().channel();
+      channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();
     } catch (final InterruptedException interruptedException //NOSONAR: The Exception is rethrown wrapped in another
                                                              //Exception.
@@ -80,5 +84,11 @@ final class SslServerWorker extends Worker {
       bossGroup.shutdownGracefully();
       workerGroup.shutdownGracefully();
     }
+  }
+
+  //method
+  void internalStop() {
+    channel.close();
+    channel.parent().close();
   }
 }

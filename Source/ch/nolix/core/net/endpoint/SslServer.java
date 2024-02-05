@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+//own imports
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
@@ -27,6 +28,9 @@ public final class SslServer extends BaseServer {
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();
 
+  //attribute
+  private final SslServerWorker sslServerWorker;
+
   //constructor
   public SslServer(final int port, final ISSLCertificate paramSSLCertificate) {
     this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
@@ -34,7 +38,7 @@ public final class SslServer extends BaseServer {
 
   //constructor
   public SslServer(final int port, final String htmlPage, final ISSLCertificate paramSSLCertificate) {
-    new SslServerWorker(this, port, htmlPage, paramSSLCertificate);
+    sslServerWorker = new SslServerWorker(this, port, htmlPage, paramSSLCertificate);
   }
 
   //static method
@@ -60,6 +64,6 @@ public final class SslServer extends BaseServer {
   //method
   @Override
   public void noteClose() {
-    //TODO: Implement.
+    sslServerWorker.internalStop();
   }
 }
