@@ -122,7 +122,10 @@ implements ICookieManager {
 
   //method
   final void internalRedirectCounterpartToUrl(final String url) {
-    //TODO: Implement.
+
+    final var redirectToUrlCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectToUrlCommand(url);
+
+    runOnCounterpart(redirectToUrlCommand);
   }
 
   //method

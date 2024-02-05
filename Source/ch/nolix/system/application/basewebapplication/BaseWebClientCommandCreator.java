@@ -33,9 +33,17 @@ final class BaseWebClientCommandCreator {
 
   //method
   public ChainedNode createRedirectCommand(final IApplicationInstanceTarget applicationInstanceTarget) {
+
+    final var url = applicationInstanceTarget.toUrl();
+
+    return createRedirectToUrlCommand(url);
+  }
+
+  //method
+  public ChainedNode createRedirectToUrlCommand(final String url) {
     return ChainedNode.withHeaderAndChildNode(
       CommandProtocol.REDIRECT,
-      ChainedNode.withHeader(applicationInstanceTarget.toUrl()));
+      ChainedNode.withHeader(url));
   }
 
   //method
