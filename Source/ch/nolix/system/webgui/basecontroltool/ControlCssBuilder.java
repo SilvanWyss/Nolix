@@ -62,6 +62,7 @@ implements IControlCssBuilder<C, CS> {
     ControlState state,
     LinkedList<ICssProperty> list);
 
+  //method
   private void fillUpAllStateCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
     final var allStateSelectorPrefix = getCssSelectorForControlAndAllStates(control);
     final var allStateCssRules = new LinkedList<ICssRule>();
@@ -71,6 +72,7 @@ implements IControlCssBuilder<C, CS> {
     }
   }
 
+  //method
   private void fillUpBaseCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
     final var baseSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.BASE);
     final var baseCssRules = new LinkedList<ICssRule>();
@@ -120,6 +122,7 @@ implements IControlCssBuilder<C, CS> {
     fillUpAdditionalCssRulesForControlAndStateIntoList(control, state, list);
   }
 
+  //method
   private void fillUpFocusCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
     final var focusSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.FOCUS);
     final var focusCssRules = new LinkedList<ICssRule>();
@@ -129,6 +132,7 @@ implements IControlCssBuilder<C, CS> {
     }
   }
 
+  //method
   private void fillUpHoverCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
     final var hoverSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.HOVER);
     final var hoverCssRules = new LinkedList<ICssRule>();
