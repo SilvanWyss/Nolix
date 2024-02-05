@@ -27,42 +27,17 @@ implements IControlCssBuilder<C, CS> {
   //constant
   private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
-  //TODO: Refactor this method.
   //method
   @Override
   public final IContainer<ICssRule> createCssRulesForControl(final C control) {
 
-    final var selectorPrefixedCssRules = new LinkedList<ICssRule>();
+    final var cssRules = new LinkedList<ICssRule>();
+    fillUpAllStateCssRulesIntoList(cssRules, control);
+    fillUpBaseCssRulesIntoList(cssRules, control);
+    fillUpHoverCssRulesIntoList(cssRules, control);
+    fillUpFocusCssRulesIntoList(cssRules, control);
 
-    final var allStateSelectorPrefix = getCssSelectorForControlAndAllStates(control);
-    final var allStateCssRules = new LinkedList<ICssRule>();
-    fillUpCssRulesForControlAndAllStatesIntoList(control, allStateCssRules);
-    for (final var r : allStateCssRules) {
-      selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(allStateSelectorPrefix + StringCatalogue.SPACE));
-    }
-
-    final var baseSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.BASE);
-    final var baseCssRules = new LinkedList<ICssRule>();
-    fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, baseCssRules);
-    for (final var r : baseCssRules) {
-      selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(baseSelectorPrefix + StringCatalogue.SPACE));
-    }
-
-    final var hoverSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.HOVER);
-    final var hoverCssRules = new LinkedList<ICssRule>();
-    fillUpCssRulesForControlAndStateIntoList(control, ControlState.HOVER, hoverCssRules);
-    for (final var r : hoverCssRules) {
-      selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(hoverSelectorPrefix + StringCatalogue.SPACE));
-    }
-
-    final var focusSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.FOCUS);
-    final var focusCssRules = new LinkedList<ICssRule>();
-    fillUpCssRulesForControlAndStateIntoList(control, ControlState.FOCUS, focusCssRules);
-    for (final var r : focusCssRules) {
-      selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(focusSelectorPrefix + StringCatalogue.SPACE));
-    }
-
-    return selectorPrefixedCssRules;
+    return cssRules;
   }
 
   //method declaration
@@ -80,6 +55,30 @@ implements IControlCssBuilder<C, CS> {
   protected abstract void fillUpCssPropertiesForControlAndAllStatesIntoList(
     C control,
     LinkedList<CssProperty> list);
+
+  //method declaration
+  protected abstract void fillUpCssPropertiesForControlAndStateIntoList(
+    C control,
+    ControlState state,
+    LinkedList<ICssProperty> list);
+
+  private void fillUpAllStateCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+    final var allStateSelectorPrefix = getCssSelectorForControlAndAllStates(control);
+    final var allStateCssRules = new LinkedList<ICssRule>();
+    fillUpCssRulesForControlAndAllStatesIntoList(control, allStateCssRules);
+    for (final var r : allStateCssRules) {
+      list.addAtEnd(r.withPrefixedSelector(allStateSelectorPrefix + StringCatalogue.SPACE));
+    }
+  }
+
+  private void fillUpBaseCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+    final var baseSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.BASE);
+    final var baseCssRules = new LinkedList<ICssRule>();
+    fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, baseCssRules);
+    for (final var r : baseCssRules) {
+      list.addAtEnd(r.withPrefixedSelector(baseSelectorPrefix + StringCatalogue.SPACE));
+    }
+  }
 
   //method
   private String getCssSelectorForControlAndAllStates(final C control) {
@@ -100,12 +99,6 @@ implements IControlCssBuilder<C, CS> {
     };
   }
 
-  //method declaration
-  protected abstract void fillUpCssPropertiesForControlAndStateIntoList(
-    C control,
-    ControlState state,
-    LinkedList<ICssProperty> list);
-
   //method
   private void fillUpCssRulesForControlAndAllStatesIntoList(
     final C control,
@@ -125,6 +118,24 @@ implements IControlCssBuilder<C, CS> {
     list.addAtEnd(getCssRuleForControlAndState(control, state));
 
     fillUpAdditionalCssRulesForControlAndStateIntoList(control, state, list);
+  }
+
+  private void fillUpFocusCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+    final var focusSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.FOCUS);
+    final var focusCssRules = new LinkedList<ICssRule>();
+    fillUpCssRulesForControlAndStateIntoList(control, ControlState.FOCUS, focusCssRules);
+    for (final var r : focusCssRules) {
+      list.addAtEnd(r.withPrefixedSelector(focusSelectorPrefix + StringCatalogue.SPACE));
+    }
+  }
+
+  private void fillUpHoverCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+    final var hoverSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.HOVER);
+    final var hoverCssRules = new LinkedList<ICssRule>();
+    fillUpCssRulesForControlAndStateIntoList(control, ControlState.HOVER, hoverCssRules);
+    for (final var r : hoverCssRules) {
+      list.addAtEnd(r.withPrefixedSelector(hoverSelectorPrefix + StringCatalogue.SPACE));
+    }
   }
 
   //method
