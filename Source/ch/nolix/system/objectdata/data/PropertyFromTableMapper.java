@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
-final class PropertyFromTableExtractor {
+final class PropertyFromTableMapper {
 
   //method
   public IContainer<Property> createPropertiesFromTable(final ITable<IEntity> table) {

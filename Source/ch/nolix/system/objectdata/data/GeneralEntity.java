@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public final class GeneralEntity extends BaseEntity {
 
   //constant
-  private static final PropertyFromTableExtractor PROPERTY_FROM_TABLE_EXTRACTOR = new PropertyFromTableExtractor();
+  private static final PropertyFromTableMapper PROPERTY_FROM_TABLE_EXTRACTOR = new PropertyFromTableMapper();
 
   //attribute
   private final String tableName;
