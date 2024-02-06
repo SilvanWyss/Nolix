@@ -55,4 +55,11 @@ public final class AbstractableFieldValidator {
       throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.NAME, name);
     }
   }
+
+  //method
+  public void assertDoesNotInheritFromAnotherField(final IAbstractableField abstractableField) {
+    if (abstractableField.inheritsFromBaseField()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "inherits from another field");
+    }
+  }
 }
