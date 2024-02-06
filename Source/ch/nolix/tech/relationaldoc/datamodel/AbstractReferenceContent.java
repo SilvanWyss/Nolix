@@ -1,12 +1,6 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//Java imports
-import java.util.function.Predicate;
-
-//own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Reference;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
@@ -40,21 +34,6 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
 
   //method
   @Override
-  public IAbstractReferenceContent addConstraint(final Predicate<IAbstractableObject> constraint) {
-
-    //TODO: Implement.
-    return this;
-  }
-
-  @Override
-  public IContainer<? extends Predicate<IAbstractableObject>> getConstraints() {
-
-    //TODO: Implement.
-    return new ImmutableList<>();
-  }
-
-  //method
-  @Override
   public IAbstractableField getStoredParentField() {
     return parentField.getBackReferencedEntity();
   }
@@ -75,18 +54,6 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
   @Override
   public boolean isEmpty() {
     return true;
-  }
-
-  //method
-  @Override
-  public void removeConstraint(final Predicate<IAbstractableObject> constraint) {
-    //TODO: Implement.
-  }
-
-  //method
-  @Override
-  public void removeConstraints() {
-    //TODO: Implement.
   }
 
   //method

@@ -1,18 +1,12 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//Java imports
-import java.util.function.Predicate;
-
-//own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.system.objectdata.data.OptionalValue;
 import ch.nolix.tech.relationaldoc.datavalidator.ConcreteValueContentValidator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
-import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IValueContent;
@@ -43,17 +37,6 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     values.addValue(value);
 
     return this;
-  }
-
-  //method
-  @Override
-  public IContainer<Predicate<String>> getConstraints() {
-
-    if (getStoredParentField().inheritsFromBaseField()) {
-      return getConstraintsWhenInheritsFromBaseField();
-    }
-
-    return new ImmutableList<>();
   }
 
   //method
@@ -124,16 +107,6 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     setDataTypeIfWillChange(dataType);
 
     return this;
-  }
-
-  //method
-  private IContainer<Predicate<String>> getConstraintsWhenInheritsFromBaseField() {
-
-    final var baseField = getStoredParentField().getStoredBaseField();
-
-    final var abstractValueContent = (IAbstractValueContent) baseField.getStoredContent();
-
-    return abstractValueContent.getConstraints();
   }
 
   //method
