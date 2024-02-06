@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -12,51 +11,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 final class PropertyFromTableExtractor {
 
   //method
-  public IContainer<Property> createPropertiesFromTable(
-    final ITable<IEntity> table) {
+  public IContainer<Property> createPropertiesFromTable(final ITable<IEntity> table) {
     return table.getStoredColumns().to(this::createPropertyFromColumn);
-  }
-
-  //method
-  private Property createEmptyPropertyFromColumn(final IColumn column) {
-    switch (column.getParameterizedPropertyType().getPropertyType()) {
-      case VALUE:
-        return new Value<>();
-      case OPTIONAL_VALUE:
-        return new OptionalValue<>();
-      case MULTI_VALUE:
-        return new MultiValue<>();
-      case REFERENCE:
-
-        final var referencedtableName = column
-          .getParameterizedPropertyType()
-          .asBaseParameterizedReferenceType()
-          .getStoredencedTable()
-          .getName();
-
-        return Reference.forEntityWithTableName(referencedtableName);
-      case OPTIONAL_REFERENCE:
-
-        final var referencedtableName2 = column
-          .getParameterizedPropertyType()
-          .asBaseParameterizedReferenceType()
-          .getStoredencedTable()
-          .getName();
-
-        return OptionalReference.forEntityWithTableName(referencedtableName2);
-      case MULTI_REFERENCE:
-
-        final var referencedtableName3 = column
-          .getParameterizedPropertyType()
-          .asBaseParameterizedReferenceType()
-          .getStoredencedTable()
-          .getName();
-
-        return MultiReference.forEntityWithTableName(referencedtableName3);
-      case BACK_REFERENCE, OPTIONAL_BACK_REFERENCE, MULTI_BACK_REFERENCE:
-      default:
-        throw InvalidArgumentException.forArgument(column);
-    }
   }
 
   //method
@@ -66,5 +22,115 @@ final class PropertyFromTableExtractor {
     property.internalSetParentColumn(column);
 
     return property;
+  }
+
+  //method
+  private Property createEmptyPropertyFromColumn(final IColumn column) {
+    return switch (column.getParameterizedPropertyType().getPropertyType()) {
+      case VALUE ->
+        new Value<>();
+      case OPTIONAL_VALUE ->
+        new OptionalValue<>();
+      case MULTI_VALUE ->
+        new MultiValue<>();
+      case REFERENCE ->
+        createEmptyReferenceFromReferenceColumn(column);
+      case OPTIONAL_REFERENCE ->
+        createEmptyOptionalReferenceFromOptionalReferenceColumn(column);
+      case MULTI_REFERENCE ->
+        createEmptyMultiReferenceFromMultiReferenceColumn(column);
+      case BACK_REFERENCE ->
+        createEmptyBackReferenceFromBackReferenceColumn(column);
+      case OPTIONAL_BACK_REFERENCE ->
+        createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(column);
+      case MULTI_BACK_REFERENCE ->
+        createEmptyMultiBackReferenceFromMultiBackReferenceColumn(column);
+    };
+  }
+
+  //method
+  private Property createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
+
+    final var referencedtableName = referenceColumn
+      .getParameterizedPropertyType()
+      .asBaseParameterizedReferenceType()
+      .getStoredencedTable()
+      .getName();
+
+    return Reference.forEntityWithTableName(referencedtableName);
+  }
+
+  //method
+  private Property createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
+
+    final var referencedtableName = optionalReferenceColumn
+      .getParameterizedPropertyType()
+      .asBaseParameterizedReferenceType()
+      .getStoredencedTable()
+      .getName();
+
+    return OptionalReference.forEntityWithTableName(referencedtableName);
+  }
+
+  //method
+  private Property createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
+
+    final var referencedtableName = multiReferenceColumn
+      .getParameterizedPropertyType()
+      .asBaseParameterizedReferenceType()
+      .getStoredencedTable()
+      .getName();
+
+    return MultiReference.forEntityWithTableName(referencedtableName);
+  }
+
+  //method
+  private Property createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
+
+    final var backReferencedColumn = backReferenceColumn
+      .getParameterizedPropertyType()
+      .asBaseParameterizedBackReferenceType()
+      .getBackReferencedColumn();
+
+    final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
+
+    final var backReferencedPropertyName = backReferencedColumn.getName();
+
+    return BackReference.forEntityWithTableNameAndBackReferencedPropertyName(backReferencedTableName,
+      backReferencedPropertyName);
+  }
+
+  //method
+  private Property createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
+    final IColumn optionalBackReferenceColumn) {
+
+    final var backReferencedColumn = optionalBackReferenceColumn
+      .getParameterizedPropertyType()
+      .asBaseParameterizedBackReferenceType()
+      .getBackReferencedColumn();
+
+    final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
+
+    final var backReferencedPropertyName = backReferencedColumn.getName();
+
+    return OptionalBackReference.forEntityWithTableNameAndBackReferencedPropertyName(backReferencedTableName,
+      backReferencedPropertyName);
+  }
+
+  //method
+  private Property createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
+    final IColumn multiBackReferenceColumn) {
+
+    final var backReferencedColumn = multiBackReferenceColumn
+      .getParameterizedPropertyType()
+      .asBaseParameterizedBackReferenceType()
+      .getBackReferencedColumn();
+
+    final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
+
+    final var backReferencedPropertyName = backReferencedColumn.getName();
+
+    return MultiBackReference.forEntityTypeNameAndPropertyName(backReferencedTableName,
+      backReferencedPropertyName);
   }
 }
