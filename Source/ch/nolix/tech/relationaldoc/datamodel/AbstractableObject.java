@@ -146,7 +146,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public void removeDirectBaseType(final IAbstractableObject directBaseType) {
-    directBaseTypes.removeEntity((AbstractableObject) directBaseType);
+    directBaseTypes.removeEntity(directBaseType);
   }
 
   //method
