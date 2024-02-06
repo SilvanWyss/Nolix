@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public abstract class Entity extends BaseEntity {
 
   //constant
-  private static final PropertyFromEntityExtractor PROPERTY_FROM_ENTITY_EXTRACTOR = new PropertyFromEntityExtractor();
+  private static final PropertyFromEntityMapper PROPERTY_FROM_ENTITY_EXTRACTOR = new PropertyFromEntityMapper();
 
   //method
   @Override
