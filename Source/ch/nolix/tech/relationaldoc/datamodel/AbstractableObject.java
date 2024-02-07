@@ -158,10 +158,10 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
     declaredFields.removeEntity(nonInheritedField);
 
-    final var name = declaredFields.getName();
+    final var fieldName = nonInheritedField.getName();
 
     for (final var cst : getStoredConcreteSubTypes()) {
-      ((AbstractableObject) cst).removeFieldByName(name);
+      ((AbstractableObject) cst).removeFieldByName(fieldName);
     }
   }
 
