@@ -1,4 +1,4 @@
-//pakckage declaration
+//package declaration
 package ch.nolix.techtest.relationaldoctest.datamodeltest;
 
 //own imports
@@ -20,15 +20,15 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
     //setup part 1: Create database.
     final var database = new MutableNode();
 
-    //setup part 2: Create databaseAdapter.
-    final var databaseAdapter = NodeDataAdapter
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
       .forNodeDatabase(database)
       .withName("test_database")
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    databaseAdapter.insert(testUnit);
+    dataAdapter.insert(testUnit);
 
     //execution
     final var result = testUnit.getStoredBaseTypes();
@@ -44,27 +44,27 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
     //setup part 1: Create database.
     final var database = new MutableNode();
 
-    //setup part 2: Create databaseAdapter.
-    final var databaseAdapter = NodeDataAdapter
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
       .forNodeDatabase(database)
       .withName("test_database")
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create baseType1.
     final var baseType1 = new AbstractableObject();
-    databaseAdapter.insert(baseType1);
+    dataAdapter.insert(baseType1);
     baseType1.setName("base_type_1");
     baseType1.setAsAbstract();
 
     //setup part 4: Create baseType2.
     final var baseType2 = new AbstractableObject();
-    databaseAdapter.insert(baseType2);
+    dataAdapter.insert(baseType2);
     baseType2.setName("base_type_2");
     baseType2.setAsAbstract();
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    databaseAdapter.insert(testUnit);
+    dataAdapter.insert(testUnit);
     testUnit.setName("test_unit");
     testUnit.addBaseType(baseType1);
     testUnit.addBaseType(baseType2);
@@ -83,28 +83,28 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
     //setup part 1: Create database.
     final var database = new MutableNode();
 
-    //setup part 2: Create databaseAdapter.
-    final var databaseAdapter = NodeDataAdapter
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
       .forNodeDatabase(database)
       .withName("test_database")
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create level1Type.
     final var level1Oject = new AbstractableObject();
-    databaseAdapter.insert(level1Oject);
+    dataAdapter.insert(level1Oject);
     level1Oject.setName("level_1_object");
     level1Oject.setAsAbstract();
 
     //setup part 4: Create level2Type.
     final var level2Oject = new AbstractableObject();
-    databaseAdapter.insert(level2Oject);
+    dataAdapter.insert(level2Oject);
     level2Oject.setName("level_2_object");
     level2Oject.setAsAbstract();
     level2Oject.addBaseType(level1Oject);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    databaseAdapter.insert(testUnit);
+    dataAdapter.insert(testUnit);
     testUnit.setName("test_unit");
     testUnit.addBaseType(level2Oject);
 
@@ -122,15 +122,15 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
     //setup part 1: Create database.
     final var database = new MutableNode();
 
-    //setup part 2: Create databaseAdapter.
-    final var databaseAdapter = NodeDataAdapter
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
       .forNodeDatabase(database)
       .withName("test_database")
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    databaseAdapter.insert(testUnit);
+    dataAdapter.insert(testUnit);
 
     //execution
     final var result = testUnit.getStoredDirectSubTypes();
@@ -146,25 +146,25 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
     //setup part 1: Create database.
     final var database = new MutableNode();
 
-    //setup part 2: Create databaseAdapter.
-    final var databaseAdapter = NodeDataAdapter
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
       .forNodeDatabase(database)
       .withName("test_database")
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create subType1.
     final var subType1 = new AbstractableObject();
-    databaseAdapter.insert(subType1);
+    dataAdapter.insert(subType1);
     subType1.setName("sub_type_1");
 
     //setup part 4: Create subType2.
     final var subType2 = new AbstractableObject();
-    databaseAdapter.insert(subType2);
+    dataAdapter.insert(subType2);
     subType2.setName("sub_type_2");
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    databaseAdapter.insert(testUnit);
+    dataAdapter.insert(testUnit);
     testUnit.setName("test_unit");
     testUnit.setAsAbstract();
     subType1.addBaseType(testUnit);
@@ -184,20 +184,20 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
     //setup part 1: Create database.
     final var database = new MutableNode();
 
-    //setup part 2: Create databaseAdapter.
-    final var databaseAdapter = NodeDataAdapter
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
       .forNodeDatabase(database)
       .withName("test_database")
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    databaseAdapter.insert(testUnit);
+    dataAdapter.insert(testUnit);
     final var field = new AbstractableField();
-    databaseAdapter.insert(field);
+    dataAdapter.insert(field);
     testUnit.addField(field);
 
     //execution & verification
-    expectRunning(databaseAdapter::saveChanges).doesNotThrowException();
+    expectRunning(dataAdapter::saveChanges).doesNotThrowException();
   }
 }
