@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
+//Java imports
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
@@ -22,4 +25,7 @@ public interface IMultiReference<E extends IEntity> extends Clearable, IBaseRefe
 
   //method declaration
   void removeEntity(Object entity);
+
+  //method declaration
+  void removeFirstEntity(Predicate<E> selector);
 }

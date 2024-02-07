@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//Java imports
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -148,6 +151,15 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @SuppressWarnings("unchecked")
   public void removeEntity(final Object entity) {
     removeCastedEntity((E) entity);
+  }
+
+  //method
+  @Override
+  public void removeFirstEntity(final Predicate<E> selector) {
+
+    final var entity = getReferencedEntities().getOptionalStoredFirst(selector);
+
+    entity.ifPresent(this::removeEntity);
   }
 
   //method
