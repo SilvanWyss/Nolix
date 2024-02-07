@@ -2,15 +2,14 @@
 package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiBackReference;
 import ch.nolix.system.objectdata.data.MultiReference;
 import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.tech.relationaldoc.datatool.AbstractableObjectTool;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableFieldValidator;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableObjectValidator;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
@@ -24,6 +23,9 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
   //constant
   public static final boolean DEFAULT_ABSTRACT_FLAG = false;
+
+  //constant
+  private static final AbstractableObjectTool ABSTRACTABLE_OBJECT_TOOL = new AbstractableObjectTool();
 
   //constant
   private static final AbstractableObjectValidator ABSTRACTABLE_OBJECT_VALIDATOR = new AbstractableObjectValidator();
@@ -126,12 +128,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredSubTypes() {
-
-    final var subTypes = new LinkedList<IAbstractableObject>();
-
-    fillUpSubTypesIntoList(this, subTypes);
-
-    return subTypes;
+    return ABSTRACTABLE_OBJECT_TOOL.getStoredSubTypesUsingSimplerMethods(this);
   }
 
   //method
@@ -222,19 +219,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
       }
 
       cst.addField(realisation);
-    }
-  }
-
-  //TODO: Create AbstractableObjectTool and move this method to it.
-  //method
-  private void fillUpSubTypesIntoList(
-    final IAbstractableObject abstractableObject,
-    final ILinkedList<IAbstractableObject> list) {
-    for (final var dst : abstractableObject.getStoredDirectSubTypes()) {
-      if (!list.contains(dst)) {
-        list.addAtEnd(dst);
-        fillUpSubTypesIntoList(dst, list);
-      }
     }
   }
 
