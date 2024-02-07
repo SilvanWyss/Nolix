@@ -11,6 +11,7 @@ import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiBackReference;
 import ch.nolix.system.objectdata.data.MultiReference;
 import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.tech.relationaldoc.datavalidator.AbstractableFieldValidator;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableObjectValidator;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
@@ -26,6 +27,9 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
   //constant
   private static final AbstractableObjectValidator ABSTRACTABLE_OBJECT_VALIDATOR = new AbstractableObjectValidator();
+
+  //constant
+  private static final AbstractableFieldValidator ABSTRACTABLE_FIELD_VALIDATOR = new AbstractableFieldValidator();
 
   //attribute
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
@@ -152,7 +156,16 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public void removeNonInheritedField(final IAbstractableField nonInheritedField) {
-    //TODO: Implement.
+
+    ABSTRACTABLE_FIELD_VALIDATOR.assertDoesNotInheritFromAnotherField(nonInheritedField);
+
+    declaredFields.removeEntity(nonInheritedField);
+
+    final var name = declaredFields.getName();
+
+    for (final var cst : getStoredConcreteSubTypes()) {
+      ((AbstractableObject) cst).removeFieldByName(name);
+    }
   }
 
   //method
@@ -235,5 +248,10 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     }
 
     return false;
+  }
+
+  //method
+  private void removeFieldByName(final String name) {
+    declaredFields.removeFirstEntity(f -> f.hasName(name));
   }
 }
