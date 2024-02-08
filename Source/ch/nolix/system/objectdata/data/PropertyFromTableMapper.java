@@ -28,11 +28,12 @@ final class PropertyFromTableMapper {
   private Property createEmptyPropertyFromColumn(final IColumn column) {
     return switch (column.getParameterizedPropertyType().getPropertyType()) {
       case VALUE ->
-        new Value<>();
+        Value.withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
       case OPTIONAL_VALUE ->
-        new OptionalValue<>();
+        OptionalValue
+          .withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
       case MULTI_VALUE ->
-        new MultiValue<>();
+        MultiValue.withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
       case REFERENCE ->
         createEmptyReferenceFromReferenceColumn(column);
       case OPTIONAL_REFERENCE ->

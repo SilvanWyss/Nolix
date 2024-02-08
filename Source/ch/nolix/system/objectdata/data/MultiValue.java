@@ -26,6 +26,16 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //multi-attribute
   private final LinkedList<MultiValueEntry<V>> localEntries = new LinkedList<>();
 
+  //constructor
+  private MultiValue(final Class<V> valueType) {
+    super(valueType);
+  }
+
+  //static method
+  public static <V2> MultiValue<V2> withValueType(final Class<V2> valueType) {
+    return new MultiValue<>(valueType);
+  }
+
   //method
   @Override
   public void addValue(final V value) {

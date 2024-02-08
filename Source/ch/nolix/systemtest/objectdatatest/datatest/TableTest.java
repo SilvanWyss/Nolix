@@ -17,10 +17,10 @@ public final class TableTest extends Test {
   private static final class Person extends Entity {
 
     //attribute
-    private final Value<String> firstName = new Value<>();
+    private final Value<String> firstName = Value.withValueType(String.class);
 
     //attribute
-    private final Value<String> lastName = new Value<>();
+    private final Value<String> lastName = Value.withValueType(String.class);
 
     //method
     public void setFirstNameAndLastName(final String firstName, final String lastName) {

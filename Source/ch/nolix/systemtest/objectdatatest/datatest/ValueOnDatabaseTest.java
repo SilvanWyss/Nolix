@@ -18,7 +18,7 @@ public final class ValueOnDatabaseTest extends Test {
   private static final class Pet extends Entity {
 
     //attribute
-    public final Value<String> name = new Value<>();
+    public final Value<String> name = Value.withValueType(String.class);
 
     //constructor
     public Pet() {

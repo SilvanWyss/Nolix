@@ -23,10 +23,10 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteValueContent");
 
   //attribute
-  private final OptionalValue<String> dataType = new OptionalValue<>();
+  private final OptionalValue<String> dataType = OptionalValue.withValueType(String.class);
 
   //attribute
-  private final MultiValue<String> values = new MultiValue<>();
+  private final MultiValue<String> values = MultiValue.withValueType(String.class);
 
   //method
   @Override

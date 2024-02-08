@@ -17,7 +17,7 @@ public final class MultiValueOnDatabaseTest extends Test {
   private static final class Round extends Entity {
 
     //attribute
-    public final MultiValue<Integer> amounts = new MultiValue<>();
+    public final MultiValue<Integer> amounts = MultiValue.withValueType(Integer.class);
 
     //constructor
     public Round() {

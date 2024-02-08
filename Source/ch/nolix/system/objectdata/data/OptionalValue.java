@@ -29,6 +29,27 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
   //optional attribute
   private V internalValue;
 
+  //constructor
+  private OptionalValue(final Class<V> valueType) {
+    super(valueType);
+  }
+
+  //static method
+  public static <V2> OptionalValue<V2> withInitialValue(final V2 initialValue) {
+
+    @SuppressWarnings("unchecked")
+    final var optionalValue = (OptionalValue<V2>) OptionalValue.withValueType(initialValue.getClass());
+
+    optionalValue.setValue(initialValue);
+
+    return optionalValue;
+  }
+
+  //static method
+  public static <V2> OptionalValue<V2> withValueType(final Class<V2> valueType) {
+    return new OptionalValue<>(valueType);
+  }
+
   //method
   @Override
   public void clear() {

@@ -14,8 +14,7 @@ public final class OptionalValueTest extends Test {
   public void testCase_clear() {
 
     //setup
-    final var testUnit = new OptionalValue<String>();
-    testUnit.setValue("LoremIpsum");
+    final var testUnit = OptionalValue.withInitialValue("LoremIpsum");
 
     //execution
     testUnit.clear();
@@ -29,7 +28,7 @@ public final class OptionalValueTest extends Test {
   public void testCase_constructor() {
 
     //execution
-    final var result = new OptionalValue<String>();
+    final var result = OptionalValue.withValueType(String.class);
 
     //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
@@ -45,7 +44,7 @@ public final class OptionalValueTest extends Test {
   public void testCase_setValue() {
 
     //setup
-    final var testUnit = new OptionalValue<String>();
+    final var testUnit = OptionalValue.withValueType(String.class);
 
     //execution
     testUnit.setValue("LoremIpsum");

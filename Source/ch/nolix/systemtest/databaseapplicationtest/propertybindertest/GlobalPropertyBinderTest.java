@@ -16,8 +16,7 @@ public final class GlobalPropertyBinderTest extends Test {
   public void testCase_createControlAndBindItWith() {
 
     //setup
-    final var value = new Value<String>();
-    value.setValue("");
+    final var value = Value.withInitialValue("");
 
     //execution
     final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
@@ -56,7 +55,7 @@ public final class GlobalPropertyBinderTest extends Test {
   public void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
 
     //setup
-    final var value = new Value<String>();
+    final var value = Value.withValueType(String.class);
 
     //setup verification
     expect(value.isEmpty());
@@ -77,8 +76,7 @@ public final class GlobalPropertyBinderTest extends Test {
   public void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
 
     //setup
-    final var value = new Value<String>();
-    value.setValue("zebra");
+    final var value = Value.withInitialValue("zebra");
 
     //execution
     final var result = GlobalPropertyBinder.createControlAndBindItWith(value);

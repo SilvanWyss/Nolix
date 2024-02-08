@@ -17,7 +17,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
   private static final class Pet extends Entity {
 
     //attribute
-    private final OptionalValue<String> name = new OptionalValue<>();
+    private final OptionalValue<String> name = OptionalValue.withValueType(String.class);
 
     //constructor
     public Pet() {

@@ -26,14 +26,25 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   //optional attribute
   private V internalValue;
 
+  //constructor
+  private Value(final Class<V> valueType) {
+    super(valueType);
+  }
+
   //static method
   public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
 
-    final var value = new Value<V2>();
+    @SuppressWarnings("unchecked")
+    final var value = (Value<V2>) Value.withValueType(initialValue.getClass());
 
     value.setValue(initialValue);
 
     return value;
+  }
+
+  //static method
+  public static <V2> Value<V2> withValueType(final Class<V2> valueType) {
+    return new Value<>(valueType);
   }
 
   //method

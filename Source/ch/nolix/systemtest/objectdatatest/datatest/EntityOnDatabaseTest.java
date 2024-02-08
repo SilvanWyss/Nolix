@@ -19,7 +19,7 @@ public final class EntityOnDatabaseTest extends Test {
   private static final class Pet extends Entity {
 
     //attribute
-    public final Value<Integer> ageInYears = new Value<>();
+    public final Value<Integer> ageInYears = Value.withValueType(Integer.class);
 
     //constructor
     public Pet() {

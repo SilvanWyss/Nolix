@@ -14,7 +14,7 @@ public final class ValueTest extends Test {
   public void testCase_constructor() {
 
     //execution
-    final var result = new Value<String>();
+    final var result = Value.withValueType(String.class);
 
     //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
@@ -30,7 +30,7 @@ public final class ValueTest extends Test {
   public void testCase_setValue() {
 
     //setup
-    final var testUnit = new Value<String>();
+    final var testUnit = Value.withValueType(String.class);
 
     //execution
     testUnit.setValue("LoremIpsum");

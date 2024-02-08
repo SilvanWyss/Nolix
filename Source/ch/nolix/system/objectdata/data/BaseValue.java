@@ -3,6 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -10,6 +11,17 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
 public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
+
+  //attribute
+  private final Class<V> valueType;
+
+  //constructor
+  protected BaseValue(final Class<V> valueType) {
+
+    GlobalValidator.assertThat(valueType).thatIsNamed("value type").isNotNull();
+
+    this.valueType = valueType;
+  }
 
   //method
   @Override
@@ -21,6 +33,12 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
   @Override
   public final IContainer<IProperty> getStoredReferencingProperties() {
     return new ImmutableList<>();
+  }
+
+  //method
+  @Override
+  public final Class<V> getValueType() {
+    return valueType;
   }
 
   //method
