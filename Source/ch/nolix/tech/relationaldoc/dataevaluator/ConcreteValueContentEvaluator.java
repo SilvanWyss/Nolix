@@ -11,7 +11,8 @@ public final class ConcreteValueContentEvaluator {
 
   //method
   public boolean canAddValue(final IConcreteValueContent concreteValueContent, final String value) {
-    return canAddValueBecauseOfCardinality(concreteValueContent);
+    return canAddValue(value)
+    && canAddValueBecauseOfCardinality(concreteValueContent);
   }
 
   //method
@@ -32,6 +33,11 @@ public final class ConcreteValueContentEvaluator {
     return concreteValueContent != null
     && !concreteValueContent.getStoredParentField().inheritsFromBaseField()
     && dataType != null;
+  }
+
+  //method
+  private boolean canAddValue(final String value) {
+    return (value != null);
   }
 
   //method
