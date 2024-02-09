@@ -58,21 +58,25 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   }
 
   //method
+  private void addDataFrame(final WebSocketFrame dataFrame) {
+
+    for (final var b : dataFrame.getPayload()) {
+      message.addAtEnd(b);
+    }
+
+    if (dataFrame.isFinalFragment()) {
+      complete = true;
+    }
+  }
+
+  //method
   private void addFrame(final WebSocketFrame frame, final Consumer<WebSocketFrame> controlFrameTaker) {
     switch (frame.getFrameType()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case CONTROL_FRAME:
         controlFrameTaker.accept(frame);
         break;
       case DATA_FRAME:
-
-        for (final var b : frame.getPayload()) {
-          message.addAtEnd(b);
-        }
-
-        if (frame.isFinalFragment()) {
-          complete = true;
-        }
-
+        addDataFrame(frame);
         break;
     }
   }
