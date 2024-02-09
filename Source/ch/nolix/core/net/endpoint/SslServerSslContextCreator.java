@@ -3,10 +3,14 @@ package ch.nolix.core.net.endpoint;
 
 //Java imports
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.security.KeyFactory;
+import java.security.KeyManagementException;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -57,7 +61,13 @@ final class SslServerSslContextCreator {
       final var sslContextBuilder = SslContextBuilder.forServer(keyManagerFactory);
 
       return sslContextBuilder.build();
-    } catch (final Exception exception) {
+    } catch (final CertificateException
+    | InvalidKeySpecException
+    | IOException
+    | KeyManagementException
+    | KeyStoreException
+    | NoSuchAlgorithmException
+    | UnrecoverableEntryException exception) {
       throw WrapperException.forError(exception);
     }
   }
