@@ -92,8 +92,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   //method
   @Override
   public IAbstractableField getStoredBaseField() {
-
-    //TODO: Use a BackReference for a better performance.
     return getStoredParentObject()
       .getStoredDirectBaseTypes()
       .toFromGroups(IAbstractableObject::getStoredFields)
@@ -136,8 +134,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   //method
   @Override
   public boolean inheritsFromBaseField() {
-
-    //TODO: Use a BackReference for a better performance.
     return getStoredParentObject()
       .getStoredDirectBaseTypes()
       .containsAny(bt -> bt.getStoredFields().containsAny(f -> f.hasSameNameAs(this)));
