@@ -239,27 +239,17 @@ public final class NetEndPoint extends EndPoint {
   /**
    * Lets the current {@link NetEndPoint} receive the given package.
    * 
-   * @param pPackage
+   * @param paramPackage
    */
-  void receive(final Package pPackage) {
+  void receive(final Package paramPackage) {
 
     //Enumerates the message role of the given package.
-    switch (pPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (paramPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case RESPONSE_EXPECTING_MESSAGE:
-
-        try {
-          final String reply = getStoredReplier().apply(pPackage.getStoredContent());
-          if (isOpen()) {
-            send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
-          }
-        } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
-          String responseMessage = error.getMessage();
-          send(new Package(pPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
-        }
-
+        receiveResponseExpectingMessage(paramPackage);
         break;
       default:
-        getStoredReceivedPackages().addAtEnd(pPackage);
+        getStoredReceivedPackages().addAtEnd(paramPackage);
     }
   }
 
@@ -289,12 +279,31 @@ public final class NetEndPoint extends EndPoint {
 
   //method
   /**
+   * Lets the current {@link NetEndPoint} receive a response expecting message
+   * which is in the given package.
+   * 
+   * @param paramPackage
+   */
+  private void receiveResponseExpectingMessage(final Package paramPackage) {
+    try {
+      final String reply = getStoredReplier().apply(paramPackage.getStoredContent());
+      if (isOpen()) {
+        send(new Package(paramPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+      }
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+      String responseMessage = error.getMessage();
+      send(new Package(paramPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+    }
+  }
+
+  //method
+  /**
    * Lets the current {@link NetEndPoint} send the given package.
    * 
-   * @param pPackage
+   * @param paramPackage
    */
-  private void send(final Package pPackage) {
-    internalEndPoint.sendMessage(pPackage.toString());
+  private void send(final Package paramPackage) {
+    internalEndPoint.sendMessage(paramPackage.toString());
   }
 
   //method
