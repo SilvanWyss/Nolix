@@ -23,7 +23,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
   public FolderAccessor() {
 
     //Calls constructor of the base class.
-    super(FileSystemAccessor.getFolderPathOfRunningJarFile());
+    super(GlobalFileSystemAccessor.getFolderPathOfRunningJarFile());
   }
 
   //constructor
@@ -41,7 +41,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     super(path);
 
     //Asserts that the file system item with the given path is actually a folder.
-    if (!FileSystemAccessor.isFolder(path)) {
+    if (!GlobalFileSystemAccessor.isFolder(path)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalogue.PATH,
         path,
@@ -56,7 +56,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         item with the given relative path.
    */
   public boolean containsItem(final String relativePath) {
-    return FileSystemAccessor.exists(getPath() + "/" + relativePath);
+    return GlobalFileSystemAccessor.exists(getPath() + "/" + relativePath);
   }
 
   //method
@@ -71,7 +71,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *                                  of the current {@link FolderAccessor}.
    */
   public FileAccessor createFile(final String relativePath) {
-    return (FileSystemAccessor.createFile(getPath() + "/" + relativePath));
+    return (GlobalFileSystemAccessor.createFile(getPath() + "/" + relativePath));
   }
 
   //method
@@ -86,7 +86,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *                                  of the current {@link FolderAccessor}.
    */
   public FolderAccessor createFolder(final String relativePath) {
-    return FileSystemAccessor.createFolder(getPath() + "/" + relativePath);
+    return GlobalFileSystemAccessor.createFolder(getPath() + "/" + relativePath);
   }
 
   //method
@@ -97,7 +97,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @param relativePath
    */
   public void deleteFileSystemItem(final String relativePath) {
-    FileSystemAccessor.deleteFileSystemItem(getPath() + "/" + relativePath);
+    GlobalFileSystemAccessor.deleteFileSystemItem(getPath() + "/" + relativePath);
   }
 
   //method
@@ -106,7 +106,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         {@link FolderAccessor}.
    */
   public IContainer<FileAccessor> getFileAccessors() {
-    return FileSystemAccessor.getFileAccessors(getPath());
+    return GlobalFileSystemAccessor.getFileAccessors(getPath());
   }
 
   //method
@@ -116,7 +116,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         current {@link FolderAccessor}, that have the given extension.
    */
   public IContainer<FileAccessor> getFileAccessors(final String extension) {
-    return FileSystemAccessor.getFileAccessors(getPath(), extension);
+    return GlobalFileSystemAccessor.getFileAccessors(getPath(), extension);
   }
 
   //method
@@ -136,7 +136,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         {@link FolderAccessor} recursively.
    */
   public LinkedList<FileAccessor> getFileAccessorsRecursively() {
-    return FileSystemAccessor.getFileAccessorsRecursively(getPath());
+    return GlobalFileSystemAccessor.getFileAccessorsRecursively(getPath());
   }
 
   //method
@@ -145,7 +145,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         folder of the current {@link FolderAccessor}.
    */
   public IContainer<FileSystemItemAccessor> getFileSystemItemAccessors() {
-    return FileSystemAccessor.getFileSystemItemAccessors(getPath());
+    return GlobalFileSystemAccessor.getFileSystemItemAccessors(getPath());
   }
 
   //method
@@ -164,7 +164,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * explorer.
    */
   public void openInFileExplorer() {
-    FileSystemAccessor.openInFileExplorer(getPath());
+    GlobalFileSystemAccessor.openInFileExplorer(getPath());
   }
 
   //method

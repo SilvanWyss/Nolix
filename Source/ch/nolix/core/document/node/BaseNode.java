@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 //own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
-import ch.nolix.core.environment.filesystem.FileSystemAccessor;
+import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
@@ -282,7 +282,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    *                                  with the given path.
    */
   public final void saveToFile(final String path, final WriteMode writeMode) {
-    FileSystemAccessor.createFile(path, writeMode, toFormattedString());
+    GlobalFileSystemAccessor.createFile(path, writeMode, toFormattedString());
   }
 
   //method

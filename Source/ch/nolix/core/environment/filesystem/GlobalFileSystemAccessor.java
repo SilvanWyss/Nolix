@@ -22,19 +22,19 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //class
 /**
- * The {@link FileSystemAccessor} can access the file system on the local
+ * The {@link GlobalFileSystemAccessor} can access the file system on the local
  * machine.
  * 
  * @author Silvan Wyss
  * @date 2017-07-14
  */
-public final class FileSystemAccessor {
+public final class GlobalFileSystemAccessor {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link FileSystemAccessor} can be created.
+   * Prevents that an instance of the {@link GlobalFileSystemAccessor} can be created.
    */
-  private FileSystemAccessor() {
+  private GlobalFileSystemAccessor() {
   }
 
   //static method
@@ -51,7 +51,7 @@ public final class FileSystemAccessor {
    */
   public static String getFolderPathOfRunningJarFile() {
     try {
-      return FileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+      return GlobalFileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
     } catch (final URISyntaxException pURISyntaxException) {
       throw WrapperException.forError(pURISyntaxException);
     }

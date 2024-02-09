@@ -18,7 +18,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
-import ch.nolix.core.environment.filesystem.FileSystemAccessor;
+import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
@@ -48,7 +48,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
   //method
   @Override
   public IContainer<byte[]> getFilesFromClipboard() {
-    return getFilePathsFromClipboard().to(FileSystemAccessor::readFileToBytes);
+    return getFilePathsFromClipboard().to(GlobalFileSystemAccessor::readFileToBytes);
   }
 
   //method
