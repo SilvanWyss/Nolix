@@ -4,6 +4,7 @@ package ch.nolix.core.net.endpoint;
 //Java imports
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -88,6 +89,8 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
 
         handleSocket(socket);
       }
+    } catch (final SocketException socketException) { //NOSONAR: serverSocket.accept will throw a SocketException when the serverSocket is stopped.
+      parentServer.close();
     } catch (final IOException ioException) {
 
       parentServer.close();
