@@ -9,6 +9,7 @@ import java.net.Socket;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
 
@@ -21,6 +22,9 @@ import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
  * @date 2017-05-06
  */
 public final class ServerListener extends Worker implements CloseStateRequestable {
+
+  //constant
+  private static final SocketHandler SOCKET_HANDLER = new SocketHandler();
 
   //attribute
   /**
@@ -99,6 +103,6 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
    * @param socket
    */
   private void handleSocket(final Socket socket) {
-    new ServerSocketProcessor(parentServer, socket);
+    GlobalSequencer.runInBackground(() -> SOCKET_HANDLER.handleSocketForServer(socket, parentServer));
   }
 }
