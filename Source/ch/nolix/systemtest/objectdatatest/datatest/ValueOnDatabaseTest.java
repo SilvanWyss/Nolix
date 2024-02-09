@@ -35,7 +35,7 @@ public final class ValueOnDatabaseTest extends Test {
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
 
     //execution & verification
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
@@ -51,7 +51,7 @@ public final class ValueOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.name.setValue("Garfield");
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
 
     //execution
     final var result = garfield.name.getStoredValue();
@@ -70,7 +70,7 @@ public final class ValueOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.name.setValue("Garfield");
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //setup part 2
@@ -129,7 +129,7 @@ public final class ValueOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.name.setValue("Garfield");
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //setup verification
@@ -152,7 +152,7 @@ public final class ValueOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.name.setValue("Garfield");
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //setup part 2

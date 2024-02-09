@@ -15,5 +15,5 @@ extends EmptyCopyable<DA>, IResettableChangeSaver {
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
   //method declaration
-  <E extends IEntity> DA insert(E entity);
+  <E extends IEntity> DA insertEntity(E entity);
 }

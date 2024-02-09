@@ -44,7 +44,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var john = new Person();
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
     //execution
@@ -64,12 +64,12 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     final var odie = new Pet();
-    nodeDataAdapter.insert(garfield);
-    nodeDataAdapter.insert(odie);
+    nodeDataAdapter.insertEntity(garfield);
+    nodeDataAdapter.insertEntity(odie);
     final var john = new Person();
     john.pets.addEntity(garfield);
     john.pets.addEntity(odie);
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
     //execution
@@ -91,12 +91,12 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     final var odie = new Pet();
-    nodeDataAdapter.insert(garfield);
-    nodeDataAdapter.insert(odie);
+    nodeDataAdapter.insertEntity(garfield);
+    nodeDataAdapter.insertEntity(odie);
     final var john = new Person();
     john.pets.addEntity(garfield);
     john.pets.addEntity(odie);
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
     //setup part 2: prepare changes
@@ -118,12 +118,12 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     final var odie = new Pet();
-    nodeDataAdapter.insert(garfield);
-    nodeDataAdapter.insert(odie);
+    nodeDataAdapter.insertEntity(garfield);
+    nodeDataAdapter.insertEntity(odie);
     final var john = new Person();
     john.pets.addEntity(garfield);
     john.pets.addEntity(odie);
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
     //setup part 2: remove Entity from MultiReference
@@ -151,7 +151,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
     //execution
@@ -170,7 +170,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
     //execution

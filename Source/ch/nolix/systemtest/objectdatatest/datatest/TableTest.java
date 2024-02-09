@@ -67,7 +67,7 @@ public final class TableTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var person = new Person();
     person.setFirstNameAndLastName("Donald", "Duck");
-    nodeDataAdapter.insert(person);
+    nodeDataAdapter.insertEntity(person);
     nodeDataAdapter.saveChanges();
 
     //setup part 2

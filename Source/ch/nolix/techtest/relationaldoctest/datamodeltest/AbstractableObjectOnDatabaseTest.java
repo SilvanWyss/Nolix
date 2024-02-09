@@ -28,7 +28,7 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    dataAdapter.insert(testUnit);
+    dataAdapter.insertEntity(testUnit);
 
     //execution
     final var result = testUnit.getStoredBaseTypes();
@@ -52,19 +52,19 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 3: Create baseType1.
     final var baseType1 = new AbstractableObject();
-    dataAdapter.insert(baseType1);
+    dataAdapter.insertEntity(baseType1);
     baseType1.setName("base_type_1");
     baseType1.setAsAbstract();
 
     //setup part 4: Create baseType2.
     final var baseType2 = new AbstractableObject();
-    dataAdapter.insert(baseType2);
+    dataAdapter.insertEntity(baseType2);
     baseType2.setName("base_type_2");
     baseType2.setAsAbstract();
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    dataAdapter.insert(testUnit);
+    dataAdapter.insertEntity(testUnit);
     testUnit.setName("test_unit");
     testUnit.addBaseType(baseType1);
     testUnit.addBaseType(baseType2);
@@ -91,20 +91,20 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 3: Create level1Type.
     final var level1Oject = new AbstractableObject();
-    dataAdapter.insert(level1Oject);
+    dataAdapter.insertEntity(level1Oject);
     level1Oject.setName("level_1_object");
     level1Oject.setAsAbstract();
 
     //setup part 4: Create level2Type.
     final var level2Oject = new AbstractableObject();
-    dataAdapter.insert(level2Oject);
+    dataAdapter.insertEntity(level2Oject);
     level2Oject.setName("level_2_object");
     level2Oject.setAsAbstract();
     level2Oject.addBaseType(level1Oject);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    dataAdapter.insert(testUnit);
+    dataAdapter.insertEntity(testUnit);
     testUnit.setName("test_unit");
     testUnit.addBaseType(level2Oject);
 
@@ -130,7 +130,7 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    dataAdapter.insert(testUnit);
+    dataAdapter.insertEntity(testUnit);
 
     //execution
     final var result = testUnit.getStoredDirectSubTypes();
@@ -154,17 +154,17 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 3: Create subType1.
     final var subType1 = new AbstractableObject();
-    dataAdapter.insert(subType1);
+    dataAdapter.insertEntity(subType1);
     subType1.setName("sub_type_1");
 
     //setup part 4: Create subType2.
     final var subType2 = new AbstractableObject();
-    dataAdapter.insert(subType2);
+    dataAdapter.insertEntity(subType2);
     subType2.setName("sub_type_2");
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    dataAdapter.insert(testUnit);
+    dataAdapter.insertEntity(testUnit);
     testUnit.setName("test_unit");
     testUnit.setAsAbstract();
     subType1.addBaseType(testUnit);
@@ -192,9 +192,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
-    dataAdapter.insert(testUnit);
+    dataAdapter.insertEntity(testUnit);
     final var field = new AbstractableField();
-    dataAdapter.insert(field);
+    dataAdapter.insertEntity(field);
     testUnit.addField(field);
 
     //execution & verification

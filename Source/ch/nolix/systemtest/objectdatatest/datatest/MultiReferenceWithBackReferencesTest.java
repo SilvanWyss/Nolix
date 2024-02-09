@@ -48,16 +48,16 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var garfield = new Pet();
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     final var simba = new Pet();
-    nodeDataAdapter.insert(simba);
+    nodeDataAdapter.insertEntity(simba);
     final var odie = new Pet();
-    nodeDataAdapter.insert(odie);
+    nodeDataAdapter.insertEntity(odie);
     final var john = new Person();
     john.pets.addEntity(garfield);
     john.pets.addEntity(simba);
     john.pets.addEntity(odie);
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
     //execution
@@ -84,16 +84,16 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var garfield = new Pet();
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     final var simba = new Pet();
-    nodeDataAdapter.insert(simba);
+    nodeDataAdapter.insertEntity(simba);
     final var odie = new Pet();
-    nodeDataAdapter.insert(odie);
+    nodeDataAdapter.insertEntity(odie);
     final var john = new Person();
     john.pets.addEntity(garfield);
     john.pets.addEntity(simba);
     john.pets.addEntity(odie);
-    nodeDataAdapter.insert(john);
+    nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
     //setup part 2

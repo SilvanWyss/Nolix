@@ -49,7 +49,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
 
     //execution
     nodeDataAdapter.saveChanges();
@@ -70,7 +70,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.setName("Garfield");
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
 
     //execution
     final var result = garfield.getName();
@@ -89,7 +89,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.setName("Garfield");
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //setup part 2

@@ -56,7 +56,7 @@ public final class DataAdapter implements IDataAdapter {
 
     final var object = new AbstractableObject();
 
-    internalDataAdapter.insert(object);
+    internalDataAdapter.insertEntity(object);
 
     return object;
   }

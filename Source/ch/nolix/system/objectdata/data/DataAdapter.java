@@ -92,7 +92,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
   //method
   @Override
-  public final <E extends IEntity> DataAdapter insert(final E entity) {
+  public final <E extends IEntity> DataAdapter insertEntity(final E entity) {
 
     database.insertEntity(entity);
 

@@ -47,7 +47,7 @@ public final class EntityOnDatabaseTest extends Test {
     expect(testUnit.ageInYears.getStoredValue()).isEqualTo(0);
 
     //execution
-    nodeDataAdapter.insert(testUnit);
+    nodeDataAdapter.insertEntity(testUnit);
 
     //verification
     expect(testUnit.ageInYears.getStoredValue()).isEqualTo(1);
@@ -63,7 +63,7 @@ public final class EntityOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var garfield = new Pet();
     garfield.ageInYears.setValue(5);
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //execution
@@ -85,7 +85,7 @@ public final class EntityOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.ageInYears.setValue(5);
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
 
     //execution
     nodeDataAdapter.saveChanges();
@@ -104,7 +104,7 @@ public final class EntityOnDatabaseTest extends Test {
     final var nodeDataAdapterA = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldA = new Pet();
     garfieldA.ageInYears.setValue(5);
-    nodeDataAdapterA.insert(garfieldA);
+    nodeDataAdapterA.insertEntity(garfieldA);
     nodeDataAdapterA.saveChanges();
 
     //setup part 2: Prepares a change.
@@ -135,7 +135,7 @@ public final class EntityOnDatabaseTest extends Test {
     final var nodeDataAdapterA = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldA = new Pet();
     garfieldA.ageInYears.setValue(5);
-    nodeDataAdapterA.insert(garfieldA);
+    nodeDataAdapterA.insertEntity(garfieldA);
     nodeDataAdapterA.saveChanges();
 
     //setup part 2: Prepares a change.
@@ -166,7 +166,7 @@ public final class EntityOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.ageInYears.setValue(5);
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //setup part 2
@@ -201,7 +201,7 @@ public final class EntityOnDatabaseTest extends Test {
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     garfield.ageInYears.setValue(5);
-    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
     //execution & verification

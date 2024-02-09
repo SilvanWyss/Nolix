@@ -91,7 +91,7 @@ public final class NodeDataAdapterTest extends Test {
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    testUnit.insert(new Pet());
+    testUnit.insertEntity(new Pet());
 
     //setup verification
     expect(testUnit.hasChanges());
@@ -129,7 +129,7 @@ public final class NodeDataAdapterTest extends Test {
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    testUnit.insert(new Pet());
+    testUnit.insertEntity(new Pet());
 
     //execution
     testUnit.saveChanges();
@@ -154,7 +154,7 @@ public final class NodeDataAdapterTest extends Test {
 
     //setup part 2: Prepare changes for the database.
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
-    testUnit.insert(new Pet());
+    testUnit.insertEntity(new Pet());
 
     //setup part 3: Edit the schema of the database.
     final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
