@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.netapi.sslapi;
 
 //interface
-public interface ISSLCertificate {
+public interface ISslCertificate {
 
   //method declaration
   String getPrivateKeyPEMFilePath();

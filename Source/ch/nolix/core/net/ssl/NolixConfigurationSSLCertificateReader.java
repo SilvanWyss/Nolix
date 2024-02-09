@@ -5,7 +5,7 @@ package ch.nolix.core.net.ssl;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
 //class
 public final class NolixConfigurationSSLCertificateReader {
@@ -23,7 +23,7 @@ public final class NolixConfigurationSSLCertificateReader {
   private static final String PRIVATE_KEY_PEM_FILE_HEADER = "PrivateKeyPEMFile";
 
   //method
-  public ISSLCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {
+  public ISslCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {
 
     final var localNolixConfiguration = getLocalNolixConfiguration();
 
@@ -56,7 +56,7 @@ public final class NolixConfigurationSSLCertificateReader {
   }
 
   //method
-  private ISSLCertificate getDefaultSSLCertificateFromDefaultCertificateConfiguration(
+  private ISslCertificate getDefaultSSLCertificateFromDefaultCertificateConfiguration(
     final INode<?> defaultSSLCertificateConfiguration) {
 
     final var publicKeyPEMFilePath = defaultSSLCertificateConfiguration
@@ -67,11 +67,11 @@ public final class NolixConfigurationSSLCertificateReader {
       .getStoredFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
       .getSingleChildNodeHeader();
 
-    return new SSLCertificate(publicKeyPEMFilePath, privateKeyPEMFilePath);
+    return new SslCertificate(publicKeyPEMFilePath, privateKeyPEMFilePath);
   }
 
   //method
-  private ISSLCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
+  private ISslCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
 
     final var defaultSSLCertificateConfiguration = nolixConfiguration
       .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);

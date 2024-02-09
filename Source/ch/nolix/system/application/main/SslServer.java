@@ -5,7 +5,7 @@ import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
@@ -32,7 +32,7 @@ public final class SslServer extends BaseServer<SslServer> {
   private final int port;
 
   //constructor
-  public SslServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
+  public SslServer(final int port, final String domain, final ISslCertificate paramSSLCertificate) {
 
     final var htmlPage = new SslServerHtmlPage(domain, port);
     final var htmlPageAsString = htmlPage.toString();

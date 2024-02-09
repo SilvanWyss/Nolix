@@ -23,7 +23,7 @@ import javax.net.ssl.SSLContext;
 //own imports
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 //Netty imports
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
@@ -32,7 +32,7 @@ import io.netty.handler.ssl.SslContextBuilder;
 final class SslServerSslContextCreator {
 
   //method
-  public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {
+  public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
     try {
 
       final var password = "my_password";
@@ -60,7 +60,7 @@ final class SslServerSslContextCreator {
   }
 
   //method
-  private X509Certificate getCert(final ISSLCertificate paramSSLCertificate) throws CertificateException {
+  private X509Certificate getCert(final ISslCertificate paramSSLCertificate) throws CertificateException {
 
     final var filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
 
@@ -69,7 +69,7 @@ final class SslServerSslContextCreator {
       .generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
   }
 
-  private PrivateKey getPrivateKey(final ISSLCertificate paramSSLCertificate)
+  private PrivateKey getPrivateKey(final ISslCertificate paramSSLCertificate)
   throws Exception { //NOSONAR: This method can throw Exceptions of several types.
 
     final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();

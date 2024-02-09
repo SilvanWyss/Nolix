@@ -4,7 +4,7 @@ package ch.nolix.core.net.endpoint;
 //own imports
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
 //class
 public final class SslServer extends BaseServer {
@@ -32,12 +32,12 @@ public final class SslServer extends BaseServer {
   private final SslServerWorker sslServerWorker;
 
   //constructor
-  public SslServer(final int port, final ISSLCertificate paramSSLCertificate) {
+  public SslServer(final int port, final ISslCertificate paramSSLCertificate) {
     this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
   }
 
   //constructor
-  public SslServer(final int port, final String htmlPage, final ISSLCertificate paramSSLCertificate) {
+  public SslServer(final int port, final String htmlPage, final ISslCertificate paramSSLCertificate) {
     sslServerWorker = new SslServerWorker(this, port, htmlPage, paramSSLCertificate);
   }
 

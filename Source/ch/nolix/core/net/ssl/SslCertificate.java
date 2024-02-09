@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.core.net.ssl;
 
-import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
 //record
-public record SSLCertificate(String publicKeyPEMFilePath, String privateKeyPEMFilePath) implements ISSLCertificate {
+public record SslCertificate(String publicKeyPEMFilePath, String privateKeyPEMFilePath) implements ISslCertificate {
 
   //method
   @Override
