@@ -20,15 +20,18 @@ import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-final class ServerListener extends Worker implements CloseStateRequestable {
+public final class ServerListener extends Worker implements CloseStateRequestable {
 
   //attribute
+  /**
+   * The {@link Server} the current {@link ServerListener} is for.
+   */
   private final Server parentServer;
 
   //constructor
   /**
    * Creates a new {@link ServerListener} that will belong to the given
-   * parentServer.
+   * parentServer. The {@link ServerListener} will start automatically.
    * 
    * @param parentServer
    * @throws ArgumentIsNullException if the given parentServer is null.
@@ -41,13 +44,15 @@ final class ServerListener extends Worker implements CloseStateRequestable {
     //Sets the parentServer of the current ServerListener.
     this.parentServer = parentServer;
 
+    //Starts the current ServerListener. 
     start();
   }
 
   //static method
   /**
    * @param server
-   * @return a new {@link ServerListener} for the given server.
+   * @return a new {@link ServerListener} for the given server. The
+   *         {@link ServerListener} will start automatically.
    * @throws ArgumentIsNullException if the given server is null.
    */
   public static ServerListener forServer(final Server server) {
@@ -65,29 +70,35 @@ final class ServerListener extends Worker implements CloseStateRequestable {
 
   //method
   /**
-   * Runs the current {@link ServerListener}. Will close the {@link Server}, the
-   * current {@link ServerListener} belongs to, when an error occurs.
+   * {@inheritDoc}
    */
   @Override
   protected void run() {
+
+    final var serverSocket = parentServer.internalGetStoredServerSocket();
+
     try {
       while (isOpen()) {
-        final var socket = parentServer.internalGetStoredServerSocket().accept();
-        takeSocket(socket);
+
+        final var socket = serverSocket.accept();
+
+        handleSocket(socket);
       }
     } catch (final IOException ioException) {
+
       parentServer.close();
+
       throw WrapperException.forError(ioException);
     }
   }
 
   //method
   /**
-   * Lets the current {@link ServerListener} take the given socket.
+   * Lets the current {@link ServerListener} handle the given socket.
    * 
    * @param socket
    */
-  private void takeSocket(final Socket socket) {
+  private void handleSocket(final Socket socket) {
     new ServerSocketProcessor(parentServer, socket);
   }
 }
