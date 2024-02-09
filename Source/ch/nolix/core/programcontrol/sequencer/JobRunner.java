@@ -363,10 +363,7 @@ final class JobRunner extends Thread {
     while (!reachedProbableMaxRunCount()) {
       try {
 
-        //Handles the case that the current JobRunner has a time interval.
-        if (hasTimeInterval()) {
-          Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-        }
+        waitForTimeIntervalIfHasTimeInterval();
 
         if (violatesProbableCondition()) {
           break;
@@ -386,6 +383,15 @@ final class JobRunner extends Thread {
 
   //method
   /**
+   * @return true if the current {@link JobRunner} has a max run count and has
+   *         reached it.
+   */
+  private boolean reachedProbableMaxRunCount() {
+    return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
+  }
+
+  //method
+  /**
    * @return true if the current {@link JobRunner} has a condition and violates
    *         it.
    */
@@ -395,10 +401,12 @@ final class JobRunner extends Thread {
 
   //method
   /**
-   * @return true if the current {@link JobRunner} has a max run count and has
-   *         reached it.
+   * Waits for the time interval of the current {@link JobRunner} if the current
+   * {@link JobRunner} has a time interval.
    */
-  private boolean reachedProbableMaxRunCount() {
-    return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
+  private void waitForTimeIntervalIfHasTimeInterval() {
+    if (hasTimeInterval()) {
+      Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+    }
   }
 }
