@@ -20,10 +20,10 @@ public final class DataAdapter implements IDataAdapter {
   private static final AbstractableObjectEvaluator ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectEvaluator();
 
   //attribute
-  private final ch.nolix.system.objectdata.data.DataAdapter internalDataAdapter;
+  private final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter;
 
   //constructor
-  private DataAdapter(final ch.nolix.system.objectdata.data.DataAdapter internalDataAdapter) {
+  private DataAdapter(final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter) {
 
     GlobalValidator
       .assertThat(internalDataAdapter)

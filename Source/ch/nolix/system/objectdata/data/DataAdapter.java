@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
+public abstract class DataAdapter implements IDataAdapter {
 
   //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
