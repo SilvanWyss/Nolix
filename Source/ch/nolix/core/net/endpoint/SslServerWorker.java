@@ -65,7 +65,7 @@ final class SslServerWorker extends Worker {
     final var bossGroup = new NioEventLoopGroup(1);
     final var workerGroup = new NioEventLoopGroup();
 
-    try {
+    try { //NOSONAR: bossGroup and workerGroup will be shut down gracefully.
 
       final var serverBootstrab = new ServerBootstrap()
         .childOption(ChannelOption.TCP_NODELAY, true)
