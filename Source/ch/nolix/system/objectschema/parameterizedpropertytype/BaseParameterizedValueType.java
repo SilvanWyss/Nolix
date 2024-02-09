@@ -41,6 +41,13 @@ implements IBaseParameterizedValueType<V> {
 
   //method
   @Override
+  @SuppressWarnings("unchecked")
+  public final Class<V> getValueClass() {
+    return (Class<V>) getDataType().getClass();
+  }
+
+  //method
+  @Override
   public final boolean referencesTable(final ITable table) {
     return false;
   }
