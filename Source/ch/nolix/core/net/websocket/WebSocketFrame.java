@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -255,14 +256,7 @@ public final class WebSocketFrame {
         break;
       case BITS_64:
 
-        bytes[2] = payloadLengthBytes[0];
-        bytes[3] = payloadLengthBytes[1];
-        bytes[4] = payloadLengthBytes[2];
-        bytes[5] = payloadLengthBytes[3];
-        bytes[6] = payloadLengthBytes[4];
-        bytes[7] = payloadLengthBytes[5];
-        bytes[8] = payloadLengthBytes[6];
-        bytes[9] = payloadLengthBytes[7];
+        writePayloadLengthIntoBytesWhenPayloadLengthTypeisBits64(bytes, payloadLengthBytes);
 
         i += 8;
 
@@ -325,5 +319,19 @@ public final class WebSocketFrame {
       + (0x10_000L * (headerNext8Bytes[5] & 0b11111111))
       + (0x100L * (headerNext8Bytes[6] & 0b11111111))
       + (headerNext8Bytes[7] & 0b11111111));
+  }
+
+  //method
+  private void writePayloadLengthIntoBytesWhenPayloadLengthTypeisBits64(
+    final byte[] bytes,
+    final byte[] payloadLengthBytes) {
+    bytes[2] = payloadLengthBytes[0];
+    bytes[3] = payloadLengthBytes[1];
+    bytes[4] = payloadLengthBytes[2];
+    bytes[5] = payloadLengthBytes[3];
+    bytes[6] = payloadLengthBytes[4];
+    bytes[7] = payloadLengthBytes[5];
+    bytes[8] = payloadLengthBytes[6];
+    bytes[9] = payloadLengthBytes[7];
   }
 }
