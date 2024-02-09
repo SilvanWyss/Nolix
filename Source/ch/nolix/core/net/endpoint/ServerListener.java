@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
 
 //class
 /**
@@ -19,7 +20,7 @@ import ch.nolix.core.programcontrol.worker.Worker;
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-final class ServerListener extends Worker {
+final class ServerListener extends Worker implements CloseStateRequestable {
 
   //attribute
   private final Server parentServer;
@@ -45,10 +46,11 @@ final class ServerListener extends Worker {
 
   //method
   /**
-   * @return true if the current {@link ServerListener} is open.
+   * {@inheritDoc}
    */
-  public boolean isOpen() {
-    return parentServer.isOpen();
+  @Override
+  public boolean isClosed() {
+    return parentServer.isClosed();
   }
 
   //method
