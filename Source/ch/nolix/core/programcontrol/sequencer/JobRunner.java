@@ -360,20 +360,8 @@ final class JobRunner extends Thread {
   public void run() {
 
     //main loop
-    while (!reachedProbableMaxRunCount()) {
-      try {
-
-        waitForTimeIntervalIfHasTimeInterval();
-
-        if (violatesProbableCondition()) {
-          break;
-        }
-
-        finishedJobCount++;
-        job.run();
-      } catch (final Throwable lError) { //NOSONAR: All Throwables must be caught here.
-        error = lError;
-        GlobalLogger.logError(lError);
+    while (true) {
+      if (!runProbableNextStepAndSayIfRunningMustContinue()) {
         break;
       }
     }
@@ -388,6 +376,33 @@ final class JobRunner extends Thread {
    */
   private boolean reachedProbableMaxRunCount() {
     return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
+  }
+
+  //method
+  private boolean runProbableNextStepAndSayIfRunningMustContinue() {
+    try {
+
+      if (reachedProbableMaxRunCount()) {
+        return false;
+      }
+
+      waitForTimeIntervalIfHasTimeInterval();
+
+      if (violatesProbableCondition()) {
+        return false;
+      }
+
+      job.run();
+      finishedJobCount++;
+
+      return true;
+    } catch (final Throwable paramError) { //NOSONAR: All Throwables must be caught here.
+
+      error = paramError;
+      GlobalLogger.logError(paramError);
+
+      return false;
+    }
   }
 
   //method
