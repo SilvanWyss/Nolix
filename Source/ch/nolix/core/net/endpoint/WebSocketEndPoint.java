@@ -10,7 +10,6 @@ import java.net.Socket;
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
@@ -56,12 +55,7 @@ final class WebSocketEndPoint extends NetEndPoint {
     this.socketInputStream = socketInputStream;
     this.socketOutputStream = socketOutputStream;
 
-    WebEndPointMessageListener.forWebEndPoint(this);
-
-    GlobalLogger.logInfo("The current WebEndPoint waits to target info.");
-    waitToTargetInfo();
-
-    GlobalLogger.logInfo("Created a WebEndPoint.");
+    createMessageListenerAndWaitToTargetInfo();
   }
 
   //method
@@ -125,6 +119,14 @@ final class WebSocketEndPoint extends NetEndPoint {
   //method
   private boolean canWork() {
     return !socket.isClosed();
+  }
+
+  //method
+  private void createMessageListenerAndWaitToTargetInfo() {
+
+    WebEndPointMessageListener.forWebEndPoint(this);
+
+    waitToTargetInfo();
   }
 
   //method
