@@ -2,17 +2,16 @@
 package ch.nolix.core.net.endpoint;
 
 //Java imports
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.FileReader;
-import java.nio.charset.Charset;
 import java.security.KeyFactory;
 import java.security.KeyStore;
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 
@@ -23,6 +22,7 @@ import javax.net.ssl.SSLContext;
 //own imports
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.net.ssl.SslCertificateKeyReader;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 //Netty imports
 import io.netty.handler.ssl.SslContext;
@@ -30,6 +30,9 @@ import io.netty.handler.ssl.SslContextBuilder;
 
 //class
 final class SslServerSslContextCreator {
+
+  //constant
+  private static final SslCertificateKeyReader SSL_CERTIFICATE_KEY_READER = new SslCertificateKeyReader();
 
   //method
   public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
@@ -69,29 +72,14 @@ final class SslServerSslContextCreator {
       .generateCertificate(new ByteArrayInputStream(GlobalFileSystemAccessor.readFileToBytes(filePath)));
   }
 
+  //method
   private PrivateKey getPrivateKey(final ISslCertificate paramSSLCertificate)
-  throws Exception { //NOSONAR: This method can throw Exceptions of several types.
-
-    final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
-
-    @SuppressWarnings("resource")
-    final var reader = new BufferedReader(new FileReader(filePath, Charset.defaultCharset()));
-    final var privateKeyBuilder = new StringBuilder();
-    String line;
-
-    while ((line = reader.readLine()) != null) {
-      if (line.startsWith("-----BEGIN PRIVATE KEY-----")) {
-        continue;
-      }
-      if (line.startsWith("-----END PRIVATE KEY-----")) {
-        break;
-      }
-      privateKeyBuilder.append(line.trim());
-    }
-
-    byte[] privateKeyBytes = Base64.getDecoder().decode(privateKeyBuilder.toString());
-    final var spec = new PKCS8EncodedKeySpec(privateKeyBytes);
+  throws InvalidKeySpecException, NoSuchAlgorithmException {
+    final var privateKeyPemFilePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
+    final var privateKey = SSL_CERTIFICATE_KEY_READER.readKeyFromPemFile(privateKeyPemFilePath);
+    final var privateKeyAsBytes = Base64.getDecoder().decode(privateKey);
+    final var keySpec = new PKCS8EncodedKeySpec(privateKeyAsBytes);
     final var keyFactory = KeyFactory.getInstance("EC");
-    return keyFactory.generatePrivate(spec);
+    return keyFactory.generatePrivate(keySpec);
   }
 }
