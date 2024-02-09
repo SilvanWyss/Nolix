@@ -33,7 +33,7 @@ final class ServerListener extends Worker implements CloseStateRequestable {
    * @param parentServer
    * @throws ArgumentIsNullException if the given parentServer is null.
    */
-  public ServerListener(final Server parentServer) {
+  private ServerListener(final Server parentServer) {
 
     //Asserts that the given parentServer is not null.
     GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
@@ -42,6 +42,16 @@ final class ServerListener extends Worker implements CloseStateRequestable {
     this.parentServer = parentServer;
 
     start();
+  }
+
+  //static method
+  /**
+   * @param server
+   * @return a new {@link ServerListener} for the given server.
+   * @throws ArgumentIsNullException if the given server is null.
+   */
+  public static ServerListener forServer(final Server server) {
+    return new ServerListener(server);
   }
 
   //method

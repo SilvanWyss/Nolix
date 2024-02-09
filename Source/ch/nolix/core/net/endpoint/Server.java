@@ -99,7 +99,7 @@ public final class Server extends BaseServer {
     }
 
     //Creates and starts a ServerListener for the current Server.
-    new ServerListener(this);
+    createServerListener();
   }
 
   //static method
@@ -188,5 +188,13 @@ public final class Server extends BaseServer {
    */
   ServerSocket internalGetStoredServerSocket() {
     return serverSocket;
+  }
+
+  //method
+  /**
+   * Creates a {@link ServerListener} for the current {@link Server}.
+   */
+  private void createServerListener() {
+    ServerListener.forServer(this);
   }
 }
