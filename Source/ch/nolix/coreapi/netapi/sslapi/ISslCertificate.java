@@ -5,8 +5,8 @@ package ch.nolix.coreapi.netapi.sslapi;
 public interface ISslCertificate {
 
   //method declaration
-  String getPrivateKeyPEMFilePath();
+  String getPrivateKeyPemFilePath();
 
   //method declaration
-  String getPublicKeyPEMFilePath();
+  String getPublicKeyPemFilePath();
 }

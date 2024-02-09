@@ -65,7 +65,7 @@ final class SslServerSslContextCreator {
   //method
   private X509Certificate getCert(final ISslCertificate paramSSLCertificate) throws CertificateException {
 
-    final var filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
+    final var filePath = paramSSLCertificate.getPublicKeyPemFilePath();
 
     return (X509Certificate) CertificateFactory
       .getInstance("X509")
@@ -75,7 +75,7 @@ final class SslServerSslContextCreator {
   //method
   private PrivateKey getPrivateKey(final ISslCertificate paramSSLCertificate)
   throws InvalidKeySpecException, NoSuchAlgorithmException {
-    final var privateKeyPemFilePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
+    final var privateKeyPemFilePath = paramSSLCertificate.getPrivateKeyPemFilePath();
     final var privateKey = SSL_CERTIFICATE_KEY_READER.readKeyFromPemFile(privateKeyPemFilePath);
     final var privateKeyAsBytes = Base64.getDecoder().decode(privateKey);
     final var keySpec = new PKCS8EncodedKeySpec(privateKeyAsBytes);

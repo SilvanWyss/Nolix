@@ -4,17 +4,17 @@ package ch.nolix.core.net.ssl;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
 //record
-public record SslCertificate(String publicKeyPEMFilePath, String privateKeyPEMFilePath) implements ISslCertificate {
+public record SslCertificate(String publicKeyPemFilePath, String privateKeyPemFilePath) implements ISslCertificate {
 
   //method
   @Override
-  public String getPrivateKeyPEMFilePath() {
-    return privateKeyPEMFilePath;
+  public String getPrivateKeyPemFilePath() {
+    return privateKeyPemFilePath;
   }
 
   //method
   @Override
-  public String getPublicKeyPEMFilePath() {
-    return publicKeyPEMFilePath;
+  public String getPublicKeyPemFilePath() {
+    return publicKeyPemFilePath;
   }
 }
