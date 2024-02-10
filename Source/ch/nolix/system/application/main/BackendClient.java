@@ -42,7 +42,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
    * @return the context of the parent {@link Application} of the current
    *         {@link BackendClient}.
    */
-  public AC getStoredApplicationContext() {
+  public final AC getStoredApplicationContext() {
     return getStoredParentApplication().getStoredApplicationContext();
   }
 
