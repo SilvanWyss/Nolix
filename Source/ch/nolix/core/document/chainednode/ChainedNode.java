@@ -941,7 +941,7 @@ public final class ChainedNode implements IChainedNode {
    * @return the length of the probable header of the {@link ChainedNode} the
    *         given string represents starting from the given startIndex.
    */
-  private HeaderLengthAndTaskAfterHeaderParameter getHeaderLengthAndTaskAfterHeader(
+  private HeaderLengthAndTaskAfterSetHeaderParameter getHeaderLengthAndTaskAfterSetHeader(
     final String string,
     final int startIndex) {
 
@@ -949,21 +949,21 @@ public final class ChainedNode implements IChainedNode {
     while (nextIndex < string.length()) {
       switch (string.charAt(nextIndex)) {
         case CharacterCatalogue.OPEN_BRACKET:
-          return new HeaderLengthAndTaskAfterHeaderParameter(
+          return new HeaderLengthAndTaskAfterSetHeaderParameter(
             nextIndex - startIndex,
-            TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE);
+            TaskAfterSetHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE);
         case CharacterCatalogue.COMMA:
-          return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
+          return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
         case CharacterCatalogue.CLOSED_BRACKET:
-          return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
+          return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
         case CharacterCatalogue.DOT:
-          return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.READ_NEXT_NODE);
+          return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.READ_NEXT_NODE);
         default:
           nextIndex++;
       }
     }
 
-    return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
+    return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
   }
 
   //method
@@ -1008,19 +1008,19 @@ public final class ChainedNode implements IChainedNode {
    */
   private int setFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
 
-    final var headerLengthAndTaskAfterHeader = getHeaderLengthAndTaskAfterHeader(string, startIndex);
+    final var headerLengthAndTaskAfterSetHeader = getHeaderLengthAndTaskAfterSetHeader(string, startIndex);
 
-    setProbableHeader(string, startIndex, headerLengthAndTaskAfterHeader.getHeaderLength());
+    setProbableHeader(string, startIndex, headerLengthAndTaskAfterSetHeader.getHeaderLength());
 
-    var nextIndex = startIndex + headerLengthAndTaskAfterHeader.getHeaderLength();
-    final var taskAfterHeader = headerLengthAndTaskAfterHeader.getTaskAfterHeader();
-    if (taskAfterHeader == TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
-    || taskAfterHeader == TaskAfterHeader.READ_NEXT_NODE) {
+    var nextIndex = startIndex + headerLengthAndTaskAfterSetHeader.getHeaderLength();
+    final var taskAfterSetHeader = headerLengthAndTaskAfterSetHeader.getTaskAfterSetHeader();
+    if (taskAfterSetHeader == TaskAfterSetHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
+    || taskAfterSetHeader == TaskAfterSetHeader.READ_NEXT_NODE) {
       nextIndex++;
     }
 
     var readNextNode = false;
-    switch (taskAfterHeader) {
+    switch (taskAfterSetHeader) {
       case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
 
         final var node = new ChainedNode();
