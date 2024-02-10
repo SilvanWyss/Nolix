@@ -129,7 +129,7 @@ public final class ChainedNode implements IChainedNode {
   public static ChainedNode fromString(final String string) {
 
     final var chainedNode = new ChainedNode();
-    chainedNode.resetFrom(string);
+    chainedNode.resetFromString(string);
 
     return chainedNode;
   }
@@ -984,11 +984,14 @@ public final class ChainedNode implements IChainedNode {
    * @throws UnrepresentingArgumentException if the given string does nor
    *                                         represent a {@link ChainedNode}.
    */
-  private void resetFrom(final String string) {
+  private void resetFromString(final String string) {
 
     reset();
 
-    if (setAndGetNextIndex(string, 0) != string.length()) {
+    if (setFromStringAndStartIndexAndGetNextIndex(string, 0) != string.length()) {
+
+      reset();
+
       throw UnrepresentingArgumentException.forArgumentAndType(string, ChainedNode.class);
     }
   }
@@ -1003,7 +1006,7 @@ public final class ChainedNode implements IChainedNode {
    * @param startIndex
    * @return the next index the given string can be processed from.
    */
-  private int setAndGetNextIndex(final String string, final int startIndex) {
+  private int setFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
 
     final var headerLengthAndTaskAfterHeader = getHeaderLengthAndTaskAfterHeader(string, startIndex);
 
@@ -1021,7 +1024,7 @@ public final class ChainedNode implements IChainedNode {
       case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
 
         final var node = new ChainedNode();
-        nextIndex = node.setAndGetNextIndex(string, nextIndex);
+        nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
         this.childNodes.addAtEnd(node);
 
         while (nextIndex < string.length()) {
@@ -1030,7 +1033,7 @@ public final class ChainedNode implements IChainedNode {
 
           if (character == ',') {
             final var node2 = new ChainedNode();
-            nextIndex = node2.setAndGetNextIndex(string, nextIndex + 1);
+            nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
             this.childNodes.addAtEnd(node2);
           } else if (character == ')') {
             nextIndex++;
@@ -1057,7 +1060,7 @@ public final class ChainedNode implements IChainedNode {
     }
 
     nextNode = new ChainedNode();
-    return nextNode.setAndGetNextIndex(string, nextIndex);
+    return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
   }
 
   //method
