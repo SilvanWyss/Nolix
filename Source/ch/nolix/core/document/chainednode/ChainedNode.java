@@ -872,6 +872,19 @@ public final class ChainedNode implements IChainedNode {
   }
 
   //method
+  private int calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
+    final int startIndex,
+    final int headerLength,
+    final TaskAfterSetHeader taskAfterSetHeader) {
+    var nextIndex = startIndex + headerLength;
+    if (taskAfterSetHeader == TaskAfterSetHeader.MAP_CHILD_NODES_AND_POTENTIAL_NEXT_NODE
+    || taskAfterSetHeader == TaskAfterSetHeader.MAP_NEXT_NODE) {
+      nextIndex++;
+    }
+    return nextIndex;
+  }
+
+  //method
   /**
    * @param chainedNode
    * @return true if the current {@link ChainedNode} equals the given chainedNode.
@@ -951,7 +964,7 @@ public final class ChainedNode implements IChainedNode {
         case CharacterCatalogue.OPEN_BRACKET:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(
             nextIndex - startIndex,
-            TaskAfterSetHeader.MAP_CHILD_NODES_AND_PROBABLE_NEXT_NODE);
+            TaskAfterSetHeader.MAP_CHILD_NODES_AND_POTENTIAL_NEXT_NODE);
         case CharacterCatalogue.COMMA:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
         case CharacterCatalogue.CLOSED_BRACKET:
@@ -965,6 +978,49 @@ public final class ChainedNode implements IChainedNode {
     }
 
     return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
+  }
+
+  //method
+  private int mapChildNodesAndPotentialNextNodeFromStingAndStartIndexAndGetNextIndex(
+    final String string,
+    final int startIndex) {
+  
+    var nextIndex = startIndex;
+  
+    final var node = new ChainedNode();
+    nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
+    this.childNodes.addAtEnd(node);
+  
+    while (nextIndex < string.length()) {
+  
+      final var character = string.charAt(nextIndex);
+  
+      if (character == ',') {
+        final var node2 = new ChainedNode();
+        nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
+        this.childNodes.addAtEnd(node2);
+      } else if (character == ')') {
+        nextIndex++;
+        break;
+      } else {
+        //Does nothing and continues the current loop.
+      }
+    }
+  
+    if (nextIndex < string.length() - 1 && string.charAt(nextIndex) == '.') {
+      nextIndex++;
+      return mapNextNodeFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
+    }
+  
+    return nextIndex;
+  }
+
+  //method
+  private int mapNextNodeFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
+  
+    nextNode = new ChainedNode();
+  
+    return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, startIndex);
   }
 
   //method
@@ -1020,57 +1076,14 @@ public final class ChainedNode implements IChainedNode {
       headerLength,
       taskAfterSetHeader);
 
-    switch (taskAfterSetHeader) {
-      case DO_NOTHING:
-        return nextIndex;
-      case MAP_NEXT_NODE:
-        nextNode = new ChainedNode();
-        return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
-      case MAP_CHILD_NODES_AND_PROBABLE_NEXT_NODE:
-
-        final var node = new ChainedNode();
-        nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
-        this.childNodes.addAtEnd(node);
-
-        while (nextIndex < string.length()) {
-
-          final var character = string.charAt(nextIndex);
-
-          if (character == ',') {
-            final var node2 = new ChainedNode();
-            nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
-            this.childNodes.addAtEnd(node2);
-          } else if (character == ')') {
-            nextIndex++;
-            break;
-          } else {
-            //Does nothing and continues the current loop.
-          }
-        }
-
-        if (nextIndex < string.length() - 1 && string.charAt(nextIndex) == '.') {
-          nextIndex++;
-          nextNode = new ChainedNode();
-          return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
-        }
-
-        return nextIndex;
-      default:
-        throw InvalidArgumentException.forArgument(taskAfterSetHeader);
-    }
-  }
-
-  //method
-  private int calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
-    final int startIndex,
-    final int headerLength,
-    final TaskAfterSetHeader taskAfterSetHeader) {
-    var nextIndex = startIndex + headerLength;
-    if (taskAfterSetHeader == TaskAfterSetHeader.MAP_CHILD_NODES_AND_PROBABLE_NEXT_NODE
-    || taskAfterSetHeader == TaskAfterSetHeader.MAP_NEXT_NODE) {
-      nextIndex++;
-    }
-    return nextIndex;
+    return switch (taskAfterSetHeader) {
+      case DO_NOTHING ->
+        nextIndex;
+      case MAP_NEXT_NODE ->
+        mapNextNodeFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
+      case MAP_CHILD_NODES_AND_POTENTIAL_NEXT_NODE ->
+        mapChildNodesAndPotentialNextNodeFromStingAndStartIndexAndGetNextIndex(string, nextIndex);
+    };
   }
 
   //method
