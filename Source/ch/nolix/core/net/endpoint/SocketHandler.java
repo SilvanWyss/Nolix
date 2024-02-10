@@ -20,6 +20,7 @@ import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
+import ch.nolix.coreapi.netapi.endpointapi.SocketType;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
@@ -53,15 +54,15 @@ public final class SocketHandler {
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
     final String firstReveivedLine,
-    final NetEndPointCreationType backendNetEndPointType,
+    final SocketType socketType,
     final Server server) {
-    return switch (backendNetEndPointType) {
-      case REGULAR_SOCKET_WITH_DEFAULT_TARGET ->
+    return switch (socketType) {
+      case NET_SOCKET_WITH_DEFAULT_TARGET ->
         Optional.of(createSocketEndPointWithDefaultTarget(socket, socketInputStream, socketOutputStream));
-      case REGULAR_SOCKET_WITH_CUSTOM_TARGET ->
+      case NET_SOCKET_WITH_CUSTOM_TARGET ->
         Optional.of(
           createSocketEndPointWithCustomTarget(socket, socketInputStream, socketOutputStream, firstReveivedLine));
-      case WEB_SOCKET_OR_HTTP ->
+      case HTTP_SOCKET_OR_WEB_SOCKET ->
         createOptionalBackendNetEndPointForSocketAndServerWhenIsHttpSocketOrWebSocket(socket, socketInputStream,
           socketOutputStream, firstReveivedLine, server);
     };
@@ -85,9 +86,9 @@ public final class SocketHandler {
       "The current SocketHandler received the first line from the given socket: "
       + GlobalStringTool.getInSingleQuotes(firstReveivedLine));
 
-    final var backendNetEndPointType = getBackendNetEndPointTypeFromFirstReceivedLine(firstReveivedLine);
+    final var socketType = getSocketTypeFromFirstReceivedLine(firstReveivedLine);
 
-    if (backendNetEndPointType.isEmpty()) {
+    if (socketType.isEmpty()) {
       return Optional.empty();
     }
 
@@ -96,7 +97,7 @@ public final class SocketHandler {
       socketInputStream.get(),
       socketOutputStream.get(),
       firstReveivedLine,
-      backendNetEndPointType.get(),
+      socketType.get(),
       server);
   }
 
@@ -178,25 +179,6 @@ public final class SocketHandler {
   }
 
   //method
-  private Optional<NetEndPointCreationType> getBackendNetEndPointTypeFromFirstReceivedLine(
-    final String firstReceivedLine) {
-
-    if (firstReceivedLine.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
-      return Optional.of(NetEndPointCreationType.REGULAR_SOCKET_WITH_DEFAULT_TARGET);
-    }
-
-    if (firstReceivedLine.startsWith(MessageType.TARGET_MESSAGE.getPrefix())) {
-      return Optional.of(NetEndPointCreationType.REGULAR_SOCKET_WITH_CUSTOM_TARGET);
-    }
-
-    if (firstReceivedLine.startsWith("G")) {
-      return Optional.of(NetEndPointCreationType.WEB_SOCKET_OR_HTTP);
-    }
-
-    return Optional.empty();
-  }
-
-  //method
   private Optional<InputStream> getOptionalInputStreamOfSocket(final Socket socket) {
     try {
       return Optional.of(socket.getInputStream());
@@ -218,6 +200,25 @@ public final class SocketHandler {
 
       return Optional.empty();
     }
+  }
+
+  //method
+  private Optional<SocketType> getSocketTypeFromFirstReceivedLine(
+    final String firstReceivedLine) {
+  
+    if (firstReceivedLine.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
+      return Optional.of(SocketType.NET_SOCKET_WITH_DEFAULT_TARGET);
+    }
+  
+    if (firstReceivedLine.startsWith(MessageType.TARGET_MESSAGE.getPrefix())) {
+      return Optional.of(SocketType.NET_SOCKET_WITH_CUSTOM_TARGET);
+    }
+  
+    if (firstReceivedLine.startsWith("G")) {
+      return Optional.of(SocketType.HTTP_SOCKET_OR_WEB_SOCKET);
+    }
+  
+    return Optional.empty();
   }
 
   //method
