@@ -5,7 +5,7 @@ package ch.nolix.core.nolixlicense;
 import ch.nolix.core.license.License;
 
 //class
-public final class Nolix2023Pro extends License {
+public final class Nolix2024Pro extends License {
 
   //method
   //key = '45680060'
