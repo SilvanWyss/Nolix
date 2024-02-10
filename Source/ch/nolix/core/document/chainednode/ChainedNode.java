@@ -1013,15 +1013,13 @@ public final class ChainedNode implements IChainedNode {
     final var headerLength = headerLengthAndTaskAfterSetHeader.getHeaderLength();
     final var taskAfterSetHeader = headerLengthAndTaskAfterSetHeader.getTaskAfterSetHeader();
 
-    setProbableHeader(string, startIndex, headerLength);
+    setPotentialHeaderFromStringAndStartIndexAndHeaderLength(string, startIndex, headerLength);
 
-    var nextIndex = startIndex + headerLength;
-    if (taskAfterSetHeader == TaskAfterSetHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
-    || taskAfterSetHeader == TaskAfterSetHeader.READ_NEXT_NODE) {
-      nextIndex++;
-    }
+    var nextIndex = calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
+      startIndex,
+      headerLength,
+      taskAfterSetHeader);
 
-    var readNextNode = false;
     switch (taskAfterSetHeader) {
       case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
 
@@ -1047,22 +1045,32 @@ public final class ChainedNode implements IChainedNode {
 
         if (nextIndex < string.length() - 1 && string.charAt(nextIndex) == '.') {
           nextIndex++;
-          readNextNode = true;
+          nextNode = new ChainedNode();
+          return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
         }
 
-        break;
+        return nextIndex;
       case DO_NOTHING:
         return nextIndex;
       case READ_NEXT_NODE:
-        readNextNode = true;
+        nextNode = new ChainedNode();
+        return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
+      default:
+        throw InvalidArgumentException.forArgument(taskAfterSetHeader);
     }
+  }
 
-    if (!readNextNode) {
-      return nextIndex;
+  //method
+  private int calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
+    final int startIndex,
+    final int headerLength,
+    final TaskAfterSetHeader taskAfterSetHeader) {
+    var nextIndex = startIndex + headerLength;
+    if (taskAfterSetHeader == TaskAfterSetHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
+    || taskAfterSetHeader == TaskAfterSetHeader.READ_NEXT_NODE) {
+      nextIndex++;
     }
-
-    nextNode = new ChainedNode();
-    return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
+    return nextIndex;
   }
 
   //method
@@ -1122,10 +1130,12 @@ public final class ChainedNode implements IChainedNode {
    * @param startIndex
    * @param headerLength
    */
-  private void setProbableHeader(final String string, final int startIndex, final int headerLength) {
+  private void setPotentialHeaderFromStringAndStartIndexAndHeaderLength(
+    final String string,
+    final int startIndex,
+    final int headerLength) {
     if (headerLength > 0) {
-      this.header = getStoredginStringFromEscapeString(
-        string.substring(startIndex, startIndex + headerLength));
+      header = getStoredginStringFromEscapeString(string.substring(startIndex, startIndex + headerLength));
     }
   }
 }
