@@ -951,14 +951,14 @@ public final class ChainedNode implements IChainedNode {
         case CharacterCatalogue.OPEN_BRACKET:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(
             nextIndex - startIndex,
-            TaskAfterSetHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE);
+            TaskAfterSetHeader.MAP_CHILD_NODES_AND_PROBABLE_NEXT_NODE);
         case CharacterCatalogue.COMMA:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
         case CharacterCatalogue.CLOSED_BRACKET:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
         case CharacterCatalogue.DOT:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex,
-            TaskAfterSetHeader.READ_NEXT_NODE);
+            TaskAfterSetHeader.MAP_NEXT_NODE);
         default:
           nextIndex++;
       }
@@ -1021,7 +1021,12 @@ public final class ChainedNode implements IChainedNode {
       taskAfterSetHeader);
 
     switch (taskAfterSetHeader) {
-      case READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE:
+      case DO_NOTHING:
+        return nextIndex;
+      case MAP_NEXT_NODE:
+        nextNode = new ChainedNode();
+        return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
+      case MAP_CHILD_NODES_AND_PROBABLE_NEXT_NODE:
 
         final var node = new ChainedNode();
         nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
@@ -1050,11 +1055,6 @@ public final class ChainedNode implements IChainedNode {
         }
 
         return nextIndex;
-      case DO_NOTHING:
-        return nextIndex;
-      case READ_NEXT_NODE:
-        nextNode = new ChainedNode();
-        return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
       default:
         throw InvalidArgumentException.forArgument(taskAfterSetHeader);
     }
@@ -1066,8 +1066,8 @@ public final class ChainedNode implements IChainedNode {
     final int headerLength,
     final TaskAfterSetHeader taskAfterSetHeader) {
     var nextIndex = startIndex + headerLength;
-    if (taskAfterSetHeader == TaskAfterSetHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
-    || taskAfterSetHeader == TaskAfterSetHeader.READ_NEXT_NODE) {
+    if (taskAfterSetHeader == TaskAfterSetHeader.MAP_CHILD_NODES_AND_PROBABLE_NEXT_NODE
+    || taskAfterSetHeader == TaskAfterSetHeader.MAP_NEXT_NODE) {
       nextIndex++;
     }
     return nextIndex;
