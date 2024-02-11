@@ -50,6 +50,15 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   @Override
+  public String getReferencedEntityId() {
+
+    REFERENCE_VALIDATOR.assertIsNotEmpty(this);
+
+    return referencedEntityId;
+  }
+
+  //method
+  @Override
   public IContainer<IProperty> getStoredBackReferencingProperties() {
 
     if (isEmpty()) {
@@ -70,15 +79,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   @Override
   public E getStoredReferencedEntity() {
     return getReferencedTable().getStoredEntityById(getReferencedEntityId());
-  }
-
-  //method
-  @Override
-  public String getReferencedEntityId() {
-
-    REFERENCE_VALIDATOR.assertIsNotEmpty(this);
-
-    return referencedEntityId;
   }
 
   //method
@@ -156,30 +156,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateBackReferencingPropertyForClear(final IProperty backReferencingProperty) {
-    switch (backReferencingProperty.getType()) {
-      case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) backReferencingProperty;
-        backReference.internalClear();
-        backReference.setAsEditedAndRunProbableUpdateAction();
-        break;
-      case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) backReferencingProperty;
-        optionalBackReference.internalClear();
-        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
-        break;
-      case MULTI_BACK_REFERENCE:
-        /*
-         * Does nothing. MultiBackReferences do not need to be updated, because
-         * MultiBackReferences do not have redundancies.
-         */
-        break;
-      default:
-        //Does nothing.
-    }
-  }
-
-  //method
   private void clear() {
     if (containsAny()) {
       clearWhenContainsAny();
@@ -218,7 +194,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
     assertCanSetEntity(entity);
 
-    updatePropbableBackReferencingPropertyOfEntityForClear(entity);
+    updatePropableBackReferencingPropertyOfEntityForClear(entity);
 
     clear();
 
@@ -232,19 +208,27 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateProbableBackReferencingPropertyForClear() {
-    for (final var brp : getStoredBackReferencingProperties()) {
-      updateBackReferencingPropertyForClear(brp);
+  private void updateBackReferencingPropertyForClear(final IProperty backReferencingProperty) {
+    switch (backReferencingProperty.getType()) {
+      case BACK_REFERENCE:
+        final var backReference = (BackReference<?>) backReferencingProperty;
+        backReference.internalClear();
+        backReference.setAsEditedAndRunProbableUpdateAction();
+        break;
+      case OPTIONAL_BACK_REFERENCE:
+        final var optionalBackReference = (OptionalBackReference<?>) backReferencingProperty;
+        optionalBackReference.internalClear();
+        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+        break;
+      case MULTI_BACK_REFERENCE:
+        /*
+         * Does nothing. MultiBackReferences do not need to be updated, because
+         * MultiBackReferences do not have redundancies.
+         */
+        break;
+      default:
+        //Does nothing.
     }
-  }
-
-  //method
-  private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
-
-    final var baseBackReference = ENTITY_TOOL
-      .getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(entity, this);
-
-    baseBackReference.ifPresent(this::updateBaseBackReferenceOfEntityForSetEntity);
   }
 
   //method
@@ -269,7 +253,23 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
+  private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
+
+    final var baseBackReference = ENTITY_TOOL
+      .getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(entity, this);
+
+    baseBackReference.ifPresent(this::updateBaseBackReferenceOfEntityForSetEntity);
+  }
+
+  //method
+  private void updateProbableBackReferencingPropertyForClear() {
+    for (final var brp : getStoredBackReferencingProperties()) {
+      updateBackReferencingPropertyForClear(brp);
+    }
+  }
+
+  //method
+  private void updatePropableBackReferencingPropertyOfEntityForClear(final E entity) {
 
     final var pendantReferencingProperty = getOptionalPendantReferencingPropertyToEntity(entity);
 
