@@ -10,6 +10,7 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
@@ -17,6 +18,9 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 public final class MultiBackReference<E extends IEntity>
 extends BaseBackReference<E>
 implements IMultiBackReference<E> {
+
+  //multi-attribute
+  private final LinkedList<IMultiBackReferenceEntry<E>> localEntries = new LinkedList<>();
 
   //constructor
   private MultiBackReference(final String backReferencedEntityTypeName, final String backReferencedPropertyName) {
@@ -152,6 +156,16 @@ implements IMultiBackReference<E> {
     final var entity = getStoredBackReferencedTable().getStoredEntityById(id);
 
     return referencesBackEntity(entity);
+  }
+
+  //method
+  void internalAddBackReferencedEntityId(final String backReferencedEntityId) {
+
+    final var newEntry = MultiBackReferenceEntry.newEntryForMultiBackReferenceAndReferencedEntityId(
+      this,
+      backReferencedEntityId);
+
+    localEntries.addAtEnd(newEntry);
   }
 
   //method
