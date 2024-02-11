@@ -9,19 +9,19 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 //class
-public final class GlobalReflectionTool {
+public final class GlobalObjectTool {
 
   //constructor
-  private GlobalReflectionTool() {
+  private GlobalObjectTool() {
   }
 
   //static method
-  public static String getFieldName(final Object object, final Object attribute) {
-    return getStoredField(object, attribute).getName();
+  public static String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object attribute) {
+    return getFirstFieldOfObjectThatStoresValue(object, attribute).getName();
   }
 
   //static method
-  public static Field getStoredField(final Object object, final Object attribute) {
+  public static Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object attribute) {
 
     var lClass = object.getClass();
     while (lClass != null) {

@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.reflection.GlobalReflectionTool;
+import ch.nolix.core.reflection.GlobalObjectTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
@@ -116,7 +116,7 @@ public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
   private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty property) {
     final var propertyParentEntity = property.getStoredParentEntity();
 
-    final var propertyField = GlobalReflectionTool.getStoredField(propertyParentEntity, property);
+    final var propertyField = GlobalObjectTool.getFirstFieldOfObjectThatStoresValue(propertyParentEntity, property);
 
     final var propertyDeclaredType = (ParameterizedType) propertyField.getGenericType();
 
