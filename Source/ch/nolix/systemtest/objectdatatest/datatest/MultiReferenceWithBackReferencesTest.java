@@ -69,9 +69,9 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     final var loadedSimba = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
     final var loadedOdie = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
     expect(loadedJohn.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield, loadedSimba, loadedOdie);
-    expect(loadedGarfield.owner.getBackReferencedEntity()).is(loadedJohn);
-    expect(loadedSimba.owner.getBackReferencedEntity()).is(loadedJohn);
-    expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
+    expect(loadedGarfield.owner.getStoredBackReferencedEntity()).is(loadedJohn);
+    expect(loadedSimba.owner.getStoredBackReferencedEntity()).is(loadedJohn);
+    expect(loadedOdie.owner.getStoredBackReferencedEntity()).is(loadedJohn);
   }
 
   //TODO: Enable DataAdapter to remove relations and delete Entitis in 1 time.

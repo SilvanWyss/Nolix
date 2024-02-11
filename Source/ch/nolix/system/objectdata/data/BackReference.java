@@ -51,7 +51,7 @@ implements IBackReference<E> {
     }
 
     return ImmutableList.withElement(
-      getBackReferencedEntity().internalGetStoredProperties()
+      getStoredBackReferencedEntity().internalGetStoredProperties()
         .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
   }
 
@@ -63,17 +63,17 @@ implements IBackReference<E> {
 
   //method
   @Override
-  public E getBackReferencedEntity() {
-    return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
-  }
-
-  //method
-  @Override
   public String getBackReferencedEntityId() {
 
     PROPERTY_VALIDATOR.assertIsNotEmpty(this);
 
     return backReferencedEntityId;
+  }
+
+  //method
+  @Override
+  public E getStoredBackReferencedEntity() {
+    return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
   //method

@@ -55,7 +55,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
   //method
   @Override
   public IAbstractableField getStoredParentField() {
-    return parentField.getBackReferencedEntity();
+    return parentField.getStoredBackReferencedEntity();
   }
 
   //method

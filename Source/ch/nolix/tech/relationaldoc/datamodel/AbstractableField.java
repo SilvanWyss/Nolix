@@ -128,7 +128,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   //method
   @Override
   public IAbstractableObject getStoredParentObject() {
-    return parentObject.getBackReferencedEntity();
+    return parentObject.getStoredBackReferencedEntity();
   }
 
   //method

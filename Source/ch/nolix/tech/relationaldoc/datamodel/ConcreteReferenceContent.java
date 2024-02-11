@@ -44,7 +44,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   //method
   @Override
   public IAbstractableField getStoredParentField() {
-    return parentField.getBackReferencedEntity();
+    return parentField.getStoredBackReferencedEntity();
   }
 
   //method
