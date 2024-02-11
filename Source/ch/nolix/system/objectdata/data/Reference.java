@@ -144,7 +144,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   @Override
-  void internalUpdateProbableBackReferencesWhenIsNew() {
+  void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }

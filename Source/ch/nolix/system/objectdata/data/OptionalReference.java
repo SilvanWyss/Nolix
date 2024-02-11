@@ -166,7 +166,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
-  void internalUpdateProbableBackReferencesWhenIsNew() {
+  void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
       updateProbableBackReferenceForSetOrAddedEntity(getReferencedEntity());
     }

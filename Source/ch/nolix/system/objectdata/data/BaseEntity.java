@@ -210,7 +210,10 @@ public abstract class BaseEntity implements IEntity {
   abstract IContainer<Property> internalLoadProperties();
 
   //method
-  final void internalNoteInsert() {
+  final void internalNoteInsertIntoDatabase() {
+
+    updateBaseBackReferencesWhenIsInsertedIntoDatabase();
+
     entityFlyweight.noteInsert();
   }
 
@@ -263,11 +266,6 @@ public abstract class BaseEntity implements IEntity {
     GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalogue.SAVE_STAMP).isNotNull();
 
     this.saveStamp = saveStamp;
-  }
-
-  //method
-  final void internalUpdateProbableBackReferencesWhenIsNew() {
-    getStoredProperties().forEach(Property::internalUpdateProbableBackReferencesWhenIsNew);
   }
 
   //method
@@ -356,6 +354,11 @@ public abstract class BaseEntity implements IEntity {
       default:
         throw InvalidArgumentException.forArgument(baseBackReference.getType());
     }
+  }
+
+  //method
+  private void updateBaseBackReferencesWhenIsInsertedIntoDatabase() {
+    getStoredProperties().forEach(Property::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
   }
 
   //method

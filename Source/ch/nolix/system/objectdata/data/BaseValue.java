@@ -67,7 +67,7 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
 
   //method
   @Override
-  final void internalUpdateProbableBackReferencesWhenIsNew() {
+  final void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     //Does nothing.
   }
 }

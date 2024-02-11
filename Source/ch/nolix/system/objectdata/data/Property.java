@@ -184,7 +184,7 @@ public abstract class Property implements IProperty {
   }
 
   //method declaration
-  abstract void internalUpdateProbableBackReferencesWhenIsNew();
+  abstract void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase();
 
   //method
   private DatabaseObjectState getStateWhenBelongsToEntity() {

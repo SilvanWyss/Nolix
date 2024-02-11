@@ -288,9 +288,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     entitiesInLocalData.addAtEnd(entity);
 
-    final var baseEntity = (BaseEntity) entity;
-    baseEntity.internalUpdateProbableBackReferencesWhenIsNew();
-    baseEntity.internalNoteInsert();
+    ((BaseEntity) entity).internalNoteInsertIntoDatabase();
   }
 
   //method

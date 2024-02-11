@@ -97,7 +97,7 @@ implements IBaseBackReference<E> {
 
   //method
   @Override
-  final void internalUpdateProbableBackReferencesWhenIsNew() {
+  final void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     //Does nothing.
   }
 
