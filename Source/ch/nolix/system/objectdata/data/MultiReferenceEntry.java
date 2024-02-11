@@ -59,7 +59,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   //method
   @Override
   public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty() {
-    return getReferencedEntity()
+    return getStoredReferencedEntity()
       .internalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(getStoredParentMultiReference()));
   }
@@ -85,14 +85,14 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   @Override
-  public E getReferencedEntity() {
-    return getStoredParentMultiReference().getReferencedTable().getStoredEntityById(getReferencedEntityId());
+  public String getReferencedEntityId() {
+    return referencedEntityId;
   }
 
   //method
   @Override
-  public String getReferencedEntityId() {
-    return referencedEntityId;
+  public E getStoredReferencedEntity() {
+    return getStoredParentMultiReference().getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
   //method

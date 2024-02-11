@@ -14,11 +14,11 @@ public interface IMultiReferenceEntry<E extends IEntity> extends IDatabaseObject
   Optional<? extends IProperty> getOptionalStoredBackReferencingProperty();
 
   //method declaration
-  E getReferencedEntity();
-
-  //method declaration
   String getReferencedEntityId();
 
   //method declaration
   IMultiReference<E> getStoredParentMultiReference();
+
+  //method declaration
+  E getStoredReferencedEntity();
 }
