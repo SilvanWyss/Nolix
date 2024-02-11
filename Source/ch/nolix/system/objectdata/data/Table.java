@@ -119,7 +119,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @Override
   public Optional<E> getOptionalStoredEntityById(final String id) {
 
-    final var entity = technicalGetRefEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
+    final var entity = internalGetStoredEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
 
     if (entity.isEmpty()) {
 
@@ -155,7 +155,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @Override
   public E getStoredEntityById(final String id) {
 
-    final var entity = technicalGetRefEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
+    final var entity = internalGetStoredEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
 
     if (entity.isEmpty()) {
 
@@ -219,7 +219,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   @Override
-  public IContainer<E> technicalGetRefEntitiesInLocalData() {
+  public IContainer<E> internalGetStoredEntitiesInLocalData() {
     return entitiesInLocalData;
   }
 
@@ -231,7 +231,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   @SuppressWarnings("unchecked")
   void internalClose() {
-    ((IContainer<BaseEntity>) technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
+    ((IContainer<BaseEntity>) internalGetStoredEntitiesInLocalData()).forEach(BaseEntity::internalClose);
   }
 
   //method
@@ -248,7 +248,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @SuppressWarnings("unchecked")
   void internalReset() {
 
-    ((IContainer<BaseEntity>) technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
+    ((IContainer<BaseEntity>) internalGetStoredEntitiesInLocalData()).forEach(BaseEntity::internalClose);
 
     loadedAllEntitiesInLocalData = false;
     entitiesInLocalData.clear();
@@ -273,7 +273,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   private E getStoredEntityByIdWhenIsInLocalData(final String id) {
-    return technicalGetRefEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
+    return internalGetStoredEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
   }
 
   //method

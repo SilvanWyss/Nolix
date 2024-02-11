@@ -33,7 +33,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   //method
   @Override
   public IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
-    return database.getStoredTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
+    return database.getStoredTables().toFromGroups(ITable::internalGetStoredEntitiesInLocalData);
   }
 
   //method

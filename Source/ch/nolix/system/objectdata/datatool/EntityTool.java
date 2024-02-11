@@ -130,7 +130,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     }
 
     for (final var t : entity.getStoredParentTable().getStoredParentDatabase().getStoredTables()) {
-      if (t.technicalGetRefEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
+      if (t.internalGetStoredEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
         return true;
       }
     }

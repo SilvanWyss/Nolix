@@ -41,5 +41,5 @@ public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, I
   ITable<E> insertEntity(E entity);
 
   //method declaration
-  IContainer<E> technicalGetRefEntitiesInLocalData();
+  IContainer<E> internalGetStoredEntitiesInLocalData();
 }

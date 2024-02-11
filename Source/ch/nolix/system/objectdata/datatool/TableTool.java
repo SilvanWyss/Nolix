@@ -20,7 +20,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?> table) {
     return table
-      .technicalGetRefEntitiesInLocalData()
+      .internalGetStoredEntitiesInLocalData()
       .containsOnly(
         e -> ENTITY_TOOL.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
       );
@@ -43,7 +43,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   //method
   @Override
   public boolean containsEntityWithGivenIdInLocalData(final ITable<?> table, final String id) {
-    return table.technicalGetRefEntitiesInLocalData().containsAny(e -> e.hasId(id));
+    return table.internalGetStoredEntitiesInLocalData().containsAny(e -> e.hasId(id));
   }
 
   //method
@@ -66,7 +66,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   //method
   @Override
   public boolean hasChanges(final ITable<?> table) {
-    return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !ENTITY_TOOL.isLoaded(e));
+    return table.internalGetStoredEntitiesInLocalData().containsAny(e -> !ENTITY_TOOL.isLoaded(e));
   }
 
   //method
