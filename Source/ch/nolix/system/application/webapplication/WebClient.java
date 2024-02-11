@@ -106,7 +106,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
         //Important: The received fileString is a Base 64 encoded string.
         final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
-        uploader.technicalSetFile(bytes);
+        uploader.internalSetFile(bytes);
 
         break;
       default:

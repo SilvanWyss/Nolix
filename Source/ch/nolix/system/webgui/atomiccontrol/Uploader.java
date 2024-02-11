@@ -73,6 +73,15 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 
   //method
   @Override
+  public void internalSetFile(final byte[] file) {
+  
+    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseVariableCatalogue.FILE).isNotNull();
+  
+    this.file = file; //NOSONAR: A Uploader operates on the original input.
+  }
+
+  //method
+  @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
@@ -87,15 +96,6 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   @Override
   public IUploader setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
-  }
-
-  //method
-  @Override
-  public void technicalSetFile(final byte[] file) {
-
-    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseVariableCatalogue.FILE).isNotNull();
-
-    this.file = file; //NOSONAR: A Uploader operates on the original input.
   }
 
   //method

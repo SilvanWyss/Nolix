@@ -14,5 +14,5 @@ public interface IUploader extends IControl<IUploader, IUploaderStyle> {
   boolean hasFile();
 
   //method declaration
-  void technicalSetFile(byte[] file);
+  void internalSetFile(byte[] file);
 }
