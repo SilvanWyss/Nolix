@@ -45,7 +45,7 @@ public abstract class BaseEntity implements IEntity {
   private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
 
   //optional attribute
-  private ITable<IEntity> parentTable;
+  private ITable<? extends IEntity> parentTable;
 
   //optional attribute
   private String saveStamp;
@@ -96,7 +96,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   @Override
-  public final ITable<IEntity> getStoredParentTable() {
+  public final ITable<? extends IEntity> getStoredParentTable() {
 
     ENTITY_VALIDATOR.assertBelongsToTable(this);
 
@@ -248,7 +248,7 @@ public abstract class BaseEntity implements IEntity {
   }
 
   //method
-  final void internalSetParentTable(final ITable<IEntity> parentTable) {
+  final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
 
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 

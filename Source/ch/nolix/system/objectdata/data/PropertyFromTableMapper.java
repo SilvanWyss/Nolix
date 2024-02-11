@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 final class PropertyFromTableMapper {
 
   //method
-  public IContainer<Property> createPropertiesFromTable(final ITable<IEntity> table) {
+  public IContainer<Property> createPropertiesFromTable(final ITable<? extends IEntity> table) {
     return table.getStoredColumns().to(this::createPropertyFromColumn);
   }
 

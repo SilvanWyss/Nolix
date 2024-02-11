@@ -183,11 +183,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @Override
   public ITable<E> insertEntity(final E entity) {
 
-    @SuppressWarnings("unchecked")
-    final var table = (ITable<IEntity>) this;
-
-    //The inserted Entity must know its Table to be inserted.
-    ((BaseEntity) entity).internalSetParentTable(table);
+    //The Entity must know its Table that it can be inserted into the Table.
+    ((BaseEntity) entity).internalSetParentTable(this);
 
     TABLE_VALIDATOR.assertCanInsertGivenEntity(this, entity);
 

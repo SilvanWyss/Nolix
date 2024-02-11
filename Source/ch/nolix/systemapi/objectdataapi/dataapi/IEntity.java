@@ -23,7 +23,7 @@ public interface IEntity extends Deletable, IDatabaseObject, IIdHolder {
   IDatabase getStoredParentDatabase();
 
   //method declaration
-  ITable<IEntity> getStoredParentTable();
+  ITable<? extends IEntity> getStoredParentTable();
 
   //method declaration
   String getSaveStamp();
