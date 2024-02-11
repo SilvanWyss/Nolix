@@ -63,31 +63,29 @@ implements IBaseReference<E> {
 
   //method
   protected final void updateProbableBackReferenceForSetOrAddedEntity(final E entity) {
-    if (isLinkedWithRealDatabase()) {
-      for (final var p : entity.technicalGetStoredProperties()) {
-        switch (p.getType()) {
-          case BACK_REFERENCE:
+    for (final var p : entity.technicalGetStoredProperties()) {
+      switch (p.getType()) {
+        case BACK_REFERENCE:
 
-            final var backReference = (BackReference<?>) p;
+          final var backReference = (BackReference<?>) p;
 
-            if (backReference.referencesBackProperty(this)) {
-              backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-            }
+          if (backReference.referencesBackProperty(this)) {
+            backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
+          }
 
-            break;
+          break;
 
-          case OPTIONAL_BACK_REFERENCE:
+        case OPTIONAL_BACK_REFERENCE:
 
-            final var optionalBackReference = (OptionalBackReference<?>) p;
+          final var optionalBackReference = (OptionalBackReference<?>) p;
 
-            if (optionalBackReference.referencesBackProperty(this)) {
-              optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-            }
+          if (optionalBackReference.referencesBackProperty(this)) {
+            optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
+          }
 
-            break;
-          default:
-            //Does nothing.
-        }
+          break;
+        default:
+          //Does nothing.
       }
     }
   }
