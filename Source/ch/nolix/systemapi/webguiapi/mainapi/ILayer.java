@@ -47,6 +47,9 @@ IRootControlOwner<L> {
   boolean hasRole();
 
   //method declaration
+  void internalSetParentGui(IWebGui<?> parentGui);
+
+  //method declaration
   void removeSelfFromGui();
 
   //method declaration
@@ -57,7 +60,4 @@ IRootControlOwner<L> {
 
   //method declaration
   L setOpacity(double opacity);
-
-  //method declaration
-  void technicalSetParentGui(IWebGui<?> parentGui);
 }

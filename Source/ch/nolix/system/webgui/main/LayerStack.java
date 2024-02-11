@@ -109,7 +109,7 @@ public final class LayerStack implements ILayerStack {
   @Override
   public ILayerStack pushLayer(ILayer<?> layer) {
 
-    layer.technicalSetParentGui(parentGui);
+    layer.internalSetParentGui(parentGui);
 
     layers.addAtEnd(layer);
 

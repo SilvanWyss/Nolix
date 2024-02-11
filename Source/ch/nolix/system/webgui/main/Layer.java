@@ -301,6 +301,16 @@ extends StylableElement<Layer> implements ILayer<Layer> {
 
   //method
   @Override
+  public void internalSetParentGui(final IWebGui<?> parentGui) {
+  
+    GlobalValidator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
+    LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
+  
+    this.parentGui = parentGui;
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
     return rootControl.isEmpty();
   }
@@ -393,16 +403,6 @@ extends StylableElement<Layer> implements ILayer<Layer> {
     this.role.setValue(role);
 
     return this;
-  }
-
-  //method
-  @Override
-  public void technicalSetParentGui(final IWebGui<?> parentGui) {
-
-    GlobalValidator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
-    LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
-
-    this.parentGui = parentGui;
   }
 
   //method
