@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.datavalidatorapi;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
@@ -8,5 +9,5 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 public interface ITableValidator {
 
   //method declaration
-  void assertCanInsertGivenEntity(ITable<?> table, IEntity entity);
+  void assertCanInsertEntity(ITable<? extends IEntity> table, IEntity entity);
 }

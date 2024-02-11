@@ -17,7 +17,7 @@ public final class TableValidator implements ITableValidator {
 
   //method
   @Override
-  public void assertCanInsertGivenEntity(final ITable<?> table, final IEntity entity) {
+  public void assertCanInsertEntity(final ITable<? extends IEntity> table, final IEntity entity) {
     if (!TABLE_TOOL.canInsertGivenEntity(table, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         entity,
