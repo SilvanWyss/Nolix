@@ -53,7 +53,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 
       assertCanAddItem(i);
 
-      i.technicalSetParentMenu(this);
+      i.internalSetParentMenu(this);
       this.items.add(i);
     }
 

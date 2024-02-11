@@ -214,7 +214,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //method
   @Override
-  public void technicalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
+  public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
 
     GlobalValidator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
 

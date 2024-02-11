@@ -18,5 +18,5 @@ extends BlanknessRequestable, IIdHolder, IMutableElement, Selectable {
   String getText();
 
   //method declaration
-  void technicalSetParentMenu(IItemMenu<?, ?> parentMenu);
+  void internalSetParentMenu(IItemMenu<?, ?> parentMenu);
 }
