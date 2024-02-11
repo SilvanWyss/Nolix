@@ -36,7 +36,7 @@ public abstract class Component<C extends Controller<AC>, AC> extends BaseCompon
   @Override
   public final void rebuild() {
     childControl = createControl(getStoredController());
-    childControl.technicalSetParentControl(this);
+    childControl.internalSetParentControl(this);
     childControl.linkTo(this);
   }
 

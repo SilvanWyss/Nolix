@@ -73,6 +73,12 @@ PresenceSettable<C> {
   boolean hasInternalId(String internalId);
 
   //method declaration
+  void internalSetParentControl(IControl<?, ?> parentControl);
+
+  //method declaration
+  void internalSetParentLayer(ILayer<?> parentLayer);
+
+  //method declaration
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 
   //method declaration
@@ -80,10 +86,4 @@ PresenceSettable<C> {
 
   //method declaration
   C setCursorIcon(CursorIcon cursorIcon);
-
-  //method declaration
-  void technicalSetParentControl(IControl<?, ?> parentControl);
-
-  //method declaration
-  void technicalSetParentLayer(ILayer<?> parentLayer);
 }

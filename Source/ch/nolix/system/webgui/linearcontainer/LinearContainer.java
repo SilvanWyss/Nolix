@@ -79,7 +79,7 @@ implements ILinearContainer<LC, LCS> {
   //method
   private void addControl(final IControl<?, ?> control) {
 
-    control.technicalSetParentControl(this);
+    control.internalSetParentControl(this);
 
     this.childControls.add(control);
   }

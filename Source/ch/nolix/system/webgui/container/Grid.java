@@ -108,7 +108,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     cell.setControl(control);
     addCell(cell);
 
-    cell.getStoredControl().technicalSetParentControl(this);
+    cell.getStoredControl().internalSetParentControl(this);
 
     return this;
   }

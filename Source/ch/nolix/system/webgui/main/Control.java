@@ -293,6 +293,18 @@ implements IControl<C, CS> {
 
   //method
   @Override
+  public final void internalSetParentControl(final IControl<?, ?> parentControl) {
+    setParent(ControlParent.forControl(parentControl));
+  }
+
+  //method
+  @Override
+  public final void internalSetParentLayer(final ILayer<?> parentLayer) {
+    setParent(ControlParent.forLayer(parentLayer));
+  }
+
+  //method
+  @Override
   public final boolean isCollapsed() {
     return (getPresence() == Presence.COLLAPSED);
   }
@@ -470,18 +482,6 @@ implements IControl<C, CS> {
     voidSetVisibility(visible);
 
     return asConcrete();
-  }
-
-  //method
-  @Override
-  public final void technicalSetParentControl(final IControl<?, ?> parentControl) {
-    setParent(ControlParent.forControl(parentControl));
-  }
-
-  //method
-  @Override
-  public final void technicalSetParentLayer(final ILayer<?> parentLayer) {
-    setParent(ControlParent.forLayer(parentLayer));
   }
 
   //method declaration

@@ -370,7 +370,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
   @Override
   public Layer setRootControl(final IControl<?, ?> rootControl) {
 
-    rootControl.technicalSetParentLayer(this);
+    rootControl.internalSetParentLayer(this);
     this.rootControl.setValue(rootControl);
 
     return this;

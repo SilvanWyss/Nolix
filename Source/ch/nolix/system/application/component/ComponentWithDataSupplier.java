@@ -57,7 +57,7 @@ extends BaseComponent<C, AC> {
   //method
   private void rebuild(final DS dataSupplier) {
     childControl = createControl(getStoredController(), dataSupplier);
-    childControl.technicalSetParentControl(this);
+    childControl.internalSetParentControl(this);
     childControl.linkTo(this);
   }
 }

@@ -75,7 +75,7 @@ implements ISingleContainer {
   @Override
   public SingleContainer setControl(final IControl<?, ?> control) {
 
-    control.technicalSetParentControl(this);
+    control.internalSetParentControl(this);
     this.control.setValue(control);
 
     return this;
