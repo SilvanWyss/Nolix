@@ -65,7 +65,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       return new ImmutableList<>();
     }
 
-    final var backReferencingProperty = getStoredReferencedEntity().technicalGetStoredProperties()
+    final var backReferencingProperty = getStoredReferencedEntity().internalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
 
     if (backReferencingProperty.isPresent()) {

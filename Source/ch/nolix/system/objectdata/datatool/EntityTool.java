@@ -33,7 +33,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
 
     if (isNewOrEdited(entity)) {
-      return entity.technicalGetStoredProperties().containsOnly(PROPERTY_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
+      return entity.internalGetStoredProperties().containsOnly(PROPERTY_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
     }
 
     return true;
@@ -55,7 +55,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity entity) {
-    return entity.technicalGetStoredProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
+    return entity.internalGetStoredProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
   }
 
   //method
@@ -77,7 +77,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
     return //
-    new NewEntityDto(entity.getId(), entity.technicalGetStoredProperties().to(IProperty::technicalToContentField));
+    new NewEntityDto(entity.getId(), entity.internalGetStoredProperties().to(IProperty::technicalToContentField));
   }
 
   //method
@@ -87,7 +87,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     final IEntity entity,
     final IBaseReference<? extends IEntity> baseReference) {
 
-    for (final var p : entity.technicalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredProperties()) {
       if (p instanceof final IBaseBackReference<?> baseBackReference
       && baseBackReferenceWouldReferenceBackBaseReference(baseBackReference, baseReference)) {
         return Optional.of(baseBackReference);
@@ -100,19 +100,19 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public IContainer<IProperty> getStoredBackReferencingProperties(final IEntity entity) {
-    return entity.technicalGetStoredProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
+    return entity.internalGetStoredProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
   }
 
   //method
   @Override
   public IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
-    return entity.technicalGetStoredProperties().getStoredSelected(PROPERTY_TOOL::isEdited);
+    return entity.internalGetStoredProperties().getStoredSelected(PROPERTY_TOOL::isEdited);
   }
 
   //method
   @Override
   public IContainer<? extends IProperty> getStoredReferencingProperties(final IEntity entity) {
-    return entity.technicalGetStoredProperties().toFromGroups(IProperty::getStoredReferencingProperties);
+    return entity.internalGetStoredProperties().toFromGroups(IProperty::getStoredReferencingProperties);
   }
 
   //method
@@ -141,13 +141,13 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
-    return sourceEntity.technicalGetStoredProperties().containsAny(p -> p.referencesEntity(entity));
+    return sourceEntity.internalGetStoredProperties().containsAny(p -> p.referencesEntity(entity));
   }
 
   //method
   @Override
   public boolean referencesUninsertedEntity(final IEntity entity) {
-    return entity.technicalGetStoredProperties().containsAny(IProperty::referencesUninsertedEntity);
+    return entity.internalGetStoredProperties().containsAny(IProperty::referencesUninsertedEntity);
   }
 
   //method

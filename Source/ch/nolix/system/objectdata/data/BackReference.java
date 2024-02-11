@@ -51,7 +51,7 @@ implements IBackReference<E> {
     }
 
     return ImmutableList.withElement(
-      getBackReferencedEntity().technicalGetStoredProperties()
+      getBackReferencedEntity().internalGetStoredProperties()
         .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
   }
 

@@ -73,7 +73,7 @@ public final class EntitySaver {
   private void saveMultiPropertyChangesOfEntity(
     final IEntity entity,
     final Database database) {
-    for (final var p : entity.technicalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredProperties()) {
       saveChangesOfPotentialMultiProperty(database, p);
     }
   }

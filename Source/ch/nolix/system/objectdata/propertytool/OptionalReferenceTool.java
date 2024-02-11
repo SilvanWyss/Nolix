@@ -64,7 +64,7 @@ public final class OptionalReferenceTool extends PropertyTool implements IOption
     final IOptionalReference<?> optionalReference) {
     return optionalReference
       .getReferencedEntity()
-      .technicalGetStoredProperties()
+      .internalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(optionalReference));
   }
 

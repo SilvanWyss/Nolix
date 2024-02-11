@@ -63,7 +63,7 @@ implements IBaseReference<E> {
 
   //method
   protected final void updateProbableBackReferenceForSetOrAddedEntity(final E entity) {
-    for (final var p : entity.technicalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredProperties()) {
       switch (p.getType()) {
         case BACK_REFERENCE:
 

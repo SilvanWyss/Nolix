@@ -54,7 +54,7 @@ implements IMultiBackReference<E> {
     final var parentEntity = getStoredParentEntity();
 
     for (final var e : getStoredBackReferencedTable().getStoredEntities()) {
-      for (final var p : e.technicalGetStoredProperties()) {
+      for (final var p : e.internalGetStoredProperties()) {
         if (p.hasName(getBackReferencedPropertyName())) {
 
           if (p.referencesEntity(parentEntity)) {
@@ -77,7 +77,7 @@ implements IMultiBackReference<E> {
     final var parentEntity = getStoredParentEntity();
 
     for (final var e : getStoredBackReferencedTable().getStoredEntities()) {
-      for (final var p : e.technicalGetStoredProperties()) {
+      for (final var p : e.internalGetStoredProperties()) {
         if (p.hasName(getBackReferencedPropertyName())) {
 
           if (p.referencesEntity(parentEntity)) {
@@ -105,7 +105,7 @@ implements IMultiBackReference<E> {
     final var parentEntity = getStoredParentEntity();
 
     for (final var e : getStoredBackReferencedTable().getStoredEntities()) {
-      for (final var p : e.technicalGetStoredProperties()) {
+      for (final var p : e.internalGetStoredProperties()) {
         if (p.hasName(getBackReferencedPropertyName())) {
 
           if (p.referencesEntity(parentEntity)) {
@@ -130,7 +130,7 @@ implements IMultiBackReference<E> {
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
 
-    for (final var p : entity.technicalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredProperties()) {
       if (p.hasName(getBackReferencedPropertyName())) {
         return p.referencesEntity(entity);
       }

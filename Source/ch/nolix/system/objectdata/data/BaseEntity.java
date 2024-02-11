@@ -168,7 +168,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   @Override
-  public final IContainer<? extends IProperty> technicalGetStoredProperties() {
+  public final IContainer<? extends IProperty> internalGetStoredProperties() {
     return getStoredProperties();
   }
 

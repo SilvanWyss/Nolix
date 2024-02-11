@@ -53,7 +53,7 @@ public final class DatabaseSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
     final Database database) {
-    for (final var p : entity.technicalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredProperties()) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, p);
     }
   }

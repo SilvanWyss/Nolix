@@ -27,8 +27,8 @@ public interface IEntity extends Deletable, IDatabaseObject, IIdHolder, IOptiona
   ITable<? extends IEntity> getStoredParentTable();
 
   //method declaration
-  boolean isReferencedInPersistedData();
+  IContainer<? extends IProperty> internalGetStoredProperties();
 
   //method declaration
-  IContainer<? extends IProperty> technicalGetStoredProperties();
+  boolean isReferencedInPersistedData();
 }

@@ -44,7 +44,7 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(final IReference<?> reference) {
     return reference
       .getStoredReferencedEntity()
-      .technicalGetStoredProperties()
+      .internalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(reference));
   }
 
