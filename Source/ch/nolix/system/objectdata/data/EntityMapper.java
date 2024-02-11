@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
@@ -13,7 +14,6 @@ final class EntityMapper {
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
   //method
-  @SuppressWarnings("unchecked")
   public <E extends IEntity> E createLoadedEntityFromDto(
     final ILoadedEntityDto loadedEntityDto,
     final ITable<E> table) {
@@ -21,7 +21,7 @@ final class EntityMapper {
     final var loadedEntity = ENTITY_CREATOR.createEmptyEntityFor(table);
 
     final var concreteEntity = (BaseEntity) loadedEntity;
-    concreteEntity.internalSetParentTable((ITable<IEntity>) table);
+    concreteEntity.internalSetParentTable(table);
     concreteEntity.internalSetLoaded();
     addDataToEntityFromLoadedEntityDto(loadedEntityDto, concreteEntity);
 
