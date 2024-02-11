@@ -12,8 +12,8 @@ import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.propertytool.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
@@ -224,7 +224,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
     updateStateForSetEntity(entity);
 
-    updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
+    updatePotentialBaseBackReferenceOfEntityForSetEntity(entity);
 
     insertEntityIntoDatabaseIfPossible(entity);
 
@@ -239,39 +239,32 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
-    for (final var p : entity.technicalGetStoredProperties()) {
-      if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
+  private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
 
-        final var baseBackReference = (BaseBackReference<?>) p;
+    final var baseBackReference = ENTITY_TOOL
+      .getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(entity, this);
 
-        if (baseBackReference.getBackReferencedTableName().equals(getStoredParentEntity().getParentTableName())
-        && baseBackReference.getBackReferencedPropertyName().equals(getName())) {
+    baseBackReference.ifPresent(this::updateBaseBackReferenceOfEntityForSetEntity);
+  }
 
-          switch (baseBackReference.getType()) {
-            case BACK_REFERENCE:
-              final var backReference = (BackReference<?>) baseBackReference;
-              backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-              backReference.setAsEditedAndRunProbableUpdateAction();
-              break;
-            case OPTIONAL_BACK_REFERENCE:
-              final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
-              optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-              optionalBackReference.setAsEditedAndRunProbableUpdateAction();
-              break;
-            case MULTI_BACK_REFERENCE:
-              /*
-               * Does nothing. MultiBackReferences do not need to be updated, because
-               * MultiBackReferences do not have redundancies.
-               */
-              break;
-            default:
-              throw InvalidArgumentException.forArgument(baseBackReference.getType());
-          }
-
-          break;
-        }
-      }
+  //method
+  private void updateBaseBackReferenceOfEntityForSetEntity(final IBaseBackReference<?> baseBackReference) {
+    switch (baseBackReference.getType()) {
+      case BACK_REFERENCE:
+        final var backReference = (BackReference<?>) baseBackReference;
+        backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
+        backReference.setAsEditedAndRunProbableUpdateAction();
+        break;
+      case OPTIONAL_BACK_REFERENCE:
+        final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
+        optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
+        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+        break;
+      case MULTI_BACK_REFERENCE:
+        //Does nothing.
+        break;
+      default:
+        throw InvalidArgumentException.forArgument(baseBackReference.getType());
     }
   }
 

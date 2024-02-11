@@ -1,9 +1,14 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.datatoolapi;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
@@ -33,6 +38,12 @@ public interface IEntityTool extends IDatabaseObjectTool {
 
   //method declaration
   INewEntityDto createNewEntityDtoForEntity(IEntity entity);
+
+  //method
+  Optional<? extends IBaseBackReference<?>> //
+  getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
+    IEntity entity,
+    IBaseReference<? extends IEntity> baseReference);
 
   //method declaration
   IContainer<IProperty> getStoredBackReferencingProperties(IEntity entity);

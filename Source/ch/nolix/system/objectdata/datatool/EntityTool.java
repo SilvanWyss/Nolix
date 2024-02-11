@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdata.datatool;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
@@ -9,6 +12,8 @@ import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
@@ -77,6 +82,23 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
   //method
   @Override
+  public Optional<? extends IBaseBackReference<?>> //
+  getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
+    final IEntity entity,
+    final IBaseReference<? extends IEntity> baseReference) {
+
+    for (final var p : entity.technicalGetStoredProperties()) {
+      if (p instanceof final IBaseBackReference<?> baseBackReference
+      && baseBackReferenceWouldReferenceBackBaseReference(baseBackReference, baseReference)) {
+        return Optional.of(baseBackReference);
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  //method
+  @Override
   public IContainer<IProperty> getStoredBackReferencingProperties(final IEntity entity) {
     return entity.technicalGetStoredProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
   }
@@ -126,6 +148,15 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   @Override
   public boolean referencesUninsertedEntity(final IEntity entity) {
     return entity.technicalGetStoredProperties().containsAny(IProperty::referencesUninsertedEntity);
+  }
+
+  //method
+  private boolean baseBackReferenceWouldReferenceBackBaseReference(
+    final IBaseBackReference<?> baseBackReference,
+    final IBaseReference<? extends IEntity> baseReference) {
+    return //
+    baseBackReference.getBackReferencedTableName().equals(baseReference.getStoredParentEntity().getParentTableName())
+    && baseBackReference.getBackReferencedPropertyName().equals(baseReference.getName());
   }
 
   //method
