@@ -5,10 +5,10 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 public interface IReference<E extends IEntity> extends IBaseReference<E> {
 
   //method declaration
-  E getReferencedEntity();
+  String getReferencedEntityId();
 
   //method declaration
-  String getReferencedEntityId();
+  E getStoredReferencedEntity();
 
   //method declaration
   void setEntity(Object entity);

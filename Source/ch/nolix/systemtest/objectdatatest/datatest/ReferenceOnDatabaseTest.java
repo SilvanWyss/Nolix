@@ -44,7 +44,7 @@ public final class ReferenceOnDatabaseTest extends Test {
     nodeDataAdapter.insertEntity(john);
 
     //execution
-    final var result = john.pet.getReferencedEntity();
+    final var result = john.pet.getStoredReferencedEntity();
 
     //verification
     expect(result).is(garfield);
@@ -69,7 +69,7 @@ public final class ReferenceOnDatabaseTest extends Test {
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
     //execution
-    final var result = loadedJohn.pet.getReferencedEntity();
+    final var result = loadedJohn.pet.getStoredReferencedEntity();
 
     //verification
     expect(result.getId()).isEqualTo(garfield.getId());
@@ -162,6 +162,6 @@ public final class ReferenceOnDatabaseTest extends Test {
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = //
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
-    expect(loadedJohn.pet.getReferencedEntity()).is(loadedGarfield);
+    expect(loadedJohn.pet.getStoredReferencedEntity()).is(loadedGarfield);
   }
 }

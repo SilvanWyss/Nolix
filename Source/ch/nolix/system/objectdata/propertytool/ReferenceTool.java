@@ -43,7 +43,7 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   @Override
   public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(final IReference<?> reference) {
     return reference
-      .getReferencedEntity()
+      .getStoredReferencedEntity()
       .technicalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(reference));
   }

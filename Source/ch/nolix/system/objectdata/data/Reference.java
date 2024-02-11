@@ -56,7 +56,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       return new ImmutableList<>();
     }
 
-    final var backReferencingProperty = getReferencedEntity().technicalGetStoredProperties()
+    final var backReferencingProperty = getStoredReferencedEntity().technicalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
 
     if (backReferencingProperty.isPresent()) {
@@ -68,7 +68,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   @Override
-  public E getReferencedEntity() {
+  public E getStoredReferencedEntity() {
     return getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
@@ -111,7 +111,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
-    && !getReferencedEntity().belongsToTable();
+    && !getStoredReferencedEntity().belongsToTable();
   }
 
   //method
@@ -146,7 +146,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   @Override
   void internalUpdateProbableBackReferencesWhenIsNew() {
     if (containsAny()) {
-      updateProbableBackReferenceForSetOrAddedEntity(getReferencedEntity());
+      updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
   }
 

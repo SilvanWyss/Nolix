@@ -41,7 +41,7 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
   //method
   @Override
   public IAbstractableObject getStoredReferencedType() {
-    return referencedType.getReferencedEntity();
+    return referencedType.getStoredReferencedEntity();
   }
 
   //method
