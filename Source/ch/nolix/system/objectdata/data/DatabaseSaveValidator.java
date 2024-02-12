@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.propertytool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
+import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
@@ -14,6 +16,7 @@ import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IMultiReferenceEntryTool;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
+import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public final class DatabaseSaveValidator {
@@ -31,52 +34,56 @@ public final class DatabaseSaveValidator {
   private static final IMultiReferenceEntryTool MULTI_REFERENCE_ENTRY_TOOL = new MultiReferenceEntryTool();
 
   //method
-  public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(final Database database) {
+  public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
+    final IDatabase database,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
-      addExpectationToDatabaseThatNewlyReferencedEntitiesExist(e, database);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExist(e, dataAndSchemaAdapter);
     }
   }
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IEntity entity,
-    final Database database) {
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     if (ENTITY_TOOL.isNewOrEdited(entity)) {
-      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(entity, database);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(entity, dataAndSchemaAdapter);
     }
   }
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
-    final Database database) {
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     for (final var p : entity.internalGetStoredProperties()) {
-      addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, p);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExist(p, dataAndSchemaAdapter);
     }
   }
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
-    final Database database,
-    final IProperty property) {
+    final IProperty property,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     if (PROPERTY_TOOL.isNewOrEdited(property)) {
-      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(property, database);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(property,
+        dataAndSchemaAdapter);
     }
   }
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(
     final IProperty property,
-    final Database database) {
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     switch (property.getType()) {
       case REFERENCE:
 
         final var reference = (IReference<?>) property;
 
-        addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(reference, database);
+        addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(reference,
+          dataAndSchemaAdapter);
 
         break;
       case OPTIONAL_REFERENCE:
@@ -85,7 +92,7 @@ public final class DatabaseSaveValidator {
 
         addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
           optionalReference,
-          database);
+          dataAndSchemaAdapter);
 
         break;
       case MULTI_REFERENCE:
@@ -94,7 +101,7 @@ public final class DatabaseSaveValidator {
 
         addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
           multiReference,
-          database);
+          dataAndSchemaAdapter);
 
         break;
       default:
@@ -104,13 +111,13 @@ public final class DatabaseSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
     final IMultiReference<?> multiReference,
-    final Database database) {
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var referencedTableName = multiReference.getReferencedTableName();
 
     for (final var le : multiReference.getStoredLocalEntries()) {
       if (MULTI_REFERENCE_ENTRY_TOOL.isNewOrEdited(le)) {
-        database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+        dataAndSchemaAdapter.expectTableContainsEntity(
           referencedTableName,
           le.getReferencedEntityId());
       }
@@ -120,9 +127,9 @@ public final class DatabaseSaveValidator {
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
     final IOptionalReference<?> optionalReference,
-    final Database database) {
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     if (optionalReference.containsAny()) {
-      database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+      dataAndSchemaAdapter.expectTableContainsEntity(
         optionalReference.getReferencedTableName(),
         optionalReference.getReferencedEntityId());
     }
@@ -131,8 +138,8 @@ public final class DatabaseSaveValidator {
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(
     final IReference<?> reference,
-    final Database database) {
-    database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    dataAndSchemaAdapter.expectTableContainsEntity(
       reference.getReferencedTableName(),
       reference.getReferencedEntityId());
   }

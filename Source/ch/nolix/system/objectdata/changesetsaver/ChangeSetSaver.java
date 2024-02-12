@@ -42,7 +42,7 @@ public final class ChangeSetSaver {
 
     prepareChangesOfDatabase(database, dataAndSchemaAdapter);
 
-    assertNewlyReferencedEntitiesExists(database);
+    assertNewlyReferencedEntitiesExists(database, dataAndSchemaAdapter);
 
     commitChangesToDatabase(dataAndSchemaAdapter);
   }
@@ -70,8 +70,10 @@ public final class ChangeSetSaver {
   }
 
   //method
-  private void assertNewlyReferencedEntitiesExists(final Database database) {
-    DATABASE_SAVE_VALIDATOR.addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database);
+  private void assertNewlyReferencedEntitiesExists(
+    final Database database,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    DATABASE_SAVE_VALIDATOR.addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, dataAndSchemaAdapter);
   }
 
   //method
