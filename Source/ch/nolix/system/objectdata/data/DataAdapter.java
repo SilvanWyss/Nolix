@@ -7,6 +7,7 @@ import java.util.function.Supplier;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -26,7 +27,7 @@ public abstract class DataAdapter implements IDataAdapter {
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
   //constant
-  private static final DataSaver DATA_SAVER = new DataSaver();
+  private static final ChangeSetSaver DATA_SAVER = new ChangeSetSaver();
 
   //attribute
   private final String databaseName;
@@ -134,7 +135,7 @@ public abstract class DataAdapter implements IDataAdapter {
   //method
   private synchronized void saveChangesAndIncrementSaveCount() {
 
-    DATA_SAVER.saveChangesOfDatabaseSynchronously(database);
+    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, database.internalGetRefDataAndSchemaAdapter());
 
     saveCount++;
   }

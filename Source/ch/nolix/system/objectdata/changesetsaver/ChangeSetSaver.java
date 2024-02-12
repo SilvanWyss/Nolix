@@ -1,12 +1,17 @@
 //package declaration
-package ch.nolix.system.objectdata.data;
+package ch.nolix.system.objectdata.changesetsaver;
 
+//own imports
+import ch.nolix.system.objectdata.data.Database;
+import ch.nolix.system.objectdata.data.DatabaseSaveValidator;
+import ch.nolix.system.objectdata.data.EntitySaver;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
+import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-final class DataSaver {
+public final class ChangeSetSaver {
 
   //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
@@ -21,24 +26,26 @@ final class DataSaver {
   private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 
   //method
-  public void saveChangesOfDatabaseSynchronously(final Database database) {
-    synchronized (DataSaver.class) {
-      saveChangesOfDatabase(database);
+  public void saveChangesOfDatabaseSynchronously(
+    final Database database,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    synchronized (ChangeSetSaver.class) {
+      saveChangesOfDatabase(database, dataAndSchemaAdapter);
     }
   }
 
   //method
-  private void saveChangesOfDatabase(final Database database) {
+  private void saveChangesOfDatabase(final Database database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     assertCanSaveChangesOfDatabase(database);
 
-    addExpectionThatDatabaseHasInitialSchemaTimestamp(database);
+    addExpectionThatDatabaseHasInitialSchemaTimestamp(database, dataAndSchemaAdapter);
 
     prepareChangesOfDatabase(database);
 
     assertNewlyReferencedEntitiesExists(database);
 
-    commitChangesToDatabase(database);
+    commitChangesToDatabase(database, dataAndSchemaAdapter);
   }
 
   //method
@@ -57,8 +64,10 @@ final class DataSaver {
   }
 
   //method
-  private void addExpectionThatDatabaseHasInitialSchemaTimestamp(final Database database) {
-    database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
+  private void addExpectionThatDatabaseHasInitialSchemaTimestamp(
+    final Database database,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    dataAndSchemaAdapter.expectGivenSchemaTimestamp(database.getSchemaTimestamp());
   }
 
   //method
@@ -67,7 +76,9 @@ final class DataSaver {
   }
 
   //method
-  private void commitChangesToDatabase(final Database database) {
-    database.internalGetRefDataAndSchemaAdapter().saveChanges();
+  private void commitChangesToDatabase(
+    final Database database,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    dataAndSchemaAdapter.saveChanges();
   }
 }
