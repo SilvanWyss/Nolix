@@ -2,9 +2,9 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
 //own imports
-import ch.nolix.system.objectdata.data.Database;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
+import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -25,7 +25,7 @@ public final class ChangeSetSaver {
 
   //method
   public void saveChangesOfDatabaseSynchronously(
-    final Database database,
+    final IDatabase database,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     synchronized (ChangeSetSaver.class) {
       saveChangesOfDatabase(database, dataAndSchemaAdapter);
@@ -33,7 +33,7 @@ public final class ChangeSetSaver {
   }
 
   //method
-  private void saveChangesOfDatabase(final Database database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private void saveChangesOfDatabase(final IDatabase database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     assertCanSaveChangesOfDatabase(database);
 
@@ -47,12 +47,12 @@ public final class ChangeSetSaver {
   }
 
   //method
-  private void assertCanSaveChangesOfDatabase(final Database database) {
+  private void assertCanSaveChangesOfDatabase(final IDatabase database) {
     DATABASE_VALIDATOR.assertCanSaveChanges(database);
   }
 
   //method
-  private void prepareChangesOfDatabase(final Database database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private void prepareChangesOfDatabase(final IDatabase database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
@@ -63,14 +63,14 @@ public final class ChangeSetSaver {
 
   //method
   private void addExpectionThatDatabaseHasInitialSchemaTimestamp(
-    final Database database,
+    final IDatabase database,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     dataAndSchemaAdapter.expectGivenSchemaTimestamp(database.getSchemaTimestamp());
   }
 
   //method
   private void assertNewlyReferencedEntitiesExists(
-    final Database database,
+    final IDatabase database,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     DATABASE_SAVE_VALIDATOR.addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, dataAndSchemaAdapter);
   }
