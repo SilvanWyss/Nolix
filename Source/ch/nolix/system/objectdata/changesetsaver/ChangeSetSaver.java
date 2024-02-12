@@ -4,7 +4,6 @@ package ch.nolix.system.objectdata.changesetsaver;
 //own imports
 import ch.nolix.system.objectdata.data.Database;
 import ch.nolix.system.objectdata.data.DatabaseSaveValidator;
-import ch.nolix.system.objectdata.data.EntitySaver;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
@@ -41,11 +40,11 @@ public final class ChangeSetSaver {
 
     addExpectionThatDatabaseHasInitialSchemaTimestamp(database, dataAndSchemaAdapter);
 
-    prepareChangesOfDatabase(database);
+    prepareChangesOfDatabase(database, dataAndSchemaAdapter);
 
     assertNewlyReferencedEntitiesExists(database);
 
-    commitChangesToDatabase(database, dataAndSchemaAdapter);
+    commitChangesToDatabase(dataAndSchemaAdapter);
   }
 
   //method
@@ -54,12 +53,12 @@ public final class ChangeSetSaver {
   }
 
   //method
-  private void prepareChangesOfDatabase(final Database database) {
+  private void prepareChangesOfDatabase(final Database database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
-      ENTITY_SAVER.saveChangesOfEntity(e, database);
+      ENTITY_SAVER.saveChangesOfEntity(e, dataAndSchemaAdapter);
     }
   }
 
@@ -76,9 +75,7 @@ public final class ChangeSetSaver {
   }
 
   //method
-  private void commitChangesToDatabase(
-    final Database database,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private void commitChangesToDatabase(final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     dataAndSchemaAdapter.saveChanges();
   }
 }

@@ -1,32 +1,37 @@
 //package declaration
-package ch.nolix.system.objectdata.data;
+package ch.nolix.system.objectdata.changesetsaver;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
+import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 final class MultiValueSaver {
 
   //method
-  public void saveChangesOfMultiValue(final IMultiValue<?> multiValue, final Database database) {
+  public void saveChangesOfMultiValue(
+    final IMultiValue<?> multiValue,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     for (final var le : multiValue.getStoredLocalEntries()) {
-      saveChangeOfMultiValueEntry(le, database);
+      saveChangeOfMultiValueEntry(le, dataAndSchemaAdapter);
     }
   }
 
   //method
-  private void saveChangeOfMultiValueEntry(final IMultiValueEntry<?> multiValueEntry, final Database database) {
+  private void saveChangeOfMultiValueEntry(
+    final IMultiValueEntry<?> multiValueEntry,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var multiValueEntryState = multiValueEntry.getState();
 
     switch (multiValueEntryState) {
       case NEW:
-        saveMultiValueEntryCreation(multiValueEntry, database);
+        saveMultiValueEntryCreation(multiValueEntry, dataAndSchemaAdapter);
         break;
       case DELETED:
-        saveMultiValueEntryDeletion(multiValueEntry, database);
+        saveMultiValueEntryDeletion(multiValueEntry, dataAndSchemaAdapter);
         break;
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(
@@ -36,11 +41,13 @@ final class MultiValueSaver {
   }
 
   //method
-  private void saveMultiValueEntryCreation(final IMultiValueEntry<?> multiValueEntry, final Database database) {
+  private void saveMultiValueEntryCreation(
+    final IMultiValueEntry<?> multiValueEntry,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
 
-    database.internalGetRefDataAndSchemaAdapter().insertMultiValueEntry(
+    dataAndSchemaAdapter.insertMultiValueEntry(
       entity.getParentTableName(),
       entity.getId(),
       multiValueEntry.getStoredParentMultiValue().getName(),
@@ -48,11 +55,13 @@ final class MultiValueSaver {
   }
 
   //method
-  private void saveMultiValueEntryDeletion(final IMultiValueEntry<?> multiValueEntry, final Database database) {
+  private void saveMultiValueEntryDeletion(
+    final IMultiValueEntry<?> multiValueEntry,
+    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
 
-    database.internalGetRefDataAndSchemaAdapter().deleteMultiValueEntry(
+    dataAndSchemaAdapter.deleteMultiValueEntry(
       entity.getParentTableName(),
       entity.getId(),
       multiValueEntry.getStoredParentMultiValue().getName(),
