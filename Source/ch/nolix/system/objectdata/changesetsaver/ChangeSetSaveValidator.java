@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.data;
+package ch.nolix.system.objectdata.changesetsaver;
 
 //own imports
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public final class DatabaseSaveValidator {
+public final class ChangeSetSaveValidator {
 
   //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
@@ -97,7 +97,7 @@ public final class DatabaseSaveValidator {
         break;
       case MULTI_REFERENCE:
 
-        final var multiReference = (MultiReference<?>) property;
+        final var multiReference = (IMultiReference<?>) property;
 
         addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
           multiReference,

@@ -3,7 +3,6 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 //own imports
 import ch.nolix.system.objectdata.data.Database;
-import ch.nolix.system.objectdata.data.DatabaseSaveValidator;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
@@ -19,7 +18,7 @@ public final class ChangeSetSaver {
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   //constant
-  private static final DatabaseSaveValidator DATABASE_SAVE_VALIDATOR = new DatabaseSaveValidator();
+  private static final ChangeSetSaveValidator DATABASE_SAVE_VALIDATOR = new ChangeSetSaveValidator();
 
   //constant
   private static final EntitySaver ENTITY_SAVER = new EntitySaver();
