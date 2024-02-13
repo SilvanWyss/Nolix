@@ -76,11 +76,22 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
+  public IContainer<String> getReferencedEntityIds() {
+  
+    extractReferencedEntityIdsIfNeeded();
+  
+    return localEntries
+      .getStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoaded)
+      .to(IMultiReferenceEntry::getReferencedEntityId);
+  }
+
+  //method
+  @Override
   public IContainer<IProperty> getStoredBackReferencingProperties() {
 
     final var backReferencingProperties = new LinkedList<IProperty>();
 
-    for (final var re : getReferencedEntities()) {
+    for (final var re : getStoredReferencedEntities()) {
 
       final var backReferencingProperty = re.internalGetStoredProperties()
         .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
@@ -95,25 +106,14 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public IContainer<E> getReferencedEntities() {
-    return getReferencedEntityIds().to(getReferencedTable()::getStoredEntityById);
-  }
-
-  //method
-  @Override
-  public IContainer<String> getReferencedEntityIds() {
-
-    extractReferencedEntityIdsIfNeeded();
-
-    return localEntries
-      .getStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoaded)
-      .to(IMultiReferenceEntry::getReferencedEntityId);
-  }
-
-  //method
-  @Override
   public IContainer<? extends IMultiReferenceEntry<E>> getStoredLocalEntries() {
     return localEntries;
+  }
+
+  //method
+  @Override
+  public IContainer<E> getStoredReferencedEntities() {
+    return getReferencedEntityIds().to(getReferencedTable()::getStoredEntityById);
   }
 
   //method
@@ -148,7 +148,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   @Override
   public boolean referencesUninsertedEntity() {
-    return getReferencedEntities().containsAny(e -> !e.belongsToTable());
+    return getStoredReferencedEntities().containsAny(e -> !e.belongsToTable());
   }
 
   //method
@@ -162,7 +162,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @Override
   public void removeFirstEntity(final Predicate<E> selector) {
 
-    final var entity = getReferencedEntities().getOptionalStoredFirst(selector);
+    final var entity = getStoredReferencedEntities().getOptionalStoredFirst(selector);
 
     entity.ifPresent(this::removeEntity);
   }
@@ -183,7 +183,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @Override
   void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
-      for (final var e : getReferencedEntities()) {
+      for (final var e : getStoredReferencedEntities()) {
         updateProbableBackReferenceForSetOrAddedEntity(e);
       }
     }
@@ -211,7 +211,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   private void clearWhenContainsAny() {
 
-    getReferencedEntities().forEach(this::removeEntity);
+    getStoredReferencedEntities().forEach(this::removeEntity);
 
     setAsEditedAndRunProbableUpdateAction();
   }
