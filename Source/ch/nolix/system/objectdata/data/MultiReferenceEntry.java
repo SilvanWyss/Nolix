@@ -74,6 +74,8 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiReference().getState()) {
+      case NEW ->
+        DatabaseObjectState.NEW;
       case DELETED ->
         DatabaseObjectState.DELETED;
       case CLOSED ->
