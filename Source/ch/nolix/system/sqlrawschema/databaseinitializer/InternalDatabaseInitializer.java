@@ -6,6 +6,7 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableDtoCatalogue;
+import ch.nolix.system.sqlrawschema.multibackreferenceentrytable.MultiBackReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
@@ -44,8 +45,9 @@ final class InternalDatabaseInitializer {
     schemaAdapter.addTable(EntityHeadTableDtoCatalogue.ENTITY_HEAD_TABLE_DTO);
 
     //Adds multi-entry tables.
-    schemaAdapter.addTable(MultiReferenceEntryTableSqlDtoCatalogue.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
     schemaAdapter.addTable(MultiValueEntryTableSqlDtoCatalogue.MULTI_VALUE_ENTRY_TABLE_SQL_DTO);
+    schemaAdapter.addTable(MultiReferenceEntryTableSqlDtoCatalogue.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
+    schemaAdapter.addTable(MultiBackReferenceEntryTableSqlDtoCatalogue.MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO);
 
     //Save changes to database.
     schemaAdapter.saveChanges();
