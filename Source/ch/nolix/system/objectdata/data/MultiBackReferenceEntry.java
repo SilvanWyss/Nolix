@@ -59,6 +59,8 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiBackReference().getState()) {
+      case NEW ->
+        DatabaseObjectState.NEW;
       case DELETED ->
         DatabaseObjectState.DELETED;
       case CLOSED ->
