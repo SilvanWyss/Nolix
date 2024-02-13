@@ -75,6 +75,12 @@ implements IMultiBackReference<E> {
 
   //method
   @Override
+  public IContainer<? extends IMultiBackReferenceEntry<E>> getStoredLocalEntries() {
+    return localEntries;
+  }
+
+  //method
+  @Override
   public IContainer<IProperty> getStoredReferencingProperties() {
 
     final var referencingPropertie = new LinkedList<IProperty>();

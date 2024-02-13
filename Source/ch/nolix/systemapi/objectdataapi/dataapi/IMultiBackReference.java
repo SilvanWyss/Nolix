@@ -8,8 +8,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface IMultiBackReference<E extends IEntity> extends IBaseBackReference<E> {
 
   //method declaration
+  IContainer<String> getBackReferencedEntityIds();
+
+  //method declaration
   IContainer<E> getStoredBackReferencedEntities();
 
   //method declaration
-  IContainer<String> getBackReferencedEntityIds();
+  IContainer<? extends IMultiBackReferenceEntry<E>> getStoredLocalEntries();
 }
