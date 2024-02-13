@@ -8,65 +8,65 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-final class MultiReferenceSaver {
+public final class MultiReferenceSaver {
 
   //method
-  public void saveChangesOfMultiReference(
+  public void saveMultiReference(
     final IMultiReference<?> multiReference,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     for (final var le : multiReference.getStoredLocalEntries()) {
-      saveChangeOfMultiReferenceEntry(le, dataAndSchemaAdapter);
+      saveMultiReferenceEntry(le, dataAndSchemaAdapter);
     }
   }
 
   //method
-  private void saveChangeOfMultiReferenceEntry(
+  private void saveMultiReferenceEntry(
     final IMultiReferenceEntry<?> multiReferenceEntry,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
-    final var multiReferenceEntryState = multiReferenceEntry.getState();
+    final var state = multiReferenceEntry.getState();
 
-    switch (multiReferenceEntryState) {
+    switch (state) {
       case NEW:
-        saveMultiReferenceEntryCreation(multiReferenceEntry, dataAndSchemaAdapter);
+        insertMultiReferenceEntry(multiReferenceEntry, dataAndSchemaAdapter);
         break;
       case LOADED:
         break;
       case DELETED:
-        saveMultiReferenceEntryDeletion(multiReferenceEntry, dataAndSchemaAdapter);
+        deleteMultiReferenceEntry(multiReferenceEntry, dataAndSchemaAdapter);
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(
-          "state of multi reference",
-          multiReferenceEntryState);
+        throw InvalidArgumentException.forArgumentNameAndArgument("state of multi reference", state);
     }
   }
 
   //method
-  private void saveMultiReferenceEntryCreation(
+  private void insertMultiReferenceEntry(
     final IMultiReferenceEntry<?> multiReferenceEntry,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
-    final var entity = multiReferenceEntry.getStoredParentMultiReference().getStoredParentEntity();
+    final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
+    final var entity = multiReference.getStoredParentEntity();
 
     dataAndSchemaAdapter.insertMultiReferenceEntry(
       entity.getParentTableName(),
       entity.getId(),
-      multiReferenceEntry.getStoredParentMultiReference().getName(),
+      multiReference.getName(),
       multiReferenceEntry.getReferencedEntityId());
   }
 
   //method
-  private void saveMultiReferenceEntryDeletion(
+  private void deleteMultiReferenceEntry(
     final IMultiReferenceEntry<?> multiReferenceEntry,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
-    final var entity = multiReferenceEntry.getStoredParentMultiReference().getStoredParentEntity();
+    final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
+    final var entity = multiReference.getStoredParentEntity();
 
     dataAndSchemaAdapter.deleteMultiReferenceEntry(
       entity.getParentTableName(),
       entity.getId(),
-      multiReferenceEntry.getStoredParentMultiReference().getName(),
+      multiReference.getName(),
       multiReferenceEntry.getReferencedEntityId());
   }
 }

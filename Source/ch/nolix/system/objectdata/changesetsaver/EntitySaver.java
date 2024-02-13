@@ -105,7 +105,7 @@ public final class EntitySaver {
         MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) p, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
-        MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?>) p, dataAndSchemaAdapter);
+        MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) p, dataAndSchemaAdapter);
         break;
       default:
         //Does nothing.
