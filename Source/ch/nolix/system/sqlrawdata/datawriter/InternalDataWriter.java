@@ -118,11 +118,19 @@ public final class InternalDataWriter {
 
   //method
   public void insertEntity(final String tableName, final INewEntityDto newEntity) {
-  
+
     sqlCollector.addSqlStatement(
       entityStatementCreator.createStatementToInsertEntityHead(tableName, newEntity.getId()));
-  
+
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToInsertEntity(tableName, newEntity));
+  }
+
+  //method
+  public void insertEntryIntoMultiBackReference(
+    final String entityId,
+    final String multiBackReferenceColumnId,
+    final String backReferencedEntityId) {
+    //TODO: Implement.
   }
 
   //method

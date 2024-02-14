@@ -136,6 +136,24 @@ public final class DataWriter implements IDataWriter {
 
   //method
   @Override
+  public void insertMultiBackReferenceEntry(
+    final String tableId,
+    final String entityId,
+    final String multiBackReferenceColumnId,
+    final String backReferencedEntityId) {
+
+    final var tableInfo = getTableInfoByTableId(tableId);
+    final var multiBackReferenceColumnInfo = tableInfo.getColumnInfoByColumnId(multiBackReferenceColumnId);
+
+    internalDataWriter.insertEntryIntoMultiBackReference(
+      tableInfo,
+      entityId,
+      multiBackReferenceColumnInfo,
+      backReferencedEntityId);
+  }
+
+  //method
+  @Override
   public void insertMultiReferenceEntry(
     final String tableName,
     final String entityId,
@@ -204,6 +222,12 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
   }
 
+  //method
+  private ITableInfo getTableInfoByTableId(final String tableId) {
+    return tableInfos.getStoredFirst(ti -> ti.getTableId().equals(tableId));
+  }
+
+  //TODO: Replace this method by getTableInfoByTableId.
   //method
   private ITableInfo getTableInfoByTableName(final String tableName) {
     return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));

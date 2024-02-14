@@ -197,6 +197,26 @@ final class DatabaseUpdater {
   }
 
   //method
+  public void insertEntryIntoMultiBackReference(
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiBackReferenceColumnInfo,
+    final String backReferencedEntityId) {
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromDatabaseNode(databaseNode,
+      tableInfo.getTableId());
+
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.getColumnIndexOnEntityNode();
+
+    final var multiBackReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
+
+    multiBackReferenceNode.addChildNode(Node.withHeader(backReferencedEntityId));
+  }
+
+  //method
   public void insertEntryIntoMultiReference(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -211,9 +231,9 @@ final class DatabaseUpdater {
 
     final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 
-    final var multiReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+    final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
-    multiReferenceColumnNode.addChildNode(Node.withHeader(referencedEntityId));
+    multiReferenceNode.addChildNode(Node.withHeader(referencedEntityId));
   }
 
   //method
@@ -231,9 +251,9 @@ final class DatabaseUpdater {
 
     final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 
-    final var multiValueColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
+    final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
-    multiValueColumnNode.addChildNode(Node.withHeader(entry));
+    multiValueNode.addChildNode(Node.withHeader(entry));
   }
 
   //method

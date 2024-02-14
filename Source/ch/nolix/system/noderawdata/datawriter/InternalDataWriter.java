@@ -108,6 +108,23 @@ final class InternalDataWriter {
   }
 
   //method
+  public void insertEntryIntoMultiBackReference(
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiBackReferenceColumnInfo,
+    final String backReferencedEntityId) {
+
+    final Consumer<IMutableNode<?>> changeAction = databaseNode -> DATABASE_UPDATER.insertEntryIntoMultiBackReference(
+      databaseNode,
+      tableInfo,
+      entityId,
+      multiBackReferenceColumnInfo,
+      backReferencedEntityId);
+
+    addChangeAction(changeAction);
+  }
+
+  //method
   public void insertEntryIntoMultiReference(
     final ITableInfo tableInfo,
     final String entityId,
