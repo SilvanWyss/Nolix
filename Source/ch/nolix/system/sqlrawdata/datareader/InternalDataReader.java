@@ -9,12 +9,12 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
-import ch.nolix.systemapi.rawdataapi.querycreatorapi.IEntityQueryCreator;
-import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
-import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
+import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 //class
 final class InternalDataReader {

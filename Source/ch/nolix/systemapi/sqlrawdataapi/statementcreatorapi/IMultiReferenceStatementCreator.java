@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdataapi.statementcreatorapi;
+package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 
 //interface
 public interface IMultiReferenceStatementCreator {

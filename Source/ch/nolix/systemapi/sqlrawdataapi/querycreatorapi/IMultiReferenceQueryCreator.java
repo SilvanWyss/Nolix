@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdataapi.querycreatorapi;
+package ch.nolix.systemapi.sqlrawdataapi.querycreatorapi;
 
 //interface
 public interface IMultiReferenceQueryCreator {

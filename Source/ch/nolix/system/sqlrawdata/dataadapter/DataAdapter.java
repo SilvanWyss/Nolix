@@ -8,8 +8,8 @@ import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 //class
 public abstract class DataAdapter extends BaseDataAdapter {

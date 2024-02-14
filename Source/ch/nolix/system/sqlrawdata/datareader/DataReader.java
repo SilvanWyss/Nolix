@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
+import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 //class
 public final class DataReader implements IDataReader {

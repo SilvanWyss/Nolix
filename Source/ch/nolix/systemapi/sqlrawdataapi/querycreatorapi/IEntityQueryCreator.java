@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdataapi.querycreatorapi;
+package ch.nolix.systemapi.sqlrawdataapi.querycreatorapi;
 
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
+import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

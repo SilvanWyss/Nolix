@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdataapi.statementcreatorapi;
+package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 
 //own imports
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;

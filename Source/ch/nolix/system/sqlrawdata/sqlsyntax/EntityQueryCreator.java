@@ -4,10 +4,10 @@ package ch.nolix.system.sqlrawdata.sqlsyntax;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.systemapi.rawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 
 //class
 public final class EntityQueryCreator implements IEntityQueryCreator {
