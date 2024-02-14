@@ -9,10 +9,10 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IEntityStatementCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IEntityStatementCreator;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

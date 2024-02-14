@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IEntityStatementCreator;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

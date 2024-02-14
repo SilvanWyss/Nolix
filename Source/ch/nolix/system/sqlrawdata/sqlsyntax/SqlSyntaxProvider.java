@@ -4,10 +4,10 @@ package ch.nolix.system.sqlrawdata.sqlsyntax;
 import ch.nolix.systemapi.rawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiValueQueryCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IEntityStatementCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IEntityStatementCreator;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
+import ch.nolix.systemapi.rawdataapi.statementcreatorapi.IMultiValueStatementCreator;
 
 //class
 public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
