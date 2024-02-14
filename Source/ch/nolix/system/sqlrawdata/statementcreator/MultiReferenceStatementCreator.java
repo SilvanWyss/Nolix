@@ -52,7 +52,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 
   //method
   @Override
-  public String createStatementToInsertEntryIntoMultiReference(
+  public String createStatementToInsertMultiReferenceEntry(
     final String entityId,
     final String multiReferenceColumnId,
     final String referencedEntityId) {

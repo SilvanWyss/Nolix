@@ -139,7 +139,7 @@ public final class InternalDataWriter {
     final String multiReferenceColumnId,
     final String referencedEntityId) {
     sqlCollector.addSqlStatement(
-      multiReferenceStatementCreator.createStatementToInsertEntryIntoMultiReference(
+      multiReferenceStatementCreator.createStatementToInsertMultiReferenceEntry(
         entityId,
         multiReferenceColumnId,
         referencedEntityId));

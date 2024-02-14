@@ -14,7 +14,7 @@ public interface IMultiReferenceStatementCreator {
     String referencedEntityId);
 
   //method declaration
-  String createStatementToInsertEntryIntoMultiReference(
+  String createStatementToInsertMultiReferenceEntry(
     String entityId,
     String multiReferenceColumnId,
     String referencedEntityId);
