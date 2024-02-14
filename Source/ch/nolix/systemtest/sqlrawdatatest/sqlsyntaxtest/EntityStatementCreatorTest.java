@@ -9,7 +9,7 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
-import ch.nolix.system.sqlrawdata.sqlsyntax.EntityStatementCreator;
+import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
 
 //class
 public final class EntityStatementCreatorTest extends Test {
