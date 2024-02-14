@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlsyntax;
 
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IEntityQueryCreator;
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IEntityStatementCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 

@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdata.sqlsyntax;
 //own imports
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
-import ch.nolix.systemapi.rawdataapi.sqlsyntaxapi.IMultiValueQueryCreator;
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiValueQueryCreator;
 
 //class
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {

@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.sqlsyntaxapi;
 
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
+import ch.nolix.systemapi.rawdataapi.querycreatorapi.IMultiValueQueryCreator;
+
 //interface
 public interface ISqlSyntaxProvider {
 
