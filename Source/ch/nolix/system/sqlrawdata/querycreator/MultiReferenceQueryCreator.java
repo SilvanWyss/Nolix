@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawdata.sqlsyntax;
+package ch.nolix.system.sqlrawdata.querycreator;
 
 //own imports
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;

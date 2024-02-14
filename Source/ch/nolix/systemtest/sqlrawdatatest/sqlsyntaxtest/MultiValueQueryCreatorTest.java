@@ -3,7 +3,7 @@ package ch.nolix.systemtest.sqlrawdatatest.sqlsyntaxtest;
 
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
-import ch.nolix.system.sqlrawdata.sqlsyntax.MultiValueQueryCreator;
+import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 
 //class
 public final class MultiValueQueryCreatorTest extends Test {

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawdata.sqlsyntax;
+package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
