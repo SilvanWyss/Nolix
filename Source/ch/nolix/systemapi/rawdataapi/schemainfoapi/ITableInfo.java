@@ -8,6 +8,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface ITableInfo {
 
   //method declaration
+  IColumnInfo getColumnInfoByColumnId(String columnId);
+
+  //method declaration
   IColumnInfo getColumnInfoByColumnName(String columnName);
 
   //method declaration

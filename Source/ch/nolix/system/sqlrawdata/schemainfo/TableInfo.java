@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.schemainfo;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -41,6 +42,12 @@ implements ITableInfo {
     this.tableId = tableId;
     this.tableName = tableName;
     this.columnInfos = columnInfos;
+  }
+
+  //method
+  @Override
+  public IColumnInfo getColumnInfoByColumnId(final String columnId) {
+    return getColumnInfos().getStoredFirst(ci -> ci.getColumnId().equals(columnId));
   }
 
   //method
