@@ -151,7 +151,7 @@ public final class InternalDataWriter {
     final String multiValueColumnId,
     final String entry) {
     sqlCollector.addSqlStatement(
-      multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(entityId, multiValueColumnId, entry));
+      multiValueStatementCreator.createStatementToInsertMultiValueEntry(entityId, multiValueColumnId, entry));
   }
 
   //method

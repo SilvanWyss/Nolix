@@ -50,7 +50,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 
   //method
   @Override
-  public String createQueryToInsertEntryIntoMultiValue(
+  public String createStatementToInsertMultiValueEntry(
     final String entityId,
     final String multiValueColumnId,
     final String entry) {

@@ -11,5 +11,5 @@ public interface IMultiValueStatementCreator {
   String createStatementToDeleteMultiValueEntry(String entityId, String multiValueColumnId, String entry);
 
   //method declaration
-  String createQueryToInsertEntryIntoMultiValue(String entityId, String multiValueColumnId, String entry);
+  String createStatementToInsertMultiValueEntry(String entityId, String multiValueColumnId, String entry);
 }
