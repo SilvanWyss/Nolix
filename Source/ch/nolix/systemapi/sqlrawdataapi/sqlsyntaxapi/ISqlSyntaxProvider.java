@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi;
 
+//own imports
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
+import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiValueStatementCreator;
 
@@ -18,13 +20,16 @@ public interface ISqlSyntaxProvider {
   IEntityStatementCreator getEntityStatementCreator();
 
   //method declaration
+  IMultiBackReferenceStatementCreator getMultiBackReferenceStatemeentCreator();
+
+  //method declaration
   IMultiReferenceQueryCreator getMultiReferenceQueryCreator();
 
   //method declaration
-  IMultiValueQueryCreator getMultiValueQueryCreator();
+  IMultiReferenceStatementCreator getMultiReferenceStatemeentCreator();
 
   //method declaration
-  IMultiReferenceStatementCreator getMultiReferenceStatemeentCreator();
+  IMultiValueQueryCreator getMultiValueQueryCreator();
 
   //method declaration
   IMultiValueStatementCreator getMultiValueStatemeentCreator();
