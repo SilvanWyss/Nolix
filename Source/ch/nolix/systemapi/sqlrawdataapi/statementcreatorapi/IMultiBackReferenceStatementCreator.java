@@ -5,7 +5,7 @@ package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 public interface IMultiBackReferenceStatementCreator {
 
   //method declaration
-  String createStatementToDeleteMultiBackReferenceEntries(String entityId, String multiReferenceColumnId);
+  String createStatementToDeleteMultiBackReferenceEntries(String entityId, String multiBackReferenceColumnId);
 
   //method declaration
   String createStatementToDeleteMultiBackReferenceEntry(
