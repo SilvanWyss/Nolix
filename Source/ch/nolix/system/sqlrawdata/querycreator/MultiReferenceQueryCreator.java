@@ -31,7 +31,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 
   //method
   @Override
-  public String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
+  public String createQueryToLoadOptionalMultiReferenceEntryForGivenColumnAndReferencedEntity(
     final String columnId,
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "

@@ -8,7 +8,7 @@ public interface IMultiReferenceQueryCreator {
   String createQueryToLoadMultiReferenceEntries(String entityId, String multiReferenceColumnId);
 
   //method declaration
-  String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
+  String createQueryToLoadOptionalMultiReferenceEntryForGivenColumnAndReferencedEntity(
     String columnId,
     String referencedEntityId);
 }
