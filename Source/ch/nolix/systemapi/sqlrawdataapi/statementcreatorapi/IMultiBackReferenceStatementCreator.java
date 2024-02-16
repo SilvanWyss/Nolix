@@ -11,11 +11,11 @@ public interface IMultiBackReferenceStatementCreator {
   String createStatementToDeleteMultiBackReferenceEntry(
     String entityId,
     String multiBackReferenceColumnId,
-    String referencedEntityId);
+    String backReferencedEntityId);
 
   //method declaration
   String createStatementToInsertMultiBackReferenceEntry(
     String entityId,
     String multiBackReferenceColumnId,
-    String referencedEntityId);
+    String backReferencedEntityId);
 }
