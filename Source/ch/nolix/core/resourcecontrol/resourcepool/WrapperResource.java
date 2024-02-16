@@ -5,7 +5,7 @@ package ch.nolix.core.resourcecontrol.resourcepool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 

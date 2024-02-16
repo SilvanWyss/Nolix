@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.programcontrol.worker.Worker;
-import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 
 //class
 /**

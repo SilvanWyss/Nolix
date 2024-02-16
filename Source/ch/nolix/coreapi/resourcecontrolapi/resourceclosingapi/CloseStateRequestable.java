@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.requestapi;
+package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
 //own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
