@@ -11,6 +11,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
+import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -36,6 +37,9 @@ public final class InternalDataWriter {
   //attribute
   private final IMultiReferenceStatementCreator multiReferenceStatementCreator;
 
+  //attribute
+  private final IMultiBackReferenceStatementCreator multiBackReferenceStatementCreator;
+
   //constructor
   public InternalDataWriter(
     final String databaseName,
@@ -48,6 +52,7 @@ public final class InternalDataWriter {
     entityStatementCreator = sqlSyntaxProvider.getEntityStatementCreator();
     multiValueStatementCreator = sqlSyntaxProvider.getMultiValueStatemeentCreator();
     multiReferenceStatementCreator = sqlSyntaxProvider.getMultiReferenceStatemeentCreator();
+    multiBackReferenceStatementCreator = sqlSyntaxProvider.getMultiBackReferenceStatemeentCreator();
 
     sqlConnection.executeStatement("USE " + databaseName);
   }
@@ -130,7 +135,13 @@ public final class InternalDataWriter {
     final String entityId,
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
-    //TODO: Implement.
+
+    final var statement = multiBackReferenceStatementCreator.createStatementToInsertMultiBackReferenceEntry(
+      entityId,
+      multiBackReferenceColumnId,
+      backReferencedEntityId);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   //method
