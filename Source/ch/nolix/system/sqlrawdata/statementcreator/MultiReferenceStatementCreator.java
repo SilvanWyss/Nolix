@@ -24,7 +24,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId
-    + "'";
+    + "';";
   }
 
   //method
@@ -46,8 +46,8 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + "' AND "
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
     + " = '"
-    + multiReferenceColumnId
-    + "'";
+    + referencedEntityId
+    + "';";
   }
 
   //method
@@ -70,6 +70,6 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + multiReferenceColumnId
     + "', '"
     + referencedEntityId
-    + "')";
+    + "');";
   }
 }
