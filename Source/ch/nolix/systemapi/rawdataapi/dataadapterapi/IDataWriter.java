@@ -112,13 +112,13 @@ public interface IDataWriter extends IResettableChangeSaver {
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
    * 
-   * @param tableId
+   * @param tableName
    * @param entityId
    * @param multiBackReferenceColumnId
    * @param backReferencedEntityId
    */
   void insertMultiBackReferenceEntry(
-    String tableId,
+    String tableName,
     String entityId,
     String multiBackReferenceColumnId,
     String backReferencedEntityId);

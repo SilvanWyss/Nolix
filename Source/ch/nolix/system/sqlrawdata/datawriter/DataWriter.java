@@ -146,7 +146,7 @@ public final class DataWriter implements IDataWriter {
   //method
   @Override
   public void insertMultiBackReferenceEntry(
-    final String tableId,
+    final String tableName,
     final String entityId,
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
