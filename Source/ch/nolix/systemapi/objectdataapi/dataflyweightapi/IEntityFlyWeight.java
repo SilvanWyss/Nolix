@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataflyweightapi;
 
-import ch.nolix.coreapi.functionapi.requestapi.VoidnessRequestable;
+import ch.nolix.coreapi.generalstateapi.staterequestapi.VoidnessRequestable;
 
 //interface
 public interface IEntityFlyWeight extends VoidnessRequestable {

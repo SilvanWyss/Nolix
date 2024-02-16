@@ -4,7 +4,7 @@ package ch.nolix.techapi.relationaldocapi.datamodelapi;
 //own imports
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
-import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.generalstateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableCardinalityHolder;
 import ch.nolix.techapi.relationaldocapi.baseapi.Abstractable;
 import ch.nolix.techapi.relationaldocapi.baseapi.ContentTypeAssignable;

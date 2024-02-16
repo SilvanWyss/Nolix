@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.functionapi.mutationapi;
 
-import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.generalstateapi.staterequestapi.EmptinessRequestable;
 
 //interface
 /**
