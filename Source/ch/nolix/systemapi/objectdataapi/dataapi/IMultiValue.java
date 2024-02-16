@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
 
 //interface
 public interface IMultiValue<V> extends Clearable, IBaseValue<V> {

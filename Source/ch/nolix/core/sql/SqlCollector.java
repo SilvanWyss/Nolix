@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 
 //class

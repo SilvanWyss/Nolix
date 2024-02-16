@@ -3,7 +3,7 @@ package ch.nolix.coreapi.containerapi.listapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
 import ch.nolix.coreapi.programstructureapi.builderapi.Copyable;
 
 //interface

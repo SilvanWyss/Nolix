@@ -6,7 +6,7 @@ import java.util.Optional;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
 
 //interface
 public interface IRootControlOwner<RCO extends IRootControlOwner<RCO>> extends Clearable {

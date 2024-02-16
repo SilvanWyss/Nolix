@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.mutationapi;
+package ch.nolix.coreapi.generalstateapi.statemutationapi;
 
 import ch.nolix.coreapi.generalstateapi.staterequestapi.EmptinessRequestable;
 
