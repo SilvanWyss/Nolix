@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
-import ch.nolix.coreapi.functionapi.mutationapi.Closeable;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface

@@ -4,7 +4,7 @@ package ch.nolix.core.resourcecontrol.resourcepool;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.functionapi.mutationapi.Closeable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi.IResourcePool;

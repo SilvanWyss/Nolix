@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.savecontrolapi;
 
-import ch.nolix.coreapi.functionapi.mutationapi.Closeable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
 
 //interface
 /**
