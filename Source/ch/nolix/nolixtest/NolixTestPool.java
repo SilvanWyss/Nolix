@@ -5,6 +5,7 @@ package ch.nolix.nolixtest;
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coreapitest.CoreApiTestPool;
 import ch.nolix.coretest.CoreTestPool;
+import ch.nolix.systemapitest.SystemApiTestPool;
 import ch.nolix.systemtest.SystemTestPool;
 import ch.nolix.techapitest.TechApiTestPool;
 import ch.nolix.techtest.TechTestPool;
@@ -27,6 +28,7 @@ public final class NolixTestPool extends TestPool {
     super(
       new CoreApiTestPool(),
       new CoreTestPool(),
+      new SystemApiTestPool(),
       new SystemTestPool(),
       new TechApiTestPool(),
       new TechTestPool(),
