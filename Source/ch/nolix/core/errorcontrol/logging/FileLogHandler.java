@@ -9,7 +9,7 @@ import java.nio.file.StandardOpenOption;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
+import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
 
 //class
 public final class FileLogHandler extends LogHandler {
@@ -20,13 +20,13 @@ public final class FileLogHandler extends LogHandler {
     try {
 
       Files.writeString(
-        Paths.get(GlobalNolixEnvironmentTool.NOLIX_LOG_FILE_PATH),
+        Paths.get(NolixDirectoryAndFileCatalogue.NOLIX_LOG_FILE_PATH),
         logEntry.toString() + System.lineSeparator(),
         StandardOpenOption.APPEND);
 
       for (final var ail : logEntry.getAdditionalInfoLines()) {
         Files.writeString(
-          Paths.get(GlobalNolixEnvironmentTool.NOLIX_LOG_FILE_PATH),
+          Paths.get(NolixDirectoryAndFileCatalogue.NOLIX_LOG_FILE_PATH),
           "  " + ail + System.lineSeparator(),
           StandardOpenOption.APPEND);
       }

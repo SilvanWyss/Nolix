@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.independent.nolixenvironment;
+package ch.nolix.coreapi.environmentapi.nolixenvironmentapi;
 
 //Java imports
 import java.io.IOException;
@@ -7,11 +7,8 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-//own imports
-import ch.nolix.coreapi.environmentapi.environmentconfigurationapi.WindowsEnvironmentVariableCatalogue;
-
 //class
-public final class GlobalNolixEnvironmentTool {
+public final class NolixDirectoryAndFileCatalogue {
 
   //constant
   public static final String NOLIX_DIRECTORY_NAME = "Nolix";
@@ -38,10 +35,13 @@ public final class GlobalNolixEnvironmentTool {
   public static final String NOLIX_LOG_FILE_PATH = getNolixLogFilePath();
 
   //constant
+  private static final String APP_DATA = "APPDATA";
+
+  //constant
   private static final char FOLDER_DELIMITER = '/';
 
   //constructor
-  private GlobalNolixEnvironmentTool() {
+  private NolixDirectoryAndFileCatalogue() {
   }
 
   //static method
@@ -56,7 +56,7 @@ public final class GlobalNolixEnvironmentTool {
 
   //static method
   private static String getAppDataDirectoryPath() {
-    return System.getenv(WindowsEnvironmentVariableCatalogue.APP_DATA);
+    return System.getenv(APP_DATA);
   }
 
   //method

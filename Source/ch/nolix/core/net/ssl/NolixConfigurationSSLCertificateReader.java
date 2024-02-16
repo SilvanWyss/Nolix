@@ -3,8 +3,8 @@ package ch.nolix.core.net.ssl;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
 //class
@@ -81,6 +81,6 @@ public final class NolixConfigurationSSLCertificateReader {
 
   //method
   private INode<?> getNolixConfiguration() {
-    return Node.fromFile(GlobalNolixEnvironmentTool.NOLIX_CONFIGURATION_FILE_PATH);
+    return Node.fromFile(NolixDirectoryAndFileCatalogue.NOLIX_CONFIGURATION_FILE_PATH);
   }
 }
