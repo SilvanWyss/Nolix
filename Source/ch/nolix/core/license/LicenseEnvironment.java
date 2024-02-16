@@ -16,9 +16,6 @@ import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 public final class LicenseEnvironment {
 
   //constant
-  public static final String LOCAL_LICENSE_FOLDER_NAME = "Licenses";
-
-  //constant
   public static final String LICENCSE_FILE_EXTENSION = "license";
 
   //constructor
@@ -33,6 +30,6 @@ public final class LicenseEnvironment {
    * @return the path of the license folder on the local computer.
    */
   public static String getLocalLicenseFolderPath() {
-    return (GlobalNolixEnvironmentTool.getLocalNolixFolderPath() + "/" + LOCAL_LICENSE_FOLDER_NAME);
+    return GlobalNolixEnvironmentTool.NOLIX_LICENSES_DIRECTORY_PATH;
   }
 }

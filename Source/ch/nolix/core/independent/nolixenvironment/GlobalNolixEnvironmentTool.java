@@ -7,17 +7,35 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+//own imports
+import ch.nolix.coreapi.environmentapi.environmentconfigurationapi.WindowsEnvironmentVariableCatalogue;
+
 //class
 public final class GlobalNolixEnvironmentTool {
 
   //constant
-  public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
+  public static final String NOLIX_DIRECTORY_NAME = "Nolix";
 
   //constant
-  public static final String LOCAL_NOLIX_CONFIGURATION_FILE_NAME = "nolix_configuration.txt";
+  public static final String NOLIX_LICENSES_DIRECTORY_NAME = "Licenses";
 
   //constant
-  private static final String APPDATA_HEADER = "APPDATA";
+  public static final String NOLIX_CONFIGURATION_FILE_NAME = "nolix_configuration.txt";
+
+  //constant
+  public static final String NOLI_LOG_FILE_NAME = "log.txt";
+
+  //constant
+  public static final String NOLIX_DIRECTORY_PATH = getNolixDirectoryPath();
+
+  //constant
+  public static final String NOLIX_LICENSES_DIRECTORY_PATH = getNolixLicensesDirectoryPath();
+
+  //constant
+  public static final String NOLIX_CONFIGURATION_FILE_PATH = getNolixConfigurationFilePath();
+
+  //constant
+  public static final String NOLIX_LOG_FILE_PATH = getNolixLogFilePath();
 
   //constant
   private static final char FOLDER_DELIMITER = '/';
@@ -27,31 +45,32 @@ public final class GlobalNolixEnvironmentTool {
   }
 
   //static method
-  public static String getLocalNolixConfigurationFilePath() {
-    return getLocalNolixFolderPath() + FOLDER_DELIMITER + LOCAL_NOLIX_CONFIGURATION_FILE_NAME;
+  private static String getNolixDirectoryPath() {
+
+    final var nolixDirectoryPath = getAppDataDirectoryPath() + FOLDER_DELIMITER + NOLIX_DIRECTORY_NAME;
+
+    createDirectoryIfDoesNotExist(nolixDirectoryPath);
+
+    return nolixDirectoryPath;
   }
 
   //static method
-  public static String getLocalNolixFolderPath() {
-
-    final var localNolixFolderPath = getLocalAppDataFolderPath() + FOLDER_DELIMITER + LOCAL_NOLIX_FOLDER_NAME;
-    createFolderIfDoesNotExist(localNolixFolderPath);
-
-    return localNolixFolderPath;
+  private static String getAppDataDirectoryPath() {
+    return System.getenv(WindowsEnvironmentVariableCatalogue.APP_DATA);
   }
 
   //method
-  private static void createFolderIfDoesNotExist(final String path) {
+  private static void createDirectoryIfDoesNotExist(final String path) {
 
-    final var lPath = Path.of(path);
+    final var localPath = Path.of(path);
 
-    if (!Files.exists(lPath)) {
-      createFolderWhenDoesNotExist(lPath);
+    if (!Files.exists(localPath)) {
+      createDirectoryWhenDoesNotExist(localPath);
     }
   }
 
   //method
-  private static void createFolderWhenDoesNotExist(final Path lPath) {
+  private static void createDirectoryWhenDoesNotExist(final Path lPath) {
     try {
       Files.createDirectory(lPath);
     } catch (final IOException ioException) {
@@ -60,7 +79,17 @@ public final class GlobalNolixEnvironmentTool {
   }
 
   //static method
-  private static String getLocalAppDataFolderPath() {
-    return System.getenv(APPDATA_HEADER);
+  private static String getNolixLicensesDirectoryPath() {
+    return (NOLIX_DIRECTORY_PATH + FOLDER_DELIMITER + NOLIX_LICENSES_DIRECTORY_NAME);
+  }
+
+  //static method
+  private static String getNolixConfigurationFilePath() {
+    return (getNolixDirectoryPath() + FOLDER_DELIMITER + NOLIX_CONFIGURATION_FILE_NAME);
+  }
+
+  //static method
+  private static String getNolixLogFilePath() {
+    return (getNolixDirectoryPath() + FOLDER_DELIMITER + NOLI_LOG_FILE_NAME);
   }
 }

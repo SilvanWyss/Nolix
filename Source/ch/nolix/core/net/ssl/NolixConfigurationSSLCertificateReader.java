@@ -25,7 +25,7 @@ public final class NolixConfigurationSSLCertificateReader {
   //method
   public ISslCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {
 
-    final var localNolixConfiguration = getLocalNolixConfiguration();
+    final var localNolixConfiguration = getNolixConfiguration();
 
     return getDefaultSSLCertificateFromNolixConfiguration(localNolixConfiguration);
   }
@@ -33,7 +33,7 @@ public final class NolixConfigurationSSLCertificateReader {
   //method
   public String getDefaultDomainFromLocalNolixConfiguration() {
 
-    final var localNolixConfiguration = getLocalNolixConfiguration();
+    final var localNolixConfiguration = getNolixConfiguration();
 
     return getDefaultDomainFromNolixConfiguration(localNolixConfiguration);
   }
@@ -80,10 +80,7 @@ public final class NolixConfigurationSSLCertificateReader {
   }
 
   //method
-  private INode<?> getLocalNolixConfiguration() {
-
-    final var localNolixConfigurationFilePath = GlobalNolixEnvironmentTool.getLocalNolixConfigurationFilePath();
-
-    return Node.fromFile(localNolixConfigurationFilePath);
+  private INode<?> getNolixConfiguration() {
+    return Node.fromFile(GlobalNolixEnvironmentTool.NOLIX_CONFIGURATION_FILE_PATH);
   }
 }

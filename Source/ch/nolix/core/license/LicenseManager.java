@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentTool;
 import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -201,7 +202,7 @@ public final class LicenseManager {
    */
   private String readKeyFromLicenseFile(final String licenseName) {
     try {
-      return new FolderAccessor(LicenseEnvironment.LOCAL_LICENSE_FOLDER_NAME)
+      return new FolderAccessor(GlobalNolixEnvironmentTool.NOLIX_CONFIGURATION_FILE_PATH)
         .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
     } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
       throw GeneralException.withErrorMessage(
