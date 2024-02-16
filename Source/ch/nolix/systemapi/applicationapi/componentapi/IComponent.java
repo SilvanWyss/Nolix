@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.applicationapi.componentapi;
 
-import ch.nolix.coreapi.functionapi.mutationapi.Rebuildable;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
+import ch.nolix.coreapi.programstructureapi.builderapi.Rebuildable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
