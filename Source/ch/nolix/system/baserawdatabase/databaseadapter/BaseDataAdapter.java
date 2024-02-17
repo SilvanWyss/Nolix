@@ -41,20 +41,26 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   //method
   @Override
+  public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
+    dataWriter.deleteEntity(tableName, entity);
+  }
+
+  @Override
+  public final void deleteMultiBackReferenceEntry(
+    final String tableName,
+    final String entityId,
+    final String multiBackReferenceColumn,
+    final String backReferencedEntityId) {
+    dataWriter.deleteMultiBackReferenceEntry(tableName, entityId, multiBackReferenceColumn, backReferencedEntityId);
+  }
+
+  //method
+  @Override
   public final void deleteMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
     dataWriter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
-  }
-
-  //method
-  @Override
-  public final void deleteMultiValueEntries(
-    final String tableName,
-    final String entityId,
-    final String multiFieldColumn) {
-    dataWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
   }
 
   //method
@@ -69,18 +75,21 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   //method
   @Override
+  public final void deleteMultiValueEntries(
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumn) {
+    dataWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
+  }
+
+  //method
+  @Override
   public final void deleteMultiValueEntry(
     final String tableName,
     final String entityId,
     final String multiFieldColumn,
     final String entry) {
     dataWriter.deleteMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
-  }
-
-  //method
-  @Override
-  public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-    dataWriter.deleteEntity(tableName, entity);
   }
 
   //method

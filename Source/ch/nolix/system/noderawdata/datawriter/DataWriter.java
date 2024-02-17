@@ -36,6 +36,22 @@ public final class DataWriter implements IDataWriter {
 
   //method
   @Override
+  public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
+    internalDataWriter.deleteEntityFromTable(tableName, entity);
+  }
+
+  //method
+  @Override
+  public void deleteMultiBackReferenceEntry(
+    final String tableName,
+    final String entityId,
+    final String multiBackReferenceColumn,
+    final String backReferencedEntityId) {
+    //TODO: Implement.
+  }
+
+  //method
+  @Override
   public void deleteMultiReferenceEntries(
     final String tableName,
     final String entityId,
@@ -47,21 +63,6 @@ public final class DataWriter implements IDataWriter {
       tableInfo,
       entityId,
       tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
-  }
-
-  //method
-  @Override
-  public void deleteMultiValueEntries(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName) {
-
-    final var tableInfo = getTableInfoByTableName(tableName);
-
-    internalDataWriter.deleteEntriesFromMultiValue(
-      tableInfo,
-      entityId,
-      tableInfo.getColumnInfoByColumnName(multiValueColumnName));
   }
 
   //method
@@ -83,6 +84,21 @@ public final class DataWriter implements IDataWriter {
 
   //method
   @Override
+  public void deleteMultiValueEntries(
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
+
+    final var tableInfo = getTableInfoByTableName(tableName);
+
+    internalDataWriter.deleteEntriesFromMultiValue(
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiValueColumnName));
+  }
+
+  //method
+  @Override
   public void deleteMultiValueEntry(
     final String tableName,
     final String entityId,
@@ -96,12 +112,6 @@ public final class DataWriter implements IDataWriter {
       entityId,
       tableInfo.getColumnInfoByColumnName(multiValueColumnName),
       entry);
-  }
-
-  //method
-  @Override
-  public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-    internalDataWriter.deleteEntityFromTable(tableName, entity);
   }
 
   //method

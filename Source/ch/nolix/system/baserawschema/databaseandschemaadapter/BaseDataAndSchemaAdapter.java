@@ -52,20 +52,27 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   //method
   @Override
+  public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
+    dataAdapter.deleteEntity(tableName, entity);
+  }
+
+  //method
+  @Override
+  public final void deleteMultiBackReferenceEntry(
+    final String tableName,
+    final String entityId,
+    final String multiBackReferenceColumn,
+    final String backReferencedEntityId) {
+    dataAdapter.deleteMultiBackReferenceEntry(tableName, entityId, multiBackReferenceColumn, backReferencedEntityId);
+  }
+
+  //method
+  @Override
   public final void deleteMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
     dataAdapter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
-  }
-
-  //method
-  @Override
-  public final void deleteMultiValueEntries(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName) {
-    dataAdapter.deleteMultiValueEntries(tableName, entityId, multiValueColumnName);
   }
 
   //method
@@ -80,18 +87,21 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   //method
   @Override
+  public final void deleteMultiValueEntries(
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
+    dataAdapter.deleteMultiValueEntries(tableName, entityId, multiValueColumnName);
+  }
+
+  //method
+  @Override
   public final void deleteMultiValueEntry(
     final String tableName,
     final String entityId,
     final String multiValueColumnName,
     final String entry) {
     dataAdapter.deleteMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
-  }
-
-  //method
-  @Override
-  public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-    dataAdapter.deleteEntity(tableName, entity);
   }
 
   //method

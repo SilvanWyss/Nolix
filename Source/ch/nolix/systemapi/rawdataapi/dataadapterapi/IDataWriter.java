@@ -17,14 +17,13 @@ public interface IDataWriter extends IResettableChangeSaver {
 
   //method declaration
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * Causes an error if the concerned entity was deleted or changed in the
    * meanwhile.
    * 
    * @param tableName
-   * @param entityId
-   * @param multiReferenceColumnName
+   * @param entity
    */
-  void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
+  void deleteEntity(String tableName, IEntityHeadDto entity);
 
   //method declaration
   /**
@@ -33,9 +32,25 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entityId
-   * @param multiValueColumnName
+   * @param multiBackReferenceColumn
+   * @param backReferencedEntityId
    */
-  void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
+  void deleteMultiBackReferenceEntry(
+    String tableName,
+    String entityId,
+    String multiBackReferenceColumn,
+    String backReferencedEntityId);
+
+  //method declaration
+  /**
+   * There is not asserted that the concerned entity was not changed in the
+   * meanwhile.
+   * 
+   * @param tableName
+   * @param entityId
+   * @param multiReferenceColumnName
+   */
+  void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
 
   //method declaration
   /**
@@ -61,6 +76,17 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param tableName
    * @param entityId
    * @param multiValueColumnName
+   */
+  void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
+
+  //method declaration
+  /**
+   * There is not asserted that the concerned entity was not changed in the
+   * meanwhile.
+   * 
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnName
    * @param entry
    */
   void deleteMultiValueEntry(
@@ -68,16 +94,6 @@ public interface IDataWriter extends IResettableChangeSaver {
     String entityId,
     String multiValueColumnName,
     String entry);
-
-  //method declaration
-  /**
-   * Causes an error if the concerned entity was deleted or changed in the
-   * meanwhile.
-   * 
-   * @param tableName
-   * @param entity
-   */
-  void deleteEntity(String tableName, IEntityHeadDto entity);
 
   //method declaration
   /**
