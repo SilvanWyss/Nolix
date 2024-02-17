@@ -101,6 +101,20 @@ public final class InternalDataWriter {
   }
 
   //method
+  public void deleteMultiBackReferenceEntry(
+    final String entityId,
+    final String multiBackReferenceColumnId,
+    final String backReferencedEntityId) {
+
+    final var statement = multiBackReferenceStatementCreator.createStatementToDeleteMultiBackReferenceEntry(
+      entityId,
+      multiBackReferenceColumnId,
+      backReferencedEntityId);
+
+    sqlCollector.addSqlStatement(statement);
+  }
+
+  //method
   public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp));
   }

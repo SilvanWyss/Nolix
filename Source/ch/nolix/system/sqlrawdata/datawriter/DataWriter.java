@@ -66,7 +66,7 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
-    //TODO: Implement.
+    internalDataWriter.deleteMultiBackReferenceEntry(entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
   //method
