@@ -126,7 +126,7 @@ implements IOptionalBackReference<E> {
 
   //method
   @Override
-  void internalSetOrClearDirectlyFromContent(final Object content) {
+  void internalSetOrClearFromContent(final Object content) {
     backReferencedEntityId = (String) content;
   }
 }

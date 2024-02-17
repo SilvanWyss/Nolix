@@ -175,7 +175,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  void internalSetOrClearDirectlyFromContent(final Object content) {
+  void internalSetOrClearFromContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 

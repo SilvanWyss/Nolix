@@ -123,7 +123,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
   //method
   @Override
   @SuppressWarnings("unchecked")
-  void internalSetOrClearDirectlyFromContent(final Object content) {
+  void internalSetOrClearFromContent(final Object content) {
     if (content == null) {
       internalValue = null;
     } else {

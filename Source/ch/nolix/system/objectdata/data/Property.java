@@ -156,7 +156,7 @@ public abstract class Property implements IProperty {
   }
 
   //method declaration
-  abstract void internalSetOrClearDirectlyFromContent(Object content);
+  abstract void internalSetOrClearFromContent(Object content);
 
   //method
   final void internalSetParentColumn(final IColumn parentColumn) {

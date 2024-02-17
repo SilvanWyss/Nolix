@@ -156,7 +156,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
-  void internalSetOrClearDirectlyFromContent(final Object content) {
+  void internalSetOrClearFromContent(final Object content) {
     if (content == null) {
       referencedEntityId = null;
     } else {

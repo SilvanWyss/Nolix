@@ -138,7 +138,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   @Override
-  void internalSetOrClearDirectlyFromContent(final Object content) {
+  void internalSetOrClearFromContent(final Object content) {
     referencedEntityId = (String) content;
   }
 

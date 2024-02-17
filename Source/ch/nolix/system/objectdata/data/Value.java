@@ -106,7 +106,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   //method
   @Override
   @SuppressWarnings("unchecked")
-  void internalSetOrClearDirectlyFromContent(final Object content) {
+  void internalSetOrClearFromContent(final Object content) {
     internalValue = (V) content;
   }
 
