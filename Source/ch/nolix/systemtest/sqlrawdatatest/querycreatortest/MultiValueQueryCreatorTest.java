@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.sqlrawdatatest.sqlsyntaxtest;
+package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.sqlrawdatatest.sqlsyntaxtest;
+package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;

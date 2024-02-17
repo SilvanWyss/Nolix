@@ -9,10 +9,6 @@ public final class SqlSyntaxTestPool extends TestPool {
 
   //constructor
   public SqlSyntaxTestPool() {
-    super(
-      EntityQueryCreatorTest.class,
-      EntityStatementCreatorTest.class,
-      MultiReferenceQueryCreatorTest.class,
-      MultiValueQueryCreatorTest.class);
+    super(EntityStatementCreatorTest.class);
   }
 }
