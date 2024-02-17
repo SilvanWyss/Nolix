@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//Java imports
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -82,6 +85,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+    return new ContentFieldDto(getName());
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
     return localEntries.isEmpty()
     && isEmptyWhenDoesNotHaveLocalEntries();
@@ -101,6 +110,15 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   @Override
+  public void removeFirstValue(final Predicate<V> selector) {
+
+    final var value = getAllStoredValues().getOptionalStoredFirst(selector);
+
+    value.ifPresent(this::removeValue);
+  }
+
+  //method
+  @Override
   public void removeValue(final V value) {
 
     MULTI_VALUE_VALIDATOR.assertCanRemoveValue(this, value);
@@ -108,12 +126,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     updateStateForLoadAllPersistedValuesIfNotLoaded();
 
     updateStateForRemoveValue(value);
-  }
-
-  //method
-  @Override
-  public IContentFieldDto internalToContentField() {
-    return new ContentFieldDto(getName());
   }
 
   //method
@@ -181,9 +193,9 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   private void updateStateForLoadAllPersistedValues() {
-  
+
     loadedAllPersistedValues = true;
-  
+
     localEntries.addAtEnd(loadAllPersistedValues());
   }
 
