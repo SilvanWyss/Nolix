@@ -63,7 +63,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   @Override
   public IContainer<V> getAllStoredValues() {
 
-    extractValuesIfNeeded();
+    loadAllPersistedValuesIfNotLoaded();
 
     return localEntries.to(IMultiValueEntry::getStoredValue);
   }
@@ -104,7 +104,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
     MULTI_VALUE_VALIDATOR.assertCanRemoveValue(this, value);
 
-    extractValuesIfNeeded();
+    loadAllPersistedValuesIfNotLoaded();
 
     localEntries.removeAndGetStoredFirst(le -> le.getStoredValue().equals(value)).internalSetDeleted();
   }
@@ -122,19 +122,24 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   //method
+  private void addValueToItself(final V value) {
+    localEntries.addAtEnd(MultiValueEntry.newEntryForMultiValueAndValue(this, value));
+  }
+
+  //method
   private void assertCanAddValue(final V value) {
     MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
   }
 
   //method
-  private void extractValuesIfNeeded() {
+  private void loadAllPersistedValuesIfNotLoaded() {
     if (!loadedAllPersistedValues()) {
-      extractValuesWhenNeeded();
+      loadAllPersistedValues();
     }
   }
 
   //method
-  private void extractValuesWhenNeeded() {
+  private void loadAllPersistedValues() {
 
     loadedAllPersistedValues = true;
 
@@ -149,10 +154,5 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
       getStoredParentEntity().getId(),
       getName())
       .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
-  }
-
-  //method
-  private void addValueToItself(final V value) {
-    localEntries.addAtEnd(MultiValueEntry.newEntryForMultiValueAndValue(this, value));
   }
 }
