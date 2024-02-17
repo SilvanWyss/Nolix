@@ -83,7 +83,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   @Override
   public boolean isEmpty() {
-    return getAllStoredValues().isEmpty();
+    return localEntries.isEmpty()
+    && isEmptyWhenDoesNotHaveLocalEntries();
   }
 
   //method
@@ -129,6 +130,26 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   private void assertCanAddValue(final V value) {
     MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
+  }
+
+  //method
+  private boolean isEmptyWhenDoesNotHaveLocalEntries() {
+    return getAllStoredValues().isEmpty();
+
+    //TODO: Implement.
+    /*
+     * if (loadedAllPersistedValues()) { return true; }
+     * 
+     * if (isLinkedWithRealDatabase()) {
+     * 
+     * final var entity = getStoredParentEntity(); final var column =
+     * getStoredParentColumn();
+     * 
+     * return internalGetRefDataAndSchemaAdapter().multiValueIsEmpty(
+     * entity.getParentTableName(), entity.getId(), column.getId()); }
+     * 
+     * return true;
+     */
   }
 
   //method
