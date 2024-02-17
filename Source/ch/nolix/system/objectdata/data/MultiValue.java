@@ -6,19 +6,22 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.propertyvalidator.MultiValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IMultiValueValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
   //constant
-  private static final IMultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
+  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
+
+  //constant
+  private static final MultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 
   //attribute
   private boolean extractedValues;
@@ -57,8 +60,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   @Override
-  public IContainer<? extends IMultiValueEntry<V>> getStoredLocalEntries() {
-    return localEntries;
+  public IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries() {
+    return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
   //method

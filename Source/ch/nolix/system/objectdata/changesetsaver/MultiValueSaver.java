@@ -14,8 +14,8 @@ final class MultiValueSaver {
   public void saveChangesOfMultiValue(
     final IMultiValue<?> multiValue,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    for (final var le : multiValue.getStoredLocalEntries()) {
-      saveChangeOfMultiValueEntry(le, dataAndSchemaAdapter);
+    for (final var e : multiValue.getStoredNewAndDeletedEntries()) {
+      saveChangeOfMultiValueEntry(e, dataAndSchemaAdapter);
     }
   }
 
