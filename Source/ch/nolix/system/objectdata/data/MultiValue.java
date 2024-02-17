@@ -53,9 +53,10 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   @Override
   public void clear() {
-    if (containsAny()) {
-      clearWhenContainsAny();
-    }
+
+    getAllStoredValues().forEach(this::removeValue);
+
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -123,14 +124,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   private void assertCanAddValue(final V value) {
     MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
-  }
-
-  //method
-  private void clearWhenContainsAny() {
-
-    getAllStoredValues().forEach(this::removeValue);
-
-    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
