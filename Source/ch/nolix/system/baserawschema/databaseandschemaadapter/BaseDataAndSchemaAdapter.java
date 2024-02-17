@@ -148,7 +148,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   //method
   @Override
-  public void insertMultiBackReferenceEntry(
+  public final void insertMultiBackReferenceEntry(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnId,
@@ -264,6 +264,15 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   @Override
   public final IContainer<ITableDto> loadTables() {
     return schemaReader.loadTables();
+  }
+
+  //method
+  @Override
+  public final boolean multiValueIsEmpty(
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnId) {
+    return dataAdapter.multiValueIsEmpty(tableName, entityId, multiValueColumnId);
   }
 
   //method

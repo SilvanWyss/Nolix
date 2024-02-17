@@ -130,7 +130,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   //method
   @Override
-  public void insertMultiBackReferenceEntry(
+  public final void insertMultiBackReferenceEntry(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnId,
@@ -195,7 +195,17 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   //method
   @Override
-  public void noteClose() {
+  public final boolean multiValueIsEmpty(
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnId) {
+    return dataReader.multiValueIsEmpty(tableName, entityId, multiValueColumnId);
+  }
+
+  //method
+  @Override
+  public final void noteClose() {
+    //Does nothing.
   }
 
   //method
