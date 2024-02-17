@@ -50,7 +50,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredReferencedObjects() {
-    return referencedObjects.getStoredReferencedEntities();
+    return referencedObjects.getAllStoredReferencedEntities();
   }
 
   //method

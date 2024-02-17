@@ -76,7 +76,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public IContainer<String> getReferencedEntityIds() {
+  public IContainer<String> getAllReferencedEntityIds() {
   
     extractReferencedEntityIdsIfNeeded();
   
@@ -87,11 +87,17 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
+  public IContainer<E> getAllStoredReferencedEntities() {
+    return getAllReferencedEntityIds().to(getReferencedTable()::getStoredEntityById);
+  }
+
+  //method
+  @Override
   public IContainer<IProperty> getStoredBackReferencingProperties() {
 
     final var backReferencingProperties = new LinkedList<IProperty>();
 
-    for (final var re : getStoredReferencedEntities()) {
+    for (final var re : getAllStoredReferencedEntities()) {
 
       final var backReferencingProperty = re.internalGetStoredProperties()
         .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
@@ -112,12 +118,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public IContainer<E> getStoredReferencedEntities() {
-    return getReferencedEntityIds().to(getReferencedTable()::getStoredEntityById);
-  }
-
-  //method
-  @Override
   public PropertyType getType() {
     return PropertyType.MULTI_REFERENCE;
   }
@@ -131,7 +131,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   @Override
   public boolean isEmpty() {
-    return getReferencedEntityIds().isEmpty();
+    return getAllReferencedEntityIds().isEmpty();
   }
 
   //method
@@ -148,13 +148,13 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
       return false;
     }
 
-    return getReferencedEntityIds().containsEqualing(entity.getId());
+    return getAllReferencedEntityIds().containsEqualing(entity.getId());
   }
 
   //method
   @Override
   public boolean referencesUninsertedEntity() {
-    return getStoredReferencedEntities().containsAny(e -> !e.belongsToTable());
+    return getAllStoredReferencedEntities().containsAny(e -> !e.belongsToTable());
   }
 
   //method
@@ -168,7 +168,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @Override
   public void removeFirstEntity(final Predicate<E> selector) {
 
-    final var entity = getStoredReferencedEntities().getOptionalStoredFirst(selector);
+    final var entity = getAllStoredReferencedEntities().getOptionalStoredFirst(selector);
 
     entity.ifPresent(this::removeEntity);
   }
@@ -183,7 +183,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @Override
   void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
-      for (final var e : getStoredReferencedEntities()) {
+      for (final var e : getAllStoredReferencedEntities()) {
         updateProbableBackReferenceForSetOrAddedEntity(e);
       }
     }
@@ -211,7 +211,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   private void clearWhenContainsAny() {
 
-    getStoredReferencedEntities().forEach(this::removeEntity);
+    getAllStoredReferencedEntities().forEach(this::removeEntity);
 
     setAsEditedAndRunPotentialUpdateAction();
   }

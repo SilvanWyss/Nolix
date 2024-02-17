@@ -102,13 +102,13 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredDeclaredFields() {
-    return declaredFields.getStoredReferencedEntities();
+    return declaredFields.getAllStoredReferencedEntities();
   }
 
   //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes() {
-    return directBaseTypes.getStoredReferencedEntities();
+    return directBaseTypes.getAllStoredReferencedEntities();
   }
 
   //method
