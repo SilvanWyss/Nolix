@@ -32,13 +32,13 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entityId
-   * @param multiBackReferenceColumn
+   * @param multiBackReferenceColumnId
    * @param backReferencedEntityId
    */
   void deleteMultiBackReferenceEntry(
     String tableName,
     String entityId,
-    String multiBackReferenceColumn,
+    String multiBackReferenceColumnId,
     String backReferencedEntityId);
 
   //method declaration

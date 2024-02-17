@@ -49,9 +49,9 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   public final void deleteMultiBackReferenceEntry(
     final String tableName,
     final String entityId,
-    final String multiBackReferenceColumn,
+    final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
-    dataWriter.deleteMultiBackReferenceEntry(tableName, entityId, multiBackReferenceColumn, backReferencedEntityId);
+    dataWriter.deleteMultiBackReferenceEntry(tableName, entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
   //method

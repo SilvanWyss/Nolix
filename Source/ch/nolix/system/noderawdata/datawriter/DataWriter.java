@@ -45,7 +45,7 @@ public final class DataWriter implements IDataWriter {
   public void deleteMultiBackReferenceEntry(
     final String tableName,
     final String entityId,
-    final String multiBackReferenceColumn,
+    final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
     //TODO: Implement.
   }
