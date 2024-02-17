@@ -88,6 +88,23 @@ final class InternalDataWriter {
   }
 
   //method
+  public void deleteMultiBackReferenceEntry(
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiBackReferenceColumnInfo,
+    final String backReferencedEntityId) {
+
+    final Consumer<IMutableNode<?>> changeAction = d -> DATABASE_UPDATER.deleteMultiBackReferenceEntry(
+      d,
+      tableInfo,
+      entityId,
+      multiBackReferenceColumnInfo,
+      backReferencedEntityId);
+
+    addChangeAction(changeAction);
+  }
+
+  //method
   public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
     addChangeAction(d -> DATABASE_UPDATER.expectGivenSchemaTimestamp(d, schemaTimestamp));
   }
@@ -114,8 +131,8 @@ final class InternalDataWriter {
     final IColumnInfo multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
-    final Consumer<IMutableNode<?>> changeAction = databaseNode -> DATABASE_UPDATER.insertEntryIntoMultiBackReference(
-      databaseNode,
+    final Consumer<IMutableNode<?>> changeAction = d -> DATABASE_UPDATER.insertEntryIntoMultiBackReference(
+      d,
       tableInfo,
       entityId,
       multiBackReferenceColumnInfo,

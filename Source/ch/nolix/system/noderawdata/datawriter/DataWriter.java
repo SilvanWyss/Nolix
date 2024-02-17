@@ -47,7 +47,15 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
-    //TODO: Implement.
+
+    final var tableInfo = getTableInfoByTableName(tableName);
+    final var multiBackReferenceColumnInfo = tableInfo.getColumnInfoByColumnId(multiBackReferenceColumnId);
+
+    internalDataWriter.deleteMultiBackReferenceEntry(
+      tableInfo,
+      entityId,
+      multiBackReferenceColumnInfo,
+      backReferencedEntityId);
   }
 
   //method

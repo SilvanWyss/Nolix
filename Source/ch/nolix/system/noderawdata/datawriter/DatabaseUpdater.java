@@ -85,7 +85,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiReferencedColumnInfo,
+    final IColumnInfo multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
@@ -93,7 +93,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferencedColumnInfo.getColumnIndexOnEntityNode();
+    final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 
     final var multiReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
@@ -137,6 +137,26 @@ final class DatabaseUpdater {
     if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
     }
+  }
+
+  //method
+  public void deleteMultiBackReferenceEntry(
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiBackReferenceColumnInfo,
+    final String backReferencedEntityId) {
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+      tableInfo.getTableName());
+
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.getColumnIndexOnEntityNode();
+
+    final var multiBackReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
+
+    multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }
 
   //method
@@ -348,4 +368,5 @@ final class DatabaseUpdater {
       }
     }
   }
+
 }
