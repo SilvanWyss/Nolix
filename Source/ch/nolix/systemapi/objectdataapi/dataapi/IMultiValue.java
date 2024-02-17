@@ -18,5 +18,8 @@ public interface IMultiValue<V> extends Clearable, IBaseValue<V> {
   IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries();
 
   //method declaration
+  boolean loadedAllPersistedValues();
+
+  //method declaration
   void removeValue(V value);
 }

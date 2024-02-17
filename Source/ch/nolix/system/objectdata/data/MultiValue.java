@@ -24,7 +24,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   private static final MultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 
   //attribute
-  private boolean extractedValues;
+  private boolean loadedAllPersistedValues;
 
   //multi-attribute
   private final LinkedList<MultiValueEntry<V>> localEntries = new LinkedList<>();
@@ -61,9 +61,9 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   @Override
   public IContainer<V> getAllStoredValues() {
-  
+
     extractValuesIfNeeded();
-  
+
     return localEntries.to(IMultiValueEntry::getStoredValue);
   }
 
@@ -89,6 +89,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   @Override
   public boolean isMandatory() {
     return false;
+  }
+
+  //method
+  @Override
+  public boolean loadedAllPersistedValues() {
+    return loadedAllPersistedValues;
   }
 
   //method
@@ -128,13 +134,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   //method
-  private boolean extractedValues() {
-    return extractedValues;
-  }
-
-  //method
   private void extractValuesIfNeeded() {
-    if (!extractedValues()) {
+    if (!loadedAllPersistedValues()) {
       extractValuesWhenNeeded();
     }
   }
@@ -142,7 +143,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   private void extractValuesWhenNeeded() {
 
-    extractedValues = true;
+    loadedAllPersistedValues = true;
 
     localEntries.addAtEnd(loadEntries());
   }
