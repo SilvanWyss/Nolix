@@ -95,13 +95,31 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
 
   //method
   @Override
+  public boolean isNewOrDeleted(IDatabaseObject databaseObject) {
+
+    final var state = databaseObject.getState();
+
+    return state == DatabaseObjectState.NEW
+    || state == DatabaseObjectState.DELETED;
+  }
+
+  //method
+  @Override
   public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
-    return (isNew(databaseObject) || isEdited(databaseObject));
+
+    final var state = databaseObject.getState();
+
+    return state == DatabaseObjectState.NEW
+    || state == DatabaseObjectState.EDITED;
   }
 
   //method
   @Override
   public boolean isNewOrLoaded(IDatabaseObject databaseObject) {
-    return (isNew(databaseObject) || isLoaded(databaseObject));
+
+    final var state = databaseObject.getState();
+
+    return state == DatabaseObjectState.NEW
+    || state == DatabaseObjectState.LOADED;
   }
 }
