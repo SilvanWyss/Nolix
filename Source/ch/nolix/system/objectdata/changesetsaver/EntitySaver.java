@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.changesetsaver;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
@@ -25,6 +26,9 @@ public final class EntitySaver {
 
   //constant
   private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
+
+  //constant
+  private static final MultiBackReferenceSaver MULTI_BACK_REFERENCE_SAVER = new MultiBackReferenceSaver();
 
   //method
   public void saveChangesOfEntity(
@@ -98,14 +102,17 @@ public final class EntitySaver {
 
   //method
   private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(
-    final IProperty p,
+    final IProperty property,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    switch (p.getType()) {
+    switch (property.getType()) {
       case MULTI_VALUE:
-        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) p, dataAndSchemaAdapter);
+        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) property, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
-        MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) p, dataAndSchemaAdapter);
+        MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) property, dataAndSchemaAdapter);
+        break;
+      case MULTI_BACK_REFERENCE:
+        MULTI_BACK_REFERENCE_SAVER.saveMultiBackReference((IMultiBackReference<?>) property, dataAndSchemaAdapter);
         break;
       default:
         //Does nothing.
