@@ -12,10 +12,10 @@ public interface IMultiValue<V> extends Clearable, IBaseValue<V> {
   void addValue(V value);
 
   //method declaration
-  IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries();
+  IContainer<V> getAllStoredValues();
 
   //method declaration
-  IContainer<V> getStoredValues();
+  IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries();
 
   //method declaration
   void removeValue(V value);

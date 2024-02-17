@@ -79,7 +79,7 @@ public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot know its data type");
     }
 
-    return multiValue.getStoredValues().getStoredFirst().getClass();
+    return multiValue.getAllStoredValues().getStoredFirst().getClass();
   }
 
   //method

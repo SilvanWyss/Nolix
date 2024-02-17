@@ -61,7 +61,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
   //method
   @Override
   public IContainer<String> getStoredValues() {
-    return values.getStoredValues();
+    return values.getAllStoredValues();
   }
 
   //method
@@ -83,7 +83,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanRemoveValue(this);
 
     values.removeValue(value);
-    final var equalingValue = values.getStoredValues().getOptionalStoredFirst(v -> v.equals(value));
+    final var equalingValue = values.getAllStoredValues().getOptionalStoredFirst(v -> v.equals(value));
     if (equalingValue.isPresent()) {
       values.removeValue(equalingValue.get());
     }

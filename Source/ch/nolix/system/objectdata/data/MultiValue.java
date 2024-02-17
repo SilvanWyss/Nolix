@@ -60,17 +60,17 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   @Override
-  public IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries() {
-    return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
+  public IContainer<V> getAllStoredValues() {
+  
+    extractValuesIfNeeded();
+  
+    return localEntries.to(IMultiValueEntry::getStoredValue);
   }
 
   //method
   @Override
-  public IContainer<V> getStoredValues() {
-
-    extractValuesIfNeeded();
-
-    return localEntries.to(IMultiValueEntry::getStoredValue);
+  public IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries() {
+    return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
   //method
@@ -82,7 +82,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   @Override
   public boolean isEmpty() {
-    return getStoredValues().isEmpty();
+    return getAllStoredValues().isEmpty();
   }
 
   //method
@@ -122,7 +122,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   private void clearWhenContainsAny() {
 
-    getStoredValues().forEach(this::removeValue);
+    getAllStoredValues().forEach(this::removeValue);
 
     setAsEditedAndRunProbableUpdateAction();
   }
