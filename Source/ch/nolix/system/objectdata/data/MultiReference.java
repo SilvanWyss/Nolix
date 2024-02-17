@@ -124,6 +124,12 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+    return new ContentFieldDto(getName());
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
     return getReferencedEntityIds().isEmpty();
   }
@@ -165,12 +171,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     final var entity = getStoredReferencedEntities().getOptionalStoredFirst(selector);
 
     entity.ifPresent(this::removeEntity);
-  }
-
-  //method
-  @Override
-  public IContentFieldDto technicalToContentField() {
-    return new ContentFieldDto(getName());
   }
 
   //method

@@ -102,6 +102,17 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+  
+    if (isEmpty()) {
+      return new ContentFieldDto(getName());
+    }
+  
+    return new ContentFieldDto(getName(), getReferencedEntityId());
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
     return (referencedEntityId == null);
   }
@@ -141,17 +152,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     final var entity = getReferencedTable().getStoredEntityById(id);
 
     setEntity(entity);
-  }
-
-  //method
-  @Override
-  public IContentFieldDto technicalToContentField() {
-
-    if (isEmpty()) {
-      return new ContentFieldDto(getName());
-    }
-
-    return new ContentFieldDto(getName(), getReferencedEntityId());
   }
 
   //method

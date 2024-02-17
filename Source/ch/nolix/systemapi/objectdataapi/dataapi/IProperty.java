@@ -32,6 +32,9 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
   PropertyType getType();
 
   //method declaration
+  IContentFieldDto internalToContentField();
+
+  //method declaration
   boolean knowsParentColumn();
 
   //method declaration
@@ -48,7 +51,4 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
 
   //method declaration
   void setUpdateAction(Runnable updateAction);
-
-  //method declaration
-  IContentFieldDto technicalToContentField();
 }

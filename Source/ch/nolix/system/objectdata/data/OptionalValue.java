@@ -111,7 +111,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 
   //method
   @Override
-  public IContentFieldDto technicalToContentField() {
+  public IContentFieldDto internalToContentField() {
 
     if (isEmpty()) {
       return new ContentFieldDto(getName());

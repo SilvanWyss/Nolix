@@ -84,6 +84,17 @@ implements IBackReference<E> {
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+  
+    if (isEmpty()) {
+      return new ContentFieldDto(getName());
+    }
+  
+    return new ContentFieldDto(getName(), getBackReferencedEntityId());
+  }
+
+  //method
+  @Override
   public boolean isMandatory() {
     return true;
   }
@@ -100,17 +111,6 @@ implements IBackReference<E> {
   @Override
   public boolean referencesBackEntity() {
     return containsAny();
-  }
-
-  //method
-  @Override
-  public IContentFieldDto technicalToContentField() {
-
-    if (isEmpty()) {
-      return new ContentFieldDto(getName());
-    }
-
-    return new ContentFieldDto(getName(), getBackReferencedEntityId());
   }
 
   //method

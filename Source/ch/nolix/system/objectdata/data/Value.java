@@ -99,7 +99,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
   //method
   @Override
-  public IContentFieldDto technicalToContentField() {
+  public IContentFieldDto internalToContentField() {
     return new ContentFieldDto(getName(), getStoredValue().toString());
   }
 

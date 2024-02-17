@@ -110,6 +110,12 @@ implements IMultiBackReference<E> {
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+    return new ContentFieldDto(getName());
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
 
     final var parentEntity = getStoredParentEntity();
@@ -147,12 +153,6 @@ implements IMultiBackReference<E> {
     }
 
     return false;
-  }
-
-  //method
-  @Override
-  public IContentFieldDto technicalToContentField() {
-    return new ContentFieldDto(getName());
   }
 
   //method

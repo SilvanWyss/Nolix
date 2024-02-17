@@ -64,7 +64,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return new EntityUpdateDto(
       entity.getId(),
       entity.getSaveStamp(),
-      getStoredEditedProperties(entity).to(IProperty::technicalToContentField));
+      getStoredEditedProperties(entity).to(IProperty::internalToContentField));
   }
 
   //method
@@ -77,7 +77,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
     return //
-    new NewEntityDto(entity.getId(), entity.internalGetStoredProperties().to(IProperty::technicalToContentField));
+    new NewEntityDto(entity.getId(), entity.internalGetStoredProperties().to(IProperty::internalToContentField));
   }
 
   //method

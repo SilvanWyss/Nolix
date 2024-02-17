@@ -89,6 +89,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+    return new ContentFieldDto(getName(), getReferencedEntityId());
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
     return (referencedEntityId == null);
   }
@@ -128,12 +134,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     final var entity = getReferencedTable().getStoredEntityById(id);
 
     setEntity(entity);
-  }
-
-  //method
-  @Override
-  public IContentFieldDto technicalToContentField() {
-    return new ContentFieldDto(getName(), getReferencedEntityId());
   }
 
   //method

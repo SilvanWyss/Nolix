@@ -112,7 +112,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   @Override
-  public IContentFieldDto technicalToContentField() {
+  public IContentFieldDto internalToContentField() {
     return new ContentFieldDto(getName());
   }
 

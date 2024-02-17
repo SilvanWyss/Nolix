@@ -78,6 +78,17 @@ implements IOptionalBackReference<E> {
 
   //method
   @Override
+  public IContentFieldDto internalToContentField() {
+  
+    if (isEmpty()) {
+      return new ContentFieldDto(getName());
+    }
+  
+    return new ContentFieldDto(getName(), getBackReferencedEntityId());
+  }
+
+  //method
+  @Override
   public boolean isEmpty() {
     return (backReferencedEntityId == null);
   }
@@ -94,17 +105,6 @@ implements IOptionalBackReference<E> {
     return containsAny()
     && entity != null
     && getBackReferencedEntityId().equals(entity.getId());
-  }
-
-  //method
-  @Override
-  public IContentFieldDto technicalToContentField() {
-
-    if (isEmpty()) {
-      return new ContentFieldDto(getName());
-    }
-
-    return new ContentFieldDto(getName(), getBackReferencedEntityId());
   }
 
   //method
