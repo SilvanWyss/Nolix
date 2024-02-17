@@ -56,7 +56,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 
     internalValue = null;
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -94,7 +94,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 
     updateStateForSetValue(value);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method

@@ -82,7 +82,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
     updateStateForSetValue(value);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method

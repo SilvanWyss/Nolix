@@ -122,7 +122,7 @@ implements IBackReference<E> {
   //method
   void internalClear() {
     backReferencedEntityId = null;
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method

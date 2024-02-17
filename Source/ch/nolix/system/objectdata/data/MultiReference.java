@@ -200,7 +200,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
     insertEntityIntoDatabaseIfPossible(entity);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -213,7 +213,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
     getStoredReferencedEntities().forEach(this::removeEntity);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -264,7 +264,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
     localEntries.getStoredFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -280,12 +280,12 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReference;
         backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        backReference.setAsEditedAndRunProbableUpdateAction();
+        backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
         final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
         optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
         /*

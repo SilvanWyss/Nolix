@@ -139,7 +139,7 @@ public abstract class Property implements IProperty {
   }
 
   //method
-  protected final void setAsEditedAndRunProbableUpdateAction() {
+  protected final void setAsEditedAndRunPotentialUpdateAction() {
 
     if (belongsToEntity()) {
       ((BaseEntity) getStoredParentEntity()).internalSetEdited();

@@ -321,7 +321,7 @@ public abstract class BaseEntity implements IEntity {
   //method
   private void updateBackReferenceForDeletion(final BackReference<?> backReference) {
     backReference.internalClear();
-    backReference.setAsEditedAndRunProbableUpdateAction();
+    backReference.setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -364,7 +364,7 @@ public abstract class BaseEntity implements IEntity {
   //method
   private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {
     optionalBackReference.internalClear();
-    optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+    optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method

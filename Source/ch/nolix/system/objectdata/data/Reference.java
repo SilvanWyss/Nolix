@@ -169,7 +169,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
     updateStateForClear();
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -204,7 +204,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
     insertEntityIntoDatabaseIfPossible(entity);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -213,12 +213,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) backReferencingProperty;
         backReference.internalClear();
-        backReference.setAsEditedAndRunProbableUpdateAction();
+        backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
         final var optionalBackReference = (OptionalBackReference<?>) backReferencingProperty;
         optionalBackReference.internalClear();
-        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
         /*
@@ -237,12 +237,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReference;
         backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        backReference.setAsEditedAndRunProbableUpdateAction();
+        backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
         final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
         optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
         //Does nothing.

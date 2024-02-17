@@ -191,7 +191,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
     updateStateForClear();
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -226,7 +226,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
     insertEntityIntoDatabaseIfPossible(entity);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -257,12 +257,12 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReference;
         backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        backReference.setAsEditedAndRunProbableUpdateAction();
+        backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
         final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
         optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
         //Does nothing.

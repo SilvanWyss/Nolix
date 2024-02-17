@@ -47,7 +47,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
     updateStateForAddValue(value);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
@@ -130,7 +130,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
     getAllStoredValues().forEach(this::removeValue);
 
-    setAsEditedAndRunProbableUpdateAction();
+    setAsEditedAndRunPotentialUpdateAction();
   }
 
   //method
