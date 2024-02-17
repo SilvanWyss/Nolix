@@ -45,7 +45,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
     assertCanAddValue(value);
 
-    updateStateForAddValue(value);
+    addValueToItself(value);
 
     setAsEditedAndRunPotentialUpdateAction();
   }
@@ -159,7 +159,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   //method
-  private void updateStateForAddValue(final V value) {
+  private void addValueToItself(final V value) {
     localEntries.addAtEnd(MultiValueEntry.newEntryForMultiValueAndValue(this, value));
   }
 }
