@@ -45,7 +45,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
     assertCanAddValue(value);
 
-    addValueToItself(value);
+    updateStateForAddValue(value);
 
     setAsEditedAndRunPotentialUpdateAction();
   }
@@ -63,9 +63,9 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   @Override
   public IContainer<V> getAllStoredValues() {
 
-    loadAllPersistedValuesIfNotLoaded();
+    updateStateForLoadAllPersistedValuesIfNotLoaded();
 
-    return localEntries.to(IMultiValueEntry::getStoredValue);
+    return getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries();
   }
 
   //method
@@ -105,9 +105,9 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
     MULTI_VALUE_VALIDATOR.assertCanRemoveValue(this, value);
 
-    loadAllPersistedValuesIfNotLoaded();
+    updateStateForLoadAllPersistedValuesIfNotLoaded();
 
-    localEntries.removeAndGetStoredFirst(le -> le.getStoredValue().equals(value)).internalSetDeleted();
+    updateStateForRemoveValue(value);
   }
 
   //method
@@ -123,13 +123,22 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   //method
-  private void addValueToItself(final V value) {
-    localEntries.addAtEnd(MultiValueEntry.newEntryForMultiValueAndValue(this, value));
+  private void assertCanAddValue(final V value) {
+    MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
   }
 
   //method
-  private void assertCanAddValue(final V value) {
-    MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
+  private IContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {
+
+    final var values = new LinkedList<V>();
+
+    for (final var e : localEntries) {
+      if (DATABASE_OBJECT_TOOL.isNewOrLoadedOrEdited(e)) {
+        values.addAtEnd(e.getStoredValue());
+      }
+    }
+
+    return values;
   }
 
   //method
@@ -153,27 +162,43 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   //method
-  private void loadAllPersistedValuesIfNotLoaded() {
-    if (!loadedAllPersistedValues()) {
-      loadAllPersistedValues();
-    }
-  }
-
-  //method
-  private void loadAllPersistedValues() {
-
-    loadedAllPersistedValues = true;
-
-    localEntries.addAtEnd(loadEntries());
-  }
-
-  //method
   @SuppressWarnings("unchecked")
-  private IContainer<MultiValueEntry<V>> loadEntries() {
+  private IContainer<MultiValueEntry<V>> loadAllPersistedValues() {
     return internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())
       .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
+  }
+
+  //method
+  private void updateStateForAddValue(final V value) {
+
+    final var newEntry = MultiValueEntry.newEntryForMultiValueAndValue(this, value);
+
+    localEntries.addAtEnd(newEntry);
+  }
+
+  //method
+  private void updateStateForLoadAllPersistedValues() {
+  
+    loadedAllPersistedValues = true;
+  
+    localEntries.addAtEnd(loadAllPersistedValues());
+  }
+
+  //method
+  private void updateStateForLoadAllPersistedValuesIfNotLoaded() {
+    if (!loadedAllPersistedValues()) {
+      updateStateForLoadAllPersistedValues();
+    }
+  }
+
+  //method
+  private void updateStateForRemoveValue(final V value) {
+
+    final var entry = localEntries.getStoredFirst(e -> e.getStoredValue() == value);
+
+    entry.internalSetDeleted();
   }
 }
