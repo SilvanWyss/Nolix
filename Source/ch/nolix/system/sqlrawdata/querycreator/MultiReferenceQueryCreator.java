@@ -31,15 +31,15 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 
   //method
   @Override
-  public String createQueryToLoadOptionalMultiReferenceEntryForGivenColumnAndReferencedEntity(
-    final String columnId,
+  public String createQueryToLoadOptionalFirstMultiReferenceEntry(
+    final String multiReferenceColumnId,
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
     + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
-    + columnId
+    + multiReferenceColumnId
     + "' AND "
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
     + " = '"

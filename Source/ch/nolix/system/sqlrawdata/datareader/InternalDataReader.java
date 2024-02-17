@@ -136,7 +136,7 @@ final class InternalDataReader {
     final String referencedEntityId) {
     return sqlConnection.getRecordsFromQuery(
       multiReferenceQueryCreator
-        .createQueryToLoadOptionalMultiReferenceEntryForGivenColumnAndReferencedEntity(
+        .createQueryToLoadOptionalFirstMultiReferenceEntry(
           columnId,
           referencedEntityId))
       .containsAny();
