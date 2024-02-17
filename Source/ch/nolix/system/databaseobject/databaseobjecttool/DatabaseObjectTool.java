@@ -115,11 +115,22 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
 
   //method
   @Override
-  public boolean isNewOrLoaded(IDatabaseObject databaseObject) {
+  public boolean isNewOrLoaded(final IDatabaseObject databaseObject) {
 
     final var state = databaseObject.getState();
 
     return state == DatabaseObjectState.NEW
     || state == DatabaseObjectState.LOADED;
+  }
+
+  //method
+  @Override
+  public boolean isNewOrLoadedOrEdited(final IDatabaseObject databaseObject) {
+
+    final var state = databaseObject.getState();
+
+    return state == DatabaseObjectState.NEW
+    || state == DatabaseObjectState.LOADED
+    || state == DatabaseObjectState.EDITED;
   }
 }

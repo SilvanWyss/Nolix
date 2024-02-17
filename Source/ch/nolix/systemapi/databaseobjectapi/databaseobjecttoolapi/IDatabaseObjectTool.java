@@ -48,4 +48,7 @@ public interface IDatabaseObjectTool {
 
   //method declaration
   boolean isNewOrLoaded(IDatabaseObject databaseObject);
+
+  //method declaration
+  boolean isNewOrLoadedOrEdited(IDatabaseObject databaseObject);
 }
