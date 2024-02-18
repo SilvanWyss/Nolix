@@ -24,6 +24,9 @@ public interface IMultiReference<E extends IEntity> extends Clearable, IBaseRefe
   IContainer<? extends IMultiReferenceEntry<E>> getStoredLocalEntries();
 
   //method declaration
+  boolean loadedAllPersistedReferencedEntityIds();
+
+  //method declaration
   void removeEntity(Object entity);
 
   //method declaration
