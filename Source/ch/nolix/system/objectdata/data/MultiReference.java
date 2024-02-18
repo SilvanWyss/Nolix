@@ -300,17 +300,17 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   }
 
   //method
+  private void updateStateLoadingAllPersistedReferencedEntityIds() {
+  
+    loadedAllPersistedReferencedEntityIds = true;
+  
+    localEntries.addAtEnd(loadAllPersistedReferencedEntityIds());
+  }
+
+  //method
   private void updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded() {
     if (needsToLoadAllPersistedReferencedEntityIds()) {
       updateStateLoadingAllPersistedReferencedEntityIds();
     }
-  }
-
-  //method
-  private void updateStateLoadingAllPersistedReferencedEntityIds() {
-
-    loadedAllPersistedReferencedEntityIds = true;
-
-    localEntries.addAtEnd(loadAllPersistedReferencedEntityIds());
   }
 }
