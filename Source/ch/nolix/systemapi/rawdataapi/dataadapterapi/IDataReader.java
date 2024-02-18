@@ -32,9 +32,6 @@ public interface IDataReader extends GroupCloseable {
   ILoadedEntityDto loadEntity(String tableName, String id);
 
   //method declaration
-  boolean multiValueIsEmpty(String tableName, String entityId, String multiValueColumnId);
-
-  //method declaration
   boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 
   //method declaration

@@ -99,13 +99,6 @@ public final class DataReader implements IDataReader {
 
   //method
   @Override
-  public boolean multiValueIsEmpty(final String tableName, final String entityId, final String multiValueColumnId) {
-    //TODO: Implement.
-    return false;
-  }
-
-  //method
-  @Override
   public void noteClose() {
     //Does nothing.
   }

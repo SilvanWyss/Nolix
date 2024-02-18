@@ -268,15 +268,6 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   //method
   @Override
-  public final boolean multiValueIsEmpty(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnId) {
-    return dataAdapter.multiValueIsEmpty(tableName, entityId, multiValueColumnId);
-  }
-
-  //method
-  @Override
   public final void noteClose() {
   }
 
