@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.datatool.EntityTool;
+import ch.nolix.system.objectdata.propertytool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.propertytool.MultiReferenceTool;
 import ch.nolix.system.objectdata.propertyvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
@@ -21,22 +22,22 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IMultiReferenceTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IMultiReferenceValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
   //constant
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final EntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final IMultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
+  private static final MultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
 
   //constant
-  private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
+  private static final MultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
+
+  //constant
+  private static final MultiReferenceEntryTool MULTI_REFERENCE_ENTRY_TOOL = new MultiReferenceEntryTool();
 
   //attribute
   private boolean loadedAllPersistedReferencedEntityIds;
@@ -89,7 +90,12 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   @Override
   public IContainer<E> getAllStoredReferencedEntities() {
-    return getAllReferencedEntityIds().to(getReferencedTable()::getStoredEntityById);
+
+    updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
+
+    return localEntries
+      .getStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
+      .to(IMultiReferenceEntry::getStoredReferencedEntity);
   }
 
   //method
@@ -113,8 +119,8 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public IContainer<? extends IMultiReferenceEntry<E>> getStoredLocalEntries() {
-    return localEntries;
+  public IContainer<? extends IMultiReferenceEntry<E>> getStoredNewAndDeletedEntries() {
+    return localEntries.getStoredSelected(MULTI_REFERENCE_ENTRY_TOOL::isNewOrDeleted);
   }
 
   //method

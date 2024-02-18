@@ -4,7 +4,6 @@ package ch.nolix.system.objectdata.changesetsaver;
 //own imports
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datatool.EntityTool;
-import ch.nolix.system.objectdata.propertytool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -14,7 +13,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IMultiReferenceEntryTool;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -29,9 +27,6 @@ public final class ChangeSetSaveValidator {
 
   //constant
   private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
-
-  //constant
-  private static final IMultiReferenceEntryTool MULTI_REFERENCE_ENTRY_TOOL = new MultiReferenceEntryTool();
 
   //method
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
@@ -115,12 +110,10 @@ public final class ChangeSetSaveValidator {
 
     final var referencedTableName = multiReference.getReferencedTableName();
 
-    for (final var le : multiReference.getStoredLocalEntries()) {
-      if (MULTI_REFERENCE_ENTRY_TOOL.isNewOrEdited(le)) {
-        dataAndSchemaAdapter.expectTableContainsEntity(
-          referencedTableName,
-          le.getReferencedEntityId());
-      }
+    for (final var le : multiReference.getStoredNewAndDeletedEntries()) {
+      dataAndSchemaAdapter.expectTableContainsEntity(
+        referencedTableName,
+        le.getReferencedEntityId());
     }
   }
 

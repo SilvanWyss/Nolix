@@ -14,7 +14,7 @@ public final class MultiReferenceSaver {
   public void saveMultiReference(
     final IMultiReference<?> multiReference,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    for (final var le : multiReference.getStoredLocalEntries()) {
+    for (final var le : multiReference.getStoredNewAndDeletedEntries()) {
       saveMultiReferenceEntry(le, dataAndSchemaAdapter);
     }
   }
