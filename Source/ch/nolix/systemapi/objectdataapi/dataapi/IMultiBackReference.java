@@ -15,4 +15,7 @@ public interface IMultiBackReference<E extends IEntity> extends IBaseBackReferen
 
   //method declaration
   IContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries();
+
+  //method declaration
+  boolean loadedAllPersistedReferencedEntityIds();
 }

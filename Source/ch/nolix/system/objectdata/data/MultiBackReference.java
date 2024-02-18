@@ -151,6 +151,12 @@ implements IMultiBackReference<E> {
 
   //method
   @Override
+  public boolean loadedAllPersistedReferencedEntityIds() {
+    return loadedAllPersistedBackReferencedEntityIds;
+  }
+
+  //method
+  @Override
   public boolean referencesBackEntity(final IEntity entity) {
 
     for (final var p : entity.internalGetStoredProperties()) {
