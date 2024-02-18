@@ -6,6 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -18,6 +19,9 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 public final class MultiBackReference<E extends IEntity>
 extends BaseBackReference<E>
 implements IMultiBackReference<E> {
+
+  //constant
+  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
   //attribute
   private boolean loadedAllPersistedBackReferencedEntityIds;
@@ -78,8 +82,8 @@ implements IMultiBackReference<E> {
 
   //method
   @Override
-  public IContainer<? extends IMultiBackReferenceEntry<E>> getStoredLocalEntries() {
-    return localEntries;
+  public IContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
+    return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
   //method

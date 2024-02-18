@@ -15,7 +15,7 @@ public final class MultiBackReferenceSaver {
   public void saveMultiBackReference(
     final IMultiBackReference<? extends IEntity> multiBackReference,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    for (final var le : multiBackReference.getStoredLocalEntries()) {
+    for (final var le : multiBackReference.getStoredNewAndDeletedEntries()) {
       saveMultiBackReferenceEntry(le, dataAndSchemaAdapter);
     }
   }
