@@ -2,11 +2,13 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.objectdata.propertytool.PropertyTool;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -22,6 +24,9 @@ implements IMultiBackReference<E> {
 
   //constant
   private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
+
+  //constant
+  private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //attribute
   private boolean loadedAllPersistedBackReferencedEntityIds;
@@ -54,30 +59,23 @@ implements IMultiBackReference<E> {
   //method
   @Override
   public IContainer<String> getAllBackReferencedEntityIds() {
-    return getAllStoredBackReferencedEntities().to(IEntity::getId);
+
+    updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
+
+    return localEntries
+      .getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrLoadedOrEdited)
+      .to(IMultiBackReferenceEntry::getBackReferencedEntityId);
   }
 
   //method
   @Override
   public IContainer<E> getAllStoredBackReferencedEntities() {
 
-    final var backReferencedEntities = new LinkedList<E>();
-    final var parentEntity = getStoredParentEntity();
+    updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
-    for (final var e : getStoredBackReferencedTable().getStoredEntities()) {
-      for (final var p : e.internalGetStoredProperties()) {
-        if (p.hasName(getBackReferencedPropertyName())) {
-
-          if (p.referencesEntity(parentEntity)) {
-            backReferencedEntities.addAtEnd(e);
-          }
-
-          break;
-        }
-      }
-    }
-
-    return backReferencedEntities;
+    return localEntries
+      .getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrLoadedOrEdited)
+      .to(IMultiBackReferenceEntry::getStoredBackReferencedEntity);
   }
 
   //method
@@ -90,23 +88,19 @@ implements IMultiBackReference<E> {
   @Override
   public IContainer<IProperty> getStoredReferencingProperties() {
 
-    final var referencingPropertie = new LinkedList<IProperty>();
-    final var parentEntity = getStoredParentEntity();
+    final var referencingProperties = new LinkedList<IProperty>();
+    final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
 
-    for (final var e : getStoredBackReferencedTable().getStoredEntities()) {
+    for (final var e : getAllStoredBackReferencedEntities()) {
       for (final var p : e.internalGetStoredProperties()) {
-        if (p.hasName(getBackReferencedPropertyName())) {
-
-          if (p.referencesEntity(parentEntity)) {
-            referencingPropertie.addAtEnd(p);
-          }
-
+        if (p.hasName(backReferencedBaseReferenceName)) {
+          referencingProperties.addAtEnd(p);
           break;
         }
       }
     }
 
-    return referencingPropertie;
+    return referencingProperties;
   }
 
   //method
@@ -124,23 +118,8 @@ implements IMultiBackReference<E> {
   //method
   @Override
   public boolean isEmpty() {
-
-    final var parentEntity = getStoredParentEntity();
-
-    for (final var e : getStoredBackReferencedTable().getStoredEntities()) {
-      for (final var p : e.internalGetStoredProperties()) {
-        if (p.hasName(getBackReferencedPropertyName())) {
-
-          if (p.referencesEntity(parentEntity)) {
-            return true;
-          }
-
-          break;
-        }
-      }
-    }
-
-    return false;
+    return localEntries.isEmpty()
+    && isEmptyWhenDoesNotHaveLocalEntries();
   }
 
   //method
@@ -159,8 +138,10 @@ implements IMultiBackReference<E> {
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
 
+    final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
+
     for (final var p : entity.internalGetStoredProperties()) {
-      if (p.hasName(getBackReferencedPropertyName())) {
+      if (p.hasName(backReferencedBaseReferenceName)) {
         return p.referencesEntity(entity);
       }
     }
@@ -191,5 +172,38 @@ implements IMultiBackReference<E> {
   @Override
   void internalSetOrClearFromContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
+  }
+
+  //method
+  private boolean isEmptyWhenDoesNotHaveLocalEntries() {
+    return getAllStoredBackReferencedEntities().isEmpty();
+  }
+
+  //method
+  private IContainer<MultiBackReferenceEntry<E>> loadAllPersistedBackReferencedEntityIds() {
+
+    //TODO: Implement.
+    return new ImmutableList<>();
+  }
+
+  //method
+  private boolean needsToLoadAllPersistedBackReferencedEntityIds() {
+    return !loadedAllPersistedReferencedEntityIds()
+    && PROPERTY_TOOL.belongsToLoadedEntity(this);
+  }
+
+  //method
+  private void updateStateLoadingAllPersistedBackReferencedEntityIds() {
+
+    loadedAllPersistedBackReferencedEntityIds = true;
+
+    localEntries.addAtEnd(loadAllPersistedBackReferencedEntityIds());
+  }
+
+  //method
+  private void updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded() {
+    if (needsToLoadAllPersistedBackReferencedEntityIds()) {
+      updateStateLoadingAllPersistedBackReferencedEntityIds();
+    }
   }
 }
