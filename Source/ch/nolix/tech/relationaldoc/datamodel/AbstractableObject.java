@@ -114,7 +114,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectSubTypes() {
-    return directSubTypes.getStoredBackReferencedEntities();
+    return directSubTypes.getAllStoredBackReferencedEntities();
   }
 
   //method

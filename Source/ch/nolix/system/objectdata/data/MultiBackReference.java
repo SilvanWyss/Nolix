@@ -49,13 +49,13 @@ implements IMultiBackReference<E> {
 
   //method
   @Override
-  public IContainer<String> getBackReferencedEntityIds() {
-    return getStoredBackReferencedEntities().to(IEntity::getId);
+  public IContainer<String> getAllBackReferencedEntityIds() {
+    return getAllStoredBackReferencedEntities().to(IEntity::getId);
   }
 
   //method
   @Override
-  public IContainer<E> getStoredBackReferencedEntities() {
+  public IContainer<E> getAllStoredBackReferencedEntities() {
 
     final var backReferencedEntities = new LinkedList<E>();
     final var parentEntity = getStoredParentEntity();
