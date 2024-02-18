@@ -40,14 +40,14 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
 
   //multi-attribute
-  private final MultiReference<AbstractableObject> directBaseTypes = MultiReference.forEntity(AbstractableObject.class);
+  private final MultiReference<AbstractableObject> directBaseTypes = MultiReference.forReferencedEntityType(AbstractableObject.class);
 
   //multi-attribute
   private final MultiBackReference<AbstractableObject> directSubTypes = //
   MultiBackReference.forBackReferencedEntityTypeAndBaseReference(AbstractableObject.class, "directBaseTypes");
 
   //multi-attribute
-  private final MultiReference<AbstractableField> declaredFields = MultiReference.forEntity(AbstractableField.class);
+  private final MultiReference<AbstractableField> declaredFields = MultiReference.forReferencedEntityType(AbstractableField.class);
 
   //constructor
   public AbstractableObject() {

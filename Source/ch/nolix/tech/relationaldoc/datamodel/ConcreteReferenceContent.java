@@ -23,7 +23,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 
   //multi-attribute
   private final MultiReference<AbstractableObject> referencedObjects = MultiReference
-    .forEntity(AbstractableObject.class);
+    .forReferencedEntityType(AbstractableObject.class);
 
   //constructor
   public ConcreteReferenceContent() {

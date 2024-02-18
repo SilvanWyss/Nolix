@@ -18,7 +18,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
   private static final class Person extends Entity {
 
     //attribute
-    public final MultiReference<Pet> pets = MultiReference.forEntity(Pet.class);
+    public final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
 
     //constructor
     public Person() {

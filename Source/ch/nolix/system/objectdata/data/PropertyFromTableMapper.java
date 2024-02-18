@@ -82,7 +82,7 @@ final class PropertyFromTableMapper {
       .getStoredencedTable()
       .getName();
 
-    return MultiReference.forEntityWithTableName(referencedtableName);
+    return MultiReference.forReferencedTable(referencedtableName);
   }
 
   //method

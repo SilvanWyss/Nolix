@@ -51,13 +51,16 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   }
 
   //static method
-  public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> type) {
-    return forEntityWithTableName(type.getSimpleName());
+  public static <E2 extends Entity> MultiReference<E2> forReferencedEntityType(final Class<E2> referencedEntityType) {
+
+    final var referencedTableName = referencedEntityType.getSimpleName();
+
+    return forReferencedTable(referencedTableName);
   }
 
   //static method
-  public static <E2 extends Entity> MultiReference<E2> forEntityWithTableName(final String tableName) {
-    return new MultiReference<>(tableName);
+  public static <E2 extends Entity> MultiReference<E2> forReferencedTable(final String referencedTableName) {
+    return new MultiReference<>(referencedTableName);
   }
 
   //method
