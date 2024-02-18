@@ -245,7 +245,9 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
         optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
-        //Does nothing.
+        final var multiBackReference = (MultiBackReference<?>) baseBackReference;
+        multiBackReference.internalAddBackReferencedEntityId(getStoredParentEntity().getId());
+        multiBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       default:
         throw InvalidArgumentException.forArgument(baseBackReference.getType());

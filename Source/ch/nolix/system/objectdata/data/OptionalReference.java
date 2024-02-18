@@ -103,11 +103,11 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //method
   @Override
   public IContentFieldDto internalToContentField() {
-  
+
     if (isEmpty()) {
       return new ContentFieldDto(getName());
     }
-  
+
     return new ContentFieldDto(getName(), getReferencedEntityId());
   }
 
@@ -265,7 +265,9 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
         optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
-        //Does nothing.
+        final var multiBackReference = (MultiBackReference<?>) baseBackReference;
+        multiBackReference.internalAddBackReferencedEntityId(getStoredParentEntity().getId());
+        multiBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       default:
         throw InvalidArgumentException.forArgument(baseBackReference.getType());
@@ -274,10 +276,10 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
-  
+
     final var baseBackReference = ENTITY_TOOL
       .getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(entity, this);
-  
+
     baseBackReference.ifPresent(this::updateBaseBackReferenceOfEntityForSetEntity);
   }
 

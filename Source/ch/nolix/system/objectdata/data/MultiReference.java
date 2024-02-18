@@ -276,9 +276,9 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
         optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case MULTI_BACK_REFERENCE:
-        /*
-         * Does nothing.
-         */
+        final var multiBackReference = (MultiBackReference<?>) baseBackReference;
+        multiBackReference.internalAddBackReferencedEntityId(getStoredParentEntity().getId());
+        multiBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       default:
         throw InvalidArgumentException.forArgument(baseBackReference.getType());
@@ -301,9 +301,9 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   private void updateStateLoadingAllPersistedReferencedEntityIds() {
-  
+
     loadedAllPersistedReferencedEntityIds = true;
-  
+
     localEntries.addAtEnd(loadAllPersistedReferencedEntityIds());
   }
 
