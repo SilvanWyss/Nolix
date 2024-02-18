@@ -156,21 +156,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   private boolean isEmptyWhenDoesNotHaveLocalEntries() {
     return getAllStoredValues().isEmpty();
-
-    //TODO: Implement.
-    /*
-     * if (loadedAllPersistedValues()) { return true; }
-     * 
-     * if (isLinkedWithRealDatabase()) {
-     * 
-     * final var entity = getStoredParentEntity(); final var column =
-     * getStoredParentColumn();
-     * 
-     * return internalGetRefDataAndSchemaAdapter().multiValueIsEmpty(
-     * entity.getParentTableName(), entity.getId(), column.getId()); }
-     * 
-     * return true;
-     */
   }
 
   //method
