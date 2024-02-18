@@ -17,6 +17,12 @@ public interface IDataReader extends GroupCloseable {
   IContainer<ILoadedEntityDto> loadEntitiesOfTable(String tableName);
 
   //method declaration
+  IContainer<String> loadMultiBackReferenceEntries(
+    String tableName,
+    String entityId,
+    String multiBackReferenceColumnName);
+
+  //method declaration
   IContainer<String> loadMultiReferenceEntries(
     String tableName,
     String entityId,

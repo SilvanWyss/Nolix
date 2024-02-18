@@ -164,6 +164,16 @@ public abstract class BaseDataAdapter implements IDataAdapter {
     dataWriter.insertEntity(tableName, newEntity);
   }
 
+  //method
+  @Override
+  public final IContainer<String> loadMultiBackReferenceEntries(
+    final String tableName,
+    final String entityId,
+    final String multiBackReferenceColumnName) {
+    return dataReader.loadMultiBackReferenceEntries(tableName, entityId, multiBackReferenceColumnName);
+  }
+
+  //method
   @Override
   public final IContainer<String> loadMultiReferenceEntries(
     final String tableName,

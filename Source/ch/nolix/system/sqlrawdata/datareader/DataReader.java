@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
@@ -61,6 +62,17 @@ public final class DataReader implements IDataReader {
   @Override
   public Time getSchemaTimestamp() {
     return internalDataReader.getSchemaTimestamp();
+  }
+
+  //method
+  @Override
+  public IContainer<String> loadMultiBackReferenceEntries(
+    final String tableName,
+    final String entityId,
+    final String multiBackReferenceColumnName) {
+
+    //TODO: Implement.
+    return new ImmutableList<>();
   }
 
   //method

@@ -47,6 +47,19 @@ public final class DataReader implements IDataReader {
 
   //method
   @Override
+  public IContainer<String> loadMultiBackReferenceEntries(
+    final String tableName,
+    final String entityId,
+    final String multiBackReferenceColumnName) {
+
+    final var tableInfo = getTableInfoByTableName(tableName);
+    final var multiBackReferenceColumnInfo = tableInfo.getColumnInfoByColumnName(multiBackReferenceColumnName);
+
+    return internalDataReader.loadMultiBackReferenceEntries(tableInfo, entityId, multiBackReferenceColumnInfo);
+  }
+
+  //method
+  @Override
   public IContainer<String> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,

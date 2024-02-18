@@ -65,6 +65,24 @@ public final class InternalDataReader {
   }
 
   //method
+  public IContainer<String> loadMultiBackReferenceEntries(
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiBackReferenceColumnInfo) {
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+      tableInfo.getTableName());
+
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.getColumnIndexOnEntityNode();
+
+    final var multiBackReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
+
+    return multiBackReferenceNode.getChildNodesHeaders();
+  }
+
+  //method
   public IContainer<String> loadMultiReferenceEntries(
     final ITableInfo tableInfo,
     final String entityId,
@@ -77,9 +95,9 @@ public final class InternalDataReader {
 
     final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 
-    final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+    final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
-    return multiValueNode.getChildNodesHeaders();
+    return multiReferenceNode.getChildNodesHeaders();
   }
 
   //method

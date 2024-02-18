@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -182,8 +181,13 @@ implements IMultiBackReference<E> {
   //method
   private IContainer<MultiBackReferenceEntry<E>> loadAllPersistedBackReferencedEntityIds() {
 
-    //TODO: Implement.
-    return new ImmutableList<>();
+    final var entity = getStoredParentEntity();
+
+    return internalGetRefDataAndSchemaAdapter().loadMultiBackReferenceEntries(
+      entity.getParentTableName(),
+      entity.getId(),
+      getName())
+      .to(e -> MultiBackReferenceEntry.loadedEntryForMultiBackReferenceAndReferencedEntityId(this, e));
   }
 
   //method
