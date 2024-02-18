@@ -19,29 +19,32 @@ public final class MultiBackReference<E extends IEntity>
 extends BaseBackReference<E>
 implements IMultiBackReference<E> {
 
+  //attribute
+  private boolean loadedAllPersistedBackReferencedEntityIds;
+
   //multi-attribute
   private final LinkedList<IMultiBackReferenceEntry<E>> localEntries = new LinkedList<>();
 
   //constructor
-  private MultiBackReference(final String backReferencedEntityTypeName, final String backReferencedPropertyName) {
-    super(backReferencedEntityTypeName, backReferencedPropertyName);
+  private MultiBackReference(final String backReferencedTableName, final String backReferencedBaseReferenceName) {
+    super(backReferencedTableName, backReferencedBaseReferenceName);
   }
 
   //static method
-  public static <E2 extends Entity> MultiBackReference<E2> forEntityTypeAndPropertyName(
-    final Class<E2> entityType,
-    final String propertyName) {
+  public static <E2 extends Entity> MultiBackReference<E2> forBackReferencedEntityTypeAndBaseReference(
+    final Class<E2> backReferencedEntityType,
+    final String backReferencedBaseReferenceName) {
 
-    final var entityTypeName = entityType.getSimpleName();
+    final var entityTypeName = backReferencedEntityType.getSimpleName();
 
-    return new MultiBackReference<>(entityTypeName, propertyName);
+    return forBackReferencedTableAndBaseReference(entityTypeName, backReferencedBaseReferenceName);
   }
 
   //static method
-  public static MultiBackReference<BaseEntity> forEntityTypeNameAndPropertyName(
-    final String entityTypeName,
-    final String propertyName) {
-    return new MultiBackReference<>(entityTypeName, propertyName);
+  public static <E2 extends Entity> MultiBackReference<E2> forBackReferencedTableAndBaseReference(
+    final String backReferencedTableName,
+    final String backReferencedBaseReference) {
+    return new MultiBackReference<>(backReferencedTableName, backReferencedBaseReference);
   }
 
   //method

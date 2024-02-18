@@ -44,7 +44,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
   //multi-attribute
   private final MultiBackReference<AbstractableObject> directSubTypes = //
-  MultiBackReference.forEntityTypeAndPropertyName(AbstractableObject.class, "directBaseTypes");
+  MultiBackReference.forBackReferencedEntityTypeAndBaseReference(AbstractableObject.class, "directBaseTypes");
 
   //multi-attribute
   private final MultiReference<AbstractableField> declaredFields = MultiReference.forEntity(AbstractableField.class);

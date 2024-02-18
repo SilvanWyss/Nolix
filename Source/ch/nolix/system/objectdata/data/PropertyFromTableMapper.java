@@ -131,7 +131,7 @@ final class PropertyFromTableMapper {
 
     final var backReferencedPropertyName = backReferencedColumn.getName();
 
-    return MultiBackReference.forEntityTypeNameAndPropertyName(backReferencedTableName,
+    return MultiBackReference.forBackReferencedTableAndBaseReference(backReferencedTableName,
       backReferencedPropertyName);
   }
 }
