@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawdata.sqlsyntax;
 
 //own imports
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
+import ch.nolix.system.sqlrawdata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
@@ -10,6 +11,7 @@ import ch.nolix.system.sqlrawdata.statementcreator.MultiBackReferenceStatementCr
 import ch.nolix.system.sqlrawdata.statementcreator.MultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawdata.statementcreator.MultiValueStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
@@ -44,6 +46,10 @@ public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
   private static final IMultiBackReferenceStatementCreator MULTI_BACK_REFERENCE_STATEMENT_CREATOR = //
   new MultiBackReferenceStatementCreator();
 
+  //constant
+  private static final IMultiBackReferenceQueryCreator MULTI_BACK_REFERENCE_QUERY_CREATOR = //
+  new MultiBackReferenceQueryCreator();
+
   //method
   @Override
   public IEntityQueryCreator getEntityQueryCreator() {
@@ -54,6 +60,11 @@ public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
   @Override
   public IEntityStatementCreator getEntityStatementCreator() {
     return ENTITY_STATEMENT_CREATOR;
+  }
+
+  @Override
+  public IMultiBackReferenceQueryCreator getMultiBackReferenceQueryCreator() {
+    return MULTI_BACK_REFERENCE_QUERY_CREATOR;
   }
 
   //method
