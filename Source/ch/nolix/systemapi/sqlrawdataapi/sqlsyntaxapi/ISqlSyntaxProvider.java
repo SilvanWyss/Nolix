@@ -3,6 +3,7 @@ package ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi;
 
 //own imports
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
@@ -18,6 +19,9 @@ public interface ISqlSyntaxProvider {
 
   //method declaration
   IEntityStatementCreator getEntityStatementCreator();
+
+  //method declaration
+  IMultiBackReferenceQueryCreator getMultiBackReferenceQueryCreator();
 
   //method declaration
   IMultiBackReferenceStatementCreator getMultiBackReferenceStatemeentCreator();

@@ -12,6 +12,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
@@ -37,6 +38,9 @@ final class InternalDataReader {
   //attribute
   private final IMultiReferenceQueryCreator multiReferenceQueryCreator;
 
+  //attribute
+  private final IMultiBackReferenceQueryCreator multiBackReferenceQueryCreator;
+
   //constructor
   public InternalDataReader(
     final String databaseName,
@@ -49,6 +53,7 @@ final class InternalDataReader {
     entityQueryCreator = sqlSyntaxProvider.getEntityQueryCreator();
     multiValueQueryCreator = sqlSyntaxProvider.getMultiValueQueryCreator();
     multiReferenceQueryCreator = sqlSyntaxProvider.getMultiReferenceQueryCreator();
+    multiBackReferenceQueryCreator = sqlSyntaxProvider.getMultiBackReferenceQueryCreator();
 
     sqlConnection.executeStatement("USE " + databaseName);
   }
@@ -59,6 +64,18 @@ final class InternalDataReader {
       sqlConnection
         .getSingleRecordFromQuery(entityQueryCreator.createQueryToLoadSchemaTimestamp())
         .getStoredAt1BasedIndex(1));
+  }
+
+  //method
+  public IContainer<String> loadMultiBackReferenceEntries(
+    final String entityId,
+    final IColumnInfo multiBackReferenceColumnInfo) {
+
+    final var query = multiBackReferenceQueryCreator.createQueryToLoadMultiBackReferenceEntries(
+      entityId,
+      multiBackReferenceColumnInfo.getColumnId());
+
+    return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAt1BasedIndex(1));
   }
 
   //method
