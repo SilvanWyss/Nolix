@@ -35,7 +35,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @date 2016-01-01
  * @param <E> is the type of the elements a {@link Container} can store.
  */
-public abstract class Container<E> implements IContainer<E> {
+public abstract class Container<E> //NOSONAR: A Container has many methods and thus many dependencies.
+implements IContainer<E> {
 
   //constant
   private static final Random RANDOM = new Random();
