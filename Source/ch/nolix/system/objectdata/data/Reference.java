@@ -6,14 +6,12 @@ import java.util.Optional;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.propertytool.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
@@ -25,10 +23,13 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
 
   //constant
-  private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final BaseBackReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseBackReferenceUpdater();
+
+  //constant
+  private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
   //optional attribute
   private String referencedEntityId;
@@ -232,35 +233,8 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateBaseBackReferenceOfEntityForSetEntity(final IBaseBackReference<?> baseBackReference) {
-    switch (baseBackReference.getType()) {
-      case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) baseBackReference;
-        backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        backReference.setAsEditedAndRunPotentialUpdateAction();
-        break;
-      case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
-        optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
-        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
-        break;
-      case MULTI_BACK_REFERENCE:
-        final var multiBackReference = (MultiBackReference<?>) baseBackReference;
-        multiBackReference.internalAddBackReferencedEntityId(getStoredParentEntity().getId());
-        multiBackReference.setAsEditedAndRunPotentialUpdateAction();
-        break;
-      default:
-        throw InvalidArgumentException.forArgument(baseBackReference.getType());
-    }
-  }
-
-  //method
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
-
-    final var baseBackReference = ENTITY_TOOL
-      .getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(entity, this);
-
-    baseBackReference.ifPresent(this::updateBaseBackReferenceOfEntityForSetEntity);
+    BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
   //method
