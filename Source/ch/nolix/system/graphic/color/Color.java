@@ -1572,51 +1572,65 @@ public final class Color extends Element implements IColor {
     //Iterates the given string.
     for (var i = string.length() - 1; i >= 0; i--) {
 
-      final var tempValue =
+      final var hexadecimalDigit = string.charAt(i);
+      final var characterInt = mapHexadecimalDigitFromStringToInt(hexadecimalDigit, string);
 
-      //Enumerates the current character.
-      switch (string.charAt(i)) {
-        case '0' ->
-          0;
-        case '1' ->
-          1;
-        case '2' ->
-          2;
-        case '3' ->
-          3;
-        case '4' ->
-          4;
-        case '5' ->
-          5;
-        case '6' ->
-          6;
-        case '7' ->
-          7;
-        case '8' ->
-          8;
-        case '9' ->
-          9;
-        case 'A' ->
-          10;
-        case 'B' ->
-          11;
-        case 'C' ->
-          12;
-        case 'D' ->
-          13;
-        case 'E' ->
-          14;
-        case 'F' ->
-          15;
-        default ->
-          throw InvalidArgumentException.forArgument(string);
-      };
-
-      value += tempValue * base;
+      value += characterInt * base;
       base *= 16;
     }
 
     return value;
+  }
+
+  //method
+  /**
+   * @param hexadecimalDigit
+   * @param string
+   * @return the int the given hexadecimalDigit, that is from the given string,
+   *         represents.
+   * @InvalidArgumentException if the given hexadecimalDigit is not valid.
+   */
+  private static int mapHexadecimalDigitFromStringToInt( //NOSONAR: This method is uniform.
+    char hexadecimalDigit,
+    final String string) {
+
+    //Enumerates the given character.
+    return switch (hexadecimalDigit) {
+      case '0' ->
+        0;
+      case '1' ->
+        1;
+      case '2' ->
+        2;
+      case '3' ->
+        3;
+      case '4' ->
+        4;
+      case '5' ->
+        5;
+      case '6' ->
+        6;
+      case '7' ->
+        7;
+      case '8' ->
+        8;
+      case '9' ->
+        9;
+      case 'A' ->
+        10;
+      case 'B' ->
+        11;
+      case 'C' ->
+        12;
+      case 'D' ->
+        13;
+      case 'E' ->
+        14;
+      case 'F' ->
+        15;
+      default ->
+        throw InvalidArgumentException.forArgument(string);
+    };
   }
 
   //method
