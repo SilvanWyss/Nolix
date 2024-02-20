@@ -20,8 +20,7 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   @Override
   public boolean canSetGivenEntity(final IReference<?> reference, final IEntity entity) {
     return canSetEntity(reference)
-    && entity != null
-    && entity.isOpen()
+    && isOpen(entity)
     && reference.getReferencedTableName().equals(entity.getParentTableName())
     && !reference.referencesEntity(entity); //Important: When a Reference is set new data records could be created.
   }

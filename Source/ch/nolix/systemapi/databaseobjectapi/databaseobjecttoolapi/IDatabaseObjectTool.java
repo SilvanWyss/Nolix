@@ -17,6 +17,9 @@ public interface IDatabaseObjectTool {
   boolean isLoaded(IDatabaseObject databaseObject);
 
   //method declaration
+  boolean isOpen(IDatabaseObject databaseObject);
+
+  //method declaration
   boolean isNew(IDatabaseObject databaseObject);
 
   //method declaration

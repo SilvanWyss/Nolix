@@ -29,6 +29,13 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
 
   //method
   @Override
+  public boolean isOpen(final IDatabaseObject databaseObject) {
+    return databaseObject != null
+    && databaseObject.isOpen();
+  }
+
+  //method
+  @Override
   public final boolean isNew(final IDatabaseObject databaseObject) {
     return (databaseObject.getState() == DatabaseObjectState.NEW);
   }
