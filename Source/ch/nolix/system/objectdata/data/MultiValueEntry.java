@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //constant
-  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   //attribute
   private final IMultiValue<V> parentMultiValue;
@@ -112,6 +112,6 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //method
   private void assertIsLoaded() {
-    DATABASE_OBJECT_TOOL.assertIsLoaded(this);
+    DATABASE_OBJECT_VALIDATOR.assertIsLoaded(this);
   }
 }

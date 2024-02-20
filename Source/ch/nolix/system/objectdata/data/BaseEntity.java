@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.entityflyweight.EntityFlyWeight;
@@ -28,6 +29,9 @@ public abstract class BaseEntity implements IEntity {
 
   //constant
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
+
+  //constant
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   //constant
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
@@ -245,7 +249,7 @@ public abstract class BaseEntity implements IEntity {
   //method
   final void internalSetLoaded() {
 
-    ENTITY_TOOL.assertIsNew(this);
+    DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
 
     state = DatabaseObjectState.LOADED;
   }

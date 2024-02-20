@@ -2,72 +2,12 @@
 package ch.nolix.system.databaseobject.databaseobjecttool;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
 
 //class
 public class DatabaseObjectTool implements IDatabaseObjectTool {
-
-  //method
-  @Override
-  public final void assertIsLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
-    if (!databaseObject.isLinkedWithRealDatabase()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not linked with a real database");
-    }
-  }
-
-  //method
-  @Override
-  public final void assertIsLoaded(final IDatabaseObject databaseObject) {
-    if (!isLoaded(databaseObject)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not loaded");
-    }
-  }
-
-  //method
-  @Override
-  public final void assertIsNew(final IDatabaseObject databaseObject) {
-    if (!isNew(databaseObject)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not new");
-    }
-  }
-
-  //method
-  @Override
-  public final void assertIsNotDeleted(final IDatabaseObject databaseObject) {
-    if (databaseObject.isDeleted()) {
-      throw DeletedArgumentException.forArgument(databaseObject);
-    }
-  }
-
-  //method
-  @Override
-  public final void assertIsNotLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
-    if (databaseObject.isLinkedWithRealDatabase()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
-    }
-  }
-
-  //method
-  @Override
-  public final void assertIsNotNew(final IDatabaseObject databaseObject) {
-    if (isNew(databaseObject)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is new");
-    }
-  }
-
-  //method
-  @Override
-  public final void assertIsOpen(final IDatabaseObject databaseObject) {
-    if (databaseObject.isClosed()) {
-      throw ClosedArgumentException.forArgument(databaseObject);
-    }
-  }
 
   //method
   @Override

@@ -4,6 +4,7 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedBackReferenceType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedReferenceType;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
@@ -20,6 +21,9 @@ final class TableMutationValidator {
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+
+  //constant
   private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
@@ -28,11 +32,11 @@ final class TableMutationValidator {
   //method
   public void assertCanAddColumnToTable(final Table table, final Column column) {
 
-    TABLE_TOOL.assertIsOpen(table);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
     TABLE_TOOL.assertDoesNotContainColumnWithGivenName(table, column.getName());
 
-    COLUMN_TOOL.assertIsOpen(column);
-    COLUMN_TOOL.assertIsNew(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsNew(column);
 
     if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
 
@@ -55,16 +59,16 @@ final class TableMutationValidator {
 
   //method
   public void assertCanDeleteTable(final Table table) {
-    TABLE_TOOL.assertIsOpen(table);
-    TABLE_TOOL.assertIsNotNew(table);
-    TABLE_TOOL.assertIsNotDeleted(table);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
+    DATABASE_OBJECT_VALIDATOR.assertIsNotNew(table);
+    DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(table);
     TABLE_TOOL.assertIsNotReferenced(table);
   }
 
   //method
   public void assertCanSetNameToTable(final Table table, final String name) {
 
-    TABLE_TOOL.assertIsOpen(table);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
 
     if (table.belongsToDatabase()) {
       DATABASE_TOOL.assertDoesNotContainTableWithGivenName(table.getParentDatabase(), name);

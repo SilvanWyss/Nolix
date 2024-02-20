@@ -4,6 +4,7 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedBackReferenceType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedReferenceType;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
@@ -23,6 +24,9 @@ final class ColumnMutationValidator {
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   //constant
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+
+  //constant
   private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
@@ -34,15 +38,15 @@ final class ColumnMutationValidator {
 
   //method
   public void assertCanDeleteColumn(final Column column) {
-    COLUMN_TOOL.assertIsOpen(column);
-    COLUMN_TOOL.assertIsNotDeleted(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(column);
     column.assertIsNotBackReferenced();
   }
 
   //method
   public void assertCanSetNameToColumn(final Column column, final String name) {
 
-    COLUMN_TOOL.assertIsOpen(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
 
     if (column.belongsToTable()) {
       TABLE_TOOL.assertDoesNotContainColumnWithGivenName(column.getParentTable(), name);
@@ -56,7 +60,7 @@ final class ColumnMutationValidator {
     final Column column,
     final IParameterizedPropertyType parameterizedPropertyType) {
 
-    COLUMN_TOOL.assertIsOpen(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     column.assertIsEmpty();
 
     if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedPropertyType)
@@ -87,7 +91,7 @@ final class ColumnMutationValidator {
   //method
   public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
 
-    COLUMN_TOOL.assertIsOpen(column);
+    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     COLUMN_TOOL.assertDoesNotBelongToTable(column);
 
     TABLE_TOOL.assertDoesNotContainGivenColumn(parentTable, column);

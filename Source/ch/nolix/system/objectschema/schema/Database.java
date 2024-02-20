@@ -5,17 +5,20 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class Database extends SchemaObject implements IDatabase {
 
   //constant
-  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
+  private static final DatabaseTool DATABASE_TOOL = new DatabaseTool();
+
+  //constant
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   //constant
   private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
@@ -113,7 +116,7 @@ public final class Database extends SchemaObject implements IDatabase {
   //method
   RawSchemaAdapter internalGetRefRawSchemaAdapter() {
 
-    DATABASE_TOOL.assertIsLinkedWithRealDatabase(this);
+    DATABASE_OBJECT_VALIDATOR.assertIsLinkedWithRealDatabase(this);
 
     return rawSchemaAdapter;
   }
@@ -157,7 +160,7 @@ public final class Database extends SchemaObject implements IDatabase {
   private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 
     GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
-    DATABASE_TOOL.assertIsNotLinkedWithRealDatabase(this);
+    DATABASE_OBJECT_VALIDATOR.assertIsNotLinkedWithRealDatabase(this);
 
     internalSetLoaded();
     this.rawSchemaAdapter = rawSchemaAdapter;

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
 
   //constant
-  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
+  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   //attribute
   private final IMultiReference<E> parentMultiReference;
@@ -131,6 +131,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   private void assertIsLoaded() {
-    DATABASE_OBJECT_TOOL.assertIsLoaded(this);
+    DATABASE_OBJECT_VALIDATOR.assertIsLoaded(this);
   }
 }
