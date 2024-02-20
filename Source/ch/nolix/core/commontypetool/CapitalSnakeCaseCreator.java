@@ -24,25 +24,11 @@ final class CapitalSnakeCaseCreator {
   private String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
 
     final var stringBuilder = new StringBuilder();
-
     final var firstCharacter = string.charAt(0);
-    final var firstCharacterType = CharacterType.ofCharacter(firstCharacter);
-    switch (firstCharacterType) {
-      case LOWER_CASE_LETTER:
-        stringBuilder.append(Character.toUpperCase(firstCharacter));
-        break;
-      case UPPER_CASE_LETTER:
-        stringBuilder.append(firstCharacter);
-        break;
-      case NUMBER:
-        stringBuilder.append(firstCharacter);
-        break;
-      case OTHER:
-        if (firstCharacter != CharacterCatalogue.UNDERSCORE) {
-          stringBuilder.append(firstCharacter);
-        }
-        break;
-    }
+
+    final var firstCharacterType = appendFirstTargetCharacterAccordingToFirstCharacterAndGetFirstCharacterType(
+      firstCharacter,
+      stringBuilder);
 
     var previousCharacterType = firstCharacterType;
     for (var i = 1; i < string.length(); i++) {
@@ -74,5 +60,32 @@ final class CapitalSnakeCaseCreator {
     }
 
     return stringBuilder.toString();
+  }
+
+  //method
+  private CharacterType appendFirstTargetCharacterAccordingToFirstCharacterAndGetFirstCharacterType(
+    final char firstCharacter,
+    final StringBuilder stringBuilder) {
+
+    final var firstCharacterType = CharacterType.ofCharacter(firstCharacter);
+
+    switch (firstCharacterType) {
+      case LOWER_CASE_LETTER:
+        stringBuilder.append(Character.toUpperCase(firstCharacter));
+        break;
+      case UPPER_CASE_LETTER:
+        stringBuilder.append(firstCharacter);
+        break;
+      case NUMBER:
+        stringBuilder.append(firstCharacter);
+        break;
+      case OTHER:
+        if (firstCharacter != CharacterCatalogue.UNDERSCORE) {
+          stringBuilder.append(firstCharacter);
+        }
+        break;
+    }
+
+    return firstCharacterType;
   }
 }
