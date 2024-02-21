@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.schemareader;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.ColumnNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemadto.ParameterizedPropertyTypeDto;
 

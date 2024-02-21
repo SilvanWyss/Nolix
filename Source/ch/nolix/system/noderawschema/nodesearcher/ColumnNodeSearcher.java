@@ -1,8 +1,9 @@
 //package declaration
-package ch.nolix.system.noderawschema.structure;
+package ch.nolix.system.noderawschema.nodesearcher;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 
 //class
 public final class ColumnNodeSearcher {

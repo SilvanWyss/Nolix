@@ -3,8 +3,8 @@ package ch.nolix.system.noderawdata.datareader;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.structure.ParameterizedPropertyTypeNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;

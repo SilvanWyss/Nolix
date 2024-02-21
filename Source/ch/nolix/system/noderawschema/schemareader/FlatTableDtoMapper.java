@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.schemareader;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.TableNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 
 //class

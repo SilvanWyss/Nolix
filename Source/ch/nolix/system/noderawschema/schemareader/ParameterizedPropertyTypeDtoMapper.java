@@ -4,7 +4,7 @@ package ch.nolix.system.noderawschema.schemareader;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.ParameterizedPropertyTypeNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
