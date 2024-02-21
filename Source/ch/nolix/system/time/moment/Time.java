@@ -420,7 +420,7 @@ public final class Time extends Element implements ITime {
    * @return the number of milliseconds from the current {@link Time} to the given
    *         time.
    */
-  public long getMillisecondsTo(final Time time) {
+  public long getMillisecondsTo(final ITime time) {
     return (time.getMilliseconds() - this.getMilliseconds());
   }
 
