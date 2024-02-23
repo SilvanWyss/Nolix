@@ -46,7 +46,7 @@ public interface IEntityTool extends IDatabaseObjectTool {
     IBaseReference<? extends IEntity> baseReference);
 
   //method declaration
-  IContainer<IProperty> getStoredBackReferencingProperties(IEntity entity);
+  IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(IEntity entity);
 
   //method declaration
   IContainer<? extends IProperty> getStoredEditedProperties(IEntity entity);

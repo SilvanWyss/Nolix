@@ -330,13 +330,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   private void updateBackReferencingPropertiesForDeletion() {
-    ENTITY_TOOL.getStoredBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
-  }
-
-  //method
-  private void updateBackReferencingPropertyForDeletion(
-    final IProperty backReferencingProperty) {
-    updateBackReferencingPropertyForDeletion((IBaseBackReference<?>) backReferencingProperty);
+    ENTITY_TOOL.getStoredBaseBackReferences(this).forEach(this::updateBackReferencingPropertyForDeletion);
   }
 
   //method

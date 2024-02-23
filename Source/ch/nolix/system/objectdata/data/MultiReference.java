@@ -15,10 +15,10 @@ import ch.nolix.system.objectdata.propertyvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
@@ -100,9 +100,10 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public IContainer<IProperty> getStoredBackReferencingProperties() {
+  @SuppressWarnings("unchecked")
+  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
 
-    final var backReferencingProperties = new LinkedList<IProperty>();
+    final var backReferencingProperties = new LinkedList<IBaseBackReference<IEntity>>();
 
     for (final var re : getAllStoredReferencedEntities()) {
 
@@ -110,7 +111,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
         .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
 
       if (backReferencingProperty.isPresent()) {
-        backReferencingProperties.addAtEnd(backReferencingProperty.get());
+        backReferencingProperties.addAtEnd((IBaseBackReference<IEntity>) backReferencingProperty.get());
       }
     }
 

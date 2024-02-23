@@ -99,8 +99,8 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
   //method
   @Override
-  public IContainer<IProperty> getStoredBackReferencingProperties(final IEntity entity) {
-    return entity.internalGetStoredProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
+  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
+    return entity.internalGetStoredProperties().toFromGroups(IProperty::getStoredBaseBackReferences);
   }
 
   //method

@@ -17,7 +17,7 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
   boolean belongsToEntity();
 
   //method declaration
-  IContainer<IProperty> getStoredBackReferencingProperties();
+  IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences();
 
   //method
   IColumn getStoredParentColumn();

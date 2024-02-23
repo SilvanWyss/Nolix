@@ -66,7 +66,7 @@ implements IBaseBackReference<E> {
 
   //method
   @Override
-  public final IContainer<IProperty> getStoredBackReferencingProperties() {
+  public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
     return new ImmutableList<>();
   }
 

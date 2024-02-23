@@ -13,6 +13,7 @@ import ch.nolix.system.objectdata.propertyvalidator.OptionalReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
@@ -79,7 +80,8 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
-  public IContainer<IProperty> getStoredBackReferencingProperties() {
+  @SuppressWarnings("unchecked")
+  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
 
     if (isEmpty()) {
       return new ImmutableList<>();
@@ -89,7 +91,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
       .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
 
     if (backReferencingProperty.isPresent()) {
-      return ImmutableList.withElement(backReferencingProperty.get());
+      return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingProperty.get());
     }
 
     return new ImmutableList<>();

@@ -5,6 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
@@ -25,7 +26,7 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
 
   //method
   @Override
-  public final IContainer<IProperty> getStoredBackReferencingProperties() {
+  public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
     return new ImmutableList<>();
   }
 
