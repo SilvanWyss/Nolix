@@ -9,6 +9,7 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
+import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -172,7 +173,7 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   //method
-  RawSchemaAdapter internalgetStoredRawSchemaAdapter() {
+  RawSchemaLinkerAdapter internalgetStoredRawSchemaAdapter() {
     return getParentDatabase().internalGetRefRawSchemaAdapter();
   }
 

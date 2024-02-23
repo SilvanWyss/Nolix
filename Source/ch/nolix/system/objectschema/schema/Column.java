@@ -12,6 +12,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedPropertyType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
+import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
@@ -195,7 +196,7 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   //method
-  RawSchemaAdapter internalGetRefRawSchemaAdapter() {
+  RawSchemaLinkerAdapter internalGetRefRawSchemaAdapter() {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
   }
 

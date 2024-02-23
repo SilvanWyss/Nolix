@@ -6,6 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
+import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -30,7 +31,7 @@ public final class Database extends SchemaObject implements IDatabase {
   private boolean loadedTablesFromDatabase;
 
   //optional attribute
-  private RawSchemaAdapter rawSchemaAdapter;
+  private RawSchemaLinkerAdapter rawSchemaLinkerAdapter;
 
   //multi-attribute
   private LinkedList<ITable> tables = new LinkedList<>();
@@ -82,19 +83,19 @@ public final class Database extends SchemaObject implements IDatabase {
       return tables.getElementCount();
     }
 
-    return rawSchemaAdapter.getTableCount();
+    return rawSchemaLinkerAdapter.getTableCount();
   }
 
   //method
   @Override
   public boolean isLinkedWithRealDatabase() {
-    return (rawSchemaAdapter != null);
+    return (rawSchemaLinkerAdapter != null);
   }
 
   //method
   @Override
   public void setRawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
-    setRawSchemaAdapter(new RawSchemaAdapter(rawSchemaAdapter));
+    setRawSchemaAdapter(new RawSchemaLinkerAdapter(rawSchemaAdapter));
   }
 
   //method
@@ -114,11 +115,11 @@ public final class Database extends SchemaObject implements IDatabase {
   }
 
   //method
-  RawSchemaAdapter internalGetRefRawSchemaAdapter() {
+  RawSchemaLinkerAdapter internalGetRefRawSchemaAdapter() {
 
     DATABASE_OBJECT_VALIDATOR.assertIsLinkedWithRealDatabase(this);
 
-    return rawSchemaAdapter;
+    return rawSchemaLinkerAdapter;
   }
 
   //method
@@ -157,12 +158,12 @@ public final class Database extends SchemaObject implements IDatabase {
   }
 
   //method
-  private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
+  private void setRawSchemaAdapter(final RawSchemaLinkerAdapter rawSchemaLinkerAdapter) {
 
-    GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
+    GlobalValidator.assertThat(rawSchemaLinkerAdapter).thatIsNamed(RawSchemaLinkerAdapter.class).isNotNull();
     DATABASE_OBJECT_VALIDATOR.assertIsNotLinkedWithRealDatabase(this);
 
     internalSetLoaded();
-    this.rawSchemaAdapter = rawSchemaAdapter;
+    this.rawSchemaLinkerAdapter = rawSchemaLinkerAdapter;
   }
 }
