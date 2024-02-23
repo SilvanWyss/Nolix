@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdata.databaseinspector;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 
 //class
 public final class DatabaseInspector {
@@ -13,7 +13,7 @@ public final class DatabaseInspector {
   private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
 
   //method
-  public IContainer<ITableInfo> createTableDefinitionsFrom(final ISchemaAdapter schemaAdapter) {
+  public IContainer<ITableInfo> createTableDefinitionsFrom(final ISchemaReader schemaAdapter) {
     return schemaAdapter.loadTables().to(TABLE_DEFINITION_MAPPER::createTableDefinitionFrom);
   }
 }
