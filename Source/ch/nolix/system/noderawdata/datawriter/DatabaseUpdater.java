@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.noderawdata.structure.EntityNodeSearcher;
-import ch.nolix.system.noderawdata.structure.TableNodeSearcher;
+import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
+import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;

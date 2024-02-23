@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.noderawdata.structure;
+package ch.nolix.system.noderawdata.nodesearcher;
 
 //Java imports
 import java.util.Optional;
@@ -7,6 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 
 //class

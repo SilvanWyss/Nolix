@@ -5,7 +5,7 @@ package ch.nolix.system.noderawdata.datareader;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.structure.EntityNodeSearcher;
+import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.datadto.LoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;

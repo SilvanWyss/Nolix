@@ -5,7 +5,7 @@ package ch.nolix.system.noderawdata.datareader;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.structure.TableNodeSearcher;
+import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;

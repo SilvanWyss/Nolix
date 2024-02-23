@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.noderawdata.structure;
+package ch.nolix.system.noderawdata.nodesearcher;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
