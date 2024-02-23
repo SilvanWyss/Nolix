@@ -6,8 +6,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
+import ch.nolix.systemapi.applicationapi.webapplicationcounterpartupdaterapi.IUpdateCommandCreator;
 import ch.nolix.systemapi.applicationapi.webapplicationprotocol.CommandProtocol;
 import ch.nolix.systemapi.applicationapi.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -16,47 +18,55 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public final class UpdateCommandCreator {
+public final class UpdateCommandCreator implements IUpdateCommandCreator {
 
   //method
-  public ChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
+  @Override
+  public IChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetCssCommandFromCss(webGui.getCss());
   }
 
   //method
-  public ChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
+  @Override
+  public IChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGui.getHtmlElementEventRegistrations());
   }
 
   //method
-  public ChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
+  @Override
+  public IChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetIconCommandForIcon(webGui.getIcon());
   }
 
   //method
-  public ChainedNode createSetIconCommandForIcon(final IImage icon) {
+  @Override
+  public IChainedNode createSetIconCommandForIcon(final IImage icon) {
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
       ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
   //method
-  public ChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
+  @Override
+  public IChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
     return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.getHtml());
   }
 
   //method
-  public ChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
+  @Override
+  public IChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetRootHtmlElementCommandFromHtmlElement(webGui.getHtml());
   }
 
   //method
-  public ChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
+  @Override
+  public IChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
   //method
-  public ChainedNode createSetTitleCommandForTitle(final String title) {
+  @Override
+  public IChainedNode createSetTitleCommandForTitle(final String title) {
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
       ChainedNode.withHeaderAndChildNodesFromNodes(
@@ -65,7 +75,8 @@ public final class UpdateCommandCreator {
   }
 
   //method
-  public ChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
+  @Override
+  public IChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
   }
 

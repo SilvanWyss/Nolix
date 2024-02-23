@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -57,7 +56,7 @@ public final class WebClientCounterpartUpdater {
   }
 
   //method
-  private IContainer<ChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
+  private IContainer<IChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
     return ImmutableList.withElement(
       UPDATE_COMMAND_CREATOR.createSetTitleCommandFromWebGui(webGui),
       UPDATE_COMMAND_CREATOR.createSetIconCommandFromWebGui(webGui),

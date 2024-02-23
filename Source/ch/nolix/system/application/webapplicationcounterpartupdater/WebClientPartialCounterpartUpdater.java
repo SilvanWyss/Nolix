@@ -8,7 +8,6 @@ import java.util.function.Consumer;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -73,7 +72,7 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   //method
-  private IContainer<ChainedNode> createUpdateCommandsForControls(
+  private IContainer<IChainedNode> createUpdateCommandsForControls(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
 
@@ -81,7 +80,7 @@ public final class WebClientPartialCounterpartUpdater {
 
     final var webGui = controls.getStoredFirst().getStoredParentGui();
 
-    final var updatedCommands = new LinkedList<ChainedNode>();
+    final var updatedCommands = new LinkedList<IChainedNode>();
 
     updatedCommands.addAtEnd(controls.to(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
 
