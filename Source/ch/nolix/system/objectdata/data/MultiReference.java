@@ -25,7 +25,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
   //constant
-  private static final BaseBackReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseBackReferenceUpdater();
+  private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
   //constant
   private static final MultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();

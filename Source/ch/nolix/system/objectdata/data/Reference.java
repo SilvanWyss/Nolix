@@ -26,7 +26,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final BaseBackReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseBackReferenceUpdater();
+  private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
   //constant
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();

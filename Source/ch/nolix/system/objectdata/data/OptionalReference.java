@@ -25,7 +25,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 public final class OptionalReference<E extends IEntity> extends BaseReference<E> implements IOptionalReference<E> {
 
   //constant
-  private static final BaseBackReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseBackReferenceUpdater();
+  private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
   //constant
   private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();

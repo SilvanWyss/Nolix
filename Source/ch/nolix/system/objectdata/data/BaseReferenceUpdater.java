@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 
 //class
-public final class BaseBackReferenceUpdater {
+public final class BaseReferenceUpdater {
 
   //constant
   private static final EntityTool ENTITY_TOOL = new EntityTool();
