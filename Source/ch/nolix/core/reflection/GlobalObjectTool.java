@@ -2,6 +2,8 @@
 package ch.nolix.core.reflection;
 
 //Java imports
+import java.lang.annotation.Annotation;
+import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Field;
 
 //own imports
@@ -56,5 +58,19 @@ public final class GlobalObjectTool {
     } catch (final IllegalAccessException exception) {
       throw WrapperException.forError(exception);
     }
+  }
+
+  //static method
+  /**
+   * @param object
+   * @param annotationType
+   * @param <A>            is the given annotationType.
+   * @return true if the given object has an annotation of the given
+   *         annotationType.
+   */
+  public static <A extends Annotation> boolean hasAnnotation(
+    final AnnotatedElement object,
+    final Class<A> annotationType) {
+    return (object.getAnnotation(annotationType) != null);
   }
 }
