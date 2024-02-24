@@ -1,9 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdata.propertytool;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IReferenceTool;
@@ -29,6 +33,18 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
 
   //method
   @Override
+  public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
+    final IReference<IEntity> reference) {
+
+    if (reference.isEmpty()) {
+      return Optional.empty();
+    }
+
+    return getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(reference);
+  }
+
+  //method
+  @Override
   public boolean toReferenceCanSetEntity(final IReference<?> reference, final IEntity entity) {
     return //
     canSetEntity(reference)
@@ -42,5 +58,18 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
     return //
     isOpen(reference)
     && reference.belongsToEntity();
+  }
+
+  //method
+  @SuppressWarnings("unchecked")
+  private Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(
+    final IReference<IEntity> reference) {
+
+    final var referencedEntity = reference.getStoredReferencedEntity();
+
+    final var backReference = //
+    referencedEntity.internalGetStoredProperties().getOptionalStoredFirst(p -> p.referencesBackProperty(reference));
+
+    return backReference.map(br -> (IBaseBackReference<IEntity>) br);
   }
 }
