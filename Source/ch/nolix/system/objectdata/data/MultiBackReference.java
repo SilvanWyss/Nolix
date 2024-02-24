@@ -31,7 +31,7 @@ implements IMultiBackReference<E> {
   private boolean loadedAllPersistedBackReferencedEntityIds;
 
   //multi-attribute
-  private final LinkedList<IMultiBackReferenceEntry<E>> localEntries = new LinkedList<>();
+  private final LinkedList<MultiBackReferenceEntry<E>> localEntries = new LinkedList<>();
 
   //constructor
   private MultiBackReference(final String backReferencedTableName, final String backReferencedBaseReferenceName) {
@@ -165,6 +165,14 @@ implements IMultiBackReference<E> {
       backReferencedEntityId);
 
     localEntries.addAtEnd(newEntry);
+  }
+
+  //method
+  void internalDeleteBackReferencedEntityId(final String backReferencedEntityId) {
+
+    final var entry = localEntries.getStoredFirst(e -> e.getBackReferencedEntityId().equals(backReferencedEntityId));
+
+    entry.internalDelete();
   }
 
   //method

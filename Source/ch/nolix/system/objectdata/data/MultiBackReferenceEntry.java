@@ -107,4 +107,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }
+
+  //method
+  void internalDelete() {
+    state = DatabaseObjectState.DELETED;
+  }
 }
