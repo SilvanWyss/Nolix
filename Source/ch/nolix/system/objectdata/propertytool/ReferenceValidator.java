@@ -18,7 +18,7 @@ public class ReferenceValidator extends PropertyValidator implements IReferenceV
   //method
   @Override
   public void assertCanSetGivenEntity(final IReference<?> reference, final IEntity entity) {
-    if (!REFERENCE_TOOL.canSetGivenEntity(reference, entity)) {
+    if (!REFERENCE_TOOL.toReferenceCanSetEntity(reference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(reference, "cannot reference the given entity");
     }
   }

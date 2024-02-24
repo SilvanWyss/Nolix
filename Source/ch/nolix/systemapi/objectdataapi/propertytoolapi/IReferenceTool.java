@@ -1,12 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.propertytoolapi;
 
-//Java imports
-import java.util.Optional;
-
 //own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
@@ -14,11 +10,8 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 public interface IReferenceTool extends IPropertyTool {
 
   //method declaration
-  boolean canSetGivenEntity(final IReference<?> reference, IEntity entity);
+  IEntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(IReference<?> reference, IEntity entity);
 
   //method declaration
-  IEntityUpdateDto createEntityUpdateDtoForSetEntity(IReference<?> reference, IEntity entity);
-
-  //method declaration
-  Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(IReference<?> reference);
+  boolean toReferenceCanSetEntity(final IReference<?> reference, IEntity entity);
 }
