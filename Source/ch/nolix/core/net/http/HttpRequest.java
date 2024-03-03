@@ -3,7 +3,7 @@ package ch.nolix.core.net.http;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.StoringRequestable;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -22,7 +22,7 @@ public record HttpRequest(String content) {
   public static final String HTTP_HEADER = "HTTP";
 
   //static method
-  public static boolean canBe(final IContainer<String> lines) {
+  public static boolean canBe(final StoringRequestable<String> lines) {
     return lines.containsAny(l -> l.contains(HTTP_HEADER))
     && lines.containsAny(l -> l.contains(HOST_HEADER))
     && lines.containsAny(l -> l.contains(ACCEPT_HEADER + ": text/html"));
