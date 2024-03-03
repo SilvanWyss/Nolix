@@ -7,11 +7,13 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.noderawschemaapi.databaseinitializingapi.IDatabaseInitializer;
 
 //class
-final class InternalDatabaseInitializer {
+final class InternalDatabaseInitializer implements IDatabaseInitializer {
 
   //method
+  @Override
   public void initializeDatabase(final IMutableNode<?> databaseNode) {
     databaseNode
       .setHeader(StructureHeaderCatalogue.DATABASE)
