@@ -70,7 +70,7 @@ public final class SchemaInitializer {
     final ITable table,
     final Class<? extends IEntity> entityType) {
 
-    final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
+    final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseValues = entity
       .internalGetStoredProperties()
@@ -102,7 +102,7 @@ public final class SchemaInitializer {
     final Class<? extends IEntity> entityType,
     final IContainer<ITable> referencableTables) {
 
-    final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
+    final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseReferences = entity
       .internalGetStoredProperties()
@@ -134,7 +134,7 @@ public final class SchemaInitializer {
     final Class<? extends IEntity> entityType,
     final IContainer<ITable> referencableTables) {
 
-    final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
+    final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseBackReferences = entity
       .internalGetStoredProperties()

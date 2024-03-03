@@ -18,7 +18,7 @@ final class EntityMapper {
     final ILoadedEntityDto loadedEntityDto,
     final ITable<E> table) {
 
-    final var loadedEntity = ENTITY_CREATOR.createEmptyEntityFor(table);
+    final var loadedEntity = ENTITY_CREATOR.createEmptyEntityForTable(table);
 
     final var concreteEntity = (BaseEntity) loadedEntity;
     concreteEntity.internalSetParentTable(table);
