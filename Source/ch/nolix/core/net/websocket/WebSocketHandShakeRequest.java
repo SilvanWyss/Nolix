@@ -3,6 +3,7 @@ package ch.nolix.core.net.websocket;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.StoringRequestable;
 
 //class
 public final class WebSocketHandShakeRequest {
@@ -21,7 +22,7 @@ public final class WebSocketHandShakeRequest {
   }
 
   //static method
-  public static boolean canBe(final IContainer<String> lines) {
+  public static boolean canBe(final StoringRequestable<String> lines) {
     return lines.containsAny(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
   }
 
