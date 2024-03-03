@@ -5,12 +5,15 @@ package ch.nolix.system.noderawschema.nodesearcher;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class DatabasePropertiesNodeSearcher {
+public final class DatabasePropertiesNodeSearcher implements IDatabasePropertiesNodeSearcher {
 
   //method
-  public Time getSchemaTimestampFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
+  @Override
+  public ITime getSchemaTimestampFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
 
     final var schemaTimeStampNode = getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 
@@ -18,6 +21,7 @@ public final class DatabasePropertiesNodeSearcher {
   }
 
   //method
+  @Override
   public IMutableNode<?> getStoredSchemaTimestampNodeFromDatabasePropertiesNode(
     final IMutableNode<?> databasePropertiesNode) {
     return databasePropertiesNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.SCHEMA_TIMESTAMP);

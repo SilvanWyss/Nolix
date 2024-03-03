@@ -6,10 +6,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class DataReader implements IDataReader {
@@ -41,7 +41,7 @@ public final class DataReader implements IDataReader {
 
   //method
   @Override
-  public Time getSchemaTimestamp() {
+  public ITime getSchemaTimestamp() {
     return internalDataReader.getSchemaTimestamp();
   }
 
