@@ -234,7 +234,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   private IContainer<MultiReferenceEntry<E>> loadAllPersistedReferencedEntityIds() {
-    return internalGetRefDataAndSchemaAdapter().loadMultiReferenceEntries(
+    return internalGetStoredDataAndSchemaAdapter().loadMultiReferenceEntries(
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())

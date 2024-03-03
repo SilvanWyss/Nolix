@@ -90,7 +90,7 @@ public final class Database implements IDatabase {
       return DatabaseObjectState.CLOSED;
     }
 
-    if (internalGetRefDataAndSchemaAdapter().hasChanges()) {
+    if (internalGetStoredDataAndSchemaAdapter().hasChanges()) {
       return DatabaseObjectState.EDITED;
     }
 
@@ -110,7 +110,7 @@ public final class Database implements IDatabase {
   //method
   @Override
   public boolean isClosed() {
-    return internalGetRefDataAndSchemaAdapter().isClosed();
+    return internalGetStoredDataAndSchemaAdapter().isClosed();
   }
 
   //method
@@ -139,7 +139,7 @@ public final class Database implements IDatabase {
   }
 
   //method
-  IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
+  IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
     return dataAndSchemaAdapter;
   }
 

@@ -151,8 +151,8 @@ public abstract class Property implements IProperty {
   }
 
   //method
-  final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-    return ((BaseEntity) parentEntity).internalGetRefDataAndSchemaAdapter();
+  final IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+    return ((BaseEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
   }
 
   //method declaration

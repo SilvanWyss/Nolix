@@ -135,7 +135,7 @@ public abstract class DataAdapter implements IDataAdapter {
   //method
   private synchronized void saveChangesAndIncrementSaveCount() {
 
-    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, database.internalGetRefDataAndSchemaAdapter());
+    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, database.internalGetStoredDataAndSchemaAdapter());
 
     saveCount++;
   }

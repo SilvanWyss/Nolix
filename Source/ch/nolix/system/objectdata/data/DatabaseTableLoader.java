@@ -22,7 +22,7 @@ final class DatabaseTableLoader {
   //method
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 
-    final var rawTables = database.internalGetRefDataAndSchemaAdapter().loadTables();
+    final var rawTables = database.internalGetStoredDataAndSchemaAdapter().loadTables();
 
     final var tables = rawTables.to(rt -> TABLE_MAPPER.createEmptyTableFromTableDtoForDatabase(rt, database));
 

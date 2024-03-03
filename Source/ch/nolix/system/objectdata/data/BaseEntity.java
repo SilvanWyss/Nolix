@@ -201,8 +201,8 @@ public abstract class BaseEntity implements IEntity {
   }
 
   //method
-  final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-    return ((Table<?>) getStoredParentTable()).internalGetRefDataAndSchemaAdapter();
+  final IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+    return ((Table<?>) getStoredParentTable()).internalGetStoredDataAndSchemaAdapter();
   }
 
   //method

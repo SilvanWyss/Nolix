@@ -91,7 +91,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   @Override
   public boolean containsEntityWithId(final String id) {
-    return internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id);
+    return internalGetStoredDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id);
   }
 
   //method
@@ -126,7 +126,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     if (entity.isEmpty()) {
 
-      if (internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
+      if (internalGetStoredDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
 
         addEntityWithIdWhenIsNotAdded(id);
 
@@ -243,8 +243,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   //method
-  IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-    return parentDatabase.internalGetRefDataAndSchemaAdapter();
+  IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+    return parentDatabase.internalGetStoredDataAndSchemaAdapter();
   }
 
   //method
@@ -266,7 +266,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   private void addEntityWithIdWhenIsNotAdded(final String id) {
 
-    final var entity = ENTITY_LOADER.loadEntityById(this, id, internalGetRefDataAndSchemaAdapter());
+    final var entity = ENTITY_LOADER.loadEntityById(this, id, internalGetStoredDataAndSchemaAdapter());
 
     entitiesInLocalData.addAtEnd(entity);
   }
@@ -304,7 +304,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 
-    for (final var r : internalGetRefDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
+    for (final var r : internalGetStoredDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
       insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(r);
     }
 

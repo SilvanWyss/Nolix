@@ -87,6 +87,6 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 
   //method
   private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
-    return parentTable.internalGetRefDataAndSchemaAdapter();
+    return parentTable.internalGetStoredDataAndSchemaAdapter();
   }
 }

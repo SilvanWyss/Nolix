@@ -161,7 +161,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   @SuppressWarnings("unchecked")
   private IContainer<MultiValueEntry<V>> loadAllPersistedValues() {
-    return internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
+    return internalGetStoredDataAndSchemaAdapter().loadMultiValueEntries(
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())
