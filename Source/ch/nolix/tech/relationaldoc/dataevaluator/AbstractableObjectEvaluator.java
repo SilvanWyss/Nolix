@@ -11,8 +11,7 @@ public final class AbstractableObjectEvaluator {
   //method
   public boolean canAddBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject baseType) {
     return canAddBaseType(baseType)
-    && abstractableObject != null
-    && !abstractableObject.hasSameNameAs(baseType)
+    && canAddBaseTypeBecauseOfName(abstractableObject, baseType)
     && canAddBaseTypeBecauseOfBaseTypes(abstractableObject, baseType)
     && canAddBaseTypeBecauseOfSubTypes(abstractableObject, baseType);
   }
@@ -69,6 +68,15 @@ public final class AbstractableObjectEvaluator {
 
     final var baseTypes = abstractableObject.getStoredBaseTypes();
     return baseTypes.containsNone(bt -> bt.hasSameNameAs(baseType));
+  }
+
+  //method
+  private boolean canAddBaseTypeBecauseOfName(
+    final IAbstractableObject abstractableObject,
+    final IAbstractableObject baseType) {
+    return //
+    abstractableObject != null
+    && !abstractableObject.hasSameNameAs(baseType);
   }
 
   //method
