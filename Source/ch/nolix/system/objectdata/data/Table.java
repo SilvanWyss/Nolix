@@ -31,6 +31,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private static final ITableTool TABLE_TOOL = new TableTool();
 
   //constant
+  private static final EntityLoader ENTITY_LOADER = new EntityLoader();
+
+  //constant
   private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
 
   //attribute
@@ -262,13 +265,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   private void addEntityWithIdWhenIsNotAdded(final String id) {
-    entitiesInLocalData.addAtEnd(loadEntityById(id));
-  }
 
-  //method
-  @SuppressWarnings("unchecked")
-  private E createLoadedEntityFromDto(ILoadedEntityDto loadedEntityDto) {
-    return (E) ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntityDto, (Table<BaseEntity>) this);
+    final var entity = ENTITY_LOADER.loadEntityById(this, id, internalGetRefDataAndSchemaAdapter());
+
+    entitiesInLocalData.addAtEnd(entity);
   }
 
   //method
@@ -279,7 +279,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
     if (!TABLE_TOOL.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
-      entitiesInLocalData.addAtEnd(createLoadedEntityFromDto(loadedEntity));
+
+      final var entity = ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntity, this);
+
+      entitiesInLocalData.addAtEnd(entity);
     }
   }
 
@@ -311,15 +314,5 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   private boolean loadedAllEntitiesInLocalData() {
     return loadedAllEntitiesInLocalData;
-  }
-
-  //method
-  private E loadEntityById(final String id) {
-    return createLoadedEntityFromDto(loadEntityDtoById(id));
-  }
-
-  //method
-  private ILoadedEntityDto loadEntityDtoById(final String id) {
-    return internalGetRefDataAndSchemaAdapter().loadEntity(getName(), id);
   }
 }
