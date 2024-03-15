@@ -9,6 +9,6 @@ public final class DatabaseObjectToolTestPool extends TestPool {
 
   //constructor
   public DatabaseObjectToolTestPool() {
-    super();
+    super(DatabaseObjectToolTest.class);
   }
 }
