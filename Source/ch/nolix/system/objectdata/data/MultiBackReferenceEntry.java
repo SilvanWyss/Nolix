@@ -104,6 +104,12 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
 
   //method
   @Override
+  public boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }

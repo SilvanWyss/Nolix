@@ -98,6 +98,12 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //method
   @Override
+  public boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }

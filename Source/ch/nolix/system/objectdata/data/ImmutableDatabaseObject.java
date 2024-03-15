@@ -39,6 +39,12 @@ abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObjec
 
   //method
   @Override
+  public final boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public final boolean isNew() {
     return false;
   }

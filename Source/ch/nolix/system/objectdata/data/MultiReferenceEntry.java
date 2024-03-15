@@ -117,6 +117,12 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   @Override
+  public boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }

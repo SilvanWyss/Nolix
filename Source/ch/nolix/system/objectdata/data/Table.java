@@ -216,6 +216,12 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   @Override
+  public boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public boolean isNew() {
     return false;
   }

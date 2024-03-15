@@ -127,6 +127,12 @@ public final class Database implements IDatabase {
 
   //method
   @Override
+  public boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public boolean isNew() {
     return false;
   }

@@ -35,6 +35,12 @@ abstract class SchemaObject implements IDatabaseObject {
 
   //method
   @Override
+  public final boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public final boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }

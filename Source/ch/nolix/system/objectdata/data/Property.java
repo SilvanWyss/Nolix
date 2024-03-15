@@ -114,6 +114,12 @@ public abstract class Property implements IProperty {
 
   //method
   @Override
+  public final boolean isLoaded() {
+    return (getState() == DatabaseObjectState.LOADED);
+  }
+
+  //method
+  @Override
   public final boolean isNew() {
 
     if (!belongsToEntity()) {
