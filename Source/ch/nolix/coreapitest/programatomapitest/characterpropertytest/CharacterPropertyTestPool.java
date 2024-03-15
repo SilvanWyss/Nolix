@@ -9,6 +9,6 @@ public final class CharacterPropertyTestPool extends TestPool {
 
   //constructor
   public CharacterPropertyTestPool() {
-    super();
+    super(CharacterTypeTest.class);
   }
 }
