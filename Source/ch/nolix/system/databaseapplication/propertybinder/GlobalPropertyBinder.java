@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class

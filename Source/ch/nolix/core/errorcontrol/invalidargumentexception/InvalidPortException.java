@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+//own imports
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class

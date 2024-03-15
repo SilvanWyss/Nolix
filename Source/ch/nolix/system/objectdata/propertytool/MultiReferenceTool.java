@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.propertytool;
 
+//own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;

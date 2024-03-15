@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.datavalidatorapi;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 
 //interface

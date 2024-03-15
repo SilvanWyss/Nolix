@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
+//own imports
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.statementcreator;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 //own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;

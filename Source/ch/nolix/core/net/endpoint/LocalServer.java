@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+//own imports
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class

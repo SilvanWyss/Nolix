@@ -4,6 +4,7 @@ package ch.nolix.core.programstructure.data;
 //Java imports
 import java.util.UUID;
 
+//own imports
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class

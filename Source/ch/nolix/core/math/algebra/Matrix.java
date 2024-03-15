@@ -5,6 +5,7 @@ package ch.nolix.core.math.algebra;
 import java.util.Arrays;
 import java.util.Random;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.commontypetool.GlobalDoubleTool;
 import ch.nolix.core.container.linkedlist.LinkedList;

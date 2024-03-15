@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techapi.relationaldocapi.baseapi;
 
+//own imports
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.ContentTypeRequestable;
 
 //interface

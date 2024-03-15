@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.MultiReference;

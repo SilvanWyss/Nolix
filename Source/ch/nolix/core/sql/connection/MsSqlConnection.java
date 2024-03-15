@@ -4,6 +4,7 @@ package ch.nolix.core.sql.connection;
 //Java imports
 import java.sql.Connection;
 
+//own imports
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class

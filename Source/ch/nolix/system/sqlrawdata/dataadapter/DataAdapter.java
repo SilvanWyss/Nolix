@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.dataadapter;
 
+//own imports
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.baserawdatabase.databaseadapter.BaseDataAdapter;

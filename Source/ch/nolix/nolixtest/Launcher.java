@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.nolixtest;
 
+//own imports
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 
 //class

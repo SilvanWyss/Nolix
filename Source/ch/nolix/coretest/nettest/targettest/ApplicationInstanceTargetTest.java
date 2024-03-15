@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.targettest;
 
+//own imports
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;

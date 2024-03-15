@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalCharacterTool;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;

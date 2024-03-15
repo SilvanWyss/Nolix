@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.ssl;
 
+//own imports
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
 //record

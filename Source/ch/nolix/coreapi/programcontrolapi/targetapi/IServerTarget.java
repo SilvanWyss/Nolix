@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.targetapi;
 
+//own imports
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //interface

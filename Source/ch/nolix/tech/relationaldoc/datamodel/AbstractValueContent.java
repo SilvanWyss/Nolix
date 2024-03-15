@@ -1,6 +1,7 @@
 //package declaraiton
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//own imports
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractValueContentValidator;

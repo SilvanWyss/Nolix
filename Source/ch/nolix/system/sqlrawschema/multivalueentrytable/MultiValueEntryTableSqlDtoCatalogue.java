@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.multivalueentrytable;
 
+//own imports
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 //own imports
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;

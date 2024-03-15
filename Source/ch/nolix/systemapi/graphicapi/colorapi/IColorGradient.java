@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
+//own imports
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 

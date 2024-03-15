@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.sqlrawdataapi.querycreatorapi;
 
+//own imports
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //interface

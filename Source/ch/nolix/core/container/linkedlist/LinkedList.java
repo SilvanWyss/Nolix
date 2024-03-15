@@ -5,6 +5,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;

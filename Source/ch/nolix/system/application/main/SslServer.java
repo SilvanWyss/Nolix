@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.main;
 
+//own imports
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;

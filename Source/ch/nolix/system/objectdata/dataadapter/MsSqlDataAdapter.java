@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
+//own imports
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;

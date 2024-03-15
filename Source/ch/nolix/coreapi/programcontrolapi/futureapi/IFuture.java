@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.futureapi;
 
+//own imports
 import ch.nolix.coreapi.programcontrolapi.processapi.FinishRequestable;
 
 //interface

@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.propertytool;
 //Java imports
 import java.util.Optional;
 
+//own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.savecontrolapi;
 
+//own imports
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
 
 //interface

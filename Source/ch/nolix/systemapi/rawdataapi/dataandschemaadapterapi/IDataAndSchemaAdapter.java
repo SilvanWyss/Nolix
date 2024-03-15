@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi;
 
+//own imports
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;

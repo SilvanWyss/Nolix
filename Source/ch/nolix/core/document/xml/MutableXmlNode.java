@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;

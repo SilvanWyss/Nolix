@@ -4,6 +4,7 @@ package ch.nolix.core.math.algebra;
 //Java imports
 import java.util.Arrays;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

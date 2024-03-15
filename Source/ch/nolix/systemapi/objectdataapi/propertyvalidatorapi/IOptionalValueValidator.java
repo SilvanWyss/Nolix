@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.propertyvalidatorapi;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 
 //interface

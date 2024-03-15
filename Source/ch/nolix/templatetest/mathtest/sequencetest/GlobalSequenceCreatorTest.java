@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.mathtest.sequencetest;
 
+//own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;

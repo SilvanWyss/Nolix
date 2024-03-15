@@ -4,6 +4,7 @@ package ch.nolix.systemapi.objectdataapi.propertytoolapi;
 //Java imports
 import java.util.Optional;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;

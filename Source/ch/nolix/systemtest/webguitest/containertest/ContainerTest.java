@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.containertest;
 
+//own imports
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;

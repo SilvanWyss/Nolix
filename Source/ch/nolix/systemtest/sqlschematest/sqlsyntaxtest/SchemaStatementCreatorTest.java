@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.sqlschematest.sqlsyntaxtest;
 
+//own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.web.css;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

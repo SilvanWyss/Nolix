@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest;
 
+//own imports
 import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.test.Test;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techapi.relationaldocapi.datamodelapi;
 
+//own imports
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
 //interface

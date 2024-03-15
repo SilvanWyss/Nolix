@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlschema.sqlsyntax.SchemaQueryCreator;
 import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;

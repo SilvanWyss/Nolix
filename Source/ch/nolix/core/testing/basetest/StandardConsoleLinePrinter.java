@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.testing.basetest;
 
+//own imports
 import ch.nolix.coreapi.errorcontrolapi.loggingapi.ILinePrinter;
 
 //class

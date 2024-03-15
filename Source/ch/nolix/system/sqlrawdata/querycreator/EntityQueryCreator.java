@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.querycreator;
 
+//own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;

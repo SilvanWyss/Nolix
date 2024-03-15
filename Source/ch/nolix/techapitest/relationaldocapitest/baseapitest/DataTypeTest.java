@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techapitest.relationaldocapitest.baseapitest;
 
+//own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
