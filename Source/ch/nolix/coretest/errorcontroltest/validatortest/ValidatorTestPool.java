@@ -14,6 +14,7 @@ public final class ValidatorTestPool extends TestPool {
       ExtendedStringMediatorTest.class,
       GlobalValidatorTest.class,
       LongMediatorTest.class,
+      MultiDoubleMediatorTest.class,
       StringMediatorTest.class,
       TypeMediatorTest.class);
   }
