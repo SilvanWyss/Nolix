@@ -8,21 +8,6 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 public interface IDatabaseObjectTool {
 
   //method declaration
-  boolean isDeleted(IDatabaseObject databaseObject);
-
-  //method declaration
-  boolean isEdited(IDatabaseObject databaseObject);
-
-  //method declaration
-  boolean isLoaded(IDatabaseObject databaseObject);
-
-  //method declaration
-  boolean isOpen(IDatabaseObject databaseObject);
-
-  //method declaration
-  boolean isNew(IDatabaseObject databaseObject);
-
-  //method declaration
   boolean isNewOrDeleted(IDatabaseObject databaseObject);
 
   //method declaration

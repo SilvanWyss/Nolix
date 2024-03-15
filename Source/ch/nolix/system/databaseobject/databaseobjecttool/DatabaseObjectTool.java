@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseobject.databaseobjecttool;
 
+//own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
@@ -10,42 +11,16 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
 
   //method
   @Override
-  public final boolean isDeleted(final IDatabaseObject databaseObject) {
-    return (databaseObject.getState() == DatabaseObjectState.DELETED);
-  }
-
-  //method
-  @Override
-  public final boolean isEdited(final IDatabaseObject databaseObject) {
-    return (databaseObject.getState() == DatabaseObjectState.EDITED);
-  }
-
-  //method
-  @Override
-  public final boolean isLoaded(final IDatabaseObject databaseObject) {
-    return (databaseObject.getState() == DatabaseObjectState.LOADED);
-  }
-
-  //method
-  @Override
-  public boolean isOpen(final IDatabaseObject databaseObject) {
-    return databaseObject != null
-    && databaseObject.isOpen();
-  }
-
-  //method
-  @Override
-  public final boolean isNew(final IDatabaseObject databaseObject) {
-    return (databaseObject.getState() == DatabaseObjectState.NEW);
-  }
-
-  //method
-  @Override
   public boolean isNewOrDeleted(IDatabaseObject databaseObject) {
+
+    if (databaseObject == null) {
+      return false;
+    }
 
     final var state = databaseObject.getState();
 
-    return state == DatabaseObjectState.NEW
+    return //
+    state == DatabaseObjectState.NEW
     || state == DatabaseObjectState.DELETED;
   }
 
@@ -53,9 +28,14 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
   @Override
   public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
 
+    if (databaseObject == null) {
+      return false;
+    }
+
     final var state = databaseObject.getState();
 
-    return state == DatabaseObjectState.NEW
+    return //
+    state == DatabaseObjectState.NEW
     || state == DatabaseObjectState.EDITED;
   }
 
@@ -63,9 +43,14 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
   @Override
   public boolean isNewOrLoaded(final IDatabaseObject databaseObject) {
 
+    if (databaseObject == null) {
+      return false;
+    }
+
     final var state = databaseObject.getState();
 
-    return state == DatabaseObjectState.NEW
+    return //
+    state == DatabaseObjectState.NEW
     || state == DatabaseObjectState.LOADED;
   }
 
@@ -73,9 +58,14 @@ public class DatabaseObjectTool implements IDatabaseObjectTool {
   @Override
   public boolean isNewOrLoadedOrEdited(final IDatabaseObject databaseObject) {
 
+    if (databaseObject == null) {
+      return false;
+    }
+
     final var state = databaseObject.getState();
 
-    return state == DatabaseObjectState.NEW
+    return //
+    state == DatabaseObjectState.NEW
     || state == DatabaseObjectState.LOADED
     || state == DatabaseObjectState.EDITED;
   }

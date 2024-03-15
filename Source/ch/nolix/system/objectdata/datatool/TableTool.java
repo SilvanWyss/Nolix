@@ -66,7 +66,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   //method
   @Override
   public boolean hasChanges(final ITable<?> table) {
-    return table.internalGetStoredEntitiesInLocalData().containsAny(e -> !ENTITY_TOOL.isLoaded(e));
+    return table.internalGetStoredEntitiesInLocalData().containsAny(e -> !e.isLoaded());
   }
 
   //method

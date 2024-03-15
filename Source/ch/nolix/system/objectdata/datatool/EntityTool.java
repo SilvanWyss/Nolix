@@ -17,7 +17,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
@@ -26,7 +25,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
 
   //constant
-  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
+  private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //method
   @Override
@@ -42,13 +41,18 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public boolean canBeDeleted(final IEntity entity) {
-    return (isLoaded(entity) && !isReferenced(entity));
+    return //
+    entity != null
+    && entity.isLoaded()
+    && !isReferenced(entity);
   }
 
   //method
   @Override
   public boolean canBeInsertedIntoTable(final IEntity entity) {
-    return isNew(entity)
+    return //
+    entity != null
+    && entity.isNew()
     && entity.belongsToTable();
   }
 
@@ -106,7 +110,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
-    return entity.internalGetStoredProperties().getStoredSelected(PROPERTY_TOOL::isEdited);
+    return entity.internalGetStoredProperties().getStoredSelected(IProperty::isEdited);
   }
 
   //method

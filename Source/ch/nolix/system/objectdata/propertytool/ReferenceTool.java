@@ -48,7 +48,8 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   public boolean toReferenceCanSetEntity(final IReference<?> reference, final IEntity entity) {
     return //
     canSetEntity(reference)
-    && isOpen(entity)
+    && reference != null
+    && reference.isOpen()
     && reference.getReferencedTableName().equals(entity.getParentTableName())
     && !reference.referencesEntity(entity); //Important: When a Reference is set new data records could be created.
   }
@@ -56,7 +57,8 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   //method
   private boolean canSetEntity(final IReference<?> reference) {
     return //
-    isOpen(reference)
+    reference != null
+    && reference.isOpen()
     && reference.belongsToEntity();
   }
 

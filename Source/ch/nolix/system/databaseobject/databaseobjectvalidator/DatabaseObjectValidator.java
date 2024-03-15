@@ -5,15 +5,11 @@ package ch.nolix.system.databaseobject.databaseobjectvalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi.IDatabaseObjectValidator;
 
 //class
 public class DatabaseObjectValidator implements IDatabaseObjectValidator {
-
-  //constant
-  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
   //method
   @Override
@@ -26,7 +22,7 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
   //method
   @Override
   public final void assertIsLoaded(final IDatabaseObject databaseObject) {
-    if (!DATABASE_OBJECT_TOOL.isLoaded(databaseObject)) {
+    if (!databaseObject.isLoaded()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not loaded");
     }
   }
@@ -34,7 +30,7 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
   //method
   @Override
   public final void assertIsNew(final IDatabaseObject databaseObject) {
-    if (!DATABASE_OBJECT_TOOL.isNew(databaseObject)) {
+    if (!databaseObject.isNew()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not new");
     }
   }
@@ -58,7 +54,7 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
   //method
   @Override
   public final void assertIsNotNew(final IDatabaseObject databaseObject) {
-    if (DATABASE_OBJECT_TOOL.isNew(databaseObject)) {
+    if (databaseObject.isNew()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is new");
     }
   }

@@ -154,7 +154,7 @@ public final class Database extends SchemaObject implements IDatabase {
 
   //method
   private boolean needsToLoadTablesFromDatabase() {
-    return (DATABASE_TOOL.isLoaded(this) && !hasLoadedTablesFromDatabase());
+    return (isLoaded() && !hasLoadedTablesFromDatabase());
   }
 
   //method

@@ -21,15 +21,17 @@ public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
   //method
   @Override
   public boolean belongsToEntity(final IProperty property) {
-    return property != null
+    return //
+    property != null
     && property.belongsToEntity();
   }
 
   //method
   @Override
   public final boolean belongsToLoadedEntity(final IProperty property) {
-    return property.belongsToEntity()
-    && isLoaded(property.getStoredParentEntity());
+    return //
+    property.belongsToEntity()
+    && property.getStoredParentEntity().isLoaded();
   }
 
   //method

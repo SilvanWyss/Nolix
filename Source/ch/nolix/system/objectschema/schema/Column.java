@@ -19,7 +19,6 @@ import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //class
@@ -43,7 +42,7 @@ public final class Column extends SchemaObject implements IColumn {
   private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
 
   //constant
-  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
+  private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
   //attribute
   private final String id;
@@ -130,12 +129,9 @@ public final class Column extends SchemaObject implements IColumn {
   //method
   @Override
   public boolean isEmpty() {
-
-    if (COLUMN_TOOL.isNew(this)) {
-      return true;
-    }
-
-    return internalGetRefRawSchemaAdapter().columnIsEmpty(this);
+    return //
+    isNew()
+    || internalGetRefRawSchemaAdapter().columnIsEmpty(this);
   }
 
   //method

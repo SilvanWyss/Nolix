@@ -15,7 +15,6 @@ import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
@@ -29,7 +28,7 @@ public final class Table extends SchemaObject implements ITable {
   private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
 
   //constant
-  private static final ITableTool TABLE_TOOL = new TableTool();
+  private static final TableTool TABLE_TOOL = new TableTool();
 
   //attribute
   private final String id;
@@ -239,6 +238,6 @@ public final class Table extends SchemaObject implements ITable {
 
   //method
   private boolean needsToLoadColumnsFromDatabase() {
-    return (TABLE_TOOL.isLoaded(this) && !hasLoadedColumnsFromDatabase());
+    return (isLoaded() && !hasLoadedColumnsFromDatabase());
   }
 }
