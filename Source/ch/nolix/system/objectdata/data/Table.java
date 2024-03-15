@@ -210,6 +210,12 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //method
   @Override
+  public boolean isEdited() {
+    return (getState() == DatabaseObjectState.EDITED);
+  }
+
+  //method
+  @Override
   public boolean isLinkedWithRealDatabase() {
     return parentDatabase.isLinkedWithRealDatabase();
   }

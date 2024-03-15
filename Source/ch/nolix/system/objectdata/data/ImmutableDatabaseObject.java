@@ -33,6 +33,12 @@ abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObjec
 
   //method
   @Override
+  public final boolean isEdited() {
+    return (getState() == DatabaseObjectState.EDITED);
+  }
+
+  //method
+  @Override
   public final boolean isLinkedWithRealDatabase() {
     return true;
   }

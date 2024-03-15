@@ -92,6 +92,12 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //method
   @Override
+  public boolean isEdited() {
+    return (getState() == DatabaseObjectState.EDITED);
+  }
+
+  //method
+  @Override
   public boolean isLinkedWithRealDatabase() {
     return getStoredParentMultiValue().isLinkedWithRealDatabase();
   }

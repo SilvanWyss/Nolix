@@ -108,6 +108,12 @@ public abstract class Property implements IProperty {
 
   //method
   @Override
+  public final boolean isEdited() {
+    return (getState() == DatabaseObjectState.EDITED);
+  }
+
+  //method
+  @Override
   public final boolean isLinkedWithRealDatabase() {
     return (belongsToEntity() && getStoredParentEntity().isLinkedWithRealDatabase());
   }

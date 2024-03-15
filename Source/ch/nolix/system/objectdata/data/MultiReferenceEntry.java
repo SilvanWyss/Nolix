@@ -111,6 +111,12 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   @Override
+  public boolean isEdited() {
+    return false;
+  }
+
+  //method
+  @Override
   public boolean isLinkedWithRealDatabase() {
     return getStoredParentMultiReference().isLinkedWithRealDatabase();
   }

@@ -116,7 +116,13 @@ public final class Database implements IDatabase {
   //method
   @Override
   public boolean isDeleted() {
-    return false;
+    return (getState() == DatabaseObjectState.DELETED);
+  }
+
+  //method
+  @Override
+  public boolean isEdited() {
+    return (getState() == DatabaseObjectState.EDITED);
   }
 
   //method
@@ -134,7 +140,7 @@ public final class Database implements IDatabase {
   //method
   @Override
   public boolean isNew() {
-    return false;
+    return (getState() == DatabaseObjectState.NEW);
   }
 
   //method
