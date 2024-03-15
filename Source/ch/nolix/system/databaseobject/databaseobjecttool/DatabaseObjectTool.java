@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseobject.databaseobjecttool;
 
-//own imports
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
 
 //class

@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;

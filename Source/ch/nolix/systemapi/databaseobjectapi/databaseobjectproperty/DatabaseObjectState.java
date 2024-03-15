@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.databaseobjectapi.databaseobjectapi;
+package ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty;
 
 //enum
 public enum DatabaseObjectState {

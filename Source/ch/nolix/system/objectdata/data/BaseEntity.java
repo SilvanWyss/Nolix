@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.entityflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.entityflyweight.VoidEntityFlyWeight;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;

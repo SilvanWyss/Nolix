@@ -6,7 +6,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;

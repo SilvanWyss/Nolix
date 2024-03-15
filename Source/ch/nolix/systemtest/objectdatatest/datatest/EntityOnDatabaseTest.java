@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
 public final class EntityOnDatabaseTest extends Test {
