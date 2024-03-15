@@ -5,6 +5,7 @@ package ch.nolix.systemtest;
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.systemtest.applicationtest.ApplicationTestPool;
 import ch.nolix.systemtest.databaseapplicationtest.DatabaseApplicationTestPool;
+import ch.nolix.systemtest.databaseobjecttest.DatabaseObjectTestPool;
 import ch.nolix.systemtest.elementtest.ElementTestPool;
 import ch.nolix.systemtest.graphictest.GraphicTestPool;
 import ch.nolix.systemtest.guitest.GuiTestPool;
@@ -24,6 +25,7 @@ public final class SystemTestPool extends TestPool {
     super(
       new ApplicationTestPool(),
       new DatabaseApplicationTestPool(),
+      new DatabaseObjectTestPool(),
       new ElementTestPool(),
       new GraphicTestPool(),
       new GuiTestPool(),
