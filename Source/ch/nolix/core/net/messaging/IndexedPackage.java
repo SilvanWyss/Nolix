@@ -30,7 +30,7 @@ public class IndexedPackage<C> {
    * @param content
    * @throws ArgumentIsNullException if the given content is null.
    */
-  public IndexedPackage(final int index, final C content) {
+  protected IndexedPackage(final int index, final C content) {
 
     //Asserts that the given content is not null.
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNotNull();
@@ -40,6 +40,18 @@ public class IndexedPackage<C> {
 
     //Sets the content of the current IndexedPackage.
     this.content = content;
+  }
+
+  //static method
+  /**
+   * @param index
+   * @param content
+   * @param <C2>    is the type of the given content.
+   * @return a new {@link IndexedPackage} with the given index and content.
+   * @throws ArgumentIsNullException if the given content is null.
+   */
+  public static <C2> IndexedPackage<C2> withIndexAndContent(final int index, final C2 content) {
+    return new IndexedPackage<>(index, content);
   }
 
   //method
