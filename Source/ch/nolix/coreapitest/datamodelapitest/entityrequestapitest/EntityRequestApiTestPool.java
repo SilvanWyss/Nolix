@@ -9,6 +9,6 @@ public final class EntityRequestApiTestPool extends TestPool {
 
   //constructor
   public EntityRequestApiTestPool() {
-    super();
+    super(AbstractnessRequestableTest.class);
   }
 }
