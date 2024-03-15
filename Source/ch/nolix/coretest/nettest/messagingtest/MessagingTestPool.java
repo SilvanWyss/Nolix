@@ -9,6 +9,6 @@ public final class MessagingTestPool extends TestPool {
 
   //constructor
   public MessagingTestPool() {
-    super();
+    super(IndexedPackageTest.class);
   }
 }
