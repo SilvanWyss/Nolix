@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 //own imports
 import ch.nolix.core.container.arraylist.ArrayList;
@@ -70,8 +71,14 @@ public abstract class SqlConnection implements ISqlConnection {
 
     registerSqlDatabaseEngineDriver();
 
+    final var properties = new Properties();
+    properties.put("user", userName);
+    properties.put("password", userPassword);
+    properties.put("encrypt", "true");
+    properties.put("trustServerCertificate", "true");
+
     try {
-      connection = DriverManager.getConnection("jdbc:sqlserver://" + ip + ':' + port, userName, userPassword);
+      connection = DriverManager.getConnection("jdbc:sqlserver://" + ip + ':' + port, properties);
     } catch (final SQLException sqlException) {
       throw WrapperException.forError(sqlException);
     }
