@@ -1,10 +1,8 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
-//Java imports
-import java.util.function.Consumer;
-
 //own imports
+import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
@@ -14,25 +12,19 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  * @author Silvan Wyss
  * @date 2016-10-01
  */
-public final class ClosureMediator extends Mediator {
+public final class ClosureMediator {
 
   //attribute
   private final Runnable closure;
 
   //constructor
   /**
-   * Creates a new {@link ClosureMediator} that belongs to the given test and is
-   * for the given closure.
+   * Creates a new {@link ClosureMediator} for the given closure.
    * 
-   * @param expectationErrorTaker
    * @param closure
-   * @throws ArgumentIsNullException if the given test is null.
    * @throws ArgumentIsNullException if the given closure is null.
    */
-  public ClosureMediator(final Consumer<String> expectationErrorTaker, final Runnable closure) {
-
-    //Calls constructor of the base class.
-    super(expectationErrorTaker);
+  public ClosureMediator(final Runnable closure) {
 
     //Asserts that the given closure is not null.
     if (closure == null) {
@@ -53,10 +45,9 @@ public final class ClosureMediator extends Mediator {
   public ExtendedThrownExceptionMediator throwsException() {
     try {
       closure.run();
-      addCurrentTestCaseError("An exception was expected, but no exception was thrown.");
-      return new ExtendedThrownExceptionMediator(getStoredExpectationErrorTaker());
+      throw GeneralException.withErrorMessage("An exception was expected, but no exception was thrown.");
     } catch (final Throwable exception) { //NOSONAR: All Throwables must be caught here.
-      return new ExtendedThrownExceptionMediator(getStoredExpectationErrorTaker(), exception);
+      return new ExtendedThrownExceptionMediator(exception);
     }
   }
 
@@ -73,12 +64,14 @@ public final class ClosureMediator extends Mediator {
       final var message = exception.getMessage();
 
       if (message == null || message.isBlank()) {
-        addCurrentTestCaseError(
+        throw //
+        GeneralException.withErrorMessage(
           "An exception was not expected, but a "
           + exception.getClass().getName()
           + " was thrown.");
       } else {
-        addCurrentTestCaseError(
+        throw //
+        GeneralException.withErrorMessage(
           "An exception was not expected, but a "
           + exception.getClass().getName()
           + " was thrown with the message '"

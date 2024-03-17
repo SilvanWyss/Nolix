@@ -2,6 +2,7 @@
 package ch.nolix.core.testing.test;
 
 //own imports
+import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
 import ch.nolix.core.errorcontrol.validator.ContainerMediator;
@@ -10,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
-import ch.nolix.core.testing.basetest.BaseTest;
 
 //class
 /**
@@ -19,7 +19,7 @@ import ch.nolix.core.testing.basetest.BaseTest;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public abstract class StandardTest extends BaseTest {
+public abstract class StandardTest {
 
   //method
   /**
@@ -31,7 +31,7 @@ public abstract class StandardTest extends BaseTest {
 
     //Handles the case that the given value is false.
     if (!value) {
-      addExpectationError("True was expected, but false was received.");
+      throw GeneralException.withErrorMessage("True was expected, but false was received.");
     }
   }
 
@@ -46,11 +46,11 @@ public abstract class StandardTest extends BaseTest {
 
     //Handles the case that the given values is null.
     if (values == null) {
-      addExpectationError("True values were expected, but null was received.");
+      throw GeneralException.withErrorMessage("True values were expected, but null was received.");
     }
 
     if (!value) {
-      addExpectationError("True values were expected, but the 1th value is false.");
+      throw GeneralException.withErrorMessage("True values were expected, but the 1th value is false.");
     }
 
     //Handles the case that the given values is not null.
@@ -59,7 +59,7 @@ public abstract class StandardTest extends BaseTest {
 
       //Handles the case that the current value is false.
       if (!b) {
-        addExpectationError("True values were expected, but the " + index + "th value is false.");
+        throw GeneralException.withErrorMessage("True values were expected, but the " + index + "th value is false.");
       }
 
       //Increments index.
@@ -178,7 +178,7 @@ public abstract class StandardTest extends BaseTest {
 
     //Handles the case that the given value is true.
     if (value) {
-      addExpectationError("False was expected, but true was received.");
+      throw GeneralException.withErrorMessage("False was expected, but true was received.");
     }
   }
 
@@ -193,12 +193,12 @@ public abstract class StandardTest extends BaseTest {
 
     //Handles the case that the given values is null.
     if (values == null) {
-      addExpectationError("False values were expected, but null was received.");
+      throw GeneralException.withErrorMessage("False values were expected, but null was received.");
     }
 
     //Handles the case that the given value is false.
     if (value) {
-      addExpectationError("False values were expected, but the 1th value is true.");
+      throw GeneralException.withErrorMessage("False values were expected, but the 1th value is true.");
     }
 
     //Handles the case that the given values is not null.
@@ -207,7 +207,7 @@ public abstract class StandardTest extends BaseTest {
 
       //Handles the case that the current value is false.
       if (v) {
-        addExpectationError("False values were expected, but the " + index + "th value is true.");
+        throw GeneralException.withErrorMessage("False values were expected, but the " + index + "th value is true.");
       }
 
       //Increments index.
@@ -218,11 +218,10 @@ public abstract class StandardTest extends BaseTest {
   //method
   /**
    * @param closure
-   * @return a new closure mediator that belongs to this test and is for the given
-   *         closure.
+   * @return a new closure mediator that belongs for the given closure.
    */
   protected final ClosureMediator expectRunning(final Runnable closure) {
-    return new ClosureMediator(this::addExpectationError, closure);
+    return new ClosureMediator(closure);
   }
 
   //method

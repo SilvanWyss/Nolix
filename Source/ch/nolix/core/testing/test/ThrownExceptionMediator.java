@@ -1,10 +1,8 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
-//Java imports
-import java.util.function.Consumer;
-
 //own imports
+import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -21,23 +19,16 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @author Silvan Wyss
  * @date 2018-12-09
  */
-public abstract class ThrownExceptionMediator extends Mediator {
+public abstract class ThrownExceptionMediator {
 
   //optional attribute
   private final Throwable exception;
 
   //constructor
   /**
-   * Creates a new {@link ThrownExceptionMediator} that will belong to the given
-   * test.
-   * 
-   * @param expectationErrorTaker
-   * @throws ArgumentIsNullException if the given test is null.
+   * Creates a new {@link ThrownExceptionMediator}.
    */
-  ThrownExceptionMediator(final Consumer<String> expectationErrorTaker) {
-
-    //Calls constructor of the base class.
-    super(expectationErrorTaker);
+  ThrownExceptionMediator() {
 
     //Clears the exception of the current thrown exception mediator.
     exception = null;
@@ -45,18 +36,12 @@ public abstract class ThrownExceptionMediator extends Mediator {
 
   //constructor
   /**
-   * Creates a new {@link ThrownExceptionMediator} that will belong to the given
-   * test and is for the given exception.
+   * Creates a new {@link ThrownExceptionMediator} for the given exception.
    * 
-   * @param expectationErrorTaker
    * @param exception
-   * @throws ArgumentIsNullException if the given test is null.
    * @throws ArgumentIsNullException if the given exception is null.
    */
-  ThrownExceptionMediator(final Consumer<String> expectationErrorTaker, final Throwable exception) {
-
-    //Calls constructor of the base class.
-    super(expectationErrorTaker);
+  ThrownExceptionMediator(final Throwable exception) {
 
     //Asserts that the given exception is not null.
     if (exception == null) {
@@ -78,7 +63,8 @@ public abstract class ThrownExceptionMediator extends Mediator {
     //For a better performance, this implementation does not use all comfortable
     //methods.
     if (exception != null && exception.getMessage() == null) {
-      addCurrentTestCaseError(
+      throw //
+      GeneralException.withErrorMessage(
         "An exception with a message was expected,"
         + "but an exception without messag was received.");
     }
@@ -107,7 +93,8 @@ public abstract class ThrownExceptionMediator extends Mediator {
       //Asserts that the exception of the current ThrownExceptionMediator has a
       //message.
       if (exception.getMessage() == null) {
-        addCurrentTestCaseError(
+        throw //
+        GeneralException.withErrorMessage(
           "An exception with the message '"
           + message
           + "' was expected, but an exception without messag was received.");
@@ -116,7 +103,8 @@ public abstract class ThrownExceptionMediator extends Mediator {
       //Asserts that the exception of the current ThrownExceptionMediator has the
       //given message.
       if (!exception.getMessage().equals(message)) {
-        addCurrentTestCaseError(
+        throw //
+        GeneralException.withErrorMessage(
           "An exception with the message '"
           + message
           + "' was expected, but an exception with the message '"
@@ -144,12 +132,14 @@ public abstract class ThrownExceptionMediator extends Mediator {
     final var message = exception.getMessage();
 
     if (message == null) {
-      addCurrentTestCaseError(
+      throw //
+      GeneralException.withErrorMessage(
         "An exception with a message that matches the regex '"
         + regex
         + "' was expected, but an exception without message was thrown.");
     } else if (!message.matches(regex)) {
-      addCurrentTestCaseError(
+      throw //
+      GeneralException.withErrorMessage(
         "An exception with a message that matches the regex '"
         + regex
         + "' was expected, but an exception with the message '"
@@ -171,7 +161,8 @@ public abstract class ThrownExceptionMediator extends Mediator {
     //For a better performance, this implementation does not use all comfortable
     //methods.
     if (exception != null && exception.getMessage() != null) {
-      addCurrentTestCaseError(
+      throw //
+      GeneralException.withErrorMessage(
         "An exception without message was expected, but an exception with the message '"
         + exception.getMessage()
         + "' was received.");
