@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class NodeTest extends BaseNodeTest<Node> {
 
   //method
-  @TestCase
+  @Test
   public void testCase_asWithHeader_1A() {
 
     //setup
@@ -24,7 +25,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_asWithHeader_1B() {
 
     //setup
@@ -38,7 +39,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_asWithHeader_1C() {
 
     //setup

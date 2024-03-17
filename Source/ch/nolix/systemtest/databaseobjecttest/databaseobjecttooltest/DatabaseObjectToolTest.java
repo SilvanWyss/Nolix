@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.systemtest.databaseobjecttest.databaseobjecttooltest;
 
+import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;
 
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjec
 public final class DatabaseObjectToolTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNull() {
 
     //setup
@@ -29,7 +29,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNew() {
 
     //setup databaseObjectMock
@@ -47,7 +47,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsLoaded() {
 
     //setup databaseObjectMock
@@ -65,7 +65,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsEdited() {
 
     //setup databaseObjectMock
@@ -83,7 +83,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsDeleted() {
 
     //setup databaseObjectMock
@@ -101,7 +101,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsClosed() {
 
     //setup databaseObjectMock
@@ -119,7 +119,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNull() {
 
     //setup
@@ -133,7 +133,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNew() {
 
     //setup databaseObjectMock
@@ -151,7 +151,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
 
     //setup databaseObjectMock
@@ -169,7 +169,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsEdited() {
 
     //setup databaseObjectMock
@@ -187,7 +187,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
 
     //setup databaseObjectMock
@@ -205,7 +205,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsClosed() {
 
     //setup databaseObjectMock
@@ -223,7 +223,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNull() {
 
     //setup
@@ -237,7 +237,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNew() {
 
     //setup databaseObjectMock
@@ -255,7 +255,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsLoaded() {
 
     //setup databaseObjectMock
@@ -273,7 +273,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsEdited() {
 
     //setup databaseObjectMock
@@ -291,7 +291,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsDeleted() {
 
     //setup databaseObjectMock
@@ -309,7 +309,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsClosed() {
 
     //setup databaseObjectMock
@@ -327,7 +327,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNull() {
 
     //setup
@@ -341,7 +341,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNew() {
 
     //setup databaseObjectMock
@@ -359,7 +359,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
 
     //setup databaseObjectMock
@@ -377,7 +377,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsEdited() {
 
     //setup databaseObjectMock
@@ -395,7 +395,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
 
     //setup databaseObjectMock
@@ -413,7 +413,7 @@ public final class DatabaseObjectToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsClosed() {
 
     //setup databaseObjectMock

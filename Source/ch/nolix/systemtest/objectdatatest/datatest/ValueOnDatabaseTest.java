@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
@@ -27,7 +28,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenIsEmpty() {
 
     //setup
@@ -42,7 +43,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
 
     //setup
@@ -61,7 +62,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
 
     //setup part 1
@@ -85,7 +86,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getState_whenIsNewAndNotEdited() {
 
     //setup
@@ -102,7 +103,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getState_whenIsNewAndEdited() {
 
     //setup
@@ -120,7 +121,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getState_whenIsClosed() {
 
     //setup
@@ -143,7 +144,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getState_whenIsLoaded() {
 
     //setup part 1

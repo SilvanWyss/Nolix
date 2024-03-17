@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiReference;
@@ -40,7 +41,7 @@ public final class MultiReferenceWithBackReferencesTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenContainsSeveral() {
 
     //setup
@@ -77,7 +78,7 @@ public final class MultiReferenceWithBackReferencesTest extends StandardTest {
 
   //TODO: Enable DataAdapter to remove relations and delete Entitis in 1 time.
   //method
-  //@TestCase
+  //@Test
   public void testCase_removeEntity_whenContainsEntity() {
 
     //setup part 1

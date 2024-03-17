@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.systemtest.graphictest.colortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 
 //class
 public final class ColorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenGivenColorIsEqual() {
 
     //setup
@@ -25,7 +26,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenGivenColorIsNotEqual() {
 
     //setup
@@ -40,7 +41,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_1A() {
 
     //execution
@@ -51,7 +52,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_1B() {
 
     //execution
@@ -62,7 +63,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getAlphaValue() {
 
     //setup
@@ -76,7 +77,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBlueValue() {
 
     //setup
@@ -90,7 +91,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getGreenValue() {
 
     //setup
@@ -104,7 +105,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getColorNameOrHexadecimalString_1A() {
 
     //setup
@@ -118,7 +119,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getColorNameOrHexadecimalString_1B() {
 
     //setup
@@ -132,7 +133,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInvertedColor_1A() {
 
     //setup
@@ -146,7 +147,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInvertedColor_1B() {
 
     //setup
@@ -160,7 +161,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getRedValue() {
 
     //setup
@@ -174,7 +175,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSpecification() {
 
     //setup
@@ -188,7 +189,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toHexadecimalStringWithAlphaValue_1A() {
 
     //setup
@@ -202,7 +203,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toHexadecimalStringWithAlphaValue_1B() {
 
     //setup
@@ -216,7 +217,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toHexadecimalStringWithAlphaValue_1C() {
 
     //setup
@@ -230,7 +231,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withAlphaValue_1A() {
 
     //setup
@@ -244,7 +245,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withAlphaValue_1B() {
 
     //setup
@@ -258,7 +259,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withFloatingPointAlphaValue_1A() {
 
     //setup
@@ -272,7 +273,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withFloatingPointAlphaValue_1B() {
 
     //setup
@@ -286,7 +287,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withFloatingPointAlphaValue_1C() {
 
     //setup
@@ -300,7 +301,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withFullAlphaValue_1A() {
 
     //setup
@@ -314,7 +315,7 @@ public final class ColorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withFullAlphaValue_1B() {
 
     //setup

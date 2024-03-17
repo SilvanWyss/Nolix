@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.coretest.documenttest.chainednodetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromNode_whenNodeIsBlank() {
 
     //setup
@@ -29,7 +30,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromNode_whenNodeHasHeaderOnly() {
 
     //setup
@@ -43,7 +44,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_A1() {
 
     //execution
@@ -57,7 +58,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_A2() {
 
     //execution
@@ -71,7 +72,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_A3() {
 
     //execution
@@ -85,7 +86,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_B1() {
 
     //execution
@@ -99,7 +100,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_B2() {
 
     //execution
@@ -113,7 +114,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_B3() {
 
     //execution
@@ -127,7 +128,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_B4() {
 
     //execution
@@ -141,7 +142,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_B5() {
 
     //execution
@@ -155,7 +156,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_B6() {
 
     //execution
@@ -169,7 +170,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_C1() {
 
     //execution
@@ -183,7 +184,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_C2() {
 
     //execution
@@ -197,7 +198,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_C3() {
 
     //execution
@@ -211,7 +212,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_C4() {
 
     //execution
@@ -225,7 +226,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_C5() {
 
     //execution
@@ -239,7 +240,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromString_C6() {
 
     //execution
@@ -253,7 +254,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withHeader_whenNullHeaderIsGiven() {
 
     //execution & verification
@@ -264,7 +265,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withHeader_whenHeaderIsGiven() {
 
     //execution

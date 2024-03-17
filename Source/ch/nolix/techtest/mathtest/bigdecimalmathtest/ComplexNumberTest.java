@@ -5,16 +5,17 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
 //class
 public final class ComplexNumberTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_1A() {
 
     //execution
@@ -26,7 +27,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_1B() {
 
     //execution
@@ -38,7 +39,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_1C() {
 
     //execution
@@ -50,7 +51,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_2A() {
 
     //execution
@@ -67,7 +68,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_2B() {
 
     //execution
@@ -84,7 +85,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getConjugate_1A() {
 
     //setup
@@ -98,7 +99,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getConjugate_1B() {
 
     //setup
@@ -112,7 +113,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getConjugate_1C() {
 
     //setup
@@ -126,7 +127,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getConjugate_1D() {
 
     //setup
@@ -140,7 +141,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMagnitude_1A() {
 
     //parameter definition
@@ -157,7 +158,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMagnitude_1B() {
 
     //parameter definition
@@ -174,7 +175,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMagnitude_1C() {
 
     //parameter definition
@@ -191,7 +192,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMagnitude_2A() {
 
     //parameter definition
@@ -208,7 +209,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMagnitude_2B() {
 
     //parameter definition
@@ -225,7 +226,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getProduct_1A() {
 
     //parameter definition
@@ -242,7 +243,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getProduct_1B() {
 
     //parameter definition
@@ -259,7 +260,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_1A() {
 
     //setup
@@ -278,7 +279,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_1B() {
 
     //setup
@@ -297,7 +298,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_1C() {
 
     //setup
@@ -316,7 +317,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_inDecimalPlaces() {
 
     //setup
@@ -332,7 +333,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
 
     //setup
@@ -346,7 +347,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
 
     //setup
@@ -360,7 +361,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
 
     //setup
@@ -374,7 +375,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
 
     //setup
@@ -388,7 +389,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
 
     //setup
@@ -402,7 +403,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
 
     //setup
@@ -416,7 +417,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
 
     //setup
@@ -430,7 +431,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
 
     //setup
@@ -444,7 +445,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
 
     //setup
@@ -458,7 +459,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
 
     //setup
@@ -472,7 +473,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
 
     //setup
@@ -486,7 +487,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
 
     //setup
@@ -500,7 +501,7 @@ public final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup

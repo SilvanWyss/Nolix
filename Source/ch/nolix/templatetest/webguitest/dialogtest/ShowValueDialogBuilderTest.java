@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.templatetest.webguitest.dialogtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
@@ -20,7 +21,7 @@ import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 public final class ShowValueDialogBuilderTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_build() {
 
     //setup
@@ -49,7 +50,7 @@ public final class ShowValueDialogBuilderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
 
     //setup

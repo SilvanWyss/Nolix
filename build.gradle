@@ -16,6 +16,7 @@ dependencies {
   implementation 'io.netty:netty-all:4.1.90.Final'
   implementation 'net.bytebuddy:byte-buddy:1.14.11'
   implementation 'net.bytebuddy:byte-buddy-agent:1.14.11'
+  implementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
   implementation 'org.mockito:mockito-core:5.8.0'
 }
 

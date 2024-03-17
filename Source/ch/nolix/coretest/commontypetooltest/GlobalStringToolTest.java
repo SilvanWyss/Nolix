@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalStringToolTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStringWithoutLastCharacters_1A() {
 
     //execution
@@ -21,7 +22,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStringWithoutLastCharacters_1B() {
 
     //execution
@@ -32,7 +33,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStringWithoutLastCharacters_1C() {
 
     //execution
@@ -43,7 +44,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInParantheses_whenGivenStringIsEmpty() {
 
     //execution
@@ -54,7 +55,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInParantheses_whenGivenStringIsNotEmpty() {
 
     //execution
@@ -65,7 +66,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInSingleQuotes_whenTheGivenStringIsEmpty() {
 
     //execution
@@ -76,7 +77,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInSingleQuotes_whenTheGivenStringIsNotEmpty() {
 
     //execution
@@ -87,7 +88,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringContainsOneWordInLowerCase() {
 
     //execution
@@ -98,7 +99,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringContainsOneWordInUpperCase() {
 
     //execution
@@ -109,7 +110,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringContainsOneWordInSentenceCase() {
 
     //execution
@@ -120,7 +121,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
 
     //execution
@@ -131,7 +132,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
 
     //execution
@@ -142,7 +143,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
 
     //execution
@@ -153,7 +154,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toPascalCase_whenGivenStringIsEmpty() {
 
     //execution
@@ -164,7 +165,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInLowerCase() {
 
     //execution
@@ -175,7 +176,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInUpperCase() {
 
     //execution
@@ -186,7 +187,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInSentenceCase() {
 
     //execution
@@ -197,7 +198,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
 
     //execution
@@ -208,7 +209,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
 
     //execution
@@ -219,7 +220,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
 
     //execution
@@ -230,7 +231,7 @@ public final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUpperSnakeCase_whenGivenStringIsEmpty() {
 
     //execution

@@ -4,17 +4,18 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 
 //class
 public final class ClosedIntervalTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsValue_whenNullIsGiven() {
 
     //setup
@@ -28,7 +29,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsValue_whenMinIsGiven() {
 
     //setup
@@ -42,7 +43,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsValue_whenMaxIsGiven() {
 
     //setup
@@ -56,7 +57,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsValue_whenMidpointIsGiven() {
 
     //setup
@@ -70,7 +71,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsValue_whenSmallerValueIsGiven() {
 
     //setup
@@ -84,7 +85,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsValue_whenBiggerValueIsGiven() {
 
     //setup
@@ -98,7 +99,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_whenTheGivenMinIsNull() {
 
     //execution & verification
@@ -109,7 +110,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_whenTheGivenMaxIsNull() {
 
     //execution & verification
@@ -120,7 +121,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenNullIsGiven() {
 
     //setup
@@ -135,7 +136,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenUnequalClosedIntervalIsGiven() {
 
     //setup
@@ -149,7 +150,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenEqualClosedIntervalIsGiven() {
 
     //setup
@@ -163,7 +164,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHalfs_1A() {
 
     //parameter definition
@@ -183,7 +184,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHalfs_1B() {
 
     //parameter definition
@@ -203,7 +204,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHalfs_whenHasLength0() {
 
     //parameter definition
@@ -223,7 +224,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getLength_1A() {
 
     //parameter definition
@@ -240,7 +241,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getLength_1B() {
 
     //parameter definition
@@ -257,7 +258,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getLength_1C() {
 
     //parameter definition
@@ -274,7 +275,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getLength_whenHasLength0() {
 
     //parameter definition
@@ -291,7 +292,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMidpoint_1A() {
 
     //parameter definition
@@ -308,7 +309,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMidpoint_1B() {
 
     //parameter definition
@@ -325,7 +326,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMidpoint_whenHasLength0() {
 
     //parameter definition
@@ -342,7 +343,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenGivenClosedIntervalIsBefore() {
 
     //setup
@@ -357,7 +358,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenGivenClosedIntervalIsAfter() {
 
     //setup
@@ -372,7 +373,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenEqualsGivenClosedInterval() {
 
     //setup
@@ -387,7 +388,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenEclosesGivenClosedInterval() {
 
     //setup
@@ -402,7 +403,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenGivenClosedIntervalEncloses() {
 
     //setup
@@ -417,7 +418,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtBegin() {
 
     //setup
@@ -432,7 +433,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtEnd() {
 
     //setup
@@ -447,7 +448,7 @@ public final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup

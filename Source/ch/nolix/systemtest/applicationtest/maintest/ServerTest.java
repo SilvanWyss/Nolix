@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.systemtest.applicationtest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.Server;
 
 //class
 public final class ServerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_forHttpPort() {
     try (final var testUnit = Server.forHttpPort()) {
 

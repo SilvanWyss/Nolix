@@ -1,15 +1,16 @@
 //package declaration
 package ch.nolix.coreapitest.programcontrolapitest.savecontrolapitest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ChangeRequestableTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isChangeFree_whenIsChangeFree() {
 
     //setup
@@ -23,7 +24,7 @@ public final class ChangeRequestableTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isChangeFree_whenHasChanges() {
 
     //setup

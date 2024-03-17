@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.templatetest.webguitest.dialogtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
@@ -14,7 +15,7 @@ import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 public final class WaitDialogBuilderTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_build() {
 
     //setup

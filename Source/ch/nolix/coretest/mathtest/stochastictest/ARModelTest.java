@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.mathtest.stochastictest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ARModelTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_1() {
 
     //execution
@@ -25,7 +26,7 @@ public final class ARModelTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_2() {
 
     //execution
@@ -40,7 +41,7 @@ public final class ARModelTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_3() {
 
     //execution
@@ -55,7 +56,7 @@ public final class ARModelTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_4() {
 
     //execution
@@ -70,7 +71,7 @@ public final class ARModelTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_5() {
 
     //execution
@@ -87,7 +88,7 @@ public final class ARModelTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_6() {
 
     //exection

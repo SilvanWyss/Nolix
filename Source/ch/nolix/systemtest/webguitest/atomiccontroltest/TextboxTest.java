@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-//own imports
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
+import org.junit.jupiter.api.Test;
+
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
@@ -11,7 +11,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 public final class TextboxTest extends ControlTest<ITextbox> {
 
   //method
-  @TestCase
+  @Test
   public void testCase_emptyText() {
 
     //setup

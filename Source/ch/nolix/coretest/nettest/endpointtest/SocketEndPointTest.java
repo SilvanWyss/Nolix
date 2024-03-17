@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.net.endpoint.SocketEndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class SocketEndPointTest extends StandardTest {
@@ -15,7 +16,7 @@ public final class SocketEndPointTest extends StandardTest {
   private static final int WAITING_TIME_IN_MILLISECONDS = 100;
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //parameter definition
@@ -39,7 +40,7 @@ public final class SocketEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_sendMessage() {
 
     //parameter definition

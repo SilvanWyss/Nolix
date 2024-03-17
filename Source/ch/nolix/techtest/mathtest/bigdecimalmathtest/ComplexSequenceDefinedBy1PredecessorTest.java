@@ -4,9 +4,10 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
@@ -14,7 +15,7 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 public final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_1() {
 
     //setup
@@ -34,7 +35,7 @@ public final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_2() {
 
     //setup
@@ -54,7 +55,7 @@ public final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void test_getSquaredMagnitudeOfValueAt1BasedIndex() {
 
     //setup
@@ -70,7 +71,7 @@ public final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void test_getValueAt1BasedIndex() {
 
     //setup

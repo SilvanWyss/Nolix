@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.databaseapplicationtest.propertybindertest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.databaseapplication.propertybinder.GlobalPropertyBinder;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
@@ -13,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 public final class GlobalPropertyBinderTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createControlAndBindItWith() {
 
     //setup
@@ -52,7 +53,7 @@ public final class GlobalPropertyBinderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
 
     //setup
@@ -73,7 +74,7 @@ public final class GlobalPropertyBinderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
 
     //setup

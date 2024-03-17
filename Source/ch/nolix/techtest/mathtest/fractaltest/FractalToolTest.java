@@ -4,9 +4,10 @@ package ch.nolix.techtest.mathtest.fractaltest;
 //Java imports
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.FractalTool;
 
@@ -14,7 +15,7 @@ import ch.nolix.tech.math.fractal.FractalTool;
 public final class FractalToolTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMaxX() {
 
     //setup
@@ -31,7 +32,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMaxY() {
 
     //setup
@@ -48,7 +49,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMinX() {
 
     //setup
@@ -65,7 +66,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getMinY() {
 
     //setup
@@ -82,7 +83,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getPixelCountPerHorizontalUnit() {
 
     //setup
@@ -100,7 +101,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getPixelCountPerVerticalUnit() {
 
     //setup
@@ -118,7 +119,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSquaredMinMagnitudeForDivergence_1() {
 
     //setup
@@ -135,7 +136,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSquaredMinMagnitudeForDivergence_2() {
 
     //setup
@@ -152,7 +153,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getUnitsPerHorizontalPixel() {
 
     //setup
@@ -170,7 +171,7 @@ public final class FractalToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getUnitsPerVerticalPixel() {
 
     //setup

@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy2Predecessor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
@@ -12,7 +13,7 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 public final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void test_getValueAt1BasedIndex() {
 
     //setup

@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.graphic.color.Color;
@@ -48,7 +49,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
 
     //setup
@@ -63,7 +64,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndDefinesValueForBaseState() {
 
     //setup
@@ -79,7 +80,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndGetsValueFromParent() {
 
     //setup
@@ -97,7 +98,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueOfState_whenDefinesValueForGivenState() {
 
     //setup

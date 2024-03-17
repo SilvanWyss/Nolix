@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -9,13 +11,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class LongMediatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBetween_whenTheGivenArgumentIsSmallerThanTheGivenMin() {
 
     //setup
@@ -29,7 +30,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMin() {
 
     //setup
@@ -40,7 +41,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBetween_whenTheGivenArgumentIsBetweenTheGivenMinAndMax() {
 
     //setup
@@ -51,7 +52,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMax() {
 
     //setup
@@ -62,7 +63,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBetween_whenTheGivenArgumentIsBiggerThanTheGivenMax() {
 
     //setup
@@ -76,7 +77,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBiggerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 
     //setup
@@ -90,7 +91,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBiggerThan_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
@@ -104,7 +105,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBiggerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 
     //setup
@@ -115,7 +116,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBiggerThanOrEquals_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 
     //setup
@@ -129,7 +130,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBiggerThanOrEquals_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
@@ -140,7 +141,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBiggerThanOrEquals_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 
     //setup
@@ -151,7 +152,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEqualTo_whenTheGivenArgumenIsBiggerThanTheGivenValue() {
 
     //setup
@@ -164,7 +165,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEqualTo_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
@@ -175,7 +176,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotNegative_whenTheGivenArgumentIsNegative() {
 
     //setup
@@ -189,7 +190,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotNegative_whenTheGivenArgumentIsZero() {
 
     //setup
@@ -200,7 +201,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotNegative_whenTheGivenArgumentIsPositive() {
 
     //setup
@@ -211,7 +212,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPositive_whenTheGivenArgumentIsNegative() {
 
     //setup
@@ -225,7 +226,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPositive_whenTheGivenArgumentIsZero() {
 
     //setup
@@ -239,7 +240,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isPositive_whenTheGivenArgumentIsPositive() {
 
     //setup
@@ -250,7 +251,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSmallerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 
     //setup
@@ -261,7 +262,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSmallerThan_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
@@ -275,7 +276,7 @@ public final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSmallerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 
     //setup

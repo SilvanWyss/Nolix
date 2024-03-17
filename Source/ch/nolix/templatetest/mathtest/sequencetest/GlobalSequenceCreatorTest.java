@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.templatetest.mathtest.sequencetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 
@@ -11,7 +12,7 @@ import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 public final class GlobalSequenceCreatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
 
     //execution
@@ -26,7 +27,7 @@ public final class GlobalSequenceCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
 
     //execution
@@ -41,7 +42,7 @@ public final class GlobalSequenceCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
 
     //execution

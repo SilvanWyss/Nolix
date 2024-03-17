@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.techtest.serverdashboardtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.LocalServer;
 import ch.nolix.tech.serverdashboard.WebApplicationExtractor;
 
 //class
 public final class WebApplicationExtractorTest extends StandardTest {
 
-  @TestCase
+  @Test
   public void testCase_whenTheGivenServerDoesNotContainWebApplications() {
 
     //setup

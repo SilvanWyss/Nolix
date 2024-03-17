@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
@@ -13,7 +14,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 public final class LabelTest extends ControlTest<ILabel> {
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeRole() {
 
     //setup
@@ -31,7 +32,7 @@ public final class LabelTest extends ControlTest<ILabel> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setRole() {
 
     //setup
@@ -49,7 +50,7 @@ public final class LabelTest extends ControlTest<ILabel> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setText() {
 
     //setup
@@ -66,7 +67,7 @@ public final class LabelTest extends ControlTest<ILabel> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setText_whenGivenTextIsEmpty() {
 
     //setup
@@ -80,7 +81,7 @@ public final class LabelTest extends ControlTest<ILabel> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setText_whenGivenTextIsNull() {
 
     //setup

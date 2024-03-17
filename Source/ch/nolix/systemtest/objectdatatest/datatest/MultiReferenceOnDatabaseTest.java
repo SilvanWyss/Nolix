@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.IgnoreTimeout;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiReference;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
@@ -36,7 +37,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_whenIsLoadedAndEmpty() {
 
     //setup
@@ -55,7 +56,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_whenIsLoadedAndNotEmpty() {
 
     //setup
@@ -82,7 +83,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_whenReferencedEntityIsLoadedAndDeleted() {
 
     //setup part 1: initialize database
@@ -108,7 +109,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   @IgnoreTimeout
   public void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
 
@@ -143,7 +144,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
 
     //setup
@@ -162,7 +163,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
 
     //setup

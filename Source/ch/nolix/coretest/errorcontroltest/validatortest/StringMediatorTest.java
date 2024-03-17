@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -9,13 +11,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class StringMediatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEmpty_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -29,7 +30,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEmpty_whenTheGivenArgumentIsEmpty() {
 
     //setup
@@ -40,7 +41,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEmpty_whenTheGivenArgumentConsistsOfASpace() {
 
     //setup
@@ -54,7 +55,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEmpty_whenTheGivenArgumentConsistsOfLetters() {
 
     //setup
@@ -68,7 +69,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasLength_whenTheGivenLengthIsNegative() {
 
     //setup
@@ -82,7 +83,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasLength_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -96,7 +97,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasLength_whenTheGivenArgumentIsShorterThanTheGivenLength() {
 
     //setup
@@ -110,7 +111,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasLength_whenTheGivenArgumentHasTheGivenLength() {
 
     //setup
@@ -121,7 +122,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasLength_whenTheGivenArgumentIsLongerThanTheGivenLength() {
 
     //setup
@@ -135,7 +136,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotEmpty_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -149,7 +150,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotEmpty_whenTheGivenArgumentIsEmpty() {
 
     //setup
@@ -163,7 +164,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfASpace() {
 
     //setup
@@ -174,7 +175,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfALetter() {
 
     //setup
@@ -185,7 +186,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotBlank_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -199,7 +200,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotBlank_whenTheGivenArgumentIsEmpty() {
 
     //setup
@@ -212,7 +213,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotBlank_whenTheGivenArgumentConsistsOfASpace() {
 
     //setup
@@ -225,7 +226,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotBlank_whenTheGivenArgumentConsistsOfALetter() {
 
     //setup
@@ -236,7 +237,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotLongerThan_whenTheArgumentIsShorterThanTheMaxLength() {
 
     //setup
@@ -247,7 +248,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotLongerThan_whenTheArgumentHasTheMaxLength() {
 
     //setup
@@ -258,7 +259,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isNotLongerThan_whenTheArgumentIsLongerThanTheMaxLength() {
 
     //setup
@@ -272,7 +273,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_startsWith_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -286,7 +287,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_startsWith_whenTheGivenArgumentStartWithTheGivenPrefix() {
 
     //setup
@@ -297,7 +298,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_startsWith_whenTheGivenArgumentEqualsTheGivenPrefix() {
 
     //setup
@@ -308,7 +309,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_1() {
 
     //setup
@@ -322,7 +323,7 @@ public final class StringMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_2() {
 
     //setup

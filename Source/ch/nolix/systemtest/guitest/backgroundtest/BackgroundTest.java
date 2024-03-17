@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.guitest.backgroundtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
@@ -12,7 +13,7 @@ import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 public final class BackgroundTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_withColor() {
 
     //execution

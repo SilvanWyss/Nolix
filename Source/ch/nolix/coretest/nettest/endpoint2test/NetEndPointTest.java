@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpoint2test;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.endpoint2.NetEndPoint;
 import ch.nolix.core.net.endpoint2.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class NetEndPointTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //parameter definition
@@ -35,7 +36,7 @@ public final class NetEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_sendAndGetReply() {
 
     //parameter definition

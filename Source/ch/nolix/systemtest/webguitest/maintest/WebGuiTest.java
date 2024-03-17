@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Layer;
@@ -13,7 +14,7 @@ import ch.nolix.system.webgui.main.WebGui;
 public final class WebGuiTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //execution
@@ -28,7 +29,7 @@ public final class WebGuiTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_reset() {
 
     //setup

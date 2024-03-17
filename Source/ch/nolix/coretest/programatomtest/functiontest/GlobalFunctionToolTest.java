@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.coretest.programatomtest.functiontest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.function.GlobalFunctionTool;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalFunctionToolTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createNegatorForBooleanSupplier_whenTrueSupplierIsGiven() {
 
     //execution
@@ -23,7 +24,7 @@ public final class GlobalFunctionToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createNegatorForBooleanSupplier_whenFalseSupplierIsGiven() {
 
     //execution
@@ -34,7 +35,7 @@ public final class GlobalFunctionToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createNegatorForBooleanSupplier_whenTheGivenBooleanSupplierIsNull() {
 
     //execution & verification

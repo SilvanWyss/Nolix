@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
@@ -15,7 +16,7 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 public final class EntityQueryCreatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {
 
     //setup
@@ -31,7 +32,7 @@ public final class EntityQueryCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createQueryToLoadEntitiesOfTable() {
 
     //setup
@@ -52,7 +53,7 @@ public final class EntityQueryCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createQueryToLoadEntity() {
 
     //setup
@@ -73,7 +74,7 @@ public final class EntityQueryCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createQueryToLoadSchemaTimestamp() {
 
     //setup

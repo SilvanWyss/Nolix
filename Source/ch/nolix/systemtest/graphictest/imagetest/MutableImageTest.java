@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.graphictest.imagetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 
@@ -11,7 +12,7 @@ import ch.nolix.system.graphic.image.MutableImage;
 public final class MutableImageTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //parameter definition
@@ -35,7 +36,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBottomLeftPixel() {
 
     //setup
@@ -50,7 +51,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBottomRightPixel() {
 
     //setup
@@ -65,7 +66,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getCopy_whenOriginIsChangedAfterwards() {
 
     //setup
@@ -94,7 +95,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTopLeftPixel() {
 
     //setup
@@ -109,7 +110,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTopRightPixel() {
 
     //setup
@@ -124,7 +125,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_reset() {
 
     //parameter definition
@@ -153,7 +154,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toLeftRotatedImage() {
 
     //setup
@@ -177,7 +178,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toRepeatedImage() {
 
     //setup
@@ -213,7 +214,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toRightRotatedImage() {
 
     //setup
@@ -237,7 +238,7 @@ public final class MutableImageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toScaledImage() {
 
     //setup

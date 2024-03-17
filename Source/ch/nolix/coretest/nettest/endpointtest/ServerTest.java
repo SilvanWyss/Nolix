@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ServerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_addDefaultSlot() {
 
     //parameter definition
@@ -32,7 +33,7 @@ public final class ServerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_close() {
 
     //parameter definition
@@ -50,7 +51,7 @@ public final class ServerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_forHttpPort() {
     try (final var result = Server.forHttpPort()) {
 
@@ -65,7 +66,7 @@ public final class ServerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_forPort() {
 
     //parameter definition

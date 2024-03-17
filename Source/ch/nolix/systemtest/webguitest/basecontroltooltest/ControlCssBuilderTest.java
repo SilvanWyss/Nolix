@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.basecontroltooltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -12,7 +13,7 @@ public abstract class ControlCssBuilderTest<CCB extends IControlCssBuilder<C, ?>
 extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public final void testCase_whenGivenControlIsNew() {
 
     //setup

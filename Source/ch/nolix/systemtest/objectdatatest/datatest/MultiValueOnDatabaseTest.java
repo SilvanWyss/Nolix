@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
@@ -26,7 +27,7 @@ public final class MultiValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenIsNewAndEmpty() {
 
     //setup
@@ -45,7 +46,7 @@ public final class MultiValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenIsNewAndContainsValue() {
 
     //setup
@@ -70,7 +71,7 @@ public final class MultiValueOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeValue_whenIsLoadedAndContainsValue() {
 
     //setup part 1

@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.objectschematest.schemaadaptertest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
@@ -12,7 +13,7 @@ import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 public final class NodeSchemaAdapterTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void test_creation() {
 
     //setup
@@ -35,7 +36,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_addTable_whenSavesChangesAndResets() {
 
     //setup
@@ -59,7 +60,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_getSaveCount_whenIsNew() {
 
     //setup
@@ -73,7 +74,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
 
     //setup
@@ -89,7 +90,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
 
     //setup

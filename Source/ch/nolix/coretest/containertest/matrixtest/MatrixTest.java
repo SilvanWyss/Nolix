@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.containertest.matrixtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class MatrixTest extends ContainerTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_addColumn() {
 
     //setup
@@ -27,7 +28,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addRow() {
 
     //setup
@@ -43,7 +44,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getColumn() {
 
     //setup
@@ -67,7 +68,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getCopy() {
 
     //setup
@@ -88,7 +89,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getIndexOf() {
 
     //setup
@@ -121,7 +122,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getRow() {
 
     //setup
@@ -145,7 +146,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toLeftRotatedMatrix() {
 
     //setup
@@ -166,7 +167,7 @@ public final class MatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toRightRotatedMatrix() {
 
     //setup

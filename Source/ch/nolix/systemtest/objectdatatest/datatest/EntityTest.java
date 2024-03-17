@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
@@ -15,7 +16,7 @@ public final class EntityTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //execution
@@ -32,7 +33,7 @@ public final class EntityTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup

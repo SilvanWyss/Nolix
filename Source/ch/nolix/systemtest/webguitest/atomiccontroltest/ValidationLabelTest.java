@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -15,7 +16,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
   //method
-  @TestCase
+  @Test
   public void testCase_letsClear() {
 
     //setup part 1: Creates a ValidationLabel and runs an action that produces an
@@ -36,7 +37,7 @@ public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_letsShowError() {
 
     //setup

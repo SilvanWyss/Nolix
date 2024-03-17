@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
@@ -40,7 +41,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addOrChangeAttribute_1A() {
 
     //setup
@@ -54,7 +55,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addOrChangeAttribute_1B() {
 
     //setup
@@ -68,7 +69,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addOrChangeAttribute_1C() {
 
     //setup
@@ -82,7 +83,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addOrChangeAttribute_1D() {
 
     //setup
@@ -96,7 +97,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //execution
@@ -107,7 +108,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSpecification() {
 
     //setup

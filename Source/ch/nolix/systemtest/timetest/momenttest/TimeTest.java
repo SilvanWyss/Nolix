@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.timetest.momenttest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
@@ -11,7 +12,7 @@ import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 public final class TimeTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDay() {
 
     //setup
@@ -39,7 +40,7 @@ public final class TimeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getWeekday_whenIs2020_01_01() {
 
     //setup
@@ -53,7 +54,7 @@ public final class TimeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getWeekday_whenIs2020_01_02() {
 
     //setup
@@ -67,7 +68,7 @@ public final class TimeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getWeekday_whenIs2020_01_03() {
 
     //setup
@@ -81,7 +82,7 @@ public final class TimeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withYearAndMonthOfYearAndDayOfMonth() {
     for (var y = 1600; y <= 3000; y++) {
       for (var m = 1; m <= 12; m++) {
@@ -108,7 +109,7 @@ public final class TimeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour() {
 
     //main loop

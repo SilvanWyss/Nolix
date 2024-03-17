@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.LayerStack;
@@ -13,7 +14,7 @@ import ch.nolix.system.webgui.main.WebGui;
 public final class LayerStackTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {
 
     //setup
@@ -31,7 +32,7 @@ public final class LayerStackTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOptionalStoredControlByInternalId_whenContainsSuchAControl() {
 
     //setup
@@ -47,7 +48,7 @@ public final class LayerStackTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredControls_whenIsEmpty() {
 
     //setup
@@ -64,7 +65,7 @@ public final class LayerStackTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredControls_whenContains1Control() {
 
     //setup
@@ -80,7 +81,7 @@ public final class LayerStackTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredControls_whenContains4Control() {
 
     //setup

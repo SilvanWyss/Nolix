@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.webtest.csstest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.core.web.css.CssProperty;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class CssPropertyTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup
@@ -25,7 +26,7 @@ public final class CssPropertyTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withNameAndValue() {
 
     //execution
@@ -37,7 +38,7 @@ public final class CssPropertyTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withNameAndValue_whenTheGivenNameIsNull() {
 
     //execution & verification
@@ -48,7 +49,7 @@ public final class CssPropertyTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withNameAndValue_whenTheGivenValueIsNull() {
 
     //setup

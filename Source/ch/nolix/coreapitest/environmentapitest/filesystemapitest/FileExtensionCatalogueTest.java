@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coreapitest.environmentapitest.filesystemapitest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.environmentapi.filesystemapi.FileExtensionCatalogue;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class FileExtensionCatalogueTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constants() {
 
     //verification

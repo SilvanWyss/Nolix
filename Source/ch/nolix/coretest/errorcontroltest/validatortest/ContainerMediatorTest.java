@@ -4,19 +4,20 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 //Java imports
 import java.util.function.Predicate;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.ContainerMediator;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ContainerMediatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_contains_whenTheGivenConditionIsNull() {
 
     //setup
@@ -32,7 +33,7 @@ public final class ContainerMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
 
     //setup
@@ -49,7 +50,7 @@ public final class ContainerMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
 
     //setup

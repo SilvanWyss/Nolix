@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.documenttest.xmltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.xml.XmlAttribute;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class XmlAttributeTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //execution
@@ -22,7 +23,7 @@ public final class XmlAttributeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup

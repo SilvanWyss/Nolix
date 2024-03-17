@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.programcontroltest.sequencertest;
 
+import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;
 
@@ -8,13 +9,12 @@ import org.mockito.Mockito;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.ForCountMediator;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ForCountMediatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_forMaxRunCount_whenTheGivenMaxRunCountIsNegative() {
 
     //execution & verification
@@ -25,7 +25,7 @@ public final class ForCountMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_run_whenTheGivenMaxRunCountIs0() {
 
     //setup
@@ -40,7 +40,7 @@ public final class ForCountMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_run_whenTheGivenMaxRunCountIs1() {
 
     //setup
@@ -55,7 +55,7 @@ public final class ForCountMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_run_whenTheGivenMaxRunCountIs5() {
 
     //setup
@@ -70,7 +70,7 @@ public final class ForCountMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_runInBackground_whenTheGivenMaxRunCountIs0() {
 
     //setup
@@ -87,7 +87,7 @@ public final class ForCountMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_runInBackground_whenTheGivenMaxRunCountIs1() {
 
     //setup
@@ -104,7 +104,7 @@ public final class ForCountMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_runInBackground_whenTheGivenMaxRunCountIs5() {
 
     //setup

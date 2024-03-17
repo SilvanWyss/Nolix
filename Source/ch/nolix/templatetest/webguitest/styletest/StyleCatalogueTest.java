@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.templatetest.webguitest.styletest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -23,7 +24,7 @@ import ch.nolix.template.webgui.style.StyleCatalogue;
 public final class StyleCatalogueTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_DarkStyle() {
 
     //setup

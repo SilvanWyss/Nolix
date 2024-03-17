@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.relativevaluetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
 //class
 public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
 
     //setup
@@ -28,7 +29,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
 
     //setup
@@ -43,7 +44,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getAbsoluteValue_whenIsRelative() {
 
     //setup
@@ -57,7 +58,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getPercentage_whenIsAbsolute() {
 
     //setup
@@ -71,7 +72,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsolute() {
 
     //setup
@@ -85,7 +86,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
 
     //setup
@@ -99,7 +100,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueRelativeToHundredPercentValue_whenIsRelative() {
 
     //setup
@@ -113,7 +114,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getValueRelativeToHundredPercentValue_whenIsRelativeAndTheGivenHundredPercentValueIsZero() {
 
     //setup
@@ -127,7 +128,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withIntValue() {
 
     //execution
@@ -139,7 +140,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withPercentage() {
 
     //execution
@@ -151,7 +152,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
 
     //execution & verification

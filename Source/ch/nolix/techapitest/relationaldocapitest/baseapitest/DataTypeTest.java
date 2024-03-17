@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.techapitest.relationaldocapitest.baseapitest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
@@ -11,7 +12,7 @@ import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 public final class DataTypeTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDataTypeClass_whenIsInteger8Byte() {
 
     //setup
@@ -25,7 +26,7 @@ public final class DataTypeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDataTypeClass_whenIsFloatingPointNumber8Byte() {
 
     //setup
@@ -39,7 +40,7 @@ public final class DataTypeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDataTypeClass_whenIsBoolean() {
 
     //setup
@@ -53,7 +54,7 @@ public final class DataTypeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDataTypeClass_whenIsText() {
 
     //setup
@@ -67,7 +68,7 @@ public final class DataTypeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDataTypeClass_whenIsImage() {
 
     //setup

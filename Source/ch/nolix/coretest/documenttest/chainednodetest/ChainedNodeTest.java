@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.coretest.documenttest.chainednodetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ChainedNodeTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
 
     //setup
@@ -27,7 +28,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
 
     //setup
@@ -41,7 +42,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
 
     //setup
@@ -57,7 +58,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
 
     //setup
@@ -73,7 +74,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
 
     //setup
@@ -90,7 +91,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
 
     //setup
@@ -106,7 +107,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBlank_whenIsBlank() {
 
     //setup
@@ -120,7 +121,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isBlank_whenHasHeaderOnly() {
 
     //setup
@@ -134,7 +135,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_whenDoesNotRepresentInt_A1() {
 
     //setup
@@ -148,7 +149,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_whenDoesNotRepresentInt_A2() {
 
     //setup
@@ -162,7 +163,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_whenRepresentsNegativeInt() {
 
     //setup
@@ -176,7 +177,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_whenRepresentsPositiveInt() {
 
     //setup
@@ -190,7 +191,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_whenRepresentsZeroInt() {
 
     //setup
@@ -204,7 +205,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toNode_whenIsBlank() {
 
     //setup
@@ -218,7 +219,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toNode_whenHasHeaderOnly() {
 
     //setup
@@ -232,7 +233,7 @@ public final class ChainedNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toNode_whenHasNextNode() {
 
     //setup

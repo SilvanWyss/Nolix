@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.containertest.readcontainertest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class ReadContainerTest extends ContainerTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsEqualing() {
 
     //setup
@@ -38,7 +39,7 @@ public final class ReadContainerTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredAt1BasedIndex() {
 
     //setup
@@ -62,7 +63,7 @@ public final class ReadContainerTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredSelected() {
 
     //setup

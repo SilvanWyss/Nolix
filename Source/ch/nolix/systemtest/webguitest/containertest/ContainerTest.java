@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.containertest;
 
-//own imports
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
+import org.junit.jupiter.api.Test;
+
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
@@ -10,7 +10,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
 
   //method
-  @TestCase
+  @Test
   public final void testCase_constructor() {
 
     //execution

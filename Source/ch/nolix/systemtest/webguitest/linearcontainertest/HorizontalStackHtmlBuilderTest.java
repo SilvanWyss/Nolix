@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.linearcontainertest;
 
-//own imports
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
+import org.junit.jupiter.api.Test;
+
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -16,7 +16,7 @@ public final class HorizontalStackHtmlBuilderTest
 extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createHtmlElement_whenContainsChildControls() {
 
     //setup control

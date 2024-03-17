@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.commontypetool.GlobalCharacterTool;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalCharacterToolTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isDigit_whenGivenCharacterIsADigit() {
     expect(GlobalCharacterTool.isDigit('0'));
     expect(GlobalCharacterTool.isDigit('1'));
@@ -25,7 +26,7 @@ public final class GlobalCharacterToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isDigit_whenGivenCharacterIsNotADigit() {
     expectNot(GlobalCharacterTool.isDigit('A'));
     expectNot(GlobalCharacterTool.isDigit('a'));
@@ -40,7 +41,7 @@ public final class GlobalCharacterToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isHexadecimalDigit_whenGivenCharacterIsAHexadecimalDigit() {
     expect(GlobalCharacterTool.isHexadecimalDigit('0'));
     expect(GlobalCharacterTool.isHexadecimalDigit('1'));
@@ -61,7 +62,7 @@ public final class GlobalCharacterToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isHexadecimalDigit_whenGivenCharacterIsNotAHexadecimalDigit() {
     expectNot(GlobalCharacterTool.isHexadecimalDigit('G'));
     expectNot(GlobalCharacterTool.isHexadecimalDigit('g'));

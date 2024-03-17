@@ -4,17 +4,18 @@ package ch.nolix.coretest.errorcontroltest.invalidargumentexceptiontest;
 //Java imports
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class InvalidArgumentExceptionTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_forArgument_whenArgumentIsNull() {
 
     //execution
@@ -28,7 +29,7 @@ public final class InvalidArgumentExceptionTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_forArgument_whenArgumentIsANode() {
 
     //setup
@@ -45,7 +46,7 @@ public final class InvalidArgumentExceptionTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_forArgumentAndErrorPredicate() {
 
     //setup
@@ -62,7 +63,7 @@ public final class InvalidArgumentExceptionTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_forArgumentNameAndArgumentAndErrorPredicate() {
 
     //setup

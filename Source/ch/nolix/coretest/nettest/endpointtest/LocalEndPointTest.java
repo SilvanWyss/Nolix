@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -11,13 +13,12 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class LocalEndPointTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_sendMessage_whenSends1Message() {
 
     //setup
@@ -32,7 +33,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_sendMessage_whenSends3Messages() {
 
     //setup
@@ -49,7 +50,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_sendMessage_whenTheGivenMessageIsNull() {
 
     //setup
@@ -68,7 +69,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_sendMessage_whenIsClosed() {
 
     //setup part 1: Creates slot.
@@ -95,7 +96,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toSlot() {
 
     //setup
@@ -111,7 +112,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toSlot_whenTheGivenSlotIsNull() {
 
     //execution & verification
@@ -122,7 +123,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toTargetSlotOnServer() {
     try (final var server = new LocalServer()) {
 
@@ -145,7 +146,7 @@ public final class LocalEndPointTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
     try (final var server = new LocalServer()) {
 

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
@@ -11,13 +13,12 @@ import ch.nolix.core.errorcontrol.validator.MethodMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalValidatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsAByte() {
 
     //setup
@@ -31,7 +32,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
 
     //setup
@@ -45,7 +46,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsADouble() {
 
     //setup
@@ -59,7 +60,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
 
     //setup
@@ -73,7 +74,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
 
     //setup
@@ -87,7 +88,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
 
     //setup
@@ -101,7 +102,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsALong() {
 
     //setup
@@ -115,7 +116,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
 
     //setup
@@ -129,7 +130,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
 
     //setup
@@ -143,7 +144,7 @@ public final class GlobalValidatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_assertThat_whenTheGivenArgumentIsAString() {
 
     //setup

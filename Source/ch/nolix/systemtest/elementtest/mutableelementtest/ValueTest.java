@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.mutableelementtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.property.Value;
 
 //class
 public final class ValueTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_forInt() {
 
     //execution
@@ -24,7 +25,7 @@ public final class ValueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSpecification() {
 
     //setup
@@ -39,7 +40,7 @@ public final class ValueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setValue_whenTheGivenValueIsNull() {
 
     //setup
@@ -59,7 +60,7 @@ public final class ValueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setValue_whenTheGivenValueIsValid() {
 
     //setup

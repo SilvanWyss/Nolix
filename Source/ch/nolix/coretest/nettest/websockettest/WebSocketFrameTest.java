@@ -5,18 +5,19 @@ package ch.nolix.coretest.nettest.websockettest;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class WebSocketFrameTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
     //setup
@@ -61,7 +62,7 @@ public final class WebSocketFrameTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
     //setup
@@ -77,7 +78,7 @@ public final class WebSocketFrameTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
     //setup
@@ -93,7 +94,7 @@ public final class WebSocketFrameTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
     //setup
@@ -116,7 +117,7 @@ public final class WebSocketFrameTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
 
     //setup
@@ -144,7 +145,7 @@ public final class WebSocketFrameTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
 
     //setup
@@ -178,7 +179,7 @@ public final class WebSocketFrameTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
 
     //setup

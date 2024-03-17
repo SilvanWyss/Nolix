@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.documenttest.xmltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class MutableXmlNodeTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void test_toString() {
 
     //setup
@@ -24,7 +25,7 @@ public final class MutableXmlNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_toString_whenHas1Attribute() {
 
     //setup
@@ -38,7 +39,7 @@ public final class MutableXmlNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_toString_whenHas1ChildNode() {
 
     //setup
@@ -52,7 +53,7 @@ public final class MutableXmlNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_toString_whenHas2Attributes() {
 
     //setup
@@ -69,7 +70,7 @@ public final class MutableXmlNodeTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void test_toString_whenHas2ChildNodes() {
 
     //setup

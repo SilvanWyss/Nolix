@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.mathtest.algebratest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class PolynomTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDerived_1A() {
 
     //setup
@@ -27,7 +28,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDerived_1B() {
 
     //setup
@@ -44,7 +45,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getDerived_1C() {
 
     //setup
@@ -61,7 +62,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getIntegrated_1A() {
 
     //setup
@@ -78,7 +79,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getIntegrated_1B() {
 
     //setup
@@ -95,7 +96,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenIsEmpty() {
 
     //setup
@@ -109,7 +110,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenThereIsGiven1Coefficient() {
 
     //setup
@@ -123,7 +124,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenThereAreGiven2Coefficients() {
 
     //setup
@@ -137,7 +138,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenThereAreGiven3Coefficients() {
 
     //setup
@@ -151,7 +152,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
 
     //execution
@@ -163,7 +164,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
 
     //execution
@@ -176,7 +177,7 @@ public final class PolynomTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
 
     //execution

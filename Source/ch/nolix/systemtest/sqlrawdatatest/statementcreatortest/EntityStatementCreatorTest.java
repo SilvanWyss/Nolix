@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.sqlrawdatatest.statementcreatortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
@@ -15,7 +16,7 @@ import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
 public final class EntityStatementCreatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStatementToDeleteEntity() {
 
     //setup
@@ -32,7 +33,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStatementToDeleteEntityHead() {
 
     //setup
@@ -47,7 +48,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStatementToExpectTableContainsEntity() {
 
     //setup
@@ -66,7 +67,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStatementToInsertNewEntity() {
 
     //setup
@@ -88,7 +89,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createStatementToUpdateEntityOnTable() {
 
     //setup

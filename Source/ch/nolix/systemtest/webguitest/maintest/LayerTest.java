@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.main.Layer;
@@ -15,7 +16,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 public final class LayerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_clear_whenIsEmpty() {
 
     //setup
@@ -32,7 +33,7 @@ public final class LayerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_clear_whenContainsAny() {
 
     //setup
@@ -50,7 +51,7 @@ public final class LayerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
 
     //setup
@@ -64,7 +65,7 @@ public final class LayerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeSelfFromGui_whenBelongsToGui() {
 
     //setup
@@ -85,7 +86,7 @@ public final class LayerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_reset() {
 
     //setup

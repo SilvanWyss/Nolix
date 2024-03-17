@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class MultiDoubleMediatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_arePositive_whenTheGivenArgumentsAreAllPositive() {
 
     //setup
@@ -23,7 +24,7 @@ public final class MultiDoubleMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_arePositive_whenOneOfTheGivenArgumentsIs0() {
 
     //setup
@@ -38,7 +39,7 @@ public final class MultiDoubleMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_arePositive_whenOneOfTheGivenArgumentsIsNegative() {
 
     //setup

@@ -4,6 +4,8 @@ package ch.nolix.coretest.containertest.basetest;
 //Java imports
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -12,13 +14,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public abstract class ContainerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public final void testCase_contains_whenContainerContainsGivenElement() {
 
     //setup
@@ -36,7 +37,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_contains_whenContainerDoesNotContainGivenElement() {
 
     //setup
@@ -54,7 +55,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsAll_whenContainsAllOfTheGivenElementsAndOtherElements() {
 
     //setup
@@ -73,7 +74,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsAll_whenContainsNoneOfTheGivenElementsButOtherElements() {
 
     //setup
@@ -92,7 +93,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsAll_whenContainsOnlySomeOfTheGivenElementsButOtherElements() {
 
     //setup
@@ -111,7 +112,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsAny_whenIsEmpty() {
 
     //setup
@@ -127,7 +128,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsAny_whenContainsGivenElementsAndMore() {
 
     //setup
@@ -145,7 +146,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsAny_whenContainsOtherElementsOnly() {
 
     //setup
@@ -163,7 +164,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsExactlyInSameOrder_whenIsEmptyAndGivenContainerIsEmpty() {
 
     //setup
@@ -178,7 +179,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void //
   testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
 
@@ -194,7 +195,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void //
   testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
 
@@ -210,7 +211,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsOne_1A() {
 
     //setup
@@ -224,7 +225,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsOne_1B() {
 
     //setup
@@ -238,7 +239,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsOne_1C() {
 
     //setup
@@ -252,7 +253,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsOne_ElementTakerBooleanGetter1A() {
 
     //setup
@@ -266,7 +267,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_containsOne_ElementTakerBooleanGetter1B() {
 
     //setup
@@ -280,7 +281,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_forEach() {
 
     //setup
@@ -298,7 +299,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_from() {
 
     //setup
@@ -315,7 +316,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getAverage_whenIsEmpty() {
 
     //setup
@@ -329,7 +330,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getAverage_whenContainsAny() {
 
     //setup
@@ -343,7 +344,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getAverageOrZero_whenIsEmpty() {
 
     //setup
@@ -357,7 +358,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getAverageOrZero_whenContainsAny() {
 
     //setup
@@ -371,7 +372,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
 
     //setup
@@ -385,7 +386,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getCount_withIElementTakterBooleanGetter_1B() {
 
     //setup
@@ -399,7 +400,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getCount_withIElementTakterBooleanGetter_1C() {
 
     //setup
@@ -413,7 +414,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_gettCount_withIElementTakterBooleanGetter_1D() {
 
     //setup
@@ -427,7 +428,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getCount_withIElementTakterBooleanGetter_1E() {
 
     //setup
@@ -441,7 +442,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getCount_withIElementTakterBooleanGetter_1F() {
 
     //setup
@@ -455,7 +456,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getCount_withIElementTakterBooleanGetter_1G() {
 
     //setup
@@ -469,7 +470,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getElementCount() {
 
     //setup
@@ -480,7 +481,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getElementCount_whenLinkedListIsEmpty() {
 
     //setup
@@ -491,7 +492,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_get1BasedIndexOfFirst_whenIsEmpty() {
 
     //setup
@@ -504,7 +505,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_get1BasedIndexOfFirst_whenContainsAMatchingElement() {
 
     //setup
@@ -518,7 +519,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMax_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
@@ -532,7 +533,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMax_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
@@ -546,7 +547,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMax_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
@@ -560,7 +561,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMaxOrZero_whenIsEmptyContainerForBigDecimals() {
 
     //setup
@@ -574,7 +575,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMaxOrZero_whenContainsBigDecimals() {
 
     //setup
@@ -592,7 +593,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMedian_whenIsEmpty() {
 
     //setup
@@ -605,7 +606,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMedian_whenContainsAny() {
 
     //setup
@@ -619,7 +620,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMedianOrZero_whenIsEmpty() {
 
     //setup
@@ -633,7 +634,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMedianOrZero_whenContainsAny() {
 
     //setup
@@ -647,7 +648,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMin_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
@@ -661,7 +662,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMin_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
@@ -675,7 +676,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMin_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
@@ -689,7 +690,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMinOrZero_whenIsEmptyContainerForBigDecimals() {
 
     //setup
@@ -703,7 +704,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getMinOrZero_whenContainsBigDecimals() {
 
     //setup
@@ -721,7 +722,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOptionalStoredFirst_whenIsEmpty() {
 
     //setup
@@ -735,7 +736,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOptionalStoredFirst_whenContainsSeveralElements() {
 
     //setup
@@ -753,7 +754,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
@@ -767,7 +768,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
@@ -781,7 +782,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
@@ -795,7 +796,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredByMin_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
@@ -809,7 +810,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
@@ -823,7 +824,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
@@ -837,7 +838,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredFirst() {
 
     //setup
@@ -851,7 +852,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredFirst_whenLinkedListIsEmpty() {
 
     //setup
@@ -865,7 +866,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredGroups_whenIsEmpty() {
 
     //setup
@@ -879,7 +880,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredGroups_1A() {
 
     //setup
@@ -894,7 +895,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredGroups_1B() {
 
     //setup
@@ -911,7 +912,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredLast_whenIsEmpty() {
 
     //setup
@@ -922,7 +923,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredLast_whenContainsSeveralElements() {
 
     //setup
@@ -940,7 +941,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredOne_whenDoesNotContainAMatchingElement() {
 
     //setup
@@ -957,7 +958,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredOne_whenContainsOneMatchingElement() {
 
     //setup
@@ -971,7 +972,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredOne_whenContainsSeveralMatchingElements() {
 
     //setup
@@ -988,7 +989,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredSelected_1A() {
 
     //setup
@@ -1005,7 +1006,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredSelected_1B() {
 
     //setup
@@ -1019,7 +1020,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getSumByInt_whenIsEmpty() {
 
     //setup
@@ -1033,7 +1034,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getSum_whenContainsAny() {
 
     //setup
@@ -1047,7 +1048,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getVariance() {
 
     //setup
@@ -1061,7 +1062,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toArray() {
 
     //setup
@@ -1081,7 +1082,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toConcatenatedString_whenIsEmpty() {
 
     //setup
@@ -1095,7 +1096,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toConcatenatedString_whenContainsAny() {
 
     //setup
@@ -1109,7 +1110,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toDoubleArray_whenIsEmpty() {
 
     //setup
@@ -1123,7 +1124,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toDoubleArray_whenContainsAny() {
 
     //setup
@@ -1143,7 +1144,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toOrderedList_1A() {
 
     //setup
@@ -1163,7 +1164,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toOrderedList_1B() {
 
     //setup
@@ -1183,7 +1184,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toIntArray() {
 
     //setup
@@ -1203,7 +1204,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toStringArray_whenIsEmpty() {
 
     //setup
@@ -1217,7 +1218,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toStringArray_whenContainsElements() {
 
     //setup
@@ -1235,7 +1236,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toStrings() {
 
     //setup
@@ -1255,7 +1256,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toStrings_whenContainerIsEmpty() {
 
     //setup
@@ -1269,7 +1270,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_until() {
 
     //setup
@@ -1288,7 +1289,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_withElements() {
 
     //execution
@@ -1314,7 +1315,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_withoutFirst() {
 
     //setup

@@ -1,20 +1,21 @@
 //package declaration
 package ch.nolix.coretest.containertest.linkedlisttest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class LinkedListTest extends ContainerTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_whenIsEmpty() {
 
     //setup
@@ -29,7 +30,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_whenContainsSeveralElements() {
 
     //setup
@@ -47,7 +48,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_whenTheGivenElementIsNull() {
 
     //setup
@@ -62,7 +63,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_forIterable() {
 
     //setup
@@ -81,7 +82,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_forIterable_whenIsEmpty() {
 
     //setup
@@ -98,7 +99,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_forIterable_whenTheGivenListIsEmpty() {
 
     //setup
@@ -115,7 +116,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
 
     //setup
@@ -130,7 +131,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addAtEnd_whenTheGivenElementIsNull() {
 
     //setup
@@ -145,7 +146,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_clear_whenIsEmpty() {
 
     //setup
@@ -159,7 +160,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_clear_whenContainsAny() {
 
     //setup
@@ -173,7 +174,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromArray_whenTheGivenArrayIsNull() {
 
     //execution & verification
@@ -184,7 +185,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromArray_whenTheGivenArrayIsEmpty() {
 
     //setup
@@ -198,7 +199,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromArray_whenTheGivenArrayContains1Element() {
 
     //setup
@@ -213,7 +214,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
 
     //setup
@@ -231,7 +232,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_fromArray_whenTheGivenArrayContainsANullElement() {
 
     //setup
@@ -244,7 +245,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
     //setup
@@ -263,7 +264,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
 
     //setup
@@ -281,7 +282,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeStrictlyFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
     //setup
@@ -299,7 +300,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
 
     //setup
@@ -317,7 +318,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup
@@ -331,7 +332,7 @@ public final class LinkedListTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenIsEmpty() {
 
     //setup

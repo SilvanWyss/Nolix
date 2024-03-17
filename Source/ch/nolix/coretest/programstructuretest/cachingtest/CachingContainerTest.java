@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.programstructuretest.cachingtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programstructure.caching.CachingContainer;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class CachingContainerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //execution
@@ -22,7 +23,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredById() {
 
     //setup
@@ -38,7 +39,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
 
     //setup
@@ -49,7 +50,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_registerAndGetId() {
 
     //setup
@@ -66,7 +67,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
     //setup
@@ -79,7 +80,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_registerAt() {
 
     //setup
@@ -97,7 +98,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
 
     //setup
@@ -111,7 +112,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_registerIfNotRegisterAndGetId() {
 
     //setup
@@ -128,7 +129,7 @@ public final class CachingContainerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
     //setup

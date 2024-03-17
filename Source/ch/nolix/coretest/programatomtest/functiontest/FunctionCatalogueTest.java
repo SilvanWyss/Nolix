@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.programatomtest.functiontest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class FunctionCatalogueTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getFalse() {
 
     //execution
@@ -21,7 +22,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getNull() {
 
     //execution
@@ -32,7 +33,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getOne() {
 
     //execution
@@ -43,7 +44,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStringRepresentationOf_whenNullIsGiven() {
 
     //execution
@@ -54,7 +55,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
 
     //execution
@@ -65,7 +66,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStringRepresentationOf_whenAStringIsGiven() {
 
     //execution
@@ -76,7 +77,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTrue() {
 
     //execution
@@ -87,7 +88,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTypeOf_whenIntIsGiven() {
 
     //execution
@@ -98,7 +99,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTypeOf_whenStringIsGiven() {
 
     //execution
@@ -109,7 +110,7 @@ public final class FunctionCatalogueTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getZero() {
 
     //execution

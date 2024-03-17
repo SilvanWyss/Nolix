@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalIterableToolTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsAny_whenGivenIterableIsNull() {
 
     //setup
@@ -25,7 +26,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsAny_whenGivenIterableIsEmpty() {
 
     //setup
@@ -39,7 +40,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsAny_whenGivenIterableContains1Element() {
 
     //setup
@@ -53,7 +54,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsAny_whenGivenIterableContains2Elements() {
 
     //setup
@@ -67,7 +68,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsEqualing_whenGivenIterableIsNull() {
 
     //setup
@@ -81,7 +82,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsEqualing_whenGivenIterableIsEmpty() {
 
     //setup
@@ -95,7 +96,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsEqualing_whenGivenIterableContainsOnlyUnequalElements() {
 
     //setup
@@ -109,7 +110,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsEqualing_whenGivenIterableContainsEqualElementAndUnequalElements() {
 
     //setup
@@ -123,7 +124,7 @@ public final class GlobalIterableToolTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_containsEqualing_whenGivenIterableContainsOnlyEqualElements() {
 
     //setup

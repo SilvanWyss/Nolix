@@ -1,14 +1,15 @@
 package ch.nolix.coreapitest.datamodelapitest.entityrequestapitest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class AbstractnessRequestableTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isConcrete_whenIsAbstract() {
 
     //setup
@@ -22,7 +23,7 @@ public final class AbstractnessRequestableTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isConcrete_whenIsConcrete() {
 
     //setup

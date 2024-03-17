@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.nettest.messagingtest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.messaging.IndexedPackage;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class IndexedPackageTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasIndex_whenHasTheGivenIndex() {
 
     //setup
@@ -25,7 +26,7 @@ public final class IndexedPackageTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_hasIndex_whenDoesNotHaveTheGivenIndex() {
 
     //setup

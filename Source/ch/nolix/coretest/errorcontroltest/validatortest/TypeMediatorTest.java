@@ -6,19 +6,20 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.TypeMediator;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class TypeMediatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
 
     //setup
@@ -32,7 +33,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
 
     //setup
@@ -43,7 +44,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isAbstract_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -57,7 +58,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isClass_whenTheGivenArgumentIsAClass() {
 
     //setup
@@ -68,7 +69,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
 
     //setup
@@ -82,7 +83,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
 
     //setup
@@ -97,7 +98,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isClass_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -111,7 +112,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
 
     //setup
@@ -125,7 +126,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
 
     //setup
@@ -136,7 +137,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isConcrete_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -150,7 +151,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEnum_whenTheGivenArgumentIsAClas() {
 
     //setup
@@ -164,7 +165,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
 
     //setup
@@ -178,7 +179,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
 
     //setup
@@ -189,7 +190,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isEnum_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -203,7 +204,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
 
     //setup
@@ -217,7 +218,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
 
     //setup
@@ -228,7 +229,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isImplementing_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -242,7 +243,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
 
     //setup
@@ -253,7 +254,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isInterface_whenTheGivenArgumentIsAClass() {
 
     //setup
@@ -267,7 +268,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
 
     //setup
@@ -282,7 +283,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isInterface_whenTheGivenArgumentIsNull() {
 
     //setup
@@ -296,7 +297,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
 
     //setup
@@ -310,7 +311,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
 
     //setup
@@ -321,7 +322,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
 
     //setup
@@ -335,7 +336,7 @@ public final class TypeMediatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
 
     //setup

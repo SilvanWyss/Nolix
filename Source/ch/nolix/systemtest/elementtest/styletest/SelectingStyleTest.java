@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.styletest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
 import ch.nolix.system.graphic.image.Image;
@@ -12,7 +13,7 @@ import ch.nolix.system.graphic.image.Image;
 public final class SelectingStyleTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveAnId() {
 
     //setup mockStylableElement
@@ -32,7 +33,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
 
     //setup mockStylableElement
@@ -53,7 +54,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
 
     //setup mockStylableElement
@@ -74,7 +75,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
 
     //setup mockStylableElement
@@ -91,7 +92,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
 
     //setup mockStylableElement
@@ -108,7 +109,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
 
     //setup mockStylableElement
@@ -125,7 +126,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_selectsChildElements() {
 
     //setup
@@ -139,7 +140,7 @@ public final class SelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_skipsChildElements() {
 
     //setup

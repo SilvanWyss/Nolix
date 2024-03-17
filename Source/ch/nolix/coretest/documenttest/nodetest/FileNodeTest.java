@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
+import org.junit.jupiter.api.AfterEach;
+
 //own imports
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
-import ch.nolix.coreapi.testingapi.testapi.Cleanup;
 
 //class
 public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
   //method
-  @Cleanup
+  @AfterEach
   public void cleanup() {
 
     final var folderOfRunningJar = GlobalFileSystemAccessor.getFolderOfRunningJarFile();

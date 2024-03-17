@@ -1,15 +1,16 @@
 //package declaration
 package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class TitleHolderTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTitleInQuotes() {
 
     //setup

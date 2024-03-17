@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
@@ -20,7 +21,7 @@ public final class ImageControlTest extends ControlTest<IImageControl> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredImage_whenIsEmpty() {
 
     //setup
@@ -36,7 +37,7 @@ public final class ImageControlTest extends ControlTest<IImageControl> {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredImage_whenContainsMutableImage() {
 
     //setup

@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.systemtest.applicationtest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
 //class
 public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_forClient() {
 
     //setup
@@ -29,7 +30,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_forClient_whenTheGivenClientIsNull() {
 
     //execution & verification
@@ -40,7 +41,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_popCurrentSession_whenDoesNotContainSession() {
 
     //setup
@@ -52,7 +53,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_popCurrentSession_whenContains1Session() {
 
     //setup
@@ -72,7 +73,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_pushSession_whenDoesNotContainSession() {
 
     //setup
@@ -92,7 +93,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_pushSession_whenContains1Session() {
 
     //setup

@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.programatomtest.unsignedbytetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class UnsignedByteTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBitAtAsInt_1A() {
 
     //setup
@@ -38,7 +39,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBitAtAsInt_1B() {
 
     //setup
@@ -66,7 +67,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBitAtAsInt_1C() {
 
     //setup
@@ -94,7 +95,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getBitAtAsInt_1D() {
 
     //setup
@@ -122,7 +123,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBitString_1A() {
 
     //setup
@@ -136,7 +137,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBitString_1B() {
 
     //setup
@@ -150,7 +151,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBitString_1C() {
 
     //setup
@@ -164,7 +165,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBitString_1D() {
 
     //setup
@@ -178,7 +179,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toByte() {
     for (var i = 0; i <= 255; i++) {
 
@@ -194,7 +195,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_1A() {
 
     //setup
@@ -208,7 +209,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_1B() {
 
     //setup
@@ -222,7 +223,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_1C() {
 
     //setup
@@ -236,7 +237,7 @@ public final class UnsignedByteTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toInt_1D() {
 
     //setup

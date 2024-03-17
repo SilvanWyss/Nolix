@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
@@ -32,7 +33,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isInserted_whenHasInsertAction() {
 
     //setup
@@ -54,7 +55,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isLoaded() {
 
     //setup
@@ -76,7 +77,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved() {
 
     //setup
@@ -95,7 +96,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenIsChangedInTheMeanwhile() {
 
     //setup part 1: Initializes database.
@@ -126,7 +127,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
 
     //setup part 1: Initializes database.
@@ -157,7 +158,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_delete_whenIsLoaded() {
 
     //setup part 1
@@ -192,7 +193,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_delete_whenIsClosed() {
 
     //setup

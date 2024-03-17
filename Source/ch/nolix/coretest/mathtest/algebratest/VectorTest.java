@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.mathtest.algebratest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class VectorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenEquals() {
 
     //setup
@@ -26,7 +27,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenDoesNotEqual() {
 
     //setup
@@ -41,7 +42,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenIsEmptyAndEquals() {
 
     //setup
@@ -56,7 +57,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_equals_whenIsEmptyAndDoesNotEqual() {
 
     //setup
@@ -71,7 +72,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getEuclidNorm() {
 
     //setup
@@ -85,7 +86,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getProduct() {
 
     //setup
@@ -99,7 +100,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getProduct_whenIsEmpty() {
 
     //setup
@@ -113,7 +114,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSize() {
 
     //setup
@@ -127,7 +128,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSize_whenIsEmpty() {
 
     //setup
@@ -141,7 +142,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_1A() {
 
     //setup
@@ -156,7 +157,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_1B() {
 
     //setup
@@ -171,7 +172,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_whenGivenAddendHasNotSameSize() {
 
     //setup
@@ -188,7 +189,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSum_whenIsEmpty() {
 
     //setup
@@ -203,7 +204,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toArray() {
 
     //setup
@@ -223,7 +224,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toArray_whenIsEmpty() {
 
     //setup
@@ -237,7 +238,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup
@@ -251,7 +252,7 @@ public final class VectorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenIsEmpty() {
 
     //setup

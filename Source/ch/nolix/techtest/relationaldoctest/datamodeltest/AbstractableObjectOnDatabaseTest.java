@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.techtest.relationaldoctest.datamodeltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
@@ -14,7 +15,7 @@ import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
 public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredBaseTypes_whenDoesNotHaveBaseTypes() {
 
     //setup part 1: Create database.
@@ -38,7 +39,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredBaseTypes_whenHasSeveralBaseTypes() {
 
     //setup part 1: Create database.
@@ -77,7 +78,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredBaseTypes_whenHasBaseTypeWithBaseType() {
 
     //setup part 1: Create database.
@@ -116,7 +117,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredSubTypes_whenDoesNotHaveSubTypes() {
 
     //setup part 1: Create database.
@@ -140,7 +141,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredSubTypes_whenHasSeveralSubTypes() {
 
     //setup part 1: Create database.
@@ -178,7 +179,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenNewFieldWasAdded() {
 
     //setup part 1: Create database.

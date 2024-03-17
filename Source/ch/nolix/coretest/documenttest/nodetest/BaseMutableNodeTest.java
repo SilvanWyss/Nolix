@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.BaseMutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
 
   //method
-  @TestCase
+  @Test
   public void testCase_removeHeader() {
 
     //setup
@@ -28,7 +29,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_1A() {
 
     //setup
@@ -44,7 +45,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_1B() {
 
     //setup
@@ -60,7 +61,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_2A() {
 
     //setup
@@ -76,7 +77,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_2B() {
 
     //setup
@@ -92,7 +93,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_2C() {
 
     //setup
@@ -108,7 +109,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_2D() {
 
     //setup
@@ -124,7 +125,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_3A() {
 
     //setup
@@ -140,7 +141,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_3B() {
 
     //setup
@@ -156,7 +157,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_resetFromString_whenTheGivenStringIsNotValid() {
 
     //setup
@@ -169,7 +170,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_setHeader() {
 
     //setup

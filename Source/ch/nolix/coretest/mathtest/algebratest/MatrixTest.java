@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.coretest.mathtest.algebratest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class MatrixTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_add() {
 
     //setup
@@ -29,7 +30,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_appendAtRight() {
 
     //setup
@@ -45,7 +46,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createIdendityMatrix_with1Row() {
 
     //execution
@@ -58,7 +59,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createIdendityMatrix_with10Rows() {
 
     //execution
@@ -79,7 +80,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInverse_whenMatrixIs2x2Matrix() {
 
     //setup
@@ -94,7 +95,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInverse_whenMatrixIs3x3Matrix() {
 
     //setup
@@ -109,7 +110,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getInverse_whenMatrixIs4x4Matrix() {
 
     //setup
@@ -126,7 +127,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getProduct() {
 
     //setup
@@ -142,7 +143,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getRank_whenMatrixIsIdentityMatrix() {
 
     //parameter definition
@@ -163,7 +164,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
 
     //setup
@@ -179,7 +180,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
 
     //setup
@@ -196,7 +197,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTrace_whenMatrixIsIdentityMatrix() {
 
     //parameter definition
@@ -217,7 +218,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
 
     //setup
@@ -233,7 +234,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs1x1IdentityMatrix() {
 
     //setup
@@ -247,7 +248,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs2x2IdentityMatrix() {
 
     //setup
@@ -261,7 +262,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs3x3IdentityMatrix() {
 
     //setup
@@ -275,7 +276,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs4x4IdentityMatrix() {
 
     //setup
@@ -289,7 +290,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs1x1Matrix() {
 
     //setup
@@ -303,7 +304,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs2x2Matrix() {
 
     //setup
@@ -317,7 +318,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs3x3Matrix() {
 
     //setup
@@ -331,7 +332,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenMatrixIs4x4Matrix() {
 
     //setup
@@ -345,7 +346,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toVector_whenContains1Row() {
 
     //setup
@@ -359,7 +360,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toVector_whenContains1Column() {
 
     //setup
@@ -373,7 +374,7 @@ public final class MatrixTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toVector_whenIs2x2Matrix() {
 
     //setup

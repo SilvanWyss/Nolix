@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.coretest.nettest.targettest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUrl_forHttpPortAndUnsecureSecurityLevel() {
 
     //setup
@@ -32,7 +33,7 @@ public final class ApplicationInstanceTargetTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUrl_forHttpsPortAndSecureSecurityLevel() {
 
     //setup
@@ -52,7 +53,7 @@ public final class ApplicationInstanceTargetTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUrl_forCustomPortAndUnsecureSecurityLevel() {
 
     //setup
@@ -72,7 +73,7 @@ public final class ApplicationInstanceTargetTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toUrl_forCustomPortAndSecureSecurityLevel() {
 
     //setup

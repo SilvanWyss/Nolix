@@ -4,6 +4,8 @@ package ch.nolix.coretest.licensetest;
 //Java imports
 import java.util.Objects;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.license.Feature;
@@ -11,13 +13,12 @@ import ch.nolix.core.license.GlobalLicenseManager;
 import ch.nolix.core.license.License;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalLicenseManagerTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_requireFeature_whenLicenseIsNotThere() {
 
     //execution & verification
@@ -25,7 +26,7 @@ public final class GlobalLicenseManagerTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_requireFeature_whenLicenseIsThere() {
 
     //setup

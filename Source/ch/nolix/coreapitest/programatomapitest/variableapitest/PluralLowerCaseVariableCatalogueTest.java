@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class PluralLowerCaseVariableCatalogueTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_constants() {
 
     //setup

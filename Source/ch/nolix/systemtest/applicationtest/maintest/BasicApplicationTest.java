@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.applicationtest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.BasicApplication;
 import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.application.webapplication.WebClient;
@@ -13,7 +14,7 @@ import ch.nolix.system.application.webapplication.WebClient;
 public final class BasicApplicationTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_withNameAndInitialSessionClassAndContext() {
 
     //setup

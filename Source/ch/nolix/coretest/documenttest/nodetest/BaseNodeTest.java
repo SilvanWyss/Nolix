@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
 
     //setup
@@ -23,7 +24,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
 
     //setup
@@ -37,7 +38,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredChildNodeAt1BasedIndex() {
 
     //setup
@@ -66,7 +67,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHeader_1A() {
 
     //setup
@@ -80,7 +81,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHeader_1B() {
 
     //setup
@@ -94,7 +95,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHeader_1C() {
 
     //setup
@@ -108,7 +109,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getHeader_1D() {
 
     //setup
@@ -122,7 +123,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredSingleChildNode_1A() {
 
     //setup
@@ -136,7 +137,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredSingleChildNode_1B() {
 
     //setup
@@ -147,7 +148,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_1() {
 
     //setup
@@ -161,7 +162,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_2A() {
 
     //setup
@@ -175,7 +176,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_2B() {
 
     //setup
@@ -189,7 +190,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_2C() {
 
     //setup
@@ -203,7 +204,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_toXml() {
 
     //setup

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.webtest.htmltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
@@ -8,13 +10,12 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.core.web.html.HtmlElementStringRepresentator;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString() {
 
     //setup
@@ -29,7 +30,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenContainsAttributes() {
 
     //setup
@@ -48,7 +49,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenContainsAttributesAndChildElements() {
 
     //setup
@@ -70,7 +71,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenContainsAttributesAndInnerText() {
 
     //setup
@@ -91,7 +92,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenContainsChildElements() {
 
     //setup
@@ -110,7 +111,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toString_whenContainsInnerText() {
 
     //setup

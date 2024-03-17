@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.itemmenutest;
 
-//own imports
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
+import org.junit.jupiter.api.Test;
+
 import ch.nolix.system.webgui.itemmenu.ItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
@@ -13,7 +13,7 @@ public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends II
 extends ControlTest<IM> {
 
   //method
-  @TestCase
+  @Test
   public final void testCase_addItemWithIdAndText() {
 
     //setup
@@ -36,7 +36,7 @@ extends ControlTest<IM> {
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_selectItemById_whenContainsItemWithGivenId() {
 
     //setup

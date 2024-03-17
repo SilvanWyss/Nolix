@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -13,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public final void testCase_editStyle() {
 
     //setup
@@ -28,7 +29,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getInternalId() {
 
     //setup
@@ -43,7 +44,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
 
     //setup
@@ -61,7 +62,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_getStoredChildControls() {
 
     //setup
@@ -75,7 +76,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_reset() {
 
     //setup
@@ -99,7 +100,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
   }
 
   //method
-  @TestCase
+  @Test
   public final void testCase_setCursorIcon() {
 
     //setup

@@ -4,17 +4,18 @@ package ch.nolix.coretest.containertest.matrixtest;
 //Java imports
 import java.util.NoSuchElementException;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.matrix.GapMatrix;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class GapMatrixTest extends ContainerTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_addColumn_whenGapMatrixIsExpanded() {
 
     //setup
@@ -30,7 +31,7 @@ public final class GapMatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addColumn_whenGapMatrixIsMinimal() {
 
     //setup
@@ -46,7 +47,7 @@ public final class GapMatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addRow_whenGapMatrixIsExpanded() {
 
     //setup
@@ -62,7 +63,7 @@ public final class GapMatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_addRow_whenGapMatrixIsMinimal() {
 
     //setup
@@ -78,7 +79,7 @@ public final class GapMatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_create() {
 
     //execution
@@ -91,7 +92,7 @@ public final class GapMatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_iterate_whenGapMatrixContainsElements() {
 
     //setup
@@ -124,7 +125,7 @@ public final class GapMatrixTest extends ContainerTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_iterate_whenGapMatrixIsEmpty() {
 
     //setup

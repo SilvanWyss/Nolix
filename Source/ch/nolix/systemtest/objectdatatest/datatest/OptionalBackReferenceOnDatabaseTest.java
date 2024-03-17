@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.OptionalBackReference;
 import ch.nolix.system.objectdata.data.OptionalReference;
@@ -40,7 +41,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredEntity_whenIsNewAndEmpty() {
 
     //setup
@@ -58,7 +59,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 
     //setup
@@ -79,7 +80,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredEntity_whenIsLoaded() {
 
     //setup
@@ -103,7 +104,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenIsEmpty() {
 
     //setup
@@ -118,7 +119,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 
     //setup part 1:
@@ -144,7 +145,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
 
     //setup part 1
@@ -174,7 +175,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_isChanged_whenIsLoaded() {
 
     //setup part 1

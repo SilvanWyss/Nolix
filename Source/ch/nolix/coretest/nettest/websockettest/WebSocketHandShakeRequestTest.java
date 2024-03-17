@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class WebSocketHandShakeRequestTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase() {
 
     //setup

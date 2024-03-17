@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.techtest.mathtest.fractaltest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.ImageGenerator;
 
@@ -11,7 +12,7 @@ import ch.nolix.tech.math.fractal.ImageGenerator;
 public final class ImageGeneratorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getStoredImage() {
 
     //setup

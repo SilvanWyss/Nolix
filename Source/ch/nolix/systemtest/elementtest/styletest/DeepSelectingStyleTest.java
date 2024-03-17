@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.styletest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
 
 //class
 public final class DeepSelectingStyleTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_selectsChildElements() {
 
     //setup
@@ -24,7 +25,7 @@ public final class DeepSelectingStyleTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_skipsChildElements() {
 
     //setup

@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemtest.applicationtest.webapplicationcounterpartupdatertest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.webapplicationcounterpartupdater.UpdateCommandCreator;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
@@ -13,7 +14,7 @@ import ch.nolix.system.webgui.main.WebGui;
 public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_createSetCssCommandFromWebGui() {
 
     //setup
@@ -28,7 +29,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createSetTitleCommandForTitle() {
 
     //setup
@@ -42,7 +43,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createSetTitleCommandFromWebGui() {
 
     //setup
@@ -57,7 +58,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
 
     //setup
@@ -72,7 +73,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
 
     //setup
@@ -88,7 +89,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
 
     //setup

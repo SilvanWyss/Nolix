@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getType_whenPayloadLengthIs0() {
 
     //setup
@@ -26,7 +27,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getType_whenPayloadLengthIs125() {
 
     //setup
@@ -40,7 +41,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getType_whenPayloadLengthIs126() {
 
     //setup
@@ -54,7 +55,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getType_whenPayloadLengthIs65535() {
 
     //setup
@@ -68,7 +69,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getType_whenPayloadLengthIs65536() {
 
     //setup
@@ -82,7 +83,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getType_whenPayloadLengthIs9223372036854775807() {
 
     //setup
@@ -96,7 +97,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenPayloadLengthIs0() {
 
     //setup
@@ -110,7 +111,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenPayloadLengthIs125() {
 
     //setup
@@ -125,7 +126,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenPayloadLengthIs126() {
 
     //setup
@@ -141,7 +142,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenPayloadLengthIs65535() {
 
     //setup
@@ -157,7 +158,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenPayloadLengthIs65536() {
 
     //setup
@@ -179,7 +180,7 @@ public final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_toBytes_whenPayloadLengthIs9223372036854775807() {
 
     //setup

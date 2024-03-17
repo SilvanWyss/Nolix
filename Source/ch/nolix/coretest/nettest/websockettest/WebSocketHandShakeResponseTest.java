@@ -1,16 +1,17 @@
 //package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.net.websocket.WebSocketHandShakeResponse;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class WebSocketHandShakeResponseTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSecWebSocketAccept() {
 
     //parameter definition
@@ -28,7 +29,7 @@ public final class WebSocketHandShakeResponseTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_getSecWebSocketAccept_2() {
 
     //parameter definition

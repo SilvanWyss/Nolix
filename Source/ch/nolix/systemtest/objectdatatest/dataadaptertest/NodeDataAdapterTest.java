@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 
+import org.junit.jupiter.api.Test;
+
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
@@ -27,7 +28,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_close_whenIsOpen() {
 
     //setup
@@ -47,7 +48,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_close_whenIsClosed() {
 
     //setup
@@ -68,7 +69,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_constructor() {
 
     //setup
@@ -84,7 +85,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void getEmptyCopy_whenHasChanges() {
 
     //setup
@@ -105,7 +106,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 
     //setup
@@ -122,7 +123,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_saveChangesAndReset_whenHasChanges() {
 
     //setup
@@ -140,7 +141,7 @@ public final class NodeDataAdapterTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
 
     //setup part 1: Creates a database.

@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.templatetest.webguitest.dialogtest;
 
+import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;
 
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
@@ -23,7 +23,7 @@ import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 public final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
-  @TestCase
+  @Test
   public void testCase_build() {
 
     //setup
@@ -54,7 +54,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_build_thenClickCancelButton() {
 
     //setup
@@ -74,7 +74,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_build_thenClickConfirmButton() {
 
     //setup
@@ -94,7 +94,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_build_thenAddToWebGui_thenClickCancelButton() {
 
     //setup
@@ -117,7 +117,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
   }
 
   //method
-  @TestCase
+  @Test
   public void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
 
     //setup
