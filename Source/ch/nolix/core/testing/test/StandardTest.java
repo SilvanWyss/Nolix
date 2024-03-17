@@ -19,7 +19,7 @@ import ch.nolix.core.errorcontrol.validator.StringMediator;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public abstract class StandardTest {
+public abstract class StandardTest { //NOSONAR: StandardTest does not have abstract methods.
 
   //method
   /**
