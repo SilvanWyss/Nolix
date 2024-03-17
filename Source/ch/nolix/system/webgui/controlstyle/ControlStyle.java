@@ -97,7 +97,8 @@ implements IControlStyle<ECS> {
   new AbsoluteOrRelativeIntValidator();
 
   //attribute
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = //
+  new NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt>(
     WIDTH_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -105,7 +106,8 @@ implements IControlStyle<ECS> {
     this::setWidthForState);
 
   //attribute
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = //
+  new NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt>(
     HEIGHT_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
