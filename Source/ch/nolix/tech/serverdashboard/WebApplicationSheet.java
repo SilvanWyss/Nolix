@@ -20,7 +20,7 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
   private final IImage applicationLogo;
 
   //constructor
-  private WebApplicationSheet(final Application<WebClient<?>, ?> webApplication) {
+  private <AC> WebApplicationSheet(final Application<WebClient<AC>, AC> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
 
@@ -34,7 +34,7 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
   }
 
   //static method
-  public static WebApplicationSheet forWebApplication(final Application<WebClient<?>, ?> webApplication) {
+  public static <AC> WebApplicationSheet forWebApplication(final Application<WebClient<AC>, AC> webApplication) {
     return new WebApplicationSheet(webApplication);
   }
 

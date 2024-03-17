@@ -40,7 +40,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
   }
 
   //method
-  private IContainer<Application<WebClient<?>, ?>> getStoredWebApplications() {
+  private IContainer<Application<WebClient<Object>, Object>> getStoredWebApplications() {
     return WEB_APPLICATION_EXTRACTOR.getStoredWebApplicationsOfServer(server);
   }
 }

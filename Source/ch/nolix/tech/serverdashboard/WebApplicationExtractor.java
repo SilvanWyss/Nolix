@@ -12,15 +12,16 @@ import ch.nolix.system.application.webapplication.WebClient;
 public final class WebApplicationExtractor {
 
   //method
-  public IContainer<Application<WebClient<?>, ?>> getStoredWebApplicationsOfServer(final BaseServer<?> server) {
+  public IContainer<Application<WebClient<Object>, Object>> getStoredWebApplicationsOfServer(
+    final BaseServer<?> server) {
 
-    final var webApplications = new LinkedList<Application<WebClient<?>, ?>>();
+    final var webApplications = new LinkedList<Application<WebClient<Object>, Object>>();
 
     for (final var a : server.getStoredApplications()) {
       if (isWebApplication(a)) {
 
         @SuppressWarnings("unchecked")
-        final var webApplication = (Application<WebClient<?>, ?>) a;
+        final var webApplication = (Application<WebClient<Object>, Object>) a;
 
         webApplications.addAtEnd(webApplication);
       }
