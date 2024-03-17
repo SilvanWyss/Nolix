@@ -126,7 +126,7 @@ public abstract class SqlConnection implements ISqlConnection {
   @Override
   public final IContainer<? extends IContainer<String>> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
-      return getRecorsFromStatement(query, statement);
+      return getRecordsFromStatement(query, statement);
     } catch (final SQLException sqlException) {
       throw WrapperException.forError(sqlException);
     }
@@ -169,7 +169,7 @@ public abstract class SqlConnection implements ISqlConnection {
   protected abstract String getSqlDatabaseEngineDriverClass();
 
   //method
-  private IContainer<? extends IContainer<String>> getRecorsFromStatement(
+  private IContainer<? extends IContainer<String>> getRecordsFromStatement(
     final String query,
     final Statement statement)
   throws SQLException {
@@ -191,7 +191,14 @@ public abstract class SqlConnection implements ISqlConnection {
       final ArrayList<String> entries = ArrayList.withInitialCapacity(columnCount);
 
       for (var i = 1; i <= columnCount; i++) {
-        entries.addAtEnd(resultSet.getString(i));
+
+        final var entry = resultSet.getString(i);
+
+        if (entry == null) {
+          entries.addAtEnd("NULL");
+        } else {
+          entries.addAtEnd(entry);
+        }
       }
 
       records.addAtEnd(entries);
