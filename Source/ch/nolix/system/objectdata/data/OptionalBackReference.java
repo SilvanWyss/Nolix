@@ -79,11 +79,11 @@ implements IOptionalBackReference<E> {
   //method
   @Override
   public IContentFieldDto internalToContentField() {
-  
+
     if (isEmpty()) {
       return new ContentFieldDto(getName());
     }
-  
+
     return new ContentFieldDto(getName(), getBackReferencedEntityId());
   }
 

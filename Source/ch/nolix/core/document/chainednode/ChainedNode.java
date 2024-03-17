@@ -984,17 +984,17 @@ public final class ChainedNode implements IChainedNode {
   private int mapChildNodesAndPotentialNextNodeFromStingAndStartIndexAndGetNextIndex(
     final String string,
     final int startIndex) {
-  
+
     var nextIndex = startIndex;
-  
+
     final var node = new ChainedNode();
     nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
     this.childNodes.addAtEnd(node);
-  
+
     while (nextIndex < string.length()) {
-  
+
       final var character = string.charAt(nextIndex);
-  
+
       if (character == ',') {
         final var node2 = new ChainedNode();
         nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
@@ -1006,20 +1006,20 @@ public final class ChainedNode implements IChainedNode {
         //Does nothing and continues the current loop.
       }
     }
-  
+
     if (nextIndex < string.length() - 1 && string.charAt(nextIndex) == '.') {
       nextIndex++;
       return mapNextNodeFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
     }
-  
+
     return nextIndex;
   }
 
   //method
   private int mapNextNodeFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
-  
+
     nextNode = new ChainedNode();
-  
+
     return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, startIndex);
   }
 

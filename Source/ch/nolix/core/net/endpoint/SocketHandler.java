@@ -205,19 +205,19 @@ public final class SocketHandler {
   //method
   private Optional<SocketType> getSocketTypeFromFirstReceivedLine(
     final String firstReceivedLine) {
-  
+
     if (firstReceivedLine.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
       return Optional.of(SocketType.NET_SOCKET_WITH_DEFAULT_TARGET);
     }
-  
+
     if (firstReceivedLine.startsWith(MessageType.TARGET_MESSAGE.getPrefix())) {
       return Optional.of(SocketType.NET_SOCKET_WITH_CUSTOM_TARGET);
     }
-  
+
     if (firstReceivedLine.startsWith("G")) {
       return Optional.of(SocketType.HTTP_SOCKET_OR_WEB_SOCKET);
     }
-  
+
     return Optional.empty();
   }
 

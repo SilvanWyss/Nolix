@@ -32,7 +32,8 @@ public final class GlobalFileSystemAccessor {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalFileSystemAccessor} can be created.
+   * Prevents that an instance of the {@link GlobalFileSystemAccessor} can be
+   * created.
    */
   private GlobalFileSystemAccessor() {
   }

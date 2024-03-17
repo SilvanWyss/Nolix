@@ -302,10 +302,10 @@ extends StylableElement<Layer> implements ILayer<Layer> {
   //method
   @Override
   public void internalSetParentGui(final IWebGui<?> parentGui) {
-  
+
     GlobalValidator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
     LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
-  
+
     this.parentGui = parentGui;
   }
 
