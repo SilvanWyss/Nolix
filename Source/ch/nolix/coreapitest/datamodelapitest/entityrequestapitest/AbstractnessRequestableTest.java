@@ -1,11 +1,11 @@
 package ch.nolix.coreapitest.datamodelapitest.entityrequestapitest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class AbstractnessRequestableTest extends Test {
+public final class AbstractnessRequestableTest extends StandardTest {
 
   //method
   @TestCase

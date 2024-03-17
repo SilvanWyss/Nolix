@@ -5,13 +5,13 @@ package ch.nolix.techtest.mathtest.fractaltest;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.FractalTool;
 
 //class
-public final class FractalToolTest extends Test {
+public final class FractalToolTest extends StandardTest {
 
   //method
   @TestCase

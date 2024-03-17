@@ -5,11 +5,11 @@ package ch.nolix.coretest.programcontroltest.sequencertest;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalSequencerTest extends Test {
+public final class GlobalSequencerTest extends StandardTest {
 
   //method
   @TestCase

@@ -8,12 +8,12 @@ import java.io.InputStream;
 //own imports
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class WebSocketFrameTest extends Test {
+public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @TestCase

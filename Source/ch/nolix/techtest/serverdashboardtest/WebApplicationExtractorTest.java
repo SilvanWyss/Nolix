@@ -2,13 +2,13 @@
 package ch.nolix.techtest.serverdashboardtest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.LocalServer;
 import ch.nolix.tech.serverdashboard.WebApplicationExtractor;
 
 //class
-public final class WebApplicationExtractorTest extends Test {
+public final class WebApplicationExtractorTest extends StandardTest {
 
   @TestCase
   public void testCase_whenTheGivenServerDoesNotContainWebApplications() {

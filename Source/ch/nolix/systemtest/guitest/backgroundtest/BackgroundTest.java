@@ -2,14 +2,14 @@
 package ch.nolix.systemtest.guitest.backgroundtest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 
 //class
-public final class BackgroundTest extends Test {
+public final class BackgroundTest extends StandardTest {
 
   //method
   @TestCase

@@ -2,14 +2,14 @@
 package ch.nolix.systemtest.webguitest.basecontroltooltest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ControlCssBuilderTest<CCB extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
-extends Test {
+extends StandardTest {
 
   //method
   @TestCase

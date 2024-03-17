@@ -3,11 +3,11 @@ package ch.nolix.coretest.mathtest.stochastictest;
 
 //own imports
 import ch.nolix.core.math.stochastic.ARModel;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class ARModelTest extends Test {
+public final class ARModelTest extends StandardTest {
 
   //method
   @TestCase

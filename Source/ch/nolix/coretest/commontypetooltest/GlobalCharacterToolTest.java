@@ -3,11 +3,11 @@ package ch.nolix.coretest.commontypetooltest;
 
 //own imports
 import ch.nolix.core.commontypetool.GlobalCharacterTool;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalCharacterToolTest extends Test {
+public final class GlobalCharacterToolTest extends StandardTest {
 
   //method
   @TestCase

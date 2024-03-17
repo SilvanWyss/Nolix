@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.webguitest.maintest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
-public final class LayerTest extends Test {
+public final class LayerTest extends StandardTest {
 
   //method
   @TestCase

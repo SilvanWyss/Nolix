@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.applicationtest.webapplicationcounterpartupdatertest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.webapplicationcounterpartupdater.UpdateCommandCreator;
 import ch.nolix.system.webgui.atomiccontrol.Button;
@@ -10,7 +10,7 @@ import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class UpdateCommandCreatorTest extends Test {
+public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @TestCase

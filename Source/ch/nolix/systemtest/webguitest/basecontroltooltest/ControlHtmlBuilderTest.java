@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.webguitest.basecontroltooltest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ControlHtmlBuilderTest<CHB extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
-extends Test {
+extends StandardTest {
 
   //method
   @TestCase

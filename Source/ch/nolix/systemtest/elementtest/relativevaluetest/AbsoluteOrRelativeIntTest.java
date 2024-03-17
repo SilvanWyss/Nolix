@@ -5,12 +5,12 @@ package ch.nolix.systemtest.elementtest.relativevaluetest;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
 //class
-public final class AbsoluteOrRelativeIntTest extends Test {
+public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @TestCase

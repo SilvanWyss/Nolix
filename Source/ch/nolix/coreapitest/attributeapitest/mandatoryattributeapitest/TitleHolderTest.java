@@ -2,11 +2,11 @@
 package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class TitleHolderTest extends Test {
+public final class TitleHolderTest extends StandardTest {
 
   //method
   @TestCase

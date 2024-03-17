@@ -5,13 +5,13 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
 //class
-public final class ComplexSequenceDefinedBy1PredecessorTest extends Test {
+public final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   //method
   @TestCase

@@ -2,11 +2,11 @@
 package ch.nolix.coreapitest.programcontrolapitest.savecontrolapitest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class ChangeRequestableTest extends Test {
+public final class ChangeRequestableTest extends StandardTest {
 
   //method
   @TestCase

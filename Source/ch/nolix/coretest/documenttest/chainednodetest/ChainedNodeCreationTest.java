@@ -5,11 +5,11 @@ package ch.nolix.coretest.documenttest.chainednodetest;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class ChainedNodeCreationTest extends Test {
+public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @TestCase

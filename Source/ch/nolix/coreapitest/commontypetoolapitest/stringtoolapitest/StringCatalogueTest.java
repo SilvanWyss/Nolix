@@ -4,12 +4,12 @@ package ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest;
 //own imports
 import ch.nolix.core.reflection.GlobalFieldTool;
 import ch.nolix.core.reflection.GlobalMemberTool;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class StringCatalogueTest extends Test {
+public final class StringCatalogueTest extends StandardTest {
 
   //method
   @TestCase

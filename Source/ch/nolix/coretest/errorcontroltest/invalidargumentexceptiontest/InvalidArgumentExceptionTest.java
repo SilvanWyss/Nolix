@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class InvalidArgumentExceptionTest extends Test {
+public final class InvalidArgumentExceptionTest extends StandardTest {
 
   //method
   @TestCase

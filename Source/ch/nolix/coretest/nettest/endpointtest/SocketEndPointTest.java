@@ -5,11 +5,11 @@ package ch.nolix.coretest.nettest.endpointtest;
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.net.endpoint.SocketEndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class SocketEndPointTest extends Test {
+public final class SocketEndPointTest extends StandardTest {
 
   //constant
   private static final int WAITING_TIME_IN_MILLISECONDS = 100;

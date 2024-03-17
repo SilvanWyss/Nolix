@@ -3,7 +3,7 @@ package ch.nolix.techtest.relationaldoctest.datamodeltest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
@@ -11,7 +11,7 @@ import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
 import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
 
 //class
-public final class AbstractableObjectOnDatabaseTest extends Test {
+public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @TestCase

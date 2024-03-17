@@ -4,11 +4,11 @@ package ch.nolix.coretest.nettest.messagingtest;
 //own imports
 import ch.nolix.core.net.messaging.IndexedPackage;
 import ch.nolix.core.programatom.voidobject.VoidObject;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class IndexedPackageTest extends Test {
+public final class IndexedPackageTest extends StandardTest {
 
   //method
   @TestCase

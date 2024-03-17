@@ -3,7 +3,7 @@ package ch.nolix.systemtest.sqlrawdatatest.statementcreatortest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
@@ -12,7 +12,7 @@ import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
 
 //class
-public final class EntityStatementCreatorTest extends Test {
+public final class EntityStatementCreatorTest extends StandardTest {
 
   //method
   @TestCase

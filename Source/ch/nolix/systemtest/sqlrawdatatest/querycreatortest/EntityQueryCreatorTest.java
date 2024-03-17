@@ -3,7 +3,7 @@ package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 
 //class
-public final class EntityQueryCreatorTest extends Test {
+public final class EntityQueryCreatorTest extends StandardTest {
 
   //method
   @TestCase

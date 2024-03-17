@@ -3,11 +3,11 @@ package ch.nolix.coretest.nettest.websockettest;
 
 //own imports
 import ch.nolix.core.net.websocket.WebSocketHandShakeResponse;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class WebSocketHandShakeResponseTest extends Test {
+public final class WebSocketHandShakeResponseTest extends StandardTest {
 
   //method
   @TestCase

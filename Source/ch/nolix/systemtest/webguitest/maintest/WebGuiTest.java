@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.webguitest.maintest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -10,7 +10,7 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class WebGuiTest extends Test {
+public final class WebGuiTest extends StandardTest {
 
   //method
   @TestCase

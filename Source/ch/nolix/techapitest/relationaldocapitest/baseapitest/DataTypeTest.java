@@ -2,13 +2,13 @@
 package ch.nolix.techapitest.relationaldocapitest.baseapitest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
 //class
-public final class DataTypeTest extends Test {
+public final class DataTypeTest extends StandardTest {
 
   //method
   @TestCase

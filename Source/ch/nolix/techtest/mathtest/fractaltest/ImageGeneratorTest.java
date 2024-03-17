@@ -2,13 +2,13 @@
 package ch.nolix.techtest.mathtest.fractaltest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.ImageGenerator;
 
 //class
-public final class ImageGeneratorTest extends Test {
+public final class ImageGeneratorTest extends StandardTest {
 
   //method
   @TestCase

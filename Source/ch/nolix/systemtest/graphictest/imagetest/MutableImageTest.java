@@ -2,13 +2,13 @@
 package ch.nolix.systemtest.graphictest.imagetest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 
 //class
-public final class MutableImageTest extends Test {
+public final class MutableImageTest extends StandardTest {
 
   //method
   @TestCase

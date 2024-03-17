@@ -4,11 +4,11 @@ package ch.nolix.coretest.commontypetooltest;
 //own imports
 import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.independent.container.List;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalIterableToolTest extends Test {
+public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @TestCase

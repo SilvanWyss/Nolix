@@ -2,13 +2,13 @@
 package ch.nolix.templatetest.mathtest.sequencetest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 
 //class
-public final class GlobalSequenceCreatorTest extends Test {
+public final class GlobalSequenceCreatorTest extends StandardTest {
 
   //method
   @TestCase

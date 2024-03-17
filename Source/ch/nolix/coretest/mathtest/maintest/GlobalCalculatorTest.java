@@ -3,11 +3,11 @@ package ch.nolix.coretest.mathtest.maintest;
 
 //own imports
 import ch.nolix.core.math.main.GlobalCalculator;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalCalculatorTest extends Test {
+public final class GlobalCalculatorTest extends StandardTest {
 
   //method
   @TestCase

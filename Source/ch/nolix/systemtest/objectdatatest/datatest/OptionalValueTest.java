@@ -2,13 +2,13 @@
 package ch.nolix.systemtest.objectdatatest.datatest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.OptionalValue;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class OptionalValueTest extends Test {
+public final class OptionalValueTest extends StandardTest {
 
   //method
   @TestCase

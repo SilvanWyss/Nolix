@@ -5,14 +5,14 @@ package ch.nolix.systemtest.databaseobjecttest.databaseobjecttooltest;
 import org.mockito.Mockito;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class DatabaseObjectToolTest extends Test {
+public final class DatabaseObjectToolTest extends StandardTest {
 
   //method
   @TestCase

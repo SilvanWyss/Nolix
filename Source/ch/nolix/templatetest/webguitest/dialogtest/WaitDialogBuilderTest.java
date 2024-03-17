@@ -2,7 +2,7 @@
 package ch.nolix.templatetest.webguitest.dialogtest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 
 //class
-public final class WaitDialogBuilderTest extends Test {
+public final class WaitDialogBuilderTest extends StandardTest {
 
   //method
   @TestCase

@@ -6,12 +6,12 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
 //class
-public final class ComplexNumberTest extends Test {
+public final class ComplexNumberTest extends StandardTest {
 
   //method
   @TestCase

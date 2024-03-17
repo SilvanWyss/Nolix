@@ -4,7 +4,7 @@ package ch.nolix.systemtest.elementtest.styletest;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
@@ -13,7 +13,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class StyleTest extends Test {
+public final class StyleTest extends StandardTest {
 
   //method
   @TestCase

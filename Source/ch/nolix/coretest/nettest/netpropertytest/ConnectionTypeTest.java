@@ -2,13 +2,13 @@
 package ch.nolix.coretest.nettest.netpropertytest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.netproperty.BaseConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class ConnectionTypeTest extends Test {
+public final class ConnectionTypeTest extends StandardTest {
 
   //method
   @TestCase

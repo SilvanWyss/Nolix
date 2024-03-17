@@ -19,7 +19,7 @@ import ch.nolix.core.testing.basetest.BaseTest;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public abstract class Test extends BaseTest {
+public abstract class StandardTest extends BaseTest {
 
   //method
   /**

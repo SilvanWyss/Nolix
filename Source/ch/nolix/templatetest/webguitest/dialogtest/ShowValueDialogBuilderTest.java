@@ -2,7 +2,7 @@
 package ch.nolix.templatetest.webguitest.dialogtest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
 //class
-public final class ShowValueDialogBuilderTest extends Test {
+public final class ShowValueDialogBuilderTest extends StandardTest {
 
   //method
   @TestCase

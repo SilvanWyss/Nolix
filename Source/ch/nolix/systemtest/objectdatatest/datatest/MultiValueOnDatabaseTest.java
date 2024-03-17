@@ -3,7 +3,7 @@ package ch.nolix.systemtest.objectdatatest.datatest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiValue;
@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class MultiValueOnDatabaseTest extends Test {
+public final class MultiValueOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Round extends Entity {

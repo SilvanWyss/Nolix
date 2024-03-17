@@ -3,11 +3,11 @@ package ch.nolix.coretest.programatomtest.unsignedbytetest;
 
 //own imports
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class UnsignedByteTest extends Test {
+public final class UnsignedByteTest extends StandardTest {
 
   //method
   @TestCase

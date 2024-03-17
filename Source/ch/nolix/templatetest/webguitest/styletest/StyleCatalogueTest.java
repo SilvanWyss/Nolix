@@ -2,7 +2,7 @@
 package ch.nolix.templatetest.webguitest.styletest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
@@ -20,7 +20,7 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.template.webgui.style.StyleCatalogue;
 
 //class
-public final class StyleCatalogueTest extends Test {
+public final class StyleCatalogueTest extends StandardTest {
 
   //method
   @TestCase

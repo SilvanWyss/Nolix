@@ -3,14 +3,14 @@ package ch.nolix.coretest.webtest.htmltest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 
 //class
-public final class HtmlElementTest extends Test {
+public final class HtmlElementTest extends StandardTest {
 
   //method
   @TestCase

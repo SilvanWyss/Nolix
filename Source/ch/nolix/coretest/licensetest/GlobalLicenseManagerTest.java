@@ -9,12 +9,12 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.license.Feature;
 import ch.nolix.core.license.GlobalLicenseManager;
 import ch.nolix.core.license.License;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalLicenseManagerTest extends Test {
+public final class GlobalLicenseManagerTest extends StandardTest {
 
   //method
   @TestCase

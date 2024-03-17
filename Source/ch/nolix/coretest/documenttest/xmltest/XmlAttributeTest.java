@@ -3,11 +3,11 @@ package ch.nolix.coretest.documenttest.xmltest;
 
 //own imports
 import ch.nolix.core.document.xml.XmlAttribute;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class XmlAttributeTest extends Test {
+public final class XmlAttributeTest extends StandardTest {
 
   //method
   @TestCase

@@ -4,12 +4,12 @@ package ch.nolix.systemtest.applicationtest.maintest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
 //class
-public final class BackendClientSessionManagerTest extends Test {
+public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @TestCase

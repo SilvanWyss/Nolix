@@ -2,13 +2,13 @@
 package ch.nolix.systemtest.sqlrawschematest.databaseinitializertest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializerSqlStatementCreator;
 import ch.nolix.system.time.moment.Time;
 
 //class
-public final class DatabaseInitializerSqlStatementCreatorTest extends Test {
+public final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
 
   //method
   @TestCase

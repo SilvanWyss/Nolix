@@ -4,7 +4,7 @@ package ch.nolix.systemtest.objectdatatest.datatest;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Value;
@@ -13,7 +13,7 @@ import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class EntityOnDatabaseTest extends Test {
+public final class EntityOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Pet extends Entity {

@@ -4,11 +4,11 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class MultiDoubleMediatorTest extends Test {
+public final class MultiDoubleMediatorTest extends StandardTest {
 
   //method
   @TestCase

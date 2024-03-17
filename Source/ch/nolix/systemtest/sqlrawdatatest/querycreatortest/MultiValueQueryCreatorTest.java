@@ -2,12 +2,12 @@
 package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 
 //class
-public final class MultiValueQueryCreatorTest extends Test {
+public final class MultiValueQueryCreatorTest extends StandardTest {
 
   @TestCase
   public void testCase_createQueryToLoadMultiValueEntries() {

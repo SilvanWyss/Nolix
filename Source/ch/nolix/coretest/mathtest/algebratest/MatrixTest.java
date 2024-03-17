@@ -6,11 +6,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.math.main.GlobalCalculator;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class MatrixTest extends Test {
+public final class MatrixTest extends StandardTest {
 
   //method
   @TestCase

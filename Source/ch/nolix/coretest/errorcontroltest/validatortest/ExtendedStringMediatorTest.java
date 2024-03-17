@@ -3,11 +3,11 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.ExtendedStringMediator;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class ExtendedStringMediatorTest extends Test {
+public final class ExtendedStringMediatorTest extends StandardTest {
 
   //method
   @TestCase

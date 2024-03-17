@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.sqlschematest.sqlsyntaxtest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
@@ -10,7 +10,7 @@ import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
 
 //class
-public final class SchemaStatementCreatorTest extends Test {
+public final class SchemaStatementCreatorTest extends StandardTest {
 
   //method
   @TestCase

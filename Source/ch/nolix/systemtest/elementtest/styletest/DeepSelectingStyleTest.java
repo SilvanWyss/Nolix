@@ -2,12 +2,12 @@
 package ch.nolix.systemtest.elementtest.styletest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
 
 //class
-public final class DeepSelectingStyleTest extends Test {
+public final class DeepSelectingStyleTest extends StandardTest {
 
   //method
   @TestCase

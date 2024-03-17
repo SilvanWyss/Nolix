@@ -3,11 +3,11 @@ package ch.nolix.coretest.mathtest.algebratest;
 
 //own imports
 import ch.nolix.core.math.algebra.Polynom;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class PolynomTest extends Test {
+public final class PolynomTest extends StandardTest {
 
   //method
   @TestCase

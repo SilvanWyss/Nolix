@@ -2,13 +2,13 @@
 package ch.nolix.systemtest.timetest.momenttest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //class
-public final class TimeTest extends Test {
+public final class TimeTest extends StandardTest {
 
   //method
   @TestCase

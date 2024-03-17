@@ -5,11 +5,11 @@ package ch.nolix.coretest.documenttest.nodetest;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
+public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
 
   //method
   @TestCase

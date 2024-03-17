@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.webguitest.maintest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
+public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
 
   //method
   @TestCase

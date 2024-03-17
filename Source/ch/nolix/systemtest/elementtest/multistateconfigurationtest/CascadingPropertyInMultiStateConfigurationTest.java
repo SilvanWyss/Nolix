@@ -2,14 +2,14 @@
 package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class CascadingPropertyInMultiStateConfigurationTest extends Test {
+public final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
 
   //static enum
   private enum CustomState {

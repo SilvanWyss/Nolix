@@ -6,12 +6,12 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 
 //class
-public final class ClosedIntervalTest extends Test {
+public final class ClosedIntervalTest extends StandardTest {
 
   //method
   @TestCase

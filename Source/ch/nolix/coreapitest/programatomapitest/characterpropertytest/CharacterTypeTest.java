@@ -2,12 +2,12 @@
 package ch.nolix.coreapitest.programatomapitest.characterpropertytest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class CharacterTypeTest extends Test {
+public final class CharacterTypeTest extends StandardTest {
 
   //method
   @TestCase

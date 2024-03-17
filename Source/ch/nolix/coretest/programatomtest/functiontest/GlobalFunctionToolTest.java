@@ -5,11 +5,11 @@ package ch.nolix.coretest.programatomtest.functiontest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.function.GlobalFunctionTool;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class GlobalFunctionToolTest extends Test {
+public final class GlobalFunctionToolTest extends StandardTest {
 
   //method
   @TestCase

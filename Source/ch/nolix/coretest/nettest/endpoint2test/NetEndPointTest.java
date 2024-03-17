@@ -5,11 +5,11 @@ package ch.nolix.coretest.nettest.endpoint2test;
 import ch.nolix.core.net.endpoint2.NetEndPoint;
 import ch.nolix.core.net.endpoint2.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class NetEndPointTest extends Test {
+public final class NetEndPointTest extends StandardTest {
 
   //method
   @TestCase

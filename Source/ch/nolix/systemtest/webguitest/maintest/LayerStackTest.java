@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.webguitest.maintest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -10,7 +10,7 @@ import ch.nolix.system.webgui.main.LayerStack;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class LayerStackTest extends Test {
+public final class LayerStackTest extends StandardTest {
 
   //method
   @TestCase

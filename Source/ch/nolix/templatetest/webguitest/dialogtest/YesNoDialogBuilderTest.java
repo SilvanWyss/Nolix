@@ -5,7 +5,7 @@ package ch.nolix.templatetest.webguitest.dialogtest;
 import org.mockito.Mockito;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 
 //class
-public final class YesNoDialogBuilderTest extends Test {
+public final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
   @TestCase

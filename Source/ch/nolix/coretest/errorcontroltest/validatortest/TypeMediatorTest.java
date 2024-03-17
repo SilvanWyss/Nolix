@@ -10,12 +10,12 @@ import java.util.List;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.TypeMediator;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class TypeMediatorTest extends Test {
+public final class TypeMediatorTest extends StandardTest {
 
   //method
   @TestCase

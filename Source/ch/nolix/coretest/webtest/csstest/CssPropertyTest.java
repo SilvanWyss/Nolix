@@ -3,12 +3,12 @@ package ch.nolix.coretest.webtest.csstest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class CssPropertyTest extends Test {
+public final class CssPropertyTest extends StandardTest {
 
   //method
   @TestCase

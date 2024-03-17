@@ -3,14 +3,14 @@ package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class MultiStateConfigurationWithNonCascadingPropertyTest extends Test {
+public final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
 
   //static enum
   private enum CustomState {

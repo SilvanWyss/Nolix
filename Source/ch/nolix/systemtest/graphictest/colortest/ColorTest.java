@@ -2,12 +2,12 @@
 package ch.nolix.systemtest.graphictest.colortest;
 
 //own imports
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class ColorTest extends Test {
+public final class ColorTest extends StandardTest {
 
   //method
   @TestCase

@@ -3,11 +3,11 @@ package ch.nolix.coretest.programatomtest.functiontest;
 
 //own imports
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class FunctionCatalogueTest extends Test {
+public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @TestCase

@@ -4,11 +4,11 @@ package ch.nolix.coretest.mathtest.algebratest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.math.algebra.Vector;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class VectorTest extends Test {
+public final class VectorTest extends StandardTest {
 
   //method
   @TestCase

@@ -3,13 +3,13 @@ package ch.nolix.coretest.nettest.targettest;
 
 //own imports
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
-public final class ApplicationInstanceTargetTest extends Test {
+public final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @TestCase
