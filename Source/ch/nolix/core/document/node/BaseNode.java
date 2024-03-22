@@ -72,11 +72,13 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
   //static method
   /**
    * @param escapeString
-   * @return an origin {@link String} from the given escapeString.
+   * @return the origin {@link String} from the given escapeString.
+   * @throws NullPointerException if the given escapeString is null.
    */
-  public static String getStoredginStringFromEscapeString(final String escapeString) {
+  public static String getOriginStringFromEscapeString(final String escapeString) {
 
-    return escapeString
+    return //
+    escapeString
       .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
       .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
       .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
