@@ -80,7 +80,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 
     reset();
 
-    if (setAndGetEndIndex(string, 0) != string.length() - 1) {
+    if (setFromStringAndStartIndexAndGetEndIndex(string, 0) != string.length() - 1) {
       throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
     }
   }
@@ -105,14 +105,14 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   protected abstract MN asConcrete();
 
   //method
-  protected final int setAndGetEndIndex(final String substring, final int startIndex) {
+  final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
 
     var index = startIndex;
 
     var endIndex = -1;
-    while (index < substring.length()) {
+    while (index < string.length()) {
 
-      var character = substring.charAt(index);
+      var character = string.charAt(index);
       var breakLoop = false;
 
       if (character == '(') {
@@ -132,10 +132,10 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     }
 
     if (index > startIndex) {
-      this.setHeader(getOriginStringFromEscapeString(substring.substring(startIndex, index)));
+      this.setHeader(getOriginStringFromEscapeString(string.substring(startIndex, index)));
     }
 
-    if (index == substring.length()) {
+    if (index == string.length()) {
       return (index - 1);
     }
 
@@ -143,17 +143,17 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
       return endIndex;
     }
 
-    if (index < substring.length()) {
+    if (index < string.length()) {
       var node = new MutableNode();
-      index = node.setAndGetEndIndex(substring, index + 1) + 1;
+      index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
       this.addChildNode(node);
     }
 
-    while (index < substring.length()) {
-      switch (substring.charAt(index)) {
+    while (index < string.length()) {
+      switch (string.charAt(index)) {
         case ',':
           var node = new MutableNode();
-          index = node.setAndGetEndIndex(substring, index + 1) + 1;
+          index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
           this.addChildNode(node);
           break;
         case ')':
@@ -162,6 +162,6 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
       }
     }
 
-    throw UnrepresentingArgumentException.forArgumentAndType(substring, Node.class);
+    throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
   }
 }
