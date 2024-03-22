@@ -111,23 +111,18 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
 
     var index = startIndex;
-
     var endIndex = -1;
+
     while (index < string.length()) {
 
       var character = string.charAt(index);
-      var breakLoop = false;
 
       if (character == '(') {
-        breakLoop = true;
-      } else if (character == ',' || character == ')') {
-        endIndex = index - 1;
-        breakLoop = true;
-      } else {
-        //Does nothing and continues the current loop.
+        break;
       }
 
-      if (breakLoop) {
+      if (character == ',' || character == ')') {
+        endIndex = index - 1;
         break;
       }
 
@@ -135,7 +130,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     }
 
     if (index > startIndex) {
-      this.setHeader(getOriginStringFromEscapeString(string.substring(startIndex, index)));
+      setHeader(getOriginStringFromEscapeString(string.substring(startIndex, index)));
     }
 
     if (index == string.length()) {
@@ -149,7 +144,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     if (index < string.length()) {
       var node = new MutableNode();
       index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
-      this.addChildNode(node);
+      addChildNode(node);
     }
 
     while (index < string.length()) {
@@ -157,7 +152,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
         case ',':
           var node = new MutableNode();
           index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
-          this.addChildNode(node);
+          addChildNode(node);
           break;
         case ')':
           return index;
