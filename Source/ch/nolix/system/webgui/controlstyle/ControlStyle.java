@@ -98,7 +98,8 @@ implements IControlStyle<ECS> {
 
   //attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = //
-  new NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt>(
+  new NonCascadingProperty //
+  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
     WIDTH_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -107,7 +108,8 @@ implements IControlStyle<ECS> {
 
   //attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = //
-  new NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt>(
+  new NonCascadingProperty //
+  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operator in this case.
     HEIGHT_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
