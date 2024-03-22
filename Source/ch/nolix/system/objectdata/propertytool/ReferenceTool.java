@@ -7,6 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
@@ -48,8 +49,7 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   public boolean toReferenceCanSetEntity(final IReference<?> reference, final IEntity entity) {
     return //
     canSetEntity(reference)
-    && reference != null
-    && reference.isOpen()
+    && isOpen(reference)
     && reference.getReferencedTableName().equals(entity.getParentTableName())
     && !reference.referencesEntity(entity); //Important: When a Reference is set new data records could be created.
   }
@@ -57,8 +57,7 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
   //method
   private boolean canSetEntity(final IReference<?> reference) {
     return //
-    reference != null
-    && reference.isOpen()
+    isOpen(reference)
     && reference.belongsToEntity();
   }
 
@@ -73,5 +72,12 @@ public final class ReferenceTool extends PropertyTool implements IReferenceTool 
     referencedEntity.internalGetStoredProperties().getOptionalStoredFirst(p -> p.referencesBackProperty(reference));
 
     return backReference.map(br -> (IBaseBackReference<IEntity>) br);
+  }
+
+  //method
+  private boolean isOpen(final IDatabaseObject databaseObject) {
+    return //
+    databaseObject != null
+    && databaseObject.isOpen();
   }
 }
