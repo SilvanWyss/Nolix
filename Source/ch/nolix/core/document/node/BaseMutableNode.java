@@ -81,6 +81,9 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     reset();
 
     if (setFromStringAndStartIndexAndGetEndIndex(string, 0) != string.length() - 1) {
+
+      reset();
+
       throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
     }
   }
