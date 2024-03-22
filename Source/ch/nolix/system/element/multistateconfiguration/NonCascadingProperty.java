@@ -95,7 +95,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     final String name,
     final Class<S2> stateClass,
     final BiConsumer<S2, Integer> setterMethod) {
-    return new NonCascadingProperty<S2, Integer>(
+    return new NonCascadingProperty //
+    <S2, Integer>( //NOSONAR: Gradle fails on diamond operators in this case.
       name,
       stateClass,
       INode::getSingleChildNodeAsInt,
