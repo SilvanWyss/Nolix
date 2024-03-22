@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
 
   //constant
-  private static final String CRANE_IMAGE_RESOURCE_PATH = "ch/nolix/template/webapplication/resource/crane.jpg";
+  private static final String CRANE_IMAGE_RESOURCE_PATH = "image/crane.jpg";
 
   //constant
   private static final IImage CRANE_IMAGE = Image.fromResource(CRANE_IMAGE_RESOURCE_PATH);

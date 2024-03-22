@@ -8,7 +8,7 @@ import ch.nolix.system.graphic.image.Image;
 public final class IconCatalogue {
 
   //constant
-  private static final String NOLIX_ICON_RESOURCE_PATH = "ch/nolix/system/gui/iconresource/nolix_icon.png";
+  private static final String NOLIX_ICON_RESOURCE_PATH = "icon/nolix_icon.png";
 
   //constant
   public static final Image NOLIX_ICON = Image.fromResource(NOLIX_ICON_RESOURCE_PATH);

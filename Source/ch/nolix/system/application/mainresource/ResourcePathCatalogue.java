@@ -5,10 +5,10 @@ package ch.nolix.system.application.mainresource;
 public final class ResourcePathCatalogue {
 
   //constant
-  public static final String NOLIX_JS = "ch/nolix/system/application/mainresource/nolix.js";
+  public static final String NOLIX_JS = "script/nolix.js";
 
   //constant
-  public static final String REQUIRE_JS = "ch/nolix/system/application/mainresource/require_js.js";
+  public static final String REQUIRE_JS = "script/require_js.js";
 
   //constructor
   private ResourcePathCatalogue() {
