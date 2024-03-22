@@ -1,0 +1,29 @@
+//package declaration
+package ch.nolix.systemtest.applicationtest.maintest;
+
+import org.junit.jupiter.api.Test;
+
+//own imports
+import ch.nolix.core.environment.localcomputer.LocalComputer;
+import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.system.application.main.Server;
+
+//class
+public final class ServerTest extends StandardTest {
+
+  //method
+  @Test
+  public void testCase_forHttpPort() {
+    try (final var testUnit = Server.forHttpPort()) {
+
+      //verification
+      expect(testUnit.getIp()).isEqualTo(LocalComputer.getLanIp());
+      expect(testUnit.getPort()).isEqualTo(PortCatalogue.HTTP);
+      expect(testUnit.getSecurityLevel()).is(SecurityMode.NONE);
+      expect(testUnit.getStoredApplications()).isEmpty();
+      expectNot(testUnit.containsDefaultApplication());
+    }
+  }
+}

@@ -2,6 +2,7 @@
 !Gradle/
 !META-INF/
 !Source/
+!Test/
 !.classpath
 !.gitignore
 !build.gradle
