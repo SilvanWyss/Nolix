@@ -19,7 +19,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @author Silvan Wyss
  * @date 2018-12-09
  */
-public abstract class ThrownExceptionMediator {
+public class ThrownExceptionMediator {
 
   //optional attribute
   private final Throwable exception;
