@@ -3,7 +3,6 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
@@ -11,14 +10,12 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 
 //class
-public abstract class BaseBackReference<E extends IEntity> extends Property
-implements IBaseBackReference<E> {
+public abstract class BaseBackReference<E extends IEntity> extends Property implements IBaseBackReference<E> {
 
   //constant
-  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
+  private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
 
   //attribute
   private final String backReferencedTableName;
@@ -79,10 +76,8 @@ implements IBaseBackReference<E> {
   //method
   @Override
   public final boolean referencesBackProperty(final IProperty property) {
-    return PROPERTY_TOOL.belongsToEntity(property)
-    && belongsToEntity()
-    && getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
-    && getBackReferencedPropertyName().equals(property.getName())
+    return //
+    canReferenceBackPropertyBecauseOfName(property)
     && referencesBackEntityWithId(property.getStoredParentEntity().getId());
   }
 
@@ -99,6 +94,15 @@ implements IBaseBackReference<E> {
   @Override
   final void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     //Does nothing.
+  }
+
+  //method
+  private boolean canReferenceBackPropertyBecauseOfName(final IProperty property) {
+    return //
+    belongsToEntity()
+    && PROPERTY_TOOL.belongsToEntity(property)
+    && getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
+    && getBackReferencedPropertyName().equals(property.getName());
   }
 
   //method
