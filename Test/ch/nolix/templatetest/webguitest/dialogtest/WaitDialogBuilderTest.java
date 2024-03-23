@@ -12,11 +12,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 
 //class
-public final class WaitDialogBuilderTest extends StandardTest {
+final class WaitDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build() {
+  void testCase_build() {
 
     //setup
     final var testUnit = new WaitDialogBuilder();

@@ -9,11 +9,11 @@ import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class MultiDoubleMediatorTest extends StandardTest {
+final class MultiDoubleMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_arePositive_whenTheGivenArgumentsAreAllPositive() {
+  void testCase_arePositive_whenTheGivenArgumentsAreAllPositive() {
 
     //setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
@@ -25,7 +25,7 @@ public final class MultiDoubleMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_arePositive_whenOneOfTheGivenArgumentsIs0() {
+  void testCase_arePositive_whenOneOfTheGivenArgumentsIs0() {
 
     //setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 0.0 };
@@ -40,7 +40,7 @@ public final class MultiDoubleMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_arePositive_whenOneOfTheGivenArgumentsIsNegative() {
+  void testCase_arePositive_whenOneOfTheGivenArgumentsIsNegative() {
 
     //setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, -1.0 };

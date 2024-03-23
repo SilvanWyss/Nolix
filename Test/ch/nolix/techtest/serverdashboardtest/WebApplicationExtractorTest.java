@@ -9,10 +9,10 @@ import ch.nolix.system.application.main.LocalServer;
 import ch.nolix.tech.serverdashboard.WebApplicationExtractor;
 
 //class
-public final class WebApplicationExtractorTest extends StandardTest {
+final class WebApplicationExtractorTest extends StandardTest {
 
   @Test
-  public void testCase_whenTheGivenServerDoesNotContainWebApplications() {
+  void testCase_whenTheGivenServerDoesNotContainWebApplications() {
 
     //setup
     final var server = new LocalServer();

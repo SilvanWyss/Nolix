@@ -5,7 +5,7 @@ package ch.nolix.coretest.documenttest.nodetest;
 import ch.nolix.core.document.node.MutableNode;
 
 //class
-public final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
+final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
 
   //method
   @Override

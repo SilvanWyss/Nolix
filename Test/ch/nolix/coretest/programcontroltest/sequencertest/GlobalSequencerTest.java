@@ -10,11 +10,11 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class GlobalSequencerTest extends StandardTest {
+final class GlobalSequencerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_runInBackground_whenFailingProcessIsGiven() {
+  void testCase_runInBackground_whenFailingProcessIsGiven() {
 
     //execution
     final var result = GlobalSequencer.runInBackground(() -> {
@@ -29,7 +29,7 @@ public final class GlobalSequencerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_runInBackground_whenPassingProcessIsGiven() {
+  void testCase_runInBackground_whenPassingProcessIsGiven() {
 
     //execution
     final var result = GlobalSequencer.runInBackground(FunctionCatalogue::doNothing);
@@ -41,7 +41,7 @@ public final class GlobalSequencerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_runInBackground_whenFunctionIsGiven() {
+  void testCase_runInBackground_whenFunctionIsGiven() {
 
     //execution
     final var result = GlobalSequencer.runInBackground(() -> 3 + 4);

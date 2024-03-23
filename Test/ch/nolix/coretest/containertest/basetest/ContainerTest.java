@@ -20,7 +20,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_contains_whenContainerContainsGivenElement() {
+  final void testCase_contains_whenContainerContainsGivenElement() {
 
     //setup
     final var string1 = "x";
@@ -38,7 +38,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_contains_whenContainerDoesNotContainGivenElement() {
+  final void testCase_contains_whenContainerDoesNotContainGivenElement() {
 
     //setup
     final var string1 = "x";
@@ -56,7 +56,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsAll_whenContainsAllOfTheGivenElementsAndOtherElements() {
+  final void testCase_containsAll_whenContainsAllOfTheGivenElementsAndOtherElements() {
 
     //setup
     final var element1 = "x";
@@ -75,7 +75,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsAll_whenContainsNoneOfTheGivenElementsButOtherElements() {
+  final void testCase_containsAll_whenContainsNoneOfTheGivenElementsButOtherElements() {
 
     //setup
     final var element1 = "x";
@@ -94,7 +94,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsAll_whenContainsOnlySomeOfTheGivenElementsButOtherElements() {
+  final void testCase_containsAll_whenContainsOnlySomeOfTheGivenElementsButOtherElements() {
 
     //setup
     final var element1 = "x";
@@ -113,7 +113,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsAny_whenIsEmpty() {
+  final void testCase_containsAny_whenIsEmpty() {
 
     //setup
     final var element1 = "x";
@@ -129,7 +129,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsAny_whenContainsGivenElementsAndMore() {
+  final void testCase_containsAny_whenContainsGivenElementsAndMore() {
 
     //setup
     final var element1 = "x";
@@ -147,7 +147,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsAny_whenContainsOtherElementsOnly() {
+  final void testCase_containsAny_whenContainsOtherElementsOnly() {
 
     //setup
     final var element1 = "x";
@@ -165,7 +165,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsExactlyInSameOrder_whenIsEmptyAndGivenContainerIsEmpty() {
+  final void testCase_containsExactlyInSameOrder_whenIsEmptyAndGivenContainerIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -180,7 +180,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void //
+  final void //
   testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
 
     //setup
@@ -196,7 +196,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void //
+  final void //
   testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
 
     //setup
@@ -212,7 +212,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsOne_1A() {
+  final void testCase_containsOne_1A() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -226,7 +226,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsOne_1B() {
+  final void testCase_containsOne_1B() {
 
     //setup
     final var testUnit = createContainerWithElements("x");
@@ -240,7 +240,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsOne_1C() {
+  final void testCase_containsOne_1C() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx");
@@ -254,7 +254,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsOne_ElementTakerBooleanGetter1A() {
+  final void testCase_containsOne_ElementTakerBooleanGetter1A() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xx", "xx", "xx", "xx");
@@ -268,7 +268,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_containsOne_ElementTakerBooleanGetter1B() {
+  final void testCase_containsOne_ElementTakerBooleanGetter1B() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xx", "xx");
@@ -282,7 +282,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_forEach() {
+  final void testCase_forEach() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -300,7 +300,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_from() {
+  final void testCase_from() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -317,7 +317,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getAverage_whenIsEmpty() {
+  final void testCase_getAverage_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(Double.class);
@@ -331,7 +331,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getAverage_whenContainsAny() {
+  final void testCase_getAverage_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
@@ -345,7 +345,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getAverageOrZero_whenIsEmpty() {
+  final void testCase_getAverageOrZero_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(Double.class);
@@ -359,7 +359,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getAverageOrZero_whenContainsAny() {
+  final void testCase_getAverageOrZero_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
@@ -373,7 +373,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
+  final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -387,7 +387,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getCount_withIElementTakterBooleanGetter_1B() {
+  final void testCase_getCount_withIElementTakterBooleanGetter_1B() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -401,7 +401,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getCount_withIElementTakterBooleanGetter_1C() {
+  final void testCase_getCount_withIElementTakterBooleanGetter_1C() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -415,7 +415,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_gettCount_withIElementTakterBooleanGetter_1D() {
+  final void testCase_gettCount_withIElementTakterBooleanGetter_1D() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -429,7 +429,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getCount_withIElementTakterBooleanGetter_1E() {
+  final void testCase_getCount_withIElementTakterBooleanGetter_1E() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -443,7 +443,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getCount_withIElementTakterBooleanGetter_1F() {
+  final void testCase_getCount_withIElementTakterBooleanGetter_1F() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -457,7 +457,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getCount_withIElementTakterBooleanGetter_1G() {
+  final void testCase_getCount_withIElementTakterBooleanGetter_1G() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -471,7 +471,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getElementCount() {
+  final void testCase_getElementCount() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "x", "x", "x", "x", "x");
@@ -482,7 +482,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getElementCount_whenLinkedListIsEmpty() {
+  final void testCase_getElementCount_whenLinkedListIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -493,7 +493,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_get1BasedIndexOfFirst_whenIsEmpty() {
+  final void testCase_get1BasedIndexOfFirst_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -506,7 +506,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_get1BasedIndexOfFirst_whenContainsAMatchingElement() {
+  final void testCase_get1BasedIndexOfFirst_whenContainsAMatchingElement() {
 
     //setup
     final var testUnit = createContainerWithElements("wx", "xx", "yx", "zx");
@@ -520,7 +520,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMax_whenIsEmptyAndGivenNormIsInteger() {
+  final void testCase_getMax_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -534,7 +534,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMax_whenContainsSomeAndGivenNormIsDouble() {
+  final void testCase_getMax_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -548,7 +548,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMax_whenContainsSomeAndGivenNormIsInteger() {
+  final void testCase_getMax_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -562,7 +562,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMaxOrZero_whenIsEmptyContainerForBigDecimals() {
+  final void testCase_getMaxOrZero_whenIsEmptyContainerForBigDecimals() {
 
     //setup
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
@@ -576,7 +576,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMaxOrZero_whenContainsBigDecimals() {
+  final void testCase_getMaxOrZero_whenContainsBigDecimals() {
 
     //setup
     final var testUnit = createContainerWithElements(
@@ -594,7 +594,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMedian_whenIsEmpty() {
+  final void testCase_getMedian_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(Integer.class);
@@ -607,7 +607,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMedian_whenContainsAny() {
+  final void testCase_getMedian_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
@@ -621,7 +621,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMedianOrZero_whenIsEmpty() {
+  final void testCase_getMedianOrZero_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(Integer.class);
@@ -635,7 +635,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMedianOrZero_whenContainsAny() {
+  final void testCase_getMedianOrZero_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
@@ -649,7 +649,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMin_whenIsEmptyAndGivenNormIsInteger() {
+  final void testCase_getMin_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -663,7 +663,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMin_whenContainsSomeAndGivenNormIsDouble() {
+  final void testCase_getMin_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx");
@@ -677,7 +677,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMin_whenContainsSomeAndGivenNormIsInteger() {
+  final void testCase_getMin_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -691,7 +691,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMinOrZero_whenIsEmptyContainerForBigDecimals() {
+  final void testCase_getMinOrZero_whenIsEmptyContainerForBigDecimals() {
 
     //setup
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
@@ -705,7 +705,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getMinOrZero_whenContainsBigDecimals() {
+  final void testCase_getMinOrZero_whenContainsBigDecimals() {
 
     //setup
     final var testUnit = createContainerWithElements(
@@ -723,7 +723,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOptionalStoredFirst_whenIsEmpty() {
+  void testCase_getOptionalStoredFirst_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -737,7 +737,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOptionalStoredFirst_whenContainsSeveralElements() {
+  void testCase_getOptionalStoredFirst_whenContainsSeveralElements() {
 
     //setup
     final var elephant = "elephant";
@@ -755,7 +755,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
+  final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -769,7 +769,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsDouble() {
+  final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -783,7 +783,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsInteger() {
+  final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -797,7 +797,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredByMin_whenIsEmptyAndGivenNormIsInteger() {
+  final void testCase_getStoredByMin_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -811,7 +811,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsDouble() {
+  final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsDouble() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -825,7 +825,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsInteger() {
+  final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsInteger() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -839,7 +839,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredFirst() {
+  final void testCase_getStoredFirst() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -853,7 +853,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredFirst_whenLinkedListIsEmpty() {
+  final void testCase_getStoredFirst_whenLinkedListIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -867,7 +867,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredGroups_whenIsEmpty() {
+  final void testCase_getStoredGroups_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -881,7 +881,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredGroups_1A() {
+  final void testCase_getStoredGroups_1A() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "y", "x", "y", "x", "y");
@@ -896,7 +896,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredGroups_1B() {
+  final void testCase_getStoredGroups_1B() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
@@ -913,7 +913,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredLast_whenIsEmpty() {
+  void testCase_getStoredLast_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -924,7 +924,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredLast_whenContainsSeveralElements() {
+  void testCase_getStoredLast_whenContainsSeveralElements() {
 
     //setup
     final var elephant = "elephant";
@@ -942,7 +942,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredOne_whenDoesNotContainAMatchingElement() {
+  final void testCase_getStoredOne_whenDoesNotContainAMatchingElement() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -959,7 +959,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredOne_whenContainsOneMatchingElement() {
+  final void testCase_getStoredOne_whenContainsOneMatchingElement() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -973,7 +973,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredOne_whenContainsSeveralMatchingElements() {
+  final void testCase_getStoredOne_whenContainsSeveralMatchingElements() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
@@ -990,7 +990,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredSelected_1A() {
+  final void testCase_getStoredSelected_1A() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1007,7 +1007,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredSelected_1B() {
+  final void testCase_getStoredSelected_1B() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1021,7 +1021,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getSumByInt_whenIsEmpty() {
+  final void testCase_getSumByInt_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -1035,7 +1035,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getSum_whenContainsAny() {
+  final void testCase_getSum_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1049,7 +1049,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getVariance() {
+  final void testCase_getVariance() {
 
     //setup
     final var testUnit = createContainerWithElements(0.0, 0.0, 0.5, 1.0, 1.0);
@@ -1063,7 +1063,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toArray() {
+  final void testCase_toArray() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1083,7 +1083,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toConcatenatedString_whenIsEmpty() {
+  final void testCase_toConcatenatedString_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -1097,7 +1097,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toConcatenatedString_whenContainsAny() {
+  final void testCase_toConcatenatedString_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "yy", "zzz", "pppp");
@@ -1111,7 +1111,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toDoubleArray_whenIsEmpty() {
+  final void testCase_toDoubleArray_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -1125,7 +1125,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toDoubleArray_whenContainsAny() {
+  final void testCase_toDoubleArray_whenContainsAny() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xxx", "xxx");
@@ -1145,7 +1145,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toOrderedList_1A() {
+  final void testCase_toOrderedList_1A() {
 
     //setup
     final var testUnit = createContainerWithElements("xxxxxx", "xxxxx", "xxxx", "xxx", "xx", "x");
@@ -1165,7 +1165,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toOrderedList_1B() {
+  final void testCase_toOrderedList_1B() {
 
     //setup
     final var testUnit = createContainerWithElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
@@ -1185,7 +1185,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toIntArray() {
+  final void testCase_toIntArray() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1205,7 +1205,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toStringArray_whenIsEmpty() {
+  final void testCase_toStringArray_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(Integer.class);
@@ -1219,7 +1219,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toStringArray_whenContainsElements() {
+  final void testCase_toStringArray_whenContainsElements() {
 
     //setup
     final var testUnit = createContainerWithElements(10, 20, 30, 40);
@@ -1237,7 +1237,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toStrings() {
+  final void testCase_toStrings() {
 
     //setup
     final var testUnit = createContainerWithElements(10, 20, 30, 40, 50, 60);
@@ -1257,7 +1257,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_toStrings_whenContainerIsEmpty() {
+  final void testCase_toStrings_whenContainerIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(Integer.class);
@@ -1271,7 +1271,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_until() {
+  final void testCase_until() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1290,7 +1290,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_withElements() {
+  final void testCase_withElements() {
 
     //execution
     final var result = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -1316,7 +1316,7 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
-  public final void testCase_withoutFirst() {
+  final void testCase_withoutFirst() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");

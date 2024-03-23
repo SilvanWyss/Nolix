@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class TitleHolderTest extends StandardTest {
+final class TitleHolderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTitleInQuotes() {
+  void testCase_getTitleInQuotes() {
 
     //setup
     final var testUnit = MockTitleHolder.withTitle("my_title");

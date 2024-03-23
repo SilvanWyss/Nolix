@@ -9,11 +9,11 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 
 //class
-public final class GlobalSequenceCreatorTest extends StandardTest {
+final class GlobalSequenceCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
+  void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
 
     //execution
     final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
@@ -28,7 +28,7 @@ public final class GlobalSequenceCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
+  void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
 
     //execution
     final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
@@ -43,7 +43,7 @@ public final class GlobalSequenceCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
+  void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
 
     //execution
     final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));

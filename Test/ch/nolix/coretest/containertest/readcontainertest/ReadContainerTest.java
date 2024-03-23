@@ -9,11 +9,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class ReadContainerTest extends ContainerTest {
+final class ReadContainerTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_containsEqualing() {
+  void testCase_containsEqualing() {
 
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
@@ -40,7 +40,7 @@ public final class ReadContainerTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_getStoredAt1BasedIndex() {
+  void testCase_getStoredAt1BasedIndex() {
 
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
@@ -64,7 +64,7 @@ public final class ReadContainerTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_getStoredSelected() {
+  void testCase_getStoredSelected() {
 
     //setup
     final String[] array1 = { "A", "AA", "AAA" };

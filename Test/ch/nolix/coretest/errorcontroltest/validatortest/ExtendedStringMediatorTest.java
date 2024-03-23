@@ -8,11 +8,11 @@ import ch.nolix.core.errorcontrol.validator.ExtendedStringMediator;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class ExtendedStringMediatorTest extends StandardTest {
+final class ExtendedStringMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_thatIsNamed() {
+  void testCase_thatIsNamed() {
 
     //setup
     final var argument = "Tom";

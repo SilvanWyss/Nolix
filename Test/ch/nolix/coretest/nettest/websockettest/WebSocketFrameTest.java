@@ -14,11 +14,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 
 //class
-public final class WebSocketFrameTest extends StandardTest {
+final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
+  void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
     //setup
     final var bytes = new byte[] {
@@ -63,7 +63,7 @@ public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
+  void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
     //setup
     final var testUnit = new WebSocketFrame(false, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
@@ -79,7 +79,7 @@ public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
     //setup
     final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
@@ -95,7 +95,7 @@ public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
     //setup
     final var testUnit = new WebSocketFrame(
@@ -118,7 +118,7 @@ public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
 
     //setup
     final var payload = new byte[65535];
@@ -146,7 +146,7 @@ public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
 
     //setup
     final var payload = new byte[65536];
@@ -180,7 +180,7 @@ public final class WebSocketFrameTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
+  void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
 
     //setup
     final var payload = new byte[1_000_000];

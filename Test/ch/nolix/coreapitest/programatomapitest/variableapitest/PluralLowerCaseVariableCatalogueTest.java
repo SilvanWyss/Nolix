@@ -11,11 +11,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
-public final class PluralLowerCaseVariableCatalogueTest extends StandardTest {
+final class PluralLowerCaseVariableCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constants() {
+  void testCase_constants() {
 
     //setup
     final var exceptions = //

@@ -9,11 +9,11 @@ import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 
 //class
-public final class FractalBuilderTest extends StandardTest {
+final class FractalBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build() {
+  void testCase_build() {
 
     //setup
     final var testUnit = new FractalBuilder();

@@ -11,11 +11,11 @@ import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 
 //class
-public final class HtmlElementTest extends StandardTest {
+final class HtmlElementTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withAttribute_whenContainsAttributesAndHasNonEmptyInnerText() {
+  void testCase_withAttribute_whenContainsAttributesAndHasNonEmptyInnerText() {
 
     //setup
     final var attribute1 = HtmlAttribute.withNameAndValue("n1", "v1");

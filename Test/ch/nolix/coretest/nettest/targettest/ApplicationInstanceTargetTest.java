@@ -10,11 +10,11 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
-public final class ApplicationInstanceTargetTest extends StandardTest {
+final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUrl_forHttpPortAndUnsecureSecurityLevel() {
+  void testCase_toUrl_forHttpPortAndUnsecureSecurityLevel() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
@@ -34,7 +34,7 @@ public final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUrl_forHttpsPortAndSecureSecurityLevel() {
+  void testCase_toUrl_forHttpsPortAndSecureSecurityLevel() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
@@ -54,7 +54,7 @@ public final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUrl_forCustomPortAndUnsecureSecurityLevel() {
+  void testCase_toUrl_forCustomPortAndUnsecureSecurityLevel() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
@@ -74,7 +74,7 @@ public final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUrl_forCustomPortAndSecureSecurityLevel() {
+  void testCase_toUrl_forCustomPortAndSecureSecurityLevel() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget

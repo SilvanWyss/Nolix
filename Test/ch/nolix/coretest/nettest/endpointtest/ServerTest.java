@@ -9,11 +9,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
-public final class ServerTest extends StandardTest {
+final class ServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_addDefaultSlot() {
+  void testCase_addDefaultSlot() {
 
     //parameter definition
     final var port = 50000;
@@ -34,7 +34,7 @@ public final class ServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_close() {
+  void testCase_close() {
 
     //parameter definition
     final var port = 50000;
@@ -52,7 +52,7 @@ public final class ServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forHttpPort() {
+  void testCase_forHttpPort() {
     try (final var result = Server.forHttpPort()) {
 
       //verification
@@ -67,7 +67,7 @@ public final class ServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forPort() {
+  void testCase_forPort() {
 
     //parameter definition
     final var port = 50000;

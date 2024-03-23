@@ -9,11 +9,11 @@ import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class GlobalIterableToolTest extends StandardTest {
+final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsAny_whenGivenIterableIsNull() {
+  void testCase_containsAny_whenGivenIterableIsNull() {
 
     //setup
     final Iterable<Object> iterable = null;
@@ -27,7 +27,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsAny_whenGivenIterableIsEmpty() {
+  void testCase_containsAny_whenGivenIterableIsEmpty() {
 
     //setup
     final Iterable<Object> iterable = new List<>();
@@ -41,7 +41,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsAny_whenGivenIterableContains1Element() {
+  void testCase_containsAny_whenGivenIterableContains1Element() {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x" });
@@ -55,7 +55,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsAny_whenGivenIterableContains2Elements() {
+  void testCase_containsAny_whenGivenIterableContains2Elements() {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx" });
@@ -69,7 +69,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsEqualing_whenGivenIterableIsNull() {
+  void testCase_containsEqualing_whenGivenIterableIsNull() {
 
     //setup
     final Iterable<Object> iterable = null;
@@ -83,7 +83,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsEqualing_whenGivenIterableIsEmpty() {
+  void testCase_containsEqualing_whenGivenIterableIsEmpty() {
 
     //setup
     final Iterable<Object> iterable = new List<>();
@@ -97,7 +97,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsEqualing_whenGivenIterableContainsOnlyUnequalElements() {
+  void testCase_containsEqualing_whenGivenIterableContainsOnlyUnequalElements() {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
@@ -111,7 +111,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsEqualing_whenGivenIterableContainsEqualElementAndUnequalElements() {
+  void testCase_containsEqualing_whenGivenIterableContainsEqualElementAndUnequalElements() {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
@@ -125,7 +125,7 @@ public final class GlobalIterableToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsEqualing_whenGivenIterableContainsOnlyEqualElements() {
+  void testCase_containsEqualing_whenGivenIterableContainsOnlyEqualElements() {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "x", "x" });

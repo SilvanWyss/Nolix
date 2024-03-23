@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class TableTest extends StandardTest {
+final class TableTest extends StandardTest {
 
   //constant
   private static final class Person extends Entity {
@@ -24,25 +24,25 @@ public final class TableTest extends StandardTest {
     private final Value<String> lastName = Value.withValueType(String.class);
 
     //method
-    public void setFirstNameAndLastName(final String firstName, final String lastName) {
+    void setFirstNameAndLastName(final String firstName, final String lastName) {
       this.firstName.setValue(firstName);
       this.lastName.setValue(lastName);
     }
 
     //method
-    public String getFirstName() {
+    String getFirstName() {
       return firstName.getStoredValue();
     }
 
     //method
-    public String getLastName() {
+    String getLastName() {
       return lastName.getStoredValue();
     }
   }
 
   //method
   @Test
-  public void testCase_getStoredAllEntities_whenIsEmpty() {
+  void testCase_getStoredAllEntities_whenIsEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -60,7 +60,7 @@ public final class TableTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredAllEntities() {
+  void testCase_getStoredAllEntities() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();

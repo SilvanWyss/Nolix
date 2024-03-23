@@ -8,11 +8,11 @@ import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class ARModelTest extends StandardTest {
+final class ARModelTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_1() {
+  void testCase_constructor_1() {
 
     //execution
     final double[] inputValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -27,7 +27,7 @@ public final class ARModelTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_2() {
+  void testCase_constructor_2() {
 
     //execution
     final double[] inputValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -42,7 +42,7 @@ public final class ARModelTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_3() {
+  void testCase_constructor_3() {
 
     //execution
     final double[] inputValues = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
@@ -57,7 +57,7 @@ public final class ARModelTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_4() {
+  void testCase_constructor_4() {
 
     //execution
     final double[] inputValues = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
@@ -72,7 +72,7 @@ public final class ARModelTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_5() {
+  void testCase_constructor_5() {
 
     //execution
     final double[] inputValues = { 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 };
@@ -89,7 +89,7 @@ public final class ARModelTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_6() {
+  void testCase_constructor_6() {
 
     //exection
     final double[] inputValues = { 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 };

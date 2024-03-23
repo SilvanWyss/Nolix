@@ -8,11 +8,11 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 
 //class
-public final class NodeTest extends BaseNodeTest<Node> {
+final class NodeTest extends BaseNodeTest<Node> {
 
   //method
   @Test
-  public void testCase_asWithHeader_1A() {
+  void testCase_asWithHeader_1A() {
 
     //setup
     final var testUnit = Node.fromString("a(x,y)");
@@ -26,7 +26,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
 
   //method
   @Test
-  public void testCase_asWithHeader_1B() {
+  void testCase_asWithHeader_1B() {
 
     //setup
     final var testUnit = Node.fromString("(x,y)");
@@ -40,7 +40,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
 
   //method
   @Test
-  public void testCase_asWithHeader_1C() {
+  void testCase_asWithHeader_1C() {
 
     //setup
     final var testUnit = Node.fromString("a");

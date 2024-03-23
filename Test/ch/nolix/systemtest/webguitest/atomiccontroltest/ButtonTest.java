@@ -7,7 +7,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public final class ButtonTest extends ControlTest<IButton> {
+final class ButtonTest extends ControlTest<IButton> {
 
   //method
   @Override

@@ -15,11 +15,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
-public final class GlobalLicenseManagerTest extends StandardTest {
+final class GlobalLicenseManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_requireFeature_whenLicenseIsNotThere() {
+  void testCase_requireFeature_whenLicenseIsNotThere() {
 
     //execution & verification
     expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).throwsException();
@@ -27,7 +27,7 @@ public final class GlobalLicenseManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_requireFeature_whenLicenseIsThere() {
+  void testCase_requireFeature_whenLicenseIsThere() {
 
     //setup
     final var testLicense = new TestLicense();
@@ -51,8 +51,8 @@ public final class GlobalLicenseManagerTest extends StandardTest {
   }
 
   //constant
-  //This class must be public that it can be processed by reflection.
-  public static final class TestFeature extends Feature {
+  //This class must be that it can be processed by reflection.
+  static final class TestFeature extends Feature {
 
     @Override
     public IContainer<Class<?>> getAuthorizedLicenseTypes() {

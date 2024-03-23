@@ -11,11 +11,11 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class WebGuiTest extends StandardTest {
+final class WebGuiTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //execution
     final var result = new WebGui();
@@ -30,7 +30,7 @@ public final class WebGuiTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_reset() {
+  void testCase_reset() {
 
     //setup
     final var testUnit = new WebGui();

@@ -8,11 +8,11 @@ import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class PolynomTest extends StandardTest {
+final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDerived_1A() {
+  void testCase_getDerived_1A() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(3.0, 0.0, 0.0);
@@ -29,7 +29,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDerived_1B() {
+  void testCase_getDerived_1B() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(3.0, 3.0, 3.0);
@@ -46,7 +46,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDerived_1C() {
+  void testCase_getDerived_1C() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
@@ -63,7 +63,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getIntegrated_1A() {
+  void testCase_getIntegrated_1A() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(3.0, 0.0, 0.0);
@@ -80,7 +80,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getIntegrated_1B() {
+  void testCase_getIntegrated_1B() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
@@ -97,7 +97,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenIsEmpty() {
+  void testCase_toString_whenIsEmpty() {
 
     //setup
     final var testUnit = Polynom.EMPTY_POLYNOM;
@@ -111,7 +111,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenThereIsGiven1Coefficient() {
+  void testCase_toString_whenThereIsGiven1Coefficient() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(1.0);
@@ -125,7 +125,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenThereAreGiven2Coefficients() {
+  void testCase_toString_whenThereAreGiven2Coefficients() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(2.0, 1.0);
@@ -139,7 +139,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenThereAreGiven3Coefficients() {
+  void testCase_toString_whenThereAreGiven3Coefficients() {
 
     //setup
     final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
@@ -153,7 +153,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
+  void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
 
     //execution
     final var result = Polynom.withCoefficient(1.0);
@@ -165,7 +165,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
+  void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
 
     //execution
     final var result = Polynom.withCoefficient(2.0, 1.0);
@@ -178,7 +178,7 @@ public final class PolynomTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
+  void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
 
     //execution
     final var result = Polynom.withCoefficient(3.0, 2.0, 1.0);

@@ -8,11 +8,11 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public final class TextboxTest extends ControlTest<ITextbox> {
+final class TextboxTest extends ControlTest<ITextbox> {
 
   //method
   @Test
-  public void testCase_emptyText() {
+  void testCase_emptyText() {
 
     //setup
     final var testUnit = new Textbox();

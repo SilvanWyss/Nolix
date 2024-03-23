@@ -9,11 +9,11 @@ import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class ValueTest extends StandardTest {
+final class ValueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //execution
     final var result = Value.withValueType(String.class);
@@ -29,7 +29,7 @@ public final class ValueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_setValue() {
+  void testCase_setValue() {
 
     //setup
     final var testUnit = Value.withValueType(String.class);

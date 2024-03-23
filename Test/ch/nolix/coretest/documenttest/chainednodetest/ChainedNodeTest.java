@@ -11,11 +11,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class ChainedNodeTest extends StandardTest {
+final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
+  void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
 
     //setup
     final var testUnit = ChainedNode.fromString("");
@@ -29,7 +29,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
+  void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
 
     //setup
     final var testUnit = ChainedNode.fromString("");
@@ -43,7 +43,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
+  void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
 
     //setup
     final var testUnit = ChainedNode.withHeader("a");
@@ -59,7 +59,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
+  void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
 
     //setup
     final var testUnit = ChainedNode.fromString("a(b)");
@@ -75,7 +75,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
+  void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
 
     //setup
     final var testUnit = ChainedNode.fromString("a(10)");
@@ -92,7 +92,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
+  void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
 
     //setup
     final var testUnit = ChainedNode.fromString("a(10, 20)");
@@ -108,7 +108,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBlank_whenIsBlank() {
+  void testCase_isBlank_whenIsBlank() {
 
     //setup
     final var testUnit = ChainedNode.fromString("");
@@ -122,7 +122,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBlank_whenHasHeaderOnly() {
+  void testCase_isBlank_whenHasHeaderOnly() {
 
     //setup
     final var testUnit = ChainedNode.withHeader("a");
@@ -136,7 +136,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toInt_whenDoesNotRepresentInt_A1() {
+  void testCase_toInt_whenDoesNotRepresentInt_A1() {
 
     //setup
     final var testUnit = new ChainedNode();
@@ -150,7 +150,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toInt_whenDoesNotRepresentInt_A2() {
+  void testCase_toInt_whenDoesNotRepresentInt_A2() {
 
     //setup
     final var testUnit = ChainedNode.fromString("100(x)");
@@ -164,7 +164,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toInt_whenRepresentsNegativeInt() {
+  void testCase_toInt_whenRepresentsNegativeInt() {
 
     //setup
     final var testUnit = ChainedNode.withHeader("-100");
@@ -178,7 +178,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toInt_whenRepresentsPositiveInt() {
+  void testCase_toInt_whenRepresentsPositiveInt() {
 
     //setup
     final var testUnit = ChainedNode.withHeader("100");
@@ -192,7 +192,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toInt_whenRepresentsZeroInt() {
+  void testCase_toInt_whenRepresentsZeroInt() {
 
     //setup
     final var testUnit = ChainedNode.withHeader("0");
@@ -206,7 +206,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toNode_whenIsBlank() {
+  void testCase_toNode_whenIsBlank() {
 
     //setup
     final var testUnit = ChainedNode.fromString("");
@@ -220,7 +220,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toNode_whenHasHeaderOnly() {
+  void testCase_toNode_whenHasHeaderOnly() {
 
     //setup
     final var testUnit = ChainedNode.withHeader("a");
@@ -234,7 +234,7 @@ public final class ChainedNodeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toNode_whenHasNextNode() {
+  void testCase_toNode_whenHasNextNode() {
 
     //setup
     final var testUnit = ChainedNode.fromString("a.b");

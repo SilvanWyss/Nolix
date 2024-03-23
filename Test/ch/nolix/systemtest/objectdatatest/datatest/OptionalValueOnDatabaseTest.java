@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class OptionalValueOnDatabaseTest extends StandardTest {
+final class OptionalValueOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Pet extends Entity {
@@ -21,29 +21,29 @@ public final class OptionalValueOnDatabaseTest extends StandardTest {
     private final OptionalValue<String> name = OptionalValue.withValueType(String.class);
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
 
     //method
-    public String getName() {
+    String getName() {
       return name.getStoredValue();
     }
 
     //method
-    public boolean hasName() {
+    boolean hasName() {
       return name.containsAny();
     }
 
     //method
-    public void setName(final String name) {
+    void setName(final String name) {
       this.name.setValue(name);
     }
   }
 
   //method
   @Test
-  public void testCase_whenIsEmptyAndSaved() {
+  void testCase_whenIsEmptyAndSaved() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -63,7 +63,7 @@ public final class OptionalValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
+  void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -82,7 +82,7 @@ public final class OptionalValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
+  void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();

@@ -12,11 +12,11 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.FractalTool;
 
 //class
-public final class FractalToolTest extends StandardTest {
+final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMaxX() {
+  void testCase_getMaxX() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
@@ -33,7 +33,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMaxY() {
+  void testCase_getMaxY() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
@@ -50,7 +50,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMinX() {
+  void testCase_getMinX() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
@@ -67,7 +67,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMinY() {
+  void testCase_getMinY() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
@@ -84,7 +84,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getPixelCountPerHorizontalUnit() {
+  void testCase_getPixelCountPerHorizontalUnit() {
 
     //setup
     final var fractalBuilder = //
@@ -102,7 +102,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getPixelCountPerVerticalUnit() {
+  void testCase_getPixelCountPerVerticalUnit() {
 
     //setup
     final var fractalBuilder = //
@@ -120,7 +120,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSquaredMinMagnitudeForDivergence_1() {
+  void testCase_getSquaredMinMagnitudeForDivergence_1() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(1.0).setDecimalPlaces(12);
@@ -137,7 +137,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSquaredMinMagnitudeForDivergence_2() {
+  void testCase_getSquaredMinMagnitudeForDivergence_2() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(2.0).setDecimalPlaces(12);
@@ -154,7 +154,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getUnitsPerHorizontalPixel() {
+  void testCase_getUnitsPerHorizontalPixel() {
 
     //setup
     final var fractalBuilder = //
@@ -172,7 +172,7 @@ public final class FractalToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getUnitsPerVerticalPixel() {
+  void testCase_getUnitsPerVerticalPixel() {
 
     //setup
     final var fractalBuilder = //

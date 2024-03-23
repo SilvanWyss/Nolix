@@ -13,16 +13,16 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class MultiReferenceWithBackReferencesTest extends StandardTest {
+final class MultiReferenceWithBackReferencesTest extends StandardTest {
 
   //constant
   private static final class Person extends Entity {
 
     //attribute
-    public final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
+    final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
 
     //constructor
-    public Person() {
+    Person() {
       initialize();
     }
   }
@@ -31,18 +31,18 @@ public final class MultiReferenceWithBackReferencesTest extends StandardTest {
   private static final class Pet extends Entity {
 
     //attribute
-    public final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
+    final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
       "pets");
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_isSaved_whenContainsSeveral() {
+  void testCase_isSaved_whenContainsSeveral() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -79,7 +79,7 @@ public final class MultiReferenceWithBackReferencesTest extends StandardTest {
   //TODO: Enable DataAdapter to remove relations and delete Entitis in 1 time.
   //method
   //@Test
-  public void testCase_removeEntity_whenContainsEntity() {
+  void testCase_removeEntity_whenContainsEntity() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();

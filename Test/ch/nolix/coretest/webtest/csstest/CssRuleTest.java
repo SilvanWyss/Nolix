@@ -9,11 +9,11 @@ import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 
 //class
-public final class CssRuleTest extends StandardTest {
+final class CssRuleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withPrefixedSelector() {
+  void testCase_withPrefixedSelector() {
 
     //setup
     final var property1 = CssProperty.withNameAndValue("n1", "v1");

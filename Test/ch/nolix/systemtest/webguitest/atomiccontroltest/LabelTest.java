@@ -11,11 +11,11 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public final class LabelTest extends ControlTest<ILabel> {
+final class LabelTest extends ControlTest<ILabel> {
 
   //method
   @Test
-  public void testCase_removeRole() {
+  void testCase_removeRole() {
 
     //setup
     final var testUnit = new Label();
@@ -33,7 +33,7 @@ public final class LabelTest extends ControlTest<ILabel> {
 
   //method
   @Test
-  public void testCase_setRole() {
+  void testCase_setRole() {
 
     //setup
     final var testUnit = new Label();
@@ -51,7 +51,7 @@ public final class LabelTest extends ControlTest<ILabel> {
 
   //method
   @Test
-  public void testCase_setText() {
+  void testCase_setText() {
 
     //setup
     final var testUnit = new Label();
@@ -68,7 +68,7 @@ public final class LabelTest extends ControlTest<ILabel> {
 
   //method
   @Test
-  public void testCase_setText_whenGivenTextIsEmpty() {
+  void testCase_setText_whenGivenTextIsEmpty() {
 
     //setup
     final var testUnit = new Label();
@@ -82,7 +82,7 @@ public final class LabelTest extends ControlTest<ILabel> {
 
   //method
   @Test
-  public void testCase_setText_whenGivenTextIsNull() {
+  void testCase_setText_whenGivenTextIsNull() {
 
     //setup
     final var testUnit = new Label();

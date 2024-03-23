@@ -8,11 +8,11 @@ import ch.nolix.core.commontypetool.GlobalCharacterTool;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class GlobalCharacterToolTest extends StandardTest {
+final class GlobalCharacterToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isDigit_whenGivenCharacterIsADigit() {
+  void testCase_isDigit_whenGivenCharacterIsADigit() {
     expect(GlobalCharacterTool.isDigit('0'));
     expect(GlobalCharacterTool.isDigit('1'));
     expect(GlobalCharacterTool.isDigit('2'));
@@ -27,7 +27,7 @@ public final class GlobalCharacterToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isDigit_whenGivenCharacterIsNotADigit() {
+  void testCase_isDigit_whenGivenCharacterIsNotADigit() {
     expectNot(GlobalCharacterTool.isDigit('A'));
     expectNot(GlobalCharacterTool.isDigit('a'));
     expectNot(GlobalCharacterTool.isDigit('Z'));
@@ -42,7 +42,7 @@ public final class GlobalCharacterToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isHexadecimalDigit_whenGivenCharacterIsAHexadecimalDigit() {
+  void testCase_isHexadecimalDigit_whenGivenCharacterIsAHexadecimalDigit() {
     expect(GlobalCharacterTool.isHexadecimalDigit('0'));
     expect(GlobalCharacterTool.isHexadecimalDigit('1'));
     expect(GlobalCharacterTool.isHexadecimalDigit('2'));
@@ -63,7 +63,7 @@ public final class GlobalCharacterToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isHexadecimalDigit_whenGivenCharacterIsNotAHexadecimalDigit() {
+  void testCase_isHexadecimalDigit_whenGivenCharacterIsNotAHexadecimalDigit() {
     expectNot(GlobalCharacterTool.isHexadecimalDigit('G'));
     expectNot(GlobalCharacterTool.isHexadecimalDigit('g'));
     expectNot(GlobalCharacterTool.isHexadecimalDigit('Z'));

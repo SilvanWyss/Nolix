@@ -10,11 +10,11 @@ import ch.nolix.core.programatom.function.GlobalFunctionTool;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class GlobalFunctionToolTest extends StandardTest {
+final class GlobalFunctionToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createNegatorForBooleanSupplier_whenTrueSupplierIsGiven() {
+  void testCase_createNegatorForBooleanSupplier_whenTrueSupplierIsGiven() {
 
     //execution
     final var result = GlobalFunctionTool.createNegatorForBooleanSupplier(FunctionCatalogue::getTrue);
@@ -25,7 +25,7 @@ public final class GlobalFunctionToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createNegatorForBooleanSupplier_whenFalseSupplierIsGiven() {
+  void testCase_createNegatorForBooleanSupplier_whenFalseSupplierIsGiven() {
 
     //execution
     final var result = GlobalFunctionTool.createNegatorForBooleanSupplier(FunctionCatalogue::getFalse);
@@ -36,7 +36,7 @@ public final class GlobalFunctionToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createNegatorForBooleanSupplier_whenTheGivenBooleanSupplierIsNull() {
+  void testCase_createNegatorForBooleanSupplier_whenTheGivenBooleanSupplierIsNull() {
 
     //execution & verification
     expectRunning(() -> GlobalFunctionTool.createNegatorForBooleanSupplier(null))

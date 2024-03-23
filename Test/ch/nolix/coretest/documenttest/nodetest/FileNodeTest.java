@@ -9,11 +9,11 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 
 //class
-public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
+final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
   //method
   @AfterEach
-  public void cleanup() {
+  void cleanup() {
 
     final var folderOfRunningJar = GlobalFileSystemAccessor.getFolderOfRunningJarFile();
 

@@ -12,11 +12,11 @@ import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.core.web.html.HtmlElementStringRepresentator;
 
 //class
-public final class HtmlElementStringRepresentatorTest extends StandardTest {
+final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString() {
+  void testCase_toString() {
 
     //setup
     final var htmlElement = HtmlElement.withType("div");
@@ -31,7 +31,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenContainsAttributes() {
+  void testCase_toString_whenContainsAttributes() {
 
     //setup
     final var htmlElement = //
@@ -50,7 +50,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenContainsAttributesAndChildElements() {
+  void testCase_toString_whenContainsAttributesAndChildElements() {
 
     //setup
     final var htmlElement = //
@@ -72,7 +72,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenContainsAttributesAndInnerText() {
+  void testCase_toString_whenContainsAttributesAndInnerText() {
 
     //setup
     final var htmlElement = //
@@ -93,7 +93,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenContainsChildElements() {
+  void testCase_toString_whenContainsChildElements() {
 
     //setup
     final var htmlElement = //
@@ -112,7 +112,7 @@ public final class HtmlElementStringRepresentatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenContainsInnerText() {
+  void testCase_toString_whenContainsInnerText() {
 
     //setup
     final var htmlElement = HtmlElement.withTypeAndInnerText("div", "my_content");

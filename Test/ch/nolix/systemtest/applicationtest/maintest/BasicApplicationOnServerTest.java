@@ -12,11 +12,11 @@ import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.application.webapplication.WebClient;
 
 //class
-public final class BasicApplicationOnServerTest extends StandardTest {
+final class BasicApplicationOnServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getNameAddendum_whenBelongsToServer() {
+  void testCase_getNameAddendum_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
 
       //setup
@@ -38,7 +38,7 @@ public final class BasicApplicationOnServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInstanceName_whenDoesNotBelongToAServer() {
+  void testCase_getInstanceName_whenDoesNotBelongToAServer() {
 
     //setup
     final var applicationContext = new VoidObject();
@@ -57,7 +57,7 @@ public final class BasicApplicationOnServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInstanceName_whenBelongsToServer() {
+  void testCase_getInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
 
       //setup
@@ -79,7 +79,7 @@ public final class BasicApplicationOnServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getUrlInstanceName_whenBelongsToServer() {
+  void testCase_getUrlInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
 
       //setup

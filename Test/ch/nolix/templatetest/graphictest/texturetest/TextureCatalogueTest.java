@@ -11,11 +11,11 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.graphic.texture.TextureCatalogue;
 
 //class
-public final class TextureCatalogueTest extends StandardTest {
+final class TextureCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constantsOfTextureCatalogue() {
+  void testCase_constantsOfTextureCatalogue() {
 
     //verification
     final var textures = GlobalClassTool.getPublicStaticFieldValuesOfClass(TextureCatalogue.class);

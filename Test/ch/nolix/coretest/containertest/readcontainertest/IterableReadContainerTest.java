@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class IterableReadContainerTest extends ContainerTest {
+final class IterableReadContainerTest extends ContainerTest {
 
   //method
   @Override

@@ -11,11 +11,11 @@ import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
 //class
-public final class GlobalPropertyBinderTest extends StandardTest {
+final class GlobalPropertyBinderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createControlAndBindItWith() {
+  void testCase_createControlAndBindItWith() {
 
     //setup
     final var value = Value.withInitialValue("");
@@ -54,7 +54,7 @@ public final class GlobalPropertyBinderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
+  void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
 
     //setup
     final var value = Value.withValueType(String.class);
@@ -75,7 +75,7 @@ public final class GlobalPropertyBinderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
+  void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
 
     //setup
     final var value = Value.withInitialValue("zebra");

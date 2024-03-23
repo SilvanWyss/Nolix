@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlCssBuilderTest;
 
 //class
-public final class TextboxCssBuilderTest extends ControlCssBuilderTest<TextboxCssBuilder, ITextbox> {
+final class TextboxCssBuilderTest extends ControlCssBuilderTest<TextboxCssBuilder, ITextbox> {
 
   //method
   @Override

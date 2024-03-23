@@ -13,11 +13,11 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
+final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
   //method
   @Test
-  public void testCase_letsClear() {
+  void testCase_letsClear() {
 
     //setup part 1: Creates a ValidationLabel and runs an action that produces an
     //error.
@@ -38,7 +38,7 @@ public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
   //method
   @Test
-  public void testCase_letsShowError() {
+  void testCase_letsShowError() {
 
     //setup
     final var testUnit = new ValidationLabel();

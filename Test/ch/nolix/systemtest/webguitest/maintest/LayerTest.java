@@ -13,11 +13,11 @@ import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
-public final class LayerTest extends StandardTest {
+final class LayerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_clear_whenIsEmpty() {
+  void testCase_clear_whenIsEmpty() {
 
     //setup
     final var testUnit = new Layer();
@@ -34,7 +34,7 @@ public final class LayerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_clear_whenContainsAny() {
+  void testCase_clear_whenContainsAny() {
 
     //setup
     final var testUnit = new Layer();
@@ -52,7 +52,7 @@ public final class LayerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
+  void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
 
     //setup
     final var testUnit = new Layer();
@@ -66,7 +66,7 @@ public final class LayerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_removeSelfFromGui_whenBelongsToGui() {
+  void testCase_removeSelfFromGui_whenBelongsToGui() {
 
     //setup
     final var webGui = new WebGui();
@@ -87,7 +87,7 @@ public final class LayerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_reset() {
+  void testCase_reset() {
 
     //setup
     final var testUnit = new Layer()

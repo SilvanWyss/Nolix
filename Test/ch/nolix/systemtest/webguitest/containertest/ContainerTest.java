@@ -7,11 +7,11 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
+abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
 
   //method
   @Test
-  public final void testCase_constructor() {
+  final void testCase_constructor() {
 
     //execution
     final var testUnit = createTestUnit();

@@ -8,11 +8,11 @@ import ch.nolix.core.commontypetool.GlobalStringTool;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class GlobalStringToolTest extends StandardTest {
+final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStringWithoutLastCharacters_1A() {
+  void testCase_createStringWithoutLastCharacters_1A() {
 
     //execution
     final var result = GlobalStringTool.createStringWithoutLastCharacters("cheeseburger", 0);
@@ -23,7 +23,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStringWithoutLastCharacters_1B() {
+  void testCase_createStringWithoutLastCharacters_1B() {
 
     //execution
     final var result = GlobalStringTool.createStringWithoutLastCharacters("cheeseburger", 6);
@@ -34,7 +34,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStringWithoutLastCharacters_1C() {
+  void testCase_createStringWithoutLastCharacters_1C() {
 
     //execution
     final var result = GlobalStringTool.createStringWithoutLastCharacters("cheeseburger", 12);
@@ -45,7 +45,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInParantheses_whenGivenStringIsEmpty() {
+  void testCase_getInParantheses_whenGivenStringIsEmpty() {
 
     //execution
     final var result = GlobalStringTool.getInParantheses("");
@@ -56,7 +56,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInParantheses_whenGivenStringIsNotEmpty() {
+  void testCase_getInParantheses_whenGivenStringIsNotEmpty() {
 
     //execution
     final var result = GlobalStringTool.getInParantheses("Zebra");
@@ -67,7 +67,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInSingleQuotes_whenTheGivenStringIsEmpty() {
+  void testCase_getInSingleQuotes_whenTheGivenStringIsEmpty() {
 
     //execution
     final var result = GlobalStringTool.getInSingleQuotes("");
@@ -78,7 +78,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInSingleQuotes_whenTheGivenStringIsNotEmpty() {
+  void testCase_getInSingleQuotes_whenTheGivenStringIsNotEmpty() {
 
     //execution
     final var result = GlobalStringTool.getInSingleQuotes("Zebra");
@@ -89,7 +89,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringContainsOneWordInLowerCase() {
+  void testCase_toPascalCase_whenGivenStringContainsOneWordInLowerCase() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("zebra");
@@ -100,7 +100,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringContainsOneWordInUpperCase() {
+  void testCase_toPascalCase_whenGivenStringContainsOneWordInUpperCase() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("ZEBRA");
@@ -111,7 +111,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringContainsOneWordInSentenceCase() {
+  void testCase_toPascalCase_whenGivenStringContainsOneWordInSentenceCase() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("Zebra");
@@ -122,7 +122,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
+  void testCase_toPascalCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("cursor_icon");
@@ -133,7 +133,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
+  void testCase_toPascalCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("CURSOR_ICON");
@@ -144,7 +144,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
+  void testCase_toPascalCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("Cursor_Icon");
@@ -155,7 +155,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toPascalCase_whenGivenStringIsEmpty() {
+  void testCase_toPascalCase_whenGivenStringIsEmpty() {
 
     //execution
     final var result = GlobalStringTool.toPascalCase("");
@@ -166,7 +166,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInLowerCase() {
+  void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInLowerCase() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("zebra");
@@ -177,7 +177,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInUpperCase() {
+  void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInUpperCase() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("ZEBRA");
@@ -188,7 +188,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInSentenceCase() {
+  void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInSentenceCase() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("Zebra");
@@ -199,7 +199,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
+  void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("cursor_icon");
@@ -210,7 +210,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
+  void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("CURSOR_ICON");
@@ -221,7 +221,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
+  void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("Cursor_Icon");
@@ -232,7 +232,7 @@ public final class GlobalStringToolTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toUpperSnakeCase_whenGivenStringIsEmpty() {
+  void testCase_toUpperSnakeCase_whenGivenStringIsEmpty() {
 
     //execution
     final var result = GlobalStringTool.toUpperSnakeCase("");

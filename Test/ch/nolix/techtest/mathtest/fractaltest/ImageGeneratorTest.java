@@ -9,11 +9,11 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.ImageGenerator;
 
 //class
-public final class ImageGeneratorTest extends StandardTest {
+final class ImageGeneratorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredImage() {
+  void testCase_getStoredImage() {
 
     //setup
     final var fractalBuilder = new FractalBuilder().setWidthInPixel(10).setHeightInPixel(5);

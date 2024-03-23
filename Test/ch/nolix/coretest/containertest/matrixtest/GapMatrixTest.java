@@ -12,11 +12,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class GapMatrixTest extends ContainerTest {
+final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addColumn_whenGapMatrixIsExpanded() {
+  void testCase_addColumn_whenGapMatrixIsExpanded() {
 
     //setup
     final var testUnit = new GapMatrix<>(100, 200);
@@ -32,7 +32,7 @@ public final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addColumn_whenGapMatrixIsMinimal() {
+  void testCase_addColumn_whenGapMatrixIsMinimal() {
 
     //setup
     final var testUnit = new GapMatrix<>();
@@ -48,7 +48,7 @@ public final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addRow_whenGapMatrixIsExpanded() {
+  void testCase_addRow_whenGapMatrixIsExpanded() {
 
     //setup
     final var testUnit = new GapMatrix<>(100, 200);
@@ -64,7 +64,7 @@ public final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addRow_whenGapMatrixIsMinimal() {
+  void testCase_addRow_whenGapMatrixIsMinimal() {
 
     //setup
     final var testUnit = new GapMatrix<>();
@@ -80,7 +80,7 @@ public final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_create() {
+  void testCase_create() {
 
     //execution
     final var result = new GapMatrix<>(100, 200);
@@ -93,7 +93,7 @@ public final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_iterate_whenGapMatrixContainsElements() {
+  void testCase_iterate_whenGapMatrixContainsElements() {
 
     //setup
     final var testUnit = new GapMatrix<String>(100, 200);
@@ -126,7 +126,7 @@ public final class GapMatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_iterate_whenGapMatrixIsEmpty() {
+  void testCase_iterate_whenGapMatrixIsEmpty() {
 
     //setup
     final var testUnit = new GapMatrix<String>(100, 200);

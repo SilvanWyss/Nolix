@@ -9,11 +9,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.core.web.css.CssProperty;
 
 //class
-public final class CssPropertyTest extends StandardTest {
+final class CssPropertyTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString() {
+  void testCase_toString() {
 
     //setup
     final var testUnit = CssProperty.withNameAndValue("width", "200px");
@@ -27,7 +27,7 @@ public final class CssPropertyTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withNameAndValue() {
+  void testCase_withNameAndValue() {
 
     //execution
     final var result = CssProperty.withNameAndValue("width", "200px");
@@ -39,7 +39,7 @@ public final class CssPropertyTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withNameAndValue_whenTheGivenNameIsNull() {
+  void testCase_withNameAndValue_whenTheGivenNameIsNull() {
 
     //execution & verification
     expectRunning(() -> CssProperty.withNameAndValue(null, "200px"))
@@ -50,7 +50,7 @@ public final class CssPropertyTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withNameAndValue_whenTheGivenValueIsNull() {
+  void testCase_withNameAndValue_whenTheGivenValueIsNull() {
 
     //setup
     final String value = null;

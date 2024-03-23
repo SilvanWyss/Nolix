@@ -15,7 +15,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_editStyle() {
+  final void testCase_editStyle() {
 
     //setup
     final var testUnit = createTestUnit();
@@ -30,7 +30,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_getInternalId() {
+  final void testCase_getInternalId() {
 
     //setup
     final var testUnit = createTestUnit();
@@ -45,7 +45,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
+  final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
 
     //setup
     final var testUnit = createTestUnit();
@@ -63,7 +63,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_getStoredChildControls() {
+  final void testCase_getStoredChildControls() {
 
     //setup
     final var testUnit = createTestUnit();
@@ -77,7 +77,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_reset() {
+  final void testCase_reset() {
 
     //setup
     final var testUnit = createTestUnit();
@@ -101,7 +101,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_setCursorIcon() {
+  final void testCase_setCursorIcon() {
 
     //setup
     final var testUnit = createTestUnit();

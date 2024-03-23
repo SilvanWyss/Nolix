@@ -12,11 +12,11 @@ import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
 import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
 
 //class
-public final class AbstractableObjectOnDatabaseTest extends StandardTest {
+final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredBaseTypes_whenDoesNotHaveBaseTypes() {
+  void testCase_getStoredBaseTypes_whenDoesNotHaveBaseTypes() {
 
     //setup part 1: Create database.
     final var database = new MutableNode();
@@ -40,7 +40,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredBaseTypes_whenHasSeveralBaseTypes() {
+  void testCase_getStoredBaseTypes_whenHasSeveralBaseTypes() {
 
     //setup part 1: Create database.
     final var database = new MutableNode();
@@ -79,7 +79,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredBaseTypes_whenHasBaseTypeWithBaseType() {
+  void testCase_getStoredBaseTypes_whenHasBaseTypeWithBaseType() {
 
     //setup part 1: Create database.
     final var database = new MutableNode();
@@ -118,7 +118,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredSubTypes_whenDoesNotHaveSubTypes() {
+  void testCase_getStoredSubTypes_whenDoesNotHaveSubTypes() {
 
     //setup part 1: Create database.
     final var database = new MutableNode();
@@ -142,7 +142,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredSubTypes_whenHasSeveralSubTypes() {
+  void testCase_getStoredSubTypes_whenHasSeveralSubTypes() {
 
     //setup part 1: Create database.
     final var database = new MutableNode();
@@ -180,7 +180,7 @@ public final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenNewFieldWasAdded() {
+  void testCase_isSaved_whenNewFieldWasAdded() {
 
     //setup part 1: Create database.
     final var database = new MutableNode();

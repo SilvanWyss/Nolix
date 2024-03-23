@@ -8,11 +8,11 @@ import ch.nolix.core.document.xml.XmlAttribute;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class XmlAttributeTest extends StandardTest {
+final class XmlAttributeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //execution
     final var result = new XmlAttribute("color", "green");
@@ -24,7 +24,7 @@ public final class XmlAttributeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString() {
+  void testCase_toString() {
 
     //setup
     final var xmlAttribute = new XmlAttribute("color", "green");

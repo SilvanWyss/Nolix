@@ -11,11 +11,11 @@ import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
 
 //class
-public final class SchemaStatementCreatorTest extends StandardTest {
+final class SchemaStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToAddColumn() {
+  void testCase_createStatementToAddColumn() {
 
     //setup
     final var columnDto = ColumnDto.withNameAndDataType("Name", new DataTypeDto("nvarchar(100)"));
@@ -30,7 +30,7 @@ public final class SchemaStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToAddTable() {
+  void testCase_createStatementToAddTable() {
 
     //setup
     final var tableDto = TableDto.withNameAndColumn(

@@ -9,11 +9,11 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class IndexedPackageTest extends StandardTest {
+final class IndexedPackageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_hasIndex_whenHasTheGivenIndex() {
+  void testCase_hasIndex_whenHasTheGivenIndex() {
 
     //setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
@@ -27,7 +27,7 @@ public final class IndexedPackageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_hasIndex_whenDoesNotHaveTheGivenIndex() {
+  void testCase_hasIndex_whenDoesNotHaveTheGivenIndex() {
 
     //setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());

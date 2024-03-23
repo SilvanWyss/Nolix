@@ -10,11 +10,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class
-public final class StringCatalogueTest extends StandardTest {
+final class StringCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constants() {
+  void testCase_constants() {
 
     //verification
     for (final var f : StringCatalogue.class.getFields()) {

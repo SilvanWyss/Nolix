@@ -9,11 +9,11 @@ import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializerSqlSt
 import ch.nolix.system.time.moment.Time;
 
 //class
-public final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
+final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSqlStatementToCreateSchemaTimestampEntry() {
+  void testCase_createSqlStatementToCreateSchemaTimestampEntry() {
 
     //setup
     final var time = Time.withYear(2025);

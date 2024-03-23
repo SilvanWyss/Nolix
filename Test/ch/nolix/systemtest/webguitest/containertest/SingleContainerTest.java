@@ -6,7 +6,7 @@ import ch.nolix.system.webgui.container.SingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 
 //class
-public final class SingleContainerTest extends ContainerTest<ISingleContainer> {
+final class SingleContainerTest extends ContainerTest<ISingleContainer> {
 
   //method
   @Override

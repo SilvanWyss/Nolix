@@ -12,11 +12,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class LinkedListTest extends ContainerTest {
+final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_whenIsEmpty() {
+  void testCase_addAtBegin_whenIsEmpty() {
 
     //setup
     final var elephant = "elephant";
@@ -31,7 +31,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_whenContainsSeveralElements() {
+  void testCase_addAtBegin_whenContainsSeveralElements() {
 
     //setup
     final var elephant = "elephant";
@@ -49,7 +49,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_whenTheGivenElementIsNull() {
+  void testCase_addAtBegin_whenTheGivenElementIsNull() {
 
     //setup
     final String element = null;
@@ -64,7 +64,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_forIterable() {
+  void testCase_addAtBegin_forIterable() {
 
     //setup
     final var elephant = "elephant";
@@ -83,7 +83,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_forIterable_whenIsEmpty() {
+  void testCase_addAtBegin_forIterable_whenIsEmpty() {
 
     //setup
     final var elephant = "elephant";
@@ -100,7 +100,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_forIterable_whenTheGivenListIsEmpty() {
+  void testCase_addAtBegin_forIterable_whenTheGivenListIsEmpty() {
 
     //setup
     final var rhino = "rhino";
@@ -117,7 +117,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
+  void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
 
     //setup
     final var testUnit = new LinkedList<String>();
@@ -132,7 +132,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addAtEnd_whenTheGivenElementIsNull() {
+  void testCase_addAtEnd_whenTheGivenElementIsNull() {
 
     //setup
     final var testUnit = new LinkedList<String>();
@@ -147,7 +147,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_clear_whenIsEmpty() {
+  void testCase_clear_whenIsEmpty() {
 
     //setup
     final var testUnit = new LinkedList<String>();
@@ -161,7 +161,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_clear_whenContainsAny() {
+  void testCase_clear_whenContainsAny() {
 
     //setup
     final var testUnit = LinkedList.withElement("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -175,7 +175,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_fromArray_whenTheGivenArrayIsNull() {
+  void testCase_fromArray_whenTheGivenArrayIsNull() {
 
     //execution & verification
     expectRunning(() -> LinkedList.fromArray(null))
@@ -186,7 +186,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_fromArray_whenTheGivenArrayIsEmpty() {
+  void testCase_fromArray_whenTheGivenArrayIsEmpty() {
 
     //setup
     final var array = new String[0];
@@ -200,7 +200,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_fromArray_whenTheGivenArrayContains1Element() {
+  void testCase_fromArray_whenTheGivenArrayContains1Element() {
 
     //setup
     final var elephant = "elephant";
@@ -215,7 +215,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
+  void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
 
     //setup
     final var elephant = "elephant";
@@ -233,7 +233,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_fromArray_whenTheGivenArrayContainsANullElement() {
+  void testCase_fromArray_whenTheGivenArrayContainsANullElement() {
 
     //setup
     final var array = new String[] { "lephant", "lion", null, "zebra" };
@@ -246,7 +246,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_removeFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
+  void testCase_removeFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
     //setup
     final var element1 = new VoidObject();
@@ -265,7 +265,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
+  void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
 
     //setup
     final var element1 = new VoidObject();
@@ -283,7 +283,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_removeStrictlyFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
+  void testCase_removeStrictlyFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
     //setup
     final var element1 = new VoidObject();
@@ -301,7 +301,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
+  void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
 
     //setup
     final var element1 = new VoidObject();
@@ -319,7 +319,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_toString() {
+  void testCase_toString() {
 
     //setup
     final var testUnit = LinkedList.withElement("elephant", "jaguar", "lion", "python", "shark", "zebra");
@@ -333,7 +333,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_toString_whenIsEmpty() {
+  void testCase_toString_whenIsEmpty() {
 
     //setup
     final var testUnit = new LinkedList<>();

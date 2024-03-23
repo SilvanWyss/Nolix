@@ -10,7 +10,7 @@ import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
+final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
 
   //static enum
   private enum CustomState {
@@ -24,10 +24,10 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
   private static final class CustomMultiStateConfiguration
   extends MultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
 
-    public static final CustomState BASE_STATE = CustomState.A;
+    static final CustomState BASE_STATE = CustomState.A;
 
     //attribute
-    public final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
+    final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
       "Color",
       CustomState.class,
       Color::fromSpecification,
@@ -35,7 +35,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
       Color.WHITE);
 
     //constructor
-    public CustomMultiStateConfiguration() {
+    CustomMultiStateConfiguration() {
 
       super(BASE_STATE);
 
@@ -43,14 +43,14 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
     }
 
     //method
-    public void addChild(final CustomMultiStateConfiguration child) {
+    void addChild(final CustomMultiStateConfiguration child) {
       internalAddChild(child);
     }
   }
 
   //method
   @Test
-  public void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
+  void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
 
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
@@ -65,7 +65,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
 
   //method
   @Test
-  public void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndDefinesValueForBaseState() {
+  void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndDefinesValueForBaseState() {
 
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
@@ -81,7 +81,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
 
   //method
   @Test
-  public void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndGetsValueFromParent() {
+  void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndGetsValueFromParent() {
 
     //setup
     final var parentMultiStateConfiguration = new CustomMultiStateConfiguration();
@@ -99,7 +99,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Standa
 
   //method
   @Test
-  public void testCase_getValueOfState_whenDefinesValueForGivenState() {
+  void testCase_getValueOfState_whenDefinesValueForGivenState() {
 
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();

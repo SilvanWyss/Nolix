@@ -15,11 +15,11 @@ import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
-public final class LocalEndPointTest extends StandardTest {
+final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_sendMessage_whenSends1Message() {
+  void testCase_sendMessage_whenSends1Message() {
 
     //setup
     final var slot = new MockSlot();
@@ -34,7 +34,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_sendMessage_whenSends3Messages() {
+  void testCase_sendMessage_whenSends3Messages() {
 
     //setup
     final var slot = new MockSlot();
@@ -51,7 +51,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_sendMessage_whenTheGivenMessageIsNull() {
+  void testCase_sendMessage_whenTheGivenMessageIsNull() {
 
     //setup
     final var slot = new MockSlot();
@@ -70,7 +70,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_sendMessage_whenIsClosed() {
+  void testCase_sendMessage_whenIsClosed() {
 
     //setup part 1: Creates slot.
     final var slot = new MockSlot();
@@ -97,7 +97,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toSlot() {
+  void testCase_toSlot() {
 
     //setup
     final var slot = new MockSlot();
@@ -113,7 +113,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toSlot_whenTheGivenSlotIsNull() {
+  void testCase_toSlot_whenTheGivenSlotIsNull() {
 
     //execution & verification
     expectRunning(() -> LocalEndPoint.toSlot(null))
@@ -124,7 +124,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toTargetSlotOnServer() {
+  void testCase_toTargetSlotOnServer() {
     try (final var server = new LocalServer()) {
 
       //setup
@@ -147,7 +147,7 @@ public final class LocalEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
+  void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
     try (final var server = new LocalServer()) {
 
       //execution & verification

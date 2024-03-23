@@ -11,11 +11,11 @@ import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class MatrixTest extends StandardTest {
+final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_add() {
+  void testCase_add() {
 
     //setup
     final var testUnit = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
@@ -31,7 +31,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_appendAtRight() {
+  void testCase_appendAtRight() {
 
     //setup
     final var testUnit = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
@@ -47,7 +47,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createIdendityMatrix_with1Row() {
+  void testCase_createIdendityMatrix_with1Row() {
 
     //execution
     final var result = Matrix.createIdendityMatrix(1);
@@ -60,7 +60,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createIdendityMatrix_with10Rows() {
+  void testCase_createIdendityMatrix_with10Rows() {
 
     //execution
     final var result = Matrix.createIdendityMatrix(10);
@@ -81,7 +81,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInverse_whenMatrixIs2x2Matrix() {
+  void testCase_getInverse_whenMatrixIs2x2Matrix() {
 
     //setup
     final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
@@ -96,7 +96,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInverse_whenMatrixIs3x3Matrix() {
+  void testCase_getInverse_whenMatrixIs3x3Matrix() {
 
     //setup
     final var testUnit = new Matrix(3, 3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
@@ -111,7 +111,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInverse_whenMatrixIs4x4Matrix() {
+  void testCase_getInverse_whenMatrixIs4x4Matrix() {
 
     //setup
     final var testUnit = new Matrix(4, 4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0,
@@ -128,7 +128,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getProduct() {
+  void testCase_getProduct() {
 
     //setup
     final var testUnit = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
@@ -144,7 +144,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getRank_whenMatrixIsIdentityMatrix() {
+  void testCase_getRank_whenMatrixIsIdentityMatrix() {
 
     //parameter definition
     final var n = 10;
@@ -165,7 +165,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
+  void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
 
     //setup
     final var testUnit = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
@@ -181,7 +181,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
+  void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
 
     //setup
     final var testUnit = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
@@ -198,7 +198,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTrace_whenMatrixIsIdentityMatrix() {
+  void testCase_getTrace_whenMatrixIsIdentityMatrix() {
 
     //parameter definition
     final var n = 100;
@@ -219,7 +219,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
+  void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
 
     //setup
     final var testUnit = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0, 1.0);
@@ -235,7 +235,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs1x1IdentityMatrix() {
+  void testCase_toString_whenMatrixIs1x1IdentityMatrix() {
 
     //setup
     final var testUnit = Matrix.createIdendityMatrix(1);
@@ -249,7 +249,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs2x2IdentityMatrix() {
+  void testCase_toString_whenMatrixIs2x2IdentityMatrix() {
 
     //setup
     final var testUnit = Matrix.createIdendityMatrix(2);
@@ -263,7 +263,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs3x3IdentityMatrix() {
+  void testCase_toString_whenMatrixIs3x3IdentityMatrix() {
 
     //setup
     final var testUnit = Matrix.createIdendityMatrix(3);
@@ -277,7 +277,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs4x4IdentityMatrix() {
+  void testCase_toString_whenMatrixIs4x4IdentityMatrix() {
 
     //setup
     final var testUnit = Matrix.createIdendityMatrix(4);
@@ -291,7 +291,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs1x1Matrix() {
+  void testCase_toString_whenMatrixIs1x1Matrix() {
 
     //setup
     final var testUnit = new Matrix(1, 1);
@@ -305,7 +305,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs2x2Matrix() {
+  void testCase_toString_whenMatrixIs2x2Matrix() {
 
     //setup
     final var testUnit = new Matrix(2, 2);
@@ -319,7 +319,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs3x3Matrix() {
+  void testCase_toString_whenMatrixIs3x3Matrix() {
 
     //setup
     final var testUnit = new Matrix(3, 3);
@@ -333,7 +333,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenMatrixIs4x4Matrix() {
+  void testCase_toString_whenMatrixIs4x4Matrix() {
 
     //setup
     final var testUnit = new Matrix(4, 4);
@@ -347,7 +347,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toVector_whenContains1Row() {
+  void testCase_toVector_whenContains1Row() {
 
     //setup
     final var testUnit = new Matrix(1, 4).setValues(1.0, 2.0, 3.0, 4.0);
@@ -361,7 +361,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toVector_whenContains1Column() {
+  void testCase_toVector_whenContains1Column() {
 
     //setup
     final var testUnit = new Matrix(4, 1).setValues(1.0, 2.0, 3.0, 4.0);
@@ -375,7 +375,7 @@ public final class MatrixTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toVector_whenIs2x2Matrix() {
+  void testCase_toVector_whenIs2x2Matrix() {
 
     //setup
     final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);

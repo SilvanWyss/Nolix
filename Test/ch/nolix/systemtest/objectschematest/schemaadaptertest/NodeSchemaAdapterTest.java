@@ -10,11 +10,11 @@ import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
 //class
-public final class NodeSchemaAdapterTest extends StandardTest {
+final class NodeSchemaAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void test_creation() {
+  void test_creation() {
 
     //setup
     final var database = new MutableNode();
@@ -37,7 +37,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void test_addTable_whenSavesChangesAndResets() {
+  void test_addTable_whenSavesChangesAndResets() {
 
     //setup
     final var database = new MutableNode();
@@ -61,7 +61,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void test_getSaveCount_whenIsNew() {
+  void test_getSaveCount_whenIsNew() {
 
     //setup
     final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
@@ -75,7 +75,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
+  void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
 
     //setup
     final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
@@ -91,7 +91,7 @@ public final class NodeSchemaAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
+  void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
 
     //setup
     final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());

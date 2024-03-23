@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class ReferenceOnDatabaseTest extends StandardTest {
+final class ReferenceOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Pet extends Entity {
@@ -22,17 +22,17 @@ public final class ReferenceOnDatabaseTest extends StandardTest {
   private static final class Person extends Entity {
 
     //attribute
-    public final Reference<Pet> pet = Reference.forEntity(Pet.class);
+    final Reference<Pet> pet = Reference.forEntity(Pet.class);
 
     //constructor
-    public Person() {
+    Person() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_getStoredEntity_whenIsNewAndContainsAny() {
+  void testCase_getStoredEntity_whenIsNewAndContainsAny() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -53,7 +53,7 @@ public final class ReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredEntity_whenIsLoadedAndContainsAny() {
+  void testCase_getStoredEntity_whenIsLoadedAndContainsAny() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();
@@ -78,7 +78,7 @@ public final class ReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenIsNewAndEmpty() {
+  void testCase_isSaved_whenIsNewAndEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -93,7 +93,7 @@ public final class ReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenIsEditedAndReferencedEntityIsDeleted() {
+  void testCase_isSaved_whenIsEditedAndReferencedEntityIsDeleted() {
 
     //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
@@ -126,7 +126,7 @@ public final class ReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot() {
+  void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -145,7 +145,7 @@ public final class ReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot_andIsSaved() {
+  void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot_andIsSaved() {
 
     //setup
     final var nodeDatabase = new MutableNode();

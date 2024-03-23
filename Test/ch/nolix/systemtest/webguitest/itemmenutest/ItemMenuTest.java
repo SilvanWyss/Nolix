@@ -9,12 +9,12 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
+abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
 extends ControlTest<IM> {
 
   //method
   @Test
-  public final void testCase_addItemWithIdAndText() {
+  final void testCase_addItemWithIdAndText() {
 
     //setup
     final var testUnit = createTestUnit();
@@ -37,7 +37,7 @@ extends ControlTest<IM> {
 
   //method
   @Test
-  public final void testCase_selectItemById_whenContainsItemWithGivenId() {
+  final void testCase_selectItemById_whenContainsItemWithGivenId() {
 
     //setup
     final var item = ItemMenuItem.withIdAndText("my_id_2", "my_text_2");

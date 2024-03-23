@@ -11,7 +11,7 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
+final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
 
   //static enum
   private enum CustomState {
@@ -25,14 +25,14 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
   private static final class CustomFormatElement extends MultiStateConfiguration<CustomFormatElement, CustomState> {
 
     //attribute
-    public final NonCascadingProperty<CustomState, Color> color = new NonCascadingProperty<>(
+    final NonCascadingProperty<CustomState, Color> color = new NonCascadingProperty<>(
       "Color",
       CustomState.class,
       Color::fromSpecification,
       Color::getSpecification);
 
     //constructor
-    public CustomFormatElement() {
+    CustomFormatElement() {
 
       super(CustomState.A);
 
@@ -42,7 +42,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
 
   //method
   @Test
-  public void testCase_addOrChangeAttribute_1A() {
+  void testCase_addOrChangeAttribute_1A() {
 
     //setup
     final var testUnit = new CustomFormatElement();
@@ -56,7 +56,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
 
   //method
   @Test
-  public void testCase_addOrChangeAttribute_1B() {
+  void testCase_addOrChangeAttribute_1B() {
 
     //setup
     final var testUnit = new CustomFormatElement();
@@ -70,7 +70,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
 
   //method
   @Test
-  public void testCase_addOrChangeAttribute_1C() {
+  void testCase_addOrChangeAttribute_1C() {
 
     //setup
     final var testUnit = new CustomFormatElement();
@@ -84,7 +84,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
 
   //method
   @Test
-  public void testCase_addOrChangeAttribute_1D() {
+  void testCase_addOrChangeAttribute_1D() {
 
     //setup
     final var testUnit = new CustomFormatElement();
@@ -98,7 +98,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //execution
     final var testUnit = new CustomFormatElement();
@@ -109,7 +109,7 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends S
 
   //method
   @Test
-  public void testCase_getSpecification() {
+  void testCase_getSpecification() {
 
     //setup
     final var testUnit = new CustomFormatElement();

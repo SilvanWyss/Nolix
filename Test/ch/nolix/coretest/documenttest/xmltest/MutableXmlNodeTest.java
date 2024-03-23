@@ -8,11 +8,11 @@ import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class MutableXmlNodeTest extends StandardTest {
+final class MutableXmlNodeTest extends StandardTest {
 
   //method
   @Test
-  public void test_toString() {
+  void test_toString() {
 
     //setup
     final var testUnit = new MutableXmlNode().setName("Node");
@@ -26,7 +26,7 @@ public final class MutableXmlNodeTest extends StandardTest {
 
   //method
   @Test
-  public void test_toString_whenHas1Attribute() {
+  void test_toString_whenHas1Attribute() {
 
     //setup
     final var testUnit = new MutableXmlNode().setName("Node").addAttributeWithNameAndValue("key", "value");
@@ -40,7 +40,7 @@ public final class MutableXmlNodeTest extends StandardTest {
 
   //method
   @Test
-  public void test_toString_whenHas1ChildNode() {
+  void test_toString_whenHas1ChildNode() {
 
     //setup
     final var testUnit = new MutableXmlNode().setName("Node").addChildNode(new MutableXmlNode().setName("ChildNode"));
@@ -54,7 +54,7 @@ public final class MutableXmlNodeTest extends StandardTest {
 
   //method
   @Test
-  public void test_toString_whenHas2Attributes() {
+  void test_toString_whenHas2Attributes() {
 
     //setup
     final var testUnit = new MutableXmlNode()
@@ -71,7 +71,7 @@ public final class MutableXmlNodeTest extends StandardTest {
 
   //method
   @Test
-  public void test_toString_whenHas2ChildNodes() {
+  void test_toString_whenHas2ChildNodes() {
 
     //setup
     final var testUnit = new MutableXmlNode()

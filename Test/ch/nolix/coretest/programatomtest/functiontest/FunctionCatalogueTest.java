@@ -8,11 +8,11 @@ import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class FunctionCatalogueTest extends StandardTest {
+final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getFalse() {
+  void testCase_getFalse() {
 
     //execution
     final var result = FunctionCatalogue.getFalse();
@@ -23,7 +23,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getNull() {
+  void testCase_getNull() {
 
     //execution
     final var result = FunctionCatalogue.getNull();
@@ -34,7 +34,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getOne() {
+  void testCase_getOne() {
 
     //execution
     final var result = FunctionCatalogue.getOne();
@@ -45,7 +45,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStringRepresentationOf_whenNullIsGiven() {
+  void testCase_getStringRepresentationOf_whenNullIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getStringRepresentationOf(null);
@@ -56,7 +56,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
+  void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getStringRepresentationOf(2500);
@@ -67,7 +67,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStringRepresentationOf_whenAStringIsGiven() {
+  void testCase_getStringRepresentationOf_whenAStringIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getStringRepresentationOf("Lorem ipsum");
@@ -78,7 +78,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTrue() {
+  void testCase_getTrue() {
 
     //execution
     final var result = FunctionCatalogue.getTrue();
@@ -89,7 +89,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTypeOf_whenIntIsGiven() {
+  void testCase_getTypeOf_whenIntIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getTypeOf(2500);
@@ -100,7 +100,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTypeOf_whenStringIsGiven() {
+  void testCase_getTypeOf_whenStringIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getTypeOf("");
@@ -111,7 +111,7 @@ public final class FunctionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getZero() {
+  void testCase_getZero() {
 
     //execution
     final var result = FunctionCatalogue.getZero();

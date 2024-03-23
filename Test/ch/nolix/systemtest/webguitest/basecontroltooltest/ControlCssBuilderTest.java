@@ -14,7 +14,7 @@ extends StandardTest {
 
   //method
   @Test
-  public final void testCase_whenGivenControlIsNew() {
+  final void testCase_whenGivenControlIsNew() {
 
     //setup
     final var control = createControl();

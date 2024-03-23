@@ -13,11 +13,11 @@ import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 
 //class
-public final class EntityQueryCreatorTest extends StandardTest {
+final class EntityQueryCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {
+  void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {
 
     //setup
     final var testUnit = new EntityQueryCreator();
@@ -33,7 +33,7 @@ public final class EntityQueryCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createQueryToLoadEntitiesOfTable() {
+  void testCase_createQueryToLoadEntitiesOfTable() {
 
     //setup
     final var testUnit = new EntityQueryCreator();
@@ -54,7 +54,7 @@ public final class EntityQueryCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createQueryToLoadEntity() {
+  void testCase_createQueryToLoadEntity() {
 
     //setup
     final var testUnit = new EntityQueryCreator();
@@ -75,7 +75,7 @@ public final class EntityQueryCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createQueryToLoadSchemaTimestamp() {
+  void testCase_createQueryToLoadSchemaTimestamp() {
 
     //setup
     final var testUnit = new EntityQueryCreator();

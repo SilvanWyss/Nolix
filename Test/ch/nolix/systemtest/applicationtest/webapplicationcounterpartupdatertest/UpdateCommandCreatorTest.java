@@ -11,11 +11,11 @@ import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class UpdateCommandCreatorTest extends StandardTest {
+final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSetCssCommandFromWebGui() {
+  void testCase_createSetCssCommandFromWebGui() {
 
     //setup
     final var webGui = new WebGui();
@@ -30,7 +30,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSetTitleCommandForTitle() {
+  void testCase_createSetTitleCommandForTitle() {
 
     //setup
     final var testUnit = new UpdateCommandCreator();
@@ -44,7 +44,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSetTitleCommandFromWebGui() {
+  void testCase_createSetTitleCommandFromWebGui() {
 
     //setup
     final var webGui = new WebGui().setTitle("my_title");
@@ -59,7 +59,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
 
     //setup
     final var webGui = new WebGui();
@@ -74,7 +74,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
 
     //setup
     final var button = new Button();
@@ -90,7 +90,7 @@ public final class UpdateCommandCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
+  void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
 
     //setup
     final var textbox = new Textbox();

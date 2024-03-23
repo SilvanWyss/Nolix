@@ -10,11 +10,11 @@ import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 
 //class
-public final class BackgroundTest extends StandardTest {
+final class BackgroundTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withColor() {
+  void testCase_withColor() {
 
     //execution
     final var result = Background.withColor(Color.BLUE);

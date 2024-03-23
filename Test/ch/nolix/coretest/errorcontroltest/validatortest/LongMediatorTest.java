@@ -13,11 +13,11 @@ import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class LongMediatorTest extends StandardTest {
+final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBetween_whenTheGivenArgumentIsSmallerThanTheGivenMin() {
+  void testCase_isBetween_whenTheGivenArgumentIsSmallerThanTheGivenMin() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", -20);
@@ -31,7 +31,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMin() {
+  void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMin() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 0);
@@ -42,7 +42,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBetween_whenTheGivenArgumentIsBetweenTheGivenMinAndMax() {
+  void testCase_isBetween_whenTheGivenArgumentIsBetweenTheGivenMinAndMax() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 55);
@@ -53,7 +53,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMax() {
+  void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMax() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
@@ -64,7 +64,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBetween_whenTheGivenArgumentIsBiggerThanTheGivenMax() {
+  void testCase_isBetween_whenTheGivenArgumentIsBiggerThanTheGivenMax() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
@@ -78,7 +78,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBiggerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
+  void testCase_isBiggerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
@@ -92,7 +92,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBiggerThan_whenTheGivenArgumentEqualsTheGivenValue() {
+  void testCase_isBiggerThan_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
@@ -106,7 +106,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBiggerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
+  void testCase_isBiggerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
@@ -117,7 +117,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBiggerThanOrEquals_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
+  void testCase_isBiggerThanOrEquals_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
@@ -131,7 +131,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBiggerThanOrEquals_whenTheGivenArgumentEqualsTheGivenValue() {
+  void testCase_isBiggerThanOrEquals_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
@@ -142,7 +142,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isBiggerThanOrEquals_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
+  void testCase_isBiggerThanOrEquals_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
@@ -153,7 +153,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isEqualTo_whenTheGivenArgumenIsBiggerThanTheGivenValue() {
+  void testCase_isEqualTo_whenTheGivenArgumenIsBiggerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
@@ -166,7 +166,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isEqualTo_whenTheGivenArgumentEqualsTheGivenValue() {
+  void testCase_isEqualTo_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
@@ -177,7 +177,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isNotNegative_whenTheGivenArgumentIsNegative() {
+  void testCase_isNotNegative_whenTheGivenArgumentIsNegative() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", -1);
@@ -191,7 +191,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isNotNegative_whenTheGivenArgumentIsZero() {
+  void testCase_isNotNegative_whenTheGivenArgumentIsZero() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 0);
@@ -202,7 +202,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isNotNegative_whenTheGivenArgumentIsPositive() {
+  void testCase_isNotNegative_whenTheGivenArgumentIsPositive() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 1);
@@ -213,7 +213,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPositive_whenTheGivenArgumentIsNegative() {
+  void testCase_isPositive_whenTheGivenArgumentIsNegative() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", -1);
@@ -227,7 +227,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPositive_whenTheGivenArgumentIsZero() {
+  void testCase_isPositive_whenTheGivenArgumentIsZero() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 0);
@@ -241,7 +241,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPositive_whenTheGivenArgumentIsPositive() {
+  void testCase_isPositive_whenTheGivenArgumentIsPositive() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 1);
@@ -252,7 +252,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSmallerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
+  void testCase_isSmallerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
@@ -263,7 +263,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSmallerThan_whenTheGivenArgumentEqualsTheGivenValue() {
+  void testCase_isSmallerThan_whenTheGivenArgumentEqualsTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
@@ -277,7 +277,7 @@ public final class LongMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSmallerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
+  void testCase_isSmallerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);

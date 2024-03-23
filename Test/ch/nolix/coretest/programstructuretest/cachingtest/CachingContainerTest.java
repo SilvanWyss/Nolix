@@ -9,11 +9,11 @@ import ch.nolix.core.programstructure.caching.CachingContainer;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class CachingContainerTest extends StandardTest {
+final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //execution
     final var result = new CachingContainer<String>();
@@ -24,7 +24,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredById() {
+  void testCase_getStoredById() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -40,7 +40,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
+  void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -51,7 +51,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_registerAndGetId() {
+  void testCase_registerAndGetId() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -68,7 +68,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
+  void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -81,7 +81,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_registerAt() {
+  void testCase_registerAt() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -99,7 +99,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
+  void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -113,7 +113,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_registerIfNotRegisterAndGetId() {
+  void testCase_registerIfNotRegisterAndGetId() {
 
     //setup
     final var testUnit = new CachingContainer<String>();
@@ -130,7 +130,7 @@ public final class CachingContainerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
+  void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
     //setup
     final var testUnit = new CachingContainer<String>();

@@ -14,27 +14,27 @@ import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class EntityOnDatabaseTest extends StandardTest {
+final class EntityOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Pet extends Entity {
 
     //attribute
-    public final Value<Integer> ageInYears = Value.withValueType(Integer.class);
+    final Value<Integer> ageInYears = Value.withValueType(Integer.class);
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
 
-    public void setInsertAction_(final Runnable insertAction) {
+    void setInsertAction_(final Runnable insertAction) {
       setInsertAction(insertAction);
     }
   }
 
   //method
   @Test
-  public void testCase_isInserted_whenHasInsertAction() {
+  void testCase_isInserted_whenHasInsertAction() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -56,7 +56,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isLoaded() {
+  void testCase_isLoaded() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -78,7 +78,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved() {
+  void testCase_isSaved() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -97,7 +97,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenIsChangedInTheMeanwhile() {
+  void testCase_isSaved_whenIsChangedInTheMeanwhile() {
 
     //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
@@ -128,7 +128,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
+  void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
 
     //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
@@ -159,7 +159,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_delete_whenIsLoaded() {
+  void testCase_delete_whenIsLoaded() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();
@@ -194,7 +194,7 @@ public final class EntityOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_delete_whenIsClosed() {
+  void testCase_delete_whenIsClosed() {
 
     //setup
     final var nodeDatabase = new MutableNode();

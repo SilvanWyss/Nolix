@@ -8,11 +8,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
 
 //class
-public final class DeepSelectingStyleTest extends StandardTest {
+final class DeepSelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selectsChildElements() {
+  void testCase_selectsChildElements() {
 
     //setup
     final var testUnit = new DeepSelectingStyleBuilder().build();
@@ -26,7 +26,7 @@ public final class DeepSelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_skipsChildElements() {
+  void testCase_skipsChildElements() {
 
     //setup
     final var testUnit = new DeepSelectingStyleBuilder().build();

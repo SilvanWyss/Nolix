@@ -11,11 +11,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class LowerCaseVariableCatalogueTest extends StandardTest {
+final class LowerCaseVariableCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constants() {
+  void testCase_constants() {
 
     //setup
     final var exceptions = LinkedList.withElement(LowerCaseVariableCatalogue.GUI, LowerCaseVariableCatalogue.URL);

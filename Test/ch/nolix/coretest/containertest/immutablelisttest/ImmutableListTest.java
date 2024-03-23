@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class ImmutableListTest extends ContainerTest {
+final class ImmutableListTest extends ContainerTest {
 
   //method
   @Override

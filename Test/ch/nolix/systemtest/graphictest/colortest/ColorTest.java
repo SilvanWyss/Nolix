@@ -8,11 +8,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class ColorTest extends StandardTest {
+final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenGivenColorIsEqual() {
+  void testCase_equals_whenGivenColorIsEqual() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -27,7 +27,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenGivenColorIsNotEqual() {
+  void testCase_equals_whenGivenColorIsNotEqual() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -42,7 +42,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_1A() {
+  void testCase_fromString_1A() {
 
     //execution
     final var result = Color.fromString("0x000000");
@@ -53,7 +53,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_1B() {
+  void testCase_fromString_1B() {
 
     //execution
     final var result = Color.fromString("0xFFFFFF");
@@ -64,7 +64,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getAlphaValue() {
+  void testCase_getAlphaValue() {
 
     //setup
     final var testUnit = Color.fromString("0x102030A0");
@@ -78,7 +78,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getBlueValue() {
+  void testCase_getBlueValue() {
 
     //setup
     final var testUnit = Color.fromString("0x102030A0");
@@ -92,7 +92,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getGreenValue() {
+  void testCase_getGreenValue() {
 
     //setup
     final var testUnit = Color.fromString("0x102030A0");
@@ -106,7 +106,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getColorNameOrHexadecimalString_1A() {
+  void testCase_getColorNameOrHexadecimalString_1A() {
 
     //setup
     final var testUnit = Color.ALICE_BLUE;
@@ -120,7 +120,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getColorNameOrHexadecimalString_1B() {
+  void testCase_getColorNameOrHexadecimalString_1B() {
 
     //setup
     final var testUnit = Color.YELLOW_GREEN;
@@ -134,7 +134,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInvertedColor_1A() {
+  void testCase_getInvertedColor_1A() {
 
     //setup
     final var testUnit = Color.fromLong(0x000000);
@@ -148,7 +148,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getInvertedColor_1B() {
+  void testCase_getInvertedColor_1B() {
 
     //setup
     final var testUnit = Color.fromLong(0xFFFFFF);
@@ -162,7 +162,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getRedValue() {
+  void testCase_getRedValue() {
 
     //setup
     final var testUnit = Color.fromString("0x102030A0");
@@ -176,7 +176,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSpecification() {
+  void testCase_getSpecification() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -190,7 +190,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toHexadecimalStringWithAlphaValue_1A() {
+  void testCase_toHexadecimalStringWithAlphaValue_1A() {
 
     //setup
     final var testUnit = Color.fromString("0x10203000");
@@ -204,7 +204,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toHexadecimalStringWithAlphaValue_1B() {
+  void testCase_toHexadecimalStringWithAlphaValue_1B() {
 
     //setup
     final var testUnit = Color.fromString("0x1020307F");
@@ -218,7 +218,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toHexadecimalStringWithAlphaValue_1C() {
+  void testCase_toHexadecimalStringWithAlphaValue_1C() {
 
     //setup
     final var testUnit = Color.fromString("0x102030FF");
@@ -232,7 +232,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withAlphaValue_1A() {
+  void testCase_withAlphaValue_1A() {
 
     //setup
     final var testUnit = Color.fromString("0x10203000");
@@ -246,7 +246,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withAlphaValue_1B() {
+  void testCase_withAlphaValue_1B() {
 
     //setup
     final var testUnit = Color.fromString("0x10203000");
@@ -260,7 +260,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withFloatingPointAlphaValue_1A() {
+  void testCase_withFloatingPointAlphaValue_1A() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -274,7 +274,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withFloatingPointAlphaValue_1B() {
+  void testCase_withFloatingPointAlphaValue_1B() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -288,7 +288,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withFloatingPointAlphaValue_1C() {
+  void testCase_withFloatingPointAlphaValue_1C() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -302,7 +302,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withFullAlphaValue_1A() {
+  void testCase_withFullAlphaValue_1A() {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
@@ -316,7 +316,7 @@ public final class ColorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withFullAlphaValue_1B() {
+  void testCase_withFullAlphaValue_1B() {
 
     //setup
     final var testUnit = Color.fromString("0x102030A0");

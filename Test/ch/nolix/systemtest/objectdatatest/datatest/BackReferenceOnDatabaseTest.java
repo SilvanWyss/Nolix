@@ -13,16 +13,16 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class BackReferenceOnDatabaseTest extends StandardTest {
+final class BackReferenceOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Person extends Entity {
 
     //attribute
-    public final Reference<Pet> pet = Reference.forEntity(Pet.class);
+    final Reference<Pet> pet = Reference.forEntity(Pet.class);
 
     //constructor
-    public Person() {
+    Person() {
       initialize();
     }
   }
@@ -31,18 +31,18 @@ public final class BackReferenceOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
 
     //attribute
-    public final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
+    final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
       "pet");
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_getStoredEntity_whenIsNewAndEmpty() {
+  void testCase_getStoredEntity_whenIsNewAndEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -57,7 +57,7 @@ public final class BackReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
+  void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -78,7 +78,7 @@ public final class BackReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredEntity_whenIsLoaded() {
+  void testCase_getStoredEntity_whenIsLoaded() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -102,7 +102,7 @@ public final class BackReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenIsEmpty() {
+  void testCase_isSaved_whenIsEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -117,7 +117,7 @@ public final class BackReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
+  void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();
@@ -140,7 +140,7 @@ public final class BackReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
+  void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();

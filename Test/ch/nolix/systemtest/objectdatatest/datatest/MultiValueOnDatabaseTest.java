@@ -12,23 +12,23 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class MultiValueOnDatabaseTest extends StandardTest {
+final class MultiValueOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Round extends Entity {
 
     //attribute
-    public final MultiValue<Integer> amounts = MultiValue.withValueType(Integer.class);
+    final MultiValue<Integer> amounts = MultiValue.withValueType(Integer.class);
 
     //constructor
-    public Round() {
+    Round() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_isSaved_whenIsNewAndEmpty() {
+  void testCase_isSaved_whenIsNewAndEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -47,7 +47,7 @@ public final class MultiValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSaved_whenIsNewAndContainsValue() {
+  void testCase_isSaved_whenIsNewAndContainsValue() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -72,7 +72,7 @@ public final class MultiValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_removeValue_whenIsLoadedAndContainsValue() {
+  void testCase_removeValue_whenIsLoadedAndContainsValue() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();

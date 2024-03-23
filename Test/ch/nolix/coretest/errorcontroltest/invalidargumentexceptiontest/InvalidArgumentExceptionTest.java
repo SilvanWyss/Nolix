@@ -12,11 +12,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class InvalidArgumentExceptionTest extends StandardTest {
+final class InvalidArgumentExceptionTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forArgument_whenArgumentIsNull() {
+  void testCase_forArgument_whenArgumentIsNull() {
 
     //execution
     final var result = InvalidArgumentException.forArgument(null);
@@ -30,7 +30,7 @@ public final class InvalidArgumentExceptionTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forArgument_whenArgumentIsANode() {
+  void testCase_forArgument_whenArgumentIsANode() {
 
     //setup
     final var node = Node.fromString("Parking(Slot(Id(A)), Slot(Id(B)))");
@@ -47,7 +47,7 @@ public final class InvalidArgumentExceptionTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forArgumentAndErrorPredicate() {
+  void testCase_forArgumentAndErrorPredicate() {
 
     //setup
     final var amount = BigDecimal.valueOf(10.5);
@@ -64,7 +64,7 @@ public final class InvalidArgumentExceptionTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forArgumentNameAndArgumentAndErrorPredicate() {
+  void testCase_forArgumentNameAndArgumentAndErrorPredicate() {
 
     //setup
     final var amount = BigDecimal.valueOf(10.5);

@@ -9,11 +9,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class MatrixTest extends ContainerTest {
+final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addColumn() {
+  void testCase_addColumn() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -29,7 +29,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_addRow() {
+  void testCase_addRow() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -45,7 +45,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_getColumn() {
+  void testCase_getColumn() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -69,7 +69,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_getCopy() {
+  void testCase_getCopy() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -90,7 +90,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_getIndexOf() {
+  void testCase_getIndexOf() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -123,7 +123,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_getRow() {
+  void testCase_getRow() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -147,7 +147,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_toLeftRotatedMatrix() {
+  void testCase_toLeftRotatedMatrix() {
 
     //setup
     final var matrix = new Matrix<String>();
@@ -168,7 +168,7 @@ public final class MatrixTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_toRightRotatedMatrix() {
+  void testCase_toRightRotatedMatrix() {
 
     //setup
     final var matrix = new Matrix<String>();

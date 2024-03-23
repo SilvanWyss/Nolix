@@ -8,10 +8,10 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
 
 //class
-public final class MultiReferenceQueryCreatorTest extends StandardTest {
+final class MultiReferenceQueryCreatorTest extends StandardTest {
 
   @Test
-  public void testCase_createQueryToLoadMultiReferenceEntries() {
+  void testCase_createQueryToLoadMultiReferenceEntries() {
 
     //setup
     final var testUnit = new MultiReferenceQueryCreator();

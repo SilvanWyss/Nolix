@@ -15,7 +15,7 @@ extends StandardTest {
 
   //method
   @Test
-  public final void testCase_createHtmlElementForNewControl() {
+  final void testCase_createHtmlElementForNewControl() {
 
     //setup
     final var control = createControl();

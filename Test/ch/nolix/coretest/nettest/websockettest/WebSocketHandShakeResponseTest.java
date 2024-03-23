@@ -8,11 +8,11 @@ import ch.nolix.core.net.websocket.WebSocketHandShakeResponse;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class WebSocketHandShakeResponseTest extends StandardTest {
+final class WebSocketHandShakeResponseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSecWebSocketAccept() {
+  void testCase_getSecWebSocketAccept() {
 
     //parameter definition
     final var secWebSocketKey = "dGhlIHNhbXBsZSBub25jZQ==";
@@ -30,7 +30,7 @@ public final class WebSocketHandShakeResponseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSecWebSocketAccept_2() {
+  void testCase_getSecWebSocketAccept_2() {
 
     //parameter definition
     final var secWebSocketKey = "xqBt3ImNzJbYqRINxEFlkg==";

@@ -16,11 +16,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //class
-public final class TypeMediatorTest extends StandardTest {
+final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
+  void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(String.class);
@@ -34,7 +34,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
+  void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
@@ -45,7 +45,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isAbstract_whenTheGivenArgumentIsNull() {
+  void testCase_isAbstract_whenTheGivenArgumentIsNull() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(null);
@@ -59,7 +59,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isClass_whenTheGivenArgumentIsAClass() {
+  void testCase_isClass_whenTheGivenArgumentIsAClass() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
@@ -70,7 +70,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
+  void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
@@ -84,7 +84,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
+  void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
@@ -99,7 +99,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isClass_whenTheGivenArgumentIsNull() {
+  void testCase_isClass_whenTheGivenArgumentIsNull() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(null);
@@ -113,7 +113,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
+  void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(AbstractList.class);
@@ -127,7 +127,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
+  void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
@@ -138,7 +138,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isConcrete_whenTheGivenArgumentIsNull() {
+  void testCase_isConcrete_whenTheGivenArgumentIsNull() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(null);
@@ -152,7 +152,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isEnum_whenTheGivenArgumentIsAClas() {
+  void testCase_isEnum_whenTheGivenArgumentIsAClas() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
@@ -166,7 +166,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
+  void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
@@ -180,7 +180,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
+  void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
@@ -191,7 +191,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isEnum_whenTheGivenArgumentIsNull() {
+  void testCase_isEnum_whenTheGivenArgumentIsNull() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(null);
@@ -205,7 +205,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
+  void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(String.class);
@@ -219,7 +219,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
+  void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
@@ -230,7 +230,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isImplementing_whenTheGivenArgumentIsNull() {
+  void testCase_isImplementing_whenTheGivenArgumentIsNull() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(null);
@@ -244,7 +244,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
+  void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
@@ -255,7 +255,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isInterface_whenTheGivenArgumentIsAClass() {
+  void testCase_isInterface_whenTheGivenArgumentIsAClass() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
@@ -269,7 +269,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
+  void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
@@ -284,7 +284,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isInterface_whenTheGivenArgumentIsNull() {
+  void testCase_isInterface_whenTheGivenArgumentIsNull() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(null);
@@ -298,7 +298,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
+  void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
@@ -312,7 +312,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
+  void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
@@ -323,7 +323,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
+  void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
@@ -337,7 +337,7 @@ public final class TypeMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
+  void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
 
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);

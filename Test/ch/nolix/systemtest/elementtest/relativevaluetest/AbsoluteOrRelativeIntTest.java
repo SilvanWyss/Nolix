@@ -11,11 +11,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
 //class
-public final class AbsoluteOrRelativeIntTest extends StandardTest {
+final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
+  void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
 
     //setup
     final var specification = Node.fromString("Width(500)");
@@ -30,7 +30,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
+  void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
 
     //setup
     final var specification = Node.fromString("Width(20%)");
@@ -45,7 +45,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getAbsoluteValue_whenIsRelative() {
+  void testCase_getAbsoluteValue_whenIsRelative() {
 
     //setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
@@ -59,7 +59,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getPercentage_whenIsAbsolute() {
+  void testCase_getPercentage_whenIsAbsolute() {
 
     //setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
@@ -73,7 +73,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsolute() {
+  void testCase_getValueRelativeToHundredPercentValue_whenIsAbsolute() {
 
     //setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
@@ -87,7 +87,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
+  void testCase_getValueRelativeToHundredPercentValue_whenIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
 
     //setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
@@ -101,7 +101,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getValueRelativeToHundredPercentValue_whenIsRelative() {
+  void testCase_getValueRelativeToHundredPercentValue_whenIsRelative() {
 
     //setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
@@ -115,7 +115,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getValueRelativeToHundredPercentValue_whenIsRelativeAndTheGivenHundredPercentValueIsZero() {
+  void testCase_getValueRelativeToHundredPercentValue_whenIsRelativeAndTheGivenHundredPercentValueIsZero() {
 
     //setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
@@ -129,7 +129,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withIntValue() {
+  void testCase_withIntValue() {
 
     //execution
     final var result = AbsoluteOrRelativeInt.withIntValue(500);
@@ -141,7 +141,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withPercentage() {
+  void testCase_withPercentage() {
 
     //execution
     final var result = AbsoluteOrRelativeInt.withPercentage(0.2);
@@ -153,7 +153,7 @@ public final class AbsoluteOrRelativeIntTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
+  void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
 
     //execution & verification
     expectRunning(() -> AbsoluteOrRelativeInt.withPercentage(-0.2))

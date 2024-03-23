@@ -10,11 +10,11 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class NetEndPointTest extends StandardTest {
+final class NetEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //parameter definition
     final var port = 50000;
@@ -37,7 +37,7 @@ public final class NetEndPointTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_sendAndGetReply() {
+  void testCase_sendAndGetReply() {
 
     //parameter definition
     final var port = 50000;

@@ -9,11 +9,11 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 
 //class
-public final class MutableImageTest extends StandardTest {
+final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //parameter definition
     final var width = 100;
@@ -37,7 +37,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getBottomLeftPixel() {
+  void testCase_getBottomLeftPixel() {
 
     //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
@@ -52,7 +52,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getBottomRightPixel() {
+  void testCase_getBottomRightPixel() {
 
     //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
@@ -67,7 +67,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getCopy_whenOriginIsChangedAfterwards() {
+  void testCase_getCopy_whenOriginIsChangedAfterwards() {
 
     //setup
     final var testUnit = MutableImage
@@ -96,7 +96,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTopLeftPixel() {
+  void testCase_getTopLeftPixel() {
 
     //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
@@ -111,7 +111,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getTopRightPixel() {
+  void testCase_getTopRightPixel() {
 
     //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
@@ -126,7 +126,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_reset() {
+  void testCase_reset() {
 
     //parameter definition
     final var width = 100;
@@ -155,7 +155,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toLeftRotatedImage() {
+  void testCase_toLeftRotatedImage() {
 
     //setup
     final var testUnit = MutableImage
@@ -179,7 +179,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toRepeatedImage() {
+  void testCase_toRepeatedImage() {
 
     //setup
     final var testUnit = MutableImage
@@ -215,7 +215,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toRightRotatedImage() {
+  void testCase_toRightRotatedImage() {
 
     //setup
     final var testUnit = MutableImage
@@ -239,7 +239,7 @@ public final class MutableImageTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toScaledImage() {
+  void testCase_toScaledImage() {
 
     //setup
     final var testUnit = MutableImage

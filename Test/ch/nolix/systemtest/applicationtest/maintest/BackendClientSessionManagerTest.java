@@ -10,11 +10,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
 //class
-public final class BackendClientSessionManagerTest extends StandardTest {
+final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forClient() {
+  void testCase_forClient() {
 
     //setup
     final var mockBackendClient = new MockBackendClient();
@@ -31,7 +31,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forClient_whenTheGivenClientIsNull() {
+  void testCase_forClient_whenTheGivenClientIsNull() {
 
     //execution & verification
     expectRunning(() -> BackendClientSessionManager.forClient(null))
@@ -42,7 +42,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_popCurrentSession_whenDoesNotContainSession() {
+  void testCase_popCurrentSession_whenDoesNotContainSession() {
 
     //setup
     final var mockBackendClient = new MockBackendClient();
@@ -54,7 +54,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_popCurrentSession_whenContains1Session() {
+  void testCase_popCurrentSession_whenContains1Session() {
 
     //setup
     final var mockBackendClient = new MockBackendClient();
@@ -74,7 +74,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_pushSession_whenDoesNotContainSession() {
+  void testCase_pushSession_whenDoesNotContainSession() {
 
     //setup
     final var mockBackendClient = new MockBackendClient();
@@ -94,7 +94,7 @@ public final class BackendClientSessionManagerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_pushSession_whenContains1Session() {
+  void testCase_pushSession_whenContains1Session() {
 
     //setup
     final var mockBackendClient = new MockBackendClient();

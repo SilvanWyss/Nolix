@@ -21,11 +21,11 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.template.webgui.style.StyleCatalogue;
 
 //class
-public final class StyleCatalogueTest extends StandardTest {
+final class StyleCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_DarkStyle() {
+  void testCase_DarkStyle() {
 
     //setup
     final var webGuiWithVariousContent = createWebGuiWithVariousContent();

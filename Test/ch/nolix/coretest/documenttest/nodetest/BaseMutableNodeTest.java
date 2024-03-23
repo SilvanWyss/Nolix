@@ -8,11 +8,11 @@ import ch.nolix.core.document.node.BaseMutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 //class
-public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
+abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
 
   //method
   @Test
-  public void testCase_removeHeader() {
+  void testCase_removeHeader() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -30,7 +30,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_1A() {
+  void testCase_resetFromString_1A() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -46,7 +46,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_1B() {
+  void testCase_resetFromString_1B() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -62,7 +62,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_2A() {
+  void testCase_resetFromString_2A() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -78,7 +78,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_2B() {
+  void testCase_resetFromString_2B() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -94,7 +94,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_2C() {
+  void testCase_resetFromString_2C() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -110,7 +110,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_2D() {
+  void testCase_resetFromString_2D() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -126,7 +126,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_3A() {
+  void testCase_resetFromString_3A() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -142,7 +142,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_3B() {
+  void testCase_resetFromString_3B() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -158,7 +158,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_resetFromString_whenTheGivenStringIsNotValid() {
+  void testCase_resetFromString_whenTheGivenStringIsNotValid() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -171,7 +171,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
   //method
   @Test
-  public void testCase_setHeader() {
+  void testCase_setHeader() {
 
     //setup
     final var testUnit = createBlankNode();

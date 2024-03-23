@@ -9,11 +9,11 @@ import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class VectorTest extends StandardTest {
+final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenEquals() {
+  void testCase_equals_whenEquals() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -28,7 +28,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenDoesNotEqual() {
+  void testCase_equals_whenDoesNotEqual() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -43,7 +43,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenIsEmptyAndEquals() {
+  void testCase_equals_whenIsEmptyAndEquals() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
@@ -58,7 +58,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_equals_whenIsEmptyAndDoesNotEqual() {
+  void testCase_equals_whenIsEmptyAndDoesNotEqual() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
@@ -73,7 +73,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getEuclidNorm() {
+  void testCase_getEuclidNorm() {
 
     //setup
     final var testUnit = Vector.withValue(6.0, 8.0);
@@ -87,7 +87,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getProduct() {
+  void testCase_getProduct() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -101,7 +101,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getProduct_whenIsEmpty() {
+  void testCase_getProduct_whenIsEmpty() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
@@ -115,7 +115,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSize() {
+  void testCase_getSize() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -129,7 +129,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSize_whenIsEmpty() {
+  void testCase_getSize_whenIsEmpty() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
@@ -143,7 +143,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_1A() {
+  void testCase_getSum_1A() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -158,7 +158,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_1B() {
+  void testCase_getSum_1B() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -173,7 +173,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_whenGivenAddendHasNotSameSize() {
+  void testCase_getSum_whenGivenAddendHasNotSameSize() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -190,7 +190,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_whenIsEmpty() {
+  void testCase_getSum_whenIsEmpty() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
@@ -205,7 +205,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toArray() {
+  void testCase_toArray() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -225,7 +225,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toArray_whenIsEmpty() {
+  void testCase_toArray_whenIsEmpty() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
@@ -239,7 +239,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString() {
+  void testCase_toString() {
 
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
@@ -253,7 +253,7 @@ public final class VectorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString_whenIsEmpty() {
+  void testCase_toString_whenIsEmpty() {
 
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;

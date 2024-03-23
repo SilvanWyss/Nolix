@@ -11,11 +11,11 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 //class
-public final class ServerTest extends StandardTest {
+final class ServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_forHttpPort() {
+  void testCase_forHttpPort() {
     try (final var testUnit = Server.forHttpPort()) {
 
       //verification

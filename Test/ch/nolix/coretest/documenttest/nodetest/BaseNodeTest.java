@@ -10,11 +10,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
+abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
 
   //method
   @Test
-  public final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
+  final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("a");
@@ -25,7 +25,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
+  final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
@@ -39,7 +39,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getStoredChildNodeAt1BasedIndex() {
+  void testCase_getStoredChildNodeAt1BasedIndex() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
@@ -68,7 +68,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getHeader_1A() {
+  void testCase_getHeader_1A() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem(");
@@ -82,7 +82,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getHeader_1B() {
+  void testCase_getHeader_1B() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem)");
@@ -96,7 +96,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getHeader_1C() {
+  void testCase_getHeader_1C() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem.");
@@ -110,7 +110,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getHeader_1D() {
+  void testCase_getHeader_1D() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem,");
@@ -124,7 +124,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getStoredSingleChildNode_1A() {
+  void testCase_getStoredSingleChildNode_1A() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
@@ -138,7 +138,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_getStoredSingleChildNode_1B() {
+  void testCase_getStoredSingleChildNode_1B() {
 
     //setup
     final var testUnit = createBlankNode();
@@ -149,7 +149,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_toString_1() {
+  void testCase_toString_1() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
@@ -163,7 +163,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_toString_2A() {
+  void testCase_toString_2A() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem(");
@@ -177,7 +177,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_toString_2B() {
+  void testCase_toString_2B() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem)");
@@ -191,7 +191,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public void testCase_toString_2C() {
+  void testCase_toString_2C() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("Lorem,");
@@ -205,7 +205,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest
 
   //method
   @Test
-  public final void testCase_toXml() {
+  final void testCase_toXml() {
 
     //setup
     final var testUnit = createNodeWithHeaderAndChildNodes("a");

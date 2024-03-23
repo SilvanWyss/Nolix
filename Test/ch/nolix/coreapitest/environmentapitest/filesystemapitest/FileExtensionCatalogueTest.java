@@ -9,11 +9,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.environmentapi.filesystemapi.FileExtensionCatalogue;
 
 //class
-public final class FileExtensionCatalogueTest extends StandardTest {
+final class FileExtensionCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constants() {
+  void testCase_constants() {
 
     //verification
     for (final var c : GlobalClassTool.getPublicStaticFieldValuesOfClass(FileExtensionCatalogue.class)) {

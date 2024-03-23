@@ -9,11 +9,11 @@ import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class WebSocketHandShakeRequestTest extends StandardTest {
+final class WebSocketHandShakeRequestTest extends StandardTest {
 
   //method
   @Test
-  public void testCase() {
+  void testCase() {
 
     //setup
     final var webSocketHandShakeRequest = new WebSocketHandShakeRequest(

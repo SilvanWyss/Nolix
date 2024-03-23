@@ -12,11 +12,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
 //class
-public final class ComplexNumberTest extends StandardTest {
+final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_1A() {
+  void testCase_constructor_1A() {
 
     //execution
     final var result = new ComplexNumber(0.0, 0.0);
@@ -28,7 +28,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_1B() {
+  void testCase_constructor_1B() {
 
     //execution
     final var result = new ComplexNumber(1.0, 0.0);
@@ -40,7 +40,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_1C() {
+  void testCase_constructor_1C() {
 
     //execution
     final var result = new ComplexNumber(0.0, 1.0);
@@ -52,7 +52,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_2A() {
+  void testCase_constructor_2A() {
 
     //execution
     final var realComponent = new BigDecimal("3.14159265359").setScale(5, RoundingMode.HALF_UP);
@@ -69,7 +69,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_2B() {
+  void testCase_constructor_2B() {
 
     //execution
     final var realComponent = new BigDecimal("3.14159265359").setScale(10, RoundingMode.HALF_UP);
@@ -86,7 +86,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getConjugate_1A() {
+  void testCase_getConjugate_1A() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
@@ -100,7 +100,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getConjugate_1B() {
+  void testCase_getConjugate_1B() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
@@ -114,7 +114,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getConjugate_1C() {
+  void testCase_getConjugate_1C() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
@@ -128,7 +128,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getConjugate_1D() {
+  void testCase_getConjugate_1D() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
@@ -142,7 +142,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMagnitude_1A() {
+  void testCase_getMagnitude_1A() {
 
     //parameter definition
     final var scale = 10;
@@ -159,7 +159,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMagnitude_1B() {
+  void testCase_getMagnitude_1B() {
 
     //parameter definition
     final var scale = 10;
@@ -176,7 +176,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMagnitude_1C() {
+  void testCase_getMagnitude_1C() {
 
     //parameter definition
     final var scale = 10;
@@ -193,7 +193,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMagnitude_2A() {
+  void testCase_getMagnitude_2A() {
 
     //parameter definition
     final var scale = 10;
@@ -210,7 +210,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getMagnitude_2B() {
+  void testCase_getMagnitude_2B() {
 
     //parameter definition
     final var scale = 10;
@@ -227,7 +227,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getProduct_1A() {
+  void testCase_getProduct_1A() {
 
     //parameter definition
     final var factor = new ComplexNumber(0.0, 0.0);
@@ -244,7 +244,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getProduct_1B() {
+  void testCase_getProduct_1B() {
 
     //parameter definition
     final var factor = new ComplexNumber(0.0, 0.0);
@@ -261,7 +261,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_1A() {
+  void testCase_getSum_1A() {
 
     //setup
     final var testUnit = new ComplexNumber(-1.0, -1.0);
@@ -280,7 +280,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_1B() {
+  void testCase_getSum_1B() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
@@ -299,7 +299,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getSum_1C() {
+  void testCase_getSum_1C() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
@@ -318,7 +318,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_inDecimalPlaces() {
+  void testCase_inDecimalPlaces() {
 
     //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 10);
@@ -334,7 +334,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
+  void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, -1.0);
@@ -348,7 +348,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
+  void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
@@ -362,7 +362,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
+  void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
@@ -376,7 +376,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
+  void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, -1.0);
@@ -390,7 +390,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
+  void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
@@ -404,7 +404,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
+  void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
@@ -418,7 +418,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
+  void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
 
     //setup
     final var testUnit = new ComplexNumber(-1.0, 1.0);
@@ -432,7 +432,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
+  void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
@@ -446,7 +446,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
+  void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
@@ -460,7 +460,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
+  void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
 
     //setup
     final var testUnit = new ComplexNumber(-1.0, 0.0);
@@ -474,7 +474,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
+  void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
 
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
@@ -488,7 +488,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
+  void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
 
     //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
@@ -502,7 +502,7 @@ public final class ComplexNumberTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_toString() {
+  void testCase_toString() {
 
     //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 5);

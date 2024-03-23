@@ -14,11 +14,11 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
 
 //class
-public final class StyleTest extends StandardTest {
+final class StyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_styleElement() {
+  void testCase_styleElement() {
 
     //setup part 1: create WebGui
     final var webGui = new WebGui();
@@ -40,7 +40,7 @@ public final class StyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withAttachingAttributesAndSubStyles_whenIsEmpty() {
+  void testCase_withAttachingAttributesAndSubStyles_whenIsEmpty() {
 
     //setup
     final var subStyle1 = new SelectingStyleBuilder().build();
@@ -62,7 +62,7 @@ public final class StyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withAttachingAttributesAndSubStyles_whenContainsAny() {
+  void testCase_withAttachingAttributesAndSubStyles_whenContainsAny() {
 
     //setup
     final var subStyle1 = new SelectingStyleBuilder().build();

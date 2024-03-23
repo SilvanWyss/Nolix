@@ -16,20 +16,20 @@ import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 
 //class
-public final class NodeDataAdapterTest extends StandardTest {
+final class NodeDataAdapterTest extends StandardTest {
 
   //constant
   private static final class Pet extends Entity {
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_close_whenIsOpen() {
+  void testCase_close_whenIsOpen() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -49,7 +49,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_close_whenIsClosed() {
+  void testCase_close_whenIsClosed() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -70,7 +70,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_whenTheGivenDatabaseIsEmpty() {
+  void testCase_constructor_whenTheGivenDatabaseIsEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -86,7 +86,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor_whenTheGivenDatabaseIsNotValid() {
+  void testCase_constructor_whenTheGivenDatabaseIsNotValid() {
 
     //setup
     final var nodeDatabase = MutableNode.fromString("x(y,z)");
@@ -101,7 +101,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getEmptyCopy_whenHasChanges() {
+  void testCase_getEmptyCopy_whenHasChanges() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -122,7 +122,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
+  void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -139,7 +139,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_saveChangesAndReset_whenHasChanges() {
+  void testCase_saveChangesAndReset_whenHasChanges() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -157,7 +157,7 @@ public final class NodeDataAdapterTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
+  void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
 
     //setup part 1: Creates a database.
     final var nodeDatabase = new MutableNode();

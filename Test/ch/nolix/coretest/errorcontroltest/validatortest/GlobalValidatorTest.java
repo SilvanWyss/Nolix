@@ -15,11 +15,11 @@ import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class GlobalValidatorTest extends StandardTest {
+final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsAByte() {
+  void testCase_assertThat_whenTheGivenArgumentIsAByte() {
 
     //setup
     final var argument = (byte) 127;
@@ -33,7 +33,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
+  void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
 
     //setup
     final var argument = new byte[100];
@@ -47,7 +47,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsADouble() {
+  void testCase_assertThat_whenTheGivenArgumentIsADouble() {
 
     //setup
     final var argument = 1.0;
@@ -61,7 +61,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
+  void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
 
     //setup
     final var argument = new double[100];
@@ -75,7 +75,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
+  void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
 
     //setup
     final var argument = 50;
@@ -89,7 +89,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
+  void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
 
     //setup
     final var argument = new int[100];
@@ -103,7 +103,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsALong() {
+  void testCase_assertThat_whenTheGivenArgumentIsALong() {
 
     //setup
     final var argument = 50L;
@@ -117,7 +117,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
+  void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
 
     //setup
     final var argument = new long[100];
@@ -131,7 +131,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
+  void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
 
     //setup
     final var argument = FunctionCatalogue.class.getMethod("doNothing");
@@ -145,7 +145,7 @@ public final class GlobalValidatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_assertThat_whenTheGivenArgumentIsAString() {
+  void testCase_assertThat_whenTheGivenArgumentIsAString() {
 
     //setup
     final var argument = "lorem ipsum";

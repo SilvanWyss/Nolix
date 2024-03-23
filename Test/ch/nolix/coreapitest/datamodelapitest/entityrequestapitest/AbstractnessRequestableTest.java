@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class AbstractnessRequestableTest extends StandardTest {
+final class AbstractnessRequestableTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isConcrete_whenIsAbstract() {
+  void testCase_isConcrete_whenIsAbstract() {
 
     //setup
     final var testUnit = AbstractnessRequestableMock.withIsAbstractFlag(true);
@@ -24,7 +24,7 @@ public final class AbstractnessRequestableTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_isConcrete_whenIsConcrete() {
+  void testCase_isConcrete_whenIsConcrete() {
 
     //setup
     final var testUnit = AbstractnessRequestableMock.withIsAbstractFlag(false);

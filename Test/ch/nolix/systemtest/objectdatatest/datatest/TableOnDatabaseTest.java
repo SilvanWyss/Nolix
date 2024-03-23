@@ -11,20 +11,20 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class TableOnDatabaseTest extends StandardTest {
+final class TableOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Thing extends Entity {
 
     //constructor
-    public Thing() {
+    Thing() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
+  void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
 
     //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
@@ -44,7 +44,7 @@ public final class TableOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
+  void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
 
     //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();

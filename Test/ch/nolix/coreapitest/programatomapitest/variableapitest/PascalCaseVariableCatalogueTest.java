@@ -11,11 +11,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 //class
-public final class PascalCaseVariableCatalogueTest extends StandardTest {
+final class PascalCaseVariableCatalogueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constants() {
+  void testCase_constants() {
 
     //setup
     final var exceptions = LinkedList.withElement(PascalCaseVariableCatalogue.GUI, PascalCaseVariableCatalogue.URL);

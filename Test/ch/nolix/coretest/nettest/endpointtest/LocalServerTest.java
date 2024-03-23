@@ -9,11 +9,11 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
-public final class LocalServerTest extends StandardTest {
+final class LocalServerTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
     try (final var server = new LocalServer()) {
 
       //verification

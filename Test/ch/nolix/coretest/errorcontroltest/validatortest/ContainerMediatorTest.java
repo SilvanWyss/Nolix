@@ -14,11 +14,11 @@ import ch.nolix.core.errorcontrol.validator.ContainerMediator;
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class ContainerMediatorTest extends StandardTest {
+final class ContainerMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_contains_whenTheGivenConditionIsNull() {
+  void testCase_contains_whenTheGivenConditionIsNull() {
 
     //setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
@@ -34,7 +34,7 @@ public final class ContainerMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
+  void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
 
     //setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
@@ -51,7 +51,7 @@ public final class ContainerMediatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
+  void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
 
     //setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");

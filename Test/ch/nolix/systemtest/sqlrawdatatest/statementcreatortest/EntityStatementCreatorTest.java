@@ -13,11 +13,11 @@ import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
 
 //class
-public final class EntityStatementCreatorTest extends StandardTest {
+final class EntityStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToDeleteEntity() {
+  void testCase_createStatementToDeleteEntity() {
 
     //setup
     final var testUnit = new EntityStatementCreator();
@@ -34,7 +34,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToDeleteEntityHead() {
+  void testCase_createStatementToDeleteEntityHead() {
 
     //setup
     final var testUnit = new EntityStatementCreator();
@@ -49,7 +49,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToExpectTableContainsEntity() {
+  void testCase_createStatementToExpectTableContainsEntity() {
 
     //setup
     final var testUnit = new EntityStatementCreator();
@@ -68,7 +68,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToInsertNewEntity() {
+  void testCase_createStatementToInsertNewEntity() {
 
     //setup
     final var testUnit = new EntityStatementCreator();
@@ -90,7 +90,7 @@ public final class EntityStatementCreatorTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_createStatementToUpdateEntityOnTable() {
+  void testCase_createStatementToUpdateEntityOnTable() {
 
     //setup
     final var testUnit = new EntityStatementCreator();

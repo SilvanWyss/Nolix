@@ -11,11 +11,11 @@ import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.application.webapplication.WebClient;
 
 //class
-public final class BasicApplicationTest extends StandardTest {
+final class BasicApplicationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withNameAndInitialSessionClassAndContext() {
+  void testCase_withNameAndInitialSessionClassAndContext() {
 
     //setup
     final var applicationContext = new VoidObject();

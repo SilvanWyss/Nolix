@@ -7,7 +7,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
-public final class HorizontalStackTest extends ControlTest<IHorizontalStack> {
+final class HorizontalStackTest extends ControlTest<IHorizontalStack> {
 
   //method
   @Override

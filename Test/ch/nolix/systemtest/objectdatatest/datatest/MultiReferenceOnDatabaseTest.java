@@ -12,16 +12,16 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
 //class
-public final class MultiReferenceOnDatabaseTest extends StandardTest {
+final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Person extends Entity {
 
     //attribute
-    public final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
+    final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
 
     //constructor
-    public Person() {
+    Person() {
       initialize();
     }
   }
@@ -30,14 +30,14 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_whenIsLoadedAndEmpty() {
+  void testCase_whenIsLoadedAndEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -56,7 +56,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_whenIsLoadedAndNotEmpty() {
+  void testCase_whenIsLoadedAndNotEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -83,7 +83,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_whenReferencedEntityIsLoadedAndDeleted() {
+  void testCase_whenReferencedEntityIsLoadedAndDeleted() {
 
     //setup part 1: initialize database
     final var nodeDatabase = new MutableNode();
@@ -109,7 +109,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
+  void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
 
     //setup part 1: initialize database
     final var nodeDatabase = new MutableNode();
@@ -143,7 +143,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
+  void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -162,7 +162,7 @@ public final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
+  void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
 
     //setup
     final var nodeDatabase = new MutableNode();

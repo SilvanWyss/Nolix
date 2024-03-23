@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlCssBuilderTest;
 
 //class
-public final class ButtonCssBuilderTest extends ControlCssBuilderTest<ButtonCssBuilder, IButton> {
+final class ButtonCssBuilderTest extends ControlCssBuilderTest<ButtonCssBuilder, IButton> {
 
   //method
   @Override

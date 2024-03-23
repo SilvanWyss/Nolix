@@ -10,11 +10,11 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy2Predecessor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 //class
-public final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
+final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
 
   //method
   @Test
-  public void test_getValueAt1BasedIndex() {
+  void test_getValueAt1BasedIndex() {
 
     //setup
     final var testUnit = new ComplexSequenceDefinedBy2Predecessor(

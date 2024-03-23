@@ -9,11 +9,11 @@ import ch.nolix.coreapi.netapi.netproperty.BaseConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 
 //class
-public final class ConnectionTypeTest extends StandardTest {
+final class ConnectionTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getBaseType_whenIsLocal() {
+  void testCase_getBaseType_whenIsLocal() {
 
     //setup
     final var testUnit = ConnectionType.LOCAL;
@@ -27,7 +27,7 @@ public final class ConnectionTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getBaseType_whenIsSocket() {
+  void testCase_getBaseType_whenIsSocket() {
 
     //setup
     final var testUnit = ConnectionType.SOCKET;
@@ -41,7 +41,7 @@ public final class ConnectionTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getBaseType_whenIsWebSocket() {
+  void testCase_getBaseType_whenIsWebSocket() {
 
     //setup
     final var testUnit = ConnectionType.WEB_SOCKET;

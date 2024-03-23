@@ -9,11 +9,11 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //class
-public final class TimeTest extends StandardTest {
+final class TimeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDay() {
+  void testCase_getDay() {
 
     //setup
     final var testUnit = Time
@@ -41,7 +41,7 @@ public final class TimeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getWeekday_whenIs2020_01_01() {
+  void testCase_getWeekday_whenIs2020_01_01() {
 
     //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 1);
@@ -55,7 +55,7 @@ public final class TimeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getWeekday_whenIs2020_01_02() {
+  void testCase_getWeekday_whenIs2020_01_02() {
 
     //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 2);
@@ -69,7 +69,7 @@ public final class TimeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getWeekday_whenIs2020_01_03() {
+  void testCase_getWeekday_whenIs2020_01_03() {
 
     //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 3);
@@ -83,7 +83,7 @@ public final class TimeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withYearAndMonthOfYearAndDayOfMonth() {
+  void testCase_withYearAndMonthOfYearAndDayOfMonth() {
     for (var y = 1600; y <= 3000; y++) {
       for (var m = 1; m <= 12; m++) {
 
@@ -110,7 +110,7 @@ public final class TimeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour() {
+  void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour() {
 
     //main loop
     for (var h = 0; h <= 23; h++) {

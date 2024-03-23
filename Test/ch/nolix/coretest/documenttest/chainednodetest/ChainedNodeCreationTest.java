@@ -10,11 +10,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.test.StandardTest;
 
 //class
-public final class ChainedNodeCreationTest extends StandardTest {
+final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromNode_whenNodeIsBlank() {
+  void testCase_fromNode_whenNodeIsBlank() {
 
     //setup
     final var node = Node.EMPTY_NODE;
@@ -31,7 +31,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromNode_whenNodeHasHeaderOnly() {
+  void testCase_fromNode_whenNodeHasHeaderOnly() {
 
     //setup
     final var node = Node.withHeader("a");
@@ -45,7 +45,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_A1() {
+  void testCase_fromString_A1() {
 
     //execution
     final var result = ChainedNode.fromString("");
@@ -59,7 +59,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_A2() {
+  void testCase_fromString_A2() {
 
     //execution
     final var result = ChainedNode.fromString("a");
@@ -73,7 +73,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_A3() {
+  void testCase_fromString_A3() {
 
     //execution
     final var result = ChainedNode.fromString("a(b)");
@@ -87,7 +87,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_B1() {
+  void testCase_fromString_B1() {
 
     //execution
     final var result = ChainedNode.fromString("a.b");
@@ -101,7 +101,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_B2() {
+  void testCase_fromString_B2() {
 
     //execution
     final var result = ChainedNode.fromString("a(b).c");
@@ -115,7 +115,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_B3() {
+  void testCase_fromString_B3() {
 
     //execution
     final var result = ChainedNode.fromString("a.b(c)");
@@ -129,7 +129,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_B4() {
+  void testCase_fromString_B4() {
 
     //execution
     final var result = ChainedNode.fromString("(a.b).c");
@@ -143,7 +143,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_B5() {
+  void testCase_fromString_B5() {
 
     //execution
     final var result = ChainedNode.fromString("a.(b.c)");
@@ -157,7 +157,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_B6() {
+  void testCase_fromString_B6() {
 
     //execution
     final var result = ChainedNode.fromString("a.b.c");
@@ -171,7 +171,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_C1() {
+  void testCase_fromString_C1() {
 
     //execution
     final var result = ChainedNode.fromString("a(b,c,d)");
@@ -185,7 +185,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_C2() {
+  void testCase_fromString_C2() {
 
     //execution
     final var result = ChainedNode.fromString("a(b(c),d(e),f(g))");
@@ -199,7 +199,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_C3() {
+  void testCase_fromString_C3() {
 
     //execution
     final var result = ChainedNode.fromString("a(b.c,d.e,f.g)");
@@ -213,7 +213,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_C4() {
+  void testCase_fromString_C4() {
 
     //execution
     final var result = ChainedNode.fromString("a(b(c).d,e(f).g,h(i).j)");
@@ -227,7 +227,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_C5() {
+  void testCase_fromString_C5() {
 
     //execution
     final var result = ChainedNode.fromString("a(b.c(d),e.(f.g),h.(i,j))");
@@ -241,7 +241,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_fromString_C6() {
+  void testCase_fromString_C6() {
 
     //execution
     final var result = ChainedNode.fromString("a(b.c.d,e.f.g,h.i.j)");
@@ -255,7 +255,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withHeader_whenNullHeaderIsGiven() {
+  void testCase_withHeader_whenNullHeaderIsGiven() {
 
     //execution & verification
     expectRunning(() -> ChainedNode.withHeader(null))
@@ -266,7 +266,7 @@ public final class ChainedNodeCreationTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_withHeader_whenHeaderIsGiven() {
+  void testCase_withHeader_whenHeaderIsGiven() {
 
     //execution
     final var result = ChainedNode.withHeader("a");

@@ -11,11 +11,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-public final class ArrayReadContainerTest extends ContainerTest {
+final class ArrayReadContainerTest extends ContainerTest {
 
   //method
   @Test
-  public void testCase_forArray_whenTheGivenArrayIsNull() {
+  void testCase_forArray_whenTheGivenArrayIsNull() {
 
     //execution & verification
     expectRunning(() -> ArrayReadContainer

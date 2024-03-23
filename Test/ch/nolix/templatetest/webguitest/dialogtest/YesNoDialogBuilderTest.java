@@ -20,11 +20,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 
 //class
-public final class YesNoDialogBuilderTest extends StandardTest {
+final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build() {
+  void testCase_build() {
 
     //setup
     final var testUnit = new YesNoDialogBuilder();
@@ -55,7 +55,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build_thenClickCancelButton() {
+  void testCase_build_thenClickCancelButton() {
 
     //setup
     final var testUnit = new YesNoDialogBuilder();
@@ -75,7 +75,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build_thenClickConfirmButton() {
+  void testCase_build_thenClickConfirmButton() {
 
     //setup
     final var testUnit = new YesNoDialogBuilder();
@@ -95,7 +95,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build_thenAddToWebGui_thenClickCancelButton() {
+  void testCase_build_thenAddToWebGui_thenClickCancelButton() {
 
     //setup
     final var webGui = new WebGui();
@@ -118,7 +118,7 @@ public final class YesNoDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
+  void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
 
     //setup
     final var webGui = new WebGui();

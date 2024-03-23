@@ -18,11 +18,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
 //class
-public final class ShowValueDialogBuilderTest extends StandardTest {
+final class ShowValueDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build() {
+  void testCase_build() {
 
     //setup
     final var testUnit = new ShowValueDialogBuilder();
@@ -51,7 +51,7 @@ public final class ShowValueDialogBuilderTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
+  void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
 
     //setup
     final var webGui = new WebGui();

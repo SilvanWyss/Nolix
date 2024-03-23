@@ -9,11 +9,11 @@ import ch.nolix.system.objectdata.data.OptionalValue;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class OptionalValueTest extends StandardTest {
+final class OptionalValueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_clear() {
+  void testCase_clear() {
 
     //setup
     final var testUnit = OptionalValue.withInitialValue("LoremIpsum");
@@ -27,7 +27,7 @@ public final class OptionalValueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_constructor() {
+  void testCase_constructor() {
 
     //execution
     final var result = OptionalValue.withValueType(String.class);
@@ -43,7 +43,7 @@ public final class OptionalValueTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_setValue() {
+  void testCase_setValue() {
 
     //setup
     final var testUnit = OptionalValue.withValueType(String.class);

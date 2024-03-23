@@ -9,11 +9,11 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
 //class
-public final class DataTypeTest extends StandardTest {
+final class DataTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDataTypeClass_whenIsInteger8Byte() {
+  void testCase_getDataTypeClass_whenIsInteger8Byte() {
 
     //setup
     final var testUnit = DataType.INTEGER_8BYTE;
@@ -27,7 +27,7 @@ public final class DataTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDataTypeClass_whenIsFloatingPointNumber8Byte() {
+  void testCase_getDataTypeClass_whenIsFloatingPointNumber8Byte() {
 
     //setup
     final var testUnit = DataType.FLOATING_POINT_NUMBER_8BYTE;
@@ -41,7 +41,7 @@ public final class DataTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDataTypeClass_whenIsBoolean() {
+  void testCase_getDataTypeClass_whenIsBoolean() {
 
     //setup
     final var testUnit = DataType.BOOLEAN;
@@ -55,7 +55,7 @@ public final class DataTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDataTypeClass_whenIsText() {
+  void testCase_getDataTypeClass_whenIsText() {
 
     //setup
     final var testUnit = DataType.TEXT;
@@ -69,7 +69,7 @@ public final class DataTypeTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getDataTypeClass_whenIsImage() {
+  void testCase_getDataTypeClass_whenIsImage() {
 
     //setup
     final var testUnit = DataType.IMAGE;

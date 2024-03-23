@@ -10,11 +10,11 @@ import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
 import ch.nolix.system.graphic.image.Image;
 
 //class
-public final class SelectingStyleTest extends StandardTest {
+final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveAnId() {
+  void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveAnId() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -34,7 +34,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
+  void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -55,7 +55,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
+  void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -76,7 +76,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
+  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -93,7 +93,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
+  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -110,7 +110,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
+  void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
@@ -127,7 +127,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_selectsChildElements() {
+  void testCase_selectsChildElements() {
 
     //setup
     final var testUnit = new SelectingStyleBuilder().build();
@@ -141,7 +141,7 @@ public final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_skipsChildElements() {
+  void testCase_skipsChildElements() {
 
     //setup
     final var testUnit = new SelectingStyleBuilder().build();

@@ -13,23 +13,23 @@ import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 //class
-public final class ValueOnDatabaseTest extends StandardTest {
+final class ValueOnDatabaseTest extends StandardTest {
 
   //constant
   private static final class Pet extends Entity {
 
     //attribute
-    public final Value<String> name = Value.withValueType(String.class);
+    final Value<String> name = Value.withValueType(String.class);
 
     //constructor
-    public Pet() {
+    Pet() {
       initialize();
     }
   }
 
   //method
   @Test
-  public void testCase_isSaved_whenIsEmpty() {
+  void testCase_isSaved_whenIsEmpty() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -44,7 +44,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
+  void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -63,7 +63,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
+  void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();
@@ -87,7 +87,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getState_whenIsNewAndNotEdited() {
+  void testCase_getState_whenIsNewAndNotEdited() {
 
     //setup
     final var garfield = new Pet();
@@ -104,7 +104,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getState_whenIsNewAndEdited() {
+  void testCase_getState_whenIsNewAndEdited() {
 
     //setup
     final var garfield = new Pet();
@@ -122,7 +122,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getState_whenIsClosed() {
+  void testCase_getState_whenIsClosed() {
 
     //setup
     final var nodeDatabase = new MutableNode();
@@ -145,7 +145,7 @@ public final class ValueOnDatabaseTest extends StandardTest {
 
   //method
   @Test
-  public void testCase_getState_whenIsLoaded() {
+  void testCase_getState_whenIsLoaded() {
 
     //setup part 1
     final var nodeDatabase = new MutableNode();
