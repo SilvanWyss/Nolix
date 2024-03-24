@@ -3,6 +3,8 @@ package ch.nolix.coretest.documenttest.nodetest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
@@ -68,59 +70,27 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_getHeader_1A() {
+  @ParameterizedTest
+  @ValueSource(strings = {
+  "LoremXIpsum",
+  "Lorem$Ipsum",
+  "Lorem(Ipsum",
+  "Lorem)Ipsum",
+  "Lorem[Ipsum",
+  "Lorem]Ipsum",
+  "Lorem.Ipsum",
+  "Lorem,Ipsum",
+  "Lorem Ipsum" })
+  void testCase_getHeader(final String header) {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("Lorem(");
+    final var testUnit = createNodeWithHeaderAndChildNodes(header);
 
     //execution
     final var result = testUnit.getHeader();
 
     //verification
-    expect(result).isEqualTo("Lorem(");
-  }
-
-  //method
-  @Test
-  void testCase_getHeader_1B() {
-
-    //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("Lorem)");
-
-    //execution
-    final var result = testUnit.getHeader();
-
-    //verification
-    expect(result).isEqualTo("Lorem)");
-  }
-
-  //method
-  @Test
-  void testCase_getHeader_1C() {
-
-    //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("Lorem.");
-
-    //execution
-    final var result = testUnit.getHeader();
-
-    //verification
-    expect(result).isEqualTo("Lorem.");
-  }
-
-  //method
-  @Test
-  void testCase_getHeader_1D() {
-
-    //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("Lorem,");
-
-    //execution
-    final var result = testUnit.getHeader();
-
-    //verification
-    expect(result).isEqualTo("Lorem,");
+    expect(result).isEqualTo(header);
   }
 
   //method
