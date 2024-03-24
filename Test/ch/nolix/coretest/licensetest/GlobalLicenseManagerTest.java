@@ -18,6 +18,25 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 final class GlobalLicenseManagerTest extends StandardTest {
 
+  //constant
+  private static final class TestLicense extends License {
+  
+    @Override
+    protected boolean acceptsFilteredKey(String key) {
+      return Objects.equals(key, "00000000");
+    }
+  }
+
+  //constant
+  //This class must be public that it can be processed by reflection.
+  public static final class TestFeature extends Feature {
+  
+    @Override
+    public IContainer<Class<?>> getAuthorizedLicenseTypes() {
+      return LinkedList.withElement(TestLicense.class);
+    }
+  }
+
   //method
   @Test
   void testCase_requireFeature_whenLicenseIsNotThere() {
@@ -40,24 +59,5 @@ final class GlobalLicenseManagerTest extends StandardTest {
 
     //cleanup
     GlobalLicenseManager.removeLicense(testLicense);
-  }
-
-  //constant
-  private static final class TestLicense extends License {
-
-    @Override
-    protected boolean acceptsFilteredKey(String key) {
-      return Objects.equals(key, "00000000");
-    }
-  }
-
-  //constant
-  //This class must be that it can be processed by reflection.
-  static final class TestFeature extends Feature {
-
-    @Override
-    public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-      return LinkedList.withElement(TestLicense.class);
-    }
   }
 }
