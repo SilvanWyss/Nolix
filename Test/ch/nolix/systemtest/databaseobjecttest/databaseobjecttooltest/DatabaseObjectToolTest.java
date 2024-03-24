@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.databaseobjecttest.databaseobjecttooltest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;

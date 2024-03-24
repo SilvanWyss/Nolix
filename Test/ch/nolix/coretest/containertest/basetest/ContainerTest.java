@@ -4,6 +4,7 @@ package ch.nolix.coretest.containertest.basetest;
 //Java imports
 import java.math.BigDecimal;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.linearcontainertest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;

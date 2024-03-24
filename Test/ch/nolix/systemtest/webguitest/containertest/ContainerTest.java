@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.containertest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;

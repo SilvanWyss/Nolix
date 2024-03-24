@@ -5,6 +5,7 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

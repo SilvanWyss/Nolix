@@ -4,6 +4,7 @@ package ch.nolix.coretest.licensetest;
 //Java imports
 import java.util.Objects;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

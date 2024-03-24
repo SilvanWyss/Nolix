@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.elementtest.mutableelementtest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

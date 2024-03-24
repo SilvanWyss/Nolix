@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.itemmenutest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.system.webgui.itemmenu.ItemMenuItem;

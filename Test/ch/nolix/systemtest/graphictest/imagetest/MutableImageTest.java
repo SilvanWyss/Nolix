@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.graphictest.imagetest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

@@ -1,5 +1,6 @@
 package ch.nolix.coreapitest.datamodelapitest.entityrequestapitest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

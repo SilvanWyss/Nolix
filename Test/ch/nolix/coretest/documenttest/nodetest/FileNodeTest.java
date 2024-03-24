@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
+//JUnit imports
 import org.junit.jupiter.api.AfterEach;
 
 //own imports

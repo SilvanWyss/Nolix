@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.targettest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

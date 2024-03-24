@@ -5,6 +5,7 @@ package ch.nolix.coretest.nettest.websockettest;
 import java.io.IOException;
 import java.io.InputStream;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

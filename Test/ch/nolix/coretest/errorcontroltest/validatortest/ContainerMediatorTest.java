@@ -4,6 +4,7 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 //Java imports
 import java.util.function.Predicate;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports

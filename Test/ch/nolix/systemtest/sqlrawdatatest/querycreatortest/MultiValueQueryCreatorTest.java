@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports
