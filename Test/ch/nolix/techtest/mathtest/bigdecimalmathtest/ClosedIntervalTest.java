@@ -4,7 +4,10 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -29,70 +32,39 @@ final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_containsValue_whenMinIsGiven() {
+  @ParameterizedTest
+  @CsvSource({
+  "0.0, 1.0, 0.0", //value = min
+  "0.0, 1.0, 1.0", //value = max
+  "0.0, 1.0, 0.5", //value = mid point
+  })
+  void testCase_containsValue_whenContainsTheGivenValue(final double min, final double max, final double value) {
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
+    final var testUnit = new ClosedInterval(min, max);
+    final var valueAsBigDecimal = BigDecimal.valueOf(value);
 
     //execution
-    final var result = testUnit.containsValue(BigDecimal.valueOf(0.0));
+    final var result = testUnit.containsValue(valueAsBigDecimal);
 
     //verification
     expect(result);
   }
 
   //method
-  @Test
-  void testCase_containsValue_whenMaxIsGiven() {
+  @ParameterizedTest
+  @CsvSource({
+  "0.0, 1.0, -1.0", //The given value is smaller than min.
+  "0.0, 1.0, 2.0", //The given value is bigger than max.
+  })
+  void testCase_containsValue_whenDoesNotContainTheGivenValue(final double min, final double max, final double value) {
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
+    final var testUnit = new ClosedInterval(min, max);
+    final var valueAsBigDecimal = BigDecimal.valueOf(value);
 
     //execution
-    final var result = testUnit.containsValue(BigDecimal.valueOf(1.0));
-
-    //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_containsValue_whenMidpointIsGiven() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-
-    //execution
-    final var result = testUnit.containsValue(BigDecimal.valueOf(0.5));
-
-    //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_containsValue_whenSmallerValueIsGiven() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-
-    //execution
-    final var result = testUnit.containsValue(BigDecimal.valueOf(-1.0));
-
-    //verification
-    expectNot(result);
-  }
-
-  //method
-  @Test
-  void testCase_containsValue_whenBiggerValueIsGiven() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-
-    //execution
-    final var result = testUnit.containsValue(BigDecimal.valueOf(2.0));
+    final var result = testUnit.containsValue(valueAsBigDecimal);
 
     //verification
     expectNot(result);
