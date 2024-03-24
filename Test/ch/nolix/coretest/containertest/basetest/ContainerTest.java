@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -373,101 +375,28 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   //method
-  @Test
-  final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
+  @ParameterizedTest
+  @CsvSource({
+  "0, 10",
+  "1, 8",
+  "2, 6",
+  "3, 4",
+  "4, 2",
+  "5, 0",
+  "6, 0",
+  "7, 0",
+  "8, 0",
+  })
+  final void testCase_getCount(final int minLength, final int expectedCount) {
 
     //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
+    final var testUnit = createContainerWithElements("", "", "x", "x", "xx", "xx", "xxx", "xxx", "xxxx", "xxxx");
 
     //execution
-    final var result = testUnit.getCount(e -> e.length() > 0);
+    final var result = testUnit.getCount(e -> e.length() >= minLength);
 
     //verification
-    expect(result).isEqualTo(6);
-  }
-
-  //method
-  @Test
-  final void testCase_getCount_withIElementTakterBooleanGetter_1B() {
-
-    //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-
-    //execution
-    final var result = testUnit.getCount(e -> e.length() > 1);
-
-    //verification
-    expect(result).isEqualTo(5);
-  }
-
-  //method
-  @Test
-  final void testCase_getCount_withIElementTakterBooleanGetter_1C() {
-
-    //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-
-    //execution
-    final var result = testUnit.getCount(e -> e.length() > 2);
-
-    //verification
-    expect(result).isEqualTo(4);
-  }
-
-  //method
-  @Test
-  final void testCase_gettCount_withIElementTakterBooleanGetter_1D() {
-
-    //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-
-    //execution
-    final var result = testUnit.getCount(e -> e.length() > 3);
-
-    //verification
-    expect(result).isEqualTo(3);
-  }
-
-  //method
-  @Test
-  final void testCase_getCount_withIElementTakterBooleanGetter_1E() {
-
-    //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-
-    //execution
-    final var result = testUnit.getCount(e -> e.length() > 4);
-
-    //verification
-    expect(result).isEqualTo(2);
-  }
-
-  //method
-  @Test
-  final void testCase_getCount_withIElementTakterBooleanGetter_1F() {
-
-    //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-
-    //execution
-    final var result = testUnit.getCount(e -> e.length() > 5);
-
-    //verification
-    expect(result).isEqualTo(1);
-  }
-
-  //method
-  @Test
-  final void testCase_getCount_withIElementTakterBooleanGetter_1G() {
-
-    //setup
-    final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-
-    //execution
-    final var result = testUnit.getCount(e -> e.length() > 6);
-
-    //verification
-    expect(result).isEqualTo(0);
+    expect(result).isEqualTo(expectedCount);
   }
 
   //method
