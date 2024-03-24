@@ -62,7 +62,7 @@ final class CachingContainerTest extends StandardTest {
     final var result = testUnit.registerAndGetId(garfield);
 
     //verification
-    expect(testUnit.getElementCount()).isEqualTo(1);
+    expect(testUnit.getCount()).isEqualTo(1);
     expect(testUnit.containsWithId(result));
     expect(testUnit.contains(garfield));
   }
@@ -93,7 +93,7 @@ final class CachingContainerTest extends StandardTest {
     testUnit.registerAtId(garfieldId, garfield);
 
     //verification
-    expect(testUnit.getElementCount()).isEqualTo(1);
+    expect(testUnit.getCount()).isEqualTo(1);
     expect(testUnit.containsWithId(garfieldId));
     expect(testUnit.contains(garfield));
   }
@@ -124,7 +124,7 @@ final class CachingContainerTest extends StandardTest {
     final var result = testUnit.registerIfNotRegisteredAndGetId(garfield);
 
     //verification
-    expect(testUnit.getElementCount()).isEqualTo(1);
+    expect(testUnit.getCount()).isEqualTo(1);
     expect(testUnit.containsWithId(result));
     expect(testUnit.contains(garfield));
   }

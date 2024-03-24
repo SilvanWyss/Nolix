@@ -212,7 +212,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //method
   @Override
   public int getPixelCount() {
-    return pixels.getElementCount();
+    return pixels.getCount();
   }
 
   //method
@@ -303,7 +303,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
     final var lPixelArray = pixelArray.getStoredChildNodes();
 
-    GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels")
+    GlobalValidator.assertThat(lPixelArray.getCount()).thatIsNamed("number of pixels")
       .isEqualTo(getPixelCount());
 
     deletePixelArraySpecificationAndBufferedImage();
@@ -320,7 +320,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
     final var lPixelArray = ReadContainer.forIterable(pixelArray);
 
-    GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels")
+    GlobalValidator.assertThat(lPixelArray.getCount()).thatIsNamed("number of pixels")
       .isEqualTo(getPixelCount());
 
     deletePixelArraySpecificationAndBufferedImage();

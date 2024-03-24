@@ -206,7 +206,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   //method
   @Override
   public int getTableCount(final IDatabase database) {
-    return database.getStoredTables().getElementCount();
+    return database.getStoredTables().getCount();
   }
 
   //method

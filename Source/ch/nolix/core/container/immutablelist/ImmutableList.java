@@ -127,7 +127,7 @@ public final class ImmutableList<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return elements.length;
   }
 
@@ -138,7 +138,7 @@ public final class ImmutableList<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed("1-based index").isBetween(1, getElementCount());
+    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed("1-based index").isBetween(1, getCount());
 
     return elements[p1BasedIndex - 1];
   }
@@ -149,7 +149,7 @@ public final class ImmutableList<E> extends Container<E> {
    */
   @Override
   public E getStoredLast() {
-    return elements[getElementCount() - 1];
+    return elements[getCount() - 1];
   }
 
   //method

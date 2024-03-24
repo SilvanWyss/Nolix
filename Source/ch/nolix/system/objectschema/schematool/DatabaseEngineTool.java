@@ -34,7 +34,7 @@ public final class DatabaseEngineTool extends DatabaseObjectTool implements IDat
   //method
   @Override
   public int getDatabaseCount(final IDatabaseEngine databaseEngine) {
-    return databaseEngine.getStoredDatabases().getElementCount();
+    return databaseEngine.getStoredDatabases().getCount();
   }
 
   //method

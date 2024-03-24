@@ -131,8 +131,8 @@ public final class ReadContainer<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public int getElementCount() {
-    return container.getElementCount();
+  public int getCount() {
+    return container.getCount();
   }
 
   //method

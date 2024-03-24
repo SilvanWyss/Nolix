@@ -80,7 +80,7 @@ public final class Database extends SchemaObject implements IDatabase {
   public int getTableCount() {
 
     if (!isLinkedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
-      return tables.getElementCount();
+      return tables.getCount();
     }
 
     return rawSchemaLinkerAdapter.getTableCount();

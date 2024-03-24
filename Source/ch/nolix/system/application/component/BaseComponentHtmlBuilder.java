@@ -18,7 +18,7 @@ public final class BaseComponentHtmlBuilder implements IControlHtmlBuilder<IComp
 
     final var childControls = control.getStoredChildControls();
 
-    return switch (childControls.getElementCount()) {
+    return switch (childControls.getCount()) {
       case 0 ->
         HtmlElement.withType(HtmlElementTypeCatalogue.DIV);
       case 1 ->

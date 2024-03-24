@@ -104,7 +104,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
     final var sequences = new LinkedList<LinkedList<E>>();
 
-    final int maxSequenceCount = list.getElementCount() - getSize() + 1;
+    final int maxSequenceCount = list.getCount() - getSize() + 1;
 
     //Iterates the given list.
     final var iterator = list.iterator();
@@ -150,7 +150,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    *         {@link SequencePattern}.
    */
   public int getSize() {
-    return elementConditions.getElementCount();
+    return elementConditions.getCount();
   }
 
   //method
@@ -162,7 +162,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
     //Asserts that the given list has as many elements as the current
     //SequencePattern requires.
-    if (list.getElementCount() != getSize()) {
+    if (list.getCount() != getSize()) {
       return false;
     }
 

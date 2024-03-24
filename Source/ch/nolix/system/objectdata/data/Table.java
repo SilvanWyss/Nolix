@@ -97,7 +97,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //method
   @Override
   public int getEntityCount() {
-    return getStoredEntities().getElementCount();
+    return getStoredEntities().getCount();
   }
 
   //method

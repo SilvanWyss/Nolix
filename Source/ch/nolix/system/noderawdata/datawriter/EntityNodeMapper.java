@@ -28,7 +28,7 @@ final class EntityNodeMapper {
     final long saveStamp,
     final ITableInfo tableInfo) {
 
-    final var attributes = new Node[2 + tableInfo.getColumnInfos().getElementCount()];
+    final var attributes = new Node[2 + tableInfo.getColumnInfos().getCount()];
 
     attributes[0] = createIdAttributeFrom(newEntity);
     attributes[1] = createSaveStampAttribute(saveStamp);

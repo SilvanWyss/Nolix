@@ -112,7 +112,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
-    final var localElementCount = getElementCount();
+    final var localElementCount = getCount();
     final var newElementCount = localElementCount + 1 + elements.length;
 
     growToMinimalCapacityIfRequired(newElementCount);
@@ -133,7 +133,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
-    final var localElementCount = getElementCount();
+    final var localElementCount = getCount();
     final var newElementCount = localElementCount + elements.length;
 
     growToMinimalCapacityIfRequired(newElementCount);
@@ -172,7 +172,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * {@inheritDoc}
    */
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return elementCount;
   }
 
@@ -185,7 +185,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1 based index").isBetween(1, getElementCount());
+    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1 based index").isBetween(1, getCount());
 
     return elements[param1BasedIndex - 1];
   }
@@ -198,7 +198,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   @Override
   public E getStoredLast() {
-    return getStoredAt1BasedIndex(getElementCount());
+    return getStoredAt1BasedIndex(getCount());
   }
 
   //method
@@ -358,7 +358,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     @SuppressWarnings("unchecked")
     final var newElements = (E[]) new Object[capacity];
 
-    System.arraycopy(elements, 0, newElements, 0, getElementCount());
+    System.arraycopy(elements, 0, newElements, 0, getCount());
 
     elements = newElements;
   }

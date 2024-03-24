@@ -295,7 +295,7 @@ public abstract class ContainerTest extends StandardTest {
     testUnit.forEach(list::addAtEnd);
 
     //verification
-    expect(list.getElementCount()).isEqualTo(6);
+    expect(list.getCount()).isEqualTo(6);
     for (var i = 1; i <= 6; i++) {
       expect(testUnit.getStoredAt1BasedIndex(i)).isEqualTo(list.getStoredAt1BasedIndex(i));
     }
@@ -312,7 +312,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.from1BasedStartIndex(4);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(3);
+    expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("xxxx");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xxxxx");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxxxxx");
@@ -407,7 +407,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "x", "x", "x", "x", "x");
 
     //execution & verification
-    expect(testUnit.getElementCount()).isEqualTo(6);
+    expect(testUnit.getCount()).isEqualTo(6);
   }
 
   //method
@@ -418,7 +418,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(String.class);
 
     //execution & verification
-    expect(testUnit.getElementCount()).isEqualTo(0);
+    expect(testUnit.getCount()).isEqualTo(0);
   }
 
   //method
@@ -820,7 +820,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.getStoredGroups(String::length);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(1);
+    expect(result.getCount()).isEqualTo(1);
     expect(result.getStoredOne()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
   }
 
@@ -835,7 +835,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.getStoredGroups(String::length);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(3);
+    expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("x", "y");
     expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("xx", "yy");
     expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
@@ -929,7 +929,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.getStoredSelected(e -> e.length() < 4);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(3);
+    expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
@@ -1084,7 +1084,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.toOrderedList(String::length);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(6);
+    expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
@@ -1104,7 +1104,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.toOrderedList(FunctionCatalogue::getSelf);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(6);
+    expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("elephant");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("jaguar");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("lion");
@@ -1176,7 +1176,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.toStrings();
 
     //verification
-    expect(result.getElementCount()).isEqualTo(6);
+    expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("10");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("20");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("30");
@@ -1210,7 +1210,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.until1BasedIndex(5);
 
     //verification
-    expect(result.getElementCount()).isEqualTo(5);
+    expect(result.getCount()).isEqualTo(5);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
@@ -1255,7 +1255,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.withoutFirst();
 
     //verification
-    expect(result.getElementCount()).isEqualTo(5);
+    expect(result.getCount()).isEqualTo(5);
     expect(result.getStoredAt1BasedIndex(1)).isEqualTo("xx");
     expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xxx");
     expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxxx");

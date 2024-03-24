@@ -129,7 +129,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   @Override
   public final int getChildNodeCount() {
-    return getStoredChildNodes().getElementCount();
+    return getStoredChildNodes().getCount();
   }
 
   //method

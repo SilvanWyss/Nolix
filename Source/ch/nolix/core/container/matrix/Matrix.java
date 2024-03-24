@@ -103,7 +103,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     if (isEmpty()) {
       if (lElements.containsAny()) {
 
-        this.elements = new Object[lElements.getElementCount()][1];
+        this.elements = new Object[lElements.getCount()][1];
 
         //Iterates the given elements.
         var i = 0;
@@ -121,7 +121,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
       //Asserts that as many elements are given as the number of rows of the current
       //matrix.
       GlobalValidator
-        .assertThat(lElements.getElementCount())
+        .assertThat(lElements.getCount())
         .thatIsNamed("number of the given elements")
         .isEqualTo(getRowCount());
 
@@ -192,7 +192,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     if (isEmpty()) {
       if (lElements.containsAny()) {
 
-        this.elements = new Object[1][lElements.getElementCount()];
+        this.elements = new Object[1][lElements.getCount()];
 
         //Iterates the given elements.
         var i = 0;
@@ -210,7 +210,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
       //Asserts that as many elements are given as the number of columns of the
       //current matrix.
       GlobalValidator
-        .assertThat(lElements.getElementCount())
+        .assertThat(lElements.getCount())
         .thatIsNamed("number of the given elements")
         .isEqualTo(getColumnCount());
 
@@ -345,7 +345,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    * @return the number of elements of the current {@link Matrix}.
    */
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return (getRowCount() * getColumnCount());
   }
 
@@ -746,7 +746,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     GlobalValidator
       .assertThat(index)
       .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
-      .isNotBiggerThan(getElementCount());
+      .isNotBiggerThan(getCount());
   }
 
   //method

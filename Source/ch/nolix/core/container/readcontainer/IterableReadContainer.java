@@ -75,7 +75,7 @@ public final class IterableReadContainer<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public int getElementCount() {
+  public int getCount() {
 
     var size = 0;
 
@@ -112,7 +112,7 @@ public final class IterableReadContainer<E> extends Container<E> {
       "1-based index",
       p1BasedIndex,
       1,
-      getElementCount());
+      getCount());
   }
 
   //method
@@ -121,7 +121,7 @@ public final class IterableReadContainer<E> extends Container<E> {
    */
   @Override
   public E getStoredLast() {
-    return getStoredAt1BasedIndex(getElementCount());
+    return getStoredAt1BasedIndex(getCount());
   }
 
   //method

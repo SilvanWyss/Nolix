@@ -38,8 +38,8 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
   //method
   @Override
-  public int getElementCount() {
-    return elements.getElementCount();
+  public int getCount() {
+    return elements.getCount();
   }
 
   //method

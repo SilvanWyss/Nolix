@@ -73,7 +73,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AC>, A
 
   //method
   public int getSessionStackSize() {
-    return sessionStack.getElementCount();
+    return sessionStack.getCount();
   }
 
   //method

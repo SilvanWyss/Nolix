@@ -56,7 +56,7 @@ public final class LayerStack implements ILayerStack {
   //method
   @Override
   public int getLayerCount() {
-    return getStoredLayers().getElementCount();
+    return getStoredLayers().getCount();
   }
 
   //method

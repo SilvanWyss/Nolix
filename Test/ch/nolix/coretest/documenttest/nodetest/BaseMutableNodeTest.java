@@ -41,7 +41,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expectNot(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(0);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(0);
     expect(testUnit.toString()).isEqualTo("");
   }
 
@@ -57,7 +57,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expectNot(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(0);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(0);
     expect(testUnit.toString()).isEqualTo("");
   }
 
@@ -73,7 +73,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(0);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(0);
     expect(testUnit.toString()).isEqualTo("a");
   }
 
@@ -89,7 +89,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(1);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(1);
     expect(testUnit.toString()).isEqualTo("a(b)");
   }
 
@@ -105,7 +105,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(3);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(3);
     expect(testUnit.toString()).isEqualTo("a(b,c,d)");
   }
 
@@ -121,7 +121,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(1);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(1);
     expect(testUnit.toString()).isEqualTo("a(b(c))");
   }
 
@@ -137,7 +137,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(2);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(2);
     expect(testUnit.toString()).isEqualTo("a(b(c),d(e))");
   }
 
@@ -153,7 +153,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
 
     //verification
     expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(2);
+    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(2);
     expect(testUnit.toString()).isEqualTo("a(b(c,d),e(f,g))");
   }
 

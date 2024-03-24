@@ -55,7 +55,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
   //method
   @Override
   public boolean hasNext() {
-    return (nextElement1BasedRowIndex <= parentMatrixColumn.getElementCount());
+    return (nextElement1BasedRowIndex <= parentMatrixColumn.getCount());
   }
 
   //method

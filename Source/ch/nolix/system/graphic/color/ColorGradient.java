@@ -126,7 +126,7 @@ public final class ColorGradient extends Element implements IColorGradient {
 
     final var attributes = specification.getStoredChildNodes();
 
-    return switch (attributes.getElementCount()) {
+    return switch (attributes.getCount()) {
       case 2 ->
         from2Attributes(attributes);
       case 3 ->

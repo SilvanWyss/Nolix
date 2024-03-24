@@ -80,7 +80,7 @@ final class TableTest extends StandardTest {
     final var result = testUnit.getStoredEntities();
 
     //verification
-    expect(result.getElementCount()).isEqualTo(1);
+    expect(result.getCount()).isEqualTo(1);
     final var loadedPerson = result.getStoredAt1BasedIndex(1);
     expect(loadedPerson.getId()).isEqualTo(person.getId());
     expect(loadedPerson.getFirstName()).isEqualTo("Donald");

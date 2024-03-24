@@ -95,7 +95,7 @@ public final class JobPool {
 
   //method
   private int getWorkerCount() {
-    return workers.getElementCount();
+    return workers.getCount();
   }
 
   //method
@@ -105,6 +105,6 @@ public final class JobPool {
 
     return jobWrappers.containsAny()
     && workerCount < getOptimalWorkerCount()
-    && 10 * workerCount < jobWrappers.getElementCount();
+    && 10 * workerCount < jobWrappers.getCount();
   }
 }

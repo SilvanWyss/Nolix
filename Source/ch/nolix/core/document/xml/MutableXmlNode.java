@@ -187,12 +187,12 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //method
   public int getAttributeCount() {
-    return attributes.getElementCount();
+    return attributes.getCount();
   }
 
   //method
   public int getChildNodeCount() {
-    return childNodes.getElementCount();
+    return childNodes.getCount();
   }
 
   //method

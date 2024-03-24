@@ -19,7 +19,7 @@ public final class ConcreteValueContentEvaluator {
   public boolean canRemoveValue(final IConcreteValueContent concreteValueContent) {
     return concreteValueContent != null
     && (concreteValueContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE
-    || concreteValueContent.getStoredValues().getElementCount() > 1);
+    || concreteValueContent.getStoredValues().getCount() > 1);
   }
 
   //method

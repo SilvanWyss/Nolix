@@ -209,11 +209,11 @@ implements IContainer<E> {
 
     //Handles the case that the given container is a IContainer.
     if (container instanceof IContainer<?> lContainer) {
-      return (getElementCount() == lContainer.getElementCount());
+      return (getCount() == lContainer.getCount());
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getElementCount() == GlobalIterableTool.getElementCount(container));
+    return (getCount() == GlobalIterableTool.getElementCount(container));
   }
 
   //method
@@ -274,11 +274,11 @@ implements IContainer<E> {
 
     //Handles the case that the given container is a IContainer.
     if (container instanceof IContainer<?> lContainer) {
-      return (getElementCount() < lContainer.getElementCount());
+      return (getCount() < lContainer.getCount());
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getElementCount() < GlobalIterableTool.getElementCount(container));
+    return (getCount() < GlobalIterableTool.getElementCount(container));
   }
 
   //method
@@ -292,11 +292,11 @@ implements IContainer<E> {
 
     //Handles the case that the given container is a IContainer.
     if (container instanceof IContainer<?> lContainer) {
-      return (getElementCount() > lContainer.getElementCount());
+      return (getCount() > lContainer.getCount());
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getElementCount() > GlobalIterableTool.getElementCount(container));
+    return (getCount() > GlobalIterableTool.getElementCount(container));
   }
 
   //method
@@ -484,7 +484,7 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> from1BasedStartIndex(final int startIndex) {
-    return getSubContainerFromStartIndexToEndIndex(startIndex, getElementCount());
+    return getSubContainerFromStartIndexToEndIndex(startIndex, getCount());
   }
 
   //method
@@ -511,7 +511,7 @@ implements IContainer<E> {
     assertIsNotEmpty();
 
     final var sumAsBigDecimal = getSum(norm);
-    final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
+    final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
     final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 
     return averageAsBigDecimal.doubleValue();
@@ -726,7 +726,7 @@ implements IContainer<E> {
     final var orderedValues = values.toOrderedList(Number::doubleValue);
 
     //Gets the number of values.
-    final var valueCount = values.getElementCount();
+    final var valueCount = values.getCount();
 
     //Handles the case that the number of values is even.
     if (valueCount % 2 == 0) {
@@ -857,7 +857,7 @@ implements IContainer<E> {
     assertIsNotEmpty();
 
     //Calculates a random element index.
-    final var randomElementIndex = RANDOM.nextInt(getElementCount()) + 1;
+    final var randomElementIndex = RANDOM.nextInt(getCount()) + 1;
 
     return getStoredAt1BasedIndex(randomElementIndex);
   }
@@ -1008,7 +1008,7 @@ implements IContainer<E> {
   public final E getStoredOne() {
 
     //Enumerates the element count of the current Container.
-    return switch (getElementCount()) {
+    return switch (getCount()) {
       case 0 ->
         throw EmptyArgumentException.forArgument(this);
       case 1 ->
@@ -1170,7 +1170,7 @@ implements IContainer<E> {
         .add(BigDecimal.valueOf(squaredDevication));
     }
 
-    final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
+    final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
 
     final var varianceAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal.divide(elementCountAsBigDecimal,
       MathContext.DECIMAL32);
@@ -1221,7 +1221,7 @@ implements IContainer<E> {
   public final Object[] toArray() {
 
     //Creates array.
-    final var array = new Object[getElementCount()];
+    final var array = new Object[getCount()];
 
     //Fills up the array.
     var i = 0;
@@ -1244,7 +1244,7 @@ implements IContainer<E> {
   public final byte[] toByteArray(final Function<E, Byte> byteNorm) {
 
     //Creates array.
-    final var array = new byte[getElementCount()];
+    final var array = new byte[getCount()];
 
     //Fills up the array.
     var i = 0;
@@ -1267,7 +1267,7 @@ implements IContainer<E> {
   public final char[] toCharArray(final Function<E, Character> charNorm) {
 
     //Creates array.
-    final var array = new char[getElementCount()];
+    final var array = new char[getCount()];
 
     //Fills up the array.
     var i = 0;
@@ -1309,7 +1309,7 @@ implements IContainer<E> {
   public final double[] toDoubleArray(final ToDoubleFunction<E> doubleNorm) {
 
     //Creates array.
-    final var array = new double[getElementCount()];
+    final var array = new double[getCount()];
 
     //Fills up the array.
     var i = 0;
@@ -1351,7 +1351,7 @@ implements IContainer<E> {
   public final int[] toIntArray(final ToIntFunction<E> intNorm) {
 
     //Creates array.
-    final var array = new int[getElementCount()];
+    final var array = new int[getCount()];
 
     //Fills up the array.
     var i = 0;
@@ -1374,7 +1374,7 @@ implements IContainer<E> {
   public final long[] toLongArray(final ToLongFunction<E> longNorm) {
 
     //Creates the array.
-    final var array = new long[getElementCount()];
+    final var array = new long[getCount()];
 
     //Fills up the array.
     var i = 0;
@@ -1415,7 +1415,7 @@ implements IContainer<E> {
   @Override
   public final String[] toStringArray() {
 
-    final var stringArray = new String[getElementCount()];
+    final var stringArray = new String[getCount()];
 
     //Iterates the elements of the current IContainer.
     var i = 0;
@@ -1464,7 +1464,7 @@ implements IContainer<E> {
   public final String toStringWithSeparator(final String separator) {
 
     //Enumerates the element count of the current Container.
-    return switch (getElementCount()) {
+    return switch (getCount()) {
       case 0 ->
         StringCatalogue.EMPTY_STRING;
       case 1 ->
@@ -1513,7 +1513,7 @@ implements IContainer<E> {
     //Asserts that the given n is positive.
     GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 
-    final var elementCount = getElementCount();
+    final var elementCount = getCount();
 
     //Handles the case that the current IContainer contains more than n elements.
     if (elementCount > n) {
@@ -1553,7 +1553,7 @@ implements IContainer<E> {
     //Asserts that the given n is positive.
     GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 
-    final var elementCount = getElementCount();
+    final var elementCount = getCount();
 
     //Handles the case that the current IContainer contains more than n elements.
     if (elementCount > 0) {

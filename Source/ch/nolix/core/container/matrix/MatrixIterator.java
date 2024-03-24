@@ -59,7 +59,7 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     GlobalValidator
       .assertThat(p1BasedStartIndex)
       .thatIsNamed("start index")
-      .isNotBiggerThan(parentMatrix.getElementCount());
+      .isNotBiggerThan(parentMatrix.getCount());
 
     this.parentMatrix = parentMatrix;
     nextElement1BasedIndex = p1BasedStartIndex;
@@ -92,7 +92,7 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public boolean hasNext() {
-    return (nextElement1BasedIndex <= parentMatrix.getElementCount());
+    return (nextElement1BasedIndex <= parentMatrix.getCount());
   }
 
   //method

@@ -41,7 +41,7 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   //method
   public byte[] getMessageAsByteArray() {
 
-    final var byteArray = new byte[message.getElementCount()];
+    final var byteArray = new byte[message.getCount()];
     var i = 0;
     for (final var b : message) {
       byteArray[i] = b.byteValue();

@@ -101,7 +101,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 
   //method
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return elementCount;
   }
 

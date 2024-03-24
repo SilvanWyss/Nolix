@@ -35,6 +35,12 @@ public interface IStatisticalConainer<E> {
    */
   double getAverageOrZero(Function<E, Number> norm);
 
+  //method declaration declaration
+  /**
+   * @return the number of elements of the current {@link IStatisticalConainer}.
+   */
+  int getCount();
+
   //method declaration
   /**
    * @param selector
@@ -50,12 +56,6 @@ public interface IStatisticalConainer<E> {
    *         contains the given element.
    */
   int getCount(Object element);
-
-  //method declaration declaration
-  /**
-   * @return the number of elements of the current {@link IStatisticalConainer}.
-   */
-  int getElementCount();
 
   //method declaration
   /**

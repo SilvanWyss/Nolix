@@ -43,7 +43,7 @@ public final class MatrixColumn<E> extends Container<E> {
 
   //method
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return parentMatrix.getRowCount();
   }
 

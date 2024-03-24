@@ -71,7 +71,7 @@ final class ContainerView<E> extends Container<E> {
     GlobalValidator
       .assertThat(endIndex)
       .thatIsNamed(LowerCaseVariableCatalogue.END_INDEX)
-      .isNotBiggerThan(container.getElementCount());
+      .isNotBiggerThan(container.getCount());
 
     this.container = container;
     this.startIndex = startIndex;
@@ -83,7 +83,7 @@ final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return (endIndex - startIndex + 1);
   }
 
@@ -99,7 +99,7 @@ final class ContainerView<E> extends Container<E> {
     GlobalValidator
       .assertThat(p1BasedIndex)
       .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
-      .isNotBiggerThan(getElementCount());
+      .isNotBiggerThan(getCount());
 
     return container.getStoredAt1BasedIndex(startIndex + p1BasedIndex - 1);
   }
@@ -110,7 +110,7 @@ final class ContainerView<E> extends Container<E> {
    */
   @Override
   public E getStoredLast() {
-    return getStoredAt1BasedIndex(getElementCount());
+    return getStoredAt1BasedIndex(getCount());
   }
 
   //method

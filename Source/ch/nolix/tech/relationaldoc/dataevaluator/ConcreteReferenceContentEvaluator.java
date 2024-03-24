@@ -70,6 +70,6 @@ public final class ConcreteReferenceContentEvaluator {
   private boolean canRemoveOneObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
     && (concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE
-    || concreteReferenceContent.getStoredReferencedObjects().getElementCount() > 1);
+    || concreteReferenceContent.getStoredReferencedObjects().getCount() > 1);
   }
 }

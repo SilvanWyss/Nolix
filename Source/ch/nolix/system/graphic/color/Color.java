@@ -1410,7 +1410,7 @@ public final class Color extends Element implements IColor {
   //static method
   public static Color createAverageFrom(final IContainer<IColor> colors) {
 
-    final var colorCount = colors.getElementCount();
+    final var colorCount = colors.getCount();
 
     var averageRedValue = 0;
     var averageGreenValue = 0;

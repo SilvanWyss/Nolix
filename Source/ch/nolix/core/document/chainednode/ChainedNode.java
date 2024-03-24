@@ -421,7 +421,7 @@ public final class ChainedNode implements IChainedNode {
    */
   @Override
   public int getChildNodeCount() {
-    return childNodes.getElementCount();
+    return childNodes.getCount();
   }
 
   //method

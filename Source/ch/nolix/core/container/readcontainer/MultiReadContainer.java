@@ -71,8 +71,8 @@ public final class MultiReadContainer<E> extends Container<E> {
 
   //method
   @Override
-  public int getElementCount() {
-    return containers.getSumOfIntegers(IContainer::getElementCount).intValue();
+  public int getCount() {
+    return containers.getSumOfIntegers(IContainer::getCount).intValue();
   }
 
   //method
@@ -93,7 +93,7 @@ public final class MultiReadContainer<E> extends Container<E> {
       "1-based index",
       p1BasedIndex,
       1,
-      getElementCount());
+      getCount());
   }
 
   //method

@@ -382,7 +382,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       "1-based index",
       p1BasedIndex,
       1,
-      getElementCount());
+      getCount());
   }
 
   //method
@@ -407,7 +407,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * @return the number of elements of the current {@link LinkedList}.
    */
   @Override
-  public int getElementCount() {
+  public int getCount() {
     return elementCount;
   }
 
@@ -528,7 +528,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   public void removeFirst() {
 
     //Enumerates the element count of the current LinkedList.
-    switch (getElementCount()) {
+    switch (getCount()) {
       case 0:
         break;
       case 1:
@@ -550,7 +550,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   public void removeFirstStrictly() {
 
     //Enumerates the element count of the current LinkedList.
-    switch (getElementCount()) {
+    switch (getCount()) {
       case 0:
         throw EmptyArgumentException.forArgument(this);
       case 1:
@@ -675,7 +675,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return getOrderedSubList(1, getElementCount(), norm);
+    return getOrderedSubList(1, getCount(), norm);
   }
 
   //method

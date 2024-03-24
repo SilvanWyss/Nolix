@@ -777,8 +777,8 @@ public final class Matrix {
       }
     }
 
-    values = new double[newValues.getElementCount()][values.length];
-    for (var i = 0; i < newValues.getElementCount(); i++) {
+    values = new double[newValues.getCount()][values.length];
+    for (var i = 0; i < newValues.getCount(); i++) {
       values[i] = newValues.getStoredAt1BasedIndex(i + 1);
     }
 

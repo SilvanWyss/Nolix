@@ -119,7 +119,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   //method
   @Override
   public int getColumnCount(final ITable table) {
-    return table.getStoredColumns().getElementCount();
+    return table.getStoredColumns().getCount();
   }
 
   //method
