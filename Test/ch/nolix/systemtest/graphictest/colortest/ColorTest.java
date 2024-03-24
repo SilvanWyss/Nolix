@@ -1,7 +1,11 @@
 //package declaration
 package ch.nolix.systemtest.graphictest.colortest;
 
+//JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
@@ -189,45 +193,39 @@ final class ColorTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_toHexadecimalStringWithAlphaValue_1A() {
+  @ParameterizedTest
+  @ValueSource(strings = {
+  "0x00000001",
+  "0x0000000F",
+  "0x00000010",
+  "0x000000F0",
+  "0x00000100",
+  "0x00000F00",
+  "0x00001000",
+  "0x0000F000",
+  "0x00010000",
+  "0x000F0000",
+  "0x00100000",
+  "0x00F00000",
+  "0x01000000",
+  "0x0F000000",
+  "0x10000000",
+  "0xF0000000",
+  "0x00000000",
+  "0x01010101",
+  "0xF0F0F0F0",
+  "0xFFFFFFFF"
+  })
+  void testCase_toHexadecimalStringWithAlphaValu(final String string) {
 
     //setup
-    final var testUnit = Color.fromString("0x10203000");
+    final var testUnit = Color.fromString(string);
 
     //execution
     final var result = testUnit.toHexadecimalStringWithAlphaValue();
 
     //verification
-    expect(result).isEqualTo("0x10203000");
-  }
-
-  //method
-  @Test
-  void testCase_toHexadecimalStringWithAlphaValue_1B() {
-
-    //setup
-    final var testUnit = Color.fromString("0x1020307F");
-
-    //execution
-    final var result = testUnit.toHexadecimalStringWithAlphaValue();
-
-    //verification
-    expect(result).isEqualTo("0x1020307F");
-  }
-
-  //method
-  @Test
-  void testCase_toHexadecimalStringWithAlphaValue_1C() {
-
-    //setup
-    final var testUnit = Color.fromString("0x102030FF");
-
-    //execution
-    final var result = testUnit.toHexadecimalStringWithAlphaValue();
-
-    //verification
-    expect(result).isEqualTo("0x102030FF");
+    expect(result).isEqualTo(string);
   }
 
   //method
@@ -259,67 +257,45 @@ final class ColorTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_withFloatingPointAlphaValue_1A() {
+  @ParameterizedTest
+  @CsvSource({
+  "0x010203, 0.0, 0x01020300",
+  "0x010203, 0.25, 0x0102033F",
+  "0x010203, 0.5, 0x0102037F",
+  "0x010203, 0.75, 0x010203BF",
+  "0x010203, 1.0, 0x010203",
+  })
+  void testCase_withFloatingPointAlphaValue(
+    final String colorAsHexadecimalString,
+    final double floatingPointAlphaValue,
+    final String expectedHexadecimaString) {
 
     //setup
-    final var testUnit = Color.fromString("0x102030");
+    final var testUnit = Color.fromString(colorAsHexadecimalString);
 
     //execution
-    final var result = testUnit.withFloatingPointAlphaValue(0.0);
+    final var result = testUnit.withFloatingPointAlphaValue(floatingPointAlphaValue);
 
     //verification
-    expect(result.toHexadecimalString()).isEqualTo("0x10203000");
+    expect(result.toHexadecimalString()).isEqualTo(expectedHexadecimaString);
   }
 
   //method
-  @Test
-  void testCase_withFloatingPointAlphaValue_1B() {
+  @ParameterizedTest
+  @CsvSource({
+  "0x01020300, 0x010203",
+  "0x01020301, 0x010203",
+  "0x0102030F, 0x010203",
+  "0x010203F0, 0x010203",
+  "0x010203F1, 0x010203",
+  "0x010203FF, 0x010203",
+  })
+  void testCase_withFullAlphaValue(
+    final String colorAsHexadecimalString,
+    final String expectedHexadecimaString) {
 
     //setup
     final var testUnit = Color.fromString("0x102030");
-
-    //execution
-    final var result = testUnit.withFloatingPointAlphaValue(0.5);
-
-    //verification
-    expect(result.toHexadecimalString()).isEqualTo("0x1020307F");
-  }
-
-  //method
-  @Test
-  void testCase_withFloatingPointAlphaValue_1C() {
-
-    //setup
-    final var testUnit = Color.fromString("0x102030");
-
-    //execution
-    final var result = testUnit.withFloatingPointAlphaValue(1.0);
-
-    //verification
-    expect(result.toHexadecimalString()).isEqualTo("0x102030");
-  }
-
-  //method
-  @Test
-  void testCase_withFullAlphaValue_1A() {
-
-    //setup
-    final var testUnit = Color.fromString("0x102030");
-
-    //execution
-    final var result = testUnit.withFullAlphaValue();
-
-    //verification
-    expect(result.toHexadecimalString()).isEqualTo("0x102030");
-  }
-
-  //method
-  @Test
-  void testCase_withFullAlphaValue_1B() {
-
-    //setup
-    final var testUnit = Color.fromString("0x102030A0");
 
     //execution
     final var result = testUnit.withFullAlphaValue();
