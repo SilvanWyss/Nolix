@@ -7,6 +7,8 @@ import java.math.RoundingMode;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
@@ -142,88 +144,30 @@ final class ComplexNumberTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_getMagnitude_1A() {
+  @ParameterizedTest
+  @CsvSource({
+  "0.0, 0.0, 0.0",
+  "0.0, 1.0, 1.0",
+  "1.0, 0.0, 1.0",
+  "3.0, 4.0, 5.0",
+  "4.0, 3.0, 5.0"
+  })
+  void testCase_getMagnitude(
+    final double realComponent,
+    final double imaginaryComponent,
+    final double expectedMagnitude) {
 
     //parameter definition
     final var scale = 10;
 
     //setup
-    final var testUnit = new ComplexNumber(0.0, 0.0);
+    final var testUnit = new ComplexNumber(realComponent, imaginaryComponent);
 
     //execution
     final var result = testUnit.getMagnitude();
 
     //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-  }
-
-  //method
-  @Test
-  void testCase_getMagnitude_1B() {
-
-    //parameter definition
-    final var scale = 10;
-
-    //setup
-    final var testUnit = new ComplexNumber(0.0, 1.0);
-
-    //execution
-    final var result = testUnit.getMagnitude();
-
-    //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
-  }
-
-  //method
-  @Test
-  void testCase_getMagnitude_1C() {
-
-    //parameter definition
-    final var scale = 10;
-
-    //setup
-    final var testUnit = new ComplexNumber(1.0, 0.0);
-
-    //execution
-    final var result = testUnit.getMagnitude();
-
-    //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
-  }
-
-  //method
-  @Test
-  void testCase_getMagnitude_2A() {
-
-    //parameter definition
-    final var scale = 10;
-
-    //setup
-    final var testUnit = new ComplexNumber(3.0, 4.0);
-
-    //execution
-    final var result = testUnit.getMagnitude();
-
-    //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(5.0).setScale(scale));
-  }
-
-  //method
-  @Test
-  void testCase_getMagnitude_2B() {
-
-    //parameter definition
-    final var scale = 10;
-
-    //setup
-    final var testUnit = new ComplexNumber(4.0, 3.0);
-
-    //execution
-    final var result = testUnit.getMagnitude();
-
-    //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(5.0).setScale(scale));
+    expect(result).isEqualTo(BigDecimal.valueOf(expectedMagnitude).setScale(scale));
   }
 
   //method
