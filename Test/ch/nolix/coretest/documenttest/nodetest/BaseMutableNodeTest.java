@@ -3,6 +3,8 @@ package ch.nolix.coretest.documenttest.nodetest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 //own imports
 import ch.nolix.core.document.node.BaseMutableNode;
@@ -30,131 +32,30 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   }
 
   //method
-  @Test
-  void testCase_resetFromString_1A() {
+  @ParameterizedTest
+  @ValueSource(strings = {
+  "",
+  "a",
+  "(a)",
+  "a(b)",
+  "a(b,c)",
+  "a(b(c))",
+  "(a(b,c))",
+  "a(b,c,d)",
+  "a(b(c(d)))",
+  "(a(b,c,d))",
+  "a(b(c),d(e),f(g))"
+  })
+  void testCase_resetFromString(final String string) {
 
     //setup
     final var testUnit = createBlankNode();
 
     //execution
-    testUnit.reset();
+    testUnit.resetFromString(string);
 
     //verification
-    expectNot(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(0);
-    expect(testUnit.toString()).isEqualTo("");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_1B() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("");
-
-    //verification
-    expectNot(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(0);
-    expect(testUnit.toString()).isEqualTo("");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_2A() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("a");
-
-    //verification
-    expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(0);
-    expect(testUnit.toString()).isEqualTo("a");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_2B() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("a(b)");
-
-    //verification
-    expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(1);
-    expect(testUnit.toString()).isEqualTo("a(b)");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_2C() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("a(b,c,d)");
-
-    //verification
-    expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(3);
-    expect(testUnit.toString()).isEqualTo("a(b,c,d)");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_2D() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("a(b(c))");
-
-    //verification
-    expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(1);
-    expect(testUnit.toString()).isEqualTo("a(b(c))");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_3A() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("a(b(c),d(e))");
-
-    //verification
-    expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(2);
-    expect(testUnit.toString()).isEqualTo("a(b(c),d(e))");
-  }
-
-  //method
-  @Test
-  void testCase_resetFromString_3B() {
-
-    //setup
-    final var testUnit = createBlankNode();
-
-    //execution
-    testUnit.resetFromString("a(b(c,d),e(f,g))");
-
-    //verification
-    expect(testUnit.hasHeader());
-    expect(testUnit.getStoredChildNodes().getCount()).isEqualTo(2);
-    expect(testUnit.toString()).isEqualTo("a(b(c,d),e(f,g))");
+    expect(testUnit).hasStringRepresentation(string);
   }
 
   //method
