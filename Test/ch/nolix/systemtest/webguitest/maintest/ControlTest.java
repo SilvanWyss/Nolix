@@ -5,6 +5,7 @@ package ch.nolix.systemtest.webguitest.maintest;
 import org.junit.jupiter.api.Test;
 
 //own imports
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -13,6 +14,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
+
+  //method declaration
+  protected abstract C createTestUnit();
 
   //method
   @Test
@@ -78,6 +82,24 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   //method
   @Test
+  final void testCase_linkTo() {
+
+    //setup
+    final var voidObject = new VoidObject();
+    final var testUnit = createTestUnit();
+
+    //setup verification
+    expectNot(testUnit.isLinkedToAnObject());
+
+    //execution
+    testUnit.linkTo(voidObject);
+
+    //verification
+    expect(testUnit.getStoredLinkedObjects()).containsExactly(voidObject);
+  }
+
+  //method
+  @Test
   final void testCase_reset() {
 
     //setup
@@ -117,7 +139,4 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     expect(result).is(testUnit);
     expect(testUnit.getCursorIcon()).is(CursorIcon.MOVE);
   }
-
-  //method declaration
-  protected abstract C createTestUnit();
 }
