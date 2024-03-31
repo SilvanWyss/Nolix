@@ -138,17 +138,17 @@ public final class GlobalStringTool {
   //static method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * @param string
-   * @return the given string in quotes
-   * @throws ArgumentIsNullException if the given string is null.
+   * @param object
+   * @return the {@link String} representation of the given object in quotes
+   * @throws ArgumentIsNullException if the given object is null.
    */
-  public static String getInSingleQuotes(final String string) {
+  public static String getInSingleQuotes(final Object object) {
 
-    if (string == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);
+    if (object == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.OBJECT);
     }
 
-    return ("'" + string + "'");
+    return ("'" + object + "'");
   }
 
   //static method
