@@ -4,12 +4,12 @@ package ch.nolix.core.errorcontrol.logging;
 //Java imports
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
+import ch.nolix.core.environment.nolixenvironment.GlobalNolixEnvironmentProvider;
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
 
 //class
 public final class FileLogHandler extends LogHandler {
@@ -19,14 +19,16 @@ public final class FileLogHandler extends LogHandler {
   protected void log(final LogEntry logEntry) {
     try {
 
+      final var nolixLogFilePath = Path.of(GlobalNolixEnvironmentProvider.getNolixLogFilePath());
+
       Files.writeString(
-        Paths.get(NolixDirectoryAndFileCatalogue.NOLIX_LOG_FILE_PATH),
+        nolixLogFilePath,
         logEntry.toString() + System.lineSeparator(),
         StandardOpenOption.APPEND);
 
       for (final var ail : logEntry.getAdditionalInfoLines()) {
         Files.writeString(
-          Paths.get(NolixDirectoryAndFileCatalogue.NOLIX_LOG_FILE_PATH),
+          nolixLogFilePath,
           "  " + ail + System.lineSeparator(),
           StandardOpenOption.APPEND);
       }
