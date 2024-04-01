@@ -3,8 +3,11 @@ package ch.nolix.coretest.mathtest.algebratest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.test.StandardTest;
@@ -84,6 +87,30 @@ final class VectorTest extends StandardTest {
 
     //verification
     expect(result).isEqualTo(10.0);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "'0.0; 0.0', 0.0",
+  "'1.0; 2.0', 3.0",
+  "'5.0; 5.0', 10.0",
+  "'0.0; 0.0; 0.0', 0.0",
+  "'1.0; 2.0; 3.0', 6.0",
+  "'5.0; 5.0; 5.0', 15.0",
+  })
+  void testCase_getManhattanNorm(final String valueArrayAsString, final double expectedManhattanNorm) {
+
+    final var values = LinkedList.fromArray(valueArrayAsString.split(";")).toDoubleArray(Double::valueOf);
+
+    //setup
+    final var testUnit = Vector.withValues(values);
+
+    //execution
+    final var result = testUnit.getManhattanNorm();
+
+    //verification
+    expect(result).isEqualTo(expectedManhattanNorm);
   }
 
   //method
