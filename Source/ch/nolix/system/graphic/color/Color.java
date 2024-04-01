@@ -1433,6 +1433,26 @@ public final class Color extends Element implements IColor {
 
   //static method
   /**
+   * @param color
+   * @return a new {@link Color} from the given color.
+   * @throws NullPointerException if the given color is null.
+   */
+  public static Color fromColor(final IColor color) {
+
+    if (color instanceof Color localColor) {
+      return localColor;
+    }
+
+    return //
+    withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+      color.getRedValue(),
+      color.getGreenValue(),
+      color.getBlueValue(),
+      color.getAlphaValue());
+  }
+
+  //static method
+  /**
    * @param pLong
    * @return a new {@link Color} from the given pLong.
    * @throws UnrepresentingArgumentException if the given pLong does not represent
