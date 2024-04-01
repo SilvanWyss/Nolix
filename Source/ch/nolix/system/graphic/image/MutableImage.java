@@ -152,7 +152,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   }
 
   //static method
-  public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final Color color) {
+  public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final IColor color) {
 
     GlobalValidator.assertThat(width).thatIsNamed(LowerCaseVariableCatalogue.WIDTH).isPositive();
     GlobalValidator.assertThat(height).thatIsNamed(LowerCaseVariableCatalogue.HEIGHT).isPositive();
@@ -164,7 +164,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
       final var row = new Color[width];
       for (var i = 0; i < width; i++) {
-        row[i] = color;
+        row[i] = Color.fromColor(color);
       }
 
       for (var i = 1; i <= height; i++) {
