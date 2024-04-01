@@ -273,4 +273,41 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(4, 3)).isEqualTo(Color.BLUE);
     expect(result.getPixel(4, 4)).isEqualTo(Color.BLUE);
   }
+
+  //method
+  @Test
+  void testCase_withAlphaValue() {
+
+    //setup
+    final var testUnit = //
+    MutableImage
+      .withWidthAndHeightAndWhiteColor(3, 2)
+      .setPixel(1, 1, Color.YELLOW)
+      .setPixel(1, 2, Color.RED)
+      .setPixel(2, 1, Color.GREEN)
+      .setPixel(2, 2, Color.BLUE)
+      .setPixel(3, 1, Color.ORANGE)
+      .setPixel(3, 2, Color.VIOLET);
+
+    //execution
+    final var result = testUnit.withAlphaValue(0.25);
+
+    //verification part 1: Verifies testUnit.
+    expect(testUnit.getPixel(1, 1)).isEqualTo(Color.YELLOW);
+    expect(testUnit.getPixel(1, 2)).isEqualTo(Color.RED);
+    expect(testUnit.getPixel(2, 1)).isEqualTo(Color.GREEN);
+    expect(testUnit.getPixel(2, 2)).isEqualTo(Color.BLUE);
+    expect(testUnit.getPixel(3, 1)).isEqualTo(Color.ORANGE);
+    expect(testUnit.getPixel(3, 2)).isEqualTo(Color.VIOLET);
+
+    //verification part 2: Verifies result.
+    expect(result.getWidth()).isEqualTo(3);
+    expect(result.getHeight()).isEqualTo(2);
+    expect(result.getPixel(1, 1)).isEqualTo(Color.YELLOW.withAlphaValue(63));
+    expect(result.getPixel(1, 2)).isEqualTo(Color.RED.withAlphaValue(63));
+    expect(result.getPixel(2, 1)).isEqualTo(Color.GREEN.withAlphaValue(63));
+    expect(result.getPixel(2, 2)).isEqualTo(Color.BLUE.withAlphaValue(63));
+    expect(result.getPixel(3, 1)).isEqualTo(Color.ORANGE.withAlphaValue(63));
+    expect(result.getPixel(3, 2)).isEqualTo(Color.VIOLET.withAlphaValue(63));
+  }
 }
