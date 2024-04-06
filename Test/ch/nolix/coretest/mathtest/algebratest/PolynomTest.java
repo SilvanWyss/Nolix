@@ -13,6 +13,65 @@ final class PolynomTest extends StandardTest {
 
   //method
   @Test
+  void testCase_equals_whenTheGivenObjectIsNull() {
+
+    //setup
+    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+
+    //execution
+    final var result = testUnit.equals(null);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_equals_whenTheGivenObjectDoesNotEqual_1A() {
+
+    //setup
+    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var object = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0);
+
+    //execution
+    final var result = testUnit.equals(object);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_equals_whenTheGivenObjectDoesNotEqual_1B() {
+
+    //setup
+    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var object = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 7.0);
+
+    //execution
+    final var result = testUnit.equals(object);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_equals_whenTheGivenObjectEquals() {
+
+    //setup
+    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var object = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+
+    //execution
+    final var result = testUnit.equals(object);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @Test
   void testCase_getDerived_1A() {
 
     //setup
