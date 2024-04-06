@@ -97,6 +97,43 @@ final class MutableImageTest extends StandardTest {
 
   //method
   @Test
+  void testCase_getSection() {
+
+    //setup
+    final var testUnit = //
+    MutableImage
+      .withWidthAndHeightAndWhiteColor(4, 4)
+      .setPixel(1, 1, Color.RED)
+      .setPixel(1, 2, Color.ORANGE)
+      .setPixel(1, 3, Color.PINK)
+      .setPixel(1, 4, Color.PURPLE)
+      .setPixel(2, 1, Color.BLUE)
+      .setPixel(2, 2, Color.CYAN)
+      .setPixel(2, 3, Color.TURQUOISE)
+      .setPixel(2, 4, Color.GREEN)
+      .setPixel(3, 1, Color.BLACK)
+      .setPixel(3, 2, Color.BROWN)
+      .setPixel(3, 3, Color.GREY)
+      .setPixel(3, 4, Color.WHITE)
+      .setPixel(4, 1, Color.YELLOW)
+      .setPixel(4, 2, Color.GOLD)
+      .setPixel(4, 3, Color.BEIGE)
+      .setPixel(4, 4, Color.YELLOW_GREEN);
+
+    //execution
+    final var result = testUnit.getSection(2, 2, 2, 2);
+
+    //verification
+    expect(result.getWidth()).isEqualTo(2);
+    expect(result.getHeight()).isEqualTo(2);
+    expect(result.getPixel(1, 1)).isEqualTo(Color.CYAN);
+    expect(result.getPixel(1, 2)).isEqualTo(Color.TURQUOISE);
+    expect(result.getPixel(2, 1)).isEqualTo(Color.BROWN);
+    expect(result.getPixel(2, 2)).isEqualTo(Color.GREY);
+  }
+
+  //method
+  @Test
   void testCase_getTopLeftPixel() {
 
     //setup
