@@ -44,7 +44,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   }
 
   //static method
-  static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
+  static Column withNameAndIdAndParameterizedFieldTypeAndParentTable(
     final String name,
     final String id,
     final IParameterizedFieldType parameterizedFieldType,

@@ -21,7 +21,7 @@ final class ColumnMapper {
     final IColumnDto columnDto,
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    return Column.withNameAndIdAndParameterizedPropertyTypeAndParentTable(
+    return Column.withNameAndIdAndParameterizedFieldTypeAndParentTable(
       columnDto.getName(),
       columnDto.getId(),
       PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
