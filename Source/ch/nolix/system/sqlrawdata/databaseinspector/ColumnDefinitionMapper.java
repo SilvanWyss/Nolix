@@ -14,8 +14,8 @@ final class ColumnDefinitionMapper {
     return new ColumnInfo(
       column.getId(),
       column.getName(),
-      column.getParameterizedPropertyType().getPropertyType(),
-      column.getParameterizedPropertyType().getDataType(),
+      column.getParameterizedFieldType().getPropertyType(),
+      column.getParameterizedFieldType().getDataType(),
       0);
   }
 }

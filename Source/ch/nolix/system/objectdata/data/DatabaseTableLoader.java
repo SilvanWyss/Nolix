@@ -52,7 +52,7 @@ final class DatabaseTableLoader {
     final var rawBaseValueColumns = rawTable
       .getColumns()
       .getStoredSelected(
-        c -> c.getParameterizedPropertyType().getPropertyType().getBaseType() == BaseFieldType.BASE_VALUE);
+        c -> c.getParameterizedFieldType().getPropertyType().getBaseType() == BaseFieldType.BASE_VALUE);
 
     for (final var c : rawBaseValueColumns) {
 
@@ -86,7 +86,7 @@ final class DatabaseTableLoader {
     final var rawBaseReferenceColumns = rawTable
       .getColumns()
       .getStoredSelected(
-        c -> c.getParameterizedPropertyType().getPropertyType().getBaseType() == BaseFieldType.BASE_REFERENCE);
+        c -> c.getParameterizedFieldType().getPropertyType().getBaseType() == BaseFieldType.BASE_REFERENCE);
 
     for (final var c : rawBaseReferenceColumns) {
 
@@ -120,7 +120,7 @@ final class DatabaseTableLoader {
     final var rawBaseValueColumns = rawTable
       .getColumns()
       .getStoredSelected(
-        c -> c.getParameterizedPropertyType().getPropertyType()
+        c -> c.getParameterizedFieldType().getPropertyType()
           .getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
 
     for (final var c : rawBaseValueColumns) {

@@ -31,7 +31,7 @@ final class SystemDataWriterSqlStatementCreator {
 
     final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
       .createParameterizedPropertyTypeRecordFrom(
-        column.getParameterizedPropertyType());
+        column.getParameterizedFieldType());
 
     return "INSERT INTO "
     + SchemaTableType.COLUMN.getQualifiedName()

@@ -25,7 +25,7 @@ final class ColumnMapper {
       columnDto.getName(),
       columnDto.getId(),
       PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-        columnDto.getParameterizedPropertyType(),
+        columnDto.getParameterizedFieldType(),
         referencableTables),
       parentTable);
   }

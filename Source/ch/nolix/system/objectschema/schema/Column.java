@@ -82,7 +82,7 @@ public final class Column extends SchemaObject implements IColumn {
       columnDto.getId(),
       columnDto.getName(),
       PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-        columnDto.getParameterizedPropertyType(),
+        columnDto.getParameterizedFieldType(),
         tables));
   }
 
