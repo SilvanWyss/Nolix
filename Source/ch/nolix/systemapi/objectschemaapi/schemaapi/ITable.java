@@ -25,7 +25,7 @@ IFluentMutableNameHolder<ITable> {
   boolean belongsToDatabase();
 
   //method declaration
-  ITable createColumnWithNameAndParameterizedPropertyType(
+  ITable createColumnWithNameAndParameterizedFieldType(
     String name,
     IParameterizedFieldType parameterizedFieldType);
 
