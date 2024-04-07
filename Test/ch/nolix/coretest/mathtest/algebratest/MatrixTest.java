@@ -237,6 +237,66 @@ final class MatrixTest extends StandardTest {
   }
 
   //method
+  @Test
+  void testCase_toPolynom_whenHas1Row() {
+
+    //setup
+    final var testUnit = new Matrix(1, 4);
+    testUnit.setValues(1.0, 2.0, 3.0, 4.0);
+
+    //execution
+    final var result = testUnit.toPolynom();
+
+    //verification
+    expect(result).hasStringRepresentation("x->x^3+2x^2+3x+4");
+  }
+
+  //method
+  @Test
+  void testCase_toPolynom_whenHas1Column() {
+
+    //setup
+    final var testUnit = new Matrix(4, 1);
+    testUnit.setValues(1.0, 2.0, 3.0, 4.0);
+
+    //execution
+    final var result = testUnit.toPolynom();
+
+    //verification
+    expect(result).hasStringRepresentation("x->x^3+2x^2+3x+4");
+  }
+
+  //method
+  @Test
+  void testCase_toPolynom_whenHas2Rows() {
+
+    //setup
+    final var testUnit = new Matrix(2, 4);
+    testUnit.setValues(1.0, 2.0, 3.0, 4.0, 11.0, 12.0, 13.0, 14.0);
+
+    //execution & verification
+    expectRunning(testUnit::toPolynom)
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given Matrix '[1,2,3,4;11,12,13,14]' does not represent a Polynom.");
+  }
+
+  //method
+  @Test
+  void testCase_toPolynom_whenHas2Columns() {
+
+    //setup
+    final var testUnit = new Matrix(4, 2);
+    testUnit.setValues(1.0, 2.0, 3.0, 4.0, 11.0, 12.0, 13.0, 14.0);
+
+    //execution & verification
+    expectRunning(testUnit::toPolynom)
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given Matrix '[1,2;3,4;11,12;13,14]' does not represent a Polynom.");
+  }
+
+  //method
   @ParameterizedTest
   @CsvSource({
   "1, '[1]'",
