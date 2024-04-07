@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseapplication.propertybinder;
+package ch.nolix.system.databaseapplication.fieldbinder;
 
 //own imports
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
 //class
-public final class ValueBinder extends PropertyBinder<IValue<?>, ITextbox> {
+public final class ValueBinder extends FieldBinder<IValue<?>, ITextbox> {
 
   //attribute
   @Override

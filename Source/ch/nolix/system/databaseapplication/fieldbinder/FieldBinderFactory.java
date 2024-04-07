@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.databaseapplication.propertybinder;
+package ch.nolix.system.databaseapplication.fieldbinder;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //class
-public final class PropertyBinderFactory {
+public final class FieldBinderFactory {
 
   //constant
   private static final ValueBinder VALUE_BINDER = new ValueBinder();
@@ -22,18 +22,18 @@ public final class PropertyBinderFactory {
 
   //method
   @SuppressWarnings("unchecked")
-  public <P extends IField> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
-    return switch (property.getType()) {
+  public <F extends IField> FieldBinder<F, ?> getFieldBinderForField(final F field) {
+    return switch (field.getType()) {
       case VALUE ->
-        (PropertyBinder<P, ?>) VALUE_BINDER;
+        (FieldBinder<F, ?>) VALUE_BINDER;
       case OPTIONAL_VALUE ->
-        (PropertyBinder<P, ?>) OPTIONAL_VALUE_BINDER;
+        (FieldBinder<F, ?>) OPTIONAL_VALUE_BINDER;
       case REFERENCE ->
-        (PropertyBinder<P, ?>) REFERENCE_BINDER;
+        (FieldBinder<F, ?>) REFERENCE_BINDER;
       case OPTIONAL_BACK_REFERENCE ->
-        (PropertyBinder<P, ?>) OPTIONAL_REFERENCE_BINDER;
+        (FieldBinder<F, ?>) OPTIONAL_REFERENCE_BINDER;
       default ->
-        throw InvalidArgumentException.forArgument(property);
+        throw InvalidArgumentException.forArgument(field);
     };
   }
 }

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseapplication.propertybinder;
+package ch.nolix.system.databaseapplication.fieldbinder;
 
 //own imports
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
 //class
-public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?>, ITextbox> {
+public class OptionalValueBinder extends FieldBinder<IOptionalValue<?>, ITextbox> {
 
   //method
   @Override

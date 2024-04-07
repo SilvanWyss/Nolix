@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseapplication.propertybinder;
+package ch.nolix.system.databaseapplication.fieldbinder;
 
 //own imports
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 
 //class
-public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, IDropdownMenu> {
+public final class ReferenceBinder extends FieldBinder<IReference<IEntity>, IDropdownMenu> {
 
   //method
   @Override

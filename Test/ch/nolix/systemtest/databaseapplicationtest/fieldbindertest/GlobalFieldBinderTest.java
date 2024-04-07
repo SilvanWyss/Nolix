@@ -1,18 +1,18 @@
 //package declaration
-package ch.nolix.systemtest.databaseapplicationtest.propertybindertest;
+package ch.nolix.systemtest.databaseapplicationtest.fieldbindertest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.system.databaseapplication.propertybinder.GlobalPropertyBinder;
+import ch.nolix.system.databaseapplication.fieldbinder.GlobalFieldBinder;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
 //class
-final class GlobalPropertyBinderTest extends StandardTest {
+final class GlobalFieldBinderTest extends StandardTest {
 
   //method
   @Test
@@ -22,7 +22,7 @@ final class GlobalPropertyBinderTest extends StandardTest {
     final var value = Value.withInitialValue("");
 
     //execution
-    final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
+    final var result = GlobalFieldBinder.createControlAndBindItWith(value);
 
     //verification part 1
     expect(result.getStoredProperty()).is(value);
@@ -64,7 +64,7 @@ final class GlobalPropertyBinderTest extends StandardTest {
     expect(value.isEmpty());
 
     //execution
-    final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
+    final var result = GlobalFieldBinder.createControlAndBindItWith(value);
 
     //verification
     expect(result.getStoredProperty()).is(value);
@@ -82,7 +82,7 @@ final class GlobalPropertyBinderTest extends StandardTest {
     final var value = Value.withInitialValue("zebra");
 
     //execution
-    final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
+    final var result = GlobalFieldBinder.createControlAndBindItWith(value);
 
     //verification
     expect(result.getStoredProperty()).is(value);

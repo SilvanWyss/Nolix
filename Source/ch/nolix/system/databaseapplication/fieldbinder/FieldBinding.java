@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseapplication.propertybinder;
+package ch.nolix.system.databaseapplication.fieldbinder;
 
 //Java imports
 import java.util.Optional;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class PropertyBinding {
+public final class FieldBinding {
 
   //attribute
   private final IField field;
@@ -27,7 +27,7 @@ public final class PropertyBinding {
   private Throwable currentError;
 
   //constructors
-  public PropertyBinding(final IField field, final IControl<?, ?> control) {
+  public FieldBinding(final IField field, final IControl<?, ?> control) {
 
     GlobalValidator.assertThat(field).thatIsNamed(IField.class).isNotNull();
     GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
