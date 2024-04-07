@@ -6,14 +6,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.reflection.GlobalObjectTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdata.propertyflyweight.PropertyFlyWeight;
-import ch.nolix.system.objectdata.propertyflyweight.VoidPropertyFlyWeight;
+import ch.nolix.system.objectdata.fieldflyweight.FieldFlyWeight;
+import ch.nolix.system.objectdata.fieldflyweight.VoidFieldFlyWeight;
 import ch.nolix.system.objectdata.propertyvalidator.PropertyValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
-import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
+import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
@@ -23,10 +23,10 @@ public abstract class Field implements IField {
   private static final PropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 
   //constant
-  private static final VoidPropertyFlyWeight VOID_PROPERTY_FLY_WEIGHT = new VoidPropertyFlyWeight();
+  private static final VoidFieldFlyWeight VOID_PROPERTY_FLY_WEIGHT = new VoidFieldFlyWeight();
 
   //attribute
-  private IPropertyFlyWeight propertyFlyWeight = VOID_PROPERTY_FLY_WEIGHT;
+  private IFieldFlyWeight fieldFlyWeight = VOID_PROPERTY_FLY_WEIGHT;
 
   //attribute
   private boolean edited;
@@ -147,7 +147,7 @@ public abstract class Field implements IField {
 
     setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid();
 
-    propertyFlyWeight.setUpdateAction(updateAction);
+    fieldFlyWeight.setUpdateAction(updateAction);
   }
 
   //method
@@ -159,7 +159,7 @@ public abstract class Field implements IField {
 
     edited = true;
 
-    propertyFlyWeight.noteUpdate();
+    fieldFlyWeight.noteUpdate();
   }
 
   //method
@@ -233,14 +233,14 @@ public abstract class Field implements IField {
 
   //method
   private void setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid() {
-    if (propertyFlyWeight.isVoid()) {
+    if (fieldFlyWeight.isVoid()) {
       setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid();
     }
   }
 
   //method
   private void setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid() {
-    propertyFlyWeight = new PropertyFlyWeight();
+    fieldFlyWeight = new FieldFlyWeight();
   }
 
   //method

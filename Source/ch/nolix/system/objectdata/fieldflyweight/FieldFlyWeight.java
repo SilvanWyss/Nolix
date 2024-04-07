@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.objectdata.propertyflyweight;
+package ch.nolix.system.objectdata.fieldflyweight;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
+import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
 
 //class
-public final class PropertyFlyWeight implements IPropertyFlyWeight {
+public final class FieldFlyWeight implements IFieldFlyWeight {
 
   //optional attribute
   private Runnable updateAction;

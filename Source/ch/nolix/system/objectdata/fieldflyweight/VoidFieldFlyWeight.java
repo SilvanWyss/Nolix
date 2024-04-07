@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.objectdata.propertyflyweight;
+package ch.nolix.system.objectdata.fieldflyweight;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
+import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
 
 //class
-public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
+public final class VoidFieldFlyWeight implements IFieldFlyWeight {
 
   //method
   @Override
