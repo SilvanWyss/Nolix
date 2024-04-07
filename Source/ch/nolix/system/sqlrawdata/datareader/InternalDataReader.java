@@ -121,7 +121,7 @@ final class InternalDataReader {
     final String tableName,
     final IColumnInfo columnInfo,
     final String value) {
-    return switch (columnInfo.getColumnPropertyType()) {
+    return switch (columnInfo.getColumnFieldType()) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
@@ -132,7 +132,7 @@ final class InternalDataReader {
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
       default ->
-        throw InvalidArgumentException.forArgument(columnInfo.getColumnPropertyType());
+        throw InvalidArgumentException.forArgument(columnInfo.getColumnFieldType());
     };
   }
 

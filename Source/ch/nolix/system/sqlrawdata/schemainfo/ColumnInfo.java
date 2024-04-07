@@ -65,24 +65,24 @@ implements IColumnInfo {
 
   //method
   @Override
+  public FieldType getColumnFieldType() {
+    return columnPropertyType;
+  }
+
+  //method
+  @Override
   public String getColumnId() {
     return columnId;
+  }
+
+  @Override
+  public int getColumnIndexOnEntityNode() {
+    return columnIndexOnEntityNode;
   }
 
   //method
   @Override
   public String getColumnName() {
     return columnName;
-  }
-
-  //method
-  @Override
-  public FieldType getColumnPropertyType() {
-    return columnPropertyType;
-  }
-
-  @Override
-  public int getColumnIndexOnEntityNode() {
-    return columnIndexOnEntityNode;
   }
 }

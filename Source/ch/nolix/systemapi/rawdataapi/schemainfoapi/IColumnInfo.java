@@ -11,14 +11,14 @@ public interface IColumnInfo {
   DataType getColumnDataType();
 
   //method declaration
+  FieldType getColumnFieldType();
+
+  //method declaration
   String getColumnId();
 
   //method declaration
-  String getColumnName();
-
-  //method declaration
-  FieldType getColumnPropertyType();
-
-  //method declaration
   int getColumnIndexOnEntityNode();
+
+  //method declaration
+  String getColumnName();
 }
