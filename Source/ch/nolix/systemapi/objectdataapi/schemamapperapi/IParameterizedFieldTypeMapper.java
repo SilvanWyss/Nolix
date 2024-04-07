@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface IParameterizedPropertyTypeMapper {
+public interface IParameterizedFieldTypeMapper {
 
   //method declaration
   IParameterizedFieldType createParameterizedFieldTypeFromField(

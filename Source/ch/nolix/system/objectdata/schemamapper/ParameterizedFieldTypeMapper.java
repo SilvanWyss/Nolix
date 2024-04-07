@@ -24,13 +24,13 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParameterizedPropertyTypeMapper //NOSONAR: A ParameterizedPropertyTypeMapper is a central object with many dependencies.
-implements IParameterizedPropertyTypeMapper {
+public final class ParameterizedFieldTypeMapper
+implements IParameterizedFieldTypeMapper {
 
   //constant
   private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
