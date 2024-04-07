@@ -22,7 +22,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "abstractValueContent");
+    .forEntityAndBackReferencedFieldName(AbstractableField.class, "abstractValueContent");
 
   //attribute
   private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());

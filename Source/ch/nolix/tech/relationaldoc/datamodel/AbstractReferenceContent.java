@@ -23,7 +23,7 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "abstractReferenceContent");
+    .forEntityAndBackReferencedFieldName(AbstractableField.class, "abstractReferenceContent");
 
   //attribute
   private final Reference<AbstractableObject> referencedType = Reference.forEntity(AbstractableObject.class);

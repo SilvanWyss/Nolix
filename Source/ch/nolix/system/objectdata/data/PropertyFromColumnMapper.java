@@ -89,7 +89,7 @@ public final class PropertyFromColumnMapper {
 
     final var backReferencedPropertyName = backReferencedColumn.getName();
 
-    return BackReference.forEntityWithTableNameAndBackReferencedPropertyName(backReferencedTableName,
+    return BackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName,
       backReferencedPropertyName);
   }
 

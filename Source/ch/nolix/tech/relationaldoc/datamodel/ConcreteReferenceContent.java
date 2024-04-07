@@ -20,7 +20,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteReferenceContent");
+    .forEntityAndBackReferencedFieldName(AbstractableField.class, "concreteReferenceContent");
 
   //multi-attribute
   private final MultiReference<AbstractableObject> referencedObjects = MultiReference

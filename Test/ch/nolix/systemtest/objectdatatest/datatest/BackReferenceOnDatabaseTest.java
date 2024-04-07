@@ -32,7 +32,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
 
     //attribute
-    final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
+    final BackReference<Person> owner = BackReference.forEntityAndBackReferencedFieldName(Person.class,
       "pet");
 
     //constructor

@@ -21,7 +21,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteValueContent");
+    .forEntityAndBackReferencedFieldName(AbstractableField.class, "concreteValueContent");
 
   //attribute
   private final OptionalValue<String> dataType = OptionalValue.withValueType(String.class);

@@ -29,17 +29,17 @@ implements IBackReference<E> {
   }
 
   //static method
-  public static <E2 extends Entity> BackReference<E2> forEntityAndBackReferencedPropertyName(
+  public static <E2 extends Entity> BackReference<E2> forEntityAndBackReferencedFieldName(
     final Class<E2> type,
-    final String backReferencedPropertyName) {
-    return new BackReference<>(type.getSimpleName(), backReferencedPropertyName);
+    final String backReferencedFieldName) {
+    return new BackReference<>(type.getSimpleName(), backReferencedFieldName);
   }
 
   //static method
-  public static BackReference<BaseEntity> forEntityWithTableNameAndBackReferencedPropertyName(
+  public static BackReference<BaseEntity> forEntityWithTableNameAndBackReferencedFieldName(
     final String tableName,
-    final String backReferencedPropertyName) {
-    return new BackReference<>(tableName, backReferencedPropertyName);
+    final String backReferencedFieldName) {
+    return new BackReference<>(tableName, backReferencedFieldName);
   }
 
   //method
