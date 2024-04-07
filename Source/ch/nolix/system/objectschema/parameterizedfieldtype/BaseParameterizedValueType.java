@@ -61,6 +61,6 @@ implements IBaseParameterizedValueType<V> {
   //method
   @Override
   public final IParameterizedFieldTypeDto toDto() {
-    return new BaseParameterizedValueTypeDto(getPropertyType(), getDataType());
+    return new BaseParameterizedValueTypeDto(getFieldType(), getDataType());
   }
 }

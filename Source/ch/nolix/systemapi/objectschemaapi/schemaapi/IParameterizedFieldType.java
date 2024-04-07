@@ -21,7 +21,7 @@ public interface IParameterizedFieldType {
   DataType getDataType();
 
   //method declaration
-  FieldType getPropertyType();
+  FieldType getFieldType();
 
   //method declaration
   boolean referencesTable(ITable table);

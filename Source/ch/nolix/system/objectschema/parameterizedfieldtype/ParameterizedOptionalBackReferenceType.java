@@ -19,7 +19,7 @@ public final class ParameterizedOptionalBackReferenceType extends BaseParameteri
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 }

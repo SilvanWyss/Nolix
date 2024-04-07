@@ -74,7 +74,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
   //method
   @Override
   public FieldType getPropertyType(final IColumn column) {
-    return column.getParameterizedPropertyType().getPropertyType();
+    return column.getParameterizedPropertyType().getFieldType();
   }
 
   //method

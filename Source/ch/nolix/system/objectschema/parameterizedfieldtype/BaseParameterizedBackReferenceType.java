@@ -71,7 +71,7 @@ implements IBaseParameterizedBackReferenceType {
   @Override
   public final IParameterizedFieldTypeDto toDto() {
     return new BaseParameterizedBackReferenceTypeDto(
-      getPropertyType(),
+      getFieldType(),
       getDataType(),
       getBackReferencedColumn().getId());
   }
@@ -88,7 +88,7 @@ implements IBaseParameterizedBackReferenceType {
 
   //method
   private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
-    return backReferencedColumn.getParameterizedPropertyType().getPropertyType()
+    return backReferencedColumn.getParameterizedPropertyType().getFieldType()
       .getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 }

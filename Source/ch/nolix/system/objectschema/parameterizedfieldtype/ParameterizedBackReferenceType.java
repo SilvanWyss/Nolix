@@ -19,7 +19,7 @@ public final class ParameterizedBackReferenceType extends BaseParameterizedBackR
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.BACK_REFERENCE;
   }
 }

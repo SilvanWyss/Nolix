@@ -70,7 +70,7 @@ implements IBaseParameterizedReferenceType {
   @Override
   public final IParameterizedFieldTypeDto toDto() {
     return new BaseParameterizedReferenceTypeDto(
-      getPropertyType(),
+      getFieldType(),
       getDataType(),
       getReferencedTable().getId());
   }

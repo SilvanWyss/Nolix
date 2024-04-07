@@ -19,7 +19,7 @@ public final class ParameterizedMultiReferenceType extends BaseParameterizedRefe
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_REFERENCE;
   }
 }

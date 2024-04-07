@@ -19,7 +19,7 @@ public final class ParameterizedOptionalReferenceType extends BaseParameterizedR
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_REFERENCE;
   }
 }

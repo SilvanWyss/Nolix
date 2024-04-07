@@ -19,7 +19,7 @@ public final class ParameterizedReferenceType extends BaseParameterizedReference
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.REFERENCE;
   }
 }

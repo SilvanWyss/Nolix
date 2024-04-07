@@ -19,7 +19,7 @@ public final class ParameterizedOptionalValueType<V> extends BaseParameterizedVa
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_VALUE;
   }
 }
