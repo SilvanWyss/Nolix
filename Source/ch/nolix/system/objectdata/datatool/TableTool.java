@@ -22,7 +22,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return table
       .internalGetStoredEntitiesInLocalData()
       .containsOnly(
-        e -> ENTITY_TOOL.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
+        e -> ENTITY_TOOL.allNewAndEditedMandatoryFieldsAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
       );
   }
 

@@ -19,7 +19,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 public interface IEntityTool extends IDatabaseObjectTool {
 
   //method declaration
-  boolean allNewAndEditedMandatoryPropertiesAreSet(IEntity entity);
+  boolean allNewAndEditedMandatoryFieldsAreSet(IEntity entity);
 
   //method declaration
   boolean canBeDeleted(IEntity entity);
@@ -49,10 +49,10 @@ public interface IEntityTool extends IDatabaseObjectTool {
   IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(IEntity entity);
 
   //method declaration
-  IContainer<? extends IField> getStoredEditedProperties(IEntity entity);
+  IContainer<? extends IField> getStoredEditedFields(IEntity entity);
 
   //method declaration
-  IContainer<? extends IField> getStoredReferencingProperties(IEntity entity);
+  IContainer<? extends IField> getStoredReferencingFields(IEntity entity);
 
   //method declaration
   boolean isReferenced(IEntity entity);

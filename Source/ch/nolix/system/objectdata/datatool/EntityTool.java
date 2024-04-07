@@ -29,7 +29,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
   //method
   @Override
-  public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
+  public boolean allNewAndEditedMandatoryFieldsAreSet(final IEntity entity) {
 
     if (isNewOrEdited(entity)) {
       return entity.internalGetStoredFields().containsOnly(FIELD_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
@@ -68,7 +68,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return new EntityUpdateDto(
       entity.getId(),
       entity.getSaveStamp(),
-      getStoredEditedProperties(entity).to(IField::internalToContentField));
+      getStoredEditedFields(entity).to(IField::internalToContentField));
   }
 
   //method
@@ -109,13 +109,13 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
   //method
   @Override
-  public IContainer<? extends IField> getStoredEditedProperties(final IEntity entity) {
+  public IContainer<? extends IField> getStoredEditedFields(final IEntity entity) {
     return entity.internalGetStoredFields().getStoredSelected(IField::isEdited);
   }
 
   //method
   @Override
-  public IContainer<? extends IField> getStoredReferencingProperties(final IEntity entity) {
+  public IContainer<? extends IField> getStoredReferencingFields(final IEntity entity) {
     return entity.internalGetStoredFields().toFromGroups(IField::getStoredReferencingFields);
   }
 

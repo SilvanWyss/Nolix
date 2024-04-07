@@ -178,7 +178,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   //method
   private Optional<? extends IField> getOptionalPendantReferencingPropertyToEntity(final E entity) {
     return ENTITY_TOOL
-      .getStoredReferencingProperties(entity)
+      .getStoredReferencingFields(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
   }
 
