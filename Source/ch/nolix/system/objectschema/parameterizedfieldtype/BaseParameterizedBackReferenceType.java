@@ -88,7 +88,7 @@ implements IBaseParameterizedBackReferenceType {
 
   //method
   private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
-    return backReferencedColumn.getParameterizedPropertyType().getFieldType()
+    return backReferencedColumn.getParameterizedFieldType().getFieldType()
       .getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 }

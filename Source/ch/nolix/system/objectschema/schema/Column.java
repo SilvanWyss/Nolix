@@ -73,7 +73,7 @@ public final class Column extends SchemaObject implements IColumn {
 
     this.id = id;
     setName(name);
-    setParameterizedPropertyType(parameterizedFieldType);
+    setParameterizedFieldType(parameterizedFieldType);
   }
 
   //static method
@@ -113,7 +113,7 @@ public final class Column extends SchemaObject implements IColumn {
 
   //method
   @Override
-  public IParameterizedFieldType getParameterizedPropertyType() {
+  public IParameterizedFieldType getParameterizedFieldType() {
     return parameterizedFieldType;
   }
 
@@ -152,7 +152,7 @@ public final class Column extends SchemaObject implements IColumn {
 
   //method
   @Override
-  public Column setParameterizedPropertyType(
+  public Column setParameterizedFieldType(
     final IParameterizedFieldType parameterizedFieldType) {
 
     MUTATION_VALIDATOR.assertCanSetParameterizedPropertyTypeToColumn(this, parameterizedFieldType);
@@ -164,7 +164,7 @@ public final class Column extends SchemaObject implements IColumn {
   //method
   @Override
   public ColumnDto toDto() {
-    return new ColumnDto(getId(), getName(), getParameterizedPropertyType().toDto());
+    return new ColumnDto(getId(), getName(), getParameterizedFieldType().toDto());
   }
 
   //method

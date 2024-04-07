@@ -74,25 +74,25 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
   //method
   @Override
   public FieldType getPropertyType(final IColumn column) {
-    return column.getParameterizedPropertyType().getFieldType();
+    return column.getParameterizedFieldType().getFieldType();
   }
 
   //method
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(column.getParameterizedPropertyType());
+    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(column.getParameterizedFieldType());
   }
 
   //method
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(column.getParameterizedPropertyType());
+    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(column.getParameterizedFieldType());
   }
 
   //method
   @Override
   public boolean isAValueColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseValueType(column.getParameterizedPropertyType());
+    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseValueType(column.getParameterizedFieldType());
   }
 
   //method
@@ -103,12 +103,12 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
       return false;
     }
 
-    final var parameterizedPropertyType = column.getParameterizedPropertyType();
+    final var parameterizedPropertyType = column.getParameterizedFieldType();
 
     final var backReferencedColumn = parameterizedPropertyType.asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
-    final var backReferencedColumnParameterizedPropertyType = backReferencedColumn.getParameterizedPropertyType();
+    final var backReferencedColumnParameterizedPropertyType = backReferencedColumn.getParameterizedFieldType();
 
     if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(backReferencedColumnParameterizedPropertyType)) {
       return false;
@@ -122,12 +122,12 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
   public boolean referencesBackGivenColumn(
     final IColumn column,
     final IColumn probableBackReferencedColumn) {
-    return column.getParameterizedPropertyType().referencesBackColumn(probableBackReferencedColumn);
+    return column.getParameterizedFieldType().referencesBackColumn(probableBackReferencedColumn);
   }
 
   //method
   @Override
   public boolean referencesGivenTable(final IColumn column, final ITable table) {
-    return column.getParameterizedPropertyType().referencesTable(table);
+    return column.getParameterizedFieldType().referencesTable(table);
   }
 }
