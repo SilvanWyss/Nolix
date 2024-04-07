@@ -41,8 +41,8 @@ public final class SchemaWriter implements ISchemaWriter {
   private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
 
   //constant
-  private static final ParameterizedPropertyTypeNodeMapper parameterizedPropertyTypeNodeMapper = //
-  new ParameterizedPropertyTypeNodeMapper();
+  private static final ParameterizedFieldTypeNodeMapper parameterizedFieldTypeNodeMapper = //
+  new ParameterizedFieldTypeNodeMapper();
 
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
@@ -187,7 +187,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
-      parameterizedPropertyTypeNodeMapper.createParameterizedPropertyTypeNodeFrom(parameterizedPropertyType));
+      parameterizedFieldTypeNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedPropertyType));
 
     hasChanges = true;
   }

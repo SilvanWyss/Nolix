@@ -11,24 +11,24 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeD
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
-public final class ParameterizedPropertyTypeNodeMapper {
+public final class ParameterizedFieldTypeNodeMapper {
 
   //method
-  public Node createParameterizedPropertyTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedPropertyType) {
+  public Node createParameterizedFieldTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedPropertyType) {
     return switch (parameterizedPropertyType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
-        createParameterizedPropertyTypeNodeFrom((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
+        createParameterizedFieldTypeNodeFrom((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
       case BASE_REFERENCE ->
-        createParameterizedPropertyTypeNodeFrom((IBaseParameterizedReferenceTypeDto) parameterizedPropertyType);
+        createParameterizedFieldTypeNodeFrom((IBaseParameterizedReferenceTypeDto) parameterizedPropertyType);
       case BASE_BACK_REFERENCE ->
-        createParameterizedPropertyTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType);
+        createParameterizedFieldTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType);
       default ->
         throw InvalidArgumentException.forArgument(parameterizedPropertyType);
     };
   }
 
   //method
-  private Node createParameterizedPropertyTypeNodeFrom(
+  private Node createParameterizedFieldTypeNodeFrom(
     IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
@@ -44,7 +44,7 @@ public final class ParameterizedPropertyTypeNodeMapper {
   }
 
   //method
-  private Node createParameterizedPropertyTypeNodeFrom(
+  private Node createParameterizedFieldTypeNodeFrom(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
@@ -60,7 +60,7 @@ public final class ParameterizedPropertyTypeNodeMapper {
   }
 
   //method
-  private Node createParameterizedPropertyTypeNodeFrom(
+  private Node createParameterizedFieldTypeNodeFrom(
     final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
