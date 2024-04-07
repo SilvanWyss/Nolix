@@ -48,7 +48,7 @@ final class ColumnMutationExecutor {
     if (column.isLinkedWithRealDatabase()) {
       column
         .internalGetRefRawSchemaAdapter()
-        .setColumnParameterizedPropertyType(column, parameterizedFieldType);
+        .setColumnParameterizedFieldType(column, parameterizedFieldType);
     }
 
     column.internalSetEdited();

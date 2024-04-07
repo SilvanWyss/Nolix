@@ -219,7 +219,7 @@ public final class Column extends SchemaObject implements IColumn {
 
   //method
   void setParameterizedPropertyTypeToDatabase() {
-    internalGetRefRawSchemaAdapter().setColumnParameterizedPropertyType(this, parameterizedFieldType);
+    internalGetRefRawSchemaAdapter().setColumnParameterizedFieldType(this, parameterizedFieldType);
   }
 
   //method

@@ -97,7 +97,7 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   }
 
   @Override
-  public void setColumnParameterizedPropertyType(
+  public void setColumnParameterizedFieldType(
     final IColumn column,
     final IParameterizedFieldType parameterizedFieldType) {
     internalRawSchemaAdapter.setColumnParameterizedFieldType(
