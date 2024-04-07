@@ -17,7 +17,7 @@ public final class ColumnDefinitionMapper {
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   //constant
-  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
+  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
   new ParameterizedFieldTypeNodeSearcher();
 
   //method
@@ -27,15 +27,28 @@ public final class ColumnDefinitionMapper {
     return new ColumnInfo(
       getColumnIdFromColumnNode(columnNode),
       getColumnNameFromColumnNode(columnNode),
-      getColumnPropertyTypeFromColumnNode(columnNode),
+      getColumnFieldTypeFromColumnNode(columnNode),
       getColumnDataTypeFromColumnNode(columnNode),
       columnIndexOnEntityNode);
   }
 
   //method
   private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
-    return getDataTypeFromParameterizedPropertyTypeNode(
+    return getDataTypeFromParameterizedFieldTypeNode(
       COLUMN_NODE_SEARCHER.getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode));
+  }
+
+  //method
+  private FieldType getColumnFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
+
+    final var parameterizedFieldTypeNode = //
+    COLUMN_NODE_SEARCHER.getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
+
+    final var fieldTypeNode = //
+    PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
+      .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode);
+
+    return FieldType.fromSpecification(fieldTypeNode);
   }
 
   //method
@@ -49,27 +62,14 @@ public final class ColumnDefinitionMapper {
   }
 
   //method
-  private FieldType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
-
-    final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
-      .getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
-
-    final var propertyTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
-      .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
-        parameterizedPropertyTypeNode);
-
-    return FieldType.fromSpecification(propertyTypeNode);
-  }
-
-  //method
   private DataType getDataTypeFromDataTypeNode(final IMutableNode<?> dataTypeNode) {
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
   //method
-  private DataType getDataTypeFromParameterizedPropertyTypeNode(IMutableNode<?> parameterizedPropertyTypeNode) {
+  private DataType getDataTypeFromParameterizedFieldTypeNode(IMutableNode<?> parameterizedFieldTypeNode) {
     return getDataTypeFromDataTypeNode(
-      PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedFieldTypeNode(
-        parameterizedPropertyTypeNode));
+      PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedFieldTypeNode(
+        parameterizedFieldTypeNode));
   }
 }
