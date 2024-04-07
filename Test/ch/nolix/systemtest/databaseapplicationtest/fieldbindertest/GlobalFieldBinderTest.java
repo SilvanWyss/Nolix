@@ -25,7 +25,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     final var result = GlobalFieldBinder.createControlAndBindItWith(value);
 
     //verification part 1
-    expect(result.getStoredProperty()).is(value);
+    expect(result.getStoredField()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();
     expect(value.getStoredValue()).isEqualTo("");
@@ -67,7 +67,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     final var result = GlobalFieldBinder.createControlAndBindItWith(value);
 
     //verification
-    expect(result.getStoredProperty()).is(value);
+    expect(result.getStoredField()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();
     expect(value.isEmpty());
@@ -85,7 +85,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     final var result = GlobalFieldBinder.createControlAndBindItWith(value);
 
     //verification
-    expect(result.getStoredProperty()).is(value);
+    expect(result.getStoredField()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();
     expect(value.getStoredValue()).isEqualTo("zebra");

@@ -47,18 +47,18 @@ public final class FieldBinding {
   }
 
   //method
+  public IControl<?, ?> getStoredControl() {
+    return control;
+  }
+
+  //method
   public ILabel getStoredErrorLabel() {
     return errorText;
   }
 
   //method
-  public IField getStoredProperty() {
+  public IField getStoredField() {
     return field;
-  }
-
-  //method
-  public IControl<?, ?> getStoredControl() {
-    return control;
   }
 
   //method
