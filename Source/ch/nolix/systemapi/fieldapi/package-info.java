@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.fieldapi} package declares types for
- * properties of entities.
+ * The {@link ch.nolix.systemapi.fieldapi} package declares types for fields of
+ * entities.
  * 
  * @author Silvan Wyss
  * @date 2023-11-19
