@@ -2,7 +2,7 @@
 /**
  * The {@link ch.nolix.system.objectdata.parameterizedpropertytypemapper}
  * packages defines mappers for
- * {@link ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType}s.
+ * {@link ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType}s.
  * 
  * @author Silvan Wyss
  * @date 2023-12-22

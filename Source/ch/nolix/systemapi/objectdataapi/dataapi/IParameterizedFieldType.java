@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //interface
-public interface IParameterizedPropertyType {
+public interface IParameterizedFieldType {
 
   //method declaration
   IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType();

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.parameterizedpropertytypemapper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.parameterizedpropertytype.ParameterizedReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
@@ -16,7 +16,7 @@ implements IParameterizedFieldTypeMapper<IBaseParameterizedReferenceTypeDto> {
 
   //method
   @Override
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromDto(
+  public IParameterizedFieldType createParameterizedPropertyTypeFromDto(
     final IBaseParameterizedReferenceTypeDto parameterizedPropertyTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

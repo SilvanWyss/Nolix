@@ -2,7 +2,7 @@
 /**
  * The {@link ch.nolix.system.objectdata.parameterizedpropertytype} packages
  * defines
- * {@link ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType}s.
+ * {@link ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType}s.
  * 
  * @author Silvan Wyss
  * @date 2022-03-23

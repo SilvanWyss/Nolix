@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -20,7 +20,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   private final String id;
 
   //attribute
-  private final IParameterizedPropertyType parameterizedPropertyType;
+  private final IParameterizedFieldType parameterizedFieldType;
 
   //attribute
   private final Table<IEntity> parentTable;
@@ -29,17 +29,17 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   private Column(
     final String name,
     final String id,
-    final IParameterizedPropertyType parameterizedPropertyType,
+    final IParameterizedFieldType parameterizedFieldType,
     final Table<IEntity> parentTable) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
-    GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(IParameterizedPropertyType.class).isNotNull();
+    GlobalValidator.assertThat(parameterizedFieldType).thatIsNamed(IParameterizedFieldType.class).isNotNull();
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 
     this.name = name;
     this.id = id;
-    this.parameterizedPropertyType = parameterizedPropertyType;
+    this.parameterizedFieldType = parameterizedFieldType;
     this.parentTable = parentTable;
   }
 
@@ -47,9 +47,9 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
     final String name,
     final String id,
-    final IParameterizedPropertyType parameterizedPropertyType,
+    final IParameterizedFieldType parameterizedFieldType,
     final Table<IEntity> parentTable) {
-    return new Column(name, id, parameterizedPropertyType, parentTable);
+    return new Column(name, id, parameterizedFieldType, parentTable);
   }
 
   //method
@@ -66,8 +66,8 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 
   //method
   @Override
-  public IParameterizedPropertyType getParameterizedPropertyType() {
-    return parameterizedPropertyType;
+  public IParameterizedFieldType getParameterizedPropertyType() {
+    return parameterizedFieldType;
   }
 
   //method

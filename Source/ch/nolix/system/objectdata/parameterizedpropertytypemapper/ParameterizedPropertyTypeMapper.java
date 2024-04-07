@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.parameterizedpropertytypemapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
@@ -53,7 +53,7 @@ public final class ParameterizedPropertyTypeMapper {
   new ParameterizedMultiBackReferenceTypeMapper();
 
   //method
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromDto(
+  public IParameterizedFieldType createParameterizedPropertyTypeFromDto(
     final IParameterizedFieldTypeDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
