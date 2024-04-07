@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.propertyvalidator;
+package ch.nolix.system.objectdata.fieldvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -8,10 +8,10 @@ import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IOptionalReferenceValidator;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalReferenceValidator;
 
 //class
-public final class OptionalReferenceValidator extends PropertyValidator implements IOptionalReferenceValidator {
+public final class OptionalReferenceValidator extends FieldValidator implements IOptionalReferenceValidator {
 
   //constant
   private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();

@@ -8,7 +8,7 @@ import ch.nolix.core.reflection.GlobalObjectTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.fieldflyweight.VoidFieldFlyWeight;
-import ch.nolix.system.objectdata.propertyvalidator.PropertyValidator;
+import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapt
 public abstract class Field implements IField {
 
   //constant
-  private static final PropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
+  private static final FieldValidator PROPERTY_VALIDATOR = new FieldValidator();
 
   //constant
   private static final VoidFieldFlyWeight VOID_PROPERTY_FLY_WEIGHT = new VoidFieldFlyWeight();

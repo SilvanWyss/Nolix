@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.system.objectdata.propertyvalidator;
+package ch.nolix.system.objectdata.fieldvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldtool.MultiValueTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IMultiValueValidator;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IMultiValueValidator;
 
 //class
-public final class MultiValueValidator extends PropertyValidator implements IMultiValueValidator {
+public final class MultiValueValidator extends FieldValidator implements IMultiValueValidator {
 
   //constant
   private static final IMultiValueTool MULTI_VALUE_TOOL = new MultiValueTool();

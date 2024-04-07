@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.propertyvalidator;
+package ch.nolix.system.objectdata.fieldvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -10,10 +10,10 @@ import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IPropertyValidator;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 
 //class
-public class PropertyValidator implements IPropertyValidator {
+public class FieldValidator implements IFieldValidator {
 
   //constant
   private static final IFieldTool PROPERTY_TOOL = new FieldTool();

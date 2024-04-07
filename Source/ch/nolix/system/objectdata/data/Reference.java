@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IReferenceValidator;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IReferenceValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class

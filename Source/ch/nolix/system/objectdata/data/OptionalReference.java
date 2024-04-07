@@ -9,7 +9,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
-import ch.nolix.system.objectdata.propertyvalidator.OptionalReferenceValidator;
+import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IOptionalReferenceValidator;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalReferenceValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class

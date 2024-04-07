@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
-import ch.nolix.system.objectdata.propertyvalidator.MultiReferenceValidator;
+import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;

@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertyvalidatorapi;
+package ch.nolix.systemapi.objectdataapi.fieldvalidatorapi;
 
 //own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 
 //interface
-public interface IMultiReferenceValidator extends IPropertyValidator {
+public interface IMultiReferenceValidator extends IFieldValidator {
 
   //method declaration
   void assertCanAddGivenEntity(IMultiReference<?> multiReference, IEntity entity);

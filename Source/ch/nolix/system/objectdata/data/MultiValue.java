@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
-import ch.nolix.system.objectdata.propertyvalidator.MultiValueValidator;
+import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;

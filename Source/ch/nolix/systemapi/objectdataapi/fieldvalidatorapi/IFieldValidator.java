@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertyvalidatorapi;
+package ch.nolix.systemapi.objectdataapi.fieldvalidatorapi;
 
 //own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //interface
-public interface IPropertyValidator {
+public interface IFieldValidator {
 
   //method declaration
   void assertBelongsToEntity(IField field);

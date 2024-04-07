@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.propertyvalidator;
+package ch.nolix.system.objectdata.fieldvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -7,10 +7,10 @@ import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
-import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IMultiReferenceValidator;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IMultiReferenceValidator;
 
 //class
-public final class MultiReferenceValidator extends PropertyValidator implements IMultiReferenceValidator {
+public final class MultiReferenceValidator extends FieldValidator implements IMultiReferenceValidator {
 
   //constant
   private static final IMultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
