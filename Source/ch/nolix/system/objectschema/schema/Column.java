@@ -32,8 +32,8 @@ public final class Column extends SchemaObject implements IColumn {
   ParameterizedValueType.forDataType(DataType.INTEGER_4BYTE);
 
   //constant
-  private static final ParameterizedPropertyTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
-  new ParameterizedPropertyTypeMapper();
+  private static final ParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
+  new ParameterizedFieldTypeMapper();
 
   //constant
   private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
@@ -81,7 +81,7 @@ public final class Column extends SchemaObject implements IColumn {
     return new Column(
       columnDto.getId(),
       columnDto.getName(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
         columnDto.getParameterizedFieldType(),
         tables));
   }

@@ -20,59 +20,59 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceT
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
-public final class ParameterizedPropertyTypeMapper {
+public final class ParameterizedFieldTypeMapper {
 
   //method
-  public ParameterizedFieldType createParameterizedPropertyTypeFromDto(
-    final IParameterizedFieldTypeDto parameterizedPropertyType,
+  public ParameterizedFieldType createParameterizedFieldTypeFromDto(
+    final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
-    return switch (parameterizedPropertyType.getFieldType()) {
+    return switch (parameterizedFieldType.getFieldType()) {
       case VALUE ->
-        ParameterizedValueType.forDataType(parameterizedPropertyType.getDataType());
+        ParameterizedValueType.forDataType(parameterizedFieldType.getDataType());
       case OPTIONAL_VALUE ->
-        ParameterizedOptionalValueType.forDataType(parameterizedPropertyType.getDataType());
+        ParameterizedOptionalValueType.forDataType(parameterizedFieldType.getDataType());
       case MULTI_VALUE ->
-        ParameterizedMultiValueType.forDataType(parameterizedPropertyType.getDataType());
+        ParameterizedMultiValueType.forDataType(parameterizedFieldType.getDataType());
       case REFERENCE ->
         ParameterizedReferenceType.forReferencedTable(
-          getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables));
+          getStoredReferencedTableFromParameterizedFieldType(parameterizedFieldType, tables));
       case OPTIONAL_REFERENCE ->
         ParameterizedOptionalReferenceType.forReferencedTable(
-          getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables));
+          getStoredReferencedTableFromParameterizedFieldType(parameterizedFieldType, tables));
       case MULTI_REFERENCE ->
         ParameterizedMultiReferenceType.forReferencedTable(
-          getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables));
+          getStoredReferencedTableFromParameterizedFieldType(parameterizedFieldType, tables));
       case BACK_REFERENCE ->
         ParameterizedBackReferenceType.forBackReferencedColumn(
-          getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables));
+          getStoredBackReferencedColumnFromParameterizedFieldType(parameterizedFieldType, tables));
       case OPTIONAL_BACK_REFERENCE ->
         ParameterizedOptionalBackReferenceType.forBackReferencedColumn(
-          getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables));
+          getStoredBackReferencedColumnFromParameterizedFieldType(parameterizedFieldType, tables));
       case MULTI_BACK_REFERENCE ->
         ParameterizedMultiBackReferenceType.forBackReferencedColumn(
-          getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables));
+          getStoredBackReferencedColumnFromParameterizedFieldType(parameterizedFieldType, tables));
       default ->
-        throw InvalidArgumentException.forArgument(parameterizedPropertyType);
+        throw InvalidArgumentException.forArgument(parameterizedFieldType);
     };
   }
 
   //method
-  private Column getStoredBackReferencedColumnFromParameterizedPropertyType(
-    final IParameterizedFieldTypeDto parameterizedPropertyType,
+  private Column getStoredBackReferencedColumnFromParameterizedFieldType(
+    final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
 
-    final var baseParameterizedBackReferenceType = (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType;
+    final var baseParameterizedBackReferenceType = (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType;
     final var backReferencedColumnId = baseParameterizedBackReferenceType.getBackReferencedColumnId();
 
     return (Column) tables.toFromGroups(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
   }
 
   //method
-  private ITable getStoredReferencedTableFromParameterizedPropertyType(
-    final IParameterizedFieldTypeDto parameterizedPropertyType,
+  private ITable getStoredReferencedTableFromParameterizedFieldType(
+    final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
 
-    final var baseParameterizedReferenceType = (IBaseParameterizedReferenceTypeDto) parameterizedPropertyType;
+    final var baseParameterizedReferenceType = (IBaseParameterizedReferenceTypeDto) parameterizedFieldType;
 
     return tables.getStoredFirst(t -> t.hasId(baseParameterizedReferenceType.getReferencedTableId()));
   }
