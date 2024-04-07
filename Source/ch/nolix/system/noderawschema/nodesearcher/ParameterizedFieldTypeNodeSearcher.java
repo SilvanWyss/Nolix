@@ -28,7 +28,7 @@ public final class ParameterizedFieldTypeNodeSearcher implements IParameterizedF
   @Override
   public IMutableNode<?> getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.PROPERTY_TYPE);
+    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.FIELD_TYPE);
   }
 
   //method

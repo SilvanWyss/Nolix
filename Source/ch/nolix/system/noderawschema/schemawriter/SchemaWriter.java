@@ -186,7 +186,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       parameterizedPropertyTypeNodeMapper.createParameterizedPropertyTypeNodeFrom(parameterizedPropertyType));
 
     hasChanges = true;

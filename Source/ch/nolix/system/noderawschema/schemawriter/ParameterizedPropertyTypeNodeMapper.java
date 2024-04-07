@@ -31,9 +31,9 @@ public final class ParameterizedPropertyTypeNodeMapper {
   private Node createParameterizedPropertyTypeNodeFrom(
     IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
-      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       Node.withHeaderAndChildNode(
-        StructureHeaderCatalogue.PROPERTY_TYPE,
+        StructureHeaderCatalogue.FIELD_TYPE,
         baseParameterizedBackReferenceType.getFieldType().toString()),
       Node.withHeaderAndChildNode(
         StructureHeaderCatalogue.DATA_TYPE,
@@ -47,9 +47,9 @@ public final class ParameterizedPropertyTypeNodeMapper {
   private Node createParameterizedPropertyTypeNodeFrom(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
-      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       Node.withHeaderAndChildNode(
-        StructureHeaderCatalogue.PROPERTY_TYPE,
+        StructureHeaderCatalogue.FIELD_TYPE,
         baseParameterizedReferenceType.getFieldType().toString()),
       Node.withHeaderAndChildNode(
         StructureHeaderCatalogue.DATA_TYPE,
@@ -63,9 +63,9 @@ public final class ParameterizedPropertyTypeNodeMapper {
   private Node createParameterizedPropertyTypeNodeFrom(
     final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(
-      StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       Node.withHeaderAndChildNode(
-        StructureHeaderCatalogue.PROPERTY_TYPE,
+        StructureHeaderCatalogue.FIELD_TYPE,
         baseParameterizedValueType.getFieldType().toString()),
       Node.withHeaderAndChildNode(
         StructureHeaderCatalogue.DATA_TYPE,

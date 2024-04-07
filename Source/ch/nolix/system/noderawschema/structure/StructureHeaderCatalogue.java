@@ -35,16 +35,16 @@ public final class StructureHeaderCatalogue {
   public static final String ENTITY_HEADS = "EntityHeads";
 
   //constant
+  public static final String FIELD_TYPE = "FieldType";
+
+  //constant
   public static final String ID = PascalCaseVariableCatalogue.ID;
 
   //constant
   public static final String NAME = PascalCaseVariableCatalogue.NAME;
 
   //constant
-  public static final String PARAMETERIZED_PROPERTY_TYPE = "ParameterizedPropertyType";
-
-  //constant
-  public static final String PROPERTY_TYPE = "PropertyType";
+  public static final String PARAMETERIZED_FIELD_TYPE = "ParameterizedFieldType";
 
   //constant
   public static final String REFERENCED_TABLE_ID = "ReferencedTableId";

@@ -30,6 +30,6 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   //method
   @Override
   public IMutableNode<?> getStoredParameterizedFieldTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE);
+    return columnNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE);
   }
 }
