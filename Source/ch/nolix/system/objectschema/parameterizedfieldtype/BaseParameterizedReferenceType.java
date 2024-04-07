@@ -1,9 +1,10 @@
 //package declaration
-package ch.nolix.system.objectschema.parameterizedpropertytype;
+package ch.nolix.system.objectschema.parameterizedfieldtype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
@@ -13,12 +14,20 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class BaseParameterizedValueType<V> extends ParameterizedFieldType
-implements IBaseParameterizedValueType<V> {
+public abstract class BaseParameterizedReferenceType extends ParameterizedFieldType
+implements IBaseParameterizedReferenceType {
+
+  //attribute
+  private final ITable referencedTable;
 
   //constructor
-  protected BaseParameterizedValueType(final DataType dataType) {
-    super(dataType);
+  protected BaseParameterizedReferenceType(final ITable referencedTable) {
+
+    super(DataType.STRING);
+
+    GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
+
+    this.referencedTable = referencedTable;
   }
 
   //method
@@ -30,26 +39,25 @@ implements IBaseParameterizedValueType<V> {
   //method
   @Override
   public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
-  }
-
-  //method
-  @Override
-  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     return this;
   }
 
   //method
   @Override
-  @SuppressWarnings("unchecked")
-  public final Class<V> getValueClass() {
-    return (Class<V>) getDataType().getClass();
+  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
+  }
+
+  //method
+  @Override
+  public ITable getReferencedTable() {
+    return referencedTable;
   }
 
   //method
   @Override
   public final boolean referencesTable(final ITable table) {
-    return false;
+    return (getReferencedTable() == table);
   }
 
   //method
@@ -61,6 +69,9 @@ implements IBaseParameterizedValueType<V> {
   //method
   @Override
   public final IParameterizedPropertyTypeDto toDto() {
-    return new BaseParameterizedValueTypeDto(getPropertyType(), getDataType());
+    return new BaseParameterizedReferenceTypeDto(
+      getPropertyType(),
+      getDataType(),
+      getReferencedTable().getId());
   }
 }

@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.parameterizedpropertytypemapper2;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedMultiValueType;
+import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiValueType;
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;

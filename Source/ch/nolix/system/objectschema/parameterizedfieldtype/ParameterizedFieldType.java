@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectschema.parameterizedpropertytype;
+package ch.nolix.system.objectschema.parameterizedfieldtype;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

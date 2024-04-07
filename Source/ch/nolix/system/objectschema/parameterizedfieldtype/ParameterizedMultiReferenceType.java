@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectschema.parameterizedpropertytype;
+package ch.nolix.system.objectschema.parameterizedfieldtype;
 
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;

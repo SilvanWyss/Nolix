@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.parameterizedpropertytypemapper2;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedBackReferenceType;
+import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
