@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 public class FieldValidator implements IFieldValidator {
 
   //constant
-  private static final IFieldTool PROPERTY_TOOL = new FieldTool();
+  private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   //method
   @Override
@@ -45,7 +45,7 @@ public class FieldValidator implements IFieldValidator {
   //method
   @Override
   public final void assertIsNotMandatoryAndEmptyBoth(final IField field) {
-    if (PROPERTY_TOOL.isMandatoryAndEmptyBoth(field)) {
+    if (FIELD_TOOL.isMandatoryAndEmptyBoth(field)) {
       throw EmptyArgumentException.forArgument(field);
     }
   }

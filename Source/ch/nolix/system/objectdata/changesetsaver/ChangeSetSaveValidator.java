@@ -26,7 +26,7 @@ public final class ChangeSetSaveValidator {
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final IFieldTool PROPERTY_TOOL = new FieldTool();
+  private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   //method
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
@@ -62,7 +62,7 @@ public final class ChangeSetSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    if (PROPERTY_TOOL.isNewOrEdited(field)) {
+    if (FIELD_TOOL.isNewOrEdited(field)) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(field,
         dataAndSchemaAdapter);
     }

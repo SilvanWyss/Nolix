@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 public abstract class BaseBackReference<E extends IEntity> extends Field implements IBaseBackReference<E> {
 
   //constant
-  private static final FieldTool PROPERTY_TOOL = new FieldTool();
+  private static final FieldTool FIELD_TOOL = new FieldTool();
 
   //attribute
   private final String backReferencedTableName;
@@ -100,7 +100,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
   private boolean canReferenceBackPropertyBecauseOfName(final IField field) {
     return //
     belongsToEntity()
-    && PROPERTY_TOOL.belongsToEntity(field)
+    && FIELD_TOOL.belongsToEntity(field)
     && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
     && getBackReferencedPropertyName().equals(field.getName());
   }

@@ -25,7 +25,7 @@ implements IMultiBackReference<E> {
   private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
   //constant
-  private static final FieldTool PROPERTY_TOOL = new FieldTool();
+  private static final FieldTool FIELD_TOOL = new FieldTool();
 
   //attribute
   private boolean loadedAllPersistedBackReferencedEntityIds;
@@ -201,7 +201,7 @@ implements IMultiBackReference<E> {
   //method
   private boolean needsToLoadAllPersistedBackReferencedEntityIds() {
     return !loadedAllPersistedReferencedEntityIds()
-    && PROPERTY_TOOL.belongsToLoadedEntity(this);
+    && FIELD_TOOL.belongsToLoadedEntity(this);
   }
 
   //method

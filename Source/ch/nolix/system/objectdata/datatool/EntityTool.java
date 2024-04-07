@@ -25,14 +25,14 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
 
   //constant
-  private static final FieldTool PROPERTY_TOOL = new FieldTool();
+  private static final FieldTool FIELD_TOOL = new FieldTool();
 
   //method
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
 
     if (isNewOrEdited(entity)) {
-      return entity.internalGetStoredProperties().containsOnly(PROPERTY_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
+      return entity.internalGetStoredProperties().containsOnly(FIELD_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
     }
 
     return true;
@@ -175,6 +175,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IField field) {
     return isBaseValueOrBaseReference(field)
-    && PROPERTY_TOOL.isMandatoryAndEmptyBoth(field);
+    && FIELD_TOOL.isMandatoryAndEmptyBoth(field);
   }
 }

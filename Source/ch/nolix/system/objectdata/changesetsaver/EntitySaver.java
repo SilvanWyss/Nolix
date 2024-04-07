@@ -20,7 +20,7 @@ public final class EntitySaver {
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   //constant
-  private static final IFieldTool PROPERTY_TOOL = new FieldTool();
+  private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   //constant
   private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
@@ -96,7 +96,7 @@ public final class EntitySaver {
   private void saveChangesOfPotentialMultiProperty(
     final IField p,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    if (PROPERTY_TOOL.isNewOrEdited(p)) {
+    if (FIELD_TOOL.isNewOrEdited(p)) {
       saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(p, dataAndSchemaAdapter);
     }
   }

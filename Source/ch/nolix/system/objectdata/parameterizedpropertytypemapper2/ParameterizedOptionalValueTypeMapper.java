@@ -17,7 +17,7 @@ public final class ParameterizedOptionalValueTypeMapper
 implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
 
   //constant
-  private static final IFieldTool PROPERTY_TOOL = new FieldTool();
+  private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   //method
   @Override
@@ -25,7 +25,7 @@ implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
     final IOptionalValue<?> property,
     final IContainer<ITable> referencedTables) {
 
-    final var dataType = DataType.forType(PROPERTY_TOOL.getDataType(property));
+    final var dataType = DataType.forType(FIELD_TOOL.getDataType(property));
 
     return ParameterizedOptionalValueType.forDataType(dataType);
   }
