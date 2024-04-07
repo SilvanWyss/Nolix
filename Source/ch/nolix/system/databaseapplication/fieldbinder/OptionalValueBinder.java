@@ -11,7 +11,7 @@ public class OptionalValueBinder extends FieldBinder<IOptionalValue<?>, ITextbox
 
   //method
   @Override
-  protected void addSelectionOptionsToControlForProperty(
+  protected void addSelectionOptionsToControlForField(
     final ITextbox control,
     final IOptionalValue<?> optionalValue) {
     //Does nothing.
@@ -31,7 +31,7 @@ public class OptionalValueBinder extends FieldBinder<IOptionalValue<?>, ITextbox
 
   //method
   @Override
-  protected void updatePropertyFromControl(final IOptionalValue<?> optionalValue, final ITextbox textBox) {
+  protected void updateFieldFromControl(final IOptionalValue<?> optionalValue, final ITextbox textBox) {
     if (textBox.getText().isEmpty()) {
       optionalValue.clear();
     } else {
@@ -41,7 +41,7 @@ public class OptionalValueBinder extends FieldBinder<IOptionalValue<?>, ITextbox
 
   //method
   @Override
-  protected void updateControlFromProperty(final ITextbox textBox, final IOptionalValue<?> optionalValue) {
+  protected void updateControlFromField(final ITextbox textBox, final IOptionalValue<?> optionalValue) {
     if (optionalValue.isEmpty()) {
       textBox.emptyText();
     } else {

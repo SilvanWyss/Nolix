@@ -18,7 +18,7 @@ public final class ReferenceBinder extends FieldBinder<IReference<IEntity>, IDro
 
   //method
   @Override
-  protected void addSelectionOptionsToControlForProperty(
+  protected void addSelectionOptionsToControlForField(
     final IDropdownMenu dropdownMenu,
     final IReference<IEntity> reference) {
     for (final var e : reference.getReferencedTable().getStoredEntities()) {
@@ -36,7 +36,7 @@ public final class ReferenceBinder extends FieldBinder<IReference<IEntity>, IDro
 
   //method
   @Override
-  protected void updatePropertyFromControl(
+  protected void updateFieldFromControl(
     final IReference<IEntity> reference,
     final IDropdownMenu dropdownMenu) {
 
@@ -47,7 +47,7 @@ public final class ReferenceBinder extends FieldBinder<IReference<IEntity>, IDro
 
   //method
   @Override
-  protected void updateControlFromProperty(
+  protected void updateControlFromField(
     final IDropdownMenu dropdownMenu,
     final IReference<IEntity> reference) {
     if (reference.containsAny()) {

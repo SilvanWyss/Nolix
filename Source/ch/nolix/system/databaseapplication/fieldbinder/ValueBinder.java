@@ -11,7 +11,7 @@ public final class ValueBinder extends FieldBinder<IValue<?>, ITextbox> {
 
   //attribute
   @Override
-  protected void addSelectionOptionsToControlForProperty(final ITextbox control, final IValue<?> property) {
+  protected void addSelectionOptionsToControlForField(final ITextbox control, final IValue<?> property) {
     //Does nothing.
   }
 
@@ -29,13 +29,13 @@ public final class ValueBinder extends FieldBinder<IValue<?>, ITextbox> {
 
   //method
   @Override
-  protected void updatePropertyFromControl(final IValue<?> value, final ITextbox textBox) {
+  protected void updateFieldFromControl(final IValue<?> value, final ITextbox textBox) {
     value.setValueFromString(textBox.getText());
   }
 
   //method
   @Override
-  protected void updateControlFromProperty(final ITextbox textBox, final IValue<?> value) {
+  protected void updateControlFromField(final ITextbox textBox, final IValue<?> value) {
     if (value.containsAny()) {
       textBox.setText(value.getStoredValue().toString());
     }

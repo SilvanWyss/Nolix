@@ -8,14 +8,14 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 public final class GlobalFieldBinder {
 
   //constant
-  private static final FieldBinderFactory PROPERTY_BINDER_FACTORY = new FieldBinderFactory();
+  private static final FieldBinderFactory FIELD_BINDER_FACTORY = new FieldBinderFactory();
 
   //constructor
   private GlobalFieldBinder() {
   }
 
   //static method
-  public static <F extends IField> FieldBinding createControlAndBindItWith(final F property) {
-    return PROPERTY_BINDER_FACTORY.getFieldBinderForField(property).createControlAndBindItWith(property);
+  public static <F extends IField> FieldBinding createControlAndBindItWith(final F field) {
+    return FIELD_BINDER_FACTORY.getFieldBinderForField(field).createControlAndBindItWithField(field);
   }
 }

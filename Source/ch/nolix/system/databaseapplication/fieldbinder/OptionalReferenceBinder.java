@@ -13,7 +13,7 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
   //method
   @Override
-  protected void addSelectionOptionsToControlForProperty(
+  protected void addSelectionOptionsToControlForField(
     final IDropdownMenu dropdownMenu,
     final IOptionalReference<IEntity> optionalReference) {
 
@@ -40,7 +40,7 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
   //method
   @Override
-  protected void updatePropertyFromControl(
+  protected void updateFieldFromControl(
     final IOptionalReference<IEntity> optionalReference,
     final IDropdownMenu dropdownMenu) {
     if (dropdownMenu.blankItemIsSelected()) {
@@ -55,7 +55,7 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
   //method
   @Override
-  protected void updateControlFromProperty(
+  protected void updateControlFromField(
     final IDropdownMenu dropdownMenu,
     final IOptionalReference<IEntity> optionalReference) {
     if (optionalReference.isEmpty()) {
