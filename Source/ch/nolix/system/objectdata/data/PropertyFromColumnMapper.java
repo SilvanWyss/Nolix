@@ -18,14 +18,14 @@ public final class PropertyFromColumnMapper {
 
   //method
   private Field createEmptyPropertyFromColumn(final IColumn column) {
-    return switch (column.getParameterizedPropertyType().getFieldType()) {
+    return switch (column.getParameterizedFieldType().getFieldType()) {
       case VALUE ->
-        Value.withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
+        Value.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
       case OPTIONAL_VALUE ->
         OptionalValue
-          .withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
+          .withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
       case MULTI_VALUE ->
-        MultiValue.withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
+        MultiValue.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
       case REFERENCE ->
         createEmptyReferenceFromReferenceColumn(column);
       case OPTIONAL_REFERENCE ->
@@ -45,7 +45,7 @@ public final class PropertyFromColumnMapper {
   private Field createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
 
     final var referencedtableName = referenceColumn
-      .getParameterizedPropertyType()
+      .getParameterizedFieldType()
       .asBaseParameterizedReferenceType()
       .getStoredencedTable()
       .getName();
@@ -57,7 +57,7 @@ public final class PropertyFromColumnMapper {
   private Field createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
-      .getParameterizedPropertyType()
+      .getParameterizedFieldType()
       .asBaseParameterizedReferenceType()
       .getStoredencedTable()
       .getName();
@@ -69,7 +69,7 @@ public final class PropertyFromColumnMapper {
   private Field createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
 
     final var referencedtableName = multiReferenceColumn
-      .getParameterizedPropertyType()
+      .getParameterizedFieldType()
       .asBaseParameterizedReferenceType()
       .getStoredencedTable()
       .getName();
@@ -81,7 +81,7 @@ public final class PropertyFromColumnMapper {
   private Field createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
 
     final var backReferencedColumn = backReferenceColumn
-      .getParameterizedPropertyType()
+      .getParameterizedFieldType()
       .asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
@@ -98,7 +98,7 @@ public final class PropertyFromColumnMapper {
     final IColumn optionalBackReferenceColumn) {
 
     final var backReferencedColumn = optionalBackReferenceColumn
-      .getParameterizedPropertyType()
+      .getParameterizedFieldType()
       .asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
@@ -115,7 +115,7 @@ public final class PropertyFromColumnMapper {
     final IColumn multiBackReferenceColumn) {
 
     final var backReferencedColumn = multiBackReferenceColumn
-      .getParameterizedPropertyType()
+      .getParameterizedFieldType()
       .asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 

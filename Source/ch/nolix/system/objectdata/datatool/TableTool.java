@@ -54,7 +54,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     final var columns = new LinkedList<IColumn>();
     for (final var t : table.getStoredParentDatabase().getStoredTables()) {
       for (final var c : t.getStoredColumns()) {
-        if (c.getParameterizedPropertyType().referencesTable(table)) {
+        if (c.getParameterizedFieldType().referencesTable(table)) {
           columns.addAtEnd(c);
         }
       }

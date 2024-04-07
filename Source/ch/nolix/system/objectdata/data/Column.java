@@ -66,7 +66,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 
   //method
   @Override
-  public IParameterizedFieldType getParameterizedPropertyType() {
+  public IParameterizedFieldType getParameterizedFieldType() {
     return parameterizedFieldType;
   }
 
