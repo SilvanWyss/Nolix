@@ -4,7 +4,7 @@ package ch.nolix.system.noderawdata.datareader;
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.ParameterizedPropertyTypeNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
@@ -17,8 +17,8 @@ public final class ColumnDefinitionMapper {
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   //constant
-  private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
-  new ParameterizedPropertyTypeNodeSearcher();
+  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
+  new ParameterizedFieldTypeNodeSearcher();
 
   //method
   public IColumnInfo createColumnDefinitionFromColumnNode(
@@ -55,7 +55,7 @@ public final class ColumnDefinitionMapper {
       .getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
 
     final var propertyTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
-      .getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
+      .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
     return FieldType.fromSpecification(propertyTypeNode);
@@ -69,7 +69,7 @@ public final class ColumnDefinitionMapper {
   //method
   private DataType getDataTypeFromParameterizedPropertyTypeNode(IMutableNode<?> parameterizedPropertyTypeNode) {
     return getDataTypeFromDataTypeNode(
-      PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedPropertyTypeNode(
+      PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode));
   }
 }

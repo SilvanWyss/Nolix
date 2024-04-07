@@ -5,21 +5,21 @@ package ch.nolix.systemapi.noderawschemaapi.nodesearcherapi;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //interface
-public interface IParameterizedPropertyTypeNodeSearcher {
+public interface IParameterizedFieldTypeNodeSearcher {
 
   //method declaration
-  IMutableNode<?> getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
+  IMutableNode<?> getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
     IMutableNode<?> parameterizedPropertyTypeNode);
 
   //method declaration
-  IMutableNode<?> getStoredDataTypeNodeFromParameterizedPropertyTypeNode(
+  IMutableNode<?> getStoredDataTypeNodeFromParameterizedFieldTypeNode(
     IMutableNode<?> parameterizedPropertyTypeNode);
 
   //method declaration
-  IMutableNode<?> getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
+  IMutableNode<?> getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
     IMutableNode<?> parameterizedPropertyTypeNode);
 
   //method declaration
-  IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedPropertyTypeNode(
+  IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
     IMutableNode<?> parameterizedPropertyTypeNode);
 }

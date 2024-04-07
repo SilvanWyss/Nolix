@@ -4,7 +4,7 @@ package ch.nolix.system.noderawschema.schemareader;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.nodesearcher.ParameterizedPropertyTypeNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
@@ -16,8 +16,8 @@ import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 public class ParameterizedPropertyTypeDtoMapper {
 
   //constant
-  private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
-  new ParameterizedPropertyTypeNodeSearcher();
+  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
+  new ParameterizedFieldTypeNodeSearcher();
 
   //method
   public ParameterizedFieldTypeDto createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
@@ -77,7 +77,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
     final var backReferencedColumnNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
-      .getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
+      .getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
         parameterizedPropertyTypeNode);
 
     return backReferencedColumnNode.getSingleChildNodeHeader();
@@ -87,7 +87,7 @@ public class ParameterizedPropertyTypeDtoMapper {
   private DataType getDataTypeFromParameterizedPropertyTypeNode(final IMutableNode<?> parameterizedPropertyTypeNode) {
 
     final var dataTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
-      .getStoredDataTypeNodeFromParameterizedPropertyTypeNode(
+      .getStoredDataTypeNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
@@ -98,7 +98,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
     final var propertyTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
-      .getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
+      .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
     return FieldType.fromSpecification(propertyTypeNode);
@@ -109,7 +109,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
     final var referencedTableIdNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
-      .getStoredReferencedTableIdNodeFromParameterizedPropertyTypeNode(
+      .getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
     return referencedTableIdNode.getSingleChildNodeHeader();
