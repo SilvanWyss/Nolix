@@ -26,7 +26,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
   void setColumnName(String tableName, String columnName, String newColumnName);
 
   //method declaration
-  void setColumnParameterizedPropertyType(
+  void setColumnParameterizedFieldType(
     String columnId,
     IParameterizedFieldTypeDto parameterizedPropertyType);
 

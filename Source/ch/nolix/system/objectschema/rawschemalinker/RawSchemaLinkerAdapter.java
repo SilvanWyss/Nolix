@@ -100,7 +100,7 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   public void setColumnParameterizedPropertyType(
     final IColumn column,
     final IParameterizedFieldType parameterizedFieldType) {
-    internalRawSchemaAdapter.setColumnParameterizedPropertyType(
+    internalRawSchemaAdapter.setColumnParameterizedFieldType(
       column.getId(),
       parameterizedFieldType.toDto());
   }
