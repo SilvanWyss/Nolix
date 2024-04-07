@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //Java imports
 import java.lang.reflect.ParameterizedType;
@@ -13,10 +13,10 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 
 //class
-public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
+public class FieldTool extends DatabaseObjectTool implements IFieldTool {
 
   //method
   @Override

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.propertytool.PropertyTool;
+import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 public abstract class BaseBackReference<E extends IEntity> extends Field implements IBaseBackReference<E> {
 
   //constant
-  private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
+  private static final FieldTool PROPERTY_TOOL = new FieldTool();
 
   //attribute
   private final String backReferencedTableName;

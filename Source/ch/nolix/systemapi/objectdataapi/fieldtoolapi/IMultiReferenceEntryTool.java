@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertytoolapi;
+package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 //own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;

@@ -4,10 +4,10 @@ package ch.nolix.system.objectdata.propertyvalidator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.propertytool.OptionalReferenceTool;
+import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IOptionalReferenceTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IOptionalReferenceValidator;
 
 //class

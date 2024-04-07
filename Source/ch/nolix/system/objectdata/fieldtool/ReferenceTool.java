@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //Java imports
 import java.util.Optional;
@@ -11,11 +11,11 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IReferenceTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //class
-public final class ReferenceTool extends PropertyTool implements IReferenceTool {
+public final class ReferenceTool extends FieldTool implements IReferenceTool {
 
   //method
   @Override

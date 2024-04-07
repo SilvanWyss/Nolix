@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //Java imports
 import java.util.Optional;
@@ -9,12 +9,12 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //class
-public final class OptionalReferenceTool extends PropertyTool implements IOptionalReferenceTool {
+public final class OptionalReferenceTool extends FieldTool implements IOptionalReferenceTool {
 
   //method
   @Override

@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IOptionalValueTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //class
-public final class OptionalValueTool extends PropertyTool implements IOptionalValueTool {
+public final class OptionalValueTool extends FieldTool implements IOptionalValueTool {
 
   @Override
   public boolean canSetGivenValue(final IOptionalValue<?> optionalValue, final Object value) {

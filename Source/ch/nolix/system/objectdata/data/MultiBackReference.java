@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
-import ch.nolix.system.objectdata.propertytool.PropertyTool;
+import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -25,7 +25,7 @@ implements IMultiBackReference<E> {
   private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
   //constant
-  private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
+  private static final FieldTool PROPERTY_TOOL = new FieldTool();
 
   //attribute
   private boolean loadedAllPersistedBackReferencedEntityIds;

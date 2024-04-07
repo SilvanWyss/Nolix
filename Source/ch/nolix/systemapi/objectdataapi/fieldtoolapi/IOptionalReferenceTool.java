@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertytoolapi;
+package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 //Java imports
 import java.util.Optional;

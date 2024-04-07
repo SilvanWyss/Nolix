@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IMultiValueTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //class
-public final class MultiValueTool extends PropertyTool implements IMultiValueTool {
+public final class MultiValueTool extends FieldTool implements IMultiValueTool {
 
   //method
   @Override

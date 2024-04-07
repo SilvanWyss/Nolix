@@ -7,7 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
-import ch.nolix.system.objectdata.propertytool.PropertyTool;
+import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
@@ -25,7 +25,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
 
   //constant
-  private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
+  private static final FieldTool PROPERTY_TOOL = new FieldTool();
 
   //method
   @Override

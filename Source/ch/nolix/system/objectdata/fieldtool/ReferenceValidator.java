@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.propertyvalidator.PropertyValidator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IReferenceTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IReferenceValidator;
 
 //class

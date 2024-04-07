@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertytoolapi;
+package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 //own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //interface
-public interface IMultiValueTool extends IPropertyTool {
+public interface IMultiValueTool extends IFieldTool {
 
   //method declaration
   boolean canAddGivenValue(IMultiValue<?> multiValue, Object value);

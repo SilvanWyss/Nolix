@@ -4,13 +4,13 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectdata.propertytool.OptionalValueTool;
+import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.system.objectdata.propertyvalidator.OptionalValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IOptionalValueTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IOptionalValueValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 

@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertytoolapi;
+package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 //own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //interface
-public interface IPropertyTool extends IDatabaseObjectTool {
+public interface IFieldTool extends IDatabaseObjectTool {
 
   //method
   boolean belongsToEntity(IField field);

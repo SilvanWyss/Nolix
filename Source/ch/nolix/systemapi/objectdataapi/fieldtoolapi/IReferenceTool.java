@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.propertytoolapi;
+package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 //Java imports
 import java.util.Optional;
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //interface
-public interface IReferenceTool extends IPropertyTool {
+public interface IReferenceTool extends IFieldTool {
 
   //method declaration
   IEntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(IReference<?> reference, IEntity entity);

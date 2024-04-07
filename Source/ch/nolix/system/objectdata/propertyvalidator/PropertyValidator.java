@@ -6,17 +6,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.propertytool.PropertyTool;
+import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IPropertyValidator;
 
 //class
 public class PropertyValidator implements IPropertyValidator {
 
   //constant
-  private static final IPropertyTool PROPERTY_TOOL = new PropertyTool();
+  private static final IFieldTool PROPERTY_TOOL = new FieldTool();
 
   //method
   @Override

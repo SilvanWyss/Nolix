@@ -1,16 +1,16 @@
 //package declaration
-package ch.nolix.system.objectdata.propertytool;
+package ch.nolix.system.objectdata.fieldtool;
 
 //own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.propertytoolapi.IMultiReferenceTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //class
-public final class MultiReferenceTool extends PropertyTool implements IMultiReferenceTool {
+public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
 
   @Override
   public boolean canAddGivenEntity(IMultiReference<?> multiReference, IEntity entity) {
