@@ -26,7 +26,7 @@ public final class ParameterizedPropertyTypeMapper {
   public ParameterizedFieldType createParameterizedPropertyTypeFromDto(
     final IParameterizedFieldTypeDto parameterizedPropertyType,
     final IContainer<ITable> tables) {
-    return switch (parameterizedPropertyType.getPropertyType()) {
+    return switch (parameterizedPropertyType.getFieldType()) {
       case VALUE ->
         ParameterizedValueType.forDataType(parameterizedPropertyType.getDataType());
       case OPTIONAL_VALUE ->

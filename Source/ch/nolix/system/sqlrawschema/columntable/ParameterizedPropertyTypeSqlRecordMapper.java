@@ -17,7 +17,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
   //method
   public ParameterizedPropertyTypeSqlRecord createParameterizedPropertyTypeRecordFrom(
     final IParameterizedFieldTypeDto parameterizedPropertyType) {
-    return switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
+    return switch (parameterizedPropertyType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
         createBaseParameterizedValueTypeRecord((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
       case BASE_REFERENCE ->
@@ -34,7 +34,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedBackReferenceRecord(
     final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return new ParameterizedPropertyTypeSqlRecord(
-      "'" + baseParameterizedBackReferenceType.getPropertyType().toString() + "'",
+      "'" + baseParameterizedBackReferenceType.getFieldType().toString() + "'",
       "'" + baseParameterizedBackReferenceType.getDataType().name() + "'",
       NULL,
       "'" + baseParameterizedBackReferenceType.getBackReferencedColumnId() + "'");
@@ -44,7 +44,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return new ParameterizedPropertyTypeSqlRecord(
-      "'" + baseParameterizedReferenceType.getPropertyType().toString() + "'",
+      "'" + baseParameterizedReferenceType.getFieldType().toString() + "'",
       "'" + baseParameterizedReferenceType.getDataType().name() + "'",
       "'" + baseParameterizedReferenceType.getReferencedTableId() + "'",
       NULL);
@@ -54,7 +54,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedValueTypeRecord(
     final IBaseParameterizedValueTypeDto baseParameterizedPropertyType) {
     return new ParameterizedPropertyTypeSqlRecord(
-      "'" + baseParameterizedPropertyType.getPropertyType().toString() + "'",
+      "'" + baseParameterizedPropertyType.getFieldType().toString() + "'",
       "'" + baseParameterizedPropertyType.getDataType().name() + "'",
       NULL,
       NULL);

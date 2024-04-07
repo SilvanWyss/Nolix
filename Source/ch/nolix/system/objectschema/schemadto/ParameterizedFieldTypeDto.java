@@ -41,7 +41,7 @@ public abstract class ParameterizedFieldTypeDto implements IParameterizedFieldTy
 
   //method
   @Override
-  public final FieldType getPropertyType() {
+  public final FieldType getFieldType() {
     return fieldType;
   }
 }

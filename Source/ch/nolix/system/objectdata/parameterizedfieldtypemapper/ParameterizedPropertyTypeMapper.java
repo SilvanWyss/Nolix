@@ -57,7 +57,7 @@ public final class ParameterizedPropertyTypeMapper {
     final IParameterizedFieldTypeDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var propertyType = parameterizedFieldTypeDto.getPropertyType();
+    final var propertyType = parameterizedFieldTypeDto.getFieldType();
 
     return //
     switch (propertyType) {

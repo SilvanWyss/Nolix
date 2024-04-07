@@ -11,5 +11,5 @@ public interface IParameterizedFieldTypeDto {
   DataType getDataType();
 
   //method declaration
-  FieldType getPropertyType();
+  FieldType getFieldType();
 }
