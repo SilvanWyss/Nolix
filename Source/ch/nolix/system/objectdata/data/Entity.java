@@ -19,6 +19,6 @@ public abstract class Entity extends BaseEntity {
   //method
   @Override
   final IContainer<Field> internalLoadFields() {
-    return FIELD_FROM_ENTITY_MAPPER.getStoredPropertiesFrom(this);
+    return FIELD_FROM_ENTITY_MAPPER.getStoredFieldsFrom(this);
   }
 }

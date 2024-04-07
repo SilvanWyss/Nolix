@@ -10,53 +10,53 @@ import ch.nolix.core.reflection.GlobalFieldTool;
 final class FieldFromEntityMapper {
 
   //method
-  public LinkedList<Field> getStoredPropertiesFrom(final Object entity) {
+  public LinkedList<Field> getStoredFieldsFrom(final Object entity) {
 
-    final var properties = new LinkedList<Field>();
+    final var fields = new LinkedList<Field>();
 
-    fillUpPropertiesFromGivenObjectIntoGivenList(entity, properties);
+    fillUpFieldsFromObjectIntoList(entity, fields);
 
-    return properties;
+    return fields;
   }
 
   //method
-  private void fillUpPropertiesFromGivenObjectIntoGivenList(
+  private void fillUpFieldsFromObjectIntoList(
     final Object object,
     final LinkedList<Field> list) {
     Class<?> lClass = object.getClass();
     while (lClass != null) {
-      fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(object, lClass, list);
+      fillUpFieldsFromGivenObjectAndForGivenClassIntoGivenList(object, lClass, list);
       lClass = lClass.getSuperclass();
     }
   }
 
   //method
-  private void fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(
+  private void fillUpFieldsFromGivenObjectAndForGivenClassIntoGivenList(
     final Object object,
     final Class<?> pClass,
     final LinkedList<Field> list) {
     for (final var f : pClass.getDeclaredFields()) {
-      fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(object, f, list);
+      fillUpPotentialFieldFromObjectForFieldIntoList(object, f, list);
     }
   }
 
   //method
-  private void fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(
+  private void fillUpPotentialFieldFromObjectForFieldIntoList(
     final Object object,
     final java.lang.reflect.Field field,
     final LinkedList<Field> list) {
-    if (fieldIsProperty(field)) {
-      fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(object, field, list);
+    if (isField(field)) {
+      fillUpFieldFromObjectForFieldIntoList(object, field, list);
     }
   }
 
   //method
-  private boolean fieldIsProperty(final java.lang.reflect.Field field) {
+  private boolean isField(final java.lang.reflect.Field field) {
     return GlobalFieldTool.hasGivenTypeOrSuperType(field, Field.class);
   }
 
   //method
-  private void fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(
+  private void fillUpFieldFromObjectForFieldIntoList(
     final Object object,
     final java.lang.reflect.Field field,
     final LinkedList<Field> list) {
