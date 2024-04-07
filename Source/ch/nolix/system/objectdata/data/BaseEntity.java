@@ -71,9 +71,9 @@ public abstract class BaseEntity implements IEntity {
 
     /*
      * An Entity must not be referenced on deletion. This is validated. But an
-     * Entity must update all back referencing properties to itself on deletion.
+     * Entity must update all back referencing fields to itself on deletion.
      */
-    updateBackReferencingPropertiesForDeletion();
+    updateBackReferencingFieldsForDeletion();
 
     updateStateForDelete();
   }
@@ -81,7 +81,7 @@ public abstract class BaseEntity implements IEntity {
   //method
   public final void deleteWithoutReferenceCheck() {
 
-    updateBackReferencingPropertiesForDeletion();
+    updateBackReferencingFieldsForDeletion();
 
     updateStateForDelete();
   }
@@ -137,7 +137,7 @@ public abstract class BaseEntity implements IEntity {
   //method
   @Override
   public final IContainer<? extends IField> internalGetStoredFields() {
-    return getStoredProperties();
+    return getStoredFields();
   }
 
   //method
@@ -196,7 +196,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   protected final void initialize() {
-    extractPropertiesIfNotExtracted();
+    extractFieldsIfNotExtracted();
   }
 
   //method
@@ -218,12 +218,12 @@ public abstract class BaseEntity implements IEntity {
   }
 
   //method
-  final Field internalGetRefPropertyByName(final String name) {
-    return getStoredProperties().getStoredFirst(p -> p.hasName(name));
+  final Field internalGetStoredFieldByName(final String name) {
+    return getStoredFields().getStoredFirst(p -> p.hasName(name));
   }
 
   //method declaration
-  abstract IContainer<Field> internalLoadProperties();
+  abstract IContainer<Field> internalLoadFields();
 
   //method
   final void internalNoteInsertIntoDatabase() {
@@ -273,7 +273,7 @@ public abstract class BaseEntity implements IEntity {
 
     this.parentTable = parentTable;
 
-    getStoredProperties().forEach(Field::internalSetParentColumnFromParentTable);
+    getStoredFields().forEach(Field::internalSetParentColumnFromParentTable);
   }
 
   //method
@@ -285,29 +285,29 @@ public abstract class BaseEntity implements IEntity {
   }
 
   //method
-  private boolean extractedProperties() {
+  private boolean extractedFields() {
     return (fields != null);
   }
 
   //method
-  private void extractPropertiesIfNotExtracted() {
-    if (!extractedProperties()) {
-      extractPropertiesWhenNotExtracted();
+  private void extractFieldsIfNotExtracted() {
+    if (!extractedFields()) {
+      extractFieldsWhenNotExtracted();
     }
   }
 
   //method
-  private void extractPropertiesWhenNotExtracted() {
+  private void extractFieldsWhenNotExtracted() {
 
-    fields = internalLoadProperties();
+    fields = internalLoadFields();
 
     fields.forEach(p -> p.internalSetParentEntity(this));
   }
 
   //method
-  private IContainer<Field> getStoredProperties() {
+  private IContainer<Field> getStoredFields() {
 
-    extractPropertiesIfNotExtracted();
+    extractFieldsIfNotExtracted();
 
     return fields;
   }
@@ -341,12 +341,12 @@ public abstract class BaseEntity implements IEntity {
   }
 
   //method
-  private void updateBackReferencingPropertiesForDeletion() {
-    ENTITY_TOOL.getStoredBaseBackReferences(this).forEach(this::updateBackReferencingPropertyForDeletion);
+  private void updateBackReferencingFieldsForDeletion() {
+    ENTITY_TOOL.getStoredBaseBackReferences(this).forEach(this::updateBackReferencingFieldsForDeletion);
   }
 
   //method
-  private void updateBackReferencingPropertyForDeletion(
+  private void updateBackReferencingFieldsForDeletion(
     final IBaseBackReference<?> baseBackReference) {
     switch (baseBackReference.getType()) {
       case BACK_REFERENCE:
@@ -368,7 +368,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   private void updateBaseBackReferencesWhenIsInsertedIntoDatabase() {
-    getStoredProperties().forEach(Field::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
+    getStoredFields().forEach(Field::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
   }
 
   //method

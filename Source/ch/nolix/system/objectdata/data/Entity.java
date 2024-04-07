@@ -18,7 +18,7 @@ public abstract class Entity extends BaseEntity {
 
   //method
   @Override
-  final IContainer<Field> internalLoadProperties() {
+  final IContainer<Field> internalLoadFields() {
     return PROPERTY_FROM_ENTITY_EXTRACTOR.getStoredPropertiesFrom(this);
   }
 }

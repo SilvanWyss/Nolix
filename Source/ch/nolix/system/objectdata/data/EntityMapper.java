@@ -32,7 +32,7 @@ final class EntityMapper {
   private void addDataFromContentFieldToEntity(final ILoadedContentFieldDto contentField, final BaseEntity entity) {
     addDataFromContentFieldToProperty(
       contentField,
-      entity.internalGetRefPropertyByName(contentField.getColumnName()));
+      entity.internalGetStoredFieldByName(contentField.getColumnName()));
   }
 
   //method
