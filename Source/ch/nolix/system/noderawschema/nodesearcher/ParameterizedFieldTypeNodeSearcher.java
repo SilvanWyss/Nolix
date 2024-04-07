@@ -12,30 +12,30 @@ public final class ParameterizedFieldTypeNodeSearcher implements IParameterizedF
   //method
   @Override
   public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(
+    final IMutableNode<?> parameterizedFieldTypeNode) {
+    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(
       StructureHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
   }
 
   //method
   @Override
   public IMutableNode<?> getStoredDataTypeNodeFromParameterizedFieldTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.DATA_TYPE);
+    final IMutableNode<?> parameterizedFieldTypeNode) {
+    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.DATA_TYPE);
   }
 
   //method
   @Override
   public IMutableNode<?> getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.FIELD_TYPE);
+    final IMutableNode<?> parameterizedFieldTypeNode) {
+    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.FIELD_TYPE);
   }
 
   //method
   @Override
   public IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
-    IMutableNode<?> parameterizedPropertyTypeNode) {
-    return parameterizedPropertyTypeNode
+    final IMutableNode<?> parameterizedFieldTypeNode) {
+    return parameterizedFieldTypeNode
       .getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
   }
 }

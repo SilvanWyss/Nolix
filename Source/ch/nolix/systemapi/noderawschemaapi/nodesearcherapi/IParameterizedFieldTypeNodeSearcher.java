@@ -9,17 +9,17 @@ public interface IParameterizedFieldTypeNodeSearcher {
 
   //method declaration
   IMutableNode<?> getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
-    IMutableNode<?> parameterizedPropertyTypeNode);
+    IMutableNode<?> parameterizedFieldTypeNode);
 
   //method declaration
   IMutableNode<?> getStoredDataTypeNodeFromParameterizedFieldTypeNode(
-    IMutableNode<?> parameterizedPropertyTypeNode);
+    IMutableNode<?> parameterizedFieldTypeNode);
 
   //method declaration
   IMutableNode<?> getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
-    IMutableNode<?> parameterizedPropertyTypeNode);
+    IMutableNode<?> parameterizedFieldTypeNode);
 
   //method declaration
   IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
-    IMutableNode<?> parameterizedPropertyTypeNode);
+    IMutableNode<?> parameterizedFieldTypeNode);
 }
