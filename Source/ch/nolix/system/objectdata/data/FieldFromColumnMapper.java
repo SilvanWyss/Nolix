@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 
 //class
-public final class PropertyFromColumnMapper {
+public final class FieldFromColumnMapper {
 
   //method
   public Field createPropertyFromColumn(final IColumn column) {

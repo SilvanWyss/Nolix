@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.reflection.GlobalFieldTool;
 
 //class
-final class PropertyFromEntityMapper {
+final class FieldFromEntityMapper {
 
   //method
   public LinkedList<Field> getStoredPropertiesFrom(final Object entity) {

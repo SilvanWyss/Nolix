@@ -7,10 +7,10 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
-public final class PropertyFromTableMapper {
+public final class FieldFromTableMapper {
 
   //constant
-  private static final PropertyFromColumnMapper PROPERTY_FROM_COLUMN_MAPPER = new PropertyFromColumnMapper();
+  private static final FieldFromColumnMapper PROPERTY_FROM_COLUMN_MAPPER = new FieldFromColumnMapper();
 
   //method
   public IContainer<Field> createPropertiesFromTable(final ITable<? extends IEntity> table) {
