@@ -29,7 +29,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   //method
   @Override
-  public IMutableNode<?> getStoredParameterizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
+  public IMutableNode<?> getStoredParameterizedFieldTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE);
   }
 }

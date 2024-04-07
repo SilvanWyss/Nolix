@@ -39,7 +39,7 @@ final class ColumnDtoMapper {
   private ParameterizedFieldTypeDto createParameterizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
-      .getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode);
+      .getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
 
     return PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER.createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
       parameterizedPropertyTypeNode);

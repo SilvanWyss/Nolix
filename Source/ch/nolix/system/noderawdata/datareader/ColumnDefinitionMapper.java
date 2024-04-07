@@ -35,7 +35,7 @@ public final class ColumnDefinitionMapper {
   //method
   private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
     return getDataTypeFromParameterizedPropertyTypeNode(
-      COLUMN_NODE_SEARCHER.getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode));
+      COLUMN_NODE_SEARCHER.getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode));
   }
 
   //method
@@ -52,7 +52,7 @@ public final class ColumnDefinitionMapper {
   private FieldType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
-      .getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode);
+      .getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
 
     final var propertyTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
       .getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(

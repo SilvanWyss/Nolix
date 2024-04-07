@@ -17,5 +17,5 @@ public interface IColumnNodeSearcher {
   IMutableNode<?> getStoredNameNodeFromColumnNode(IMutableNode<?> columnNode);
 
   //method declaration
-  IMutableNode<?> getStoredParameterizedPropertyTypeNodeFromColumnNode(IMutableNode<?> columnNode);
+  IMutableNode<?> getStoredParameterizedFieldTypeNodeFromColumnNode(IMutableNode<?> columnNode);
 }
