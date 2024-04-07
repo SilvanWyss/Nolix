@@ -136,6 +136,12 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   @Override
+  public final IContainer<? extends IField> internalGetStoredFields() {
+    return getStoredProperties();
+  }
+
+  //method
+  @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
@@ -180,12 +186,6 @@ public abstract class BaseEntity implements IEntity {
     }
 
     return isReferencedInPersistedDataWhenBelongsToTable();
-  }
-
-  //method
-  @Override
-  public final IContainer<? extends IField> internalGetStoredProperties() {
-    return getStoredProperties();
   }
 
   //method

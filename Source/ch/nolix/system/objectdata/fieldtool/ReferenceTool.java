@@ -69,7 +69,7 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
     final var referencedEntity = reference.getStoredReferencedEntity();
 
     final var backReference = //
-    referencedEntity.internalGetStoredProperties().getOptionalStoredFirst(p -> p.referencesBackProperty(reference));
+    referencedEntity.internalGetStoredFields().getOptionalStoredFirst(p -> p.referencesBackProperty(reference));
 
     return backReference.map(br -> (IBaseBackReference<IEntity>) br);
   }

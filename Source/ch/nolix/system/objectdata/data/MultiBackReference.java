@@ -91,7 +91,7 @@ implements IMultiBackReference<E> {
     final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
-      for (final var p : e.internalGetStoredProperties()) {
+      for (final var p : e.internalGetStoredFields()) {
         if (p.hasName(backReferencedBaseReferenceName)) {
           referencingProperties.addAtEnd(p);
           break;
@@ -139,7 +139,7 @@ implements IMultiBackReference<E> {
 
     final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
 
-    for (final var p : entity.internalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredFields()) {
       if (p.hasName(backReferencedBaseReferenceName)) {
         return p.referencesEntity(entity);
       }

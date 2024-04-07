@@ -60,7 +60,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   @Override
   public Optional<? extends IField> getOptionalStoredBackReferencingProperty() {
     return getStoredReferencedEntity()
-      .internalGetStoredProperties()
+      .internalGetStoredFields()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(getStoredParentMultiReference()));
   }
 

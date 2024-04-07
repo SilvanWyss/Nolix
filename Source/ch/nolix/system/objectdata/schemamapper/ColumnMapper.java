@@ -49,7 +49,7 @@ public final class ColumnMapper implements IColumnMapper {
     final IEntity entity,
     final IContainer<ITable> referencableTables) {
     return entity
-      .internalGetStoredProperties()
+      .internalGetStoredFields()
       .to(p -> createColumnFromGivenPropertyUsingGivenReferencableTables(p, referencableTables));
   }
 }

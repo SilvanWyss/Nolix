@@ -66,7 +66,7 @@ implements IOptionalBackReference<E> {
     }
 
     return ImmutableList.withElement(
-      getBackReferencedEntity().internalGetStoredProperties()
+      getBackReferencedEntity().internalGetStoredFields()
         .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
   }
 

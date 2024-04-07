@@ -73,7 +73,7 @@ public final class SchemaInitializer {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseValues = entity
-      .internalGetStoredProperties()
+      .internalGetStoredFields()
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_VALUE);
 
     for (final var bv : baseValues) {
@@ -105,7 +105,7 @@ public final class SchemaInitializer {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseReferences = entity
-      .internalGetStoredProperties()
+      .internalGetStoredFields()
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_REFERENCE);
 
     for (final var br : baseReferences) {
@@ -137,7 +137,7 @@ public final class SchemaInitializer {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseBackReferences = entity
-      .internalGetStoredProperties()
+      .internalGetStoredFields()
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
 
     for (final var bbr : baseBackReferences) {

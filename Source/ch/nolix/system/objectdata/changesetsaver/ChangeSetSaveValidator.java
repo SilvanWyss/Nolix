@@ -53,7 +53,7 @@ public final class ChangeSetSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    for (final var p : entity.internalGetStoredProperties()) {
+    for (final var p : entity.internalGetStoredFields()) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExist(p, dataAndSchemaAdapter);
     }
   }
