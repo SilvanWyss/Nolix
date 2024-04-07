@@ -53,14 +53,14 @@ public final class ParameterizedFieldTypeMapper {
   new ParameterizedMultiBackReferenceTypeMapper();
 
   //method
-  public IParameterizedFieldType createParameterizedPropertyTypeFromDto(
+  public IParameterizedFieldType createParameterizedFieldTypeFromDto(
     final IParameterizedFieldTypeDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var propertyType = parameterizedFieldTypeDto.getFieldType();
+    final var fieldType = parameterizedFieldTypeDto.getFieldType();
 
     return //
-    switch (propertyType) {
+    switch (fieldType) {
       case VALUE ->
         PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
           (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
