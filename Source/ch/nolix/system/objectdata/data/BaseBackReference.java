@@ -42,7 +42,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
 
   //method
   @Override
-  public final String getBackReferencedPropertyName() {
+  public final String getBackReferencedFieldName() {
     return backReferencedPropertyName;
   }
 
@@ -102,7 +102,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
     belongsToEntity()
     && FIELD_TOOL.belongsToEntity(field)
     && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
-    && getBackReferencedPropertyName().equals(field.getName());
+    && getBackReferencedFieldName().equals(field.getName());
   }
 
   //method

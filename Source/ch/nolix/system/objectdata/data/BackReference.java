@@ -52,7 +52,7 @@ implements IBackReference<E> {
 
     return ImmutableList.withElement(
       getStoredBackReferencedEntity().internalGetStoredFields()
-        .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
+        .getStoredFirst(p -> p.hasName(getBackReferencedFieldName())));
   }
 
   //method

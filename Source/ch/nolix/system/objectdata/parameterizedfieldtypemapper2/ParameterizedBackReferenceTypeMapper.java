@@ -22,7 +22,7 @@ implements IParameterizedFieldTypeMapper<IBackReference<IEntity>> {
 
     final var backReferencedTableName = property.getBackReferencedTableName();
     final var backReferencedTable = referencedTables.getStoredFirst(t -> t.hasName(backReferencedTableName));
-    final var backReferencedColumnName = property.getBackReferencedPropertyName();
+    final var backReferencedColumnName = property.getBackReferencedFieldName();
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 

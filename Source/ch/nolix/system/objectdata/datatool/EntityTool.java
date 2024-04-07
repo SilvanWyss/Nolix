@@ -160,7 +160,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     final IBaseReference<? extends IEntity> baseReference) {
     return //
     baseBackReference.getBackReferencedTableName().equals(baseReference.getStoredParentEntity().getParentTableName())
-    && baseBackReference.getBackReferencedPropertyName().equals(baseReference.getName());
+    && baseBackReference.getBackReferencedFieldName().equals(baseReference.getName());
   }
 
   //method

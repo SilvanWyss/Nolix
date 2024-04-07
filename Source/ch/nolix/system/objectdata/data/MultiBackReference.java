@@ -88,7 +88,7 @@ implements IMultiBackReference<E> {
   public IContainer<IField> getStoredReferencingProperties() {
 
     final var referencingProperties = new LinkedList<IField>();
-    final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
+    final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
       for (final var p : e.internalGetStoredFields()) {
@@ -137,7 +137,7 @@ implements IMultiBackReference<E> {
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
 
-    final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
+    final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var p : entity.internalGetStoredFields()) {
       if (p.hasName(backReferencedBaseReferenceName)) {
