@@ -28,13 +28,13 @@ public interface IColumnTool extends IDatabaseObjectTool {
   boolean belongsToDatabase(IColumn column);
 
   //method declaration
-  BaseFieldType getBasePropertyType(IColumn column);
+  BaseFieldType getBaseFieldType(IColumn column);
+
+  //method declaration
+  FieldType getFieldType(IColumn column);
 
   //method declaration
   IDatabase getParentDatabase(IColumn column);
-
-  //method declaration
-  FieldType getPropertyType(IColumn column);
 
   //method declaration
   boolean isABackReferenceColumn(IColumn column);

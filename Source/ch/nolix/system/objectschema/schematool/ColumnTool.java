@@ -61,20 +61,20 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
 
   //method
   @Override
-  public BaseFieldType getBasePropertyType(IColumn column) {
-    return getPropertyType(column).getBaseType();
+  public BaseFieldType getBaseFieldType(IColumn column) {
+    return getFieldType(column).getBaseType();
+  }
+
+  //method
+  @Override
+  public FieldType getFieldType(final IColumn column) {
+    return column.getParameterizedFieldType().getFieldType();
   }
 
   //method
   @Override
   public IDatabase getParentDatabase(final IColumn column) {
     return column.getParentTable().getParentDatabase();
-  }
-
-  //method
-  @Override
-  public FieldType getPropertyType(final IColumn column) {
-    return column.getParameterizedFieldType().getFieldType();
   }
 
   //method
@@ -103,14 +103,14 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
       return false;
     }
 
-    final var parameterizedPropertyType = column.getParameterizedFieldType();
+    final var parameterizedFieldType = column.getParameterizedFieldType();
 
-    final var backReferencedColumn = parameterizedPropertyType.asBaseParameterizedBackReferenceType()
+    final var backReferencedColumn = parameterizedFieldType.asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
-    final var backReferencedColumnParameterizedPropertyType = backReferencedColumn.getParameterizedFieldType();
+    final var backReferencedColumnParameterizedFieldType = backReferencedColumn.getParameterizedFieldType();
 
-    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(backReferencedColumnParameterizedPropertyType)) {
+    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(backReferencedColumnParameterizedFieldType)) {
       return false;
     }
 

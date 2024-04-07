@@ -219,7 +219,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
     final IDatabase database,
     final ITable table,
     final IColumn column) {
-    return switch (COLUMN_TOOL.getBasePropertyType(column)) {
+    return switch (COLUMN_TOOL.getBaseFieldType(column)) {
       case BASE_VALUE ->
         true;
       case BASE_REFERENCE ->
