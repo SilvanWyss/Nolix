@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.parameterizedpropertytypemapper.ParameterizedPropertyTypeMapper;
+import ch.nolix.system.objectdata.parameterizedfieldtypemapper.ParameterizedPropertyTypeMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
