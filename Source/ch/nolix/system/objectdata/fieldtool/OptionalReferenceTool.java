@@ -61,7 +61,7 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
 
   //method
   @Override
-  public Optional<? extends IField> getOptionalStoredBackReferencingProperty(
+  public Optional<? extends IField> getOptionalStoredBackReferencingField(
     final IOptionalReference<?> optionalReference) {
     return optionalReference
       .getReferencedEntity()

@@ -26,5 +26,5 @@ public interface IOptionalReferenceTool {
   IEntityUpdateDto createEntityUpdateDtoForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 
   //method declaration
-  Optional<? extends IField> getOptionalStoredBackReferencingProperty(IOptionalReference<?> optionalReference);
+  Optional<? extends IField> getOptionalStoredBackReferencingField(IOptionalReference<?> optionalReference);
 }

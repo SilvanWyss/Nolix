@@ -269,7 +269,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //method
   private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
 
-    final var backReferencingProperty = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingProperty(this);
+    final var backReferencingProperty = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingField(this);
 
     backReferencingProperty.ifPresent(this::updateBackReferencingPropertyForClear);
   }
