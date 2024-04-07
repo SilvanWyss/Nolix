@@ -20,7 +20,7 @@ public final class ParameterizedValueTypeMapper implements IParameterizedFieldTy
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IValue<?> property,
     final IContainer<ITable> referencedTables) {
 

@@ -20,7 +20,7 @@ public final class ParameterizedMultiValueTypeMapper implements IParameterizedFi
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IMultiValue<?> property,
     final IContainer<ITable> referencedTables) {
 

@@ -72,7 +72,7 @@ implements IParameterizedPropertyTypeMapper {
   //method
   @Override
   @SuppressWarnings("unchecked")
-  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IField field,
     IContainer<ITable> referencedTables) {
 
@@ -80,39 +80,39 @@ implements IParameterizedPropertyTypeMapper {
 
     return switch (propertyType) {
       case VALUE ->
-        PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IValue<?>) field,
           referencedTables);
       case OPTIONAL_VALUE ->
-        PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IOptionalValue<?>) field,
           referencedTables);
       case MULTI_VALUE ->
-        PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IMultiValue<?>) field,
           referencedTables);
       case REFERENCE ->
-        PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IReference<IEntity>) field,
           referencedTables);
       case OPTIONAL_REFERENCE ->
-        PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IOptionalReference<IEntity>) field,
           referencedTables);
       case MULTI_REFERENCE ->
-        PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IMultiReference<IEntity>) field,
           referencedTables);
       case BACK_REFERENCE ->
-        PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IBackReference<IEntity>) field,
           referencedTables);
       case OPTIONAL_BACK_REFERENCE ->
-        PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IOptionalBackReference<IEntity>) field,
           referencedTables);
       case MULTI_BACK_REFERENCE ->
-        PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+        PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IMultiBackReference<IEntity>) field,
           referencedTables);
       default ->

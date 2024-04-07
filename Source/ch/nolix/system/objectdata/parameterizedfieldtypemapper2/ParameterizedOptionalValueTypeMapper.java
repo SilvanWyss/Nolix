@@ -21,7 +21,7 @@ implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IOptionalValue<?> property,
     final IContainer<ITable> referencedTables) {
 

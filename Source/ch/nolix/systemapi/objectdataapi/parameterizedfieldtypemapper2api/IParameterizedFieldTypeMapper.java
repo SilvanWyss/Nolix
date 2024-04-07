@@ -8,10 +8,10 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface IParameterizedFieldTypeMapper<P extends IField> {
+public interface IParameterizedFieldTypeMapper<F extends IField> {
 
   //method declaration
-  IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
-    P property,
+  IParameterizedFieldType createParameterizedFieldTypeFromField(
+    F field,
     IContainer<ITable> referencedTables);
 }

@@ -16,7 +16,7 @@ implements IParameterizedFieldTypeMapper<IOptionalBackReference<IEntity>> {
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IOptionalBackReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 

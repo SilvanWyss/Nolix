@@ -15,7 +15,7 @@ public final class ParameterizedReferenceTypeMapper implements IParameterizedFie
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 
