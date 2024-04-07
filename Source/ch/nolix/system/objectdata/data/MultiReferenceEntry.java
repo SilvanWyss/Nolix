@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjec
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //class
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
@@ -58,7 +58,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //method
   @Override
-  public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty() {
+  public Optional<? extends IField> getOptionalStoredBackReferencingProperty() {
     return getStoredReferencedEntity()
       .internalGetStoredProperties()
       .getOptionalStoredFirst(p -> p.referencesBackProperty(getStoredParentMultiReference()));

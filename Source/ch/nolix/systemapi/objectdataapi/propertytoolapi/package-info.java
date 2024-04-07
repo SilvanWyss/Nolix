@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemapi.objectdataapi.propertytoolapi} package declares
- * tools for {@link ch.nolix.systemapi.objectdataapi.dataapi.IProperty}s.
+ * tools for {@link ch.nolix.systemapi.objectdataapi.dataapi.IField}s.
  * 
  * @author Silvan Wyss
  * @date 2021-12-03

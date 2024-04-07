@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
@@ -94,7 +94,7 @@ public final class EntitySaver {
 
   //method
   private void saveChangesOfPotentialMultiProperty(
-    final IProperty p,
+    final IField p,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     if (PROPERTY_TOOL.isNewOrEdited(p)) {
       saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(p, dataAndSchemaAdapter);
@@ -103,17 +103,17 @@ public final class EntitySaver {
 
   //method
   private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(
-    final IProperty property,
+    final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    switch (property.getType()) {
+    switch (field.getType()) {
       case MULTI_VALUE:
-        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) property, dataAndSchemaAdapter);
+        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
-        MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) property, dataAndSchemaAdapter);
+        MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_BACK_REFERENCE:
-        MULTI_BACK_REFERENCE_SAVER.saveMultiBackReference((IMultiBackReference<?>) property, dataAndSchemaAdapter);
+        MULTI_BACK_REFERENCE_SAVER.saveMultiBackReference((IMultiBackReference<?>) field, dataAndSchemaAdapter);
         break;
       default:
         //Does nothing.

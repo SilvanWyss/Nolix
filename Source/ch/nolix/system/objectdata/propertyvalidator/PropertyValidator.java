@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IPropertyValidator;
 
@@ -20,41 +20,41 @@ public class PropertyValidator implements IPropertyValidator {
 
   //method
   @Override
-  public final void assertBelongsToEntity(final IProperty property) {
-    if (!property.belongsToEntity()) {
-      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(property, IEntity.class);
+  public final void assertBelongsToEntity(final IField field) {
+    if (!field.belongsToEntity()) {
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(field, IEntity.class);
     }
   }
 
   //method
   @Override
-  public final void assertDoesNotBelongToEntity(final IProperty property) {
-    if (property.belongsToEntity()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getStoredParentEntity());
+  public final void assertDoesNotBelongToEntity(final IField field) {
+    if (field.belongsToEntity()) {
+      throw ArgumentBelongsToParentException.forArgumentAndParent(field, field.getStoredParentEntity());
     }
   }
 
   //method
   @Override
-  public final void assertIsNotEmpty(final IProperty property) {
-    if (property.isEmpty()) {
-      throw EmptyArgumentException.forArgument(property);
+  public final void assertIsNotEmpty(final IField field) {
+    if (field.isEmpty()) {
+      throw EmptyArgumentException.forArgument(field);
     }
   }
 
   //method
   @Override
-  public final void assertIsNotMandatoryAndEmptyBoth(final IProperty property) {
-    if (PROPERTY_TOOL.isMandatoryAndEmptyBoth(property)) {
-      throw EmptyArgumentException.forArgument(property);
+  public final void assertIsNotMandatoryAndEmptyBoth(final IField field) {
+    if (PROPERTY_TOOL.isMandatoryAndEmptyBoth(field)) {
+      throw EmptyArgumentException.forArgument(field);
     }
   }
 
   //method
   @Override
-  public final void assertKnowsParentColumn(final IProperty property) {
-    if (!property.knowsParentColumn()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "does not know its parent column");
+  public final void assertKnowsParentColumn(final IField field) {
+    if (!field.knowsParentColumn()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(field, "does not know its parent column");
     }
   }
 }

@@ -14,7 +14,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjec
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IReferenceValidator;
@@ -176,7 +176,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private Optional<? extends IProperty> getOptionalPendantReferencingPropertyToEntity(final E entity) {
+  private Optional<? extends IField> getOptionalPendantReferencingPropertyToEntity(final E entity) {
     return ENTITY_TOOL
       .getStoredReferencingProperties(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
@@ -211,7 +211,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateBackReferencingPropertyForClear(final IProperty backReferencingProperty) {
+  private void updateBackReferencingPropertyForClear(final IField backReferencingProperty) {
     switch (backReferencingProperty.getType()) {
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) backReferencingProperty;

@@ -7,7 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.webgui.atomiccontrol.Label;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public final class PropertyBinding {
 
   //attribute
-  private final IProperty property;
+  private final IField field;
 
   //attribute
   private final IControl<?, ?> control;
@@ -27,12 +27,12 @@ public final class PropertyBinding {
   private Throwable currentError;
 
   //constructors
-  public PropertyBinding(final IProperty property, final IControl<?, ?> control) {
+  public PropertyBinding(final IField field, final IControl<?, ?> control) {
 
-    GlobalValidator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
+    GlobalValidator.assertThat(field).thatIsNamed(IField.class).isNotNull();
     GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
 
-    this.property = property;
+    this.field = field;
     this.control = control;
   }
 
@@ -52,8 +52,8 @@ public final class PropertyBinding {
   }
 
   //method
-  public IProperty getStoredProperty() {
-    return property;
+  public IField getStoredProperty() {
+    return field;
   }
 
   //method
@@ -87,7 +87,7 @@ public final class PropertyBinding {
 
   //method
   private String getDefaultErrorMessage() {
-    return ("The " + property.getName() + " is not valid.");
+    return ("The " + field.getName() + " is not valid.");
   }
 
   //method

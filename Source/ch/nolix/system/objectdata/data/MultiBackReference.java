@@ -13,7 +13,7 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
@@ -85,9 +85,9 @@ implements IMultiBackReference<E> {
 
   //method
   @Override
-  public IContainer<IProperty> getStoredReferencingProperties() {
+  public IContainer<IField> getStoredReferencingProperties() {
 
-    final var referencingProperties = new LinkedList<IProperty>();
+    final var referencingProperties = new LinkedList<IField>();
     final var backReferencedBaseReferenceName = getBackReferencedPropertyName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {

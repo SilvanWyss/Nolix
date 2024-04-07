@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjec
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
@@ -49,10 +49,10 @@ public interface IEntityTool extends IDatabaseObjectTool {
   IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(IEntity entity);
 
   //method declaration
-  IContainer<? extends IProperty> getStoredEditedProperties(IEntity entity);
+  IContainer<? extends IField> getStoredEditedProperties(IEntity entity);
 
   //method declaration
-  IContainer<? extends IProperty> getStoredReferencingProperties(IEntity entity);
+  IContainer<? extends IField> getStoredReferencingProperties(IEntity entity);
 
   //method declaration
   boolean isReferenced(IEntity entity);

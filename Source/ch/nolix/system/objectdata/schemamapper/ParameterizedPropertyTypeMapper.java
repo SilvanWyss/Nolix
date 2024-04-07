@@ -21,7 +21,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedPropertyTypeMapper;
@@ -73,50 +73,50 @@ implements IParameterizedPropertyTypeMapper {
   @Override
   @SuppressWarnings("unchecked")
   public IParameterizedPropertyType createParameterizedPropertyTypeFromProperty(
-    final IProperty property,
+    final IField field,
     IContainer<ITable> referencedTables) {
 
-    final var propertyType = property.getType();
+    final var propertyType = field.getType();
 
     return switch (propertyType) {
       case VALUE ->
         PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IValue<?>) property,
+          (IValue<?>) field,
           referencedTables);
       case OPTIONAL_VALUE ->
         PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IOptionalValue<?>) property,
+          (IOptionalValue<?>) field,
           referencedTables);
       case MULTI_VALUE ->
         PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IMultiValue<?>) property,
+          (IMultiValue<?>) field,
           referencedTables);
       case REFERENCE ->
         PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IReference<IEntity>) property,
+          (IReference<IEntity>) field,
           referencedTables);
       case OPTIONAL_REFERENCE ->
         PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IOptionalReference<IEntity>) property,
+          (IOptionalReference<IEntity>) field,
           referencedTables);
       case MULTI_REFERENCE ->
         PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IMultiReference<IEntity>) property,
+          (IMultiReference<IEntity>) field,
           referencedTables);
       case BACK_REFERENCE ->
         PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IBackReference<IEntity>) property,
+          (IBackReference<IEntity>) field,
           referencedTables);
       case OPTIONAL_BACK_REFERENCE ->
         PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IOptionalBackReference<IEntity>) property,
+          (IOptionalBackReference<IEntity>) field,
           referencedTables);
       case MULTI_BACK_REFERENCE ->
         PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-          (IMultiBackReference<IEntity>) property,
+          (IMultiBackReference<IEntity>) field,
           referencedTables);
       default ->
-        throw InvalidArgumentException.forArgument(property);
+        throw InvalidArgumentException.forArgument(field);
     };
   }
 }

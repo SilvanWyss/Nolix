@@ -31,7 +31,7 @@ public final class GeneralEntity extends BaseEntity {
 
   //method
   @Override
-  IContainer<Property> internalLoadProperties() {
+  IContainer<Field> internalLoadProperties() {
     return PROPERTY_FROM_TABLE_EXTRACTOR.createPropertiesFromTable(getStoredParentTable());
   }
 }

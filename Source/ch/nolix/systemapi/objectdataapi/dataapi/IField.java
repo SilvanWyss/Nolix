@@ -11,7 +11,7 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //interface
-public interface IProperty extends EmptinessRequestable, IDatabaseObject, MandatorynessRequestable, INameHolder {
+public interface IField extends EmptinessRequestable, IDatabaseObject, MandatorynessRequestable, INameHolder {
 
   //method declaration
   boolean belongsToEntity();
@@ -26,7 +26,7 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
   IEntity getStoredParentEntity();
 
   //method declaration
-  IContainer<IProperty> getStoredReferencingProperties();
+  IContainer<IField> getStoredReferencingProperties();
 
   //method declaration
   PropertyType getType();
@@ -41,7 +41,7 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
   boolean referencesBackEntity(IEntity entity);
 
   //method declaration
-  boolean referencesBackProperty(IProperty property);
+  boolean referencesBackProperty(IField field);
 
   //method declaration
   boolean referencesEntity(IEntity entity);

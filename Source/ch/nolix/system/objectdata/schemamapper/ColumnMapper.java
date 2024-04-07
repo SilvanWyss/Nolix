@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.schemamapper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedPropertyTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -24,12 +24,12 @@ public final class ColumnMapper implements IColumnMapper {
   //method
   @Override
   public IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
-    final IProperty property,
+    final IField field,
     final IContainer<ITable> referencableTables) {
     return new Column(
-      property.getName(),
+      field.getName(),
       PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
-        property,
+        field,
         referencableTables));
   }
 

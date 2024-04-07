@@ -8,11 +8,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.propertytool.PropertyTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
-public abstract class BaseBackReference<E extends IEntity> extends Property implements IBaseBackReference<E> {
+public abstract class BaseBackReference<E extends IEntity> extends Field implements IBaseBackReference<E> {
 
   //constant
   private static final PropertyTool PROPERTY_TOOL = new PropertyTool();
@@ -75,10 +75,10 @@ public abstract class BaseBackReference<E extends IEntity> extends Property impl
 
   //method
   @Override
-  public final boolean referencesBackProperty(final IProperty property) {
+  public final boolean referencesBackProperty(final IField field) {
     return //
-    canReferenceBackPropertyBecauseOfName(property)
-    && referencesBackEntityWithId(property.getStoredParentEntity().getId());
+    canReferenceBackPropertyBecauseOfName(field)
+    && referencesBackEntityWithId(field.getStoredParentEntity().getId());
   }
 
   //method
@@ -97,12 +97,12 @@ public abstract class BaseBackReference<E extends IEntity> extends Property impl
   }
 
   //method
-  private boolean canReferenceBackPropertyBecauseOfName(final IProperty property) {
+  private boolean canReferenceBackPropertyBecauseOfName(final IField field) {
     return //
     belongsToEntity()
-    && PROPERTY_TOOL.belongsToEntity(property)
-    && getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
-    && getBackReferencedPropertyName().equals(property.getName());
+    && PROPERTY_TOOL.belongsToEntity(field)
+    && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
+    && getBackReferencedPropertyName().equals(field.getName());
   }
 
   //method

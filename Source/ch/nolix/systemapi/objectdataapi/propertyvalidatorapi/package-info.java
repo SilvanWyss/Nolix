@@ -2,7 +2,7 @@
 /**
  * The {@link ch.nolix.systemapi.objectdataapi.propertyvalidatorapi} package
  * declares validators for
- * {@link ch.nolix.systemapi.objectdataapi.dataapi.IProperty} package.
+ * {@link ch.nolix.systemapi.objectdataapi.dataapi.IField} package.
  * 
  * @author Silvan Wyss
  * @date 2022-12-30

@@ -11,7 +11,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IPropertyTool;
 
@@ -20,58 +20,58 @@ public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
 
   //method
   @Override
-  public boolean belongsToEntity(final IProperty property) {
+  public boolean belongsToEntity(final IField field) {
     return //
-    property != null
-    && property.belongsToEntity();
+    field != null
+    && field.belongsToEntity();
   }
 
   //method
   @Override
-  public final boolean belongsToLoadedEntity(final IProperty property) {
+  public final boolean belongsToLoadedEntity(final IField field) {
     return //
-    property.belongsToEntity()
-    && property.getStoredParentEntity().isLoaded();
+    field.belongsToEntity()
+    && field.getStoredParentEntity().isLoaded();
   }
 
   //method
   @Override
-  public final Class<?> getDataType(final IProperty property) {
-    return switch (property.getType().getBaseType()) {
+  public final Class<?> getDataType(final IField field) {
+    return switch (field.getType().getBaseType()) {
       case BASE_VALUE ->
-        getDataTypeWhenIsBaseValue(property);
+        getDataTypeWhenIsBaseValue(field);
       case BASE_REFERENCE, BASE_BACK_REFERENCE ->
         String.class;
       default ->
-        throw InvalidArgumentException.forArgument(property);
+        throw InvalidArgumentException.forArgument(field);
     };
   }
 
   //method
   @Override
-  public final boolean isForMultiContent(final IProperty property) {
-    return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
+  public final boolean isForMultiContent(final IField field) {
+    return (field.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
   }
 
   //method
   @Override
-  public final boolean isForSingleContent(final IProperty property) {
-    return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
+  public final boolean isForSingleContent(final IField field) {
+    return (field.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
   }
 
   //method
   @Override
-  public final boolean isMandatoryAndEmptyBoth(final IProperty property) {
-    return property.isMandatory()
-    && property.isEmpty();
+  public final boolean isMandatoryAndEmptyBoth(final IField field) {
+    return field.isMandatory()
+    && field.isEmpty();
   }
 
   //method
   @Override
-  public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IProperty property) {
-    return !property.isMandatory()
-    || !isNewOrEdited(property)
-    || property.containsAny();
+  public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IField field) {
+    return !field.isMandatory()
+    || !isNewOrEdited(field)
+    || field.containsAny();
   }
 
   //method
@@ -105,20 +105,20 @@ public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
   }
 
   //method
-  private Class<?> getDataTypeWhenIsBaseValue(final IProperty property) {
+  private Class<?> getDataTypeWhenIsBaseValue(final IField field) {
 
-    if (!property.belongsToEntity()) {
-      return getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(property);
+    if (!field.belongsToEntity()) {
+      return getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(field);
     }
 
-    return getDataTypeWhenIsBaseValueAndBelongsToEntity(property);
+    return getDataTypeWhenIsBaseValueAndBelongsToEntity(field);
   }
 
   //method
-  private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty property) {
-    final var propertyParentEntity = property.getStoredParentEntity();
+  private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IField field) {
+    final var propertyParentEntity = field.getStoredParentEntity();
 
-    final var propertyField = GlobalObjectTool.getFirstFieldOfObjectThatStoresValue(propertyParentEntity, property);
+    final var propertyField = GlobalObjectTool.getFirstFieldOfObjectThatStoresValue(propertyParentEntity, field);
 
     final var propertyDeclaredType = (ParameterizedType) propertyField.getGenericType();
 
@@ -128,16 +128,16 @@ public class PropertyTool extends DatabaseObjectTool implements IPropertyTool {
   }
 
   //method
-  private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IProperty property) {
-    return switch (property.getType()) {
+  private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IField field) {
+    return switch (field.getType()) {
       case VALUE ->
-        getDataTypeWhenDoesNotBelongToEntity((IValue<?>) property);
+        getDataTypeWhenDoesNotBelongToEntity((IValue<?>) field);
       case OPTIONAL_VALUE ->
-        getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?>) property);
+        getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?>) field);
       case MULTI_VALUE ->
-        getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?>) property);
+        getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?>) field);
       default ->
-        throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "is not a base value");
+        throw InvalidArgumentException.forArgumentAndErrorPredicate(field, "is not a base value");
     };
   }
 }

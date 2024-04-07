@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //class
 public final class PropertyBinderFactory {
@@ -22,7 +22,7 @@ public final class PropertyBinderFactory {
 
   //method
   @SuppressWarnings("unchecked")
-  public <P extends IProperty> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
+  public <P extends IField> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
     return switch (property.getType()) {
       case VALUE ->
         (PropertyBinder<P, ?>) VALUE_BINDER;

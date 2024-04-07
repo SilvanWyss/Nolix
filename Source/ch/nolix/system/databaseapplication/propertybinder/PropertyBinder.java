@@ -2,11 +2,11 @@
 package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, ?>> {
+public abstract class PropertyBinder<P extends IField, W extends IControl<?, ?>> {
 
   //method
   public final PropertyBinding bindControlWithProperty(final W control, final P property) {

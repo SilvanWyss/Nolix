@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 public final class PropertyFromColumnMapper {
 
   //method
-  public Property createPropertyFromColumn(final IColumn column) {
+  public Field createPropertyFromColumn(final IColumn column) {
 
     final var property = createEmptyPropertyFromColumn(column);
     property.internalSetParentColumn(column);
@@ -17,7 +17,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyPropertyFromColumn(final IColumn column) {
+  private Field createEmptyPropertyFromColumn(final IColumn column) {
     return switch (column.getParameterizedPropertyType().getPropertyType()) {
       case VALUE ->
         Value.withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
@@ -42,7 +42,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
+  private Field createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
 
     final var referencedtableName = referenceColumn
       .getParameterizedPropertyType()
@@ -54,7 +54,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
+  private Field createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
       .getParameterizedPropertyType()
@@ -66,7 +66,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
+  private Field createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
 
     final var referencedtableName = multiReferenceColumn
       .getParameterizedPropertyType()
@@ -78,7 +78,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
+  private Field createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
 
     final var backReferencedColumn = backReferenceColumn
       .getParameterizedPropertyType()
@@ -94,7 +94,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
+  private Field createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
     final IColumn optionalBackReferenceColumn) {
 
     final var backReferencedColumn = optionalBackReferenceColumn
@@ -111,7 +111,7 @@ public final class PropertyFromColumnMapper {
   }
 
   //method
-  private Property createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
+  private Field createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
     final IColumn multiBackReferenceColumn) {
 
     final var backReferencedColumn = multiBackReferenceColumn

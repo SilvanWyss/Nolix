@@ -9,7 +9,7 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IPropertyValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
@@ -59,7 +59,7 @@ implements IOptionalBackReference<E> {
 
   //method
   @Override
-  public IContainer<IProperty> getStoredReferencingProperties() {
+  public IContainer<IField> getStoredReferencingProperties() {
 
     if (isEmpty()) {
       return new ImmutableList<>();

@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //class
 public final class GlobalPropertyBinder {
@@ -15,7 +15,7 @@ public final class GlobalPropertyBinder {
   }
 
   //static method
-  public static <P extends IProperty> PropertyBinding createControlAndBindItWith(final P property) {
+  public static <P extends IField> PropertyBinding createControlAndBindItWith(final P property) {
     return PROPERTY_BINDER_FACTORY.getPropertyBinderFor(property).createControlAndBindItWith(property);
   }
 }

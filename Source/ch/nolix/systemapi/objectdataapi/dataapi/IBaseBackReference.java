@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //interface
-public interface IBaseBackReference<E extends IEntity> extends IProperty {
+public interface IBaseBackReference<E extends IEntity> extends IField {
 
   //method declaration
   String getBackReferencedPropertyName();

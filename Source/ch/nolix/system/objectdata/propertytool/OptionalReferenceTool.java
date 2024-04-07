@@ -9,7 +9,7 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.propertytoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
@@ -61,7 +61,7 @@ public final class OptionalReferenceTool extends PropertyTool implements IOption
 
   //method
   @Override
-  public Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(
+  public Optional<? extends IField> getOptionalStoredBackReferencingProperty(
     final IOptionalReference<?> optionalReference) {
     return optionalReference
       .getReferencedEntity()

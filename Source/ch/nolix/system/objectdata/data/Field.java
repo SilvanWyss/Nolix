@@ -12,12 +12,12 @@ import ch.nolix.system.objectdata.propertyvalidator.PropertyValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class Property implements IProperty {
+public abstract class Field implements IField {
 
   //constant
   private static final PropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();

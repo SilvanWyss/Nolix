@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
-import java.lang.reflect.Field;
-
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -13,9 +10,9 @@ import ch.nolix.core.reflection.GlobalFieldTool;
 final class PropertyFromEntityMapper {
 
   //method
-  public LinkedList<Property> getStoredPropertiesFrom(final Object entity) {
+  public LinkedList<Field> getStoredPropertiesFrom(final Object entity) {
 
-    final var properties = new LinkedList<Property>();
+    final var properties = new LinkedList<Field>();
 
     fillUpPropertiesFromGivenObjectIntoGivenList(entity, properties);
 
@@ -25,7 +22,7 @@ final class PropertyFromEntityMapper {
   //method
   private void fillUpPropertiesFromGivenObjectIntoGivenList(
     final Object object,
-    final LinkedList<Property> list) {
+    final LinkedList<Field> list) {
     Class<?> lClass = object.getClass();
     while (lClass != null) {
       fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(object, lClass, list);
@@ -37,7 +34,7 @@ final class PropertyFromEntityMapper {
   private void fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(
     final Object object,
     final Class<?> pClass,
-    final LinkedList<Property> list) {
+    final LinkedList<Field> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(object, f, list);
     }
@@ -46,28 +43,28 @@ final class PropertyFromEntityMapper {
   //method
   private void fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(
     final Object object,
-    final Field field,
-    final LinkedList<Property> list) {
+    final java.lang.reflect.Field field,
+    final LinkedList<Field> list) {
     if (fieldIsProperty(field)) {
       fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(object, field, list);
     }
   }
 
   //method
-  private boolean fieldIsProperty(final Field field) {
-    return GlobalFieldTool.hasGivenTypeOrSuperType(field, Property.class);
+  private boolean fieldIsProperty(final java.lang.reflect.Field field) {
+    return GlobalFieldTool.hasGivenTypeOrSuperType(field, Field.class);
   }
 
   //method
   private void fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(
     final Object object,
-    final Field field,
-    final LinkedList<Property> list) {
+    final java.lang.reflect.Field field,
+    final LinkedList<Field> list) {
 
     field.setAccessible(true);
 
     try {
-      list.addAtEnd((Property) field.get(object));
+      list.addAtEnd((Field) field.get(object));
     } catch (final IllegalArgumentException | IllegalAccessException exception) {
       throw WrapperException.forError(exception);
     }

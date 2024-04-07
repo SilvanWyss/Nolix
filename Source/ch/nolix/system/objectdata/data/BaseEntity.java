@@ -18,7 +18,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjec
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IEntityFlyWeight;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
@@ -55,7 +55,7 @@ public abstract class BaseEntity implements IEntity {
   private String saveStamp;
 
   //multi-attribute
-  private IContainer<Property> properties;
+  private IContainer<Field> fields;
 
   //method
   @Override
@@ -184,7 +184,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   @Override
-  public final IContainer<? extends IProperty> internalGetStoredProperties() {
+  public final IContainer<? extends IField> internalGetStoredProperties() {
     return getStoredProperties();
   }
 
@@ -218,12 +218,12 @@ public abstract class BaseEntity implements IEntity {
   }
 
   //method
-  final Property internalGetRefPropertyByName(final String name) {
+  final Field internalGetRefPropertyByName(final String name) {
     return getStoredProperties().getStoredFirst(p -> p.hasName(name));
   }
 
   //method declaration
-  abstract IContainer<Property> internalLoadProperties();
+  abstract IContainer<Field> internalLoadProperties();
 
   //method
   final void internalNoteInsertIntoDatabase() {
@@ -273,7 +273,7 @@ public abstract class BaseEntity implements IEntity {
 
     this.parentTable = parentTable;
 
-    getStoredProperties().forEach(Property::internalSetParentColumnFromParentTable);
+    getStoredProperties().forEach(Field::internalSetParentColumnFromParentTable);
   }
 
   //method
@@ -286,7 +286,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   private boolean extractedProperties() {
-    return (properties != null);
+    return (fields != null);
   }
 
   //method
@@ -299,17 +299,17 @@ public abstract class BaseEntity implements IEntity {
   //method
   private void extractPropertiesWhenNotExtracted() {
 
-    properties = internalLoadProperties();
+    fields = internalLoadProperties();
 
-    properties.forEach(p -> p.internalSetParentEntity(this));
+    fields.forEach(p -> p.internalSetParentEntity(this));
   }
 
   //method
-  private IContainer<Property> getStoredProperties() {
+  private IContainer<Field> getStoredProperties() {
 
     extractPropertiesIfNotExtracted();
 
-    return properties;
+    return fields;
   }
 
   //method
@@ -368,7 +368,7 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   private void updateBaseBackReferencesWhenIsInsertedIntoDatabase() {
-    getStoredProperties().forEach(Property::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
+    getStoredProperties().forEach(Field::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
   }
 
   //method

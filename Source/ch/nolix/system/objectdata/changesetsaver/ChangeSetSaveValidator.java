@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
@@ -60,22 +60,22 @@ public final class ChangeSetSaveValidator {
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
-    final IProperty property,
+    final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    if (PROPERTY_TOOL.isNewOrEdited(property)) {
-      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(property,
+    if (PROPERTY_TOOL.isNewOrEdited(field)) {
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(field,
         dataAndSchemaAdapter);
     }
   }
 
   //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(
-    final IProperty property,
+    final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    switch (property.getType()) {
+    switch (field.getType()) {
       case REFERENCE:
 
-        final var reference = (IReference<?>) property;
+        final var reference = (IReference<?>) field;
 
         addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(reference,
           dataAndSchemaAdapter);
@@ -83,7 +83,7 @@ public final class ChangeSetSaveValidator {
         break;
       case OPTIONAL_REFERENCE:
 
-        final var optionalReference = (IOptionalReference<?>) property;
+        final var optionalReference = (IOptionalReference<?>) field;
 
         addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
           optionalReference,
@@ -92,7 +92,7 @@ public final class ChangeSetSaveValidator {
         break;
       case MULTI_REFERENCE:
 
-        final var multiReference = (IMultiReference<?>) property;
+        final var multiReference = (IMultiReference<?>) field;
 
         addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
           multiReference,

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectdataapi.schemamapperapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -13,7 +13,7 @@ public interface IColumnMapper {
 
   //method declaration
   IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
-    IProperty property,
+    IField field,
     IContainer<ITable> referencableTables);
 
   //method declaration

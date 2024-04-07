@@ -7,11 +7,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
-public abstract class BaseReference<E extends IEntity> extends Property
+public abstract class BaseReference<E extends IEntity> extends Field
 implements IBaseReference<E> {
 
   //attribute
@@ -45,7 +45,7 @@ implements IBaseReference<E> {
 
   //method
   @Override
-  public final IContainer<IProperty> getStoredReferencingProperties() {
+  public final IContainer<IField> getStoredReferencingProperties() {
     return new ImmutableList<>();
   }
 
@@ -57,7 +57,7 @@ implements IBaseReference<E> {
 
   //method
   @Override
-  public boolean referencesBackProperty(final IProperty property) {
+  public boolean referencesBackProperty(final IField field) {
     return false;
   }
 

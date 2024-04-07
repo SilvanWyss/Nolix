@@ -3,29 +3,29 @@ package ch.nolix.systemapi.objectdataapi.propertytoolapi;
 
 //own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //interface
 public interface IPropertyTool extends IDatabaseObjectTool {
 
   //method
-  boolean belongsToEntity(IProperty property);
+  boolean belongsToEntity(IField field);
 
   //method declaration
-  boolean belongsToLoadedEntity(IProperty property);
+  boolean belongsToLoadedEntity(IField field);
 
   //method declaration
-  Class<?> getDataType(IProperty property);
+  Class<?> getDataType(IField field);
 
   //method declaration
-  boolean isForMultiContent(IProperty property);
+  boolean isForMultiContent(IField field);
 
   //method declaration
-  boolean isForSingleContent(IProperty property);
+  boolean isForSingleContent(IField field);
 
   //method declaration
-  boolean isMandatoryAndEmptyBoth(IProperty property);
+  boolean isMandatoryAndEmptyBoth(IField field);
 
   //method declaration
-  boolean isSetForCaseIsNewOrEditedAndMandatory(IProperty property);
+  boolean isSetForCaseIsNewOrEditedAndMandatory(IField field);
 }

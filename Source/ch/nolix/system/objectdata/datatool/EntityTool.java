@@ -15,7 +15,7 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
@@ -68,7 +68,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return new EntityUpdateDto(
       entity.getId(),
       entity.getSaveStamp(),
-      getStoredEditedProperties(entity).to(IProperty::internalToContentField));
+      getStoredEditedProperties(entity).to(IField::internalToContentField));
   }
 
   //method
@@ -81,7 +81,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
     return //
-    new NewEntityDto(entity.getId(), entity.internalGetStoredProperties().to(IProperty::internalToContentField));
+    new NewEntityDto(entity.getId(), entity.internalGetStoredProperties().to(IField::internalToContentField));
   }
 
   //method
@@ -104,19 +104,19 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
-    return entity.internalGetStoredProperties().toFromGroups(IProperty::getStoredBaseBackReferences);
+    return entity.internalGetStoredProperties().toFromGroups(IField::getStoredBaseBackReferences);
   }
 
   //method
   @Override
-  public IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
-    return entity.internalGetStoredProperties().getStoredSelected(IProperty::isEdited);
+  public IContainer<? extends IField> getStoredEditedProperties(final IEntity entity) {
+    return entity.internalGetStoredProperties().getStoredSelected(IField::isEdited);
   }
 
   //method
   @Override
-  public IContainer<? extends IProperty> getStoredReferencingProperties(final IEntity entity) {
-    return entity.internalGetStoredProperties().toFromGroups(IProperty::getStoredReferencingProperties);
+  public IContainer<? extends IField> getStoredReferencingProperties(final IEntity entity) {
+    return entity.internalGetStoredProperties().toFromGroups(IField::getStoredReferencingProperties);
   }
 
   //method
@@ -151,7 +151,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public boolean referencesUninsertedEntity(final IEntity entity) {
-    return entity.internalGetStoredProperties().containsAny(IProperty::referencesUninsertedEntity);
+    return entity.internalGetStoredProperties().containsAny(IField::referencesUninsertedEntity);
   }
 
   //method
@@ -164,17 +164,17 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   }
 
   //method
-  private boolean isBaseValueOrBaseReference(final IProperty property) {
+  private boolean isBaseValueOrBaseReference(final IField field) {
 
-    final var baseType = property.getType().getBaseType();
+    final var baseType = field.getType().getBaseType();
 
     return baseType == BasePropertyType.BASE_VALUE
     || baseType == BasePropertyType.BASE_REFERENCE;
   }
 
   //method
-  private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty property) {
-    return isBaseValueOrBaseReference(property)
-    && PROPERTY_TOOL.isMandatoryAndEmptyBoth(property);
+  private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IField field) {
+    return isBaseValueOrBaseReference(field)
+    && PROPERTY_TOOL.isMandatoryAndEmptyBoth(field);
   }
 }

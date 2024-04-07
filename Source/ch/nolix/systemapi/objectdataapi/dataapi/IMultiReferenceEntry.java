@@ -11,7 +11,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 public interface IMultiReferenceEntry<E extends IEntity> extends IDatabaseObject {
 
   //method declaration
-  Optional<? extends IProperty> getOptionalStoredBackReferencingProperty();
+  Optional<? extends IField> getOptionalStoredBackReferencingProperty();
 
   //method declaration
   String getReferencedEntityId();

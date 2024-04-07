@@ -8,10 +8,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //class
-public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
+public abstract class BaseValue<V> extends Field implements IBaseValue<V> {
 
   //attribute
   private final Class<V> valueType;
@@ -32,7 +32,7 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
 
   //method
   @Override
-  public final IContainer<IProperty> getStoredReferencingProperties() {
+  public final IContainer<IField> getStoredReferencingProperties() {
     return new ImmutableList<>();
   }
 
@@ -56,7 +56,7 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
 
   //method
   @Override
-  public boolean referencesBackProperty(final IProperty property) {
+  public boolean referencesBackProperty(final IField field) {
     return false;
   }
 

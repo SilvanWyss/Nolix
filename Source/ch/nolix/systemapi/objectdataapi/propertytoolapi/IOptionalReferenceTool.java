@@ -7,7 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 //interface
@@ -26,5 +26,5 @@ public interface IOptionalReferenceTool {
   IEntityUpdateDto createEntityUpdateDtoForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 
   //method declaration
-  Optional<? extends IProperty> getOptionalStoredBackReferencingProperty(IOptionalReference<?> optionalReference);
+  Optional<? extends IField> getOptionalStoredBackReferencingProperty(IOptionalReference<?> optionalReference);
 }

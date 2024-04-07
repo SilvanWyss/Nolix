@@ -2,23 +2,23 @@
 package ch.nolix.systemapi.objectdataapi.propertyvalidatorapi;
 
 //own imports
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
 //interface
 public interface IPropertyValidator {
 
   //method declaration
-  void assertBelongsToEntity(IProperty property);
+  void assertBelongsToEntity(IField field);
 
   //method declaration
-  void assertDoesNotBelongToEntity(IProperty property);
+  void assertDoesNotBelongToEntity(IField field);
 
   //method declaration
-  void assertIsNotEmpty(IProperty property);
+  void assertIsNotEmpty(IField field);
 
   //method declaration
-  void assertIsNotMandatoryAndEmptyBoth(IProperty property);
+  void assertIsNotMandatoryAndEmptyBoth(IField field);
 
   //method declaration
-  void assertKnowsParentColumn(IProperty property);
+  void assertKnowsParentColumn(IField field);
 }
