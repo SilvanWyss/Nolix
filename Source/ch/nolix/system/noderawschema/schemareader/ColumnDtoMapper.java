@@ -14,8 +14,8 @@ final class ColumnDtoMapper {
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   //constant
-  private static final ParameterizedPropertyTypeDtoMapper PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER = //
-  new ParameterizedPropertyTypeDtoMapper();
+  private static final ParameterizedFieldTypeDtoMapper PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER = //
+  new ParameterizedFieldTypeDtoMapper();
 
   //method
   public ColumnDto createColumnDtoFromColumnNode(final IMutableNode<?> columnNode) {

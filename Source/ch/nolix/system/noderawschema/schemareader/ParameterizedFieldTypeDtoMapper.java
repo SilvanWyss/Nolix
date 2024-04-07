@@ -13,33 +13,33 @@ import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class
-public class ParameterizedPropertyTypeDtoMapper {
+public class ParameterizedFieldTypeDtoMapper {
 
   //constant
-  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
+  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
   new ParameterizedFieldTypeNodeSearcher();
 
   //method
   public ParameterizedFieldTypeDto createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
-    final var propertyType = getPropertyTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode);
+    final var fieldType = getPropertyTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode);
 
-    return switch (propertyType.getBaseType()) {
+    return switch (fieldType.getBaseType()) {
       case BASE_VALUE ->
         createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
           parameterizedPropertyTypeNode,
-          propertyType);
+          fieldType);
       case BASE_REFERENCE ->
         createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
           parameterizedPropertyTypeNode,
-          propertyType);
+          fieldType);
       case BASE_BACK_REFERENCE ->
         createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
           parameterizedPropertyTypeNode,
-          propertyType);
+          fieldType);
       default ->
-        throw InvalidArgumentException.forArgument(propertyType);
+        throw InvalidArgumentException.forArgument(fieldType);
     };
   }
 
@@ -76,7 +76,7 @@ public class ParameterizedPropertyTypeDtoMapper {
   private String getBackReferencedColumnIdFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
-    final var backReferencedColumnNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
+    final var backReferencedColumnNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
         parameterizedPropertyTypeNode);
 
@@ -86,7 +86,7 @@ public class ParameterizedPropertyTypeDtoMapper {
   //method
   private DataType getDataTypeFromParameterizedPropertyTypeNode(final IMutableNode<?> parameterizedPropertyTypeNode) {
 
-    final var dataTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
+    final var dataTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredDataTypeNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
@@ -97,18 +97,18 @@ public class ParameterizedPropertyTypeDtoMapper {
   private FieldType getPropertyTypeFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
-    final var propertyTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
+    final var fieldTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
-    return FieldType.fromSpecification(propertyTypeNode);
+    return FieldType.fromSpecification(fieldTypeNode);
   }
 
   //method
   private String getReferencedTableIdFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
-    final var referencedTableIdNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
+    final var referencedTableIdNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
         parameterizedPropertyTypeNode);
 
