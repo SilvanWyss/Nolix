@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeD
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
-public final class ParameterizedPropertyTypeMapper {
+public final class ParameterizedFieldTypeMapper {
 
   //constant
   private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //

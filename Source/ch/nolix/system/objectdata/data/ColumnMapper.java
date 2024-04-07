@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper.ParameterizedPropertyTypeMapper;
+import ch.nolix.system.objectdata.parameterizedfieldtypemapper.ParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
@@ -13,8 +13,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 final class ColumnMapper {
 
   //constant
-  private static final ParameterizedPropertyTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
-  new ParameterizedPropertyTypeMapper();
+  private static final ParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
+  new ParameterizedFieldTypeMapper();
 
   //method
   public IColumn createColumnFromDtoForParentTableUsingGivenReferencableTables(
