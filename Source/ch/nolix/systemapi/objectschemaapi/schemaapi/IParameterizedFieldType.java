@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //interface
 public interface IParameterizedFieldType {
@@ -30,5 +30,5 @@ public interface IParameterizedFieldType {
   boolean referencesBackColumn(IColumn column);
 
   //method declaration
-  IParameterizedPropertyTypeDto toDto();
+  IParameterizedFieldTypeDto toDto();
 }

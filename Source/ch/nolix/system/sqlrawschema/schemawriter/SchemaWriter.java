@@ -11,7 +11,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -148,7 +148,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnParameterizedPropertyType(
     final String columnId,
-    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedPropertyType) {
     systemDataWriter.setColumnParameterizedPropertyType(columnId, parameterizedPropertyType);
   }
 

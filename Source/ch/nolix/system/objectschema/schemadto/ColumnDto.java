@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
 public final class ColumnDto implements IColumnDto {
@@ -17,7 +17,7 @@ public final class ColumnDto implements IColumnDto {
   private final String name;
 
   //attribute
-  private final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto;
+  private final IParameterizedFieldTypeDto parameterizedFieldTypeDto;
 
   //constructor
   //For a better performance, this implementation does not use all comfortable
@@ -25,7 +25,7 @@ public final class ColumnDto implements IColumnDto {
   public ColumnDto(
     final String id,
     final String name,
-    final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto) {
+    final IParameterizedFieldTypeDto parameterizedFieldTypeDto) {
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
@@ -35,13 +35,13 @@ public final class ColumnDto implements IColumnDto {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.HEADER);
     }
 
-    if (parameterizedPropertyTypeDto == null) {
-      throw ArgumentIsNullException.forArgumentType(IParameterizedPropertyTypeDto.class);
+    if (parameterizedFieldTypeDto == null) {
+      throw ArgumentIsNullException.forArgumentType(IParameterizedFieldTypeDto.class);
     }
 
     this.id = id;
     this.name = name;
-    this.parameterizedPropertyTypeDto = parameterizedPropertyTypeDto;
+    this.parameterizedFieldTypeDto = parameterizedFieldTypeDto;
   }
 
   //method
@@ -58,7 +58,7 @@ public final class ColumnDto implements IColumnDto {
 
   //method
   @Override
-  public IParameterizedPropertyTypeDto getParameterizedPropertyType() {
-    return parameterizedPropertyTypeDto;
+  public IParameterizedFieldTypeDto getParameterizedPropertyType() {
+    return parameterizedFieldTypeDto;
   }
 }

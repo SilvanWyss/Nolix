@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceT
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
 public abstract class BaseParameterizedBackReferenceType extends ParameterizedFieldType
@@ -69,7 +69,7 @@ implements IBaseParameterizedBackReferenceType {
 
   //method
   @Override
-  public final IParameterizedPropertyTypeDto toDto() {
+  public final IParameterizedFieldTypeDto toDto() {
     return new BaseParameterizedBackReferenceTypeDto(
       getPropertyType(),
       getDataType(),

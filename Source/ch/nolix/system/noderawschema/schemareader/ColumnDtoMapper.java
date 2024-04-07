@@ -5,7 +5,7 @@ package ch.nolix.system.noderawschema.schemareader;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
-import ch.nolix.system.objectschema.schemadto.ParameterizedPropertyTypeDto;
+import ch.nolix.system.objectschema.schemadto.ParameterizedFieldTypeDto;
 
 //class
 final class ColumnDtoMapper {
@@ -36,7 +36,7 @@ final class ColumnDtoMapper {
   }
 
   //method
-  private ParameterizedPropertyTypeDto createParameterizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
+  private ParameterizedFieldTypeDto createParameterizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
       .getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode);

@@ -5,7 +5,7 @@ import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //interface
-public interface IParameterizedPropertyTypeDto {
+public interface IParameterizedFieldTypeDto {
 
   //method declaration
   DataType getDataType();

@@ -8,13 +8,13 @@ import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
 public final class ParameterizedPropertyTypeNodeMapper {
 
   //method
-  public Node createParameterizedPropertyTypeNodeFrom(final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+  public Node createParameterizedPropertyTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedPropertyType) {
     return switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
       case BASE_VALUE ->
         createParameterizedPropertyTypeNodeFrom((IBaseParameterizedValueTypeDto) parameterizedPropertyType);

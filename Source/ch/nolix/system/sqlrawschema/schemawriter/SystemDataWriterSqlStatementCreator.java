@@ -12,7 +12,7 @@ import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -134,7 +134,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToSetColumnParameterizedPropertyType(
     final String columnID,
-    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedPropertyType) {
 
     final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
       .createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);

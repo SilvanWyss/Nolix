@@ -13,7 +13,7 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
@@ -189,7 +189,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
   @Override
   public void setColumnParameterizedPropertyType(
     final String columnId,
-    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedPropertyType) {
     schemaWriter.setColumnParameterizedPropertyType(columnId, parameterizedPropertyType);
   }
 

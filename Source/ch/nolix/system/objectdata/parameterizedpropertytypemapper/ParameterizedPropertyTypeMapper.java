@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
 public final class ParameterizedPropertyTypeMapper {
@@ -54,51 +54,51 @@ public final class ParameterizedPropertyTypeMapper {
 
   //method
   public IParameterizedPropertyType createParameterizedPropertyTypeFromDto(
-    final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto,
+    final IParameterizedFieldTypeDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var propertyType = parameterizedPropertyTypeDto.getPropertyType();
+    final var propertyType = parameterizedFieldTypeDto.getPropertyType();
 
     return //
     switch (propertyType) {
       case VALUE ->
         PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedValueTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case OPTIONAL_VALUE ->
         PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedValueTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case MULTI_VALUE ->
         PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedValueTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case REFERENCE ->
         PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case OPTIONAL_REFERENCE ->
         PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case MULTI_REFERENCE ->
         PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case BACK_REFERENCE ->
         PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case OPTIONAL_BACK_REFERENCE ->
         PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case MULTI_BACK_REFERENCE ->
         PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto,
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       default ->
-        throw InvalidArgumentException.forArgument(parameterizedPropertyTypeDto);
+        throw InvalidArgumentException.forArgument(parameterizedFieldTypeDto);
     };
   }
 }

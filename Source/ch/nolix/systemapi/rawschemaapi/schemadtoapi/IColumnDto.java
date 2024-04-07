@@ -11,5 +11,5 @@ public interface IColumnDto {
   String getName();
 
   //method declaration
-  IParameterizedPropertyTypeDto getParameterizedPropertyType();
+  IParameterizedFieldTypeDto getParameterizedPropertyType();
 }

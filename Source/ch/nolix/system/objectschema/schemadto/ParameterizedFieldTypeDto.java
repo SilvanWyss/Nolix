@@ -5,10 +5,10 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
-public abstract class ParameterizedPropertyTypeDto implements IParameterizedPropertyTypeDto {
+public abstract class ParameterizedFieldTypeDto implements IParameterizedFieldTypeDto {
 
   //attribute
   private final FieldType fieldType;
@@ -19,7 +19,7 @@ public abstract class ParameterizedPropertyTypeDto implements IParameterizedProp
   //constructor
   //For a better performance, this implementation does not use all comfortable
   //methods.
-  protected ParameterizedPropertyTypeDto(final FieldType fieldType, final DataType dataType) {
+  protected ParameterizedFieldTypeDto(final FieldType fieldType, final DataType dataType) {
 
     if (fieldType == null) {
       throw ArgumentIsNullException.forArgumentType(FieldType.class);

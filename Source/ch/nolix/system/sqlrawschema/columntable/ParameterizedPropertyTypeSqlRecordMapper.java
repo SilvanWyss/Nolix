@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
 public final class ParameterizedPropertyTypeSqlRecordMapper {
@@ -16,7 +16,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
 
   //method
   public ParameterizedPropertyTypeSqlRecord createParameterizedPropertyTypeRecordFrom(
-    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedPropertyType) {
     return switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
       case BASE_VALUE ->
         createBaseParameterizedValueTypeRecord((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
