@@ -21,29 +21,29 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
   private final String backReferencedTableName;
 
   //attribute
-  private final String backReferencedPropertyName;
+  private final String backReferencedFieldName;
 
   //optional attribute
   private Table<E> backReferencedTable;
 
   //constructor
-  protected BaseBackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
+  protected BaseBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
 
     GlobalValidator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
 
     GlobalValidator
-      .assertThat(backReferencedPropertyName)
-      .thatIsNamed("back referenced property name")
+      .assertThat(backReferencedFieldName)
+      .thatIsNamed("back referenced field name")
       .isNotBlank();
 
     this.backReferencedTableName = backReferencedTableName;
-    this.backReferencedPropertyName = backReferencedPropertyName;
+    this.backReferencedFieldName = backReferencedFieldName;
   }
 
   //method
   @Override
   public final String getBackReferencedFieldName() {
-    return backReferencedPropertyName;
+    return backReferencedFieldName;
   }
 
   //method
@@ -77,7 +77,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
   @Override
   public final boolean referencesBackField(final IField field) {
     return //
-    canReferenceBackPropertyBecauseOfName(field)
+    canReferenceBackFieldBecauseOfName(field)
     && referencesBackEntityWithId(field.getStoredParentEntity().getId());
   }
 
@@ -97,7 +97,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
   }
 
   //method
-  private boolean canReferenceBackPropertyBecauseOfName(final IField field) {
+  private boolean canReferenceBackFieldBecauseOfName(final IField field) {
     return //
     belongsToEntity()
     && FIELD_TOOL.belongsToEntity(field)
