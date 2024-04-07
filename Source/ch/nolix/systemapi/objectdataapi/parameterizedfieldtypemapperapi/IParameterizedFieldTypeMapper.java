@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 public interface IParameterizedFieldTypeMapper<PPTDTO extends IParameterizedFieldTypeDto> {
 
   //method declaration
-  IParameterizedFieldType createParameterizedPropertyTypeFromDto(
-    PPTDTO parameterizedPropertyTypeDto,
+  IParameterizedFieldType createParameterizedFieldTypeFromDto(
+    PPTDTO parameterizedFieldTypeDto,
     IContainer<? extends ITable<IEntity>> referencableTables);
 }

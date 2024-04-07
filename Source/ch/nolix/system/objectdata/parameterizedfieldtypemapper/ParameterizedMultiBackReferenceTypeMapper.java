@@ -16,11 +16,11 @@ implements IParameterizedFieldTypeMapper<IBaseParameterizedBackReferenceTypeDto>
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromDto(
-    final IBaseParameterizedBackReferenceTypeDto parameterizedPropertyTypeDto,
+  public IParameterizedFieldType createParameterizedFieldTypeFromDto(
+    final IBaseParameterizedBackReferenceTypeDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var backReferencedColumnId = parameterizedPropertyTypeDto.getBackReferencedColumnId();
+    final var backReferencedColumnId = parameterizedFieldTypeDto.getBackReferencedColumnId();
     final var referencableColumns = referencableTables.toFromGroups(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 

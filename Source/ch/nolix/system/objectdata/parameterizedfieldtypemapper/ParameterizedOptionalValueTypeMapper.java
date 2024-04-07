@@ -16,11 +16,11 @@ implements IParameterizedFieldTypeMapper<IBaseParameterizedValueTypeDto> {
 
   //method
   @Override
-  public IParameterizedFieldType createParameterizedPropertyTypeFromDto(
-    final IBaseParameterizedValueTypeDto parameterizedPropertyTypeDto,
+  public IParameterizedFieldType createParameterizedFieldTypeFromDto(
+    final IBaseParameterizedValueTypeDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var valueType = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
+    final var valueType = parameterizedFieldTypeDto.getDataType().getDataTypeClass();
 
     return ParameterizedOptionalValueType.forValueType(valueType);
   }

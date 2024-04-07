@@ -62,39 +62,39 @@ public final class ParameterizedFieldTypeMapper {
     return //
     switch (fieldType) {
       case VALUE ->
-        PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case OPTIONAL_VALUE ->
-        PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case MULTI_VALUE ->
-        PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case REFERENCE ->
-        PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case OPTIONAL_REFERENCE ->
-        PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case MULTI_REFERENCE ->
-        PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case BACK_REFERENCE ->
-        PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case OPTIONAL_BACK_REFERENCE ->
-        PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       case MULTI_BACK_REFERENCE ->
-        PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+        PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
           (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
           referencableTables);
       default ->
