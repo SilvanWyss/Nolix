@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 public record ColumnInfo(
 String columnId,
 String columnName,
-FieldType columnPropertyType,
+FieldType columnFieldType,
 DataType columnDataType,
 int columnIndexOnEntityNode)
 implements IColumnInfo {
@@ -24,7 +24,7 @@ implements IColumnInfo {
   public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
     final String columnId,
     final String columnName,
-    final FieldType columnPropertyType,
+    final FieldType columnFieldType,
     final DataType columnDataType,
     final int columnIndexOnEntityNode) {
 
@@ -36,8 +36,8 @@ implements IColumnInfo {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.COLUMN_NAME);
     }
 
-    if (columnPropertyType == null) {
-      throw ArgumentIsNullException.forArgumentName("column property type");
+    if (columnFieldType == null) {
+      throw ArgumentIsNullException.forArgumentName("column field type");
     }
 
     if (columnDataType == null) {
@@ -52,7 +52,7 @@ implements IColumnInfo {
 
     this.columnId = columnId;
     this.columnName = columnName;
-    this.columnPropertyType = columnPropertyType;
+    this.columnFieldType = columnFieldType;
     this.columnDataType = columnDataType;
     this.columnIndexOnEntityNode = columnIndexOnEntityNode;
   }
@@ -66,7 +66,7 @@ implements IColumnInfo {
   //method
   @Override
   public FieldType getColumnFieldType() {
-    return columnPropertyType;
+    return columnFieldType;
   }
 
   //method
