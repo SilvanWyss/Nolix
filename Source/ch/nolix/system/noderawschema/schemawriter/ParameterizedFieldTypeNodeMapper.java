@@ -14,16 +14,16 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 public final class ParameterizedFieldTypeNodeMapper {
 
   //method
-  public Node createParameterizedFieldTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedPropertyType) {
-    return switch (parameterizedPropertyType.getFieldType().getBaseType()) {
+  public Node createParameterizedFieldTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedFieldType) {
+    return switch (parameterizedFieldType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
-        createParameterizedFieldTypeNodeFrom((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
+        createParameterizedFieldTypeNodeFrom((IBaseParameterizedValueTypeDto) parameterizedFieldType);
       case BASE_REFERENCE ->
-        createParameterizedFieldTypeNodeFrom((IBaseParameterizedReferenceTypeDto) parameterizedPropertyType);
+        createParameterizedFieldTypeNodeFrom((IBaseParameterizedReferenceTypeDto) parameterizedFieldType);
       case BASE_BACK_REFERENCE ->
-        createParameterizedFieldTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType);
+        createParameterizedFieldTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType);
       default ->
-        throw InvalidArgumentException.forArgument(parameterizedPropertyType);
+        throw InvalidArgumentException.forArgument(parameterizedFieldType);
     };
   }
 
