@@ -181,13 +181,13 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnParameterizedFieldType(
     final String columnId,
-    final IParameterizedFieldTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedFieldType) {
 
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
-      parameterizedFieldTypeNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedPropertyType));
+      parameterizedFieldTypeNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedFieldType));
 
     hasChanges = true;
   }
