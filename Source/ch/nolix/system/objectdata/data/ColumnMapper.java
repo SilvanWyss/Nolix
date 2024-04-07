@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 final class ColumnMapper {
 
   //constant
-  private static final ParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
+  private static final ParameterizedPropertyTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ParameterizedPropertyTypeMapper();
 
   //method
@@ -24,7 +24,7 @@ final class ColumnMapper {
     return Column.withNameAndIdAndParameterizedPropertyTypeAndParentTable(
       columnDto.getName(),
       columnDto.getId(),
-      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
         columnDto.getParameterizedPropertyType(),
         referencableTables),
       parentTable);

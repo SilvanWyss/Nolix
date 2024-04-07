@@ -28,11 +28,11 @@ public final class Column extends SchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 
   //constant
-  private static final ParameterizedFieldType INITIAL_PROPERTY_TYPE = //
+  private static final ParameterizedFieldType INITIAL_FIELD_TYPE = //
   ParameterizedValueType.forDataType(DataType.INTEGER_4BYTE);
 
   //constant
-  private static final ParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
+  private static final ParameterizedPropertyTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ParameterizedPropertyTypeMapper();
 
   //constant
@@ -51,7 +51,7 @@ public final class Column extends SchemaObject implements IColumn {
   private String name = INITIAL_HEADER;
 
   //attribute
-  private IParameterizedFieldType parameterizedFieldType = INITIAL_PROPERTY_TYPE;
+  private IParameterizedFieldType parameterizedFieldType = INITIAL_FIELD_TYPE;
 
   //optional attribute
   private Table parentTable;
@@ -81,7 +81,7 @@ public final class Column extends SchemaObject implements IColumn {
     return new Column(
       columnDto.getId(),
       columnDto.getName(),
-      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
         columnDto.getParameterizedPropertyType(),
         tables));
   }

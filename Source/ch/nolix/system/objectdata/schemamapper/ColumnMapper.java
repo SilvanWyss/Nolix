@@ -18,7 +18,7 @@ public final class ColumnMapper implements IColumnMapper {
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
   //constant
-  private static final IParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
+  private static final IParameterizedPropertyTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ParameterizedPropertyTypeMapper();
 
   //method
@@ -28,7 +28,7 @@ public final class ColumnMapper implements IColumnMapper {
     final IContainer<ITable> referencableTables) {
     return new Column(
       field.getName(),
-      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
         field,
         referencableTables));
   }

@@ -33,7 +33,7 @@ final class ColumnMutationValidator {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   //constant
-  private static final IParameterizedFieldTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
+  private static final IParameterizedFieldTypeTool PARAMETERIZED_FIELD_TYPE_TOOL = //
   new ParameterizedFieldTypeTool();
 
   //method
@@ -63,7 +63,7 @@ final class ColumnMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     column.assertIsEmpty();
 
-    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)
+    if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
       final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) parameterizedFieldType;
@@ -72,11 +72,11 @@ final class ColumnMutationValidator {
       DATABASE_TOOL.assertContainsGivenTable(COLUMN_TOOL.getParentDatabase(column), referencedTable);
     }
 
-    if (!PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)) {
+    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)) {
       column.assertIsNotBackReferenced();
     }
 
-    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseBackReferenceType(parameterizedFieldType)
+    if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(parameterizedFieldType)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
       final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) parameterizedFieldType;

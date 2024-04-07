@@ -18,7 +18,7 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
 implements IOptionalBackReference<E> {
 
   //constant
-  private static final IFieldValidator PROPERTY_VALIDATOR = new FieldValidator();
+  private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   //optional attribute
   private String backReferencedEntityId;
@@ -46,7 +46,7 @@ implements IOptionalBackReference<E> {
   @Override
   public String getBackReferencedEntityId() {
 
-    PROPERTY_VALIDATOR.assertIsNotEmpty(this);
+    FIELD_VALIDATOR.assertIsNotEmpty(this);
 
     return backReferencedEntityId;
   }

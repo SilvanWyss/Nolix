@@ -20,13 +20,13 @@ import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapt
 public abstract class Field implements IField {
 
   //constant
-  private static final FieldValidator PROPERTY_VALIDATOR = new FieldValidator();
+  private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   //constant
-  private static final VoidFieldFlyWeight VOID_PROPERTY_FLY_WEIGHT = new VoidFieldFlyWeight();
+  private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
   //attribute
-  private IFieldFlyWeight fieldFlyWeight = VOID_PROPERTY_FLY_WEIGHT;
+  private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
 
   //attribute
   private boolean edited;
@@ -62,7 +62,7 @@ public abstract class Field implements IField {
   @Override
   public IColumn getStoredParentColumn() {
 
-    PROPERTY_VALIDATOR.assertKnowsParentColumn(this);
+    FIELD_VALIDATOR.assertKnowsParentColumn(this);
 
     return parentColumn;
   }
@@ -71,7 +71,7 @@ public abstract class Field implements IField {
   @Override
   public final IEntity getStoredParentEntity() {
 
-    PROPERTY_VALIDATOR.assertBelongsToEntity(this);
+    FIELD_VALIDATOR.assertBelongsToEntity(this);
 
     return parentEntity;
   }
@@ -189,7 +189,7 @@ public abstract class Field implements IField {
   final void internalSetParentEntity(final BaseEntity parentEntity) {
 
     GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
-    PROPERTY_VALIDATOR.assertDoesNotBelongToEntity(this);
+    FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
 
     this.parentEntity = parentEntity;
     setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);

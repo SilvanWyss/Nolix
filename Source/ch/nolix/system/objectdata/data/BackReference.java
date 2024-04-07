@@ -18,7 +18,7 @@ public final class BackReference<E extends IEntity> extends BaseBackReference<E>
 implements IBackReference<E> {
 
   //constant
-  private static final IFieldValidator PROPERTY_VALIDATOR = new FieldValidator();
+  private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   //optional attribute
   private String backReferencedEntityId;
@@ -65,7 +65,7 @@ implements IBackReference<E> {
   @Override
   public String getBackReferencedEntityId() {
 
-    PROPERTY_VALIDATOR.assertIsNotEmpty(this);
+    FIELD_VALIDATOR.assertIsNotEmpty(this);
 
     return backReferencedEntityId;
   }
