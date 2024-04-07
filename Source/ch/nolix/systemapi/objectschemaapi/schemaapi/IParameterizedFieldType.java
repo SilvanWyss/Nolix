@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //interface
@@ -22,7 +21,7 @@ public interface IParameterizedFieldType {
   DataType getDataType();
 
   //method declaration
-  PropertyType getPropertyType();
+  FieldType getPropertyType();
 
   //method declaration
   boolean referencesTable(ITable table);

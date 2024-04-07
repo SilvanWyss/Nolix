@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
 import ch.nolix.system.objectdata.propertyvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
@@ -126,8 +126,8 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 
   //method
   @Override
-  public PropertyType getType() {
-    return PropertyType.MULTI_REFERENCE;
+  public FieldType getType() {
+    return FieldType.MULTI_REFERENCE;
   }
 
   //method

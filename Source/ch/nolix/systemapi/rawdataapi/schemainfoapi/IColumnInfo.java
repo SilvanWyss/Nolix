@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.schemainfoapi;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //interface
 public interface IColumnInfo {
@@ -18,7 +17,7 @@ public interface IColumnInfo {
   String getColumnName();
 
   //method declaration
-  PropertyType getColumnPropertyType();
+  FieldType getColumnPropertyType();
 
   //method declaration
   int getColumnIndexOnEntityNode();

@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.propertyvalidator.OptionalReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
@@ -99,8 +99,8 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
   //method
   @Override
-  public PropertyType getType() {
-    return PropertyType.OPTIONAL_REFERENCE;
+  public FieldType getType() {
+    return FieldType.OPTIONAL_REFERENCE;
   }
 
   //method

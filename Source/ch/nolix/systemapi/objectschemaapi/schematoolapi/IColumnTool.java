@@ -3,8 +3,8 @@ package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 //own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -28,13 +28,13 @@ public interface IColumnTool extends IDatabaseObjectTool {
   boolean belongsToDatabase(IColumn column);
 
   //method declaration
-  BasePropertyType getBasePropertyType(IColumn column);
+  BaseFieldType getBasePropertyType(IColumn column);
 
   //method declaration
   IDatabase getParentDatabase(IColumn column);
 
   //method declaration
-  PropertyType getPropertyType(IColumn column);
+  FieldType getPropertyType(IColumn column);
 
   //method declaration
   boolean isABackReferenceColumn(IColumn column);

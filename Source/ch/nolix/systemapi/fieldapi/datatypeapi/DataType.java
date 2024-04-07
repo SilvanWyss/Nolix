@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.entitypropertyapi.datatypeapi;
+package ch.nolix.systemapi.fieldapi.datatypeapi;
 
 //own imports
 import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;

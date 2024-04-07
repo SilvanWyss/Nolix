@@ -4,8 +4,8 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.propertyvalidator.ValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.objectdataapi.propertyvalidatorapi.IValueValidator;
@@ -58,8 +58,8 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
   //method
   @Override
-  public PropertyType getType() {
-    return PropertyType.VALUE;
+  public FieldType getType() {
+    return FieldType.VALUE;
   }
 
   //method

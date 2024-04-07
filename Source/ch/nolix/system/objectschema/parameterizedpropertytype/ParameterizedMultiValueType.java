@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.parameterizedpropertytype;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class
 public final class ParameterizedMultiValueType<V> extends BaseParameterizedValueType<V> {
@@ -20,7 +19,7 @@ public final class ParameterizedMultiValueType<V> extends BaseParameterizedValue
 
   //method
   @Override
-  public PropertyType getPropertyType() {
-    return PropertyType.MULTI_VALUE;
+  public FieldType getPropertyType() {
+    return FieldType.MULTI_VALUE;
   }
 }

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.generalstateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //interface
@@ -29,7 +29,7 @@ public interface IField extends EmptinessRequestable, IDatabaseObject, Mandatory
   IContainer<IField> getStoredReferencingProperties();
 
   //method declaration
-  PropertyType getType();
+  FieldType getType();
 
   //method declaration
   IContentFieldDto internalToContentField();

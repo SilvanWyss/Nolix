@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parameterizedpropertytype;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 
 //class
@@ -20,7 +19,7 @@ public final class ParameterizedBackReferenceType extends BaseParameterizedBackR
 
   //method
   @Override
-  public PropertyType getPropertyType() {
-    return PropertyType.BACK_REFERENCE;
+  public FieldType getPropertyType() {
+    return FieldType.BACK_REFERENCE;
   }
 }

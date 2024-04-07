@@ -9,8 +9,8 @@ import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceType
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ParameterizedPropertyTypeDto;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class
 public class ParameterizedPropertyTypeDtoMapper {
@@ -46,9 +46,9 @@ public class ParameterizedPropertyTypeDtoMapper {
   //method
   private ParameterizedPropertyTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode,
-    final PropertyType propertyType) {
+    final FieldType fieldType) {
     return new BaseParameterizedBackReferenceTypeDto(
-      propertyType,
+      fieldType,
       getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode),
       getBackReferencedColumnIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
   }
@@ -56,9 +56,9 @@ public class ParameterizedPropertyTypeDtoMapper {
   //method
   private ParameterizedPropertyTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode,
-    final PropertyType propertyType) {
+    final FieldType fieldType) {
     return new BaseParameterizedReferenceTypeDto(
-      propertyType,
+      fieldType,
       getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode),
       getReferencedTableIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
   }
@@ -66,9 +66,9 @@ public class ParameterizedPropertyTypeDtoMapper {
   //method
   private BaseParameterizedValueTypeDto createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode,
-    final PropertyType propertyType) {
+    final FieldType fieldType) {
     return new BaseParameterizedValueTypeDto(
-      propertyType,
+      fieldType,
       getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
   }
 
@@ -94,14 +94,14 @@ public class ParameterizedPropertyTypeDtoMapper {
   }
 
   //method
-  private PropertyType getPropertyTypeFromParameterizedPropertyTypeNode(
+  private FieldType getPropertyTypeFromParameterizedPropertyTypeNode(
     final IMutableNode<?> parameterizedPropertyTypeNode) {
 
     final var propertyTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
       .getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
         parameterizedPropertyTypeNode);
 
-    return PropertyType.fromSpecification(propertyTypeNode);
+    return FieldType.fromSpecification(propertyTypeNode);
   }
 
   //method

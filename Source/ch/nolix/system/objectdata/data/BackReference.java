@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.propertyvalidator.PropertyValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -57,8 +57,8 @@ implements IBackReference<E> {
 
   //method
   @Override
-  public PropertyType getType() {
-    return PropertyType.BACK_REFERENCE;
+  public FieldType getType() {
+    return FieldType.BACK_REFERENCE;
   }
 
   //method

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.parameterizedpropertytype;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 
 //class
@@ -21,7 +20,7 @@ public final class ParameterizedBackReferenceType<C extends IColumn> extends Bas
 
   //method
   @Override
-  public PropertyType getPropertyType() {
-    return PropertyType.BACK_REFERENCE;
+  public FieldType getPropertyType() {
+    return FieldType.BACK_REFERENCE;
   }
 }

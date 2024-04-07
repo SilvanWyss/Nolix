@@ -5,15 +5,15 @@ package ch.nolix.system.sqlrawdata.schemainfo;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public record ColumnInfo(
 String columnId,
 String columnName,
-PropertyType columnPropertyType,
+FieldType columnPropertyType,
 DataType columnDataType,
 int columnIndexOnEntityNode)
 implements IColumnInfo {
@@ -24,7 +24,7 @@ implements IColumnInfo {
   public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
     final String columnId,
     final String columnName,
-    final PropertyType columnPropertyType,
+    final FieldType columnPropertyType,
     final DataType columnDataType,
     final int columnIndexOnEntityNode) {
 
@@ -77,7 +77,7 @@ implements IColumnInfo {
 
   //method
   @Override
-  public PropertyType getColumnPropertyType() {
+  public FieldType getColumnPropertyType() {
     return columnPropertyType;
   }
 

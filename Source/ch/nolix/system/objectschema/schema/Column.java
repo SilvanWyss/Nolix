@@ -15,7 +15,7 @@ import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValue
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;

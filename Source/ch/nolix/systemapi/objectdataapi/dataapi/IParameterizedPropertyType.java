@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //interface
 public interface IParameterizedPropertyType {
@@ -17,7 +16,7 @@ public interface IParameterizedPropertyType {
   IBaseParameterizedValueType<?> asBaseParameterizedValueType();
 
   //method declaration
-  PropertyType getPropertyType();
+  FieldType getPropertyType();
 
   //method declaration
   boolean referencesTable(ITable<?> table);

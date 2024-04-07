@@ -3,15 +3,15 @@ package ch.nolix.system.objectschema.schemadto;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 public abstract class ParameterizedPropertyTypeDto implements IParameterizedPropertyTypeDto {
 
   //attribute
-  private final PropertyType propertyType;
+  private final FieldType fieldType;
 
   //attribute
   private final DataType dataType;
@@ -19,17 +19,17 @@ public abstract class ParameterizedPropertyTypeDto implements IParameterizedProp
   //constructor
   //For a better performance, this implementation does not use all comfortable
   //methods.
-  protected ParameterizedPropertyTypeDto(final PropertyType propertyType, final DataType dataType) {
+  protected ParameterizedPropertyTypeDto(final FieldType fieldType, final DataType dataType) {
 
-    if (propertyType == null) {
-      throw ArgumentIsNullException.forArgumentType(PropertyType.class);
+    if (fieldType == null) {
+      throw ArgumentIsNullException.forArgumentType(FieldType.class);
     }
 
     if (dataType == null) {
       throw ArgumentIsNullException.forArgumentType(DataType.class);
     }
 
-    this.propertyType = propertyType;
+    this.fieldType = fieldType;
     this.dataType = dataType;
   }
 
@@ -41,7 +41,7 @@ public abstract class ParameterizedPropertyTypeDto implements IParameterizedProp
 
   //method
   @Override
-  public final PropertyType getPropertyType() {
-    return propertyType;
+  public final FieldType getPropertyType() {
+    return fieldType;
   }
 }

@@ -5,8 +5,8 @@ package ch.nolix.system.objectschema.parameterizedpropertytype;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
@@ -89,6 +89,6 @@ implements IBaseParameterizedBackReferenceType {
   //method
   private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
     return backReferencedColumn.getParameterizedPropertyType().getPropertyType()
-      .getBaseType() == BasePropertyType.BASE_REFERENCE;
+      .getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 }

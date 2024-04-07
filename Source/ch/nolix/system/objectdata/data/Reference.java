@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -86,8 +86,8 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   @Override
-  public PropertyType getType() {
-    return PropertyType.REFERENCE;
+  public FieldType getType() {
+    return FieldType.REFERENCE;
   }
 
   //method

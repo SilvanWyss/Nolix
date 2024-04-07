@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.parameterizedpropertytype;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
@@ -22,7 +21,7 @@ public final class ParameterizedMultiReferenceType<E extends IEntity> extends Ba
 
   //method
   @Override
-  public PropertyType getPropertyType() {
-    return PropertyType.MULTI_REFERENCE;
+  public FieldType getPropertyType() {
+    return FieldType.MULTI_REFERENCE;
   }
 }

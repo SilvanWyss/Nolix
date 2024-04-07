@@ -3,8 +3,8 @@ package ch.nolix.system.objectschema.schemadto;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 
 //class
@@ -16,11 +16,11 @@ implements IBaseParameterizedReferenceTypeDto {
 
   //constructor
   public BaseParameterizedReferenceTypeDto(
-    final PropertyType propertyType,
+    final FieldType fieldType,
     final DataType dataType,
     final String referencedTableId) {
 
-    super(propertyType, dataType);
+    super(fieldType, dataType);
 
     if (referencedTableId == null) {
       throw ArgumentIsNullException.forArgumentName("referenced table id");

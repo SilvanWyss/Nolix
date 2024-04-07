@@ -6,8 +6,8 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
@@ -49,7 +49,7 @@ public final class ColumnDefinitionMapper {
   }
 
   //method
-  private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
+  private FieldType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
       .getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode);
@@ -58,7 +58,7 @@ public final class ColumnDefinitionMapper {
       .getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
         parameterizedPropertyTypeNode);
 
-    return PropertyType.fromSpecification(propertyTypeNode);
+    return FieldType.fromSpecification(propertyTypeNode);
   }
 
   //method

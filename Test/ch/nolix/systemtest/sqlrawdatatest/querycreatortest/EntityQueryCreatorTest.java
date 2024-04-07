@@ -10,8 +10,8 @@ import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class
 final class EntityQueryCreatorTest extends StandardTest {
@@ -42,8 +42,8 @@ final class EntityQueryCreatorTest extends StandardTest {
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
-        new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)));
+        new ColumnInfo("ccccccc1", "name", FieldType.VALUE, DataType.STRING, 0),
+        new ColumnInfo("ccccccc2", "year_of_birth", FieldType.VALUE, DataType.INTEGER_4BYTE, 0)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
@@ -63,8 +63,8 @@ final class EntityQueryCreatorTest extends StandardTest {
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
-        new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)));
+        new ColumnInfo("ccccccc1", "name", FieldType.VALUE, DataType.STRING, 0),
+        new ColumnInfo("ccccccc2", "year_of_birth", FieldType.VALUE, DataType.INTEGER_4BYTE, 0)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);

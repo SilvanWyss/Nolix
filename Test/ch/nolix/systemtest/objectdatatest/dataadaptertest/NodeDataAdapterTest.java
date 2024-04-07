@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 
 //class
 final class NodeDataAdapterTest extends StandardTest {

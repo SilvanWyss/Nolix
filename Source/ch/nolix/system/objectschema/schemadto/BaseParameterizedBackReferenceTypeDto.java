@@ -4,9 +4,9 @@ package ch.nolix.system.objectschema.schemadto;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 
 //class
@@ -20,14 +20,14 @@ implements IBaseParameterizedBackReferenceTypeDto {
   //For a better performance, this implementation does not use all comfortable
   //methods.
   public BaseParameterizedBackReferenceTypeDto(
-    final PropertyType propertyType,
+    final FieldType fieldType,
     final DataType dataType,
     final String backReferencedColumnId) {
 
-    super(propertyType, dataType);
+    super(fieldType, dataType);
 
-    if (propertyType.getBaseType() != BasePropertyType.BASE_BACK_REFERENCE) {
-      throw InvalidArgumentException.forArgument(propertyType);
+    if (fieldType.getBaseType() != BaseFieldType.BASE_BACK_REFERENCE) {
+      throw InvalidArgumentException.forArgument(fieldType);
     }
 
     if (backReferencedColumnId == null) {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.parameterizedpropertytype;
 
-//own imports
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class
 public final class ParameterizedOptionalValueType<V> extends BaseParameterizedValueType<V> {
@@ -19,7 +18,7 @@ public final class ParameterizedOptionalValueType<V> extends BaseParameterizedVa
 
   //method
   @Override
-  public PropertyType getPropertyType() {
-    return PropertyType.OPTIONAL_VALUE;
+  public FieldType getPropertyType() {
+    return FieldType.OPTIONAL_VALUE;
   }
 }

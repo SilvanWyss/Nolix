@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.propertyvalidator.PropertyValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -72,8 +72,8 @@ implements IOptionalBackReference<E> {
 
   //method
   @Override
-  public PropertyType getType() {
-    return PropertyType.OPTIONAL_BACK_REFERENCE;
+  public FieldType getType() {
+    return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 
   //method

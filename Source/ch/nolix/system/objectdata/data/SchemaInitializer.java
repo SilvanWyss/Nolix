@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
@@ -74,7 +74,7 @@ public final class SchemaInitializer {
 
     final var baseValues = entity
       .internalGetStoredProperties()
-      .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_VALUE);
+      .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_VALUE);
 
     for (final var bv : baseValues) {
 
@@ -106,7 +106,7 @@ public final class SchemaInitializer {
 
     final var baseReferences = entity
       .internalGetStoredProperties()
-      .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_REFERENCE);
+      .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_REFERENCE);
 
     for (final var br : baseReferences) {
 
@@ -138,7 +138,7 @@ public final class SchemaInitializer {
 
     final var baseBackReferences = entity
       .internalGetStoredProperties()
-      .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
+      .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
 
     for (final var bbr : baseBackReferences) {
 

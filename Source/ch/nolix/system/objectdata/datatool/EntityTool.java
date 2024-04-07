@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
-import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
+import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -168,8 +168,8 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
     final var baseType = field.getType().getBaseType();
 
-    return baseType == BasePropertyType.BASE_VALUE
-    || baseType == BasePropertyType.BASE_REFERENCE;
+    return baseType == BaseFieldType.BASE_VALUE
+    || baseType == BaseFieldType.BASE_REFERENCE;
   }
 
   //method

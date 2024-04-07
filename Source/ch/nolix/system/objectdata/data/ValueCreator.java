@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programstructure.data.BinaryObject;
-import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
+import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 
 //class
 public final class ValueCreator {
