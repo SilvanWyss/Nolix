@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi.IRawSchemaLinkerAdapter;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -99,10 +99,10 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   @Override
   public void setColumnParameterizedPropertyType(
     final IColumn column,
-    final IParameterizedPropertyType parameterizedPropertyType) {
+    final IParameterizedFieldType parameterizedFieldType) {
     internalRawSchemaAdapter.setColumnParameterizedPropertyType(
       column.getId(),
-      parameterizedPropertyType.toDto());
+      parameterizedFieldType.toDto());
   }
 
   //method

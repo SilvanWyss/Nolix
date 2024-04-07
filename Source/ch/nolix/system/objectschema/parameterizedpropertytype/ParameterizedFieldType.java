@@ -4,16 +4,16 @@ package ch.nolix.system.objectschema.parameterizedpropertytype;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 
 //class
-public abstract class ParameterizedPropertyType implements IParameterizedPropertyType {
+public abstract class ParameterizedFieldType implements IParameterizedFieldType {
 
   //attribute
   private final DataType dataType;
 
   //constructor
-  protected ParameterizedPropertyType(final DataType dataTye) {
+  protected ParameterizedFieldType(final DataType dataTye) {
 
     GlobalValidator.assertThat(dataTye).thatIsNamed(DataType.class).isNotNull();
 

@@ -2,7 +2,7 @@
 package ch.nolix.system.objectschema.schema;
 
 //own imports
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 
 //class
 final class ColumnMutationExecutor {
@@ -41,14 +41,14 @@ final class ColumnMutationExecutor {
   //method
   public void setParameterizedPropertyTypeToColumn(
     final Column column,
-    final IParameterizedPropertyType parameterizedPropertyType) {
+    final IParameterizedFieldType parameterizedFieldType) {
 
-    column.setParameterizedPropertyTypeAttribute(parameterizedPropertyType);
+    column.setParameterizedPropertyTypeAttribute(parameterizedFieldType);
 
     if (column.isLinkedWithRealDatabase()) {
       column
         .internalGetRefRawSchemaAdapter()
-        .setColumnParameterizedPropertyType(column, parameterizedPropertyType);
+        .setColumnParameterizedPropertyType(column, parameterizedFieldType);
     }
 
     column.internalSetEdited();

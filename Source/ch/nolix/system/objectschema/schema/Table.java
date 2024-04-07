@@ -13,7 +13,7 @@ import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
@@ -86,8 +86,8 @@ public final class Table extends SchemaObject implements ITable {
   @Override
   public Table createColumnWithNameAndParameterizedPropertyType(
     final String name,
-    final IParameterizedPropertyType parameterizedPropertyType) {
-    return addColumn(new Column(name, parameterizedPropertyType));
+    final IParameterizedFieldType parameterizedFieldType) {
+    return addColumn(new Column(name, parameterizedFieldType));
   }
 
   //method

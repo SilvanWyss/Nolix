@@ -17,13 +17,13 @@ extends Deletable, EmptinessRequestable, IDatabaseObject, IIdHolder, IFluentMuta
   boolean belongsToTable();
 
   //method declaration
-  IParameterizedPropertyType getParameterizedPropertyType();
+  IParameterizedFieldType getParameterizedPropertyType();
 
   //method declaration
   ITable getParentTable();
 
   //method declaration
-  IColumn setParameterizedPropertyType(IParameterizedPropertyType parameterizedPropertyType);
+  IColumn setParameterizedPropertyType(IParameterizedFieldType parameterizedFieldType);
 
   //method declaration
   IColumnDto toDto();

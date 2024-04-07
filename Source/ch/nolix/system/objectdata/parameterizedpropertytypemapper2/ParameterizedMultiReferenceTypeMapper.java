@@ -7,7 +7,7 @@ import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedMulti
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
@@ -16,7 +16,7 @@ implements IParameterizedPropertyTypeMapper<IMultiReference<IEntity>> {
 
   //method
   @Override
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
     final IMultiReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 

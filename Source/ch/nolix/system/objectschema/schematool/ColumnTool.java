@@ -12,14 +12,14 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedPropertyTypeTool;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 
 //class
 public final class ColumnTool extends DatabaseObjectTool implements IColumnTool {
 
   //constant
-  private static final IParameterizedPropertyTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
-  new ParameterizedPropertyTypeTool();
+  private static final IParameterizedFieldTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
+  new ParameterizedFieldTypeTool();
 
   //method
   @Override

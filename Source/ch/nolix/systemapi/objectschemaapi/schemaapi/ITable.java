@@ -27,7 +27,7 @@ IFluentMutableNameHolder<ITable> {
   //method declaration
   ITable createColumnWithNameAndParameterizedPropertyType(
     String name,
-    IParameterizedPropertyType parameterizedPropertyType);
+    IParameterizedFieldType parameterizedFieldType);
 
   //method declaration
   IFlatTableDto getFlatDto();

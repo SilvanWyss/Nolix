@@ -7,7 +7,7 @@ import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedOptio
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
@@ -16,7 +16,7 @@ implements IParameterizedPropertyTypeMapper<IOptionalReference<IEntity>> {
 
   //method
   @Override
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
     final IOptionalReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 

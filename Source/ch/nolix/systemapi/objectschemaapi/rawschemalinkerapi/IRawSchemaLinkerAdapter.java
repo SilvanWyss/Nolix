@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
@@ -47,7 +47,7 @@ public interface IRawSchemaLinkerAdapter {
   void setColumnName(IColumn column, String columnName, String newColumnName);
 
   //method declaration
-  void setColumnParameterizedPropertyType(IColumn column, IParameterizedPropertyType parameterizedPropertyType);
+  void setColumnParameterizedPropertyType(IColumn column, IParameterizedFieldType parameterizedFieldType);
 
   //method declaration
   void setTableName(String tableName, String newTableName);

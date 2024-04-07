@@ -9,12 +9,12 @@ import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedB
 import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedReferenceType;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.system.objectschema.schematool.ParameterizedPropertyTypeTool;
+import ch.nolix.system.objectschema.schematool.ParameterizedFieldTypeTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedPropertyTypeTool;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 //class
@@ -33,8 +33,8 @@ final class ColumnMutationValidator {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   //constant
-  private static final IParameterizedPropertyTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
-  new ParameterizedPropertyTypeTool();
+  private static final IParameterizedFieldTypeTool PARAMETERIZED_PROPERTY_TYPE_TOOL = //
+  new ParameterizedFieldTypeTool();
 
   //method
   public void assertCanDeleteColumn(final Column column) {
@@ -58,28 +58,28 @@ final class ColumnMutationValidator {
   //method
   public void assertCanSetParameterizedPropertyTypeToColumn(
     final Column column,
-    final IParameterizedPropertyType parameterizedPropertyType) {
+    final IParameterizedFieldType parameterizedFieldType) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     column.assertIsEmpty();
 
-    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedPropertyType)
+    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
-      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) parameterizedPropertyType;
+      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) parameterizedFieldType;
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
       DATABASE_TOOL.assertContainsGivenTable(COLUMN_TOOL.getParentDatabase(column), referencedTable);
     }
 
-    if (!PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedPropertyType)) {
+    if (!PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)) {
       column.assertIsNotBackReferenced();
     }
 
-    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseBackReferenceType(parameterizedPropertyType)
+    if (PARAMETERIZED_PROPERTY_TYPE_TOOL.isABaseBackReferenceType(parameterizedFieldType)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
-      final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) parameterizedPropertyType;
+      final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) parameterizedFieldType;
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
       DATABASE_TOOL.assertContainsTableWithGivenColumn(

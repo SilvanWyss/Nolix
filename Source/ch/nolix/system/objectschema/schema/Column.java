@@ -10,14 +10,14 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedPropertyType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedFieldType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
@@ -28,7 +28,7 @@ public final class Column extends SchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 
   //constant
-  private static final ParameterizedPropertyType INITIAL_PROPERTY_TYPE = //
+  private static final ParameterizedFieldType INITIAL_PROPERTY_TYPE = //
   ParameterizedValueType.forDataType(DataType.INTEGER_4BYTE);
 
   //constant
@@ -51,7 +51,7 @@ public final class Column extends SchemaObject implements IColumn {
   private String name = INITIAL_HEADER;
 
   //attribute
-  private IParameterizedPropertyType parameterizedPropertyType = INITIAL_PROPERTY_TYPE;
+  private IParameterizedFieldType parameterizedFieldType = INITIAL_PROPERTY_TYPE;
 
   //optional attribute
   private Table parentTable;
@@ -59,21 +59,21 @@ public final class Column extends SchemaObject implements IColumn {
   //constructor
   public Column(
     final String name,
-    final IParameterizedPropertyType parameterizedPropertyType) {
-    this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parameterizedPropertyType);
+    final IParameterizedFieldType parameterizedFieldType) {
+    this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parameterizedFieldType);
   }
 
   //constructor
   private Column(
     final String id,
     final String name,
-    final IParameterizedPropertyType parameterizedPropertyType) {
+    final IParameterizedFieldType parameterizedFieldType) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
     this.id = id;
     setName(name);
-    setParameterizedPropertyType(parameterizedPropertyType);
+    setParameterizedPropertyType(parameterizedFieldType);
   }
 
   //static method
@@ -113,8 +113,8 @@ public final class Column extends SchemaObject implements IColumn {
 
   //method
   @Override
-  public IParameterizedPropertyType getParameterizedPropertyType() {
-    return parameterizedPropertyType;
+  public IParameterizedFieldType getParameterizedPropertyType() {
+    return parameterizedFieldType;
   }
 
   //method
@@ -153,10 +153,10 @@ public final class Column extends SchemaObject implements IColumn {
   //method
   @Override
   public Column setParameterizedPropertyType(
-    final IParameterizedPropertyType parameterizedPropertyType) {
+    final IParameterizedFieldType parameterizedFieldType) {
 
-    MUTATION_VALIDATOR.assertCanSetParameterizedPropertyTypeToColumn(this, parameterizedPropertyType);
-    MUTATION_EXECUTOR.setParameterizedPropertyTypeToColumn(this, parameterizedPropertyType);
+    MUTATION_VALIDATOR.assertCanSetParameterizedPropertyTypeToColumn(this, parameterizedFieldType);
+    MUTATION_EXECUTOR.setParameterizedPropertyTypeToColumn(this, parameterizedFieldType);
 
     return this;
   }
@@ -213,13 +213,13 @@ public final class Column extends SchemaObject implements IColumn {
 
   //method
   void setParameterizedPropertyTypeAttribute(
-    final IParameterizedPropertyType parameterizedPropertyType) {
-    this.parameterizedPropertyType = parameterizedPropertyType;
+    final IParameterizedFieldType parameterizedFieldType) {
+    this.parameterizedFieldType = parameterizedFieldType;
   }
 
   //method
   void setParameterizedPropertyTypeToDatabase() {
-    internalGetRefRawSchemaAdapter().setColumnParameterizedPropertyType(this, parameterizedPropertyType);
+    internalGetRefRawSchemaAdapter().setColumnParameterizedPropertyType(this, parameterizedFieldType);
   }
 
   //method

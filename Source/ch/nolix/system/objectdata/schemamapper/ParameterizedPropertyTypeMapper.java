@@ -25,7 +25,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedPropertyTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
@@ -72,7 +72,7 @@ implements IParameterizedPropertyTypeMapper {
   //method
   @Override
   @SuppressWarnings("unchecked")
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
     final IField field,
     IContainer<ITable> referencedTables) {
 

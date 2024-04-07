@@ -9,7 +9,7 @@ import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
@@ -20,7 +20,7 @@ public final class ParameterizedValueTypeMapper implements IParameterizedPropert
 
   //method
   @Override
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromProperty(
+  public IParameterizedFieldType createParameterizedPropertyTypeFromProperty(
     final IValue<?> property,
     final IContainer<ITable> referencedTables) {
 
