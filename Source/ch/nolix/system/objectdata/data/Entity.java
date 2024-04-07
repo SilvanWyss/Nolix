@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public abstract class Entity extends BaseEntity {
 
   //constant
-  private static final FieldFromEntityMapper PROPERTY_FROM_ENTITY_EXTRACTOR = new FieldFromEntityMapper();
+  private static final FieldFromEntityMapper FIELD_FROM_ENTITY_MAPPER = new FieldFromEntityMapper();
 
   //method
   @Override
@@ -19,6 +19,6 @@ public abstract class Entity extends BaseEntity {
   //method
   @Override
   final IContainer<Field> internalLoadFields() {
-    return PROPERTY_FROM_ENTITY_EXTRACTOR.getStoredPropertiesFrom(this);
+    return FIELD_FROM_ENTITY_MAPPER.getStoredPropertiesFrom(this);
   }
 }
