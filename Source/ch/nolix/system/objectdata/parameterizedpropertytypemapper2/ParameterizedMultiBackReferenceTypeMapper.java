@@ -6,13 +6,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiBackReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public final class ParameterizedMultiBackReferenceTypeMapper
-implements IParameterizedPropertyTypeMapper<IMultiBackReference<IEntity>> {
+implements IParameterizedFieldTypeMapper<IMultiBackReference<IEntity>> {
 
   //method
   @Override

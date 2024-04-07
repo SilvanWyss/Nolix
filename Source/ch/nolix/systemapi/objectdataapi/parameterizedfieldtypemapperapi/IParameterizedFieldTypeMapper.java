@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapperapi;
+package ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //interface
-public interface IParameterizedPropertyTypeMapper<PPTDTO extends IParameterizedPropertyTypeDto> {
+public interface IParameterizedFieldTypeMapper<PPTDTO extends IParameterizedPropertyTypeDto> {
 
   //method declaration
   IParameterizedPropertyType createParameterizedPropertyTypeFromDto(

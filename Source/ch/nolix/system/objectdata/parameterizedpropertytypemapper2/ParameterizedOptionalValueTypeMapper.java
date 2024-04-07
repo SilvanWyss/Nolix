@@ -8,13 +8,13 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedOptional
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public final class ParameterizedOptionalValueTypeMapper
-implements IParameterizedPropertyTypeMapper<IOptionalValue<?>> {
+implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
 
   //constant
   private static final IFieldTool PROPERTY_TOOL = new FieldTool();

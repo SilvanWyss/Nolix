@@ -8,12 +8,12 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedValueTyp
 import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParameterizedValueTypeMapper implements IParameterizedPropertyTypeMapper<IValue<?>> {
+public final class ParameterizedValueTypeMapper implements IParameterizedFieldTypeMapper<IValue<?>> {
 
   //constant
   private static final IFieldTool PROPERTY_TOOL = new FieldTool();

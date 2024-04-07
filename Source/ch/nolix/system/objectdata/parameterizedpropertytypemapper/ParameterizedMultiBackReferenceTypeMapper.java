@@ -7,12 +7,12 @@ import ch.nolix.system.objectdata.parameterizedpropertytype.ParameterizedMultiBa
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapperapi.IParameterizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 
 //class
 public final class ParameterizedMultiBackReferenceTypeMapper
-implements IParameterizedPropertyTypeMapper<IBaseParameterizedBackReferenceTypeDto> {
+implements IParameterizedFieldTypeMapper<IBaseParameterizedBackReferenceTypeDto> {
 
   //method
   @Override

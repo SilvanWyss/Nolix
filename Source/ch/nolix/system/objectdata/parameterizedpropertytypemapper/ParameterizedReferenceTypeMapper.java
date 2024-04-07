@@ -7,12 +7,12 @@ import ch.nolix.system.objectdata.parameterizedpropertytype.ParameterizedReferen
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.objectdataapi.parameterizedpropertytypemapperapi.IParameterizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 
 //class
 public final class ParameterizedReferenceTypeMapper
-implements IParameterizedPropertyTypeMapper<IBaseParameterizedReferenceTypeDto> {
+implements IParameterizedFieldTypeMapper<IBaseParameterizedReferenceTypeDto> {
 
   //method
   @Override
