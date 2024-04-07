@@ -75,7 +75,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
 
   //method
   @Override
-  public final boolean referencesBackProperty(final IField field) {
+  public final boolean referencesBackField(final IField field) {
     return //
     canReferenceBackPropertyBecauseOfName(field)
     && referencesBackEntityWithId(field.getStoredParentEntity().getId());

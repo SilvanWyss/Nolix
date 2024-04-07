@@ -26,7 +26,7 @@ public interface IField extends EmptinessRequestable, IDatabaseObject, Mandatory
   IEntity getStoredParentEntity();
 
   //method declaration
-  IContainer<IField> getStoredReferencingProperties();
+  IContainer<IField> getStoredReferencingFields();
 
   //method declaration
   FieldType getType();
@@ -41,7 +41,7 @@ public interface IField extends EmptinessRequestable, IDatabaseObject, Mandatory
   boolean referencesBackEntity(IEntity entity);
 
   //method declaration
-  boolean referencesBackProperty(IField field);
+  boolean referencesBackField(IField field);
 
   //method declaration
   boolean referencesEntity(IEntity entity);

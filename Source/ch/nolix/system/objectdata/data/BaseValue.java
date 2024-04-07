@@ -32,7 +32,7 @@ public abstract class BaseValue<V> extends Field implements IBaseValue<V> {
 
   //method
   @Override
-  public final IContainer<IField> getStoredReferencingProperties() {
+  public final IContainer<IField> getStoredReferencingFields() {
     return new ImmutableList<>();
   }
 
@@ -56,7 +56,7 @@ public abstract class BaseValue<V> extends Field implements IBaseValue<V> {
 
   //method
   @Override
-  public boolean referencesBackProperty(final IField field) {
+  public boolean referencesBackField(final IField field) {
     return false;
   }
 

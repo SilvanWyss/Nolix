@@ -45,7 +45,7 @@ implements IBaseReference<E> {
 
   //method
   @Override
-  public final IContainer<IField> getStoredReferencingProperties() {
+  public final IContainer<IField> getStoredReferencingFields() {
     return new ImmutableList<>();
   }
 
@@ -57,7 +57,7 @@ implements IBaseReference<E> {
 
   //method
   @Override
-  public boolean referencesBackProperty(final IField field) {
+  public boolean referencesBackField(final IField field) {
     return false;
   }
 
@@ -69,7 +69,7 @@ implements IBaseReference<E> {
 
           final var backReference = (BackReference<?>) p;
 
-          if (backReference.referencesBackProperty(this)) {
+          if (backReference.referencesBackField(this)) {
             backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
           }
 
@@ -79,7 +79,7 @@ implements IBaseReference<E> {
 
           final var optionalBackReference = (OptionalBackReference<?>) p;
 
-          if (optionalBackReference.referencesBackProperty(this)) {
+          if (optionalBackReference.referencesBackField(this)) {
             optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
           }
 

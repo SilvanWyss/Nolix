@@ -116,7 +116,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public IContainer<? extends IField> getStoredReferencingProperties(final IEntity entity) {
-    return entity.internalGetStoredFields().toFromGroups(IField::getStoredReferencingProperties);
+    return entity.internalGetStoredFields().toFromGroups(IField::getStoredReferencingFields);
   }
 
   //method

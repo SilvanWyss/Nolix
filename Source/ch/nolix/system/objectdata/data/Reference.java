@@ -69,7 +69,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
 
     final var backReferencingProperty = getStoredReferencedEntity().internalGetStoredFields()
-      .getOptionalStoredFirst(p -> p.referencesBackProperty(this));
+      .getOptionalStoredFirst(p -> p.referencesBackField(this));
 
     if (backReferencingProperty.isPresent()) {
       return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingProperty.get());

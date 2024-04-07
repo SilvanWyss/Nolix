@@ -59,7 +59,7 @@ implements IOptionalBackReference<E> {
 
   //method
   @Override
-  public IContainer<IField> getStoredReferencingProperties() {
+  public IContainer<IField> getStoredReferencingFields() {
 
     if (isEmpty()) {
       return new ImmutableList<>();

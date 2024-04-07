@@ -66,7 +66,7 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
     return optionalReference
       .getReferencedEntity()
       .internalGetStoredFields()
-      .getOptionalStoredFirst(p -> p.referencesBackProperty(optionalReference));
+      .getOptionalStoredFirst(p -> p.referencesBackField(optionalReference));
   }
 
   //method
