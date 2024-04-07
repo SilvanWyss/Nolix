@@ -21,7 +21,7 @@ extends BaseParameterizedBackReferenceType<C> {
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_BACK_REFERENCE;
   }
 }

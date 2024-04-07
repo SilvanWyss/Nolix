@@ -21,7 +21,7 @@ public final class ParameterizedOptionalReferenceType<E extends IEntity> extends
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_REFERENCE;
   }
 }

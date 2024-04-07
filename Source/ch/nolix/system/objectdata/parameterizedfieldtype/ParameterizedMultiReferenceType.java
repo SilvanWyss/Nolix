@@ -21,7 +21,7 @@ public final class ParameterizedMultiReferenceType<E extends IEntity> extends Ba
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_REFERENCE;
   }
 }

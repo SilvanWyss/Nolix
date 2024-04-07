@@ -18,7 +18,7 @@ public final class PropertyFromColumnMapper {
 
   //method
   private Field createEmptyPropertyFromColumn(final IColumn column) {
-    return switch (column.getParameterizedPropertyType().getPropertyType()) {
+    return switch (column.getParameterizedPropertyType().getFieldType()) {
       case VALUE ->
         Value.withValueType(column.getParameterizedPropertyType().asBaseParameterizedValueType().getValueType());
       case OPTIONAL_VALUE ->

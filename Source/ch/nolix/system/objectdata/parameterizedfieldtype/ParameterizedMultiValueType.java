@@ -18,7 +18,7 @@ public final class ParameterizedMultiValueType<V> extends BaseParameterizedValue
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_VALUE;
   }
 }

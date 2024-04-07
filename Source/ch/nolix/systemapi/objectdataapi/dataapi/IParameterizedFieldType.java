@@ -16,8 +16,8 @@ public interface IParameterizedFieldType {
   IBaseParameterizedValueType<?> asBaseParameterizedValueType();
 
   //method declaration
-  FieldType getPropertyType();
+  boolean referencesTable(ITable<?> table);
 
   //method declaration
-  boolean referencesTable(ITable<?> table);
+  FieldType getFieldType();
 }

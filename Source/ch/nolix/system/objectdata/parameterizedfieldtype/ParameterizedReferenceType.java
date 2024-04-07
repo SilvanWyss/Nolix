@@ -21,7 +21,7 @@ public final class ParameterizedReferenceType<E extends IEntity> extends BasePar
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.REFERENCE;
   }
 }

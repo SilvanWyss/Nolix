@@ -20,7 +20,7 @@ public final class ParameterizedBackReferenceType<C extends IColumn> extends Bas
 
   //method
   @Override
-  public FieldType getPropertyType() {
+  public FieldType getFieldType() {
     return FieldType.BACK_REFERENCE;
   }
 }
