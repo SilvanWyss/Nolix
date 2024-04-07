@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 public interface IDatabaseTool extends IDatabaseObjectTool {
 
   //method declaration
-  boolean allNewAndEditedMandatoryPropertiesAreSet(IDatabase database);
+  boolean allNewAndEditedMandatoryFieldsAreSet(IDatabase database);
 
   //method declaration
   boolean canSaveChanges(IDatabase database);

@@ -18,7 +18,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
 
   //method
   @Override
-  public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
+  public boolean allNewAndEditedMandatoryFieldsAreSet(final IDatabase database) {
     return database.getStoredTables().containsOnly(TABLE_TOOL::allNewAndEditedMandatoryPropertiesAreSet);
   }
 
@@ -27,7 +27,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   public boolean canSaveChanges(final IDatabase database) {
     return database.isOpen()
     && database.isLinkedWithRealDatabase()
-    && allNewAndEditedMandatoryPropertiesAreSet(database);
+    && allNewAndEditedMandatoryFieldsAreSet(database);
   }
 
   //method
