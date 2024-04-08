@@ -33,7 +33,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //attribute
     final OptionalBackReference<Person> owner = OptionalBackReference
-      .forEntityAndBackReferencedPropertyName(Person.class, "pet");
+      .forEntityAndBackReferencedFieldName(Person.class, "pet");
 
     //constructor
     Pet() {

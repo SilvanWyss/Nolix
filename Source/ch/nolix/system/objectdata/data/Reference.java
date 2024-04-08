@@ -68,11 +68,11 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       return new ImmutableList<>();
     }
 
-    final var backReferencingProperty = getStoredReferencedEntity().internalGetStoredFields()
+    final var backReferencingField = getStoredReferencedEntity().internalGetStoredFields()
       .getOptionalStoredFirst(p -> p.referencesBackField(this));
 
-    if (backReferencingProperty.isPresent()) {
-      return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingProperty.get());
+    if (backReferencingField.isPresent()) {
+      return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingField.get());
     }
 
     return new ImmutableList<>();
@@ -168,7 +168,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   //method
   private void clearWhenContainsAny() {
 
-    updateProbableBackReferencingPropertyForClear();
+    updateProbableBackReferencingFieldForClear();
 
     updateStateForClear();
 
@@ -176,7 +176,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private Optional<? extends IField> getOptionalPendantReferencingPropertyToEntity(final E entity) {
+  private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
     return ENTITY_TOOL
       .getStoredReferencingFields(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
@@ -197,7 +197,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
     assertCanSetEntity(entity);
 
-    updatePropableBackReferencingPropertyOfEntityForClear(entity);
+    updatePropableBackReferencingFieldOfEntityForClear(entity);
 
     clear();
 
@@ -211,15 +211,15 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateBackReferencingPropertyForClear(final IField backReferencingProperty) {
-    switch (backReferencingProperty.getType()) {
+  private void updateBackReferencingFieldForClear(final IField backReferencingField) {
+    switch (backReferencingField.getType()) {
       case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) backReferencingProperty;
+        final var backReference = (BackReference<?>) backReferencingField;
         backReference.internalClear();
         backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) backReferencingProperty;
+        final var optionalBackReference = (OptionalBackReference<?>) backReferencingField;
         optionalBackReference.internalClear();
         optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
@@ -240,19 +240,19 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   //method
-  private void updateProbableBackReferencingPropertyForClear() {
+  private void updateProbableBackReferencingFieldForClear() {
     for (final var brp : getStoredBaseBackReferences()) {
-      updateBackReferencingPropertyForClear(brp);
+      updateBackReferencingFieldForClear(brp);
     }
   }
 
   //method
-  private void updatePropableBackReferencingPropertyOfEntityForClear(final E entity) {
+  private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
 
-    final var pendantReferencingProperty = getOptionalPendantReferencingPropertyToEntity(entity);
+    final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
-    if (pendantReferencingProperty.isPresent()) {
-      final var reference = (Reference<?>) pendantReferencingProperty.get();
+    if (pendantReferencingField.isPresent()) {
+      final var reference = (Reference<?>) pendantReferencingField.get();
       reference.clear();
     }
   }

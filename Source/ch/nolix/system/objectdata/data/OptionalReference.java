@@ -87,11 +87,11 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
       return new ImmutableList<>();
     }
 
-    final var backReferencingProperty = getReferencedEntity().internalGetStoredFields()
+    final var backReferencingField = getReferencedEntity().internalGetStoredFields()
       .getOptionalStoredFirst(p -> p.referencesBackField(this));
 
-    if (backReferencingProperty.isPresent()) {
-      return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingProperty.get());
+    if (backReferencingField.isPresent()) {
+      return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingField.get());
     }
 
     return new ImmutableList<>();
@@ -190,7 +190,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
     assertCanClear();
 
-    updateProbableBackReferencingPropertyForClear();
+    updateProbableBackReferencingFieldForClear();
 
     updateStateForClear();
 
@@ -198,7 +198,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   }
 
   //method
-  private Optional<? extends IField> getOptionalPendantReferencingPropertyToEntity(final E entity) {
+  private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
     return ENTITY_TOOL
       .getStoredReferencingFields(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
@@ -219,7 +219,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 
     assertCanSetEntity(entity);
 
-    updatePropbableBackReferencingPropertyOfEntityForClear(entity);
+    updatePropbableBackReferencingFieldOfEntityForClear(entity);
 
     clear();
 
@@ -233,14 +233,14 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   }
 
   //method
-  private void updateBackReferencingPropertyForClear(final IField backReferencingProperty) {
-    switch (backReferencingProperty.getType()) {
+  private void updateBackReferencingFieldForClear(final IField backReferencingField) {
+    switch (backReferencingField.getType()) {
       case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) backReferencingProperty;
+        final var backReference = (BackReference<?>) backReferencingField;
         backReference.internalClear();
         break;
       case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) backReferencingProperty;
+        final var optionalBackReference = (OptionalBackReference<?>) backReferencingField;
         optionalBackReference.internalClear();
         break;
       case MULTI_BACK_REFERENCE:
@@ -260,27 +260,27 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   }
 
   //method
-  private void updateProbableBackReferencingPropertyForClear() {
+  private void updateProbableBackReferencingFieldForClear() {
     if (containsAny()) {
-      updateProbableBackReferencingPropertyForClearWhenIsNotEmpty();
+      updateProbableBackReferencingFieldForClearWhenIsNotEmpty();
     }
   }
 
   //method
-  private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
+  private void updateProbableBackReferencingFieldForClearWhenIsNotEmpty() {
 
-    final var backReferencingProperty = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingField(this);
+    final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingField(this);
 
-    backReferencingProperty.ifPresent(this::updateBackReferencingPropertyForClear);
+    backReferencingField.ifPresent(this::updateBackReferencingFieldForClear);
   }
 
   //method
-  private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
+  private void updatePropbableBackReferencingFieldOfEntityForClear(final E entity) {
 
-    final var pendantReferencingProperty = getOptionalPendantReferencingPropertyToEntity(entity);
+    final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
-    if (pendantReferencingProperty.isPresent()) {
-      final var reference = (OptionalReference<?>) pendantReferencingProperty.get();
+    if (pendantReferencingField.isPresent()) {
+      final var reference = (OptionalReference<?>) pendantReferencingField.get();
       reference.clear();
     }
   }

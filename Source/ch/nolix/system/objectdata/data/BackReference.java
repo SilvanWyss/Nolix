@@ -24,8 +24,8 @@ implements IBackReference<E> {
   private String backReferencedEntityId;
 
   //constructor
-  private BackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
-    super(backReferencedTableName, backReferencedPropertyName);
+  private BackReference(final String backReferencedTableName, final String backReferencedFieldName) {
+    super(backReferencedTableName, backReferencedFieldName);
   }
 
   //static method

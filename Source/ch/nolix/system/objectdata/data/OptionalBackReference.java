@@ -24,22 +24,22 @@ implements IOptionalBackReference<E> {
   private String backReferencedEntityId;
 
   //constructor
-  private OptionalBackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
-    super(backReferencedTableName, backReferencedPropertyName);
+  private OptionalBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
+    super(backReferencedTableName, backReferencedFieldName);
   }
 
   //static method
-  public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedPropertyName(
+  public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedFieldName(
     final Class<E2> type,
-    final String backReferencedPropertyName) {
-    return new OptionalBackReference<>(type.getSimpleName(), backReferencedPropertyName);
+    final String backReferencedFieldName) {
+    return new OptionalBackReference<>(type.getSimpleName(), backReferencedFieldName);
   }
 
   //static method
   public static OptionalBackReference<BaseEntity> forEntityWithTableNameAndBackReferencedFieldName(
     final String tableName,
-    final String backReferencedPropertyName) {
-    return new OptionalBackReference<>(tableName, backReferencedPropertyName);
+    final String backReferencedFieldName) {
+    return new OptionalBackReference<>(tableName, backReferencedFieldName);
   }
 
   //method

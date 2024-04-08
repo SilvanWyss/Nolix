@@ -87,10 +87,10 @@ public final class FieldFromColumnMapper {
 
     final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
 
-    final var backReferencedPropertyName = backReferencedColumn.getName();
+    final var backReferencedFieldName = backReferencedColumn.getName();
 
     return BackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName,
-      backReferencedPropertyName);
+      backReferencedFieldName);
   }
 
   //method
@@ -121,9 +121,9 @@ public final class FieldFromColumnMapper {
 
     final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
 
-    final var backReferencedPropertyName = backReferencedColumn.getName();
+    final var backReferencedFieldName = backReferencedColumn.getName();
 
     return MultiBackReference.forBackReferencedTableAndBaseReference(backReferencedTableName,
-      backReferencedPropertyName);
+      backReferencedFieldName);
   }
 }
