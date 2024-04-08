@@ -10,10 +10,10 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 public final class FieldFromTableMapper {
 
   //constant
-  private static final FieldFromColumnMapper PROPERTY_FROM_COLUMN_MAPPER = new FieldFromColumnMapper();
+  private static final FieldFromColumnMapper FIELD_FROM_COLUMN_MAPPER = new FieldFromColumnMapper();
 
   //method
   public IContainer<Field> createPropertiesFromTable(final ITable<? extends IEntity> table) {
-    return table.getStoredColumns().to(PROPERTY_FROM_COLUMN_MAPPER::createFieldFromColumn);
+    return table.getStoredColumns().to(FIELD_FROM_COLUMN_MAPPER::createFieldFromColumn);
   }
 }
