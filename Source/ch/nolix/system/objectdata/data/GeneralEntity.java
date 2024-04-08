@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public final class GeneralEntity extends BaseEntity {
 
   //constant
-  private static final FieldFromTableMapper PROPERTY_FROM_TABLE_EXTRACTOR = new FieldFromTableMapper();
+  private static final FieldFromTableMapper FIELD_FROM_TABLE_EXTRACTOR = new FieldFromTableMapper();
 
   //attribute
   private final String tableName;
@@ -32,6 +32,6 @@ public final class GeneralEntity extends BaseEntity {
   //method
   @Override
   IContainer<Field> internalLoadFields() {
-    return PROPERTY_FROM_TABLE_EXTRACTOR.createPropertiesFromTable(getStoredParentTable());
+    return FIELD_FROM_TABLE_EXTRACTOR.createFieldsFromTable(getStoredParentTable());
   }
 }

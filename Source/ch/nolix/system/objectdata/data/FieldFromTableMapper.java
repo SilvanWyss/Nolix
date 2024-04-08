@@ -13,7 +13,7 @@ public final class FieldFromTableMapper {
   private static final FieldFromColumnMapper FIELD_FROM_COLUMN_MAPPER = new FieldFromColumnMapper();
 
   //method
-  public IContainer<Field> createPropertiesFromTable(final ITable<? extends IEntity> table) {
+  public IContainer<Field> createFieldsFromTable(final ITable<? extends IEntity> table) {
     return table.getStoredColumns().to(FIELD_FROM_COLUMN_MAPPER::createFieldFromColumn);
   }
 }
