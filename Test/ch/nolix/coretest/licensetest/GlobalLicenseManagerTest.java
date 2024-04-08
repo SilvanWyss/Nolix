@@ -20,7 +20,7 @@ final class GlobalLicenseManagerTest extends StandardTest {
 
   //constant
   private static final class TestLicense extends License {
-  
+
     @Override
     protected boolean acceptsFilteredKey(String key) {
       return Objects.equals(key, "00000000");
@@ -30,7 +30,7 @@ final class GlobalLicenseManagerTest extends StandardTest {
   //constant
   //This class must be public that it can be processed by reflection.
   public static final class TestFeature extends Feature {
-  
+
     @Override
     public IContainer<Class<?>> getAuthorizedLicenseTypes() {
       return LinkedList.withElement(TestLicense.class);

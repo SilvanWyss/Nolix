@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.databaseapplication.fieldbinder} package
- * defines binders that can bind
+ * The {@link ch.nolix.system.databaseapplication.fieldbinder} package defines
+ * binders that can bind
  * {@link ch.nolix.systemapi.objectdataapi.dataapi.IField}s to
  * {@link ch.nolix.systemapi.webguiapi.mainapi.IControl}s.
  * 

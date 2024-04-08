@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.objectdata.fieldflyweight} packages implements
- * the types that are declared in the
+ * The {@link ch.nolix.system.objectdata.fieldflyweight} packages implements the
+ * types that are declared in the
  * {@link ch.nolix.systemapi.objectdataapi.dataflyweightapi} package.
  * 
  * @author Silvan Wyss

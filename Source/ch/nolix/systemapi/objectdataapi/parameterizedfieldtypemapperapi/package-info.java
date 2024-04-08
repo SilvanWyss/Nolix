@@ -1,6 +1,5 @@
 /**
- * The
- * {@link ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi}
+ * The {@link ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi}
  * package declares mappers for
  * {@link ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType}.
  * 
