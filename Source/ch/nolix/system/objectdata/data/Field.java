@@ -145,7 +145,7 @@ public abstract class Field implements IField {
   @Override
   public final void setUpdateAction(final Runnable updateAction) {
 
-    setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid();
+    setEffectiveFieldFlyWeightIfFieldFlyWeightIsVoid();
 
     fieldFlyWeight.setUpdateAction(updateAction);
   }
@@ -209,7 +209,7 @@ public abstract class Field implements IField {
       case LOADED ->
         DatabaseObjectState.LOADED;
       case EDITED ->
-        getStateWhenParentPropertyIsEdited();
+        getStateWhenParentFieldIsEdited();
       case DELETED ->
         DatabaseObjectState.DELETED;
       case CLOSED ->
@@ -222,7 +222,7 @@ public abstract class Field implements IField {
   }
 
   //method
-  private DatabaseObjectState getStateWhenParentPropertyIsEdited() {
+  private DatabaseObjectState getStateWhenParentFieldIsEdited() {
 
     if (!edited) {
       return DatabaseObjectState.LOADED;
@@ -232,14 +232,14 @@ public abstract class Field implements IField {
   }
 
   //method
-  private void setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid() {
+  private void setEffectiveFieldFlyWeightIfFieldFlyWeightIsVoid() {
     if (fieldFlyWeight.isVoid()) {
-      setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid();
+      setEffectiveFieldFlyWeightWhenFieldFlyWeightIsVoid();
     }
   }
 
   //method
-  private void setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid() {
+  private void setEffectiveFieldFlyWeightWhenFieldFlyWeightIsVoid() {
     fieldFlyWeight = new FieldFlyWeight();
   }
 
