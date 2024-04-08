@@ -103,19 +103,19 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
 
-    final var backReferencingProperties = new LinkedList<IBaseBackReference<IEntity>>();
+    final var backReferencingFields = new LinkedList<IBaseBackReference<IEntity>>();
 
     for (final var re : getAllStoredReferencedEntities()) {
 
-      final var backReferencingProperty = re.internalGetStoredFields()
+      final var backReferencingField = re.internalGetStoredFields()
         .getOptionalStoredFirst(p -> p.referencesBackField(this));
 
-      if (backReferencingProperty.isPresent()) {
-        backReferencingProperties.addAtEnd((IBaseBackReference<IEntity>) backReferencingProperty.get());
+      if (backReferencingField.isPresent()) {
+        backReferencingFields.addAtEnd((IBaseBackReference<IEntity>) backReferencingField.get());
       }
     }
 
-    return backReferencingProperties;
+    return backReferencingFields;
   }
 
   //method
