@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 public interface ITableTool extends IDatabaseObjectTool {
 
   //method declaration
-  boolean allNewAndEditedMandatoryPropertiesAreSet(ITable<?> table);
+  boolean allNewAndEditedMandatoryFieldsAreSet(ITable<?> table);
 
   //method declaration
   boolean canInsertEntity(ITable<?> table);

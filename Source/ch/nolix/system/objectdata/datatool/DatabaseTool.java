@@ -19,7 +19,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   //method
   @Override
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IDatabase database) {
-    return database.getStoredTables().containsOnly(TABLE_TOOL::allNewAndEditedMandatoryPropertiesAreSet);
+    return database.getStoredTables().containsOnly(TABLE_TOOL::allNewAndEditedMandatoryFieldsAreSet);
   }
 
   //method

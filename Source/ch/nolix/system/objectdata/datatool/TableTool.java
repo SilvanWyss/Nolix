@@ -18,7 +18,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
 
   //method
   @Override
-  public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?> table) {
+  public boolean allNewAndEditedMandatoryFieldsAreSet(final ITable<?> table) {
     return table
       .internalGetStoredEntitiesInLocalData()
       .containsOnly(
