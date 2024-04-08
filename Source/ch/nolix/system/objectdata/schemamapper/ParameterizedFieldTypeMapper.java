@@ -15,13 +15,13 @@ import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedRef
 import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedValueTypeMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedFieldTypeMapper;
@@ -29,8 +29,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParameterizedFieldTypeMapper
-implements IParameterizedFieldTypeMapper {
+public final class ParameterizedFieldTypeMapper implements IParameterizedFieldTypeMapper {
 
   //constant
   private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
@@ -76,9 +75,9 @@ implements IParameterizedFieldTypeMapper {
     final IField field,
     IContainer<ITable> referencedTables) {
 
-    final var propertyType = field.getType();
+    final var fieldType = field.getType();
 
-    return switch (propertyType) {
+    return switch (fieldType) {
       case VALUE ->
         PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
           (IValue<?>) field,
