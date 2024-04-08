@@ -9,9 +9,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.reflection.GlobalObjectTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 
@@ -116,13 +116,14 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
 
   //method
   private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IField field) {
-    final var propertyParentEntity = field.getStoredParentEntity();
 
-    final var propertyField = GlobalObjectTool.getFirstFieldOfObjectThatStoresValue(propertyParentEntity, field);
+    final var fieldParentEntity = field.getStoredParentEntity();
 
-    final var propertyDeclaredType = (ParameterizedType) propertyField.getGenericType();
+    final var entityField = GlobalObjectTool.getFirstFieldOfObjectThatStoresValue(fieldParentEntity, field);
 
-    final var typeArguments = propertyDeclaredType.getActualTypeArguments();
+    final var fieldDeclaredType = (ParameterizedType) entityField.getGenericType();
+
+    final var typeArguments = fieldDeclaredType.getActualTypeArguments();
 
     return (Class<?>) typeArguments[typeArguments.length - 1];
   }
