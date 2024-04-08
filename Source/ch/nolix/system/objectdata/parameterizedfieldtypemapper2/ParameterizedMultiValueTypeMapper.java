@@ -21,10 +21,10 @@ public final class ParameterizedMultiValueTypeMapper implements IParameterizedFi
   //method
   @Override
   public IParameterizedFieldType createParameterizedFieldTypeFromField(
-    final IMultiValue<?> property,
+    final IMultiValue<?> field,
     final IContainer<ITable> referencedTables) {
 
-    final var dataType = DataType.forType(FIELD_TOOL.getDataType(property));
+    final var dataType = DataType.forType(FIELD_TOOL.getDataType(field));
 
     return ParameterizedMultiValueType.forDataType(dataType);
   }
