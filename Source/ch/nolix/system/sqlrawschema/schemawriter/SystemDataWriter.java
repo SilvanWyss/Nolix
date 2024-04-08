@@ -66,13 +66,13 @@ final class SystemDataWriter implements ChangeRequestable {
   }
 
   //method
-  public void setColumnParameterizedPropertyType(
+  public void setColumnParameterizedFieldType(
     final String columnId,
-    final IParameterizedFieldTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedFieldType) {
     sqlCollector.addSqlStatement(
-      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnParameterizedPropertyType(
+      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnParameterizedFieldType(
         columnId,
-        parameterizedPropertyType));
+        parameterizedFieldType));
   }
 
   //method

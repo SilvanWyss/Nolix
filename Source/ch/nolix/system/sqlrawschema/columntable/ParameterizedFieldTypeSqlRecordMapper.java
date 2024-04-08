@@ -9,31 +9,31 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeD
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 //class
-public final class ParameterizedPropertyTypeSqlRecordMapper {
+public final class ParameterizedFieldTypeSqlRecordMapper {
 
   //constant
   private static final String NULL = "NULL";
 
   //method
-  public ParameterizedPropertyTypeSqlRecord createParameterizedPropertyTypeRecordFrom(
-    final IParameterizedFieldTypeDto parameterizedPropertyType) {
-    return switch (parameterizedPropertyType.getFieldType().getBaseType()) {
+  public ParameterizedFieldTypeSqlRecord createParameterizedFieldTypeRecordFrom(
+    final IParameterizedFieldTypeDto parameterizedFieldType) {
+    return switch (parameterizedFieldType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
-        createBaseParameterizedValueTypeRecord((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
+        createBaseParameterizedValueTypeRecord((IBaseParameterizedValueTypeDto) parameterizedFieldType);
       case BASE_REFERENCE ->
-        createBaseParameterizedReferenceTypeRecord((IBaseParameterizedReferenceTypeDto) parameterizedPropertyType);
+        createBaseParameterizedReferenceTypeRecord((IBaseParameterizedReferenceTypeDto) parameterizedFieldType);
       case BASE_BACK_REFERENCE ->
         createBaseParameterizedBackReferenceRecord(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType);
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType);
       default ->
-        throw InvalidArgumentException.forArgument(parameterizedPropertyType);
+        throw InvalidArgumentException.forArgument(parameterizedFieldType);
     };
   }
 
   //method
-  private ParameterizedPropertyTypeSqlRecord createBaseParameterizedBackReferenceRecord(
+  private ParameterizedFieldTypeSqlRecord createBaseParameterizedBackReferenceRecord(
     final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
-    return new ParameterizedPropertyTypeSqlRecord(
+    return new ParameterizedFieldTypeSqlRecord(
       "'" + baseParameterizedBackReferenceType.getFieldType().toString() + "'",
       "'" + baseParameterizedBackReferenceType.getDataType().name() + "'",
       NULL,
@@ -41,9 +41,9 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
   }
 
   //method
-  private ParameterizedPropertyTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
+  private ParameterizedFieldTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
-    return new ParameterizedPropertyTypeSqlRecord(
+    return new ParameterizedFieldTypeSqlRecord(
       "'" + baseParameterizedReferenceType.getFieldType().toString() + "'",
       "'" + baseParameterizedReferenceType.getDataType().name() + "'",
       "'" + baseParameterizedReferenceType.getReferencedTableId() + "'",
@@ -51,11 +51,11 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
   }
 
   //method
-  private ParameterizedPropertyTypeSqlRecord createBaseParameterizedValueTypeRecord(
-    final IBaseParameterizedValueTypeDto baseParameterizedPropertyType) {
-    return new ParameterizedPropertyTypeSqlRecord(
-      "'" + baseParameterizedPropertyType.getFieldType().toString() + "'",
-      "'" + baseParameterizedPropertyType.getDataType().name() + "'",
+  private ParameterizedFieldTypeSqlRecord createBaseParameterizedValueTypeRecord(
+    final IBaseParameterizedValueTypeDto baseParameterizedFieldType) {
+    return new ParameterizedFieldTypeSqlRecord(
+      "'" + baseParameterizedFieldType.getFieldType().toString() + "'",
+      "'" + baseParameterizedFieldType.getDataType().name() + "'",
       NULL,
       NULL);
   }

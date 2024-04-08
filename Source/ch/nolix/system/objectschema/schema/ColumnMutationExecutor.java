@@ -32,18 +32,18 @@ final class ColumnMutationExecutor {
     }
 
     for (final var brc : backReferencingColumns) {
-      ((Column) brc).setParameterizedPropertyTypeToDatabase();
+      ((Column) brc).setParameterizedFieldTypeToDatabase();
     }
 
     column.internalSetEdited();
   }
 
   //method
-  public void setParameterizedPropertyTypeToColumn(
+  public void setParameterizedFieldTypeToColumn(
     final Column column,
     final IParameterizedFieldType parameterizedFieldType) {
 
-    column.setParameterizedPropertyTypeAttribute(parameterizedFieldType);
+    column.setParameterizedFieldTypeAttribute(parameterizedFieldType);
 
     if (column.isLinkedWithRealDatabase()) {
       column

@@ -20,23 +20,23 @@ public class ParameterizedFieldTypeDtoMapper {
   new ParameterizedFieldTypeNodeSearcher();
 
   //method
-  public ParameterizedFieldTypeDto createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
+  public ParameterizedFieldTypeDto createParameterizedProeprtyTypeDtoFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode) {
 
-    final var fieldType = getPropertyTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode);
+    final var fieldType = getPropertyTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode);
 
     return switch (fieldType.getBaseType()) {
       case BASE_VALUE ->
-        createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
-          parameterizedPropertyTypeNode,
+        createBaseParameterizedValueTypeDtoFromParameterizedFieldTypeNode(
+          parameterizedFieldTypeNode,
           fieldType);
       case BASE_REFERENCE ->
-        createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
-          parameterizedPropertyTypeNode,
+        createBaseParameterizedReferenceTypeDtoFromParameterizedFieldTypeNode(
+          parameterizedFieldTypeNode,
           fieldType);
       case BASE_BACK_REFERENCE ->
-        createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
-          parameterizedPropertyTypeNode,
+        createBaseParameterizedBackReferenceTypeDtoFromParameterizedFieldTypeNode(
+          parameterizedFieldTypeNode,
           fieldType);
       default ->
         throw InvalidArgumentException.forArgument(fieldType);
@@ -44,73 +44,73 @@ public class ParameterizedFieldTypeDtoMapper {
   }
 
   //method
-  private ParameterizedFieldTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode,
+  private ParameterizedFieldTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode,
     final FieldType fieldType) {
     return new BaseParameterizedBackReferenceTypeDto(
       fieldType,
-      getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode),
-      getBackReferencedColumnIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
+      getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode),
+      getBackReferencedColumnIdFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
 
   //method
-  private ParameterizedFieldTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode,
+  private ParameterizedFieldTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode,
     final FieldType fieldType) {
     return new BaseParameterizedReferenceTypeDto(
       fieldType,
-      getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode),
-      getReferencedTableIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
+      getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode),
+      getReferencedTableIdFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
 
   //method
-  private BaseParameterizedValueTypeDto createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode,
+  private BaseParameterizedValueTypeDto createBaseParameterizedValueTypeDtoFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode,
     final FieldType fieldType) {
     return new BaseParameterizedValueTypeDto(
       fieldType,
-      getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
+      getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
 
   //method
-  private String getBackReferencedColumnIdFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
+  private String getBackReferencedColumnIdFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var backReferencedColumnNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
-        parameterizedPropertyTypeNode);
+        parameterizedFieldTypeNode);
 
     return backReferencedColumnNode.getSingleChildNodeHeader();
   }
 
   //method
-  private DataType getDataTypeFromParameterizedPropertyTypeNode(final IMutableNode<?> parameterizedPropertyTypeNode) {
+  private DataType getDataTypeFromParameterizedFieldTypeNode(final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var dataTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredDataTypeNodeFromParameterizedFieldTypeNode(
-        parameterizedPropertyTypeNode);
+        parameterizedFieldTypeNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
   //method
-  private FieldType getPropertyTypeFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
+  private FieldType getPropertyTypeFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var fieldTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
-        parameterizedPropertyTypeNode);
+        parameterizedFieldTypeNode);
 
     return FieldType.fromSpecification(fieldTypeNode);
   }
 
   //method
-  private String getReferencedTableIdFromParameterizedPropertyTypeNode(
-    final IMutableNode<?> parameterizedPropertyTypeNode) {
+  private String getReferencedTableIdFromParameterizedFieldTypeNode(
+    final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var referencedTableIdNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
-        parameterizedPropertyTypeNode);
+        parameterizedFieldTypeNode);
 
     return referencedTableIdNode.getSingleChildNodeHeader();
   }

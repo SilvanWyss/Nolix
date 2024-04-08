@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
-import ch.nolix.system.sqlrawschema.columntable.ParameterizedPropertyTypeSqlRecordMapper;
+import ch.nolix.system.sqlrawschema.columntable.ParameterizedFieldTypeSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
@@ -20,8 +20,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriterSqlStatementCreator {
 
   //constant
-  private static final ParameterizedPropertyTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = //
-  new ParameterizedPropertyTypeSqlRecordMapper();
+  private static final ParameterizedFieldTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = //
+  new ParameterizedFieldTypeSqlRecordMapper();
 
   //constant
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
@@ -29,8 +29,8 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 
-    final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
-      .createParameterizedPropertyTypeRecordFrom(
+    final var parameterizedFieldTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
+      .createParameterizedFieldTypeRecordFrom(
         column.getParameterizedFieldType());
 
     return "INSERT INTO "
@@ -56,13 +56,13 @@ final class SystemDataWriterSqlStatementCreator {
     + ", '"
     + column.getName()
     + "', "
-    + parameterizedPropertyTypeRecord.getPropertyTypeValue()
+    + parameterizedFieldTypeRecord.getPropertyTypeValue()
     + ", "
-    + parameterizedPropertyTypeRecord.getDataTypeValue()
+    + parameterizedFieldTypeRecord.getDataTypeValue()
     + ", "
-    + parameterizedPropertyTypeRecord.getReferencedTableIdValue()
+    + parameterizedFieldTypeRecord.getReferencedTableIdValue()
     + ", "
-    + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
+    + parameterizedFieldTypeRecord.getBackReferencedColumnIdValue()
     + " FROM "
     + SchemaTableType.TABLE.getQualifiedName()
     + " WHERE "
@@ -132,27 +132,27 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
-  public String createStatementToSetColumnParameterizedPropertyType(
+  public String createStatementToSetColumnParameterizedFieldType(
     final String columnID,
-    final IParameterizedFieldTypeDto parameterizedPropertyType) {
+    final IParameterizedFieldTypeDto parameterizedFieldType) {
 
-    final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
-      .createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);
+    final var parameterizedFieldTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
+      .createParameterizedFieldTypeRecordFrom(parameterizedFieldType);
 
     return "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
     + " SET "
     + ColumnTableColumn.DATA_TYPE
     + " = "
-    + parameterizedPropertyTypeRecord.getDataTypeValue()
+    + parameterizedFieldTypeRecord.getDataTypeValue()
     + ", "
     + ColumnTableColumn.REFERENCED_TABLE_ID
     + " = "
-    + parameterizedPropertyTypeRecord.getReferencedTableIdValue()
+    + parameterizedFieldTypeRecord.getReferencedTableIdValue()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
     + " = "
-    + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
+    + parameterizedFieldTypeRecord.getBackReferencedColumnIdValue()
     + "WHERE"
     + ColumnTableColumn.ID
     + " = '"

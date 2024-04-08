@@ -50,11 +50,11 @@ final class TableMutationExecutor {
       table.internalgetStoredRawSchemaAdapter().setTableName(oldTableName, name);
 
       for (final var rc : referencingColumns) {
-        ((Column) rc).setParameterizedPropertyTypeToDatabase();
+        ((Column) rc).setParameterizedFieldTypeToDatabase();
       }
 
       for (final var brc : backReferencingColumns) {
-        ((Column) brc).setParameterizedPropertyTypeToDatabase();
+        ((Column) brc).setParameterizedFieldTypeToDatabase();
       }
     }
 

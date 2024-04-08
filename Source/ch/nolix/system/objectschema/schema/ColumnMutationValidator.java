@@ -56,7 +56,7 @@ final class ColumnMutationValidator {
   }
 
   //method
-  public void assertCanSetParameterizedPropertyTypeToColumn(
+  public void assertCanSetParameterizedFieldTypeToColumn(
     final Column column,
     final IParameterizedFieldType parameterizedFieldType) {
 

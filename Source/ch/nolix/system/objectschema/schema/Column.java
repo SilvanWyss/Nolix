@@ -155,8 +155,8 @@ public final class Column extends SchemaObject implements IColumn {
   public Column setParameterizedFieldType(
     final IParameterizedFieldType parameterizedFieldType) {
 
-    MUTATION_VALIDATOR.assertCanSetParameterizedPropertyTypeToColumn(this, parameterizedFieldType);
-    MUTATION_EXECUTOR.setParameterizedPropertyTypeToColumn(this, parameterizedFieldType);
+    MUTATION_VALIDATOR.assertCanSetParameterizedFieldTypeToColumn(this, parameterizedFieldType);
+    MUTATION_EXECUTOR.setParameterizedFieldTypeToColumn(this, parameterizedFieldType);
 
     return this;
   }
@@ -212,13 +212,13 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   //method
-  void setParameterizedPropertyTypeAttribute(
+  void setParameterizedFieldTypeAttribute(
     final IParameterizedFieldType parameterizedFieldType) {
     this.parameterizedFieldType = parameterizedFieldType;
   }
 
   //method
-  void setParameterizedPropertyTypeToDatabase() {
+  void setParameterizedFieldTypeToDatabase() {
     internalGetRefRawSchemaAdapter().setColumnParameterizedFieldType(this, parameterizedFieldType);
   }
 
