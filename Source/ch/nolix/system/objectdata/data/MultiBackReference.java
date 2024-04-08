@@ -87,19 +87,19 @@ implements IMultiBackReference<E> {
   @Override
   public IContainer<IField> getStoredReferencingFields() {
 
-    final var referencingProperties = new LinkedList<IField>();
+    final var referencingFields = new LinkedList<IField>();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
-      for (final var p : e.internalGetStoredFields()) {
-        if (p.hasName(backReferencedBaseReferenceName)) {
-          referencingProperties.addAtEnd(p);
+      for (final var f : e.internalGetStoredFields()) {
+        if (f.hasName(backReferencedBaseReferenceName)) {
+          referencingFields.addAtEnd(f);
           break;
         }
       }
     }
 
-    return referencingProperties;
+    return referencingFields;
   }
 
   //method
