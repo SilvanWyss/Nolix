@@ -13,8 +13,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParameterizedOptionalValueTypeMapper
-implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
+public final class ParameterizedOptionalValueTypeMapper implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
 
   //constant
   private static final IFieldTool FIELD_TOOL = new FieldTool();
@@ -22,10 +21,10 @@ implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
   //method
   @Override
   public IParameterizedFieldType createParameterizedFieldTypeFromField(
-    final IOptionalValue<?> property,
+    final IOptionalValue<?> field,
     final IContainer<ITable> referencedTables) {
 
-    final var dataType = DataType.forType(FIELD_TOOL.getDataType(property));
+    final var dataType = DataType.forType(FIELD_TOOL.getDataType(field));
 
     return ParameterizedOptionalValueType.forDataType(dataType);
   }
