@@ -28,7 +28,7 @@ public final class ColumnTableSqlDtoCatalogue {
 
   //constant
   private static final IColumnDto PROPERTY_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
-    ColumnTableColumn.PROPERTY_TYPE.getName(),
+    ColumnTableColumn.FIELD_TYPE.getName(),
     DatatypeTypeCatalogue.TEXT);
 
   //constant

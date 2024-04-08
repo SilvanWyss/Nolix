@@ -12,7 +12,7 @@ public enum ColumnTableColumn implements INameHolder {
   ID(PascalCaseVariableCatalogue.ID),
   PARENT_TABLE_ID("ParentTableId"),
   NAME(PascalCaseVariableCatalogue.NAME),
-  PROPERTY_TYPE("PropertyType"),
+  FIELD_TYPE("FieldType"),
   DATA_TYPE(PascalCaseVariableCatalogue.DATA_TYPE),
   REFERENCED_TABLE_ID("ReferencedTableId"),
   BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");

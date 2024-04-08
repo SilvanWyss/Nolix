@@ -20,7 +20,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriterSqlStatementCreator {
 
   //constant
-  private static final ParameterizedFieldTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = //
+  private static final ParameterizedFieldTypeSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
   new ParameterizedFieldTypeSqlRecordMapper();
 
   //constant
@@ -29,7 +29,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 
-    final var parameterizedFieldTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
+    final var parameterizedFieldTypeRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
       .createParameterizedFieldTypeRecordFrom(
         column.getParameterizedFieldType());
 
@@ -42,7 +42,7 @@ final class SystemDataWriterSqlStatementCreator {
     + ", "
     + ColumnTableColumn.NAME.getName()
     + ", "
-    + ColumnTableColumn.PROPERTY_TYPE.getName()
+    + ColumnTableColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
@@ -56,7 +56,7 @@ final class SystemDataWriterSqlStatementCreator {
     + ", '"
     + column.getName()
     + "', "
-    + parameterizedFieldTypeRecord.getPropertyTypeValue()
+    + parameterizedFieldTypeRecord.getFieldTypeValue()
     + ", "
     + parameterizedFieldTypeRecord.getDataTypeValue()
     + ", "
@@ -136,7 +136,7 @@ final class SystemDataWriterSqlStatementCreator {
     final String columnID,
     final IParameterizedFieldTypeDto parameterizedFieldType) {
 
-    final var parameterizedFieldTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
+    final var parameterizedFieldTypeRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
       .createParameterizedFieldTypeRecordFrom(parameterizedFieldType);
 
     return "UPDATE "

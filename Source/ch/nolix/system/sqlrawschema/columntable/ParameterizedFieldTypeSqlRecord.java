@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.columntable;
 
 //class
 public record ParameterizedFieldTypeSqlRecord(
-String propertyTypeValue,
+String fieldTypeValue,
 String dataTypeValue,
 String referencedTableIdValue,
 String backReferencedColumnIdValue) { //NOSONAR: The left curly brace is at the right place.
@@ -19,8 +19,8 @@ String backReferencedColumnIdValue) { //NOSONAR: The left curly brace is at the 
   }
 
   //method
-  public String getPropertyTypeValue() {
-    return propertyTypeValue;
+  public String getFieldTypeValue() {
+    return fieldTypeValue;
   }
 
   //method

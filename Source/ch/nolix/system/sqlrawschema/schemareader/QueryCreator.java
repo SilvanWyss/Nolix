@@ -30,7 +30,7 @@ final class QueryCreator {
     + ", "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.PROPERTY_TYPE.getName()
+    + ColumnTableColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
@@ -55,7 +55,7 @@ final class QueryCreator {
     + ", "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.PROPERTY_TYPE.getName()
+    + ColumnTableColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
