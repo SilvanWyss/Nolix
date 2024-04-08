@@ -14,6 +14,6 @@ public final class FieldFromTableMapper {
 
   //method
   public IContainer<Field> createPropertiesFromTable(final ITable<? extends IEntity> table) {
-    return table.getStoredColumns().to(PROPERTY_FROM_COLUMN_MAPPER::createPropertyFromColumn);
+    return table.getStoredColumns().to(PROPERTY_FROM_COLUMN_MAPPER::createFieldFromColumn);
   }
 }

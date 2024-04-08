@@ -8,16 +8,16 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 public final class FieldFromColumnMapper {
 
   //method
-  public Field createPropertyFromColumn(final IColumn column) {
+  public Field createFieldFromColumn(final IColumn column) {
 
-    final var property = createEmptyPropertyFromColumn(column);
-    property.internalSetParentColumn(column);
+    final var field = createEmptyFieldFromColumn(column);
+    field.internalSetParentColumn(column);
 
-    return property;
+    return field;
   }
 
   //method
-  private Field createEmptyPropertyFromColumn(final IColumn column) {
+  private Field createEmptyFieldFromColumn(final IColumn column) {
     return switch (column.getParameterizedFieldType().getFieldType()) {
       case VALUE ->
         Value.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
@@ -104,10 +104,10 @@ public final class FieldFromColumnMapper {
 
     final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
 
-    final var backReferencedPropertyName = backReferencedColumn.getName();
+    final var backReferencedFieldName = backReferencedColumn.getName();
 
-    return OptionalBackReference.forEntityWithTableNameAndBackReferencedPropertyName(backReferencedTableName,
-      backReferencedPropertyName);
+    return OptionalBackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName,
+      backReferencedFieldName);
   }
 
   //method

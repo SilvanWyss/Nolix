@@ -36,7 +36,7 @@ implements IOptionalBackReference<E> {
   }
 
   //static method
-  public static OptionalBackReference<BaseEntity> forEntityWithTableNameAndBackReferencedPropertyName(
+  public static OptionalBackReference<BaseEntity> forEntityWithTableNameAndBackReferencedFieldName(
     final String tableName,
     final String backReferencedPropertyName) {
     return new OptionalBackReference<>(tableName, backReferencedPropertyName);
