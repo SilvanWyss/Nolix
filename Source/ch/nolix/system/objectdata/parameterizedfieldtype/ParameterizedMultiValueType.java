@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.parameterizedfieldtype;
 
+//own imports
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class

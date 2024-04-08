@@ -4,6 +4,7 @@ package ch.nolix.systemtest.webguitest.linearcontainertest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
+//own imports
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Label;
