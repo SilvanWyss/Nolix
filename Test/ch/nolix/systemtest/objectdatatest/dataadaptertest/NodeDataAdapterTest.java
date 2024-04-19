@@ -34,9 +34,8 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //setup
     final var nodeDatabase = new MutableNode();
-    @SuppressWarnings("resource")
-    final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
-      .andSchema(Schema.EMPTY_SCHEMA);
+    final var testUnit = //
+    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
 
     //setup verification
     expect(testUnit.isOpen());
@@ -54,9 +53,8 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //setup
     final var nodeDatabase = new MutableNode();
-    @SuppressWarnings("resource")
-    final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
-      .andSchema(Schema.EMPTY_SCHEMA);
+    final var testUnit = //
+    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
     testUnit.close();
 
     //setup verification
