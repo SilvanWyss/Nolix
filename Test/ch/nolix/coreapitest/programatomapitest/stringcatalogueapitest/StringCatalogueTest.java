@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest;
+package ch.nolix.coreapitest.programatomapitest.stringcatalogueapitest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
