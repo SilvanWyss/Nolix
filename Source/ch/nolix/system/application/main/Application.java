@@ -34,8 +34,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  *             {@link Application}.
  * @param <AC> is the type of the application context of a {@link Application}.
  */
-public abstract class Application<BC extends BackendClient<BC, AC>, AC>
-implements IApplication<AC> {
+public abstract class Application<BC extends BackendClient<BC, AC>, AC> implements IApplication<AC> {
 
   //attribute
   private final AC applicationContext;
@@ -269,6 +268,7 @@ implements IApplication<AC> {
    *                                          belongs already to a
    *                                          {@link BaseServer}.
    */
+  @SuppressWarnings("resource")
   private void assertDoesNotBelongToServer() {
     if (belongsToServer()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentServer());
