@@ -1,8 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.coretest.programatomtest.unsignedbytetest} package
- * defines tests for the {@link ch.nolix.core.commontype.commontypewrapper}
- * package.
+ * defines tests for the {@link ch.nolix.core.programatom.unsignedbyte} package.
  * 
  * @author Silvan Wyss
  * @date 2019-10-01

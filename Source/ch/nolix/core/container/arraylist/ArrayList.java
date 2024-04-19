@@ -324,12 +324,11 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * Lets the current {@link ArayList} grow to the given capacity.
+   * Lets the current {@link ArrayList} grow to the given capacity.
    * 
    * @param capacity
-   * @throws SmallerThanArgumentException if the given capacity is smaller than
-   *                                      the capacity of the current
-   *                                      {@link ArayList}.
+   * @throws SmallerArgumentException if the given capacity is smaller than the
+   *                                  capacity of the current {@link ArrayList}.
    */
   private void growToCapacity(final int capacity) {
 
@@ -347,7 +346,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * Lets the current {@link ArayList} grow to the given capacity for the case
+   * Lets the current {@link ArrayList} grow to the given capacity for the case
    * when the given capacity is bigger than the capacity of the current
    * {@link ArrayList}.
    * 

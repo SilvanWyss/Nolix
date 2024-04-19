@@ -29,10 +29,8 @@ public abstract class NetEndPoint extends EndPoint {
 
   //constructor
   /**
-   * Creates a new {@link NetEndPoint} with the given connectionOrigin and
-   * connectionOrigin.
+   * Creates a new {@link NetEndPoint} with the given targetInfoState.
    * 
-   * @param connectionOrigin
    * @param targetInfoState
    * @throws ArgumentIsNullException if the given connectionOrigin is null.
    * @throws ArgumentIsNullException if the given targetInfoState is null.
@@ -49,9 +47,8 @@ public abstract class NetEndPoint extends EndPoint {
 
   //constructor
   /**
-   * Creates a new {@link NetEndPoint} with the given connectionOrigin and target.
+   * Creates a new {@link NetEndPoint} with the given target.
    * 
-   * @param connectionOrigin
    * @param target
    * @throws ArgumentIsNullException  if the given connectionOrigin is null.
    * @throws ArgumentIsNullException  if the given target is null.
