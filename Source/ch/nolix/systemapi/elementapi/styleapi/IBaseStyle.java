@@ -19,15 +19,15 @@ public interface IBaseStyle extends IElement {
 
   //method declaration
   /**
-   * @return the attaching attributes of the current {@link IBaseStyle}.
-   */
-  IContainer<? extends INode<?>> getAttachingAttributes();
-
-  //method declaration
-  /**
-   * Lets the current {@link IBaseStyle} style the given element.
+   * Applies the current {@link IBaseStyle} to the given element.
    * 
    * @param element
    */
-  void styleElement(IStylableElement<?> element);
+  void applyToElement(IStylableElement<?> element);
+
+  //method declaration
+  /**
+   * @return the attaching attributes of the current {@link IBaseStyle}.
+   */
+  IContainer<? extends INode<?>> getAttachingAttributes();
 }

@@ -40,7 +40,7 @@ implements IStyleElement<SE> {
     //Handles the case that the current ConfigurationElement has a Configuration.
     if (hasStyle()) {
       resetStyleRecursively();
-      getStoredConfiguration().styleElement(this);
+      getStoredConfiguration().applyToElement(this);
     }
   }
 

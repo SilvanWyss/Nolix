@@ -32,7 +32,7 @@ final class StyleTest extends StandardTest {
       new ImmutableList<>());
 
     //execution
-    testUnit.styleElement(webGui);
+    testUnit.applyToElement(webGui);
 
     //verification
     expect(webGui.getTitle()).isEqualTo("my_title");

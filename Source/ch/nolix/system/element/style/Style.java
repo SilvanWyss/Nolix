@@ -105,7 +105,7 @@ public final class Style extends BaseStyle implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public void styleElement(final IStylableElement<?> element) {
+  public void applyToElement(final IStylableElement<?> element) {
     setAttachingAttributesToElement(element);
     letSubStylesStyleChildElementsOfElement(element);
   }

@@ -114,7 +114,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public void styleElement(final IStylableElement<?> element) {
+  public void applyToElement(final IStylableElement<?> element) {
     if (selectsElement(element)) {
       setAttachingAttributesToElement(element);
       letSubStylesStyleChildElementsOfElement(element);

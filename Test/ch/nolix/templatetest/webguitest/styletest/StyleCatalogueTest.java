@@ -33,7 +33,7 @@ final class StyleCatalogueTest extends StandardTest {
     final var testUnit = StyleCatalogue.DARK_STYLE;
 
     //execution & verification
-    expectRunning(() -> testUnit.styleElement(webGuiWithVariousContent)).doesNotThrowException();
+    expectRunning(() -> testUnit.applyToElement(webGuiWithVariousContent)).doesNotThrowException();
   }
 
   //method

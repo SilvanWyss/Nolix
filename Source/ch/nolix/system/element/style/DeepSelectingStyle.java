@@ -114,7 +114,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public void styleElement(final IStylableElement<?> element) {
+  public void applyToElement(final IStylableElement<?> element) {
 
     if (selectsElement(element)) {
       setAttachingAttributesToElement(element);
@@ -129,6 +129,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     final var childElements = element.getStoredChildStylableElements();
 
-    childElements.forEach(this::styleElement);
+    childElements.forEach(this::applyToElement);
   }
 }
