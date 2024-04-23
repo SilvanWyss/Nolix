@@ -9,11 +9,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
-public abstract class BaseSelectingStyle extends BaseStyle implements ISelectingStyle {
+public abstract class BaseSelectingStyle extends BaseStyle implements ISelectingStyleWithSelectors {
 
   //constant
   protected static final String SELECTOR_ID_HEADER = "SelectorId";
@@ -105,6 +105,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
   }
 
   //method
+  @Override
   public final String getSelectorId() {
 
     assertHasSelectorId();
@@ -113,16 +114,19 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
   }
 
   //method
-  public IContainer<String> getSelectorRoles() {
+  @Override
+  public final IContainer<String> getSelectorRoles() {
     return selectorRoles;
   }
 
   //method
-  public IContainer<String> getSelectorTokens() {
+  @Override
+  public final IContainer<String> getSelectorTokens() {
     return selectorTokens;
   }
 
   //method
+  @Override
   public final String getSelectorType() {
 
     assertHasSelectorType();
@@ -131,6 +135,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
   }
 
   //method
+  @Override
   public final boolean hasSelectorId() {
     return (selectorId != null);
   }
@@ -146,6 +151,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
   }
 
   //method
+  @Override
   public final boolean hasSelectorType() {
     return (selectorType != null);
   }
