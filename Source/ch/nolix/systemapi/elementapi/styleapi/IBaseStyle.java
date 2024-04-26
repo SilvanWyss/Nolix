@@ -30,4 +30,10 @@ public interface IBaseStyle extends IElement {
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
   IContainer<? extends INode<?>> getAttachingAttributes();
+
+  //method declaration
+  /**
+   * @return the sub styles of the current {@link IBaseStyle}.
+   */
+  IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
 }

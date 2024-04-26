@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
@@ -55,9 +55,10 @@ abstract class BaseStyle extends Element implements IBaseStyle {
 
   //method
   /**
-   * @return the sub styles of the current {@link BaseStyle}.
+   * {@inheritDoc}
    */
-  public final IContainer<? extends ISelectingStyle> getSubStyles() {
+  @Override
+  public final IContainer<? extends ISelectingStyleWithSelectors> getSubStyles() {
     return subStyles;
   }
 
