@@ -46,7 +46,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     IContainer<String> selectorRoles,
     IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
-    final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
     super(attachingAttributes, subStyles);
 

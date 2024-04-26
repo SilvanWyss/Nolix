@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
@@ -36,7 +37,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
     final IContainer<String> selectorRoles,
     final IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
-    final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(
       optionalSelectorId,
       optionalSelectorType,
@@ -46,10 +47,30 @@ public final class SelectingStyle extends BaseSelectingStyle {
       subStyles);
   }
 
+  public static SelectingStyle fromSelectingStyle(
+    final ISelectingStyleWithSelectors selectingStyle) {
+
+    if (selectingStyle instanceof SelectingStyle elementSelectingStyle) {
+      return elementSelectingStyle;
+    }
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+
+    return new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      selectingStyle.getSelectorRoles(),
+      selectingStyle.getSelectorTokens(),
+      selectingStyle.getAttachingAttributes(),
+      selectingStyle.getSubStyles());
+  }
+
   //static method
   /**
    * @param specification
    * @return a new {@link SelectingStyle} from the given specification.
+   * @throws NullPointerException     if the given specification is null.
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static SelectingStyle fromSpecification(final INode<?> specification) {

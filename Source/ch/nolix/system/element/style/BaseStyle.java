@@ -37,11 +37,11 @@ abstract class BaseStyle extends Element implements IBaseStyle {
    */
   protected BaseStyle(
     final IContainer<? extends INode<?>> attachingAttributes,
-    final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
     this.attachingAttributes = ImmutableList.forIterable(attachingAttributes.to(Node::fromNode));
 
-    this.subStyles = ImmutableList.forIterable(subStyles);
+    this.subStyles = ImmutableList.forIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
   }
 
   //method
@@ -110,5 +110,22 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     final var childElements = element.getStoredChildStylableElements();
 
     getSubStyles().forEach(ss -> childElements.forEach(ss::applyToElement));
+  }
+
+  /**
+   * @param selectingStyle
+   * @return a {@link BaseSelectingStyle} from the given selectingStyle.
+   */
+  private BaseSelectingStyle createSelectingStyleFromSelectingStyle(final ISelectingStyleWithSelectors selectingStyle) {
+
+    if (selectingStyle instanceof SelectingStyle elementSelectingStyle) {
+      return elementSelectingStyle;
+    }
+
+    if (selectingStyle instanceof DeepSelectingStyle deepSelectingStyle) {
+      return deepSelectingStyle;
+    }
+
+    throw InvalidArgumentException.forArgument(selectingStyle);
   }
 }
