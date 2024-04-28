@@ -35,33 +35,16 @@ final class LongMediatorTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMin() {
+  @ParameterizedTest
+  @ValueSource(ints = {
+  0, //The argument is the min.
+  50, //The given argument is the midpoint.
+  100 //The argument is the max.
+  })
+  void testCase_isBetween_whenTheGivenArgumentIsBetweenTheGivenMinAndMax(final int argument) {
 
     //setup
-    final var testUnit = LongMediator.forArgumentNameAndArgument("value", 0);
-
-    //execution & verification
-    expectRunning(() -> testUnit.isBetween(0, 100)).doesNotThrowException();
-  }
-
-  //method
-  @Test
-  void testCase_isBetween_whenTheGivenArgumentIsTheMidpointOfTheGivenMinAndMax() {
-
-    //setup
-    final var testUnit = LongMediator.forArgumentNameAndArgument("value", 50);
-
-    //execution & verification
-    expectRunning(() -> testUnit.isBetween(0, 100)).doesNotThrowException();
-  }
-
-  //method
-  @Test
-  void testCase_isBetween_whenTheGivenArgumentEqualsTheGivenMax() {
-
-    //setup
-    final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
+    final var testUnit = LongMediator.forArgumentNameAndArgument("value", argument);
 
     //execution & verification
     expectRunning(() -> testUnit.isBetween(0, 100)).doesNotThrowException();
