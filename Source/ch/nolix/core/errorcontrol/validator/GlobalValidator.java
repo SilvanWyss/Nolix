@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.independent.container.List;
 import ch.nolix.core.independent.containertool.GlobalArrayTool;
 
 //class
@@ -92,8 +91,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      final List<Double> argumentVector = null;
-      return new ExtendedContainerMediator<>(argumentVector);
+      return new ExtendedContainerMediator<>(null);
     }
 
     //Handles the case that the given argument is not null.
@@ -118,8 +116,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      final List<Long> argumentVector = null;
-      return new ExtendedContainerMediator<>(argumentVector);
+      return new ExtendedContainerMediator<>(null);
     }
 
     //Handles the case that the given argument is not null.
@@ -154,8 +151,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      final List<Long> argumentVector = null;
-      return new ExtendedContainerMediator<>(argumentVector);
+      return new ExtendedContainerMediator<>(null);
     }
 
     //Handles the case that the given argument is not null.
