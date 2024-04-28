@@ -10,6 +10,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
@@ -29,7 +30,7 @@ public final class Style extends BaseStyle implements IStyle {
    */
   public Style(
     final IContainer<? extends INode<?>> attachingAttributes,
-    final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
   }
 
@@ -108,6 +109,22 @@ public final class Style extends BaseStyle implements IStyle {
   public void applyToElement(final IStylableElement<?> element) {
     setAttachingAttributesToElement(element);
     letSubStylesStyleChildElementsOfElement(element);
+  }
+
+  @Override
+  public IStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
+
+    final var allAttachingAttributes = new LinkedList<Node>();
+
+    for (final var aa : getAttachingAttributes()) {
+      allAttachingAttributes.addAtEnd(Node.fromNode(aa));
+    }
+
+    for (final var aa : attachingAttributes) {
+      allAttachingAttributes.addAtEnd(Node.fromString(aa));
+    }
+
+    return new Style(allAttachingAttributes, getSubStyles());
   }
 
   //method

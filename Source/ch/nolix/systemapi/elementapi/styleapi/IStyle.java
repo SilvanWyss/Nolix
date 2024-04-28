@@ -14,12 +14,25 @@ public interface IStyle extends IBaseStyle {
   //method declaration
   /**
    * @param attachingAttributes
-   * @param subStyles
-   * @return a new {@link IStyle} from the current {@link IStyle} with
-   *         additionally the given attachingAttributes and selectingStyes.
+   * @return a new {@link IStyle} from the current {@link IStyle} with the given
+   *         attachingAttributes added.
    * @throws RuntimeException if the given attachingAttributes is null.
-   * @throws RuntimeException if one of the given attachingAttributes is blank.
+   * @throws RuntimeException if one of the given attachingAttributes is not
+   *                          valid.
+   */
+  IStyle withAttachingAttributes(IContainer<String> attachingAttributes);
+
+  //method declaration
+  /**
+   * @param attachingAttributes
+   * @param subStyles
+   * @return a new {@link IStyle} from the current {@link IStyle} with the given
+   *         attachingAttributes and subStyles added.
+   * @throws RuntimeException if the given attachingAttributes is null.
+   * @throws RuntimeException if one of the given attachingAttributes is not
+   *                          valid.
    * @throws RuntimeException if the given subStyles is null.
+   * @throws RuntimeException if one of the given subStyles is not valid.
    */
   IStyle withAttachingAttributesAndSubStyles(
     IContainer<String> attachingAttributes,
