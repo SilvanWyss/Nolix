@@ -11,7 +11,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.system.sqlrawschema.tabletable.TableDtoMapper;
+import ch.nolix.system.sqlrawschema.tabletable.TableFlatDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
@@ -26,7 +26,7 @@ public final class SchemaReader implements ISchemaReader {
   private static final QueryCreator QUERY_CREATOR = new QueryCreator();
 
   //constant
-  private static final TableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
+  private static final TableFlatDtoMapper TABLE_DTO_MAPPER = new TableFlatDtoMapper();
 
   //constant
   private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
