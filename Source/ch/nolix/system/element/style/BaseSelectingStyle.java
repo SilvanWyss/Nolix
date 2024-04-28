@@ -13,7 +13,8 @@ import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
-public abstract class BaseSelectingStyle extends BaseStyle implements ISelectingStyleWithSelectors {
+public abstract class BaseSelectingStyle extends BaseStyle<ISelectingStyleWithSelectors>
+implements ISelectingStyleWithSelectors {
 
   //constant
   protected static final String SELECTOR_ID_HEADER = "SelectorId";

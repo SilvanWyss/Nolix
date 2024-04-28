@@ -19,7 +19,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @author Silvan Wyss
  * @date 2016-02-01
  */
-public final class Style extends BaseStyle implements IStyle {
+public final class Style extends BaseStyle<IStyle> implements IStyle {
 
   //constructor
   /**
@@ -86,7 +86,7 @@ public final class Style extends BaseStyle implements IStyle {
    * @param selectingStyle
    * @return a {@link BaseSelectingStyle} from the current selectingStyle.
    */
-  private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyle selectingStyle) {
+  private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyleWithSelectors selectingStyle) {
     return (BaseSelectingStyle) selectingStyle;
   }
 
@@ -134,7 +134,7 @@ public final class Style extends BaseStyle implements IStyle {
   @Override
   public IStyle withAttachingAttributesAndSubStyles(
     final IContainer<String> attachingAttributes,
-    final IContainer<ISelectingStyle> subStyles) {
+    final IContainer<ISelectingStyleWithSelectors> subStyles) {
 
     final var allAttachingAttributes = new LinkedList<Node>();
 

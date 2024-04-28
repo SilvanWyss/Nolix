@@ -14,8 +14,9 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2023-07-09
+ * @param <S> is the type of a {@link IBaseStyle}.
  */
-public interface IBaseStyle extends IElement {
+public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
 
   //method declaration
   /**

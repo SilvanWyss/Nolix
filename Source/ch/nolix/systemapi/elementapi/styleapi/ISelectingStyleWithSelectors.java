@@ -12,7 +12,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @author Silvan Wyss
  * @date 2024-04-23
  */
-public interface ISelectingStyleWithSelectors extends ISelectingStyle {
+public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelectingStyleWithSelectors> {
 
   //method declaration
   /**

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @author Silvan Wyss
  * @date 2022-05-29
  */
-public interface IStyle extends IBaseStyle {
+public interface IStyle extends IBaseStyle<IStyle> {
 
   //method declaration
   /**
@@ -36,5 +36,5 @@ public interface IStyle extends IBaseStyle {
    */
   IStyle withAttachingAttributesAndSubStyles(
     IContainer<String> attachingAttributes,
-    IContainer<ISelectingStyle> subStyles);
+    IContainer<ISelectingStyleWithSelectors> subStyles);
 }

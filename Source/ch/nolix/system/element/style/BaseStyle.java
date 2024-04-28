@@ -16,8 +16,9 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
+ * @param <S> is the type of a {@link BaseStyle}.
  */
-abstract class BaseStyle extends Element implements IBaseStyle {
+abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBaseStyle<S> {
 
   //constant
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
