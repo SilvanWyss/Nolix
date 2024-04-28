@@ -3,6 +3,7 @@ package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -140,5 +141,43 @@ public final class SelectingStyle extends BaseSelectingStyle {
       setAttachingAttributesToElement(element);
       letSubStylesStyleChildElementsOfElement(element);
     }
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public SelectingStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    final var allAttachingAttributes = new LinkedList<Node>();
+
+    for (final var aa : getAttachingAttributes()) {
+      allAttachingAttributes.addAtEnd(Node.fromNode(aa));
+    }
+
+    for (final var aa : attachingAttributes) {
+      allAttachingAttributes.addAtEnd(Node.fromString(aa));
+    }
+
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      allAttachingAttributes,
+      getSubStyles());
   }
 }

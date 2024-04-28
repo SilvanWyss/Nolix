@@ -37,4 +37,15 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @return the sub styles of the current {@link IBaseStyle}.
    */
   IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
+
+  //method declaration
+  /**
+   * @param attachingAttributes
+   * @return a new {@link IStyle} from the current {@link IStyle} with the given
+   *         attachingAttributes added.
+   * @throws RuntimeException if the given attachingAttributes is null.
+   * @throws RuntimeException if one of the given attachingAttributes is not
+   *                          valid.
+   */
+  S withAttachingAttributes(IContainer<String> attachingAttributes);
 }

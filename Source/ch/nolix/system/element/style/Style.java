@@ -111,6 +111,10 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     letSubStylesStyleChildElementsOfElement(element);
   }
 
+  //method
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
 

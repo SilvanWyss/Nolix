@@ -3,10 +3,12 @@ package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
@@ -36,7 +38,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     final IContainer<String> selectorRoles,
     final IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
-    final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(
       optionalSelectorId,
       optionalSelectorType,
@@ -122,6 +124,44 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     }
 
     styleChildElementsOfElement(element);
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public DeepSelectingStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    final var allAttachingAttributes = new LinkedList<Node>();
+
+    for (final var aa : getAttachingAttributes()) {
+      allAttachingAttributes.addAtEnd(Node.fromNode(aa));
+    }
+
+    for (final var aa : attachingAttributes) {
+      allAttachingAttributes.addAtEnd(Node.fromString(aa));
+    }
+
+    return //
+    new DeepSelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      allAttachingAttributes,
+      getSubStyles());
   }
 
   //method
