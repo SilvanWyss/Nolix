@@ -39,7 +39,7 @@ public final class GlobalLogger {
       active = false;
 
       if (logWorker != null) {
-        logWorker.stop_();
+        logWorker.inactivate();
         logWorker = null;
       }
     }

@@ -51,7 +51,7 @@ final class LogWorker extends Thread {
   }
 
   //method
-  public synchronized void stop_() {
+  public synchronized void inactivate() {
     active = false;
   }
 
