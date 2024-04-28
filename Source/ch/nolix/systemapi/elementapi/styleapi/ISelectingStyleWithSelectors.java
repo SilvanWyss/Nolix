@@ -6,8 +6,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
 /**
- * A {@link ISelectingStyle} is a {@link ISelectingStyle} that can have specific
- * selectors.
+ * A {@link ISelectingStyleWithSelectors} is a {@link ISelectingStyle} that can
+ * have specific selectors.
  * 
  * @author Silvan Wyss
  * @date 2024-04-23
@@ -27,14 +27,14 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return the selector roles of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
-  public IContainer<String> getSelectorRoles();
+  IContainer<String> getSelectorRoles();
 
   //method declaration
   /**
    * @return the selector tokens of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
-  public IContainer<String> getSelectorTokens();
+  IContainer<String> getSelectorTokens();
 
   //method declaration
   /**
