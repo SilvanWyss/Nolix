@@ -36,24 +36,26 @@ import io.netty.handler.ssl.SslContextBuilder;
 final class SslServerSslContextCreator {
 
   //constant
+  private static final String PASSWORD = "my_password";
+
+  //constant
   private static final SslCertificateKeyReader SSL_CERTIFICATE_KEY_READER = new SslCertificateKeyReader();
 
   //method
   public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
     try {
 
-      final var password = "my_password";
       X509Certificate cert = getCert(paramSSLCertificate);
 
       final var key = getPrivateKey(paramSSLCertificate);
 
       final var keystore = KeyStore.getInstance("JKS");
-      keystore.load(null, password.toCharArray());
+      keystore.load(null, PASSWORD.toCharArray());
       keystore.setCertificateEntry("cert-alias", cert);
-      keystore.setKeyEntry("key-alias", key, password.toCharArray(), new Certificate[] { cert });
+      keystore.setKeyEntry("key-alias", key, PASSWORD.toCharArray(), new Certificate[] { cert });
 
       final var keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-      keyManagerFactory.init(keystore, password.toCharArray());
+      keyManagerFactory.init(keystore, PASSWORD.toCharArray());
 
       final var sslContext = SSLContext.getInstance("TLS");
       sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
