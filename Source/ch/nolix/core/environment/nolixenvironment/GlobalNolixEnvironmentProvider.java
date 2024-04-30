@@ -91,6 +91,8 @@ public final class GlobalNolixEnvironmentProvider {
   //method
   private static void createFileWhenDoesNotExist(final Path filePath) {
     try {
+      final var directoryPath = filePath.getParent();
+      createDirectoryIfDoesNotExist(directoryPath);
       Files.createFile(filePath);
     } catch (final IOException ioException) {
       throw new UncheckedIOException(ioException);
