@@ -111,9 +111,11 @@ public final class ChangeSetSaveValidator {
     final var referencedTableName = multiReference.getReferencedTableName();
 
     for (final var le : multiReference.getStoredNewAndDeletedEntries()) {
-      dataAndSchemaAdapter.expectTableContainsEntity(
-        referencedTableName,
-        le.getReferencedEntityId());
+      if (le.isNew()) {
+        dataAndSchemaAdapter.expectTableContainsEntity(
+          referencedTableName,
+          le.getReferencedEntityId());
+      }
     }
   }
 
