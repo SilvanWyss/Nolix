@@ -177,6 +177,20 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
+  public IStyle withSubStyle(
+    final ISelectingStyleWithSelectors subStyle,
+    final ISelectingStyleWithSelectors... subStyles) {
+
+    final var localSubStyles = ReadContainer.forElement(subStyle, subStyles);
+
+    return withSubStyles(localSubStyles);
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
     final var allSubStyles = ReadContainer.forIterable(getSubStyles(), subStyles);
