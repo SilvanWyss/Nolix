@@ -162,4 +162,16 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
 
     return new Style(allAttachingAttributes, allSubStyles);
   }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+
+    final var allSubStyles = ReadContainer.forIterable(getSubStyles(), subStyles);
+
+    return new Style(getAttachingAttributes(), allSubStyles);
+  }
 }

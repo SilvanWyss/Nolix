@@ -26,4 +26,13 @@ public interface IStyle extends IBaseStyle<IStyle> {
   IStyle withAttachingAttributesAndSubStyles(
     IContainer<String> attachingAttributes,
     IContainer<ISelectingStyleWithSelectors> subStyles);
+
+  /**
+   * @param subStyles
+   * @return a new {@link IStyle} from the current {@link IStyle} with the given
+   *         subStyles added.
+   * @throws RuntimeException if the given subStyles is null.
+   * @throws RuntimeException if one of the given subStyles is not valid.
+   */
+  IStyle withSubStyles(IContainer<? extends ISelectingStyleWithSelectors> subStyles);
 }
