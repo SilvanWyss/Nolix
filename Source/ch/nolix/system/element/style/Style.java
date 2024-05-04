@@ -2,6 +2,7 @@
 package ch.nolix.system.element.style;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
@@ -20,6 +21,14 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @date 2016-02-01
  */
 public final class Style extends BaseStyle<IStyle> implements IStyle {
+
+  //constructor
+  /**
+   * Creates a new empty {@link Style}.
+   */
+  public Style() {
+    super(new ImmutableList<>(), new ImmutableList<>());
+  }
 
   //constructor
   /**
