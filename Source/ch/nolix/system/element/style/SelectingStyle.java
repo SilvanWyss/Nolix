@@ -2,6 +2,7 @@
 package ch.nolix.system.element.style;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -20,6 +21,14 @@ public final class SelectingStyle extends BaseSelectingStyle {
 
   //constant
   public static final String TYPE_NAME = "SelectingStyle";
+
+  //constructor
+  /**
+   * Creates a new empty {@link SelectingStyle}.
+   */
+  public SelectingStyle() {
+    super(null, null, new ImmutableList<>(), new ImmutableList<>(), new ImmutableList<>(), new ImmutableList<>());
+  }
 
   //constructor
   /**
