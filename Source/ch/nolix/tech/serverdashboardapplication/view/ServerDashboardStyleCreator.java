@@ -5,12 +5,12 @@ package ch.nolix.tech.serverdashboardapplication.view;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
-import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
@@ -18,16 +18,16 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 final class ServerDashboardStyleCreator {
 
   //method
-  public Style createServerDashboardStyle() {
-    return new StyleBuilder()
-      .addSubStyle(
+  public IStyle createServerDashboardStyle() {
+    return //
+    new Style()
+      .withSubStyle(
         createLayerStyle(),
         createImageControlStyle(),
         createOverallVerticalStackContainerStyle(),
         createMainContentFloatContainerStyle(),
         createTitleLabelStyle(),
-        createLevel1HeaderLabelStyle())
-      .build();
+        createLevel1HeaderLabelStyle());
   }
 
   //method

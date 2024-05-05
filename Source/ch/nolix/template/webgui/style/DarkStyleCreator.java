@@ -5,7 +5,6 @@ package ch.nolix.template.webgui.style;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
-import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.Link;
@@ -19,6 +18,7 @@ import ch.nolix.system.webgui.linearcontainer.LinearContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
@@ -27,9 +27,10 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 final class DarkStyleCreator {
 
   //method
-  public Style createDarkStyle() {
-    return new StyleBuilder()
-      .addSubStyle(
+  public IStyle createDarkStyle() {
+    return //
+    new Style()
+      .withSubStyle(
         createLayerStyle(),
         createControlStyle(),
         createLinearContainerStyle(),
@@ -46,8 +47,7 @@ final class DarkStyleCreator {
         createTitleLabelStyle(),
         createLevel1HeaderLabelStyle(),
         createDialogLayerStyle(),
-        createDialogContainerStyle())
-      .build();
+        createDialogContainerStyle());
   }
 
   //method

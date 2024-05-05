@@ -10,7 +10,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
-import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
 
@@ -46,7 +45,7 @@ final class StyleTest extends StandardTest {
     //setup
     final var subStyle1 = new SelectingStyleBuilder().build();
     final var subStyle2 = new SelectingStyleBuilder().build();
-    final var testUnit = new StyleBuilder().build();
+    final var testUnit = new Style();
 
     //execution
     final var result = testUnit.withAttachingAttributesAndSubStyles(
@@ -70,10 +69,10 @@ final class StyleTest extends StandardTest {
     final var subStyle2 = new SelectingStyleBuilder().build();
     final var subStyle3 = new SelectingStyleBuilder().build();
     final var subStyle4 = new SelectingStyleBuilder().build();
-    final var testUnit = new StyleBuilder()
-      .addAttachingAttribute("p1(v1)", "p2(v2)")
-      .addSubStyle(subStyle1, subStyle2)
-      .build();
+    final var testUnit = //
+    new Style()
+      .withAttachingAttribute("p1(v1)", "p2(v2)")
+      .withSubStyle(subStyle1, subStyle2);
 
     //execution
     final var result = testUnit.withAttachingAttributesAndSubStyles(
