@@ -3,6 +3,7 @@ package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -69,6 +70,18 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
    */
   public final boolean hasAttachingAttributes() {
     return attachingAttributes.containsAny();
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
+
+    final var allAttachingAttributes = ReadContainer.forElement(attachingAttribute, attachingAttributes);
+
+    return withAttachingAttributes(allAttachingAttributes);
   }
 
   //method
