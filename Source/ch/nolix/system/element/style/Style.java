@@ -152,7 +152,9 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
   @Override
   public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
-    final var allSubStyles = ReadContainer.forIterable(getSubStyles(), subStyles);
+    final var allSubStyles = new LinkedList<ISelectingStyleWithSelectors>();
+    allSubStyles.addAtEnd(getSubStyles());
+    allSubStyles.addAtEnd(subStyles);
 
     return new Style(getAttachingAttributes(), allSubStyles);
   }
