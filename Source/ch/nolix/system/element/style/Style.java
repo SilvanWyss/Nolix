@@ -92,15 +92,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
 
   //method
   /**
-   * @param selectingStyle
-   * @return a {@link BaseSelectingStyle} from the current selectingStyle.
-   */
-  private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyleWithSelectors selectingStyle) {
-    return (BaseSelectingStyle) selectingStyle;
-  }
-
-  //method
-  /**
    * {@inheritDoc}
    */
   @Override
@@ -138,38 +129,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     }
 
     return new Style(allAttachingAttributes, getSubStyles());
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public IStyle withAttachingAttributesAndSubStyles(
-    final IContainer<String> attachingAttributes,
-    final IContainer<ISelectingStyleWithSelectors> subStyles) {
-
-    final var allAttachingAttributes = new LinkedList<Node>();
-
-    for (final var aa : getAttachingAttributes()) {
-      allAttachingAttributes.addAtEnd(Node.fromNode(aa));
-    }
-
-    for (final var aa : attachingAttributes) {
-      allAttachingAttributes.addAtEnd(Node.fromString(aa));
-    }
-
-    final var allSubStyles = new LinkedList<BaseSelectingStyle>();
-
-    for (final var ss : getSubStyles()) {
-      allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
-    }
-
-    for (final var ss : subStyles) {
-      allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
-    }
-
-    return new Style(allAttachingAttributes, allSubStyles);
   }
 
   //method

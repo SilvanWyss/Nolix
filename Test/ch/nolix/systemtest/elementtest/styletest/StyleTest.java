@@ -40,7 +40,22 @@ final class StyleTest extends StandardTest {
 
   //method
   @Test
-  void testCase_withAttachingAttributesAndSubStyles_whenIsEmpty() {
+  void testCase_withAttachingAttribute_whenIsEmpty() {
+
+    //setup
+    final var testUnit = new Style();
+
+    //execution
+    final var result = testUnit.withAttachingAttribute("p1(v1)", "p2(v2)");
+
+    //verification
+    expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing("p1(v1)", "p2(v2)");
+    expect(result.getSubStyles()).isEmpty();
+  }
+
+  //method
+  @Test
+  void testCase_withSubStyle_whenIsEmpty() {
 
     //setup
     final var subStyle1 = new SelectingStyleBuilder().build();
@@ -48,12 +63,10 @@ final class StyleTest extends StandardTest {
     final var testUnit = new Style();
 
     //execution
-    final var result = testUnit.withAttachingAttributesAndSubStyles(
-      ImmutableList.withElement("p1(v1)", "p2(v2)"),
-      ImmutableList.withElement(subStyle1, subStyle2));
+    final var result = testUnit.withSubStyle(subStyle1, subStyle2);
 
     //verification
-    expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing("p1(v1)", "p2(v2)");
+    expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(2);
     expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);
@@ -62,26 +75,36 @@ final class StyleTest extends StandardTest {
 
   //method
   @Test
-  void testCase_withAttachingAttributesAndSubStyles_whenContainsAny() {
+  void testCase_withAttachingAttribute_whenContainsAny() {
+
+    //setup
+    final var testUnit = new Style().withAttachingAttribute("p1(v1)", "p2(v2)");
+
+    //execution
+    final var result = testUnit.withAttachingAttribute("p3(v3)", "p4(v4)");
+
+    //verification
+    expect(result.getAttachingAttributes().toStrings())
+      .containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
+    expect(result.getSubStyles()).isEmpty();
+  }
+
+  //method
+  @Test
+  void testCase_withSubStyle_whenContainsAny() {
 
     //setup
     final var subStyle1 = new SelectingStyleBuilder().build();
     final var subStyle2 = new SelectingStyleBuilder().build();
     final var subStyle3 = new SelectingStyleBuilder().build();
     final var subStyle4 = new SelectingStyleBuilder().build();
-    final var testUnit = //
-    new Style()
-      .withAttachingAttribute("p1(v1)", "p2(v2)")
-      .withSubStyle(subStyle1, subStyle2);
+    final var testUnit = new Style().withSubStyle(subStyle1, subStyle2);
 
     //execution
-    final var result = testUnit.withAttachingAttributesAndSubStyles(
-      ImmutableList.withElement("p3(v3)", "p4(v4)"),
-      ImmutableList.withElement(subStyle3, subStyle4));
+    final var result = testUnit.withSubStyle(subStyle3, subStyle4);
 
     //verification
-    expect(result.getAttachingAttributes().toStrings())
-      .containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
+    expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(4);
     expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);
