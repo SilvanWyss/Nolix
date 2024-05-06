@@ -144,6 +144,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
+    final var allAttachingAttributes = new LinkedList<Node>();
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
@@ -152,8 +153,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     if (hasSelectorType()) {
       optionalSelectorType = getSelectorType();
     }
-
-    final var allAttachingAttributes = new LinkedList<Node>();
 
     for (final var aa : getAttachingAttributes()) {
       allAttachingAttributes.addAtEnd(Node.fromNode(aa));
@@ -189,6 +188,35 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       optionalSelectorType,
       getSelectorRoles(),
       getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorRoles(final IContainer<String> selectorRoles) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final var allSelectorRoles = new LinkedList<String>();
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    allSelectorRoles.addAtEnd(getSelectorRoles());
+    allSelectorRoles.addAtEnd(selectorRoles);
+
+    return //
+    new DeepSelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      allSelectorRoles,
       getAttachingAttributes(),
       getSubStyles());
   }

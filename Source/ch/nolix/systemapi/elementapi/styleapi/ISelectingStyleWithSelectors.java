@@ -67,4 +67,15 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if the given selectorId is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorId(String selectorId);
+
+  //method declaration
+  /**
+   * @param selectorRoles
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given selectorRoles
+   *         added.
+   * @throws RuntimeException if the given selectorRoles is null.
+   * @throws RuntimeException if one of the given selectorRoles is null or blank.
+   */
+  ISelectingStyleWithSelectors withSelectorRoles(IContainer<String> selectorRoles);
 }
