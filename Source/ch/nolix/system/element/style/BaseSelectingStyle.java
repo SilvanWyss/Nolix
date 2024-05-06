@@ -4,6 +4,7 @@ package ch.nolix.system.element.style;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -13,7 +14,8 @@ import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
-public abstract class BaseSelectingStyle extends BaseStyle<ISelectingStyleWithSelectors>
+public abstract class BaseSelectingStyle
+extends BaseStyle<ISelectingStyleWithSelectors>
 implements ISelectingStyleWithSelectors {
 
   //constant
@@ -174,6 +176,15 @@ implements ISelectingStyleWithSelectors {
     && selectorTypeAllowsToSelectElement(element)
     && selectorRolesAllowToSelectElement(element)
     && selectorTokensAllowToSelectElement(element);
+  }
+
+  //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
+
+    final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles);
+
+    return withSelectorRoles(allSelectorRoles);
   }
 
   //method
