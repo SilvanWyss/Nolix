@@ -189,4 +189,24 @@ public final class SelectingStyle extends BaseSelectingStyle {
       allAttachingAttributes,
       getSubStyles());
   }
+
+  //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
+
+    String optionalSelectorType = null;
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    return //
+    new SelectingStyle(
+      selectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
+  }
 }

@@ -174,6 +174,26 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
   }
 
   //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
+
+    String optionalSelectorType = null;
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    return //
+    new DeepSelectingStyle(
+      selectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  //method
   private void styleChildElementsOfElement(final IStylableElement<?> element) {
 
     final var childElements = element.getStoredChildStylableElements();

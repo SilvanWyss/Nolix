@@ -58,4 +58,13 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         selector type.
    */
   boolean hasSelectorType();
+
+  //method declaration
+  /**
+   * @param selectorId
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given selectorId set.
+   * @throws RuntimeException if the given selectorId is null or blank.
+   */
+  ISelectingStyleWithSelectors withSelectorId(String selectorId);
 }
