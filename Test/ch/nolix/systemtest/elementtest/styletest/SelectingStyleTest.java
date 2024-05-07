@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.element.mutableelement.MutableElement;
-import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
+import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.graphic.image.Image;
 
 //class
@@ -21,7 +21,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyleBuilder().setSelectorId("x").build();
+    final var testUnit = new SelectingStyle().withSelectorId("x");
 
     //setup verification
     expectNot(mockStylableElement.hasId());
@@ -42,7 +42,7 @@ final class SelectingStyleTest extends StandardTest {
     mockStylableElement.setId("x");
 
     //setup
-    final var testUnit = new SelectingStyleBuilder().setSelectorId("x").build();
+    final var testUnit = new SelectingStyle().withSelectorId("x");
 
     //setup verification
     expect(mockStylableElement.hasId());
@@ -63,7 +63,7 @@ final class SelectingStyleTest extends StandardTest {
     mockStylableElement.setId("x");
 
     //setup
-    final var testUnit = new SelectingStyleBuilder().setSelectorId("y").build();
+    final var testUnit = new SelectingStyle().withSelectorId("y");
 
     //setup verification
     expect(mockStylableElement.hasId());
@@ -83,7 +83,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyleBuilder().setSelectorType(Image.class).build();
+    final var testUnit = new SelectingStyle().withSelectorType(Image.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -100,7 +100,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyleBuilder().setSelectorType(MockStylableElement.class).build();
+    final var testUnit = new SelectingStyle().withSelectorType(MockStylableElement.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -117,7 +117,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyleBuilder().setSelectorType(MutableElement.class).build();
+    final var testUnit = new SelectingStyle().withSelectorType(MutableElement.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -131,7 +131,7 @@ final class SelectingStyleTest extends StandardTest {
   void testCase_selectsChildElements() {
 
     //setup
-    final var testUnit = new SelectingStyleBuilder().build();
+    final var testUnit = new SelectingStyle();
 
     //execution
     final var result = testUnit.selectsChildElements();
@@ -145,7 +145,7 @@ final class SelectingStyleTest extends StandardTest {
   void testCase_skipsChildElements() {
 
     //setup
-    final var testUnit = new SelectingStyleBuilder().build();
+    final var testUnit = new SelectingStyle();
 
     //execution
     final var result = testUnit.skipsChildElements();

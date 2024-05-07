@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
 
@@ -58,8 +58,8 @@ final class StyleTest extends StandardTest {
   void testCase_withSubStyle_whenIsEmpty() {
 
     //setup
-    final var subStyle1 = new SelectingStyleBuilder().build();
-    final var subStyle2 = new SelectingStyleBuilder().build();
+    final var subStyle1 = new SelectingStyle();
+    final var subStyle2 = new SelectingStyle();
     final var testUnit = new Style();
 
     //execution
@@ -94,10 +94,10 @@ final class StyleTest extends StandardTest {
   void testCase_withSubStyle_whenContainsAny() {
 
     //setup
-    final var subStyle1 = new SelectingStyleBuilder().build();
-    final var subStyle2 = new SelectingStyleBuilder().build();
-    final var subStyle3 = new SelectingStyleBuilder().build();
-    final var subStyle4 = new SelectingStyleBuilder().build();
+    final var subStyle1 = new SelectingStyle();
+    final var subStyle2 = new SelectingStyle();
+    final var subStyle3 = new SelectingStyle();
+    final var subStyle4 = new SelectingStyle();
     final var testUnit = new Style().withSubStyle(subStyle1, subStyle2);
 
     //execution
