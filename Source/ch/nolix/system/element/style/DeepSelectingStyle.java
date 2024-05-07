@@ -215,8 +215,8 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     new DeepSelectingStyle(
       optionalSelectorId,
       optionalSelectorType,
-      getSelectorRoles(),
       allSelectorRoles,
+      getSelectorTokens(),
       getAttachingAttributes(),
       getSubStyles());
   }

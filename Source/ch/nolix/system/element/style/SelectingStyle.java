@@ -232,8 +232,8 @@ public final class SelectingStyle extends BaseSelectingStyle {
     new SelectingStyle(
       optionalSelectorId,
       optionalSelectorType,
-      getSelectorRoles(),
       allSelectorRoles,
+      getSelectorTokens(),
       getAttachingAttributes(),
       getSubStyles());
   }
