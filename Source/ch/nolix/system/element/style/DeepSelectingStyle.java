@@ -222,6 +222,35 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
   }
 
   //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorTokens(final IContainer<String> selectorTokens) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final var allSelectorTokens = new LinkedList<String>();
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    allSelectorTokens.addAtEnd(getSelectorTokens());
+    allSelectorTokens.addAtEnd(selectorTokens);
+
+    return //
+    new DeepSelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      allSelectorTokens,
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  //method
   private void styleChildElementsOfElement(final IStylableElement<?> element) {
 
     final var childElements = element.getStoredChildStylableElements();
