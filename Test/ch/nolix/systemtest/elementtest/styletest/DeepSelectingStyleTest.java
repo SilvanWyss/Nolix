@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
-import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
+import ch.nolix.system.element.style.DeepSelectingStyle;
 
 //class
 final class DeepSelectingStyleTest extends StandardTest {
@@ -16,7 +16,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   void testCase_selectsChildElements() {
 
     //setup
-    final var testUnit = new DeepSelectingStyleBuilder().build();
+    final var testUnit = new DeepSelectingStyle();
 
     //execution
     final var result = testUnit.selectsChildElements();
@@ -30,7 +30,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   void testCase_skipsChildElements() {
 
     //setup
-    final var testUnit = new DeepSelectingStyleBuilder().build();
+    final var testUnit = new DeepSelectingStyle();
 
     //execution
     final var result = testUnit.skipsChildElements();
