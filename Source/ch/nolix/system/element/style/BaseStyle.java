@@ -86,6 +86,20 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
 
   //method
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S withSubStyle(
+    final ISelectingStyleWithSelectors subStyle,
+    final ISelectingStyleWithSelectors... subStyles) {
+
+    final var localSubStyles = ReadContainer.forElement(subStyle, subStyles);
+
+    return withSubStyles(localSubStyles);
+  }
+
+  //method
+  /**
    * Sets the attaching attributes of the current {@link BaseStyle} to the given
    * element.
    * 

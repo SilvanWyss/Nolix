@@ -276,6 +276,39 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
   }
 
   //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISelectingStyleWithSelectors withSubStyles(
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final var allSubStyles = new LinkedList<ISelectingStyleWithSelectors>();
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    allSubStyles.addAtEnd(getSubStyles());
+    allSubStyles.addAtEnd(subStyles);
+
+    return //
+    new DeepSelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      getAttachingAttributes(),
+      allSubStyles);
+  }
+
+  //method
   private void styleChildElementsOfElement(final IStylableElement<?> element) {
 
     final var childElements = element.getStoredChildStylableElements();

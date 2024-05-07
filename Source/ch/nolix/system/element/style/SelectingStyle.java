@@ -291,4 +291,37 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getAttachingAttributes(),
       getSubStyles());
   }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISelectingStyleWithSelectors withSubStyles(
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final var allSubStyles = new LinkedList<ISelectingStyleWithSelectors>();
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    allSubStyles.addAtEnd(getSubStyles());
+    allSubStyles.addAtEnd(subStyles);
+
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      getAttachingAttributes(),
+      allSubStyles);
+  }
 }
