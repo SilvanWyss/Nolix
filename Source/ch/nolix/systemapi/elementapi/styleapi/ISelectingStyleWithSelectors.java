@@ -94,6 +94,19 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
 
   //method declaration
   /**
+   * @param selectorToken
+   * @param selectorTokens
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given selectorToken and
+   *         selectorTokens added.
+   * @throws RuntimeException if the given selectorToken is null or blank.
+   * @throws RuntimeException if the given selectorTokens is null.
+   * @throws RuntimeException if one of the given selectorTokens is null or blank.
+   */
+  ISelectingStyleWithSelectors withSelectorToken(String selectorToken, String... selectorTokens);
+
+  //method declaration
+  /**
    * @param selectorTokens
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorTokens

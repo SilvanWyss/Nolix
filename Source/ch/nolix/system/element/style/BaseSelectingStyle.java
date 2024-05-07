@@ -188,6 +188,15 @@ implements ISelectingStyleWithSelectors {
   }
 
   //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorToken(final String selectorToken, final String... selectorTokens) {
+
+    final var allSelectorTokens = ReadContainer.forElement(selectorToken, selectorTokens);
+
+    return withSelectorTokens(allSelectorTokens);
+  }
+
+  //method
   private void assertHasSelectorId() {
     if (!hasSelectorId()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector id");
