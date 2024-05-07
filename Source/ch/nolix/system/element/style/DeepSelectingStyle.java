@@ -177,6 +177,8 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
 
+    GlobalValidator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
+
     String optionalSelectorType = null;
 
     if (hasSelectorType()) {
