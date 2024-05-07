@@ -75,6 +75,19 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorRole and
    *         selectorRoles added.
+   * @throws RuntimeException if the given selectorRole is null.
+   * @throws RuntimeException if the given selectorRoles is null.
+   * @throws RuntimeException if one of the given selectorRoles is null.
+   */
+  ISelectingStyleWithSelectors withSelectorRole(Enum<?> selectorRole, Enum<?>... selectorRoles);
+
+  //method declaration
+  /**
+   * @param selectorRole
+   * @param selectorRoles
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given selectorRole and
+   *         selectorRoles added.
    * @throws RuntimeException if the given selectorRole is null or blank.
    * @throws RuntimeException if the given selectorRoles is null.
    * @throws RuntimeException if one of the given selectorRoles is null or blank.

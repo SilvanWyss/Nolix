@@ -180,6 +180,16 @@ implements ISelectingStyleWithSelectors {
 
   //method
   @Override
+  public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
+    final Enum<?>... selectorRoles) {
+
+    final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles).to(Object::toString);
+
+    return withSelectorRoles(allSelectorRoles);
+  }
+
+  //method
+  @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
 
     final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles);
