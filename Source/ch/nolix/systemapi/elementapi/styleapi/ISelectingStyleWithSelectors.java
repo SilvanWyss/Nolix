@@ -121,6 +121,15 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorType set.
+   * @throws RuntimeException if the given selectorType is null.
+   */
+  ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType);
+
+  //method declaration
+  /**
+   * @param selectorType
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given selectorType set.
    * @throws RuntimeException if the given selectorType is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorType(String selectorType);

@@ -180,7 +180,7 @@ implements ISelectingStyleWithSelectors {
 
   //method
   @Override
-  public ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
+  public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
 
     final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles);
 
@@ -189,11 +189,19 @@ implements ISelectingStyleWithSelectors {
 
   //method
   @Override
-  public ISelectingStyleWithSelectors withSelectorToken(final String selectorToken, final String... selectorTokens) {
+  public final ISelectingStyleWithSelectors withSelectorToken(
+    final String selectorToken,
+    final String... selectorTokens) {
 
     final var allSelectorTokens = ReadContainer.forElement(selectorToken, selectorTokens);
 
     return withSelectorTokens(allSelectorTokens);
+  }
+
+  //method
+  @Override
+  public final ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType) {
+    return withSelectorType(selectorType.getSimpleName());
   }
 
   //method
