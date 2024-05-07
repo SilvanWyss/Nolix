@@ -6,6 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -263,6 +264,28 @@ public final class SelectingStyle extends BaseSelectingStyle {
       optionalSelectorType,
       getSelectorRoles(),
       allSelectorTokens,
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  //method
+  @Override
+  public ISelectingStyleWithSelectors withSelectorType(final String selectorType) {
+
+    GlobalValidator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
+
+    String optionalSelectorId = null;
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      selectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
       getAttachingAttributes(),
       getSubStyles());
   }

@@ -115,4 +115,13 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if one of the given selectorTokens is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorTokens(IContainer<String> selectorTokens);
+
+  //method declaration
+  /**
+   * @param selectorType
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given selectorType set.
+   * @throws RuntimeException if the given selectorType is null or blank.
+   */
+  ISelectingStyleWithSelectors withSelectorType(String selectorType);
 }
