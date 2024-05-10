@@ -110,35 +110,22 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   //method
   final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
 
-    var index = startIndex;
-    var endIndex = -1;
+    final var headerLength = getHeaderLengthFromStringAndStartIndex(string, startIndex);
 
-    while (index < string.length()) {
-
-      var character = string.charAt(index);
-
-      if (character == '(') {
-        break;
-      }
-
-      if (character == ',' || character == ')') {
-        endIndex = index - 1;
-        break;
-      }
-
-      index++;
+    if (headerLength > 0) {
+      setHeader(getOriginStringFromEscapeString(string.substring(startIndex, startIndex + headerLength)));
     }
 
-    if (index > startIndex) {
-      setHeader(getOriginStringFromEscapeString(string.substring(startIndex, index)));
-    }
+    var index = startIndex + headerLength;
 
     if (index == string.length()) {
       return (index - 1);
     }
 
-    if (endIndex != -1) {
-      return endIndex;
+    final var character = string.charAt(index);
+
+    if (character == ',' || character == ')') {
+      return index - 1;
     }
 
     if (index < string.length()) {
@@ -161,5 +148,20 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     }
 
     throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
+  }
+
+  //method
+  private int getHeaderLengthFromStringAndStartIndex(final String string, final int startIndex) {
+
+    for (var index = startIndex; index < string.length(); index++) {
+
+      final var character = string.charAt(index);
+
+      if (character == '(' || character == ',' || character == ')') {
+        return (index - startIndex);
+      }
+    }
+
+    return (string.length() - startIndex);
   }
 }
