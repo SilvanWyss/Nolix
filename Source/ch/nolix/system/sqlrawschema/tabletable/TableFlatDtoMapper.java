@@ -5,9 +5,10 @@ package ch.nolix.system.sqlrawschema.tabletable;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.sqlrawschemaapi.tabletableapi.ITableFlatDtoMapper;
 
 //class
-public final class TableFlatDtoMapper {
+public final class TableFlatDtoMapper implements ITableFlatDtoMapper {
 
   //method
   public IFlatTableDto createTableDto(final IContainer<String> tableSystemTableRecord) {
