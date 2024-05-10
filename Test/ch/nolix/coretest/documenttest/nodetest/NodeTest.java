@@ -61,6 +61,12 @@ final class NodeTest extends BaseNodeTest<Node> {
 
   //method
   @Override
+  protected Node createNodeWithHeader(final String header) {
+    return Node.withHeader(header);
+  }
+
+  //method
+  @Override
   protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
     return Node.withHeaderAndChildNodes(header, ReadContainer.forArray(childNodeHeaders).to(Node::withHeader));
   }

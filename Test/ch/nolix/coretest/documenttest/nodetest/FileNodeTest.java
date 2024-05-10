@@ -31,6 +31,17 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
   //method
   @Override
+  protected FileNode createNodeWithHeader(String header) {
+
+    final var fileNode = new FileNode(GlobalFileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+
+    fileNode.setHeader(header);
+
+    return fileNode;
+  }
+
+  //method
+  @Override
   protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 
     final var fileNode = new FileNode(GlobalFileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");

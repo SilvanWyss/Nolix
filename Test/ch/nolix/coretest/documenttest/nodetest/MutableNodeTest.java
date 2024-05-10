@@ -15,6 +15,17 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
 
   //method
   @Override
+  protected MutableNode createNodeWithHeader(final String header) {
+
+    final var mutableNode = new MutableNode();
+
+    mutableNode.setHeader(header);
+
+    return mutableNode;
+  }
+
+  //method
+  @Override
   protected MutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 
     final var mutableNode = new MutableNode();
