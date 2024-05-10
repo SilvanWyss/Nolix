@@ -5,12 +5,14 @@ package ch.nolix.system.sqlrawschema.databaseinitializer;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInitializerSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class DatabaseInitializerSqlStatementCreator {
+public final class DatabaseInitializerSqlStatementCreator implements IDatabaseInitializerSqlStatementCreator {
 
   //method
+  @Override
   public String createSqlStatementToCreateSchemaTimestampEntry(final ITime timestamp) {
     return //
     "INSERT INTO "
