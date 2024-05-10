@@ -315,108 +315,27 @@ final class ClosedIntervalTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_intersectsWith_whenGivenClosedIntervalIsBefore() {
+  @ParameterizedTest
+  @CsvSource({
+  "-2.0, -1.0, false", //When the given ClosedInterval is before.
+  "2.0, 3.0, false", //When the given ClosedInterval is after.
+  "0.0, 1.0, true", //When the given ClosedInterval equals.
+  "-1.0, 2.0, true", //When the given ClosedInterval encloses.
+  "0.25, 0.75, true", //When the given ClosedInterval is enclosed.
+  "-1.0, 0.25, true", //When the given ClosedInterval only intersects with the min.
+  "0.75, 2.0, true", //When the given ClosedInterval only intersects with the max.
+  })
+  void testCase_intersectsWith(final double min, final double max, final boolean expectedResult) {
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-    final var closedInterval = new ClosedInterval(-2.0, -1.0);
-
-    //execution
-    final var result = testUnit.intersectsWith(closedInterval);
-
-    //verification
-    expectNot(result);
-  }
-
-  //method
-  @Test
-  void testCase_intersectsWith_whenGivenClosedIntervalIsAfter() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-    final var closedInterval = new ClosedInterval(2.0, 3.0);
-
-    //execution
-    final var result = testUnit.intersectsWith(closedInterval);
-
-    //verification
-    expectNot(result);
-  }
-
-  //method
-  @Test
-  void testCase_intersectsWith_whenEqualsGivenClosedInterval() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(0.0, 1.0);
+    final var testUnit = new ClosedInterval(min, max);
 
     //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
     //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_intersectsWith_whenEclosesGivenClosedInterval() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 2.0);
-    final var closedInterval = new ClosedInterval(0.0, 1.0);
-
-    //execution
-    final var result = testUnit.intersectsWith(closedInterval);
-
-    //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_intersectsWith_whenGivenClosedIntervalEncloses() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-    final var closedInterval = new ClosedInterval(0.0, 2.0);
-
-    //execution
-    final var result = testUnit.intersectsWith(closedInterval);
-
-    //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtBegin() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-    final var closedInterval = new ClosedInterval(-1.0, 0.25);
-
-    //execution
-    final var result = testUnit.intersectsWith(closedInterval);
-
-    //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtEnd() {
-
-    //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
-    final var closedInterval = new ClosedInterval(0.75, 2.0);
-
-    //execution
-    final var result = testUnit.intersectsWith(closedInterval);
-
-    //verification
-    expect(result);
+    expect(result == expectedResult);
   }
 
   //method
