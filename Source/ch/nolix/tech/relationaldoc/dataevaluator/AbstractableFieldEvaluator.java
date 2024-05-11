@@ -11,6 +11,14 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 public final class AbstractableFieldEvaluator {
 
   //method
+  public boolean allRealisingFieldsAreEmpty(final IAbstractableField abstractableField) {
+
+    final var realisingFields = getStoredRealisingFields(abstractableField);
+
+    return realisingFields.containsOnly(IAbstractableField::isEmpty);
+  }
+
+  //method
   public boolean canBeSetAsAbstract(final IAbstractableField abstractableField) {
     return abstractableField != null
     && canBeSetAsAbstractWhenIsNotNull(abstractableField);
@@ -72,10 +80,7 @@ public final class AbstractableFieldEvaluator {
 
   //method
   private boolean canBeSetAsConcreteWhenIsNotNull(final IAbstractableField abstractableField) {
-
-    final var realisingFields = getStoredRealisingFields(abstractableField);
-
-    return realisingFields.containsOnly(IAbstractableField::isEmpty);
+    return allRealisingFieldsAreEmpty(abstractableField);
   }
 
   //method
@@ -113,10 +118,7 @@ public final class AbstractableFieldEvaluator {
 
   //method
   private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final IAbstractableField abstractableField) {
-
-    final var realisingFields = getStoredRealisingFields(abstractableField);
-
-    return realisingFields.containsOnly(IAbstractableField::isEmpty);
+    return allRealisingFieldsAreEmpty(abstractableField);
   }
 
   //method
