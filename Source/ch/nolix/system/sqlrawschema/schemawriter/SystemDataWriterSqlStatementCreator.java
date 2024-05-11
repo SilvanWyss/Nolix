@@ -14,10 +14,11 @@ import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-final class SystemDataWriterSqlStatementCreator {
+public final class SystemDataWriterSqlStatementCreator implements ISystemDataWriterSqlStatementCreator {
 
   //constant
   private static final ParameterizedFieldTypeSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
@@ -27,6 +28,7 @@ final class SystemDataWriterSqlStatementCreator {
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
 
   //method
+  @Override
   public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 
     final var parameterizedFieldTypeRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
@@ -73,6 +75,7 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
+  @Override
   public LinkedList<String> createStatementsToAddTable(final ITableDto table) {
 
     final var statements = new LinkedList<String>();
@@ -87,6 +90,7 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
+  @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return "DELETE FROM "
     + SchemaTableType.COLUMN.getQualifiedName()
@@ -102,6 +106,7 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
+  @Override
   public String createStatementToDeleteTable(final String tableName) {
     return "DELETE FROM "
     + SchemaTableType.TABLE.getQualifiedName()
@@ -113,7 +118,9 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
-  public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
+  @Override
+  public String createStatementToSetColumnName(final String tableName, final String columnName,
+    final String newColumnName) {
     return "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
     + " SET "
@@ -132,6 +139,7 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
+  @Override
   public String createStatementToSetColumnParameterizedFieldType(
     final String columnID,
     final IParameterizedFieldTypeDto parameterizedFieldType) {
@@ -161,7 +169,8 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
-  public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
+  @Override
+  public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return "UPDATE "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " SET "
@@ -175,7 +184,8 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
-  public String createStatementToSetTableName(String tableName, String newTableName) {
+  @Override
+  public String createStatementToSetTableName(final String tableName, final String newTableName) {
     return "UPDATE "
     + SchemaTableType.TABLE.getQualifiedName()
     + " SET "
@@ -190,7 +200,7 @@ final class SystemDataWriterSqlStatementCreator {
   }
 
   //method
-  private String createStatementToAddTableIgnoringColumns(ITableDto table) {
+  private String createStatementToAddTableIgnoringColumns(final ITableDto table) {
 
     final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);
 
