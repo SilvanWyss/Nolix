@@ -3,8 +3,8 @@ package ch.nolix.coreapi.mathapi.basicapi;
 
 //class
 /**
- * The {@link NumberCatalogue} provides special numbers that are often used in
- * mathematics.
+ * The {@link NumberCatalogue} provides numbers that are important mathematical
+ * constants.
  * 
  * Of the {@link NumberCatalogue} an instance cannot be created.
  * 
