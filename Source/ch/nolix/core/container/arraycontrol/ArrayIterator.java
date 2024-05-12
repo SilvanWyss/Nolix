@@ -5,13 +5,15 @@ package ch.nolix.core.container.arraycontrol;
 import java.util.NoSuchElementException;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.container.iteratorvalidator.IteratorValidator;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class ArrayIterator<E> implements CopyableIterator<E> {
+
+  //constant
+  private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
 
   //attribute
   private final E[] parentArray;
@@ -71,11 +73,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
 
   //method
   private void assertHasNext() throws NoSuchElementException {
-    if (!hasNext()) {
-      throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT)
-        .toNoSuchElementException();
-    }
+    ITERATOR_VALIDATOR.assertHasNext(this);
   }
 
   //method

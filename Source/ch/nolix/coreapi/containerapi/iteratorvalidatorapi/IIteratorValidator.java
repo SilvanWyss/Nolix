@@ -16,5 +16,5 @@ public interface IIteratorValidator {
    * @param iterator
    * @throws RuntimeException if the given iterator does not have a next element.
    */
-  void assertHasNext(Iterator<Object> iterator);
+  void assertHasNext(Iterator<?> iterator);
 }
