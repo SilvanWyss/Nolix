@@ -395,13 +395,4 @@ public final class GlobalBasicCalculator {
 
     return (Math.abs(value) <= maxDeviation);
   }
-
-  //static method
-  /**
-   * @param value
-   * @return a new {@link IntRoundingMediator} for the given value.
-   */
-  public static IntRoundingMediator round(final int value) {
-    return new IntRoundingMediator(value);
-  }
 }
