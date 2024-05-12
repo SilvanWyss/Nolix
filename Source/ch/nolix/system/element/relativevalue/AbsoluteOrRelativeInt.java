@@ -141,8 +141,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -166,8 +165,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */

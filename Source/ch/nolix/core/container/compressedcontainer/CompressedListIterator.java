@@ -26,8 +26,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
   }
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   private CompressedListIterator(final CompressedListNode<E> firstNode) {
 
     if (firstNode == null) {

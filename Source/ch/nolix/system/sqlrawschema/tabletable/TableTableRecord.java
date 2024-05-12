@@ -8,8 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 public record TableTableRecord(String idValue, String nameValue) {
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public TableTableRecord( //NOSONAR: This constructor does more than the default one.
     final String idValue,
     final String nameValue) {

@@ -19,8 +19,7 @@ int columnIndexOnEntityNode)
 implements IColumnInfo {
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
     final String columnId,
     final String columnName,

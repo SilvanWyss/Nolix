@@ -127,8 +127,7 @@ implements IControl<C, CS> {
   private Object linkedObject;
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public final boolean belongsToControl() {
     return (parent != null && parent.isControl());
@@ -141,8 +140,7 @@ implements IControl<C, CS> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public final boolean belongsToLayer() {
     return (parent != null && parent.belongsToLayer());

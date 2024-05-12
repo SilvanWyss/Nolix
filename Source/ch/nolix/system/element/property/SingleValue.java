@@ -131,8 +131,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */

@@ -21,8 +21,7 @@ final class CompressedListNode<E> {
   private CompressedListNode<E> nextNode;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   private CompressedListNode(final E element, final int elementCount) {
 
     if (element == null) {

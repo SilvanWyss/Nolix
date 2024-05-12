@@ -58,6 +58,7 @@ final class ResultJobRunner<R> extends Thread {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @return the error of the current {@link ResultJobRunner}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -67,8 +68,6 @@ final class ResultJobRunner<R> extends Thread {
   public Throwable getError() {
 
     //Asserts that the current ResultJobRunner has an error.
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.ERROR);
     }

@@ -102,8 +102,7 @@ public final class GlobalStringTool {
   }
 
   //static method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param string
    * @return the given string in braces.
@@ -119,8 +118,7 @@ public final class GlobalStringTool {
   }
 
   //static method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param string
    * @return the given string in parentheses.

@@ -17,8 +17,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   private final V value;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   private KeyValuePair(final K key, final V value) {
 
     if (key == null) {
@@ -51,8 +50,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public String toString() {
     return GlobalStringTool.getInParantheses(key + ";" + value);

@@ -124,8 +124,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
 
     this.attributes.addAtEnd(attributes);
@@ -158,10 +157,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
 
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     this.childNodes.addAtEnd(childNodes);
 
     return this;

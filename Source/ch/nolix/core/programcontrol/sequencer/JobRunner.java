@@ -278,6 +278,7 @@ final class JobRunner extends Thread {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @return the error of the current {@link JobRunner}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -287,8 +288,6 @@ final class JobRunner extends Thread {
   public Throwable getError() {
 
     //Asserts that the current JobRunner has an error.
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.ERROR);
     }

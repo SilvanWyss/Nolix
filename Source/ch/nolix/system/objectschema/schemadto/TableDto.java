@@ -22,8 +22,7 @@ public final class TableDto implements ITableDto {
   private final IContainer<IColumnDto> columnDtos;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public TableDto(
     final String id,
     final String name,

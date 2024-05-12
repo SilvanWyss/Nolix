@@ -51,6 +51,7 @@ public final class GlobalBasicCalculator {
   }
 
   //static method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value1
    * @param value2
@@ -58,9 +59,6 @@ public final class GlobalBasicCalculator {
    *         deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
   public static boolean equalsApproximatively(final double value1, final double value2) {
-
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
   }
 
@@ -345,15 +343,13 @@ public final class GlobalBasicCalculator {
   }
 
   //static method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value
    * @return true if the given value is approximately 1.0 with a deviation that is
    *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
   public static boolean isApproximatelyOne(final double value) {
-
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
   }
 
@@ -374,15 +370,13 @@ public final class GlobalBasicCalculator {
   }
 
   //static method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value
    * @return true if the given value is approximately 0.0 with a deviation that is
    *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
   public static boolean isApproximatelyZero(final double value) {
-
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
   }
 

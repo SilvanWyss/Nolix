@@ -15,8 +15,7 @@ public final class HtmlAttribute implements IHtmlAttribute {
   private final String value;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   private HtmlAttribute(final String name, final String value) {
 
     if (name == null) {

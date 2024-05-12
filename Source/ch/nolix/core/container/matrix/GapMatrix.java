@@ -121,8 +121,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */

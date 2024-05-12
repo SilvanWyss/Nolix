@@ -53,6 +53,7 @@ public class ThrownExceptionMediator {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have a message.
@@ -60,8 +61,6 @@ public class ThrownExceptionMediator {
   public final void withMessage() {
 
     //Handles the case that the current thrown exception mediator has an exception.
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     if (exception != null && exception.getMessage() == null) {
       throw //
       GeneralException.withErrorMessage(
@@ -71,6 +70,7 @@ public class ThrownExceptionMediator {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have the given message.
@@ -86,8 +86,6 @@ public class ThrownExceptionMediator {
     }
 
     //Handles the case that the current ThrownExceptionMediator has an exception.
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     if (exception != null) {
 
       //Asserts that the exception of the current ThrownExceptionMediator has a
@@ -151,6 +149,7 @@ public class ThrownExceptionMediator {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} has a message.
@@ -158,8 +157,6 @@ public class ThrownExceptionMediator {
   public final void withoutMessage() {
 
     //Handles the case that the current ThrownExceptionMediator has an exception.
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     if (exception != null && exception.getMessage() != null) {
       throw //
       GeneralException.withErrorMessage(
@@ -170,6 +167,7 @@ public class ThrownExceptionMediator {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @return the exception of the current {@link ThrownExceptionMediator}.
    * 
@@ -177,8 +175,6 @@ public class ThrownExceptionMediator {
   final Throwable getException() {
 
     //Asserts that the current ThrownExceptionMediator has an exception.
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     if (exception == null) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.EXCEPTION);

@@ -85,8 +85,7 @@ public final class ComplexNumber implements IComplexNumber {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public boolean equals(final Object object) {
 

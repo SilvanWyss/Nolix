@@ -17,8 +17,7 @@ public abstract class ParameterizedFieldTypeDto implements IParameterizedFieldTy
   private final DataType dataType;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   protected ParameterizedFieldTypeDto(final FieldType fieldType, final DataType dataType) {
 
     if (fieldType == null) {

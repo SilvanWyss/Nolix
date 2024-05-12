@@ -31,8 +31,7 @@ final class StateProperty<V> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public V getValue() {
 
     if (!hasValueOrDefinesEmpty || value == null) {
@@ -65,8 +64,7 @@ final class StateProperty<V> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public void setValue(final V value) {
 
     if (value == null) {

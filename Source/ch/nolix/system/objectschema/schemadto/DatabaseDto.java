@@ -19,8 +19,7 @@ public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implemen
   }
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public DatabaseDto(final String name, final ImmutableList<ITableDto> tables) { //NOSONAR: This implementations checks
                                                                                  //the given arguments.
 

@@ -73,8 +73,7 @@ public final class ImmutableList<E> extends Container<E> {
   }
 
   //static method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param <E2>
    * @param container

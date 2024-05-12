@@ -17,8 +17,7 @@ implements IBaseParameterizedBackReferenceTypeDto {
   private final String backReferencedColumnId;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public BaseParameterizedBackReferenceTypeDto(
     final FieldType fieldType,
     final DataType dataType,

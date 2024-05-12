@@ -10,8 +10,7 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatDatabaseDto;
 public record FlatDatabaseDto(String name) implements IFlatDatabaseDto {
 
   //constructor
-  //For a better performance, this implementation does not use all comforDatabase
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public FlatDatabaseDto(final String name) { //NOSONAR: This implementations checks the given arguments.
 
     if (name == null) {

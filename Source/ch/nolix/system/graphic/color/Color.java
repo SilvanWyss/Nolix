@@ -1734,8 +1734,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1767,8 +1766,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1778,8 +1776,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1789,8 +1786,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1800,8 +1796,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1874,8 +1869,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1895,8 +1889,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -1906,8 +1899,7 @@ public final class Color extends Element implements IColor {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */

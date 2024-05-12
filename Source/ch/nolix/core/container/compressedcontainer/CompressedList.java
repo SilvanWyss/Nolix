@@ -55,8 +55,7 @@ public final class CompressedList<E> extends Container<E> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 

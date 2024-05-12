@@ -20,8 +20,7 @@ public final class ColumnDto implements IColumnDto {
   private final IParameterizedFieldTypeDto parameterizedFieldTypeDto;
 
   //constructor
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   public ColumnDto(
     final String id,
     final String name,

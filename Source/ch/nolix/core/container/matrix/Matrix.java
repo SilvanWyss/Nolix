@@ -417,8 +417,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
    */
@@ -615,8 +614,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The complexity of this implementation is O(n) if the current {@link Matrix}
    * contains n elements.
@@ -655,8 +653,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   }
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The complexity of this implementation is O(n) if the current {@link Matrix}
    * contains n elements.

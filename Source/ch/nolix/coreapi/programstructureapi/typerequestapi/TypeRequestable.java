@@ -33,15 +33,13 @@ public interface TypeRequestable {
   }
 
   //method
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
    *         type.
    */
   default boolean isOfConcreteType(final String concreteType) {
-
-    //For a better performance, this implementation does not use all comfortable
-    //methods.
     return getClass().getSimpleName().equals(concreteType);
   }
 
