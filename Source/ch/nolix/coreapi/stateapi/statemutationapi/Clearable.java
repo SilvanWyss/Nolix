@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.coreapi.generalstateapi.statemutationapi;
+package ch.nolix.coreapi.stateapi.statemutationapi;
 
-//own imports
-import ch.nolix.coreapi.generalstateapi.staterequestapi.EmptinessRequestable;
+import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
 //interface
 /**

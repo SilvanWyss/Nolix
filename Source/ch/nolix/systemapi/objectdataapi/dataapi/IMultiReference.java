@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 //interface
 public interface IMultiReference<E extends IEntity> extends Clearable, IBaseReference<E> {

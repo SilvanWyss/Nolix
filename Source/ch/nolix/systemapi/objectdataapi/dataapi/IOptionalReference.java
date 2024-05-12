@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-//own imports
-import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 //interface
 public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseReference<E> {

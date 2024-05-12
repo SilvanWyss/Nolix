@@ -4,9 +4,9 @@ package ch.nolix.system.webgui.container;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.Value;

@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
-import ch.nolix.coreapi.generalstateapi.staterequestapi.BlanknessRequestable;
+import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
 
 //interface
 /**

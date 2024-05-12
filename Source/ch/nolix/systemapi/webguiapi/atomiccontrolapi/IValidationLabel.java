@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
-//own imports
-import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface

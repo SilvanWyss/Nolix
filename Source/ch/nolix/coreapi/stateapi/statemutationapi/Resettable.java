@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.generalstateapi.statemutationapi;
+package ch.nolix.coreapi.stateapi.statemutationapi;
 
 //interface
 /**

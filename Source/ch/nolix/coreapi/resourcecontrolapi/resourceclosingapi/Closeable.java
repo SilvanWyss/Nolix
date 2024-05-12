@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
-//own imports
-import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 //interface
 /**

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataflyweightapi;
 
-//own imports
-import ch.nolix.coreapi.generalstateapi.staterequestapi.VoidnessRequestable;
+import ch.nolix.coreapi.stateapi.staterequestapi.VoidnessRequestable;
 
 //class
 public interface IFieldFlyWeight extends VoidnessRequestable {

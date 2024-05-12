@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.generalstateapi.statemutationapi.Clearable;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 //interface
 /**
