@@ -36,7 +36,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ITextbox control,
     final LinkedList<CssProperty> list) {
-    //Does nothing.
+    list.addAtEnd(CssProperty.withNameAndValue("outline", "none"));
   }
 
   //method
