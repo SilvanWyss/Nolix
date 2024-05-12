@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.programcontrolapi.targetapi;
+package ch.nolix.coreapi.netapi.targetapi;
 
 //interface
 public interface IDatabaseTarget extends IAuthenticationServerTarget {

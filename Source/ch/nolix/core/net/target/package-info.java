@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.core.net.target} package defines some types that are
- * declared {@link ch.nolix.coreapi.programcontrolapi.targetapi}.
+ * declared {@link ch.nolix.coreapi.netapi.targetapi}.
  * 
  * @author Silvan Wyss
  * @date 2022-05-14

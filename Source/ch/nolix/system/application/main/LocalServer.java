@@ -4,7 +4,7 @@ package ch.nolix.system.application.main;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class

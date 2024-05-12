@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 

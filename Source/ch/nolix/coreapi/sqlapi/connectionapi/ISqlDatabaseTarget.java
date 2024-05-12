@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.sqlapi.connectionapi;
 
-//own imports
-import ch.nolix.coreapi.programcontrolapi.targetapi.IDatabaseTarget;
+import ch.nolix.coreapi.netapi.targetapi.IDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //interface

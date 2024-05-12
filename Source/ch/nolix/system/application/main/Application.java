@@ -21,9 +21,9 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class

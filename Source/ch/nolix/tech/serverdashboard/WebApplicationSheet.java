@@ -3,7 +3,7 @@ package ch.nolix.tech.serverdashboard;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;

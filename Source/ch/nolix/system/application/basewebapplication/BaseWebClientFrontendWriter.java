@@ -3,7 +3,7 @@ package ch.nolix.system.application.basewebapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class

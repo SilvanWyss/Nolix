@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.webapi.cookieapi.ICookieManager;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
