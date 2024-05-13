@@ -3,8 +3,8 @@ package ch.nolix.systemapi.timeapi.momentapi;
 
 //own imports
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
-import ch.nolix.systemapi.timeapi.timestructure.Month;
-import ch.nolix.systemapi.timeapi.timestructure.Weekday;
+import ch.nolix.systemapi.timeapi.timestructureapi.Month;
+import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
 //interface
 public interface ITime extends IElement {

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.timeapi.timestructure.Weekday;
+import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
 //class
 final class TimeTest extends StandardTest {

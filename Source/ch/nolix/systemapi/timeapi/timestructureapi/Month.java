@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.timeapi.timestructure;
+package ch.nolix.systemapi.timeapi.timestructureapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

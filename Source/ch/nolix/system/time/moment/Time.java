@@ -18,8 +18,8 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
-import ch.nolix.systemapi.timeapi.timestructure.Month;
-import ch.nolix.systemapi.timeapi.timestructure.Weekday;
+import ch.nolix.systemapi.timeapi.timestructureapi.Month;
+import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
 //class
 /**
