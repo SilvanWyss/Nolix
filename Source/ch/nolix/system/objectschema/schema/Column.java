@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedFieldType;
@@ -15,7 +16,6 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedValueTyp
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;

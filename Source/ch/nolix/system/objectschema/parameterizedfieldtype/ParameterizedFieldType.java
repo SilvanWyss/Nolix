@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.parameterizedfieldtype;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 
 //class

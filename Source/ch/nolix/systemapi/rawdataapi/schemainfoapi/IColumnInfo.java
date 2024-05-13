@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.schemainfoapi;
 
-//own imports
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //interface

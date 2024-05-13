@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.noderawdata.datareader;
 
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 

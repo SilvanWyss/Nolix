@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 //own imports
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;

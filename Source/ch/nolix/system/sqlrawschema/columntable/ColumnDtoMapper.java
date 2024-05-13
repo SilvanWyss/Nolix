@@ -4,11 +4,11 @@ package ch.nolix.system.sqlrawschema.columntable;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class

@@ -4,8 +4,8 @@ package ch.nolix.system.objectschema.parameterizedfieldtype;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;

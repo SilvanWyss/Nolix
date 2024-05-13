@@ -4,8 +4,8 @@ package ch.nolix.system.sqlrawdata.schemainfo;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 

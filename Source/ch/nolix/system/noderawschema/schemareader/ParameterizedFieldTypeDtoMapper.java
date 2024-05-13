@@ -3,13 +3,13 @@ package ch.nolix.system.noderawschema.schemareader;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ParameterizedFieldTypeDto;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
 import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 
 //class

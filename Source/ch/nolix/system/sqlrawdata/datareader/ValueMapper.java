@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.fieldapi.datatypeapi.DataType;
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
