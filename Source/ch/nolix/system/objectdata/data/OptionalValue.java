@@ -8,8 +8,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
@@ -76,8 +76,8 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 
   //method
   @Override
-  public FieldType getType() {
-    return FieldType.OPTIONAL_VALUE;
+  public ContentType getType() {
+    return ContentType.OPTIONAL_VALUE;
   }
 
   //method

@@ -12,9 +12,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
 //class
@@ -79,8 +79,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 
   //method
   @Override
-  public FieldType getType() {
-    return FieldType.MULTI_VALUE;
+  public ContentType getType() {
+    return ContentType.MULTI_VALUE;
   }
 
   //method

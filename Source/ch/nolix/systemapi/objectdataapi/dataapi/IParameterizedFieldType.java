@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-//own imports
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //interface
 public interface IParameterizedFieldType {
@@ -20,5 +19,5 @@ public interface IParameterizedFieldType {
   boolean referencesTable(ITable<?> table);
 
   //method declaration
-  FieldType getFieldType();
+  ContentType getFieldType();
 }

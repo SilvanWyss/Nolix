@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
@@ -39,7 +39,7 @@ public final class ColumnDefinitionMapper {
   }
 
   //method
-  private FieldType getColumnFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
+  private ContentType getColumnFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedFieldTypeNode = //
     COLUMN_NODE_SEARCHER.getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
@@ -48,7 +48,7 @@ public final class ColumnDefinitionMapper {
     PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode);
 
-    return FieldType.fromSpecification(fieldTypeNode);
+    return ContentType.fromSpecification(fieldTypeNode);
   }
 
   //method

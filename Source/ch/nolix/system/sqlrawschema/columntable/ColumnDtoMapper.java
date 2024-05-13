@@ -9,14 +9,14 @@ import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceType
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //class
 public final class ColumnDtoMapper {
 
   //method
   public ColumnDto createColumnDto(final IContainer<String> columnSystemTableSqlRecord) {
-    return switch (FieldType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)).getBaseType()) {
+    return switch (ContentType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)).getBaseType()) {
       case BASE_VALUE ->
         createColumnDtoForBaseValue(columnSystemTableSqlRecord);
       case BASE_BACK_REFERENCE ->
@@ -36,7 +36,7 @@ public final class ColumnDtoMapper {
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(1),
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(2),
       new BaseParameterizedBackReferenceTypeDto(
-        FieldType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(5)),
+        ContentType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(5)),
         DataType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(6)),
         columnSystemTableSqlRecord.getStoredAt1BasedIndex(7)));
   }
@@ -47,7 +47,7 @@ public final class ColumnDtoMapper {
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(1),
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(2),
       new BaseParameterizedReferenceTypeDto(
-        FieldType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)),
+        ContentType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)),
         DataType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(5)),
         columnSystemTableSqlRecord.getStoredAt1BasedIndex(6)));
   }
@@ -58,7 +58,7 @@ public final class ColumnDtoMapper {
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(1),
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(2),
       new BaseParameterizedValueTypeDto(
-        FieldType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)),
+        ContentType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)),
         DataType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(5))));
   }
 }

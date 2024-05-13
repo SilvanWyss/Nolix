@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.systemapi.fieldapi.mainapi;
+package ch.nolix.systemapi.objectdataapi.fieldproperty;
 
 //enum
-public enum BaseFieldType {
+public enum BaseContentType {
   BASE_VALUE,
   BASE_REFERENCE,
   BASE_BACK_REFERENCE,

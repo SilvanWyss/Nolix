@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
-import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -61,13 +61,13 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
 
   //method
   @Override
-  public BaseFieldType getBaseFieldType(IColumn column) {
+  public BaseContentType getBaseFieldType(IColumn column) {
     return getFieldType(column).getBaseType();
   }
 
   //method
   @Override
-  public FieldType getFieldType(final IColumn column) {
+  public ContentType getFieldType(final IColumn column) {
     return column.getParameterizedFieldType().getFieldType();
   }
 

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parameterizedfieldtype;
 
-//own imports
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
@@ -20,7 +19,7 @@ public final class ParameterizedMultiReferenceType extends BaseParameterizedRefe
 
   //method
   @Override
-  public FieldType getFieldType() {
-    return FieldType.MULTI_REFERENCE;
+  public ContentType getFieldType() {
+    return ContentType.MULTI_REFERENCE;
   }
 }

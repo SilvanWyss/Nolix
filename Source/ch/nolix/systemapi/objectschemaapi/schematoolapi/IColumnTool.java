@@ -3,8 +3,8 @@ package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 //own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
-import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -28,10 +28,10 @@ public interface IColumnTool extends IDatabaseObjectTool {
   boolean belongsToDatabase(IColumn column);
 
   //method declaration
-  BaseFieldType getBaseFieldType(IColumn column);
+  BaseContentType getBaseFieldType(IColumn column);
 
   //method declaration
-  FieldType getFieldType(IColumn column);
+  ContentType getFieldType(IColumn column);
 
   //method declaration
   IDatabase getParentDatabase(IColumn column);

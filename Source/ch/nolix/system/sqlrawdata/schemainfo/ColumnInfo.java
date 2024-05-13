@@ -6,14 +6,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public record ColumnInfo(
 String columnId,
 String columnName,
-FieldType columnFieldType,
+ContentType columnFieldType,
 DataType columnDataType,
 int columnIndexOnEntityNode)
 implements IColumnInfo {
@@ -23,7 +23,7 @@ implements IColumnInfo {
   public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
     final String columnId,
     final String columnName,
-    final FieldType columnFieldType,
+    final ContentType columnFieldType,
     final DataType columnDataType,
     final int columnIndexOnEntityNode) {
 
@@ -64,7 +64,7 @@ implements IColumnInfo {
 
   //method
   @Override
-  public FieldType getColumnFieldType() {
+  public ContentType getColumnFieldType() {
     return columnFieldType;
   }
 

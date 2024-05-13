@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //interface
 public interface IParameterizedFieldTypeDto {
@@ -11,5 +11,5 @@ public interface IParameterizedFieldTypeDto {
   DataType getDataType();
 
   //method declaration
-  FieldType getFieldType();
+  ContentType getFieldType();
 }

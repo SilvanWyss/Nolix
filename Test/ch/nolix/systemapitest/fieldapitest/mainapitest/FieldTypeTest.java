@@ -11,7 +11,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.test.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //class
 final class FieldTypeTest extends StandardTest {
@@ -20,21 +20,21 @@ final class FieldTypeTest extends StandardTest {
   private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {
     return //
     ImmutableList.withElement(
-      Arguments.of(FieldType.VALUE, Cardinality.TO_ONE),
-      Arguments.of(FieldType.OPTIONAL_VALUE, Cardinality.TO_ONE_OR_NONE),
-      Arguments.of(FieldType.MULTI_VALUE, Cardinality.TO_MANY),
-      Arguments.of(FieldType.REFERENCE, Cardinality.TO_ONE),
-      Arguments.of(FieldType.OPTIONAL_REFERENCE, Cardinality.TO_ONE_OR_NONE),
-      Arguments.of(FieldType.MULTI_REFERENCE, Cardinality.TO_MANY),
-      Arguments.of(FieldType.BACK_REFERENCE, Cardinality.TO_ONE),
-      Arguments.of(FieldType.OPTIONAL_BACK_REFERENCE, Cardinality.TO_ONE_OR_NONE),
-      Arguments.of(FieldType.MULTI_BACK_REFERENCE, Cardinality.TO_MANY));
+      Arguments.of(ContentType.VALUE, Cardinality.TO_ONE),
+      Arguments.of(ContentType.OPTIONAL_VALUE, Cardinality.TO_ONE_OR_NONE),
+      Arguments.of(ContentType.MULTI_VALUE, Cardinality.TO_MANY),
+      Arguments.of(ContentType.REFERENCE, Cardinality.TO_ONE),
+      Arguments.of(ContentType.OPTIONAL_REFERENCE, Cardinality.TO_ONE_OR_NONE),
+      Arguments.of(ContentType.MULTI_REFERENCE, Cardinality.TO_MANY),
+      Arguments.of(ContentType.BACK_REFERENCE, Cardinality.TO_ONE),
+      Arguments.of(ContentType.OPTIONAL_BACK_REFERENCE, Cardinality.TO_ONE_OR_NONE),
+      Arguments.of(ContentType.MULTI_BACK_REFERENCE, Cardinality.TO_MANY));
   }
 
   //method
   @ParameterizedTest
   @MethodSource("getFieldTypesAndTheirCardinality")
-  void testCase(final FieldType testUnit, final Cardinality expectedCardinality) {
+  void testCase(final ContentType testUnit, final Cardinality expectedCardinality) {
 
     //execution
     final var result = testUnit.getCardinality();

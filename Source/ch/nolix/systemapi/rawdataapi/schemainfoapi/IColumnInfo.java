@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawdataapi.schemainfoapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //interface
 public interface IColumnInfo {
@@ -11,7 +11,7 @@ public interface IColumnInfo {
   DataType getColumnDataType();
 
   //method declaration
-  FieldType getColumnFieldType();
+  ContentType getColumnFieldType();
 
   //method declaration
   String getColumnId();

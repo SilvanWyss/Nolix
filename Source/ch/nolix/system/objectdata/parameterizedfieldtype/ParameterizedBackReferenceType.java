@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdata.parameterizedfieldtype;
 
-//own imports
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //class
 public final class ParameterizedBackReferenceType<C extends IColumn> extends BaseParameterizedBackReferenceType<C> {
@@ -21,7 +20,7 @@ public final class ParameterizedBackReferenceType<C extends IColumn> extends Bas
 
   //method
   @Override
-  public FieldType getFieldType() {
-    return FieldType.BACK_REFERENCE;
+  public ContentType getFieldType() {
+    return ContentType.BACK_REFERENCE;
   }
 }

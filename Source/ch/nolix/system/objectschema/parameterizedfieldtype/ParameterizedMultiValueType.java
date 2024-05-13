@@ -2,7 +2,7 @@
 package ch.nolix.system.objectschema.parameterizedfieldtype;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //class
 public final class ParameterizedMultiValueType<V> extends BaseParameterizedValueType<V> {
@@ -19,7 +19,7 @@ public final class ParameterizedMultiValueType<V> extends BaseParameterizedValue
 
   //method
   @Override
-  public FieldType getFieldType() {
-    return FieldType.MULTI_VALUE;
+  public ContentType getFieldType() {
+    return ContentType.MULTI_VALUE;
   }
 }

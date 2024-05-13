@@ -5,9 +5,9 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.fieldapi.mainapi.BaseFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
@@ -52,7 +52,7 @@ final class DatabaseTableLoader {
     final var rawBaseValueColumns = rawTable
       .getColumns()
       .getStoredSelected(
-        c -> c.getParameterizedFieldType().getFieldType().getBaseType() == BaseFieldType.BASE_VALUE);
+        c -> c.getParameterizedFieldType().getFieldType().getBaseType() == BaseContentType.BASE_VALUE);
 
     for (final var c : rawBaseValueColumns) {
 
@@ -86,7 +86,7 @@ final class DatabaseTableLoader {
     final var rawBaseReferenceColumns = rawTable
       .getColumns()
       .getStoredSelected(
-        c -> c.getParameterizedFieldType().getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE);
+        c -> c.getParameterizedFieldType().getFieldType().getBaseType() == BaseContentType.BASE_REFERENCE);
 
     for (final var c : rawBaseReferenceColumns) {
 
@@ -121,7 +121,7 @@ final class DatabaseTableLoader {
       .getColumns()
       .getStoredSelected(
         c -> c.getParameterizedFieldType().getFieldType()
-          .getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
+          .getBaseType() == BaseContentType.BASE_BACK_REFERENCE);
 
     for (final var c : rawBaseValueColumns) {
 

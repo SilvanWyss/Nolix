@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceType
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ParameterizedFieldTypeDto;
-import ch.nolix.systemapi.fieldapi.mainapi.FieldType;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 //class
 public class ParameterizedFieldTypeDtoMapper {
@@ -46,9 +46,9 @@ public class ParameterizedFieldTypeDtoMapper {
   //method
   private ParameterizedFieldTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode,
-    final FieldType fieldType) {
+    final ContentType contentType) {
     return new BaseParameterizedBackReferenceTypeDto(
-      fieldType,
+      contentType,
       getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode),
       getBackReferencedColumnIdFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
@@ -56,9 +56,9 @@ public class ParameterizedFieldTypeDtoMapper {
   //method
   private ParameterizedFieldTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode,
-    final FieldType fieldType) {
+    final ContentType contentType) {
     return new BaseParameterizedReferenceTypeDto(
-      fieldType,
+      contentType,
       getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode),
       getReferencedTableIdFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
@@ -66,9 +66,9 @@ public class ParameterizedFieldTypeDtoMapper {
   //method
   private BaseParameterizedValueTypeDto createBaseParameterizedValueTypeDtoFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode,
-    final FieldType fieldType) {
+    final ContentType contentType) {
     return new BaseParameterizedValueTypeDto(
-      fieldType,
+      contentType,
       getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
 
@@ -94,14 +94,14 @@ public class ParameterizedFieldTypeDtoMapper {
   }
 
   //method
-  private FieldType getPropertyTypeFromParameterizedFieldTypeNode(
+  private ContentType getPropertyTypeFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var fieldTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
         parameterizedFieldTypeNode);
 
-    return FieldType.fromSpecification(fieldTypeNode);
+    return ContentType.fromSpecification(fieldTypeNode);
   }
 
   //method
