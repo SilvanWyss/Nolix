@@ -6,7 +6,6 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 //own imports
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -95,7 +94,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
   }
 
   //method
-  public final MethodMediator hasReturnType(final Class<Node> returnType) {
+  public final MethodMediator hasReturnType(final Class<?> returnType) {
 
     if (returnType == null) {
       throw ArgumentIsNullException.forArgumentName("return type");
