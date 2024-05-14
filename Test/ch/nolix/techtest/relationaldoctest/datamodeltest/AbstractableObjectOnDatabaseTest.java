@@ -119,6 +119,43 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
   //method
   @Test
+  void testCase_getStoredConcreteSubTypes_whenHasSeveralConcreteSubTypes() {
+
+    //setup part 1: Create database.
+    final var database = new MutableNode();
+
+    //setup part 2: Create dataAdapter.
+    final var dataAdapter = NodeDataAdapter
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+
+    //setup part 3: Create subType1.
+    final var subType1 = new AbstractableObject();
+    dataAdapter.insertEntity(subType1);
+    subType1.setName("sub_type_1");
+
+    //setup part 4: Create subType2.
+    final var subType2 = new AbstractableObject();
+    dataAdapter.insertEntity(subType2);
+    subType2.setName("sub_type_2");
+
+    //setup part 3: Create testUnit.
+    final var testUnit = new AbstractableObject();
+    testUnit.setName("test_unit");
+    testUnit.setAsAbstract();
+    subType1.addBaseType(testUnit);
+    subType2.addBaseType(testUnit);
+
+    //execution
+    final var result = testUnit.getStoredConcreteSubTypes();
+
+    //verification
+    expect(result).containsExactly(subType1, subType2);
+  }
+
+  //method
+  @Test
   void testCase_getStoredSubTypes_whenDoesNotHaveSubTypes() {
 
     //setup part 1: Create database.
