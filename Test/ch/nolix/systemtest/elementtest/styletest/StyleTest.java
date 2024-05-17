@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.graphic.color.Color;
@@ -15,6 +16,47 @@ import ch.nolix.system.webgui.main.WebGui;
 
 //class
 final class StyleTest extends StandardTest {
+
+  //method
+  @Test
+  void testCase_fromSpecification_whenIsEmpty() {
+
+    //setup
+    final var specification = Node.withHeader("Style");
+
+    //execution
+    final var result = Style.fromSpecification(specification);
+
+    //verification
+    expect(result.getAttachingAttributes()).isEmpty();
+    expect(result.getSubStyles()).isEmpty();
+  }
+
+  //method
+  @Test
+  void testCase_fromSpecification_whenContainsAttachingAttributesAndSubStyles() {
+
+    //setup
+    final var specification = Node
+      .fromString(
+        "Style("
+        + "AttachingAttribute(test_attaching_attribute_1),"
+        + "AttachingAttribute(test_attaching_attribute_2),"
+        + "SelectingStyle,"
+        + "DeepSelectingStyle"
+        + ")");
+
+    //execution
+    final var result = Style.fromSpecification(specification);
+
+    //verification
+    expect(result.getAttachingAttributes()).containsExactlyEqualing(
+      Node.withHeader("test_attaching_attribute_1"),
+      Node.withHeader("test_attaching_attribute_2"));
+    expect(result.getSubStyles()).containsExactlyEqualing(
+      new SelectingStyle(),
+      new DeepSelectingStyle());
+  }
 
   //method
   @Test
