@@ -319,7 +319,7 @@ public abstract class BaseEntity implements IEntity {
 
     return ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
-      .containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
+      .containsAny(c -> c.internalContainsGivenValueInPersistedData(lId));
   }
 
   //method

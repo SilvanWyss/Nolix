@@ -15,6 +15,6 @@ public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
   //method declaration
   ITable<IEntity> getStoredParentTable();
 
-  //method
-  boolean technicalContainsGivenValueInPersistedData(String value);
+  //method declaration
+  boolean internalContainsGivenValueInPersistedData(String value);
 }

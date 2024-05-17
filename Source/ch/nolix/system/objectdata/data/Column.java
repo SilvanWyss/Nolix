@@ -78,7 +78,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 
   //method
   @Override
-  public boolean technicalContainsGivenValueInPersistedData(final String value) {
+  public boolean internalContainsGivenValueInPersistedData(final String value) {
     return getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
       getStoredParentTable().getName(),
       getName(),
