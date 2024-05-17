@@ -154,7 +154,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   //method
-  public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked") E... elements) {
+  public void containsExactlyEqualing(final Object firstElement, final Object... elements) {
 
     final var localElements = GlobalArrayTool.createArrayWithElement(firstElement, elements);
 
@@ -162,7 +162,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   //method
-  public void containsExactlyEqualing(final E[] elements) {
+  public void containsExactlyEqualing(final Object[] elements) {
 
     containsAsManyElementsAs(elements);
 
