@@ -126,36 +126,9 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     final E element,
     @SuppressWarnings("unchecked") final E... elements) {
 
-    var node = new LinkedListNode<>(element);
+    addAtBegin(elements);
 
-    if (isEmpty()) {
-
-      firstNode = node;
-
-      for (final var e : elements) {
-        final var nextNode = new LinkedListNode<>(e);
-        node.setNextNode(nextNode);
-        node = nextNode;
-      }
-
-      lastNode = node;
-
-    } else {
-
-      final var oldFirstNode = firstNode;
-
-      firstNode = node;
-
-      for (final var e : elements) {
-        final var nextNode = new LinkedListNode<>(e);
-        node.setNextNode(nextNode);
-        node = nextNode;
-      }
-
-      node.setNextNode(oldFirstNode);
-    }
-
-    elementCount += (1 + elements.length);
+    addAtBegin(element);
   }
 
   //method
@@ -166,10 +139,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @Override
   public void addAtBegin(E[] elements) {
-
-    //Iterates the given elements.
-    for (final E e : elements) {
-      addAtBegin(e);
+    if (isEmpty()) {
+      addAtBeginWhenIsEmpty(elements);
+    } else {
+      addAtBeginWhenContainsAny(elements);
     }
   }
 
@@ -697,6 +670,72 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return new LinkedList<>();
+  }
+
+  //method
+  /**
+   * Adds the given elements at the begin of the current {@link LinkedList} for
+   * the case that the current {@link LinkedList} is not empty. The elements will
+   * be added in the given order.
+   * 
+   * @param elements
+   * @throws RuntimeException if one of the given elements is null.
+   */
+  private void addAtBeginWhenContainsAny(E[] elements) {
+
+    LinkedListNode<E> newFirstNode = null;
+    LinkedListNode<E> iteratorNode = null;
+
+    for (final var e : elements) {
+
+      final var newNode = new LinkedListNode<>(e);
+
+      if (iteratorNode == null) {
+        newFirstNode = newNode;
+      } else {
+        iteratorNode.setNextNode(newNode);
+      }
+
+      iteratorNode = newNode;
+    }
+
+    if (newFirstNode != null) {
+      iteratorNode.setNextNode(firstNode);
+      firstNode = newFirstNode;
+    }
+
+    elementCount += elements.length;
+  }
+
+  //method
+  //method
+  /**
+   * Adds the given elements at the begin of the current {@link LinkedList} for
+   * the case that the current {@link LinkedList} is empty. The elements will be
+   * added in the given order.
+   * 
+   * @param elements
+   * @throws RuntimeException if one of the given elements is null.
+   */
+  private void addAtBeginWhenIsEmpty(E[] elements) {
+
+    LinkedListNode<E> iteratorNode = null;
+
+    for (final var e : elements) {
+
+      final var newNode = new LinkedListNode<>(e);
+
+      if (iteratorNode == null) {
+        firstNode = newNode;
+      } else {
+        iteratorNode.setNextNode(newNode);
+      }
+
+      iteratorNode = newNode;
+    }
+
+    lastNode = iteratorNode;
+    elementCount += elements.length;
   }
 
   //method
