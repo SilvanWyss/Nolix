@@ -50,6 +50,26 @@ final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
+  void testCase_addAtBegin_whenContainsSeveralElementsAndServeralElementsAreGiven() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = LinkedList.withElement(monkey, rhino, zebra);
+
+    //execution
+    testUnit.addAtBegin(antelope, elephant, lion);
+
+    //verification
+    expect(testUnit).containsExactlyInSameOrder(antelope, elephant, lion, monkey, rhino, zebra);
+  }
+
+  //method
+  @Test
   void testCase_addAtBegin_whenTheGivenElementIsNull() {
 
     //setup
@@ -61,6 +81,39 @@ final class LinkedListTest extends ContainerTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given element is null.");
+  }
+
+  //method
+  @Test
+  void testCase_addAtBegin_forArray_whenTheGivenArrayIsNull() {
+
+    //setup
+    final String[] array = null;
+    final var testUnit = new LinkedList<String>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.addAtBegin(array)).throwsException();
+  }
+
+  //method
+  @Test
+  void testCase_forArray_whenContainsSeveralElementsAndServeralElementsAreGiven() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var array = new String[] { antelope, elephant, lion };
+    final var testUnit = LinkedList.withElement(monkey, rhino, zebra);
+
+    //execution
+    testUnit.addAtBegin(array);
+
+    //verification
+    expect(testUnit).containsExactlyInSameOrder(antelope, elephant, lion, monkey, rhino, zebra);
   }
 
   //method
