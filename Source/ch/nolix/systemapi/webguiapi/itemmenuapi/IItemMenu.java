@@ -87,5 +87,5 @@ extends Clearable, IControl<IM, IMS> {
   IM setSelectAction(Consumer<IItemMenuItem<?>> selectAction);
 
   //method declaration
-  void technicalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
+  void internalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
 }
