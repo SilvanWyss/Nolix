@@ -121,7 +121,11 @@ final class InternalDataReader {
     final String tableName,
     final IColumnInfo columnInfo,
     final String value) {
-    return switch (columnInfo.getColumnFieldType()) {
+
+    final var fieldType = columnInfo.getColumnFieldType();
+
+    return //
+    switch (fieldType) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
@@ -131,6 +135,38 @@ final class InternalDataReader {
         multiValueEntryExistsForGivenColumnAndValue(columnInfo.getColumnId(), value);
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
+      default ->
+        throw InvalidArgumentException.forArgument(columnInfo.getColumnFieldType());
+    };
+  }
+
+  //method
+  public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    final String tableName,
+    final IColumnInfo columnInfo,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    final var fieldType = columnInfo.getColumnFieldType();
+
+    return //
+    switch (fieldType) {
+      case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
+        tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
+          tableName,
+          columnInfo.getColumnName(),
+          value,
+          entitiesToIgnoreIds);
+      case MULTI_VALUE ->
+        multiValueEntryExistsForGivenColumnAndValueIgnoringGivenEntities(
+          columnInfo.getColumnId(),
+          value,
+          entitiesToIgnoreIds);
+      case MULTI_REFERENCE ->
+        multiReferenceEntryExistsForGivenColumnAndReferencedEntityIgnoringGivenEntities(
+          columnInfo.getColumnId(),
+          value,
+          entitiesToIgnoreIds);
       default ->
         throw InvalidArgumentException.forArgument(columnInfo.getColumnFieldType());
     };
@@ -160,6 +196,16 @@ final class InternalDataReader {
   }
 
   //method
+  private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntityIgnoringGivenEntities(
+    final String columnId,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    //TODO: Implement.
+    return false;
+  }
+
+  //method
   private boolean multiValueEntryExistsForGivenColumnAndValue(
     final String columnId,
     final String value) {
@@ -168,6 +214,16 @@ final class InternalDataReader {
         columnId,
         value))
       .containsAny();
+  }
+
+  //method
+  private boolean multiValueEntryExistsForGivenColumnAndValueIgnoringGivenEntities(
+    final String columnId,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    //TODO: Implement.
+    return false;
   }
 
   //method
@@ -182,5 +238,16 @@ final class InternalDataReader {
           singleColumnName,
           value))
         .getStoredAt1BasedIndex(1)) > 0;
+  }
+
+  //method
+  private boolean tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
+    final String tableName,
+    final String columnName,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    //TODO: Implement.
+    return false;
   }
 }

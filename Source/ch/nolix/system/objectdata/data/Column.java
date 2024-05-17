@@ -3,6 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -79,10 +80,24 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   //method
   @Override
   public boolean internalContainsGivenValueInPersistedData(final String value) {
-    return getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
+    return //
+    getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
       getStoredParentTable().getName(),
       getName(),
       value);
+  }
+
+  //method
+  @Override
+  public boolean internalContainsGivenValueInPersistedDataIgnoringGivenEntities(
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+      getStoredParentTable().getName(),
+      getName(),
+      value,
+      entitiesToIgnoreIds);
   }
 
   //method

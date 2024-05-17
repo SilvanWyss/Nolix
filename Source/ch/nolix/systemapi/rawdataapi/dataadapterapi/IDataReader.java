@@ -41,5 +41,11 @@ public interface IDataReader extends GroupCloseable {
   boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 
   //method declaration
+  boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    String tableName,
+    String columnName,
+    String value, IContainer<String> entitiesToIgnoreIds);
+
+  //method declaration
   boolean tableContainsEntityWithGivenId(String tableName, String id);
 }

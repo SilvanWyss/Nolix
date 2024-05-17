@@ -238,6 +238,21 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   //method
   @Override
+  public final boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    final String tableName,
+    final String columnName,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    dataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+      tableName,
+      columnName,
+      value,
+      entitiesToIgnoreIds);
+  }
+
+  //method
+  @Override
   public final boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
     return dataReader.tableContainsEntityWithGivenId(tableName, id);
   }

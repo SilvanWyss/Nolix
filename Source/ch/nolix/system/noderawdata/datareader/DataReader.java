@@ -116,9 +116,27 @@ public final class DataReader implements IDataReader {
     final var tableInfo = getTableInfoByTableName(tableName);
 
     return internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
-      getTableInfoByTableName(tableName),
+      tableInfo,
       tableInfo.getColumnInfoByColumnName(columnName),
       value);
+  }
+
+  //method
+  @Override
+  public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    final String tableName,
+    final String columnName,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    final var tableInfo = getTableInfoByTableName(tableName);
+
+    return //
+    internalDataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+      tableInfo,
+      tableInfo.getColumnInfoByColumnName(columnName),
+      value,
+      entitiesToIgnoreIds);
   }
 
   //method

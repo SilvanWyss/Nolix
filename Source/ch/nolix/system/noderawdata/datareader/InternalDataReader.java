@@ -149,6 +149,17 @@ public final class InternalDataReader {
   }
 
   //method
+  public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    final ITableInfo tableInfo,
+    final IColumnInfo columnInfo,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    //TODO: Implement.
+    return false;
+  }
+
+  //method
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
