@@ -76,8 +76,23 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     final IMutableNode<?> tableNode,
     final int valueIndex,
     final String header) {
-    return tableNode.containsChildNodeThat(
+    return //
+    tableNode.containsChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
+  }
+
+  //method
+  @Override
+  public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+    final IMutableNode<?> tableNode,
+    final int valueIndex,
+    final String header,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    tableNode.containsChildNodeThat(
+      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      && entitiesToIgnoreIds.containsNone(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX))
       && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
   }
 }

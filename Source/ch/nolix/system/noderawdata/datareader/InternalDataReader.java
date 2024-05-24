@@ -137,12 +137,13 @@ public final class InternalDataReader {
     final IColumnInfo columnInfo,
     final String value) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-      tableInfo.getTableName());
+    final var tableNode = //
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 
     final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 
-    return TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
+    return //
+    TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
       tableNode,
       columnIndex,
       value);
@@ -155,8 +156,17 @@ public final class InternalDataReader {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    //TODO: Implement.
-    return false;
+    final var tableNode = //
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+
+    final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
+
+    return //
+    TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+      tableNode,
+      columnIndex,
+      value,
+      entitiesToIgnoreIds);
   }
 
   //method

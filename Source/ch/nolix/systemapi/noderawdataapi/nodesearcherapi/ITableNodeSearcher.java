@@ -37,6 +37,13 @@ public interface ITableNodeSearcher {
   //method declaration
   boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(
     IMutableNode<?> tableNode,
-    int valueIndex,
+    int index,
     String header);
+
+  //method declaration
+  boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+    IMutableNode<?> tableNode,
+    int index,
+    String header,
+    IContainer<String> entitiesToIgnoreIds);
 }
