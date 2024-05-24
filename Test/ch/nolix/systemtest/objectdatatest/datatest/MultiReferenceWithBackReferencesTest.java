@@ -77,9 +77,8 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
     expect(loadedOdie.owner.getStoredBackReferencedEntity()).is(loadedJohn);
   }
 
-  //TODO: Enable DataAdapter to remove relations and delete Entitis in 1 time.
   //method
-  //@Test
+  @Test
   void testCase_removeEntity_whenContainsEntity() {
 
     //setup part 1

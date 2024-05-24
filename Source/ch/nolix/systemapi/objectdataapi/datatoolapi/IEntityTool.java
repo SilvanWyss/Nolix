@@ -58,6 +58,9 @@ public interface IEntityTool extends IDatabaseObjectTool {
   boolean isReferenced(IEntity entity);
 
   //method declaration
+  boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity);
+
+  //method declaration
   boolean isReferencedInLocalData(IEntity entity);
 
   //method declaration

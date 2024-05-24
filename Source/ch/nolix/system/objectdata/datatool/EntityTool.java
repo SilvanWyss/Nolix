@@ -15,6 +15,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
@@ -44,7 +45,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return //
     entity != null
     && entity.isLoaded()
-    && !isReferenced(entity);
+    && !isReferencedIgnoringLocallyDeletedEntities(entity);
   }
 
   //method
@@ -122,7 +123,16 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   //method
   @Override
   public boolean isReferenced(final IEntity entity) {
-    return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
+    return //
+    isReferencedInLocalData(entity)
+    || entity.isReferencedInPersistedData();
+  }
+
+  @Override
+  public boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity) {
+    return //
+    isReferencedInLocalData(entity)
+    || isReferencedInPersistedDataIgnoringLocallyDeletedEntities(entity);
   }
 
   //method
@@ -176,5 +186,29 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IField field) {
     return isBaseValueOrBaseReference(field)
     && FIELD_TOOL.isMandatoryAndEmptyBoth(field);
+  }
+
+  //method
+  private boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
+
+    if (entity.isReferencedInPersistedData()) {
+
+      final var locallyDeletedEntities = getLocallyDeletedEntities(entity);
+
+      return entity.isReferencedInPersistedDataIgnoringGivenEntities(locallyDeletedEntities);
+    }
+
+    return false;
+  }
+
+  //method
+  private IContainer<String> getLocallyDeletedEntities(final IEntity entity) {
+    return //
+    entity
+      .getStoredParentTable()
+      .getStoredParentDatabase()
+      .getStoredTables()
+      .toFromGroups(ITable::internalGetStoredEntitiesInLocalData).getStoredSelected(IEntity::isDeleted)
+      .to(IEntity::getId);
   }
 }
