@@ -180,12 +180,17 @@ public abstract class BaseEntity implements IEntity {
   //method
   @Override
   public final boolean isReferencedInPersistedData() {
+    return //
+    belongsToTable()
+    && isReferencedInPersistedDataWhenBelongsToTable();
+  }
 
-    if (!belongsToTable()) {
-      return false;
-    }
-
-    return isReferencedInPersistedDataWhenBelongsToTable();
+  //method
+  @Override
+  public final boolean isReferencedInPersistedDataIgnoringGivenEntities(final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    belongsToTable()
+    && isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(entitiesToIgnoreIds);
   }
 
   //method
@@ -315,11 +320,24 @@ public abstract class BaseEntity implements IEntity {
   //method
   private boolean isReferencedInPersistedDataWhenBelongsToTable() {
 
-    final var lId = getId();
+    final var localId = getId();
 
-    return ((Table<?>) getStoredParentTable())
+    return //
+    ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
-      .containsAny(c -> c.internalContainsGivenValueInPersistedData(lId));
+      .containsAny(c -> c.internalContainsGivenValueInPersistedData(localId));
+  }
+
+  //method
+  private boolean isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(
+    final IContainer<String> entitiesToIgnoreIds) {
+
+    final var localId = getId();
+
+    return //
+    ((Table<?>) getStoredParentTable())
+      .internalGetColumnsThatReferencesCurrentTable()
+      .containsAny(c -> c.internalContainsGivenValueInPersistedDataIgnoringGivenEntities(localId, entitiesToIgnoreIds));
   }
 
   //method

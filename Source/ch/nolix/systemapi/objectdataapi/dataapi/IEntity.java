@@ -31,4 +31,7 @@ public interface IEntity extends Deletable, IDatabaseObject, IIdHolder, IOptiona
 
   //method declaration
   boolean isReferencedInPersistedData();
+
+  //method declaration
+  boolean isReferencedInPersistedDataIgnoringGivenEntities(IContainer<String> entitiesToIgnoreIds);
 }
