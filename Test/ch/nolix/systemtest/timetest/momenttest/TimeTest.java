@@ -84,6 +84,192 @@ final class TimeTest extends StandardTest {
 
   //method
   @Test
+  void testCase_isAfter_whenTheGivenTimeIsBefore() {
+
+    //setup
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      01,
+      00,
+      00,
+      00,
+      000);
+
+    //execution
+    final var result = testUnit.isAfter(time);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @Test
+  void testCase_isAfter_whenTheGivenTimeEquals() {
+
+    //setup
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+
+    //execution
+    final var result = testUnit.isAfter(time);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_isAfter_whenTheGivenTimeIsAfter() {
+
+    //setup
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      03,
+      00,
+      00,
+      00,
+      000);
+
+    //execution
+    final var result = testUnit.isAfter(time);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_isBefore_whenTheGivenTimeIsBefore() {
+
+    //setup
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      01,
+      00,
+      00,
+      00,
+      000);
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      01,
+      00,
+      00,
+      00,
+      000);
+
+    //execution
+    final var result = testUnit.isBefore(time);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_isBefore_whenTheGivenTimeEquals() {
+
+    //setup
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+
+    //execution
+    final var result = testUnit.isBefore(time);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_isBefore_whenTheGivenTimeIsAfter() {
+
+    //setup
+    final var testUnit = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      02,
+      00,
+      00,
+      00,
+      000);
+    final var time = //
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      2030,
+      06,
+      03,
+      00,
+      00,
+      00,
+      000);
+
+    //execution
+    final var result = testUnit.isBefore(time);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @Test
   void testCase_withYearAndMonthOfYearAndDayOfMonth() {
     for (var y = 1600; y <= 3000; y++) {
       for (var m = 1; m <= 12; m++) {
