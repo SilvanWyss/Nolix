@@ -261,7 +261,16 @@ final class InternalDataReader {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    //TODO: Implement.
-    return false;
+    final var query = //
+    entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
+      tableName,
+      columnName,
+      value,
+      entitiesToIgnoreIds);
+
+    final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
+    final var entityCount = Integer.valueOf(localRecord.getStoredFirst());
+
+    return entityCount > 0;
   }
 }

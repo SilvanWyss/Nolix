@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 //own imports
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
@@ -30,7 +31,8 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     final String tableName,
     final String columnName,
     final String value) {
-    return "SELECT COUNT("
+    return //
+    "SELECT COUNT("
     + columnName
     + ") FROM "
     + TableType.ENTITY_TABLE.getQualifyingPrefix()
@@ -40,6 +42,28 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + " = '"
     + value
     + "';";
+  }
+
+  //method
+  @Override
+  public String createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    final String tableName,
+    final String columnName,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    "SELECT COUNT("
+    + columnName
+    + ") FROM "
+    + TableType.ENTITY_TABLE.getQualifyingPrefix()
+    + tableName
+    + " WHERE "
+    + columnName
+    + " = '"
+    + value
+    + "' AND Id NOT IN ("
+    + entitiesToIgnoreIds.toString()
+    + ");";
   }
 
   //method
