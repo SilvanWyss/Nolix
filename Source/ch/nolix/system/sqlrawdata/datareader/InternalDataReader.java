@@ -223,21 +223,15 @@ final class InternalDataReader {
     final IContainer<String> entitiesToIgnoreIds) {
 
     final var query = //
-    multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
+    multiValueQueryCreator.createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
       columnId,
-      value);
+      value,
+      entitiesToIgnoreIds);
 
-    final var records = sqlConnection.getRecordsFromQuery(query);
+    final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
+    final var entityCount = Integer.valueOf(localRecord.getStoredFirst());
 
-    if (records.containsAny()) {
-
-      final var localRecord = records.getStoredFirst();
-      final var recordId = localRecord.getStoredAt1BasedIndex(2);
-
-      return entitiesToIgnoreIds.containsNone(recordId);
-    }
-
-    return false;
+    return entityCount > 0;
   }
 
   //method

@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 //own imports
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
@@ -11,7 +12,25 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 
   //method
   @Override
-  public String createQueryToLoadMultiValueEntries(String entityId, String multiValueColumnId) {
+  public String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
+    final String columnId,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    "SELECT COUNT(Id) FROM "
+    + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifyingPrefix()
+    + " WHERE "
+    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getQualifiedName()
+    + " = '"
+    + value
+    + "' AND Id NOT IN ("
+    + entitiesToIgnoreIds.toString()
+    + ");";
+  }
+
+  //method
+  @Override
+  public String createQueryToLoadMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return "SELECT "
     + MultiValueEntryTableColumn.VALUE.getName()
     + " FROM "
