@@ -222,7 +222,21 @@ final class InternalDataReader {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    //TODO: Implement.
+    final var query = //
+    multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
+      columnId,
+      value);
+
+    final var records = sqlConnection.getRecordsFromQuery(query);
+
+    if (records.containsAny()) {
+
+      final var localRecord = records.getStoredFirst();
+      final var recordId = localRecord.getStoredAt1BasedIndex(2);
+
+      return entitiesToIgnoreIds.containsNone(recordId);
+    }
+
     return false;
   }
 

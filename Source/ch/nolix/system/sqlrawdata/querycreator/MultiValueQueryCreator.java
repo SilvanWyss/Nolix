@@ -32,7 +32,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
   public String createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
     final String columnId,
     final String value) {
-    return "SELECT TOP 1 FROM "
+    return "SELECT TOP 1 * FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
