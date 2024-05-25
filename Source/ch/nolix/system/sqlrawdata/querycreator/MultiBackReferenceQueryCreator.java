@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.querycreator;
 
-//own imports
 import ch.nolix.system.sqlrawschema.multibackreferenceentrytable.MultiBackReferenceEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
@@ -11,8 +10,11 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
 
   //method
   @Override
-  public String createQueryToLoadMultiBackReferenceEntries(String entityId, String multiBackReferenceColumnId) {
-    return "SELECT "
+  public String createQueryToLoadMultiBackReferenceEntries(
+    final String entityId,
+    final String multiBackReferenceColumnId) {
+    return //
+    "SELECT "
     + MultiBackReferenceEntryTableColumn.BACK_REFERENCED_ENTITY_ID.getName()
     + " FROM "
     + MultiEntryTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
@@ -30,9 +32,10 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
   //method
   @Override
   public String createQueryToLoadOptionalFirstMultiBackReferenceEntry(
-    String multiBackReferenceColumnId,
-    String backReferencedEntityId) {
-    return "SELECT TOP 1 * FROM "
+    final String multiBackReferenceColumnId,
+    final String backReferencedEntityId) {
+    return //
+    "SELECT TOP 1 * FROM "
     + MultiEntryTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiBackReferenceEntryTableColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
