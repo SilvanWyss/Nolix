@@ -17,7 +17,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     return //
-    "SELECT COUNT(Id) FROM "
+    "SELECT COUNT(*) FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifyingPrefix()
     + " WHERE "
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getQualifiedName()
