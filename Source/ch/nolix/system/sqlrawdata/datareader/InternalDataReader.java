@@ -198,11 +198,20 @@ final class InternalDataReader {
   //method
   private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntityIgnoringGivenEntities(
     final String columnId,
-    final String value,
+    final String referencedEntityId,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    //TODO: Implement.
-    return false;
+    final var query = //
+    multiReferenceQueryCreator
+      .createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
+        columnId,
+        referencedEntityId,
+        entitiesToIgnoreIds);
+
+    final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
+    final var entityCount = Integer.valueOf(localRecord.getStoredFirst());
+
+    return (entityCount > 0);
   }
 
   //method
