@@ -16,6 +16,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 //class
 final class FieldTypeTest extends StandardTest {
 
+  //method
   @MethodSource
   private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {
     return //
