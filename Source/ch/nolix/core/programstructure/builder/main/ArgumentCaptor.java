@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have abstract methods.
+public abstract class ArgumentCaptor //NOSONAR: ArgumentCaptor does not have abstract methods.
 <A, N> {
 
   //attribute
@@ -20,30 +20,30 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   private A argument;
 
   //optional attribute
-  private final N nextArgumentCapturer;
+  private final N nextArgumentCaptor;
 
   //optional attribute
   private Supplier<N> builder;
 
   //constructor
-  protected ArgumentCapturer() {
-    nextArgumentCapturer = null;
+  protected ArgumentCaptor() {
+    nextArgumentCaptor = null;
   }
 
   //constructor
-  protected ArgumentCapturer(final N nextArgumentCapturer) {
+  protected ArgumentCaptor(final N nextArgumentCaptor) {
 
-    GlobalValidator.assertThat(nextArgumentCapturer).thatIsNamed("next argument capturer").isNotNull();
+    GlobalValidator.assertThat(nextArgumentCaptor).thatIsNamed("next argument captor").isNotNull();
 
-    this.nextArgumentCapturer = nextArgumentCapturer;
+    this.nextArgumentCaptor = nextArgumentCaptor;
   }
 
   //method
   public final N next() {
 
-    assertHasNextArgumentCapturer();
+    assertHasNextArgumentCaptor();
 
-    return nextArgumentCapturer;
+    return nextArgumentCaptor;
   }
 
   //method
@@ -59,14 +59,14 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
 
     setArgument(argument);
 
-    return getStoredNextArgumentCapturerOrResult();
+    return getStoredNextArgumentCaptorOrResult();
   }
 
   //method
   @SuppressWarnings("unchecked")
   protected final void setBuilder(final Supplier<?> builder) {
-    if (hasNextArgumentCapturer()) {
-      ((ArgumentCapturer<?, ?>) nextArgumentCapturer).setBuilder(builder);
+    if (hasNextArgumentCaptor()) {
+      ((ArgumentCaptor<?, ?>) nextArgumentCaptor).setBuilder(builder);
     } else {
 
       GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseVariableCatalogue.BUILDER).isNotNull();
@@ -90,9 +90,9 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   }
 
   //method
-  private void assertHasNextArgumentCapturer() {
-    if (!hasNextArgumentCapturer()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next argument capturer");
+  private void assertHasNextArgumentCaptor() {
+    if (!hasNextArgumentCaptor()) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next argument captor");
     }
   }
 
@@ -110,10 +110,10 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   }
 
   //method
-  private N getStoredNextArgumentCapturerOrResult() {
+  private N getStoredNextArgumentCaptorOrResult() {
 
-    if (hasNextArgumentCapturer()) {
-      return nextArgumentCapturer;
+    if (hasNextArgumentCaptor()) {
+      return nextArgumentCaptor;
     }
 
     return build();
@@ -130,8 +130,8 @@ public abstract class ArgumentCapturer //NOSONAR: ArgumentCapturer does not have
   }
 
   //method
-  private boolean hasNextArgumentCapturer() {
-    return (nextArgumentCapturer != null);
+  private boolean hasNextArgumentCaptor() {
+    return (nextArgumentCaptor != null);
   }
 
   //method

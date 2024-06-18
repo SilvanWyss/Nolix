@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.withargumentcapturer;
+package ch.nolix.core.programstructure.builder.withargumentcaptor;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 
 //class
-public class WithIpOrDomainCapturer<N> extends ArgumentCapturer<String, N> {
+public class WithIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
 
   //constructor
-  public WithIpOrDomainCapturer() {
+  public WithIpOrDomainCaptor() {
   }
 
   //constructor
-  public WithIpOrDomainCapturer(final N nextArgumentCapturer) {
-    super(nextArgumentCapturer);
+  public WithIpOrDomainCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
   }
 
   //method

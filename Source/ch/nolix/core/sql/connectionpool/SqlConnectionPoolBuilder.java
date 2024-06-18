@@ -1,33 +1,32 @@
 //package declaration
 package ch.nolix.core.sql.connectionpool;
 
-//own imports
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginNameCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
-import ch.nolix.core.programstructure.builder.forargumentcapturer.ForIpOrDomainCapturer;
-import ch.nolix.core.programstructure.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginNameCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.programstructure.builder.forargumentcaptor.ForIpOrDomainCaptor;
+import ch.nolix.core.programstructure.builder.withargumentcaptor.WithSqlDatabaseEngineCaptor;
 
 //class
 public final class SqlConnectionPoolBuilder
 extends
-ForIpOrDomainCapturer< //
-AndPortCapturer< //
-AndDatabaseNameCapturer< //
-WithSqlDatabaseEngineCapturer< //
-AndLoginNameCapturer< //
-AndLoginPasswordCapturer<SqlConnectionPool>>>>>> {
+ForIpOrDomainCaptor< //
+AndPortCaptor< //
+AndDatabaseNameCaptor< //
+WithSqlDatabaseEngineCaptor< //
+AndLoginNameCaptor< //
+AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
 
   //constructor
   private SqlConnectionPoolBuilder() {
 
     super(
-      new AndPortCapturer<>(
-        new AndDatabaseNameCapturer<>(
-          new WithSqlDatabaseEngineCapturer<>(
-            new AndLoginNameCapturer<>(
-              new AndLoginPasswordCapturer<>())))));
+      new AndPortCaptor<>(
+        new AndDatabaseNameCaptor<>(
+          new WithSqlDatabaseEngineCaptor<>(
+            new AndLoginNameCaptor<>(
+              new AndLoginPasswordCaptor<>())))));
 
     setBuilder(this::buildSqlConnectionPool);
   }

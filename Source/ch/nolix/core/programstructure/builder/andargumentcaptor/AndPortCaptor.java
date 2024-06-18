@@ -1,22 +1,22 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.andargumentcapturer;
+package ch.nolix.core.programstructure.builder.andargumentcaptor;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
+public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
 
   //constructor
-  public AndPortCapturer() {
+  public AndPortCaptor() {
   }
 
   //constructor
-  public AndPortCapturer(final N nextArgumentCapturer) {
-    super(nextArgumentCapturer);
+  public AndPortCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
   }
 
   //method

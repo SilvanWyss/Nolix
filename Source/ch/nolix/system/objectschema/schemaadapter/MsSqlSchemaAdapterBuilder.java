@@ -1,33 +1,32 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-//own imports
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
-import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;
-import ch.nolix.core.programstructure.builder.toargumentcapturer.ToIpOrDomainCapturer;
-import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.programstructure.builder.toargumentcaptor.ToDatabaseNameCaptor;
+import ch.nolix.core.programstructure.builder.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.core.programstructure.builder.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
 public final class MsSqlSchemaAdapterBuilder
 extends
-ToIpOrDomainCapturer< //
-AndPortCapturer< //
-ToDatabaseNameCapturer< //
-WithLoginNameCapturer< //
-AndLoginPasswordCapturer< //
+ToIpOrDomainCaptor< //
+AndPortCaptor< //
+ToDatabaseNameCaptor< //
+WithLoginNameCaptor< //
+AndLoginPasswordCaptor< //
 MsSqlSchemaAdapter>>>>> {
 
   //constructor
   private MsSqlSchemaAdapterBuilder() {
 
     super(
-      new AndPortCapturer<>(
-        new ToDatabaseNameCapturer<>(
-          new WithLoginNameCapturer<>(
-            new AndLoginPasswordCapturer<>()))));
+      new AndPortCaptor<>(
+        new ToDatabaseNameCaptor<>(
+          new WithLoginNameCaptor<>(
+            new AndLoginPasswordCaptor<>()))));
 
     setBuilder(this::buildMsSqlSchemaAdapter);
   }

@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.toargumentcapturer;
+package ch.nolix.core.programstructure.builder.toargumentcaptor;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public class ToDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
+public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
 
   //constructor
-  public ToDatabaseNameCapturer() {
+  public ToDatabaseNameCaptor() {
   }
 
   //constructor
-  public ToDatabaseNameCapturer(final N nextArgumentCapturer) {
-    super(nextArgumentCapturer);
+  public ToDatabaseNameCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
   }
 
   //method

@@ -1,20 +1,19 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-//own imports
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
-import ch.nolix.core.programstructure.builder.forargumentcapturer.ForNodeDatabaseCapturer;
-import ch.nolix.core.programstructure.builder.withargumentcapturer.WithNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.programstructure.builder.forargumentcaptor.ForNodeDatabaseCaptor;
+import ch.nolix.core.programstructure.builder.withargumentcaptor.WithNameCaptor;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
 //class
 public final class NodeDataAdapterBuilder
-extends ForNodeDatabaseCapturer<WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>>> {
+extends ForNodeDatabaseCaptor<WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAdapter>>> {
 
   //constructor
   private NodeDataAdapterBuilder() {
 
-    super(new WithNameCapturer<>(new AndSchemaCapturer<>()));
+    super(new WithNameCaptor<>(new AndSchemaCaptor<>()));
 
     setBuilder(this::buildNodeDataAdapter);
   }

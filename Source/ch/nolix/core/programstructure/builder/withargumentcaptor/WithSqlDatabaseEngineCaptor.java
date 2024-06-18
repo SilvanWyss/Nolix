@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.withargumentcapturer;
+package ch.nolix.core.programstructure.builder.withargumentcaptor;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
-public class WithSqlDatabaseEngineCapturer<N> extends ArgumentCapturer<SqlDatabaseEngine, N> {
+public class WithSqlDatabaseEngineCaptor<N> extends ArgumentCaptor<SqlDatabaseEngine, N> {
 
   //constructor
-  public WithSqlDatabaseEngineCapturer() {
+  public WithSqlDatabaseEngineCaptor() {
   }
 
   //constructor
-  public WithSqlDatabaseEngineCapturer(final N nextArgumentCapturer) {
-    super(nextArgumentCapturer);
+  public WithSqlDatabaseEngineCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
   }
 
   //method

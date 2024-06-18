@@ -1,25 +1,24 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-//own imports
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
-import ch.nolix.core.programstructure.builder.toargumentcapturer.ToIpOrDomainCapturer;
-import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.programstructure.builder.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.core.programstructure.builder.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
 //class
 public final class MsSqlDataAdapterBuilder
 extends
-ToIpOrDomainCapturer< //
-AndPortCapturer< //
-AndDatabaseNameCapturer< //
-WithLoginNameCapturer< //
-AndLoginPasswordCapturer< //
-AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>>> {
+ToIpOrDomainCaptor< //
+AndPortCaptor< //
+AndDatabaseNameCaptor< //
+WithLoginNameCaptor< //
+AndLoginPasswordCaptor< //
+AndSchemaCaptor<ISchema, MsSqlDataAdapter>>>>>> {
 
   //constant
   public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
@@ -28,11 +27,11 @@ AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>>> {
   private MsSqlDataAdapterBuilder() {
 
     super(
-      new AndPortCapturer<>(
-        new AndDatabaseNameCapturer<>(
-          new WithLoginNameCapturer<>(
-            new AndLoginPasswordCapturer<>(
-              new AndSchemaCapturer<>())))));
+      new AndPortCaptor<>(
+        new AndDatabaseNameCaptor<>(
+          new WithLoginNameCaptor<>(
+            new AndLoginPasswordCaptor<>(
+              new AndSchemaCaptor<>())))));
 
     setBuilder(this::buildMsSqlDataAdapter);
   }

@@ -1,17 +1,16 @@
 //package declaration
 package ch.nolix.core.programcontrol.usercontrol;
 
-//own imports
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPasswordCapturer;
-import ch.nolix.core.programstructure.builder.withargumentcapturer.WithLoginNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPasswordCaptor;
+import ch.nolix.core.programstructure.builder.withargumentcaptor.WithLoginNameCaptor;
 
 //class
-public final class CredentialBuilder extends WithLoginNameCapturer<AndPasswordCapturer<Credential>> {
+public final class CredentialBuilder extends WithLoginNameCaptor<AndPasswordCaptor<Credential>> {
 
   //constructor
   private CredentialBuilder() {
 
-    super(new AndPasswordCapturer<>());
+    super(new AndPasswordCaptor<>());
 
     setBuilder(this::buildCredential);
   }

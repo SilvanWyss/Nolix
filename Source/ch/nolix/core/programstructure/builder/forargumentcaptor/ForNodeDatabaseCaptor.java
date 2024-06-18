@@ -1,22 +1,22 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.forargumentcapturer;
+package ch.nolix.core.programstructure.builder.forargumentcaptor;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //class
-public class ForNodeDatabaseCapturer<N> extends ArgumentCapturer<IMutableNode<?>, N> {
+public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N> {
 
   //constructor
-  public ForNodeDatabaseCapturer() {
+  public ForNodeDatabaseCaptor() {
   }
 
   //constructor
-  public ForNodeDatabaseCapturer(final N nextArgumentCapturer) {
-    super(nextArgumentCapturer);
+  public ForNodeDatabaseCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
   }
 
   //method

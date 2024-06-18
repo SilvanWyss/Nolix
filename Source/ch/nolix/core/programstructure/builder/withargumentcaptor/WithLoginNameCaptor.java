@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.withargumentcapturer;
+package ch.nolix.core.programstructure.builder.withargumentcaptor;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public class WithLoginNameCapturer<N> extends ArgumentCapturer<String, N> {
+public class WithLoginNameCaptor<N> extends ArgumentCaptor<String, N> {
 
   //constructor
-  public WithLoginNameCapturer() {
+  public WithLoginNameCaptor() {
   }
 
   //constructor
-  public WithLoginNameCapturer(final N nextArgumentCapturer) {
-    super(nextArgumentCapturer);
+  public WithLoginNameCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
   }
 
   //method

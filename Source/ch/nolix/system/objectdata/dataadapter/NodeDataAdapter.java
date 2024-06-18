@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-//own imports
-import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
-import ch.nolix.core.programstructure.builder.withargumentcapturer.WithNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.programstructure.builder.withargumentcaptor.WithNameCaptor;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.dataandschemaadapter.DataAndSchemaAdapter;
 import ch.nolix.system.objectdata.data.DataAdapter;
@@ -32,7 +31,7 @@ public final class NodeDataAdapter extends DataAdapter {
   }
 
   //static method
-  public static WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> forNodeDatabase(
+  public static WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAdapter>> forNodeDatabase(
     final IMutableNode<?> nodeDatabase) {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forNodeDatabase(nodeDatabase);
   }
@@ -46,7 +45,7 @@ public final class NodeDataAdapter extends DataAdapter {
   }
 
   //static method
-  public static WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> forTemporaryInMemoryDatabase() {
+  public static WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAdapter>> forTemporaryInMemoryDatabase() {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forTemporaryInMemoryNodeDatabase();
   }
 
