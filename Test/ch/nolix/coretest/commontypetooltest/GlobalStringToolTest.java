@@ -3,6 +3,8 @@ package ch.nolix.coretest.commontypetooltest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
@@ -89,69 +91,34 @@ final class GlobalStringToolTest extends StandardTest {
   }
 
   //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringContainsOneWordInLowerCase() {
+  @ParameterizedTest
+  @CsvSource({
+  "'', ''", //
+  "cursor, Cursor", //
+  "CURSOR, Cursor", //
+  "Cursor, Cursor", //
+  "cursor_icon, CursorIcon", //
+  "CURSOR_ICON, CursorIcon", //
+  "Cursor_Icon, CursorIcon", //
+  "cursorIcon, CursorIcon", //
+  "CursorIcon, CursorIcon", //
+  "500cursor, 500Cursor", //
+  "500CURSOR, 500Cursor", //
+  "500Cursor, 500Cursor", //
+  "cursor500, Cursor500", //
+  "CURSOR500, Cursor500", //
+  "Cursor500, Cursor500", //
+  "cursor500icon, Cursor500Icon", //
+  "CURSOR500ICON, Cursor500Icon", //
+  "Cursor500Icon, Cursor500Icon" //
+  })
+  void testCase_toPascalCase(final String input, final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.toPascalCase("zebra");
+    final var result = GlobalStringTool.toPascalCase(input);
 
     //verification
-    expect(result).isEqualTo("Zebra");
-  }
-
-  //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringContainsOneWordInUpperCase() {
-
-    //execution
-    final var result = GlobalStringTool.toPascalCase("ZEBRA");
-
-    //verification
-    expect(result).isEqualTo("Zebra");
-  }
-
-  //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringContainsOneWordInSentenceCase() {
-
-    //execution
-    final var result = GlobalStringTool.toPascalCase("Zebra");
-
-    //verification
-    expect(result).isEqualTo("Zebra");
-  }
-
-  //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
-
-    //execution
-    final var result = GlobalStringTool.toPascalCase("cursor_icon");
-
-    //verification
-    expect(result).isEqualTo("CursorIcon");
-  }
-
-  //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
-
-    //execution
-    final var result = GlobalStringTool.toPascalCase("CURSOR_ICON");
-
-    //verification
-    expect(result).isEqualTo("CursorIcon");
-  }
-
-  //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
-
-    //execution
-    final var result = GlobalStringTool.toPascalCase("Cursor_Icon");
-
-    //verification
-    expect(result).isEqualTo("CursorIcon");
+    expect(result).isEqualTo(expectedResult);
   }
 
   //method
