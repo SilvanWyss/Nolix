@@ -44,7 +44,8 @@ final class PascalCaseCreator {
       switch (characterType) {
         case LOWER_CASE_LETTER:
           stringBuilder.append(
-            getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(character, previousCharacter));
+            getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(character, previousCharacter,
+              previousCharacterType));
           break;
         case UPPER_CASE_LETTER:
           stringBuilder.append(
@@ -71,9 +72,10 @@ final class PascalCaseCreator {
   //method
   private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(
     final char sourceCharacter,
-    final char previousCharacter) {
+    final char previousCharacter,
+    final CharacterType previousCharacterType) {
 
-    if (previousCharacter == CharacterCatalogue.UNDERSCORE) {
+    if (previousCharacterType == CharacterType.NUMBER || previousCharacter == CharacterCatalogue.UNDERSCORE) {
       return Character.toUpperCase(sourceCharacter);
     }
 
@@ -87,6 +89,7 @@ final class PascalCaseCreator {
     final CharacterType previousCharacterType) {
 
     if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
+    || previousCharacterType == CharacterType.NUMBER
     || previousCharacter == CharacterCatalogue.UNDERSCORE) {
       return sourceCharacter;
     }
