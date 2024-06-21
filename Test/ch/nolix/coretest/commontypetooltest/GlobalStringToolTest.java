@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.commontypetool.GlobalStringTool;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class GlobalStringToolTest extends StandardTest {

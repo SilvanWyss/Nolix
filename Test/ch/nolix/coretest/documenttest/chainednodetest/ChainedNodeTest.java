@@ -9,7 +9,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class ChainedNodeTest extends StandardTest {

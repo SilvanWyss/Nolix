@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MethodMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class GlobalValidatorTest extends StandardTest {

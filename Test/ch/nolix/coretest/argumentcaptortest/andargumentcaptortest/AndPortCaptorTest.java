@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class AndPortCaptorTest extends StandardTest {

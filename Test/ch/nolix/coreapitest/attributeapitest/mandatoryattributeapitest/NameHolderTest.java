@@ -4,8 +4,7 @@ package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class NameHolderTest extends StandardTest {

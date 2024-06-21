@@ -4,8 +4,7 @@ package ch.nolix.systemtest.webguitest.basecontroltooltest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

@@ -4,8 +4,7 @@ package ch.nolix.systemtest.timetest.momenttest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 

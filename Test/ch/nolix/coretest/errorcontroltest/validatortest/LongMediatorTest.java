@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class LongMediatorTest extends StandardTest {

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class MultiDoubleMediatorTest extends StandardTest {

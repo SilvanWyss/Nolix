@@ -4,8 +4,7 @@ package ch.nolix.systemtest.elementtest.styletest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.graphic.image.Image;

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
 //class

@@ -3,8 +3,7 @@ package ch.nolix.coreapitest.datamodelapitest.entityrequestapitest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class AbstractnessRequestableTest extends StandardTest {

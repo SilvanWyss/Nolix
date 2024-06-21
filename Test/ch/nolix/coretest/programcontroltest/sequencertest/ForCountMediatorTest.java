@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.ForCountMediator;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class ForCountMediatorTest extends StandardTest {

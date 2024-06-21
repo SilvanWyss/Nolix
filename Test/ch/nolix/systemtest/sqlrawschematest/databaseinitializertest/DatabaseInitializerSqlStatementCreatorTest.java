@@ -4,8 +4,7 @@ package ch.nolix.systemtest.sqlrawschematest.databaseinitializertest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializerSqlStatementCreator;
 import ch.nolix.system.time.moment.Time;
 

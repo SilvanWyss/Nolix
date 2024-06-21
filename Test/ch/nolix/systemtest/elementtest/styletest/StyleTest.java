@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.element.style.Style;

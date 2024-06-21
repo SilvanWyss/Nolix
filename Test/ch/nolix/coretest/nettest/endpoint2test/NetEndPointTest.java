@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.net.endpoint2.NetEndPoint;
 import ch.nolix.core.net.endpoint2.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class NetEndPointTest extends StandardTest {

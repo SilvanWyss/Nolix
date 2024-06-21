@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.function.GlobalFunctionTool;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class GlobalFunctionToolTest extends StandardTest {

@@ -4,8 +4,7 @@ package ch.nolix.techapitest.relationaldocapitest.baseapitest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.standardtest;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;

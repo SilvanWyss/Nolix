@@ -4,8 +4,7 @@ package ch.nolix.coreapitest.programatomapitest.characterpropertytest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 
 //class

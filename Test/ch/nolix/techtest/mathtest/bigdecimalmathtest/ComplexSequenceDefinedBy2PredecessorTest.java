@@ -4,8 +4,7 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy2Predecessor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;

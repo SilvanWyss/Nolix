@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.reflection.GlobalFieldTool;
 import ch.nolix.core.reflection.GlobalMemberTool;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class

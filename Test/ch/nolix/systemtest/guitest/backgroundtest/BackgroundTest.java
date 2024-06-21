@@ -4,8 +4,7 @@ package ch.nolix.systemtest.guitest.backgroundtest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;

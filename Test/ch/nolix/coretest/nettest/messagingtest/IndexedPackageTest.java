@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.net.messaging.IndexedPackage;
 import ch.nolix.core.programatom.voidobject.VoidObject;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class IndexedPackageTest extends StandardTest {

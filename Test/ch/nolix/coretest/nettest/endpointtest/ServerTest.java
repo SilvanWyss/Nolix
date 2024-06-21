@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.net.endpoint.Server;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class

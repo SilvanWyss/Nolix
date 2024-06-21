@@ -4,8 +4,7 @@ package ch.nolix.systemtest.sqlschematest.sqlsyntaxtest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;

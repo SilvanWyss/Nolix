@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class InvalidArgumentExceptionTest extends StandardTest {

@@ -4,8 +4,7 @@ package ch.nolix.systemtest.webguitest.maintest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.main.Layer;

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
 
 //class

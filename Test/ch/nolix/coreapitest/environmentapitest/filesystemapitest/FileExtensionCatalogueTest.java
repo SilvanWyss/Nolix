@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.reflection.GlobalClassTool;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.environmentapi.filesystemapi.FileExtensionCatalogue;
 
 //class

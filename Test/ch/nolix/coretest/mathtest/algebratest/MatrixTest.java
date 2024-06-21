@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.math.main.GlobalCalculator;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class MatrixTest extends StandardTest {

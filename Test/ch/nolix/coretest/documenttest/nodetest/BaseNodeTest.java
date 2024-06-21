@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.MultiReference;

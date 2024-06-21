@@ -12,7 +12,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.license.Feature;
 import ch.nolix.core.license.GlobalLicenseManager;
 import ch.nolix.core.license.License;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class

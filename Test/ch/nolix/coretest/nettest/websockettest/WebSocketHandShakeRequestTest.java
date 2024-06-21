@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class WebSocketHandShakeRequestTest extends StandardTest {

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.commontypetool.GlobalIterableTool;
 import ch.nolix.core.independent.container.List;
-import ch.nolix.core.testing.test.StandardTest;
+import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
 final class GlobalIterableToolTest extends StandardTest {
