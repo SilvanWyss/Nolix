@@ -12,6 +12,9 @@ package ch.nolix.coreapi.programatomapi.variableapi;
 public final class PluralLowerCaseVariableCatalogue {
 
   //constant
+  public static final String ACTIONS = "actions";
+
+  //constant
   public static final String AGES = "ages";
 
   //constant

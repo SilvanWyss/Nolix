@@ -11,6 +11,9 @@ package ch.nolix.coreapi.programatomapi.variableapi;
 public final class LowerCaseVariableCatalogue {
 
   //constant
+  public static final String ACTION = "action";
+
+  //constant
   public static final String AGE = "age";
 
   //constant

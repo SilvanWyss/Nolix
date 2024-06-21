@@ -12,6 +12,9 @@ package ch.nolix.coreapi.programatomapi.variableapi;
 public final class PluralPascalCaseVariableCatalogue {
 
   //constant
+  public static final String ACTIONS = "Actions";
+
+  //constant
   public static final String AGES = "Ages";
 
   //constant
