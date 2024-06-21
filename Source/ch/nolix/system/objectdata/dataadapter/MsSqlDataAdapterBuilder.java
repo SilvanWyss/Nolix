@@ -45,10 +45,10 @@ AndSchemaCaptor<ISchema, MsSqlDataAdapter>>>>>> {
   private MsSqlDataAdapter buildMsSqlDataAdapter() {
     return new MsSqlDataAdapter(
       getIpOrDomain(),
-      next().getPort(),
-      next().next().getDatabaseName(),
-      next().next().next().getLoginName(),
-      next().next().next().next().getLoginPassword(),
-      next().next().next().next().next().getStoredSchema());
+      nxtArgCpt().getPort(),
+      nxtArgCpt().nxtArgCpt().getDatabaseName(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getStoredSchema());
   }
 }

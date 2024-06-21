@@ -6,12 +6,13 @@ import java.util.function.Supplier;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public abstract class ArgumentCaptor //NOSONAR: ArgumentCaptor does not have abstract methods.
-<A, N> {
+public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not have abstract methods.
 
   //attribute
   private boolean hasArgument;
@@ -20,30 +21,40 @@ public abstract class ArgumentCaptor //NOSONAR: ArgumentCaptor does not have abs
   private A argument;
 
   //optional attribute
-  private final N nextArgumentCaptor;
+  private final ArgumentCaptor<?, ?> nextArgumentCaptor;
+
+  //optional attribute
+  private final N nextArgumentCaptorAsNext;
 
   //optional attribute
   private Supplier<N> builder;
 
   //constructor
   protected ArgumentCaptor() {
+
     nextArgumentCaptor = null;
+
+    nextArgumentCaptorAsNext = null;
   }
 
   //constructor
   protected ArgumentCaptor(final N nextArgumentCaptor) {
+    if (nextArgumentCaptor instanceof ArgumentCaptor<?, ?> localArgumentCaptor) {
 
-    GlobalValidator.assertThat(nextArgumentCaptor).thatIsNamed("next argument captor").isNotNull();
+      this.nextArgumentCaptor = localArgumentCaptor;
 
-    this.nextArgumentCaptor = nextArgumentCaptor;
+      nextArgumentCaptorAsNext = nextArgumentCaptor;
+    } else {
+      throw InvalidArgumentException.forArgumentNameAndArgument("next argument captor", nextArgumentCaptor);
+    }
   }
 
   //method
-  public final N next() {
+  public final N nxtArgCpt() {
 
     assertHasNextArgumentCaptor();
 
-    return nextArgumentCaptor;
+    return nextArgumentCaptorAsNext;
   }
 
   //method
@@ -59,15 +70,17 @@ public abstract class ArgumentCaptor //NOSONAR: ArgumentCaptor does not have abs
 
     setArgument(argument);
 
-    return getStoredNextArgumentCaptorOrResult();
+    return getNext();
   }
 
   //method
   @SuppressWarnings("unchecked")
   protected final void setBuilder(final Supplier<?> builder) {
     if (hasNextArgumentCaptor()) {
-      ((ArgumentCaptor<?, ?>) nextArgumentCaptor).setBuilder(builder);
+      nextArgumentCaptor.setBuilder(builder);
     } else {
+
+      assertDoesNotHaveBuilder();
 
       GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseVariableCatalogue.BUILDER).isNotNull();
 
@@ -76,9 +89,17 @@ public abstract class ArgumentCaptor //NOSONAR: ArgumentCaptor does not have abs
   }
 
   //method
+  private void assertDoesNotHaveBuilder() {
+    if (hasBuilder()) {
+      throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.BUILDER);
+    }
+  }
+
+  //method
   private void assertHasArgument() {
     if (!hasArgument()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "argument");
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this,
+        LowerCaseVariableCatalogue.ARGUMENT);
     }
   }
 
@@ -102,21 +123,21 @@ public abstract class ArgumentCaptor //NOSONAR: ArgumentCaptor does not have abs
   }
 
   //method
+  private N getNext() {
+
+    if (hasNextArgumentCaptor()) {
+      return nextArgumentCaptorAsNext;
+    }
+
+    return build();
+  }
+
+  //method
   private Supplier<N> getStoredBuilder() {
 
     assertHasBuilder();
 
     return builder;
-  }
-
-  //method
-  private N getStoredNextArgumentCaptorOrResult() {
-
-    if (hasNextArgumentCaptor()) {
-      return nextArgumentCaptor;
-    }
-
-    return build();
   }
 
   //method

@@ -39,7 +39,7 @@ MsSqlSchemaAdapter>>>>> {
   //method
   private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
 
-    final var databaseName = next().next().getDatabaseName();
+    final var databaseName = nxtArgCpt().nxtArgCpt().getDatabaseName();
 
     return new MsSqlSchemaAdapter(
       databaseName,
@@ -49,10 +49,10 @@ MsSqlSchemaAdapter>>>>> {
           SqlConnectionPoolBuilder
             .createConnectionPool()
             .forIpOrDomain(getIpOrDomain())
-            .andPort(next().getPort())
+            .andPort(nxtArgCpt().getPort())
             .andDatabase(databaseName)
             .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
-            .andLoginName(next().next().next().getLoginName())
-            .andLoginPassword(next().next().next().next().getLoginPassword())));
+            .andLoginName(nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName())
+            .andLoginPassword(nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword())));
   }
 }

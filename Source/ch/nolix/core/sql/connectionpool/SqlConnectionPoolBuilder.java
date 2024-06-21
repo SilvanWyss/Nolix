@@ -40,10 +40,10 @@ AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
   private SqlConnectionPool buildSqlConnectionPool() {
     return new SqlConnectionPool(
       getIpOrDomain(),
-      next().getPort(),
-      next().next().getDatabaseName(),
-      next().next().next().getSqlDatabaseEngine(),
-      next().next().next().next().getLoginName(),
-      next().next().next().next().next().getLoginPassword());
+      nxtArgCpt().getPort(),
+      nxtArgCpt().nxtArgCpt().getDatabaseName(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().getSqlDatabaseEngine(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword());
   }
 }

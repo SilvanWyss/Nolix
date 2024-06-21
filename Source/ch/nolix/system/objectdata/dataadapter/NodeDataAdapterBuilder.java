@@ -26,8 +26,8 @@ extends ForNodeDatabaseCaptor<WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAd
   //method
   private NodeDataAdapter buildNodeDataAdapter() {
     return NodeDataAdapter.forDatabaseNameAndNodeDatabaseAndSchema(
-      next().getName(),
+      nxtArgCpt().getName(),
       getStoredNodeDatabase(),
-      next().next().getStoredSchema());
+      nxtArgCpt().nxtArgCpt().getStoredSchema());
   }
 }

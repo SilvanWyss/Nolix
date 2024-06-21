@@ -22,6 +22,6 @@ public final class CredentialBuilder extends WithLoginNameCaptor<AndPasswordCapt
 
   //method
   private Credential buildCredential() {
-    return new Credential(getLoginName(), next().getPassword());
+    return new Credential(getLoginName(), nxtArgCpt().getPassword());
   }
 }
