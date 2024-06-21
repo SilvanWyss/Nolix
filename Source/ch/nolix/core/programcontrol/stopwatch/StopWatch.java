@@ -16,6 +16,25 @@ public final class StopWatch {
   //attribute
   private long latestStartInMilliseconds;
 
+  //constructor
+  private StopWatch() {
+  }
+
+  //static method
+  public static StopWatch createStandingStopWatch() {
+    return new StopWatch();
+  }
+
+  //static method
+  public static StopWatch createStartedStopWatch() {
+
+    final var stopWatch = new StopWatch();
+
+    stopWatch.start();
+
+    return stopWatch;
+  }
+
   //method
   public synchronized long getTotalRunningTimeInMilliseconds() {
     return totalRunningTimeInMilliseconds;
