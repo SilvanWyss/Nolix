@@ -23,6 +23,9 @@ public final class LowerCaseVariableCatalogue {
   public static final String APPOINTMENT = "appointment";
 
   //constant
+  public static final String ARGUMENT = "argument";
+
+  //constant
   public static final String ARRAY = "array";
 
   //constant

@@ -23,6 +23,9 @@ public final class PascalCaseVariableCatalogue {
   public static final String APPOINTMENT = "Appointment";
 
   //constant
+  public static final String ARGUMENT = "Argument";
+
+  //constant
   public static final String ARRAY = "Array";
 
   //constant

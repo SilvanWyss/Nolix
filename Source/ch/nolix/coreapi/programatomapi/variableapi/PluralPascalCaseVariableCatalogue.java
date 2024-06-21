@@ -24,6 +24,9 @@ public final class PluralPascalCaseVariableCatalogue {
   public static final String APPOINTMENTS = "Appointments";
 
   //constant
+  public static final String ARGUMENTS = "Arguments";
+
+  //constant
   public static final String ARRAYS = "Arrays";
 
   //constant

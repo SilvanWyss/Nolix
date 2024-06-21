@@ -24,6 +24,9 @@ public final class PluralLowerCaseVariableCatalogue {
   public static final String APPOINTMENTS = "appointments";
 
   //constant
+  public static final String ARGUMENTS = "arguments";
+
+  //constant
   public static final String ARRAYS = "arrays";
 
   //constant
