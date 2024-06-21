@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndSchemaCaptor;
-import ch.nolix.core.programstructure.builder.forargumentcaptor.ForNodeDatabaseCaptor;
-import ch.nolix.core.programstructure.builder.withargumentcaptor.WithNameCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
+import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
 //class

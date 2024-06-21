@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndDatabaseNameCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginPasswordCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPortCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndSchemaCaptor;
-import ch.nolix.core.programstructure.builder.toargumentcaptor.ToIpOrDomainCaptor;
-import ch.nolix.core.programstructure.builder.withargumentcaptor.WithLoginNameCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 

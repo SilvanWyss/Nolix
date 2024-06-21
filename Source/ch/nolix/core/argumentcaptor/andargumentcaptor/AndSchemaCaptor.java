@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.andargumentcaptor;
+package ch.nolix.core.argumentcaptor.andargumentcaptor;
 
-//own imports
-import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
+import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 
 //class
 public class AndSchemaCaptor<S, N> extends ArgumentCaptor<S, N> {

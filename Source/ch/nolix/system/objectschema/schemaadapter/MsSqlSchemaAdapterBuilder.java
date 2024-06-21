@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginPasswordCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPortCaptor;
-import ch.nolix.core.programstructure.builder.toargumentcaptor.ToDatabaseNameCaptor;
-import ch.nolix.core.programstructure.builder.toargumentcaptor.ToIpOrDomainCaptor;
-import ch.nolix.core.programstructure.builder.withargumentcaptor.WithLoginNameCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
+import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 

@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.toargumentcaptor;
+package ch.nolix.core.argumentcaptor.toargumentcaptor;
 
+import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class

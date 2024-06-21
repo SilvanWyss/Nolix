@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.core.sql.connectionpool;
 
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndDatabaseNameCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginNameCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndLoginPasswordCaptor;
-import ch.nolix.core.programstructure.builder.andargumentcaptor.AndPortCaptor;
-import ch.nolix.core.programstructure.builder.forargumentcaptor.ForIpOrDomainCaptor;
-import ch.nolix.core.programstructure.builder.withargumentcaptor.WithSqlDatabaseEngineCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginNameCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
+import ch.nolix.core.argumentcaptor.withargumentcaptor.WithSqlDatabaseEngineCaptor;
 
 //class
 public final class SqlConnectionPoolBuilder

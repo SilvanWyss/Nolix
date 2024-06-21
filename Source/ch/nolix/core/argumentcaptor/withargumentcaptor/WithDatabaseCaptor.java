@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.core.programstructure.builder.withargumentcaptor;
+package ch.nolix.core.argumentcaptor.withargumentcaptor;
 
-//own imports
-import ch.nolix.core.programstructure.builder.main.ArgumentCaptor;
+import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 
 //class
 public class WithDatabaseCaptor<D, N> extends ArgumentCaptor<D, N> {
