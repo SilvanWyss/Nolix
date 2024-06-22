@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.testingapi.performancetestapi;
+package ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi;
 
 //Java imports
 import java.util.function.IntToDoubleFunction;
