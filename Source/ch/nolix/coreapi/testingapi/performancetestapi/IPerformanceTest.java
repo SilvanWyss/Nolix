@@ -8,5 +8,5 @@ import java.util.function.IntConsumer;
 public interface IPerformanceTest {
 
   //method declaration
-  IActionExpector expect(IntConsumer action);
+  IActionMediator expect(IntConsumer action);
 }

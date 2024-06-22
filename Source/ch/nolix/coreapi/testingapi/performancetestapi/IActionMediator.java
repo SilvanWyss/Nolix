@@ -5,7 +5,7 @@ package ch.nolix.coreapi.testingapi.performancetestapi;
 import java.util.function.IntToDoubleFunction;
 
 //interface
-public interface IActionExpector {
+public interface IActionMediator {
 
   //method declaration
   void hasLinearOrLowerTimeComplexity();
