@@ -38,24 +38,24 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     final LongToDoubleFunction timeComplexityFunction) {
 
     final var stopWatch = StopWatch.createStartedStopWatch();
-    var maxRunCount = 3;
+    var maxRunCount = 5;
 
     while (stopWatch.getTotalRunningTimeInMilliseconds() < 5_000) {
 
       final var passed = //
-      onObjectsFromObjectSupplierActionRunsWithGivenOrLowerTimeComplexityUpToMaxRunCount(
+      onObjectsFromObjectSupplierUpToMaxRunCountActionRunsWithGivenOrLowerTimeComplexity(
         objectSupplier,
+        maxRunCount,
         action,
-        timeComplexityFunction,
-        maxRunCount);
+        timeComplexityFunction);
 
       if (passed) {
 
-        if (stopWatch.getTotalRunningTimeInMilliseconds() > 500 || maxRunCount > 387_420_489 /* 3^18 */) {
+        if (stopWatch.getTotalRunningTimeInMilliseconds() > 500 || maxRunCount > 244_140_625 /* 5^12 */) {
           return true;
         }
 
-        maxRunCount *= 3;
+        maxRunCount *= 5;
       }
     }
 
@@ -63,20 +63,20 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
   }
 
   //method
-  private <O> boolean onObjectsFromObjectSupplierActionRunsWithGivenOrLowerTimeComplexityUpToMaxRunCount(
+  private <O> boolean onObjectsFromObjectSupplierUpToMaxRunCountActionRunsWithGivenOrLowerTimeComplexity(
     final IntFunction<O> objectSupplier,
+    final int maxRunCount,
     final Consumer<O> action,
-    final LongToDoubleFunction timeComplexityFunction,
-    final int maxRunCount) {
+    final LongToDoubleFunction timeComplexityFunction) {
 
     var latestTimeComplexityInvariant = 0.0;
 
-    for (var runCount = 1; runCount <= maxRunCount; runCount *= 3) {
+    for (var runCount = 5; runCount <= maxRunCount; runCount *= 5) {
 
       final var optionalTimeComplexityInvariant = //
       getOpionalTimeComplexityInvariantOfActionOnObjectFromObjectSupplierByRunCountAndTimeComplexityFunction(
         objectSupplier,
-        maxRunCount,
+        runCount,
         action,
         timeComplexityFunction);
 
@@ -110,7 +110,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     if (runtimeInMilliseconds > 10) {
 
       final var timeComplexity = timeComplexityFunction.applyAsDouble(runCount);
-      final var timeComplexityInvariant = timeComplexity / runtimeInMilliseconds;
+      final double timeComplexityInvariant = timeComplexity / runtimeInMilliseconds;
 
       return Optional.of(timeComplexityInvariant);
     }
