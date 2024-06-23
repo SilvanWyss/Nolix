@@ -40,7 +40,7 @@ sourceSets {
 
   test {
     java {
-      srcDirs = ['Test']
+      srcDirs = ['Test', 'PerformanceTest']
     }
   }
 }

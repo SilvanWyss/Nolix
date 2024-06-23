@@ -4,6 +4,7 @@
 !Resource/
 !Source/
 !Test/
+!PerformanceTest/
 !.classpath
 !.gitignore
 !build.gradle
