@@ -8,10 +8,10 @@ import java.util.function.IntToDoubleFunction;
 public final class IntToDoubleFunctionCatalogue {
 
   //constant
-  public static final IntToDoubleFunction CONSTANT_FUNCTION = v -> 1.0;
+  public static final IntToDoubleFunction CONSTANT_FUNCTION = n -> 1.0;
 
   //constant
-  public static final IntToDoubleFunction LINEAR_FUNCTION = v -> v;
+  public static final IntToDoubleFunction LINEAR_FUNCTION = n -> n;
 
   //constructor
   private IntToDoubleFunctionCatalogue() {
