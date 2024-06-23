@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi;
 
-//Java imports
-import java.util.function.IntToDoubleFunction;
+import java.util.function.LongToDoubleFunction;
 
 //interface
 public interface IActionMediator {
@@ -11,7 +10,7 @@ public interface IActionMediator {
   void hasConstantTimeComplexity();
 
   //method declaration
-  void hasGivenOrLowerTimeComplexity(IntToDoubleFunction timeComplexityFunction);
+  void hasGivenOrLowerTimeComplexity(LongToDoubleFunction timeComplexityFunction);
 
   //method declaration
   void hasLinearOrLowerTimeComplexity();
