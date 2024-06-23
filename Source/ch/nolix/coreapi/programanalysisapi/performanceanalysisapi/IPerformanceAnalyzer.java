@@ -10,7 +10,7 @@ import java.util.function.LongToDoubleFunction;
 public interface IPerformanceAnalyzer {
 
   //method declaration
-  <O> void onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
+  <O> boolean onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
     IntFunction<O> objectSupplier,
     Consumer<O> action,
     final LongToDoubleFunction timeComplexityFunction);
