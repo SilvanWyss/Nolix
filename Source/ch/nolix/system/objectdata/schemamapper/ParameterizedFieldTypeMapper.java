@@ -29,7 +29,8 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParameterizedFieldTypeMapper implements IParameterizedFieldTypeMapper {
+public final class ParameterizedFieldTypeMapper //NOSONAR: A ParameterizedFieldTypeMapper provides many cases and thus many dependencies.
+implements IParameterizedFieldTypeMapper {
 
   //constant
   private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
