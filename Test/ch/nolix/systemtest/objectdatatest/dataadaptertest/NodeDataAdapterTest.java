@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.data.Entity;
@@ -171,7 +172,11 @@ final class NodeDataAdapterTest extends StandardTest {
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
 
-    //setup part 3: Edit the schema of the database.
+    //TODO: Use a more sensitive schema time stamp.
+    //setup part 3: Wait a millisecond that the schema time stamp can be distinguished every time.
+    GlobalSequencer.waitForMilliseconds(1);
+
+    //setup part 4: Edit the schema of the database.
     final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")
