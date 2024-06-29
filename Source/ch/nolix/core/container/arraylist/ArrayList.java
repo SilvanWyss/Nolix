@@ -10,6 +10,7 @@ import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
@@ -84,7 +85,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * @param <E2>            is the type of the elements of the created
    *                        {@link ArrayList}.
    * @return a new {@link ArrayList} with the given initialCapacity
-   * @NegativeArgumentException if the given initialCapacity is negative.
+   * @throws NegativeArgumentException if the given initialCapacity is negative.
    */
   public static <E2> ArrayList<E2> withInitialCapacity(final int initialCapacity) {
 
