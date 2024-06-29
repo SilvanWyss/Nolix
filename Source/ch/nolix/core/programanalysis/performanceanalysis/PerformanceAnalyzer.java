@@ -89,7 +89,11 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
           return false;
         }
 
-        latestTimeComplexityInvariant = (0.25 * latestTimeComplexityInvariant) + (0.75 * timeComplexityInvariant);
+        if (latestTimeComplexityInvariant == 0.0) {
+          latestTimeComplexityInvariant = timeComplexityInvariant;
+        } else {
+          latestTimeComplexityInvariant = (0.2 * latestTimeComplexityInvariant) + (0.8 * timeComplexityInvariant);
+        }
       }
     }
 
