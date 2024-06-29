@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2016-10-01
+ * @version 2016-10-01
  */
 public enum MessageRole {
   TARGET_APPLICATION_MESSAGE(MessageRolePrefixCatalogue.TARGET_APPLICATION_PREFIX),

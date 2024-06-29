@@ -4,6 +4,6 @@
  * HTTP protocol.
  * 
  * @author Silvan Wyss
- * @date 2019-10-01
+ * @version 2019-10-01
  */
 package ch.nolix.core.net.http;

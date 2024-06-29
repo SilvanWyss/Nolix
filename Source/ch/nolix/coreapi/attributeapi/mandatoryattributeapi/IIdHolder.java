@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IIdHolder} has an id.
  * 
  * @author Silvan Wyss
- * @date 2019-06-10
+ * @version 2019-06-10
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IIdHolder {

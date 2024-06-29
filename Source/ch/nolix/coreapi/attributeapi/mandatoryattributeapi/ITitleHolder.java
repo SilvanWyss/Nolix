@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link ITitleHolder} has a title.
  * 
  * @author Silvan Wyss
- * @date 2019-07-26
+ * @version 2019-07-26
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ITitleHolder {

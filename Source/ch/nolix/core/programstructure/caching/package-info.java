@@ -4,6 +4,6 @@
  * provide caching mechanisms.
  * 
  * @author Silvan Wyss
- * @date 2020-05-25
+ * @version 2020-05-25
  */
 package ch.nolix.core.programstructure.caching;

@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A {@link Vector} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-02-01
+ * @version 2016-02-01
  */
 public final class Vector {
 

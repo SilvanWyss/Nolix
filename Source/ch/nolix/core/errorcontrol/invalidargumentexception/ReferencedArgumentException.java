@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * referenced.
  * 
  * @author Silvan Wyss
- * @date 2021-07-16
+ * @version 2021-07-16
  */
 @SuppressWarnings("serial")
 public final class ReferencedArgumentException extends InvalidArgumentException {

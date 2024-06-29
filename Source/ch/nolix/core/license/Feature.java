@@ -10,7 +10,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * A {@link Feature} can be required for certain functionalities.
  * 
  * @author Silvan Wyss
- * @date 2019-11-16
+ * @version 2019-11-16
  */
 public abstract class Feature implements INameHolder {
 

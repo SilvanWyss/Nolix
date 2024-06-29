@@ -20,7 +20,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  * mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 public class DoubleMediator extends Mediator {
 

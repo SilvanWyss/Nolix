@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
  * An as long as mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-06-01
+ * @version 2017-06-01
  */
 public final class AsLongAsMediator {
 

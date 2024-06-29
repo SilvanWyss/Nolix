@@ -4,6 +4,6 @@
  * {@link ch.nolix.system.webgui} package.
  * 
  * @author Silvan Wyss
- * @date 2022-11-06
+ * @version 2022-11-06
  */
 package ch.nolix.systemtest.webguitest;

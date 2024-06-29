@@ -5,6 +5,6 @@
  * for web.
  * 
  * @author Silvan Wyss
- * @date 2022-08-15
+ * @version 2022-08-15
  */
 package ch.nolix.systemapi.applicationapi.webapplicationprotocol;

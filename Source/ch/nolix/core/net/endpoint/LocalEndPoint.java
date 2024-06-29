@@ -18,7 +18,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * another {@link LocalEndPoint}.
  * 
  * @author Silvan Wyss
- * @date 2017-05-06
+ * @version 2017-05-06
  */
 public final class LocalEndPoint extends EndPoint {
 

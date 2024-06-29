@@ -4,6 +4,6 @@
  * for the {@link ch.nolix.template.webgui.dialog} package.
  * 
  * @author Silvan Wyss
- * @date 2024-01-05
+ * @version 2024-01-05
  */
 package ch.nolix.templatetest.webguitest.dialogtest;

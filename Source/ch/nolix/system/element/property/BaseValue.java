@@ -17,7 +17,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-10-29
+ * @version 2017-10-29
  * @param <V> is the type of the values of a {@link BaseValue}.
  */
 public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {

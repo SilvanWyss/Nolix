@@ -4,6 +4,6 @@
  * object.
  * 
  * @author Silvan Wyss
- * @date 2023-05-30
+ * @version 2023-05-30
  */
 package ch.nolix.core.programatom.voidobject;

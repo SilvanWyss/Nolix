@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
  * {@link Waiter} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-06-04
+ * @version 2017-06-04
  */
 final class Waiter {
 

@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 //interface
 /**
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IElement {

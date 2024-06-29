@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
  * Of the {@link FunctionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 public final class FunctionCatalogue {
 

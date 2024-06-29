@@ -5,6 +5,6 @@
  * package for SQL databases.
  * 
  * @author Silvan Wyss
- * @date 2022-01-29
+ * @version 2022-01-29
  */
 package ch.nolix.system.sqlrawdata.schemainfo;

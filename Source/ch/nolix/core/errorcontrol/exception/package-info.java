@@ -4,6 +4,6 @@
  * {@link java.lang.Exception}s.
  * 
  * @author Silvan Wyss
- * @date 2020-05-01
+ * @version 2020-05-01
  */
 package ch.nolix.core.errorcontrol.exception;

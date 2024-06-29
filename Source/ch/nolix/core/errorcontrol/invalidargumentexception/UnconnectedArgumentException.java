@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * connected.
  * 
  * @author Silvan Wyss
- * @date 2020-07-24
+ * @version 2020-07-24
  */
 @SuppressWarnings("serial")
 public final class UnconnectedArgumentException extends InvalidArgumentException {

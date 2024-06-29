@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IHeaderHolder;
  * can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2018-04-15
+ * @version 2018-04-15
  * @param <FMHH> is the type of a {@link IFluentMutableHeaderHolder}.
  */
 public interface IFluentMutableHeaderHolder<FMHH extends IHeaderHolder> extends IHeaderHolder {

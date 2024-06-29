@@ -26,7 +26,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class ChainedNode implements IChainedNode {
 

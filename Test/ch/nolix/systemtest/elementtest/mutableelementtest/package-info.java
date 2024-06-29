@@ -4,6 +4,6 @@
  * defines tests for the {@link ch.nolix.system.element.mutableelement} package.
  * 
  * @author Silvan Wyss
- * @date 2023-10-06
+ * @version 2023-10-06
  */
 package ch.nolix.systemtest.elementtest.mutableelementtest;

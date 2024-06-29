@@ -4,6 +4,6 @@
  * unsigned byte.
  * 
  * @author Silvan Wyss
- * @date 2023-11-18
+ * @version 2023-11-18
  */
 package ch.nolix.core.programatom.unsignedbyte;

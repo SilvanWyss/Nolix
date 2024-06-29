@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A {@link IndexedPackage} bundles an index and a content.
  * 
  * @author Silvan Wyss
- * @date 2016-06-01
+ * @version 2016-06-01
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> {

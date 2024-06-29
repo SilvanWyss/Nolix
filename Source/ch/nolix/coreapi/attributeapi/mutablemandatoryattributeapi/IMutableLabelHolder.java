@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
  * set programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-10-25
+ * @version 2023-10-25
  */
 public interface IMutableLabelHolder extends ILabelHolder {
 

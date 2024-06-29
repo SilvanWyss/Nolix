@@ -4,6 +4,6 @@
  * pool.
  * 
  * @author Silvan Wyss
- * @date 2024-01-29
+ * @version 2024-01-29
  */
 package ch.nolix.core.sql.connectionpool;

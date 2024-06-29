@@ -5,6 +5,6 @@
  * fulfilled.
  * 
  * @author Silvan Wyss
- * @date 2019-08-01
+ * @version 2019-08-01
  */
 package ch.nolix.core.programcontrol.sequencer;

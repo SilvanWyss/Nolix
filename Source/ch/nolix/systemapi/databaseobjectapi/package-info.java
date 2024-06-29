@@ -4,6 +4,6 @@
  * types to access databases.
  * 
  * @author Silvan Wyss
- * @date 2021-07-03
+ * @version 2021-07-03
  */
 package ch.nolix.systemapi.databaseobjectapi;

@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programatomapi.stringcatalogueapi;
  * Of the {@link StringCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-10-01
+ * @version 2016-10-01
  */
 public final class StringCatalogue {
 

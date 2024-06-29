@@ -4,6 +4,6 @@
  * {@link ch.nolix.tech.relationaldoc} package.
  * 
  * @author Silvan Wyss
- * @date 2023-09-01
+ * @version 2023-09-01
  */
 package ch.nolix.techtest.relationaldoctest;

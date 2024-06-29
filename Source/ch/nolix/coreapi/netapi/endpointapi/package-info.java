@@ -4,6 +4,6 @@
  * that can send and receive {@link java.lang.String} messages.
  * 
  * @author Silvan Wyss
- * @date 2023-03-10
+ * @version 2023-03-10
  */
 package ch.nolix.coreapi.netapi.endpointapi;

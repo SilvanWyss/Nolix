@@ -6,7 +6,7 @@ package ch.nolix.systemapi.guiapi.fontapi;
  * Of the {@link FontCodeCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2020-08-02
+ * @version 2020-08-02
  */
 public final class FontCodeCatalogue {
 

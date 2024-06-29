@@ -5,6 +5,6 @@
  * {@link ch.nolix.system.application.main.Application}s.
  * 
  * @author Silvan Wyss
- * @date 2023-05-20
+ * @version 2023-05-20
  */
 package ch.nolix.system.application.webapplicationcounterpartupdater;

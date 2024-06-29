@@ -15,7 +15,7 @@ import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
  * additionally other orders. A {@link IContainer} is iterable.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <E> is the type of the elements a {@link IContainer}.
  */
 public interface IContainer<E>

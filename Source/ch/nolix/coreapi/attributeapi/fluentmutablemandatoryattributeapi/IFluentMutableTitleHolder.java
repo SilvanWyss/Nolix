@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2019-07-26
+ * @version 2019-07-26
  * @param <FMTH> is the type of a {@link IFluentMutableTitleHolder}.
  */
 public interface IFluentMutableTitleHolder<FMTH extends IFluentMutableTitleHolder<FMTH>> extends ITitleHolder {

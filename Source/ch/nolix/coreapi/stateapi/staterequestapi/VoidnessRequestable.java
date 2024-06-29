@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link VoidnessRequestable} can be asked if it is void.
  * 
  * @author Silvan Wyss
- * @date 2022-03-10
+ * @version 2022-03-10
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface VoidnessRequestable {

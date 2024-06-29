@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
  * whose name can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <FMONH> is the type of a {@link IFluentMutableOptionalNameHolder}.
  */
 public interface IFluentMutableOptionalNameHolder<FMONH extends IFluentMutableOptionalNameHolder<FMONH>>

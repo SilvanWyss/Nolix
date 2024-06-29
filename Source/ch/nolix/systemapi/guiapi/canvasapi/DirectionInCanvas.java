@@ -11,7 +11,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * the start point and end point.
  * 
  * @author Silvan Wyss
- * @date 2017-09-16
+ * @version 2017-09-16
  */
 public enum DirectionInCanvas {
   HORIZONTAL,

@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.databaseobjectapi.databaseobjectapi}.
  * 
  * @author Silvan Wyss
- * @date 2021-11-12
+ * @version 2021-11-12
  */
 package ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi;

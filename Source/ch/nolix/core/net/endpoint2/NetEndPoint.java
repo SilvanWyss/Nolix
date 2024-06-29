@@ -22,7 +22,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * other {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @date 2017-05-22
+ * @version 2017-05-22
  */
 public final class NetEndPoint extends EndPoint {
 

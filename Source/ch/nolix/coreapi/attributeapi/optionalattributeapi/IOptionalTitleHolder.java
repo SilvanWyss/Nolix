@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IOptionalTitleHolder} can have a title.
  * 
  * @author Silvan Wyss
- * @date 2023-02-06
+ * @version 2023-02-06
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalTitleHolder {

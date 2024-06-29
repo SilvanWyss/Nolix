@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * values or references.
  * 
  * @author Silvan Wyss
- * @date 2023-09-08
+ * @version 2023-09-08
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ContentTypeRequestable {

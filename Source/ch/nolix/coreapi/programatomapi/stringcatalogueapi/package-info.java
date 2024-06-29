@@ -4,6 +4,6 @@
  * declares catalogues for {@link java.lang.String}s.
  * 
  * @author Silvan Wyss
- * @date 2023-11-17
+ * @version 2023-11-17
  */
 package ch.nolix.coreapi.programatomapi.stringcatalogueapi;

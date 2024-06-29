@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programcontrolapi.processapi.FinishRequestable;
  * finished or thrown an error.
  * 
  * @author Silvan Wyss
- * @date 2019-04-14
+ * @version 2019-04-14
  */
 public interface IFuture extends FinishRequestable {
 

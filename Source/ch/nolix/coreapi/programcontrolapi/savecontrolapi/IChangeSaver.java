@@ -9,7 +9,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
  * A {@link IChangeSaver} can save its changes.
  * 
  * @author Silvan Wyss
- * @date 2018-04-09
+ * @version 2018-04-09
  */
 public interface IChangeSaver extends Closeable, ChangeRequestable {
 

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IOptionalQualifiedNameHolder} can have a qualified name.
  * 
  * @author Silvan Wyss
- * @date 2024-02-11
+ * @version 2024-02-11
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {

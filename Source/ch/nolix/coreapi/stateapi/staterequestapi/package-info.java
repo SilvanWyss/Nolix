@@ -4,6 +4,6 @@
  * types that can be asked for states.
  * 
  * @author Silvan Wyss
- * @date 2024-02-16
+ * @version 2024-02-16
  */
 package ch.nolix.coreapi.stateapi.staterequestapi;

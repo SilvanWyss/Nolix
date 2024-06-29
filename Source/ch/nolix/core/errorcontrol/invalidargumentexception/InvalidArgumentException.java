@@ -21,7 +21,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * -ArgumentIsOutOfRangeException
  * 
  * @author Silvan Wyss
- * @date 2016-12-01
+ * @version 2016-12-01
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {

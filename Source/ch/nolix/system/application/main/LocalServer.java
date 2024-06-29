@@ -10,7 +10,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 //class
 /**
  * @author Silvan Wyss
- * @date 2021-06-29
+ * @version 2021-06-29
  */
 public final class LocalServer extends BaseServer<LocalServer> {
 

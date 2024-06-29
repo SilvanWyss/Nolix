@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
  * A {@link ForMaxMillisecondsMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2019-11-24
+ * @version 2019-11-24
  */
 public final class ForMaxMillisecondsMediator {
 

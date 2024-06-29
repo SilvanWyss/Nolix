@@ -4,6 +4,6 @@
  * sequences.
  * 
  * @author Silvan Wyss
- * @date 2023-07-07
+ * @version 2023-07-07
  */
 package ch.nolix.template.math.sequence;

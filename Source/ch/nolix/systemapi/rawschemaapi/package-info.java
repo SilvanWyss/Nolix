@@ -4,6 +4,6 @@
  * the schema of real databases.
  * 
  * @author Silvan Wyss
- * @date 2021-07-17
+ * @version 2021-07-17
  */
 package ch.nolix.systemapi.rawschemaapi;

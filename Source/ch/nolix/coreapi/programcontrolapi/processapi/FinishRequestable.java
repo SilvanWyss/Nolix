@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link FinishRequestable} can be asked if it is running or finished.
  * 
  * @author Silvan Wyss
- * @date 2022-06-18
+ * @version 2022-06-18
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface FinishRequestable {

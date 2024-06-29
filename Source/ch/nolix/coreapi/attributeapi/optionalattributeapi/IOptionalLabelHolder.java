@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IOptionalLabelHolder} can have a label.
  * 
  * @author Silvan Wyss
- * @date 2023-02-07
+ * @version 2023-02-07
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalLabelHolder {

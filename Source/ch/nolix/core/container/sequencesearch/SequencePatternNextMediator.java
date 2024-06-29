@@ -13,7 +13,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 //class
 /**
  * @author Silvan Wyss
- * @date 2016-10-01
+ * @version 2016-10-01
  * @param <E> is the type of the elements of the sequences of the
  *            {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */

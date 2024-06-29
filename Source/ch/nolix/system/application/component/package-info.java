@@ -4,6 +4,6 @@
  * of components for web applications.
  * 
  * @author Silvan Wyss
- * @date 2023-07-15
+ * @version 2023-07-15
  */
 package ch.nolix.system.application.component;

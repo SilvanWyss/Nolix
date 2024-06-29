@@ -4,6 +4,6 @@
  * for time structure.
  * 
  * @author Silvan Wyss
- * @date 2022-06-07
+ * @version 2022-06-07
  */
 package ch.nolix.systemapi.timeapi.timestructureapi;

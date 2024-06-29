@@ -4,6 +4,6 @@
  * {@link ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType}.
  * 
  * @author Silvan Wyss
- * @date 2023-12-28
+ * @version 2023-12-28
  */
 package ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi;

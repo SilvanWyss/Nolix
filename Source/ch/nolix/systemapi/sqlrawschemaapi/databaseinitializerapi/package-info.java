@@ -4,6 +4,6 @@
  * declares types to initialize SQL databases.
  * 
  * @author Silvan Wyss
- * @date 2024-05-10
+ * @version 2024-05-10
  */
 package ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi;

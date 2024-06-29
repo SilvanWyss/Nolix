@@ -11,7 +11,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalSaveStampHold
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2024-02-11
+ * @version 2024-02-11
  * @param <FMSSH> is the type of a
  *                {@link IFluentMutableOptionalSaveStampHolder}.
  */

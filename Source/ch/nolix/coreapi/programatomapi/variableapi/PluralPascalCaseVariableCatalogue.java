@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programatomapi.variableapi;
  * created.
  * 
  * @author Silvan Wyss
- * @date 2018-04-26
+ * @version 2018-04-26
  */
 public final class PluralPascalCaseVariableCatalogue {
 

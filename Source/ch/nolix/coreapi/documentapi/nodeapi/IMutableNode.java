@@ -12,7 +12,7 @@ import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMu
  * A {@link IMutableNode} is a {@link INode} that is mutable.
  * 
  * @author Silvan Wyss
- * @date 2022-06-25
+ * @version 2022-06-25
  * @param <MN> is the type of a {@link IMutableNode}.
  */
 public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IFluentMutableOptionalHeaderHolder<MN> {

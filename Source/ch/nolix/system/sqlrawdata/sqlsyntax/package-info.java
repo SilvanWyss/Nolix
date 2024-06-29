@@ -6,6 +6,6 @@
  * databases.
  * 
  * @author Silvan Wyss
- * @date 2021-10-09
+ * @version 2021-10-09
  */
 package ch.nolix.system.sqlrawdata.sqlsyntax;

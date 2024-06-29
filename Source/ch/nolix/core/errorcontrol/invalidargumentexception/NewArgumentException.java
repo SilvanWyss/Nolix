@@ -7,7 +7,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * supposed to be thrown when a given argument is undesirably not new.
  * 
  * @author Silvan Wyss
- * @date 2021-07-16
+ * @version 2021-07-16
  */
 @SuppressWarnings("serial")
 public final class NewArgumentException extends InvalidArgumentException {

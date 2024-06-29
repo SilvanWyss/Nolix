@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * {@link IStylableElement} that is given to be styled.
  * 
  * @author Silvan Wyss
- * @date 2023-07-08
+ * @version 2023-07-08
  * @param <SS> is the type of a {@link ISelectingStyle}.
  */
 @AllowDefaultMethodsAsDesignPattern

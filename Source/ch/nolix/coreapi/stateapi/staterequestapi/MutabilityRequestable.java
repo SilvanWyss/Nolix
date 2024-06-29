@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link MutabilityRequestable} can be asked if it is mutable.
  * 
  * @author Silvan Wyss
- * @date 2021-03-19
+ * @version 2021-03-19
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface MutabilityRequestable {

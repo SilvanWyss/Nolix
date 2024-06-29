@@ -4,6 +4,6 @@
  * functionalities for data and persistence.
  * 
  * @author Silvan Wyss
- * @date 2022-01-20
+ * @version 2022-01-20
  */
 package ch.nolix.core.programstructure.data;

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2018-05-18
+ * @version 2018-05-18
  */
 public enum ButtonRole {
   ACTION_BUTTON,

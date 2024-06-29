@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2023-09-09
+ * @version 2023-09-09
  */
 package ch.nolix.tech.relationaldoc.dataadapter;

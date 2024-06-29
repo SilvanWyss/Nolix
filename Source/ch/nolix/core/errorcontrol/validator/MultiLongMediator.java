@@ -12,7 +12,7 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * A long container mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 

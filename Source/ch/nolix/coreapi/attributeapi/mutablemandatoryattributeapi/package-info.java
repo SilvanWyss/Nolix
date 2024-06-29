@@ -4,6 +4,6 @@
  * package declares types with a certain mutable attribute.
  * 
  * @author Silvan Wyss
- * @date 2023-01-27
+ * @version 2023-01-27
  */
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;

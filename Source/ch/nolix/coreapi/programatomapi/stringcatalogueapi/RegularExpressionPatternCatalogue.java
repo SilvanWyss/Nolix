@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * created.
  * 
  * @author Silvan Wyss
- * @date 2023-01-09
+ * @version 2023-01-09
  */
 public final class RegularExpressionPatternCatalogue {
 

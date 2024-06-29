@@ -4,6 +4,6 @@
  * builder mechanism.
  * 
  * @author Silvan Wyss
- * @date 2021-12-25
+ * @version 2021-12-25
  */
 package ch.nolix.core.argumentcaptor.base;

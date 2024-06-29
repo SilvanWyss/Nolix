@@ -11,7 +11,7 @@ import java.util.function.ToIntFunction;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2023-10-30
+ * @version 2023-10-30
  * @param <E> is the type of the elements a {@link IStatisticalConainer}.
  */
 public interface IStatisticalConainer<E> {

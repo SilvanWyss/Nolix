@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2020-03-29
+ * @version 2020-03-29
  * @param <FMIH> is the type of a {@link IFluentMutableIdHolder}.
  */
 public interface IFluentMutableIdHolder<FMIH> extends IIdHolder {

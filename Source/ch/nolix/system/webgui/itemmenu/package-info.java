@@ -4,6 +4,6 @@
  * are declared in the {@link ch.nolix.systemapi.webguiapi.itemmenuapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-09-29
+ * @version 2022-09-29
  */
 package ch.nolix.system.webgui.itemmenu;

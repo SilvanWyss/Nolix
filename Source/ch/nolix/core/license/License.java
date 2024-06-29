@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-05-16
+ * @version 2017-05-16
  */
 public abstract class License implements INameHolder {
 

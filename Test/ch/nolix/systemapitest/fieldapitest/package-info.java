@@ -4,6 +4,6 @@
  * {@link ch.nolix.systemapi.objectdataapi.fieldproperty} package.
  * 
  * @author Silvan Wyss
- * @date 2024-05-12
+ * @version 2024-05-12
  */
 package ch.nolix.systemapitest.fieldapitest;

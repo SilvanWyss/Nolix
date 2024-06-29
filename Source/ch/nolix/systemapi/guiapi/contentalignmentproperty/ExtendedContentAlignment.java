@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2019-05-18
+ * @version 2019-05-18
  */
 public enum ExtendedContentAlignment {
   TOP_LEFT,

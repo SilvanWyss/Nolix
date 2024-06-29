@@ -6,6 +6,6 @@
  * {@link ch.nolix.systemapi.objectschemaapi.schemaapi.ITable}s.
  * 
  * @author Silvan Wyss
- * @date 2022-03-04
+ * @version 2022-03-04
  */
 package ch.nolix.systemapi.objectdataapi.schemamapperapi;

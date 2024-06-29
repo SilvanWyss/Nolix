@@ -22,7 +22,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * the {@link GlobalStringTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class GlobalStringTool {
 

@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
  * windows. Of the {@link PopupWindowProvider} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-08-15
+ * @version 2017-08-15
  */
 public final class PopupWindowProvider {
 

@@ -4,6 +4,6 @@
  * models.
  * 
  * @author Silvan Wyss
- * @date 2023-08-23
+ * @version 2023-08-23
  */
 package ch.nolix.coreapi.datamodelapi;

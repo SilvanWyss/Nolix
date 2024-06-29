@@ -4,7 +4,7 @@ package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2022-07-05
+ * @version 2022-07-05
  */
 public interface ICloseController {
 

@@ -8,7 +8,7 @@ import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
  * A {@link Clearable} can contain elements that can be removed.
  * 
  * @author Silvan Wyss
- * @date 2016-03-01
+ * @version 2016-03-01
  */
 public interface Clearable extends EmptinessRequestable {
 

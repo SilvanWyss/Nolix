@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
  * id can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2020-02-01
+ * @version 2020-02-01
  * @param <FMOIH> is the type of a {@link IFluentMutableOptionalIdHolder}.
  */
 public interface IFluentMutableOptionalIdHolder<FMOIH extends IFluentMutableOptionalIdHolder<FMOIH>>

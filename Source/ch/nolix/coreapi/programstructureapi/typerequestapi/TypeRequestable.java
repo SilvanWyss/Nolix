@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link TypeRequestable} is of a certain type.
  * 
  * @author Silvan Wyss
- * @date 2018-11-25
+ * @version 2018-11-25
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface TypeRequestable {

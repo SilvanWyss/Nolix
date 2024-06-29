@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2018-09-06
+ * @version 2018-09-06
  * @param <FVH> is the type of a {@link IFluentMutableValueHolder}.
  * @param <V>   is the type of the value of a {@link IFluentMutableValueHolder}.
  */

@@ -18,7 +18,7 @@ import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
  * for the {@link EndPoint} of a {@link Client}.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 final class ClientDataProviderController implements IDataProviderController {
 

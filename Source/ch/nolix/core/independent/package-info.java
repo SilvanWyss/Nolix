@@ -4,6 +4,6 @@
  * dependencies as possible.
  * 
  * @author Silvan Wyss
- * @date 2021-03-08
+ * @version 2021-03-08
  */
 package ch.nolix.core.independent;

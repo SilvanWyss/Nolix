@@ -4,6 +4,6 @@
  * program structure.
  * 
  * @author Silvan Wyss
- * @date 2022-07-20
+ * @version 2022-07-20
  */
 package ch.nolix.coreapi.programstructureapi;

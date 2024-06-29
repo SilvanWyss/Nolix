@@ -4,6 +4,6 @@
  * the {@link ch.nolix.core.net.endpoint2} package.
  * 
  * @author Silvan Wyss
- * @date 2019-08-01
+ * @version 2019-08-01
  */
 package ch.nolix.coretest.nettest.endpoint2test;

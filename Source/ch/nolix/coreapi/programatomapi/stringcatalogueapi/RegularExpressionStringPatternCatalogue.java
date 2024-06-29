@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programatomapi.stringcatalogueapi;
  * created.
  * 
  * @author Silvan Wyss
- * @date 2023-07-23
+ * @version 2023-07-23
  */
 public final class RegularExpressionStringPatternCatalogue {
 

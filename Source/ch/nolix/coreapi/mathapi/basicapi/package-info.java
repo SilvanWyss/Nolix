@@ -4,6 +4,6 @@
  * basics of mathematics.
  * 
  * @author Silvan Wyss
- * @date 2024-01-14
+ * @version 2024-01-14
  */
 package ch.nolix.coreapi.mathapi.basicapi;

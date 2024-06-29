@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * system item is a file or a folder.
  * 
  * @author Silvan Wyss
- * @date 2017-07-10
+ * @version 2017-07-10
  */
 public class FileSystemItemAccessor {
 

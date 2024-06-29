@@ -18,7 +18,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2018-03-04
+ * @version 2018-03-04
  * @param <V> is the type of the value of a {@link SingleValue}.
  */
 abstract class SingleValue<V> extends BaseValue<V> {

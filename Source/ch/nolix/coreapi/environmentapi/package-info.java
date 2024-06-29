@@ -4,6 +4,6 @@
  * environment.
  * 
  * @author Silvan Wyss
- * @date 2024-01-07
+ * @version 2024-01-07
  */
 package ch.nolix.coreapi.environmentapi;

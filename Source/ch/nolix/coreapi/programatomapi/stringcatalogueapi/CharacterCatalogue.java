@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programatomapi.stringcatalogueapi;
  * Of the {@link CharacterCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-06-24
+ * @version 2017-06-24
  */
 public final class CharacterCatalogue {
 

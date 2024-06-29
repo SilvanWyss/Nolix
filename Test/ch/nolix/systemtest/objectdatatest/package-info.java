@@ -4,6 +4,6 @@
  * {@link ch.nolix.system.objectdata} package.
  * 
  * @author Silvan Wyss
- * @date 2021-12-26
+ * @version 2021-12-26
  */
 package ch.nolix.systemtest.objectdatatest;

@@ -4,6 +4,6 @@
  * for the {@link ch.nolix.core} package.
  * 
  * @author Silvan Wyss
- * @date 2024-06-23
+ * @version 2024-06-23
  */
 package ch.nolix.coreperformancetest;

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IHeaderHolder} has a header.
  * 
  * @author Silvan Wyss
- * @date 2018-04-07
+ * @version 2018-04-07
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IHeaderHolder {

@@ -22,7 +22,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A file accessor can access a given file.
  * 
  * @author Silvan Wyss
- * @date 2017-07-10
+ * @version 2017-07-10
  */
 public final class FileAccessor extends FileSystemItemAccessor {
 

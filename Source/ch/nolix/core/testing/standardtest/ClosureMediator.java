@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  * A {@link ClosureMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-10-01
+ * @version 2016-10-01
  */
 public final class ClosureMediator {
 

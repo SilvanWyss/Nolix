@@ -5,6 +5,6 @@
  * databases.
  * 
  * @author Silvan Wyss
- * @date 2024-02-14
+ * @version 2024-02-14
  */
 package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;

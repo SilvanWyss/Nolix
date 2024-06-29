@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
  * whose token can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTokenHolder}.
  */
 public interface IFluentMutableOptionalTokenHolder<FMOTH extends IFluentMutableOptionalTokenHolder<FMOTH>>

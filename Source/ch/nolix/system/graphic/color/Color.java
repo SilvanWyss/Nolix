@@ -21,7 +21,7 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
  * A {@link Color} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class Color extends Element implements IColor {
 

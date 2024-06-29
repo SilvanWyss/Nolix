@@ -5,6 +5,6 @@
  * {@link ch.nolix.system.databaseapplication.fieldbinder} package.
  * 
  * @author Silvan Wyss
- * @date 2022-05-06
+ * @version 2022-05-06
  */
 package ch.nolix.systemtest.databaseapplicationtest.fieldbindertest;

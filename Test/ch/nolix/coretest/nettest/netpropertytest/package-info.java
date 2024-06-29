@@ -4,6 +4,6 @@
  * for the {@link ch.nolix.coreapi.netapi.netproperty} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-18
+ * @version 2023-07-18
  */
 package ch.nolix.coretest.nettest.netpropertytest;

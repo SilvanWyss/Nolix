@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  * text can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-02-06
+ * @version 2023-02-06
  * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTextHolder}.
  */
 public interface IFluentMutableOptionalTextHolder<FMOTH extends IFluentMutableOptionalTextHolder<FMOTH>>

@@ -32,7 +32,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <E> is the type of the elements a {@link Container} can store.
  */
 public abstract class Container<E> //NOSONAR: A Container has many methods and thus many dependencies.

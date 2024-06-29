@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
  * programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-02-09
+ * @version 2023-02-09
  */
 public interface IMutableIdHolder extends IIdHolder {
 

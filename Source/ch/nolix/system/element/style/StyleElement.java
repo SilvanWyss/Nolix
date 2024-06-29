@@ -13,7 +13,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
  * {@link Style}.
  * 
  * @author Silvan Wyss
- * @date 2016-05-01
+ * @version 2016-05-01
  * @param <SE> is the type of a {@link StyleElement}.
  */
 public abstract class StyleElement<SE extends StyleElement<SE>>

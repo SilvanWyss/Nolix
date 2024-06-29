@@ -4,6 +4,6 @@
  * system.
  * 
  * @author Silvan Wyss
- * @date 2019-11-16
+ * @version 2019-11-16
  */
 package ch.nolix.core.license;

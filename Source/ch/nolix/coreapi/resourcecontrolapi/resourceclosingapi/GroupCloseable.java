@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 //interface
 /**
  * @author Silvan Wyss
- * @date 2020-07-05
+ * @version 2020-07-05
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface GroupCloseable extends Closeable {

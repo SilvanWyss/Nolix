@@ -4,6 +4,6 @@
  * in the {ch.nolix.coreapi.documentapi.cssapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-09-16
+ * @version 2022-09-16
  */
 package ch.nolix.core.web.css;

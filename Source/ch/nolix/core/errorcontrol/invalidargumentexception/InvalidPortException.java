@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * supposed to be thrown when a given port is not valid.
  * 
  * @author Silvan Wyss
- * @date 2021-07-16
+ * @version 2021-07-16
  */
 @SuppressWarnings("serial")
 public final class InvalidPortException extends InvalidArgumentException {

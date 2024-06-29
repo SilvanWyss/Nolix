@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2023-01-15
+ * @version 2023-01-15
  */
 package ch.nolix.system.objectdata.schema;

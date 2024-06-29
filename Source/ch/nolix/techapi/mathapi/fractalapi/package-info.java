@@ -4,6 +4,6 @@
  * fractals.
  * 
  * @author Silvan Wyss
- * @date 2023-01-22
+ * @version 2023-01-22
  */
 package ch.nolix.techapi.mathapi.fractalapi;

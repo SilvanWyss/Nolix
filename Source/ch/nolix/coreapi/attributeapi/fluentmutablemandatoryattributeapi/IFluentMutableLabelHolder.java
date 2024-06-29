@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-10-25
+ * @version 2023-10-25
  * @param <FMLH> is the type of a {@link IFluentMutableLabelHolder}.
  */
 public interface IFluentMutableLabelHolder<FMLH extends IFluentMutableLabelHolder<FMLH>> extends ILabelHolder {

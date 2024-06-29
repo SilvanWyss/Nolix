@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITokenHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-02-06
+ * @version 2023-02-06
  * @param <FMTH> is the type of a {@link IFluentMutableTokenHolder}.
  */
 public interface IFluentMutableTokenHolder<FMTH extends IFluentMutableTokenHolder<FMTH>> extends ITokenHolder {

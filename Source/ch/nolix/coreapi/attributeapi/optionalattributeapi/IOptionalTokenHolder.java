@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IOptionalTokenHolder} can have a token.
  * 
  * @author Silvan Wyss
- * @date 2020-03-29
+ * @version 2020-03-29
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalTokenHolder {

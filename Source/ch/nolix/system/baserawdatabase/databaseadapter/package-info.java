@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.rawdataapi.dataadapterapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-02-28
+ * @version 2022-02-28
  */
 package ch.nolix.system.baserawdatabase.databaseadapter;

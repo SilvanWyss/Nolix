@@ -20,7 +20,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  * A local duplex controller can interact with another local duplex controller.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class LocalEndPoint extends EndPoint {
 

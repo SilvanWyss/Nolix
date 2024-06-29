@@ -11,7 +11,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
  * whose {@link Cardinality} can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-08-25
+ * @version 2023-08-25
  * @param <FMCH> is the type of a {@link IFluentMutableCardinalityHolder}.
  */
 public interface IFluentMutableCardinalityHolder<FMCH extends IFluentMutableCardinalityHolder<FMCH>>

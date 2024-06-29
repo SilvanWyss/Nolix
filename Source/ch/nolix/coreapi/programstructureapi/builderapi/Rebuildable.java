@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programstructureapi.builderapi;
  * A {@link Rebuildable} can rebuild itself.
  * 
  * @author Silvan Wyss
- * @date 2023-11-04
+ * @version 2023-11-04
  */
 public interface Rebuildable {
 

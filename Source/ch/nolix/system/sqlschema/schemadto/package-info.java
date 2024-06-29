@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2021-07-28
+ * @version 2021-07-28
  */
 package ch.nolix.system.sqlschema.schemadto;

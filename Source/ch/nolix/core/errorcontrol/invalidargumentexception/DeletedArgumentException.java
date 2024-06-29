@@ -7,7 +7,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * is supposed to be thrown when a given argument is undesirably deleted.
  * 
  * @author Silvan Wyss
- * @date 2021-07-12
+ * @version 2021-07-12
  */
 @SuppressWarnings("serial")
 public final class DeletedArgumentException extends InvalidArgumentException {

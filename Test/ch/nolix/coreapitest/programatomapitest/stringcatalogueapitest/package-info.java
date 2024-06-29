@@ -5,6 +5,6 @@
  * {@link ch.nolix.coreapi.programatomapi.stringcatalogueapi} package.
  * 
  * @author Silvan Wyss
- * @date 2024-04-19
+ * @version 2024-04-19
  */
 package ch.nolix.coreapitest.programatomapitest.stringcatalogueapitest;

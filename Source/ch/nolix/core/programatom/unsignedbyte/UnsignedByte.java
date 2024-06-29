@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A {@link UnsignedByte} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2019-09-06
+ * @version 2019-09-06
  */
 public final class UnsignedByte {
 

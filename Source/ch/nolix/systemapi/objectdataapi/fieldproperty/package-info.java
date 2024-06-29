@@ -4,6 +4,6 @@
  * properties for fields.
  * 
  * @author Silvan Wyss
- * @date 2024-05-13
+ * @version 2024-05-13
  */
 package ch.nolix.systemapi.objectdataapi.fieldproperty;

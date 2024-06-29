@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <FMNH> is the type of a {@link IFluentMutableNameHolder}.
  */
 public interface IFluentMutableNameHolder<FMNH extends IFluentMutableNameHolder<FMNH>> extends INameHolder {

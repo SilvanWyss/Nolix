@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * attribute.
  * 
  * @author Silvan Wyss
- * @date 2022-01-30
+ * @version 2022-01-30
  */
 @SuppressWarnings("serial")
 public final class ArgumentHasAttributeException extends InvalidArgumentException {

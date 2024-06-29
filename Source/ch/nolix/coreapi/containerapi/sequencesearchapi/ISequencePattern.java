@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2023-02-13
+ * @version 2023-02-13
  * @param <E> is the type of the elements of the sequences a
  *            {@link ISequencePattern} selects.
  */

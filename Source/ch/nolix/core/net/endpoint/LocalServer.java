@@ -7,7 +7,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 //class
 /**
  * @author Silvan Wyss
- * @date 2021-06-17
+ * @version 2021-06-17
  */
 public final class LocalServer extends BaseServer {
 

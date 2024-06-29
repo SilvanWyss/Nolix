@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2016-08-01
+ * @version 2016-08-01
  */
 public final class ARModel extends StatisticalModel {
 

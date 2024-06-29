@@ -24,7 +24,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A {@link LicenseManager} contains {@link License}s.
  * 
  * @author Silvan Wyss
- * @date 2019-11-16
+ * @version 2019-11-16
  */
 public final class LicenseManager {
 

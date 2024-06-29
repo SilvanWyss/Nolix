@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  * {@link GlobalSequencer} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-06-01
+ * @version 2016-06-01
  */
 public final class GlobalSequencer {
 

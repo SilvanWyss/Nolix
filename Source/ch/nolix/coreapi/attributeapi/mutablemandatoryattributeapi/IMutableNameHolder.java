@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
  * programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-01-27
+ * @version 2023-01-27
  */
 public interface IMutableNameHolder extends INameHolder {
 

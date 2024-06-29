@@ -20,7 +20,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequesta
  * {@link Server}.
  * 
  * @author Silvan Wyss
- * @date 2017-05-06
+ * @version 2017-05-06
  */
 public final class ServerListener extends Worker implements CloseStateRequestable {
 

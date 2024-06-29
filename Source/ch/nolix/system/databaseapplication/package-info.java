@@ -4,6 +4,6 @@
  * database application.
  * 
  * @author Silvan Wyss
- * @date 2021-03-10
+ * @version 2021-03-10
  */
 package ch.nolix.system.databaseapplication;

@@ -4,6 +4,6 @@
  * front-end.
  * 
  * @author Silvan Wyss
- * @date 2022-10-28
+ * @version 2022-10-28
  */
 package ch.nolix.systemapi.guiapi.frontendapi;

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2022-07-31
+ * @version 2022-07-31
  * @param <G> is the type of a {@link IGui}.
  */
 public interface IGui<G extends IGui<G>> extends IFluentMutableTitleHolder<G> {

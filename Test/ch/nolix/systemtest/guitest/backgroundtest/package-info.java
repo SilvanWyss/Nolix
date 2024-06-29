@@ -4,6 +4,6 @@
  * for the {@link ch.nolix.system.gui.background} package.
  * 
  * @author Silvan Wyss
- * @date 2023-11-19
+ * @version 2023-11-19
  */
 package ch.nolix.systemtest.guitest.backgroundtest;

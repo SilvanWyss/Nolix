@@ -6,7 +6,7 @@ package ch.nolix.coreapi.netapi.endpoint3protocol;
  * Of the {@link MessageHeaderCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class MessageHeaderCatalogue {
 

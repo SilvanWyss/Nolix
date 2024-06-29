@@ -4,6 +4,6 @@
  * node.
  * 
  * @author Silvan Wyss
- * @date 2022-06-24
+ * @version 2022-06-24
  */
 package ch.nolix.coreapi.documentapi.nodeapi;

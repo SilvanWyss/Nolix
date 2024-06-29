@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programatomapi.timeunitapi;
  * Of the {@link TimeUnitConversionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-02-05
+ * @version 2017-02-05
  */
 public final class TimeUnitConversionCatalogue {
 

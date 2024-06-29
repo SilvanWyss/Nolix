@@ -6,7 +6,7 @@ package ch.nolix.coreapi.netapi.netconstantapi;
  * Of the {@link IPv6Catalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-03-05
+ * @version 2017-03-05
  */
 public final class IPv6Catalogue {
 

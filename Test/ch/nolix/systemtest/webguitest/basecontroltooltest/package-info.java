@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-22
+ * @version 2023-07-22
  */
 package ch.nolix.systemtest.webguitest.basecontroltooltest;

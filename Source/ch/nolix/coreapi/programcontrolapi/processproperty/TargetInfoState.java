@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * received a target info or is waiting to a target info.
  * 
  * @author Silvan Wyss
- * @date 2020-05-03
+ * @version 2020-05-03
  */
 public enum TargetInfoState {
   RECEIVED_TARGET_INFO,

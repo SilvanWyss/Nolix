@@ -22,7 +22,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IServer;
  * 
  * @param <SR> is the type of a {@link BaseServer}.
  * @author Silvan Wyss
- * @date 2016-11-01
+ * @version 2016-11-01
  */
 public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 

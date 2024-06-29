@@ -4,6 +4,6 @@
  * for the {@link ch.nolix.techapi.relationaldocapi} package.
  * 
  * @author Silvan Wyss
- * @date 2023-10-03
+ * @version 2023-10-03
  */
 package ch.nolix.techapitest.relationaldocapitest;

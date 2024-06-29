@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * Of the {@link GlobalLicenseManager} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2019-11-16
+ * @version 2019-11-16
  */
 public final class GlobalLicenseManager {
 

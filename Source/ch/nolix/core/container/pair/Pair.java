@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
  * A {@link Pair} contains 2 elements. A {@link Pair} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <E1> is the type of the element 1 of a {@link Pair}.
  * @param <E2> is the type of the element 2 of a {@link Pair}.
  */

@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2021-09-16
+ * @version 2021-09-16
  */
 package ch.nolix.systemtest.objectschematest.schemaadaptertest;

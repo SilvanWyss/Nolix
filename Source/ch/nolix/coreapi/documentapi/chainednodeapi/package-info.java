@@ -4,6 +4,6 @@
  * document chained node.
  * 
  * @author Silvan Wyss
- * @date 2022-07-05
+ * @version 2022-07-05
  */
 package ch.nolix.coreapi.documentapi.chainednodeapi;

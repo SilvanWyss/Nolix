@@ -6,7 +6,7 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * A {@link ITokenHolder} has a token.
  * 
  * @author Silvan Wyss
- * @date 2023-02-06
+ * @version 2023-02-06
  */
 public interface ITokenHolder {
 

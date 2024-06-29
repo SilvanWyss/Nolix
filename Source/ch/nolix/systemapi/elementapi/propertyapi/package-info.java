@@ -4,6 +4,6 @@
  * properties.
  * 
  * @author Silvan Wyss
- * @date 2023-10-07
+ * @version 2023-10-07
  */
 package ch.nolix.systemapi.elementapi.propertyapi;

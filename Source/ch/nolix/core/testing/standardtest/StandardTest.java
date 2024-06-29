@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.validator.StringMediator;
  * A test is a test that provides the fluent pattern for writing expectations.
  * 
  * @author Silvan Wyss
- * @date 2016-09-01
+ * @version 2016-09-01
  */
 public abstract class StandardTest { //NOSONAR: StandardTest does not have abstract methods.
 

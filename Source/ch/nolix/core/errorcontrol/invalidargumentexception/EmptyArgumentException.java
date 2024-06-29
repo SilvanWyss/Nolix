@@ -7,7 +7,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * is supposed to be thrown when a given argument is undesirably empty.
  * 
  * @author Silvan Wyss
- * @date 2016-03-01
+ * @version 2016-03-01
  */
 @SuppressWarnings("serial")
 public final class EmptyArgumentException extends InvalidArgumentException {

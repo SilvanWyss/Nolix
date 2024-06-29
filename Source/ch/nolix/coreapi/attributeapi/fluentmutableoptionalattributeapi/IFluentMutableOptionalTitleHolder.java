@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
  * whose title can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-02-06
+ * @version 2023-02-06
  * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTitleHolder}.
  */
 public interface IFluentMutableOptionalTitleHolder<FMOTH extends IFluentMutableOptionalTitleHolder<FMOTH>>

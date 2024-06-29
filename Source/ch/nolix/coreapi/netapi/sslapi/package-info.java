@@ -4,6 +4,6 @@
  * TLS (transport layer security) is a protocol.
  * 
  * @author Silvan Wyss
- * @date 2023-03-18
+ * @version 2023-03-18
  */
 package ch.nolix.coreapi.netapi.sslapi;

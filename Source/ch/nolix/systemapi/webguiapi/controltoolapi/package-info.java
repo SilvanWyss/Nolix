@@ -4,6 +4,6 @@
  * components for {@link ch.nolix.systemapi.webguiapi.mainapi.IControl}s.
  * 
  * @author Silvan Wyss
- * @date 2022-10-21
+ * @version 2022-10-21
  */
 package ch.nolix.systemapi.webguiapi.controltoolapi;

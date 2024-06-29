@@ -18,7 +18,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-05-06
+ * @version 2017-05-06
  */
 public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 

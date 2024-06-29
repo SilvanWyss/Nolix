@@ -4,6 +4,6 @@
  * for common types.
  * 
  * @author Silvan Wyss
- * @date 2021-03-09
+ * @version 2021-03-09
  */
 package ch.nolix.core.commontypetool;

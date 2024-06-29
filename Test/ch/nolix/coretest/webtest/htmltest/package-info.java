@@ -4,6 +4,6 @@
  * {@link ch.nolix.core.web.html} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-24
+ * @version 2023-07-24
  */
 package ch.nolix.coretest.webtest.htmltest;

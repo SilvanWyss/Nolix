@@ -4,6 +4,6 @@
  * the {@link ch.nolix.core.argumentcaptor} package.
  * 
  * @author Silvan Wyss
- * @date 2024-06-21
+ * @version 2024-06-21
  */
 package ch.nolix.coretest.argumentcaptortest;

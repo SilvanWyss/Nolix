@@ -10,7 +10,7 @@ import java.util.Objects;
  * Of the {@link GlobalIterableTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-12-16
+ * @version 2017-12-16
  */
 public final class GlobalIterableTool {
 

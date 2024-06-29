@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.webguiapi.atomiccontrolapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-07-29
+ * @version 2022-07-29
  */
 package ch.nolix.system.webgui.atomiccontrol;

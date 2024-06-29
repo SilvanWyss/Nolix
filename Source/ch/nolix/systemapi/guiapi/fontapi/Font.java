@@ -9,7 +9,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * A {@link Font} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-08-19
+ * @version 2017-08-19
  */
 public enum Font {
   ARIAL(FontCodeCatalogue.ARIAL),

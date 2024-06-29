@@ -4,6 +4,6 @@
  * database inspector.
  * 
  * @author Silvan Wyss
- * @date 2022-01-19
+ * @version 2022-01-19
  */
 package ch.nolix.system.sqlrawdata.databaseinspector;

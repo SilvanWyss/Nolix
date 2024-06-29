@@ -7,7 +7,7 @@ import java.util.Iterator;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2024-05-12
+ * @version 2024-05-12
  */
 public interface IIteratorValidator {
 

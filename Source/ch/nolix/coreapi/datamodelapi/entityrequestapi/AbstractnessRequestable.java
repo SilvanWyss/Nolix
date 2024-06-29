@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * concrete.
  * 
  * @author Silvan Wyss
- * @date 2023-08-25
+ * @version 2023-08-25
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface AbstractnessRequestable {

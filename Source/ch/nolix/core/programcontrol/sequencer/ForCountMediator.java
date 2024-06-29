@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  * A {@link ForCountMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-06-01
+ * @version 2016-06-01
  */
 public final class ForCountMediator {
 

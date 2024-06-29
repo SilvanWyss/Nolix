@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
  * tokens can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-06-16
+ * @version 2023-06-16
  * @param <FMMTH> is the type of a {@link IFluentMutableMultiTokenHolder}.
  */
 public interface IFluentMutableMultiTokenHolder<FMMTH extends IFluentMutableMultiTokenHolder<FMMTH>>

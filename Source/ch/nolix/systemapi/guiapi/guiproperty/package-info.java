@@ -4,6 +4,6 @@
  * for GUIs and their elements.
  * 
  * @author Silvan Wyss
- * @date 2023-19-11
+ * @version 2023-19-11
  */
 package ch.nolix.systemapi.guiapi.guiproperty;

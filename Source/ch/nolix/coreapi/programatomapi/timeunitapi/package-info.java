@@ -4,6 +4,6 @@
  * constants for time units.
  * 
  * @author Silvan Wyss
- * @date 2024-01-21
+ * @version 2024-01-21
  */
 package ch.nolix.coreapi.programatomapi.timeunitapi;

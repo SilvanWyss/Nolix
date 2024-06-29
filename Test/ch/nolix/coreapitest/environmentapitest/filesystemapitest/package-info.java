@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2024-01-23
+ * @version 2024-01-23
  */
 package ch.nolix.coreapitest.environmentapitest.filesystemapitest;

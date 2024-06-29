@@ -5,6 +5,6 @@
  * {@link ch.nolix.coreapi.containerapi.iteratorvalidatorapi} package.
  * 
  * @author Silvan Wyss
- * @date 2024-05-12
+ * @version 2024-05-12
  */
 package ch.nolix.core.container.iteratorvalidator;

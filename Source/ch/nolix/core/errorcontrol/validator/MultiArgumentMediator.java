@@ -15,7 +15,7 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * type. A multi argument mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  * @param <A> is the type of the arguments of a multi argument mediator.
  */
 public class MultiArgumentMediator<A> {

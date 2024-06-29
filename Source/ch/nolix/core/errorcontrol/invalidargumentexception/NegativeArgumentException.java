@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * that is supposed to be thrown when a given argument is undesirably negative.
  * 
  * @author Silvan Wyss
- * @date 2016-03-01
+ * @version 2016-03-01
  */
 @SuppressWarnings("serial")
 public final class NegativeArgumentException extends InvalidArgumentException {

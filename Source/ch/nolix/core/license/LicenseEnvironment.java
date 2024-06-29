@@ -11,7 +11,7 @@ import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFile
  * instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2019-11-16
+ * @version 2019-11-16
  */
 public final class LicenseEnvironment {
 

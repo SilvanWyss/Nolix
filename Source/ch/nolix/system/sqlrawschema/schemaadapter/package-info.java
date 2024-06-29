@@ -6,6 +6,6 @@
  * databases.
  * 
  * @author Silvan Wyss
- * @date 2021-08-07
+ * @version 2021-08-07
  */
 package ch.nolix.system.sqlrawschema.schemaadapter;

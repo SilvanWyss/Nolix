@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
  * whose header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-02-07
+ * @version 2023-02-07
  */
 public interface IMutableOptionalHeaderHolder extends IOptionalHeaderHolder {
 

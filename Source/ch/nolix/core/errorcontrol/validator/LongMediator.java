@@ -24,7 +24,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
  * {@link LongMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 public class LongMediator extends Mediator {
 

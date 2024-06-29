@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.sqlschemaapi.schemaadapterapi} package.
  * 
  * @author Silvan Wyss
- * @date 2021-07-31
+ * @version 2021-07-31
  */
 package ch.nolix.system.sqlschema.schemaadapter;

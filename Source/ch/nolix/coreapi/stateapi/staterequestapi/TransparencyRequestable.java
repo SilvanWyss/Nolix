@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link TransparencyRequestable} can be asked if it is transparent.
  * 
  * @author Silvan Wyss
- * @date 2022-07-15
+ * @version 2022-07-15
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface TransparencyRequestable {

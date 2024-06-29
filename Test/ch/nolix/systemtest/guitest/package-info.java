@@ -4,6 +4,6 @@
  * {@link ch.nolix.system.gui} package.
  * 
  * @author Silvan Wyss
- * @date 2020-03-01
+ * @version 2020-03-01
  */
 package ch.nolix.systemtest.guitest;

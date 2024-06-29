@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * have a next node.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <E> is the type of the element of a {@link LinkedListNode}.
  */
 final class LinkedListNode<E> {

@@ -4,6 +4,6 @@
  * independent validators for containers.
  * 
  * @author Silvan Wyss
- * @date 2023-02-17
+ * @version 2023-02-17
  */
 package ch.nolix.core.independent.containervalidator;

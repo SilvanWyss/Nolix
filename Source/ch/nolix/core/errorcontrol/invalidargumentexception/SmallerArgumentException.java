@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * certain limit.
  * 
  * @author Silvan Wyss
- * @date 2016-03-01
+ * @version 2016-03-01
  */
 @SuppressWarnings("serial")
 public final class SmallerArgumentException extends InvalidArgumentException {

@@ -7,7 +7,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * is supposed to be thrown when a given argument does support a certain case.
  * 
  * @author Silvan Wyss
- * @date 2021-03-23
+ * @version 2021-03-23
  */
 @SuppressWarnings("serial")
 public final class UnsupportedCaseException extends InvalidArgumentException {

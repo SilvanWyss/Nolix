@@ -20,7 +20,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-10-29
+ * @version 2017-10-29
  */
 public abstract class MutableElement implements IMutableElement {
 

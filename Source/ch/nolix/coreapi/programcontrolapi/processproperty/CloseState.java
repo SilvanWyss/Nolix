@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * closed.
  * 
  * @author Silvan Wyss
- * @date 2022-07-08
+ * @version 2022-07-08
  */
 public enum CloseState {
   OPEN,

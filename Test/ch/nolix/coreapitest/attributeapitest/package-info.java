@@ -4,6 +4,6 @@
  * the {@link ch.nolix.coreapi.attributeapi} package.
  * 
  * @author Silvan Wyss
- * @date 2023-10-30
+ * @version 2023-10-30
  */
 package ch.nolix.coreapitest.attributeapitest;

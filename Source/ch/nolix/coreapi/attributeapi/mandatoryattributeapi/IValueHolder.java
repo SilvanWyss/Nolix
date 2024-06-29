@@ -6,7 +6,7 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * A {@link IValueHolder} has a value.
  * 
  * @author Silvan Wyss
- * @date 2018-09-09
+ * @version 2018-09-09
  * @param <V> is the type of the value of a {@link IValueHolder}.
  */
 public interface IValueHolder<V> {

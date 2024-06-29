@@ -18,7 +18,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * A {@link ArgumentMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  * @param <A> is the type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {

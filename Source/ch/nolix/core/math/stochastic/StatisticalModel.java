@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2016-09-01
+ * @version 2016-09-01
  */
 public abstract class StatisticalModel {
 

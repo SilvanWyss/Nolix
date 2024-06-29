@@ -5,6 +5,6 @@
  * {@link ch.nolix.core.errorcontrol.invalidargumentexception} package.
  * 
  * @author Silvan Wyss
- * @date 2022-07-09
+ * @version 2022-07-09
  */
 package ch.nolix.coretest.errorcontroltest.invalidargumentexceptiontest;

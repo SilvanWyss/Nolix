@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.objectdataapi.datavalidatorapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-11-25
+ * @version 2022-11-25
  */
 package ch.nolix.system.objectdata.datavalidator;

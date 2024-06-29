@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IResultFuture;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-09-29
+ * @version 2017-09-29
  * @param <R> is the type of the result of a {@link ResultFuture}.
  */
 public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R> {

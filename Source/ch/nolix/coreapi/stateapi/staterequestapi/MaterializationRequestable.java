@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * of the origin object.
  * 
  * @author Silvan Wyss
- * @date 2023-02-12
+ * @version 2023-02-12
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface MaterializationRequestable {

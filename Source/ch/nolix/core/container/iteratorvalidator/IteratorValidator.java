@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2024-05-12
+ * @version 2024-05-12
  */
 public final class IteratorValidator implements IIteratorValidator {
 

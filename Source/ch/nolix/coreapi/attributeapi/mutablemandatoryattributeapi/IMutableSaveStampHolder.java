@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
  * stamp can be set programmatically.
  * 
  * @author Silvan Wyss
- * @date 2024-02-11
+ * @version 2024-02-11
  */
 public interface IMutableSaveStampHolder extends ISaveStampHolder {
 

@@ -23,7 +23,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2024-01-30
+ * @version 2024-01-30
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends Container<E> implements IArrayList<E> {

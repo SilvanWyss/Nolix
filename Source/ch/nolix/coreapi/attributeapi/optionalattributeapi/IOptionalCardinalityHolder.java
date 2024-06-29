@@ -6,7 +6,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * A {@link IOptionalCardinalityHolder} can have a cardinality.
  * 
  * @author Silvan Wyss
- * @date 2023-10-24
+ * @version 2023-10-24
  */
 public interface IOptionalCardinalityHolder {
 

@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.noderawschemaapi.nodesearcherapi} package.
  * 
  * @author Silvan Wyss
- * @date 2024-02-21
+ * @version 2024-02-21
  */
 package ch.nolix.system.noderawschema.nodesearcher;

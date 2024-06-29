@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link ExpansionRequestable} can be asked if it is expanded or collapsed.
  * 
  * @author Silvan Wyss
- * @date 2020-10-02
+ * @version 2020-10-02
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ExpansionRequestable {

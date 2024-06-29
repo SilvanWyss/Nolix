@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  * optimal number of {@link Worker}s to run several jobs efficiently.
  * 
  * @author Silvan Wyss
- * @date 2019-04-14
+ * @version 2019-04-14
  */
 public final class JobPool {
 

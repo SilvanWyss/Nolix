@@ -4,6 +4,6 @@
  * the {@link ch.nolix.system.databaseobject} package.
  * 
  * @author Silvan Wyss
- * @date 2024-03-15
+ * @version 2024-03-15
  */
 package ch.nolix.systemtest.databaseobjecttest;

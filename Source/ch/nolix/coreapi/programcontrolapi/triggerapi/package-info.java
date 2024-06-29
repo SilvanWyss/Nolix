@@ -4,6 +4,6 @@
  * types to subscribe and trigger.
  * 
  * @author Silvan Wyss
- * @date 2023-01-11
+ * @version 2023-01-11
  */
 package ch.nolix.coreapi.programcontrolapi.triggerapi;

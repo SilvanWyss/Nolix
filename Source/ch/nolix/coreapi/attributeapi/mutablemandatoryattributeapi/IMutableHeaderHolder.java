@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IHeaderHolder;
  * set programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-01-29
+ * @version 2023-01-29
  */
 public interface IMutableHeaderHolder extends IHeaderHolder {
 

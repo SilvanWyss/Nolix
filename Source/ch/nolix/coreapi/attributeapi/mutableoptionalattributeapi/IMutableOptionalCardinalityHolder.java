@@ -11,7 +11,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalCardinalityHo
  * programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-10-24
+ * @version 2023-10-24
  */
 public interface IMutableOptionalCardinalityHolder extends IOptionalCardinalityHolder {
 

@@ -4,6 +4,6 @@
  * for SQL databases.
  * 
  * @author Silvan Wyss
- * @date 2024-01-22
+ * @version 2024-01-22
  */
 package ch.nolix.system.sqlrawschema.datatype;

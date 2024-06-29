@@ -4,6 +4,6 @@
  * sessions.
  * 
  * @author Silvan Wyss
- * @date 2022-12-28
+ * @version 2022-12-28
  */
 package ch.nolix.coreapi.webapi.cookieapi;

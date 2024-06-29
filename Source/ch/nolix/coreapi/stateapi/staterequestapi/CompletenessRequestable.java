@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link CompletenessRequestable} can be asked if it is complete.
  * 
  * @author Silvan Wyss
- * @date 2023-02-17
+ * @version 2023-02-17
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface CompletenessRequestable {

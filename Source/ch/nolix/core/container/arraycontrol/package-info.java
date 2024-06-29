@@ -4,6 +4,6 @@
  * control arrays.
  * 
  * @author Silvan Wyss
- * @date 2023-01-02
+ * @version 2023-01-02
  */
 package ch.nolix.core.container.arraycontrol;

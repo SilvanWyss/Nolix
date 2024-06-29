@@ -25,7 +25,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
  * A {@link Client} is an end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>> implements GroupCloseable {

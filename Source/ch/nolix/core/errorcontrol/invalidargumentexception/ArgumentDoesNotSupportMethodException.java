@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * argument does undesirably not support an invoked method.
  * 
  * @author Silvan Wyss
- * @date 2019-02-03
+ * @version 2019-02-03
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends InvalidArgumentException {

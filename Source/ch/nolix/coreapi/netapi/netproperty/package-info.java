@@ -4,6 +4,6 @@
  * for net.
  * 
  * @author Silvan Wyss
- * @date 2023-03-10
+ * @version 2023-03-10
  */
 package ch.nolix.coreapi.netapi.netproperty;

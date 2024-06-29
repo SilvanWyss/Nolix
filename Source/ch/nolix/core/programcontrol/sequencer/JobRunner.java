@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-06-04
+ * @version 2017-06-04
  */
 final class JobRunner extends Thread {
 

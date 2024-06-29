@@ -4,6 +4,6 @@
  * the {@link ch.nolix.core.math.algebra} package.
  * 
  * @author Silvan Wyss
- * @date 2022-11-13
+ * @version 2022-11-13
  */
 package ch.nolix.coretest.mathtest.algebratest;

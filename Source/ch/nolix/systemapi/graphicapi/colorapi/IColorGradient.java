@@ -8,7 +8,7 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2022-05-28
+ * @version 2022-05-28
  */
 public interface IColorGradient extends IElement {
 

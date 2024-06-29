@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
  * save stamp can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2024-02-11
+ * @version 2024-02-11
  * @param <FMSSH> is the type of a {@link IFluentMutableSaveStampHolder}.
  */
 public interface IFluentMutableSaveStampHolder<FMSSH extends IFluentMutableSaveStampHolder<FMSSH>>

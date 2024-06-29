@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
  * A {@link ColorGradient} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-08-01
+ * @version 2016-08-01
  */
 public final class ColorGradient extends Element implements IColorGradient {
 

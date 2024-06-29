@@ -4,6 +4,6 @@
  * types for logging.
  * 
  * @author Silvan Wyss
- * @date 2024-01-22
+ * @version 2024-01-22
  */
 package ch.nolix.coreapi.errorcontrolapi.loggingapi;

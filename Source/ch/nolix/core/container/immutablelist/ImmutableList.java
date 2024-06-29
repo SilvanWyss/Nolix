@@ -24,7 +24,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
  * A {@link ImmutableList} is a {@link Container} that is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2022-07-08
+ * @version 2022-07-08
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends Container<E> {

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link EnablingRequestable} can be asked if it is enabled or disabled.
  * 
  * @author Silvan Wyss
- * @date 2020-10-02
+ * @version 2020-10-02
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface EnablingRequestable {

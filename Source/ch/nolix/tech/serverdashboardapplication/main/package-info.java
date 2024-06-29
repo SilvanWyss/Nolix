@@ -4,6 +4,6 @@
  * server dashboard application.
  * 
  * @author Silvan Wyss
- * @date 2023-06-25
+ * @version 2023-06-25
  */
 package ch.nolix.tech.serverdashboardapplication.main;

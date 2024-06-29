@@ -5,6 +5,6 @@
  * {@link java.lang.Iterable} or arrays.
  * 
  * @author Silvan Wyss
- * @date 2022-04-30
+ * @version 2022-04-30
  */
 package ch.nolix.core.container.readcontainer;

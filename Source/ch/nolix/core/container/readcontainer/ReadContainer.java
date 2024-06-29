@@ -23,7 +23,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * does not prevent that the elements of its accessed container can be mutated.
  * 
  * @author Silvan Wyss
- * @date 2017-07-01
+ * @version 2017-07-01
  * @param <E> is the type of the elements of a {@link ReadContainer}.
  */
 public final class ReadContainer<E> extends Container<E> {

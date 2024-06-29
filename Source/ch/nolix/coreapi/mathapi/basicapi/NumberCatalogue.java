@@ -9,7 +9,7 @@ package ch.nolix.coreapi.mathapi.basicapi;
  * Of the {@link NumberCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-12-08
+ * @version 2017-12-08
  */
 public final class NumberCatalogue {
 

@@ -9,7 +9,7 @@ package ch.nolix.core.errorcontrol.exception;
  * resource can be e.g.: data, schema, file, connection.
  * 
  * @author Silvan Wyss
- * @date 2022-02-27
+ * @version 2022-02-27
  */
 @SuppressWarnings("serial")
 public final class ResourceWasChangedInTheMeanwhileException extends RuntimeException {

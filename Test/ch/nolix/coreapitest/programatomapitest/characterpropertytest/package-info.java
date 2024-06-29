@@ -5,6 +5,6 @@
  * {@link ch.nolix.coreapi.programatomapi.characterproperty} package.
  * 
  * @author Silvan Wyss
- * @date 2024-03-15
+ * @version 2024-03-15
  */
 package ch.nolix.coreapitest.programatomapitest.characterpropertytest;

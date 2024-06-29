@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi} package
  * 
  * @author Silvan Wyss
- * @date 2024-02-12
+ * @version 2024-02-12
  */
 package ch.nolix.system.sqlrawdata.statementcreator;

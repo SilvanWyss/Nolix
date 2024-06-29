@@ -4,6 +4,6 @@
  * the structure.
  * 
  * @author Silvan Wyss
- * @date 2021-09-11
+ * @version 2021-09-11
  */
 package ch.nolix.system.noderawschema.structure;

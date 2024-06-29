@@ -18,7 +18,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 //class
 /**
  * @author Silvan Wyss
- * @date 2016-02-01
+ * @version 2016-02-01
  */
 public final class Style extends BaseStyle<IStyle> implements IStyle {
 

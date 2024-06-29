@@ -4,6 +4,6 @@
  * the {@link ch.nolix.core.net.target} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-18
+ * @version 2023-07-18
  */
 package ch.nolix.coretest.nettest.targettest;

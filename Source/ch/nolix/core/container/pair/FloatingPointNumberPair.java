@@ -7,7 +7,7 @@ package ch.nolix.core.container.pair;
  * floating pointer number. A {@link FloatingPointNumberPair} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-08-01
+ * @version 2016-08-01
  */
 public final class FloatingPointNumberPair {
 

@@ -4,6 +4,6 @@
  * declares types with a certain optional attribute.
  * 
  * @author Silvan Wyss
- * @date 2020-04-01
+ * @version 2020-04-01
  */
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;

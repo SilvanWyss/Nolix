@@ -7,7 +7,7 @@ package ch.nolix.systemapi.elementapi.styleapi;
  * its child elements.
  * 
  * @author Silvan Wyss
- * @date 2022-07-23
+ * @version 2022-07-23
  * @param <SE> is the type of a {@link IStyleElement}.
  */
 public interface IStyleElement<SE extends IStyleElement<SE>> extends IStylableElement<SE> {

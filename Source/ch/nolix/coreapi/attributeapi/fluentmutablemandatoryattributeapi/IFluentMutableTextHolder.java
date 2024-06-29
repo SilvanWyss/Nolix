@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2021-06-19
+ * @version 2021-06-19
  * @param <FMTH> is the type of a {@link IFluentMutableTextHolder}.
  */
 public interface IFluentMutableTextHolder<FMTH extends IFluentMutableTextHolder<FMTH>> extends ITextHolder {

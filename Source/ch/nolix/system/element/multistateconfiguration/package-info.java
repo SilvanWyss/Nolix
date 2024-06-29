@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement}.
  * 
  * @author Silvan Wyss
- * @date 2021-03-26
+ * @version 2021-03-26
  */
 package ch.nolix.system.element.multistateconfiguration;

@@ -12,7 +12,7 @@ import java.util.Locale;
  * {@link GlobalDoubleTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-08-01
+ * @version 2016-08-01
  */
 public final class GlobalDoubleTool {
 

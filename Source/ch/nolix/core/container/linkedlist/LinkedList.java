@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  * begin or end. A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> extends Container<E> implements ILinkedList<E> {

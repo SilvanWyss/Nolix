@@ -11,7 +11,7 @@ import java.lang.reflect.Executable;
  * be created.
  * 
  * @author Silvan Wyss
- * @date 2023-01-22
+ * @version 2023-01-22
  */
 public final class GlobalExecutableTool {
 

@@ -28,7 +28,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * -The matrix [0.9999999999, 0; 0, 1] is interpreted as a identity matrix.
  * 
  * @author Silvan Wyss
- * @date 2016-02-01
+ * @version 2016-02-01
  */
 public final class Matrix {
 

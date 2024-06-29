@@ -14,7 +14,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
 //class
 /**
  * @author Silvan Wyss
- * @date 2020-07-06
+ * @version 2020-07-06
  */
 final class ClosePool implements IClosePool {
 

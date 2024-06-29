@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi}.
  * 
  * @author Silvan Wyss
- * @date 2024-02-20
+ * @version 2024-02-20
  */
 package ch.nolix.system.databaseobject.databaseobjectvalidator;

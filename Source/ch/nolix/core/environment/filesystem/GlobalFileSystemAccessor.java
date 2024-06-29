@@ -26,7 +26,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
  * machine.
  * 
  * @author Silvan Wyss
- * @date 2017-07-14
+ * @version 2017-07-14
  */
 public final class GlobalFileSystemAccessor {
 

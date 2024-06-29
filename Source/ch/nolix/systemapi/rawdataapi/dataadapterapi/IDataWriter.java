@@ -11,7 +11,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2021-09-19
+ * @version 2021-09-19
  */
 public interface IDataWriter extends IResettableChangeSaver {
 

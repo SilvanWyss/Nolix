@@ -17,7 +17,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  * A local end point can send messages to an other local end point.
  * 
  * @author Silvan Wyss
- * @date 2017-05-22
+ * @version 2017-05-22
  */
 public final class LocalEndPoint extends EndPoint {
 

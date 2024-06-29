@@ -4,6 +4,6 @@
  * {@link ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement}.
  * 
  * @author Silvan Wyss
- * @date 2022-07-08
+ * @version 2022-07-08
  */
 package ch.nolix.system.element.mutableelement;

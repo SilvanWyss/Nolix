@@ -10,7 +10,7 @@ import java.util.function.ToLongFunction;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2023-10-14
+ * @version 2023-10-14
  * @param <E> is the type of the elements a {@link IMappableContainer}.
  */
 public interface IMappableContainer<E> {

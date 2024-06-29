@@ -4,6 +4,6 @@
  * {@link ch.nolix.system.graphic} package.
  * 
  * @author Silvan Wyss
- * @date 2022-11-01
+ * @version 2022-11-01
  */
 package ch.nolix.systemtest.graphictest;

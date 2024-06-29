@@ -20,7 +20,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * lowest coefficient. -degree: n -array: [a_n,... ,a_0]
  * 
  * @author Silvan Wyss
- * @date 2016-03-01
+ * @version 2016-03-01
  */
 public final class Polynom {
 

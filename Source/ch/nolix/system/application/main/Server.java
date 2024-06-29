@@ -16,7 +16,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * on a specific port.
  * 
  * @author Silvan Wyss
- * @date 2017-09-10
+ * @version 2017-09-10
  */
 public final class Server extends BaseServer<Server> {
 

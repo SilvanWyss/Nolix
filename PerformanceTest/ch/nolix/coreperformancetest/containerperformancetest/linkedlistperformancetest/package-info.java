@@ -6,6 +6,6 @@
  * {@link ch.nolix.core.container.linkedlist} package.
  * 
  * @author Silvan Wyss
- * @date 2024-06-23
+ * @version 2024-06-23
  */
 package ch.nolix.coreperformancetest.containerperformancetest.linkedlistperformancetest;

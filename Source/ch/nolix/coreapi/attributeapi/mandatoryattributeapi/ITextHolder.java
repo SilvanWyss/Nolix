@@ -6,7 +6,7 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * A {@link ITextHolder} has a text.
  * 
  * @author Silvan Wyss
- * @date 2021-06-19
+ * @version 2021-06-19
  */
 public interface ITextHolder {
 

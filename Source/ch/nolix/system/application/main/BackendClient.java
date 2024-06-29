@@ -11,7 +11,7 @@ import ch.nolix.core.net.endpoint3.EndPoint;
 //class
 /**
  * @author Silvan Wyss
- * @date 2022-03-18
+ * @version 2022-03-18
  * @param <BC> is the type of a {@link BackendClient}.
  * @param <AC> is the type of the context of the parent {@link Application} of a
  *             {@link BackendClient}.

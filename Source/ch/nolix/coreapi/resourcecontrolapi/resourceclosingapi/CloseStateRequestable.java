@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link CloseStateRequestable} can be asked if it is closed or open.
  * 
  * @author Silvan Wyss
- * @date 2020-07-01
+ * @version 2020-07-01
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface CloseStateRequestable {

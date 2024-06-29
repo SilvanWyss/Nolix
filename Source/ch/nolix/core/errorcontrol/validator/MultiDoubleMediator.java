@@ -13,7 +13,7 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * A multi double mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 

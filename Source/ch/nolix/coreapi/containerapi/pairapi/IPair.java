@@ -6,7 +6,7 @@ package ch.nolix.coreapi.containerapi.pairapi;
  * A {@link IPair} contains 2 elements.
  * 
  * @author Silvan Wyss
- * @date 2022-07-02
+ * @version 2022-07-02
  * @param <E1> is the type of the element1 of a {@link IPair}.
  * @param <E2> is the type of the element2 of a {@link IPair}.
  */

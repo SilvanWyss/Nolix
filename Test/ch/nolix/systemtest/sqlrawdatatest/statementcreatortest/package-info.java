@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2024-02-17
+ * @version 2024-02-17
  */
 package ch.nolix.systemtest.sqlrawdatatest.statementcreatortest;

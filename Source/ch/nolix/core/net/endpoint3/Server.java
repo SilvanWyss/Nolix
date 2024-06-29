@@ -14,7 +14,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  * on a specific port.
  * 
  * @author Silvan Wyss
- * @date 2016-11-01
+ * @version 2016-11-01
  */
 public final class Server extends BaseServer {
 

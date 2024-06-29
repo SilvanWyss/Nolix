@@ -10,7 +10,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * have specific selectors.
  * 
  * @author Silvan Wyss
- * @date 2024-04-23
+ * @version 2024-04-23
  */
 public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelectingStyleWithSelectors> {
 

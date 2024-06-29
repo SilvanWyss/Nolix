@@ -4,6 +4,6 @@
  * calendars or fractals.
  * 
  * @author Silvan Wyss
- * @date 2022-04-03
+ * @version 2022-04-03
  */
 package ch.nolix.tech;

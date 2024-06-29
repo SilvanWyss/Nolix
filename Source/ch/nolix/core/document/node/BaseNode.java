@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-06-24
+ * @version 2017-06-24
  * @param <BN> is the type of a {@link BaseNode}.
  */
 public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {

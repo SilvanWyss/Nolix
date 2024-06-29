@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 //class
 /**
  * @author Silvan Wyss
- * @date 2022-06-18
+ * @version 2022-06-18
  */
 public abstract class BaseFuture implements IFuture {
 

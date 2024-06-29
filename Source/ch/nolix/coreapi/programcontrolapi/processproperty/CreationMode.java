@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * created, exist already.
  * 
  * @author Silvan Wyss
- * @date 2020-08-17
+ * @version 2020-08-17
  */
 public enum CreationMode {
   THROW_EXCEPTION_WHEN_TARGET_DOES_NOT_EXIST_ALREADY,

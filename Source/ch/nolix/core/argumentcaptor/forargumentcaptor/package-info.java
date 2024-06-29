@@ -6,6 +6,6 @@
  * for-methods.
  * 
  * @author Silvan Wyss
- * @date 2024-01-16
+ * @version 2024-01-16
  */
 package ch.nolix.core.argumentcaptor.forargumentcaptor;

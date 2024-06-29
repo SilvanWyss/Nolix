@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
- * @date 2016-08-01
+ * @version 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> extends Container<E> implements IMatrix<E> {

@@ -17,7 +17,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * given to it.
  * 
  * @author Silvan Wyss
- * @date 2018-12-09
+ * @version 2018-12-09
  */
 public class ThrownExceptionMediator {
 

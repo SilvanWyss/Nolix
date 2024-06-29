@@ -20,7 +20,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-11-26
+ * @version 2017-11-26
  * @param <E> is the type of the elements of a {@link IterableReadContainer}.
  */
 public final class IterableReadContainer<E> extends Container<E> {

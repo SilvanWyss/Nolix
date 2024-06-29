@@ -17,7 +17,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  * computer -another process on another computer
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public abstract class NetEndPoint extends EndPoint {
 

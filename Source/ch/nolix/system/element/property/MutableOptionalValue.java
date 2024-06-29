@@ -15,7 +15,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-11-01
+ * @version 2017-11-01
  * @param <V> is the type of the value of a {@link MutableOptionalValue}.
  */
 public final class MutableOptionalValue<V> extends SingleValue<V> {

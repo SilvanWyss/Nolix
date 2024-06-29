@@ -6,7 +6,7 @@ package ch.nolix.coreapi.netapi.netconstantapi;
  * Of the {@link PortCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class PortCatalogue {
 

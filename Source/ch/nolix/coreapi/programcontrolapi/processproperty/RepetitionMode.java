@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * forever.
  * 
  * @author Silvan Wyss
- * @date 2020-08-14
+ * @version 2020-08-14
  */
 public enum RepetitionMode {
   ONCE,

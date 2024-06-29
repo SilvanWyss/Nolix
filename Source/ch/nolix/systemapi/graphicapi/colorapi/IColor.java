@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
  * integers in [0, 255].
  * 
  * @author Silvan
- * @date 2022-05-28
+ * @version 2022-05-28
  */
 public interface IColor extends IElement {
 

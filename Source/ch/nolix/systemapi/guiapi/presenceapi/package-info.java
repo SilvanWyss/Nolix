@@ -4,6 +4,6 @@
  * presence.
  * 
  * @author Silvan Wyss
- * @date 2023-01-20
+ * @version 2023-01-20
  */
 package ch.nolix.systemapi.guiapi.presenceapi;

@@ -7,7 +7,7 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * or multi-threaded.
  * 
  * @author Silvan Wyss
- * @date 2019-07-14
+ * @version 2019-07-14
  */
 public enum ProcessingMode {
   SINGLE_THREADED,

@@ -4,6 +4,6 @@
  * schema types for databases.
  * 
  * @author Silvan Wyss
- * @date 2021-07-02
+ * @version 2021-07-02
  */
 package ch.nolix.systemapi.objectschemaapi.schemaapi;

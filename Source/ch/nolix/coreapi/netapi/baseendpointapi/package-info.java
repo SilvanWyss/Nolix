@@ -4,6 +4,6 @@
  * end point.
  * 
  * @author Silvan Wyss
- * @date 2023-03-08
+ * @version 2023-03-08
  */
 package ch.nolix.coreapi.netapi.baseendpointapi;

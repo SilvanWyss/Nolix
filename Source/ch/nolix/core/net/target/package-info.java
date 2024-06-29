@@ -4,6 +4,6 @@
  * declared {@link ch.nolix.coreapi.netapi.targetapi}.
  * 
  * @author Silvan Wyss
- * @date 2022-05-14
+ * @version 2022-05-14
  */
 package ch.nolix.core.net.target;

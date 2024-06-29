@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalLabelHolder;
  * whose label can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-10-25
+ * @version 2023-10-25
  * @param <FMOLH> is the type of a {@link IFluentMutableOptionalLabelHolder}.
  */
 public interface IFluentMutableOptionalLabelHolder<FMOLH extends IFluentMutableOptionalLabelHolder<FMOLH>>

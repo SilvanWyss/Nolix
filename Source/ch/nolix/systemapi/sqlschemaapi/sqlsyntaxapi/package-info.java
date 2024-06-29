@@ -5,6 +5,6 @@
  * databases.
  * 
  * @author Silvan Wyss
- * @date 2021-07-31
+ * @version 2021-07-31
  */
 package ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi;

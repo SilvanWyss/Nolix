@@ -4,6 +4,6 @@
  * {@link ch.nolix.system.element} package.
  * 
  * @author Silvan Wyss
- * @date 2022-11-04
+ * @version 2022-11-04
  */
 package ch.nolix.systemtest.elementtest;

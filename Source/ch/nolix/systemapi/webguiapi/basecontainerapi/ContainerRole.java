@@ -8,7 +8,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2016-09-01
+ * @version 2016-09-01
  */
 public enum ContainerRole {
   DIALOG_CONTAINER,

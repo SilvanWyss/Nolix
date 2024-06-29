@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
  * whose value can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-02-03
+ * @version 2023-02-03
  * @param <FMOVH> is the type of a {@link IFluentMutableOptionalValueHolder}.
  * @param <V>     is the type of the value of a
  *                {@link IFluentMutableOptionalValueHolder}.

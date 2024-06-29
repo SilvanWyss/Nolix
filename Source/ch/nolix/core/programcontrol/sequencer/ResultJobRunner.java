@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-09-29
+ * @version 2017-09-29
  * @param <R> is the type of the result of the resulltJob of a
  *            {@link ResultJobRunner}.
  */

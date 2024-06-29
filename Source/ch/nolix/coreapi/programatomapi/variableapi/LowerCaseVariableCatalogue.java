@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programatomapi.variableapi;
  * Of the {@link LowerCaseVariableCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-11-13
+ * @version 2017-11-13
  */
 public final class LowerCaseVariableCatalogue {
 

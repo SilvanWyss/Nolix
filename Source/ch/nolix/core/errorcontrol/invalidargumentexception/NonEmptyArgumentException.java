@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * empty.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 @SuppressWarnings("serial")
 public final class NonEmptyArgumentException extends InvalidArgumentException {

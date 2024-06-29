@@ -11,7 +11,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @date 2023-10-23
+ * @version 2023-10-23
  * @param <FMOCH> is the type of a
  *                {@link IFluentMutableOptionalCardinalityHolder}.
  */

@@ -11,7 +11,7 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  * A {@link IServer} can contain {@link IApplication}s.
  * 
  * @author Silvan Wyss
- * @date 2023-11-19
+ * @version 2023-11-19
  */
 public interface IServer extends Clearable, GroupCloseable {
 

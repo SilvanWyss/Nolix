@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link ChangeRequestable} can be asked if it has uncommitted changes.
  * 
  * @author Silvan Wyss
- * @date 2021-02-26
+ * @version 2021-02-26
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ChangeRequestable {

@@ -4,6 +4,6 @@
  * tests for the {@link ch.nolix.core.container.readcontainer} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-11
+ * @version 2023-07-11
  */
 package ch.nolix.coretest.containertest.readcontainertest;

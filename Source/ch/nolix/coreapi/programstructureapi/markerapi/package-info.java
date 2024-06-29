@@ -4,6 +4,6 @@
  * markers.
  * 
  * @author Silvan Wyss
- * @date 2022-06-18
+ * @version 2022-06-18
  */
 package ch.nolix.coreapi.programstructureapi.markerapi;

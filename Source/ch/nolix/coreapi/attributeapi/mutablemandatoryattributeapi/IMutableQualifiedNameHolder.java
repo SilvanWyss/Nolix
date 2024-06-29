@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
  * name can be set programmatically.
  * 
  * @author Silvan Wyss
- * @date 2024-01-19
+ * @version 2024-01-19
  */
 public interface IMutableQualifiedNameHolder extends IQualifiedNameHolder, IMutableNameHolder {
 }

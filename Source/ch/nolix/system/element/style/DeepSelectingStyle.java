@@ -16,7 +16,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 //class
 /**
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class DeepSelectingStyle extends BaseSelectingStyle {
 

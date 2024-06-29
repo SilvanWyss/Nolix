@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
  * A {@link Session} manages user run methods and user data methods.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <BC> is the type of the {@link BackendClient} of a {@link Session}.
  * @param <AC> is the type of the context of the parent {@link Application} of
  *             the parent {@link BackendClient} of a {@link Session}.

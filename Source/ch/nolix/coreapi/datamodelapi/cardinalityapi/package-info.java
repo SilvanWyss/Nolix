@@ -4,6 +4,6 @@
  * cardinalities.
  * 
  * @author Silvan Wyss
- * @date 2022-03-11
+ * @version 2022-03-11
  */
 package ch.nolix.coreapi.datamodelapi.cardinalityapi;

@@ -4,6 +4,6 @@
  * {@link ch.nolix.system.sqlschema} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-14
+ * @version 2023-07-14
  */
 package ch.nolix.systemtest.sqlschematest;

@@ -7,7 +7,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * is supposed to be thrown when a given key is not accepted.
  * 
  * @author Silvan Wyss
- * @date 2020-12-18
+ * @version 2020-12-18
  */
 @SuppressWarnings("serial")
 public final class UnacceptedKeyException extends InvalidArgumentException {

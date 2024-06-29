@@ -28,7 +28,7 @@ import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
  * a JDK's {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss
- * @date 2016-09-01
+ * @version 2016-09-01
  */
 public final class Time extends Element implements ITime {
 

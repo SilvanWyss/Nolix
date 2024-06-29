@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link ILabelHolder} has a label.
  * 
  * @author Silvan Wyss
- * @date 2021-08-26
+ * @version 2021-08-26
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ILabelHolder {

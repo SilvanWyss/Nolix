@@ -4,6 +4,6 @@
  * {@link ch.nolix.coreapi.programcontrolapi.futureapi.IFuture}.
  * 
  * @author Silvan Wyss
- * @date 2022-06-18
+ * @version 2022-06-18
  */
 package ch.nolix.core.programcontrol.future;

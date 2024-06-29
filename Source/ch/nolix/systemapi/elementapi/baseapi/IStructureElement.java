@@ -8,7 +8,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //interface
 /**
  * @author Silvan Wyss
- * @date 2024-01-05
+ * @version 2024-01-05
  */
 public interface IStructureElement extends IElement {
 

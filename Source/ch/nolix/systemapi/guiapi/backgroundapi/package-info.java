@@ -4,6 +4,6 @@
  * background.
  * 
  * @author Silvan Wyss
- * @date 2023-11-19
+ * @version 2023-11-19
  */
 package ch.nolix.systemapi.guiapi.backgroundapi;

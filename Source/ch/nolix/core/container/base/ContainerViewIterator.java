@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-08-27
+ * @version 2017-08-27
  * @param <E> is the type of the elements of a {@link ContainerViewIterator}.
  */
 final class ContainerViewIterator<E> implements CopyableIterator<E> {

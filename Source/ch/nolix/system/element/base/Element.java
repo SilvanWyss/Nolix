@@ -8,7 +8,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
 //class
 /**
  * @author Silvan Wyss
- * @date 2022-07-08
+ * @version 2022-07-08
  */
 public abstract class Element implements IElement {
 

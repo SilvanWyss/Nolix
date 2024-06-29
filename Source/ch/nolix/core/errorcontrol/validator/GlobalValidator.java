@@ -15,7 +15,7 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * {@link GlobalValidator} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-12-01
+ * @version 2016-12-01
  */
 public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all validation methods.
 

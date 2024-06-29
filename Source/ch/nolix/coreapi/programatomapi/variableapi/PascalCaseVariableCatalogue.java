@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programatomapi.variableapi;
  * Of the {@link PascalCaseVariableCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2018-04-07
+ * @version 2018-04-07
  */
 public final class PascalCaseVariableCatalogue {
 

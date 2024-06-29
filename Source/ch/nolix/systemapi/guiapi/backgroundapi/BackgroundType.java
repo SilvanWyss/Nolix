@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2022-07-15
+ * @version 2022-07-15
  */
 public enum BackgroundType {
   COLOR,

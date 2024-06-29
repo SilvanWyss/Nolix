@@ -6,7 +6,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * A {@link IOptionalValueHolder} can have a value.
  * 
  * @author Silvan Wyss
- * @date 2023-02-03
+ * @version 2023-02-03
  * @param <V> is the type of the value of a {@link IOptionalValueHolder}.
  */
 public interface IOptionalValueHolder<V> {

@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.objectdataapi.dataadapterapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-02-24
+ * @version 2022-02-24
  */
 package ch.nolix.system.objectdata.dataadapter;

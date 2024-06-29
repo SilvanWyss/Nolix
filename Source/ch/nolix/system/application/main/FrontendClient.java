@@ -12,7 +12,7 @@ import ch.nolix.core.net.endpoint3.NetEndPoint;
 //class
 /**
  * @author Silvan Wyss
- * @date 2022-03-18
+ * @version 2022-03-18
  * @param <FC> is the type of a {@link FrontendClient}.
  */
 public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Client<FC> {

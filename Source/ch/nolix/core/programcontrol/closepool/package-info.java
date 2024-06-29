@@ -4,6 +4,6 @@
  * closable element.
  * 
  * @author Silvan Wyss
- * @date 2020-08-01
+ * @version 2020-08-01
  */
 package ch.nolix.core.programcontrol.closepool;

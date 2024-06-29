@@ -4,6 +4,6 @@
  * for the {@link ch.nolix.template.webgui.style} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-07
+ * @version 2023-07-07
  */
 package ch.nolix.templatetest.webguitest.styletest;

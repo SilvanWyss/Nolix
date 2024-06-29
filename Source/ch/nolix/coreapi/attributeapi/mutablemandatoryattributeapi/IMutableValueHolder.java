@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
  * set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @date 2023-02-07
+ * @version 2023-02-07
  * @param <V> is the value of a {@link IMutableValueHolder}.
  */
 public interface IMutableValueHolder<V> extends IValueHolder<V> {

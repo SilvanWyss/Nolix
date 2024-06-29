@@ -10,7 +10,7 @@ import ch.nolix.core.independent.container.List;
  * {@link GlobalArrayTool} class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2017-08-14
+ * @version 2017-08-14
  */
 public final class GlobalArrayTool {
 

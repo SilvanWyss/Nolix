@@ -5,6 +5,6 @@
  * {@link ch.nolix.coreapi.containerapi.baseapi.IContainer}s.
  * 
  * @author Silvan Wyss
- * @date 2023-02-13
+ * @version 2023-02-13
  */
 package ch.nolix.coreapi.containerapi.sequencesearchapi;

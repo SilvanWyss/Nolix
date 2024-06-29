@@ -4,6 +4,6 @@
  * {@link ch.nolix.systemapi.webguiapi.mainapi.IControl}s that are item menus.
  * 
  * @author Silvan Wyss
- * @date 2022-07-17
+ * @version 2022-07-17
  */
 package ch.nolix.systemapi.webguiapi.itemmenuapi;

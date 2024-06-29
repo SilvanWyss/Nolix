@@ -4,6 +4,6 @@
  * types with a certain multi-attribute.
  * 
  * @author Silvan Wyss
- * @date 2023-06-16
+ * @version 2023-06-16
  */
 package ch.nolix.coreapi.attributeapi.multiattributeapi;

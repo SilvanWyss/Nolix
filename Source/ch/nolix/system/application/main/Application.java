@@ -29,7 +29,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 //class
 /**
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  * @param <BC> is the type of the {@link BackendClient}s of a
  *             {@link Application}.
  * @param <AC> is the type of the application context of a {@link Application}.

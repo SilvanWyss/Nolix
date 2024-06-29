@@ -20,7 +20,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * The {@link GlobalCalculator} provides mathematical functions.
  * 
  * @author Silvan Wyss
- * @date 2016-05-01
+ * @version 2016-05-01
  */
 public final class GlobalCalculator {
 

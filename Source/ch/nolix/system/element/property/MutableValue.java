@@ -14,7 +14,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 /**
  * @author Silvan Wyss
- * @date 2018-03-01
+ * @version 2018-03-01
  * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends SingleValue<V> {

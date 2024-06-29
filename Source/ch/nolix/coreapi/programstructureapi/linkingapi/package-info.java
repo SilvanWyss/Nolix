@@ -4,6 +4,6 @@
  * types that provide a linking mechanism.
  * 
  * @author Silvan Wyss
- * @date 2023-10-08
+ * @version 2023-10-08
  */
 package ch.nolix.coreapi.programstructureapi.linkingapi;

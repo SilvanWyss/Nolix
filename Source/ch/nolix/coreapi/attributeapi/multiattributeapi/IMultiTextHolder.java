@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * A {@link IMultiTextHolder} can contain several texts.
  * 
  * @author Silvan Wyss
- * @date 2023-10-25
+ * @version 2023-10-25
  */
 public interface IMultiTextHolder {
 

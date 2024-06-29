@@ -5,6 +5,6 @@
  * {@link ch.nolix.systemapi.webguiapi.linearcontainerapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-08-08
+ * @version 2022-08-08
  */
 package ch.nolix.system.webgui.linearcontainer;

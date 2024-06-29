@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2016-06-01
+ * @version 2016-06-01
  */
 public enum CursorIcon {
   ARROW,

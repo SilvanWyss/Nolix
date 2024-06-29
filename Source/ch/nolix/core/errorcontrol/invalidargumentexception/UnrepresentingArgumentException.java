@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * argument does undesirable not represent an object of a certain type.
  * 
  * @author Silvan Wyss
- * @date 2017-03-05
+ * @version 2017-03-05
  */
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends InvalidArgumentException {

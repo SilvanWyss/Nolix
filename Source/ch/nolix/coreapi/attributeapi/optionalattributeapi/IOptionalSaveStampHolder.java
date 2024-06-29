@@ -6,7 +6,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * A {@link IOptionalSaveStampHolder} can have a save stamp.
  * 
  * @author Silvan Wyss
- * @date 2024-02-11
+ * @version 2024-02-11
  */
 public interface IOptionalSaveStampHolder {
 

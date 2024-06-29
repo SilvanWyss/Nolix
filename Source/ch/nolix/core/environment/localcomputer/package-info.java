@@ -4,6 +4,6 @@
  * to access functionalities of the local computer.
  * 
  * @author Silvan Wyss
- * @date 2019-08-01
+ * @version 2019-08-01
  */
 package ch.nolix.core.environment.localcomputer;

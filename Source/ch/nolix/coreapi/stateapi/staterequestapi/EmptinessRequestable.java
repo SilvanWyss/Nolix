@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * elements.
  * 
  * @author Silvan Wyss
- * @date 2020-06-11
+ * @version 2020-06-11
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {

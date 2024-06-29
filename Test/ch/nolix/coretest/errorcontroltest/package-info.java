@@ -4,6 +4,6 @@
  * {@link ch.nolix.core.errorcontrol} package.
  * 
  * @author Silvan Wyss
- * @date 2021-03-03
+ * @version 2021-03-03
  */
 package ch.nolix.coretest.errorcontroltest;

@@ -4,6 +4,6 @@
  * {@link ch.nolix.template.math} package.
  * 
  * @author Silvan Wyss
- * @date 2023-07-07
+ * @version 2023-07-07
  */
 package ch.nolix.templatetest.mathtest;

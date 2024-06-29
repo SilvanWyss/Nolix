@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link ActivenessRequestable} can be asked if it is active.
  * 
  * @author Silvan Wyss
- * @date 2023-07-08
+ * @version 2023-07-08
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ActivenessRequestable {

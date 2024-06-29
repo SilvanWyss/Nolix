@@ -15,7 +15,7 @@ import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-06-16
+ * @version 2017-06-16
  */
 public abstract class BaseServer implements IServer {
 

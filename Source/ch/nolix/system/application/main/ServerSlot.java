@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 /**
  * @author Silvan Wyss
- * @date 2021-06-28
+ * @version 2021-06-28
  */
 final class ServerSlot implements ISlot {
 

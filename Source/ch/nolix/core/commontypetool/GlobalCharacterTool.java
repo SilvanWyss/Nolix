@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * {@link GlobalCharacterTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @version 2016-01-01
  */
 public final class GlobalCharacterTool {
 

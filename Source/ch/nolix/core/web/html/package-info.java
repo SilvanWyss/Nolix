@@ -4,6 +4,6 @@
  * declared in the {ch.nolix.coreapi.documentapi.htmlapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-07-23
+ * @version 2022-07-23
  */
 package ch.nolix.core.web.html;

@@ -6,7 +6,7 @@ package ch.nolix.coreapi.stateapi.staterequestapi;
  * A {@link OnOffRequestable} can be asked if it is on or off.
  * 
  * @author Silvan Wyss
- * @date 2023-02-05
+ * @version 2023-02-05
  */
 public interface OnOffRequestable {
 

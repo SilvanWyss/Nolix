@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * argument does undesirably not contain a given element.
  * 
  * @author Silvan Wyss
- * @date 2021-07-15
+ * @version 2021-07-15
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotContainElementException extends InvalidArgumentException {

@@ -7,7 +7,7 @@ package ch.nolix.coreapi.environmentapi.filesystemapi;
  * {@link FileExtensionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2018-12-16
+ * @version 2018-12-16
  */
 public final class FileExtensionCatalogue {
 

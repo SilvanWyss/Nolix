@@ -7,7 +7,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * that is supposed to be thrown when a given argument is undesirably positive.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 @SuppressWarnings("serial")
 public final class PositiveArgumentException extends InvalidArgumentException {

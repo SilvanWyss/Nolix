@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
  * {@link IMutableElement} can be reset together.
  * 
  * @author Silvan Wyss
- * @date 2017-01-01
+ * @version 2017-01-01
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IMutableElement extends Resettable, IElement {

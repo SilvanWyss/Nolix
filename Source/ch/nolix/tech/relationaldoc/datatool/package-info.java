@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2024-02-07
+ * @version 2024-02-07
  */
 package ch.nolix.tech.relationaldoc.datatool;

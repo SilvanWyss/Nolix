@@ -8,7 +8,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * argument does undesirably not belong to a parent.
  * 
  * @author Silvan Wyss
- * @date 2022-01-30
+ * @version 2022-01-30
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {

@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
  * argument does undesirably not have a specific attribute.
  * 
  * @author Silvan Wyss
- * @date 2019-01-31
+ * @version 2019-01-31
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {

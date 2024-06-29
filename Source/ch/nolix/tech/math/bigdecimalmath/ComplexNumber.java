@@ -17,7 +17,7 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
  * A {@link ComplexNumber} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2019-02-19
+ * @version 2019-02-19
  */
 public final class ComplexNumber implements IComplexNumber {
 

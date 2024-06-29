@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link AlivenessRequestable} can be asked if it is alive or outdated.
  * 
  * @author Silvan Wyss
- * @date 2023-08-02
+ * @version 2023-08-02
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface AlivenessRequestable {

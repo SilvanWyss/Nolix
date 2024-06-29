@@ -15,7 +15,7 @@ import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-05-21
+ * @version 2017-05-21
  */
 public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 

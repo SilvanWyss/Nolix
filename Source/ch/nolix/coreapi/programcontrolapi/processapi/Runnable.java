@@ -6,7 +6,7 @@ package ch.nolix.coreapi.programcontrolapi.processapi;
  * A {@link Runnable} can be run.
  * 
  * @author Silvan Wyss
- * @date 2016-09-01
+ * @version 2016-09-01
  */
 public interface Runnable {
 

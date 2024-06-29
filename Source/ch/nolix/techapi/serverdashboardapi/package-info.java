@@ -4,6 +4,6 @@
  * access to the dashboard of a server.
  * 
  * @author Silvan Wyss
- * @date 2022-05-13
+ * @version 2022-05-13
  */
 package ch.nolix.techapi.serverdashboardapi;

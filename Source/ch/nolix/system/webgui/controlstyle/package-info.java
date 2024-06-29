@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2022-07-25
+ * @version 2022-07-25
  */
 package ch.nolix.system.webgui.controlstyle;

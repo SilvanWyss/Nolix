@@ -4,6 +4,6 @@
  * tests for the {@link ch.nolix.core.programatom.function} package.
  * 
  * @author Silvan Wyss
- * @date 2022-06-16
+ * @version 2022-06-16
  */
 package ch.nolix.coretest.programatomtest.functiontest;

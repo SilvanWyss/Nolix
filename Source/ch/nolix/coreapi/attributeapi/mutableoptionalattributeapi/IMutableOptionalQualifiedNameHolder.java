@@ -11,7 +11,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalQualifiedName
  * removed programmatically.
  * 
  * @author Silvan Wyss
- * @date 2024-02-11
+ * @version 2024-02-11
  */
 public interface IMutableOptionalQualifiedNameHolder extends IMutableOptionalNameHolder, IOptionalQualifiedNameHolder {
 }

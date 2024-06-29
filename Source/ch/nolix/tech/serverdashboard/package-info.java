@@ -4,6 +4,6 @@
  * of the {@link ch.nolix.techapi.serverdashboardapi} package.
  * 
  * @author Silvan Wyss
- * @date 2022-05-13
+ * @version 2022-05-13
  */
 package ch.nolix.tech.serverdashboard;

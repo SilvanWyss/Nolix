@@ -5,6 +5,6 @@
  * package.
  * 
  * @author Silvan Wyss
- * @date 2021-11-01
+ * @version 2021-11-01
  */
 package ch.nolix.system.objectdata.data;

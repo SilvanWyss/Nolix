@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link MandatorynessRequestable} can be asked if it is mandatory.
  * 
  * @author Silvan Wyss
- * @date 2021-12-26
+ * @version 2021-12-26
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface MandatorynessRequestable {

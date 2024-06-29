@@ -26,7 +26,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-05-06
+ * @version 2017-05-06
  */
 public final class SocketEndPoint extends NetEndPoint {
 

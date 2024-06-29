@@ -4,6 +4,6 @@
  * program control.
  * 
  * @author Silvan Wyss
- * @date 2022-07-02
+ * @version 2022-07-02
  */
 package ch.nolix.coreapi.programcontrolapi;

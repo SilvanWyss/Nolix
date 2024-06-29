@@ -4,6 +4,6 @@
  * for the Nolix environments.
  * 
  * @author Silvan Wyss
- * @date 2024-03-31
+ * @version 2024-03-31
  */
 package ch.nolix.core.environment.nolixenvironment;

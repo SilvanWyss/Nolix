@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * A {@link IOptionalHeaderHolder} can have a header.
  * 
  * @author Silvan Wyss
- * @date 2020-03-28
+ * @version 2020-03-28
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalHeaderHolder {

@@ -4,6 +4,6 @@
  * program analysis.
  * 
  * @author Silvan Wyss
- * @date 2024-06-23
+ * @version 2024-06-23
  */
 package ch.nolix.coreapi.programanalysisapi;

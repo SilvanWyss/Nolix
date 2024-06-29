@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * A {@link IMultiTokenHolder} can have several tokens.
  * 
  * @author Silvan Wyss
- * @date 2023-06-16
+ * @version 2023-06-16
  */
 public interface IMultiTokenHolder {
 

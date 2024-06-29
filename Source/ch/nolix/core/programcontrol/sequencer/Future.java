@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 //class
 /**
  * @author Silvan Wyss
- * @date 2017-05-23
+ * @version 2017-05-23
  */
 public final class Future extends BaseFuture {
 

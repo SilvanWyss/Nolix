@@ -26,7 +26,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * or overwritten method.
  * 
  * @author Silvan Wyss
- * @date 2017-08-27
+ * @version 2017-08-27
  * @param <E> is the type of the elements of a {@link ContainerView}.
  */
 final class ContainerView<E> extends Container<E> {

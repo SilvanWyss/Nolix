@@ -4,6 +4,6 @@
  * point that can send commands and data requests.
  * 
  * @author Silvan Wyss
- * @date 2023-03-10
+ * @version 2023-03-10
  */
 package ch.nolix.coreapi.netapi.endpoint3api;

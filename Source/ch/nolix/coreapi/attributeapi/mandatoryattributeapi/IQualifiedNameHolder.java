@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * {@link IQualifiedNameHolder} is its name headed by its qualifying prefix.
  * 
  * @author Silvan Wyss
- * @date 2024-01-19
+ * @version 2024-01-19
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface IQualifiedNameHolder extends INameHolder {
