@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
@@ -29,5 +30,16 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getDatabaseName()).isEqualTo(databaseName);
     expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_defaultConstructor() {
+
+    //setup
+    final var testUnit = new AndDatabaseNameCaptor<>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.andDatabase("my_database")).throwsException().ofType(InvalidArgumentException.class);
   }
 }

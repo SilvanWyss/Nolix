@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
@@ -77,5 +78,16 @@ final class AndPortCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getPort()).isEqualTo(1433);
     expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_defaultConstructor() {
+
+    //setup
+    final var testUnit = new AndPortCaptor<>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.andPort(8000)).throwsException().ofType(InvalidArgumentException.class);
   }
 }

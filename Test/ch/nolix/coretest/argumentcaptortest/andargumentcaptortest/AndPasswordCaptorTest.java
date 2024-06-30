@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
@@ -29,5 +30,16 @@ final class AndPasswordCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getPassword()).isEqualTo(password);
     expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_defaultConstructor() {
+
+    //setup
+    final var testUnit = new AndPasswordCaptor<>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.andPassword("my_password")).throwsException().ofType(InvalidArgumentException.class);
   }
 }

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -30,5 +31,16 @@ final class AndSchemaCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getStoredSchema()).is(schema);
     expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_defaultConstructor() {
+
+    //setup
+    final var testUnit = new AndSchemaCaptor<>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.andSchema(new VoidObject())).throwsException().ofType(InvalidArgumentException.class);
   }
 }
