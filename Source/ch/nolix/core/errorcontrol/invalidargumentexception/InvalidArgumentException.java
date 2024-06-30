@@ -33,6 +33,9 @@ public class InvalidArgumentException extends RuntimeException {
   private static final String DEFAULT_ARGUMENT_NAME = "argument";
 
   //constant
+  private static final String ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME = "instance of an anonymous class";
+
+  //constant
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
   //constant
@@ -253,7 +256,54 @@ public class InvalidArgumentException extends RuntimeException {
     }
 
     //Handles the case that the given argument is not null.
-    return argument.getClass().getSimpleName();
+    return getNameOfArgumentThatIsInstanceOfClass(argument.getClass());
+  }
+
+  //static method
+  /**
+   * @param anonymousClass
+   * @return a name of an argument that is an instance of the given paramClass.
+   * @throws IllegalArgumentException if the given anonymousClass is null.
+   */
+  private static String getNameOfArgumentThatIsInstanceOfAnonymousClass(final Class<?> anonymousClass) {
+
+    //Handles the case that the given anonymousClass is null.
+    if (anonymousClass == null) {
+      throw new IllegalArgumentException("The given class is null.");
+    }
+
+    //Gets the super class of the given anonymousClass.
+    final var superClass = anonymousClass.getSuperclass();
+
+    //Handles the case that the super class is null.
+    if (superClass == null) {
+      return ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME;
+    }
+
+    //Handles the case that the super class is not null.
+    return getNameOfArgumentThatIsInstanceOfClass(superClass);
+  }
+
+  //static method
+  /**
+   * @param paramClass
+   * @return a name of an argument that is an instance of the given paramClass.
+   * @throws IllegalArgumentException if the given paramClass is null.
+   */
+  private static String getNameOfArgumentThatIsInstanceOfClass(final Class<?> paramClass) {
+
+    //Handles the case that the given paramClass is null.
+    if (paramClass == null) {
+      throw new IllegalArgumentException("The given class is null.");
+    }
+
+    //Handles the case that the given paramClass is not anonymous.
+    if (!paramClass.isAnonymousClass()) {
+      return paramClass.getSimpleName();
+    }
+
+    //Handles the case that the given paramClass is anonymous.
+    return getNameOfArgumentThatIsInstanceOfAnonymousClass(paramClass);
   }
 
   //static method
