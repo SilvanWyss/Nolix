@@ -30,4 +30,52 @@ final class AndPortCaptorTest extends StandardTest {
     expect(testUnit.getPort()).isEqualTo(port);
     expect(result).is(andNameCaptor);
   }
+
+  //method
+  @Test
+  void testCase_andHttpPort() {
+
+    //setup
+    final var andNameCaptor = new AndNameCaptor<>();
+    final var testUnit = new AndPortCaptor<>(andNameCaptor);
+
+    //execution
+    final var result = testUnit.andHttpPort();
+
+    //verification
+    expect(testUnit.getPort()).isEqualTo(80);
+    expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_andHttpsPort() {
+
+    //setup
+    final var andNameCaptor = new AndNameCaptor<>();
+    final var testUnit = new AndPortCaptor<>(andNameCaptor);
+
+    //execution
+    final var result = testUnit.andHttpsPort();
+
+    //verification
+    expect(testUnit.getPort()).isEqualTo(443);
+    expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_andMsSqlPort() {
+
+    //setup
+    final var andNameCaptor = new AndNameCaptor<>();
+    final var testUnit = new AndPortCaptor<>(andNameCaptor);
+
+    //execution
+    final var result = testUnit.andMsSqlPort();
+
+    //verification
+    expect(testUnit.getPort()).isEqualTo(1433);
+    expect(result).is(andNameCaptor);
+  }
 }
