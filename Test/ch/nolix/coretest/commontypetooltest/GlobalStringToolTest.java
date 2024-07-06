@@ -93,6 +93,42 @@ final class GlobalStringToolTest extends StandardTest {
   //method
   @ParameterizedTest
   @CsvSource({
+  "0", //
+  "F", //
+  "FALSE", //
+  "False", //
+  "false" //
+  })
+  void testCase_toBoolean_whenTheGivenStringRepresentsFalse(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.toBoolean(string);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "1", //
+  "T", //
+  "TRUE", //
+  "True", //
+  "true" //
+  })
+  void testCase_toBoolean_whenTheGivenStringRepresentsTrue(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.toBoolean(string);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
   "'', ''", //
   "cursor, Cursor", //
   "CURSOR, Cursor", //
