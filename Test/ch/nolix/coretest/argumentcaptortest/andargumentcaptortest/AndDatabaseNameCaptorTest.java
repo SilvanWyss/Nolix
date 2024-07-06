@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -41,5 +42,16 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
 
     //execution & verification
     expectRunning(() -> testUnit.andDatabase("my_database")).throwsException().ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_getDatabaseName_whenDoesNotHaveADatabaseName() {
+
+    //setup
+    final var testUnit = new AndDatabaseNameCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getDatabaseName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

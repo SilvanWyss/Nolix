@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -40,5 +41,16 @@ final class AndNameCaptorTest extends StandardTest {
 
     //execution & verification
     expectRunning(() -> testUnit.andName("my_name")).throwsException().ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_getName_whenDoesNotHaveAName() {
+
+    //setup
+    final var testUnit = new AndNameCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

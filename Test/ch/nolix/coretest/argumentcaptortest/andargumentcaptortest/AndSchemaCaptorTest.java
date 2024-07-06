@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -42,5 +43,16 @@ final class AndSchemaCaptorTest extends StandardTest {
 
     //execution & verification
     expectRunning(() -> testUnit.andSchema(new VoidObject())).throwsException().ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_getStoredSchema_whenDoesNotHaveASchema() {
+
+    //setup
+    final var testUnit = new AndSchemaCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getStoredSchema).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

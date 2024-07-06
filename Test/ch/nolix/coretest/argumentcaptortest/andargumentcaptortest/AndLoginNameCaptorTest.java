@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -43,5 +44,16 @@ final class AndLoginNameCaptorTest extends StandardTest {
     expectRunning(() -> testUnit.andLoginName("my_login_name"))
       .throwsException()
       .ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_getLoginName_whenDoesNotHaveALoginName() {
+
+    //setup
+    final var testUnit = new AndLoginNameCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getLoginName).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

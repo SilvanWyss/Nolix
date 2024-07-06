@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -89,5 +90,16 @@ final class AndPortCaptorTest extends StandardTest {
 
     //execution & verification
     expectRunning(() -> testUnit.andPort(8000)).throwsException().ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_getPort_whenDoesNotHaveAPort() {
+
+    //setup
+    final var testUnit = new AndPortCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getPort).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

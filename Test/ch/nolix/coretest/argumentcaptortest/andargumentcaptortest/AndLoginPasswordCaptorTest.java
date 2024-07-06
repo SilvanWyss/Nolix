@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -43,5 +44,16 @@ final class AndLoginPasswordCaptorTest extends StandardTest {
     expectRunning(() -> testUnit.andLoginPassword("my_login_password"))
       .throwsException()
       .ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_getLoginPassword_whenDoesNotHaveALoginPassword() {
+
+    //setup
+    final var testUnit = new AndLoginPasswordCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getLoginPassword).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }
