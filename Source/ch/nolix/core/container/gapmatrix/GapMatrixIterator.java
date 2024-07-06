@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.matrix;
+package ch.nolix.core.container.gapmatrix;
 
 //Java imports
 import java.util.NoSuchElementException;

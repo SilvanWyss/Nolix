@@ -7,8 +7,7 @@ import java.util.NoSuchElementException;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.container.matrix.GapMatrix;
+import ch.nolix.core.container.gapmatrix.GapMatrix;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
