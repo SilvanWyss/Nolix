@@ -17,7 +17,7 @@ public final class ValueValidator extends FieldValidator implements IValueValida
   //method
   @Override
   public void assertCanSetGivenValue(final IValue<?> value, final Object valueToSet) {
-    if (!VALUE_TOOL.canSetGivenValue(value, valueToSet)) {
+    if (!VALUE_TOOL.canSetValue(value, valueToSet)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot set the given value");
     }
   }
