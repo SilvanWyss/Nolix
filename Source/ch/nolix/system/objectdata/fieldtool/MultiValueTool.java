@@ -14,14 +14,16 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
   //method
   @Override
   public boolean canAddGivenValue(final IMultiValue<?> multiValue, final Object value) {
-    return assertCanAddValue(multiValue)
+    return //
+    canAddValue(multiValue)
     && value != null;
   }
 
   //method
   @Override
   public boolean canClear(final IMultiValue<?> multiValue) {
-    return multiValue != null
+    return //
+    multiValue != null
     && multiValue.belongsToEntity()
     && multiValue.getStoredParentEntity().isOpen();
   }
@@ -29,7 +31,8 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
   //method
   @Override
   public <V> boolean canRemoveValue(final IMultiValue<V> multiValue, final V value) {
-    return canRemoveValue(multiValue)
+    return //
+    canRemoveValue(multiValue)
     && value != null;
   }
 
@@ -41,7 +44,8 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
 
     final var parentEntity = multiValue.getStoredParentEntity();
 
-    return new EntityUpdateDto(
+    return //
+    new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
       new ContentFieldDto(multiValue.getName(), ""));
@@ -53,22 +57,25 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
 
     final var parentEntity = multiValue.getStoredParentEntity();
 
-    return new EntityUpdateDto(
+    return //
+    new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
       new ContentFieldDto(multiValue.getName()));
   }
 
   //method
-  private boolean assertCanAddValue(final IMultiValue<?> multiValue) {
-    return multiValue != null
+  private boolean canAddValue(final IMultiValue<?> multiValue) {
+    return //
+    multiValue != null
     && multiValue.belongsToEntity()
     && multiValue.getStoredParentEntity().isOpen();
   }
 
   //method
   private boolean canRemoveValue(final IMultiValue<?> multiValue) {
-    return multiValue != null
+    return //
+    multiValue != null
     && multiValue.isOpen();
   }
 }
