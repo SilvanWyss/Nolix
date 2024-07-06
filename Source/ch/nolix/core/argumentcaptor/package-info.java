@@ -1,7 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.argumentcaptor} package defines a builder
- * mechanism and some concrete argument captors for it.
+ * The {@link ch.nolix.core.argumentcaptor} package defines argument captors.
  * 
  * @author Silvan Wyss
  * @version 2022-02-13
