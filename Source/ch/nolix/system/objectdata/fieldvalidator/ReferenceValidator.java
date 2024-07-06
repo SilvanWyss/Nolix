@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.system.objectdata.fieldtool;
+package ch.nolix.system.objectdata.fieldvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
+import ch.nolix.system.objectdata.fieldtool.ReferenceTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
