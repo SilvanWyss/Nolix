@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.container.matrix} package defines
- * {@link ch.nolix.core.container.base.Container}s that are matrices.
+ * The {@link ch.nolix.core.container.matrix} package defines a
+ * {@link ch.nolix.coreapi.containerapi.matrixapi.IMatrix}.
  * 
  * @author Silvan Wyss
  * @version 2020-03-08

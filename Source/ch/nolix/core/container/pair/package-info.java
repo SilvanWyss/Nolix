@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.container.pair} package defines containers that
- * store 2 elements.
+ * The {@link ch.nolix.core.container.pair} package defines the types that are
+ * declared in the {@link ch.nolix.coreapi.containerapi.pairapi}.
  * 
  * @author Silvan Wyss
  * @version 2019-08-01
