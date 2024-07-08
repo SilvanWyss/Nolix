@@ -11,7 +11,6 @@ import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.schema.Schema;
-import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 
 //class
 final class ValueToolTest extends StandardTest {
@@ -20,7 +19,7 @@ final class ValueToolTest extends StandardTest {
   private static class Pet extends Entity {
 
     //attribute
-    private final IValue<String> name = Value.withValueType(String.class);
+    private final Value<String> name = Value.withValueType(String.class);
 
     //constructor
     public Pet() {
