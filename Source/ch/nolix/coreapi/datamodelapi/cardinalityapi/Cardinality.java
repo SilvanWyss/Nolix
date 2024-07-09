@@ -12,11 +12,6 @@ public enum Cardinality {
 
   //constructor
   Cardinality(final BaseCardinality baseCardinality) {
-
-    if (baseCardinality == null) {
-      throw new IllegalArgumentException("The given base cardinality is null.");
-    }
-
     this.baseCardinality = baseCardinality;
   }
 
