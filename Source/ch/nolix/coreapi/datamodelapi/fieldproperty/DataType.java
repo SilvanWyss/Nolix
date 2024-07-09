@@ -21,11 +21,6 @@ public enum DataType {
 
   //constructor
   <V> DataType(final Class<V> dataTypeClass) {
-
-    if (dataTypeClass == null) {
-      throw new IllegalArgumentException("The given data type class is null.");
-    }
-
     this.dataTypeClass = dataTypeClass;
   }
 
