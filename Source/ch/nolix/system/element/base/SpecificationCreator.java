@@ -4,6 +4,7 @@ package ch.nolix.system.element.base;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //class
@@ -16,6 +17,16 @@ public final class SpecificationCreator {
 
   //method
   private String getSpecificationHeaderOfElement(final IElement element) {
-    return element.getClass().getSimpleName();
+    return getSpecificationHeaderOfElementClass(element.getClass());
+  }
+
+  //method
+  private String getSpecificationHeaderOfElementClass(final Class<?> elementClass) {
+
+    if (!elementClass.isAnonymousClass()) {
+      return elementClass.getSimpleName();
+    }
+
+    return PascalCaseVariableCatalogue.ELEMENT;
   }
 }
