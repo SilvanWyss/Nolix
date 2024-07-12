@@ -263,7 +263,7 @@ public final class Matrix {
    *                                  number of columns of the current
    *                                  {@link Matrix}.
    */
-  public Matrix appendRowAtBottom(final double rowValue, final double... rowValues) {
+  public Matrix appendAtBottom(final double rowValue, final double... rowValues) {
 
     //Asserts that as many row values are given than the number of columns of the
     //current Matrix.
