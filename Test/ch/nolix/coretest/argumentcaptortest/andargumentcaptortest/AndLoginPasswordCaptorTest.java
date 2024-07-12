@@ -16,7 +16,7 @@ final class AndLoginPasswordCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andLoginPassword() {
+  void testCase_andLoginPassword_whenHasNext() {
 
     //parameter definition
     final var loginPassword = "my_login_password";
@@ -35,7 +35,7 @@ final class AndLoginPasswordCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_andLoginPassword_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new AndLoginPasswordCaptor<>();

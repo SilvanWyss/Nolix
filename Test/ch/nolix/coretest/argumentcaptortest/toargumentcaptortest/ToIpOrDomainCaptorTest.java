@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -15,7 +16,18 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_getIpOrDomain_whenDoesNotHaveAIpOrDomain() {
+
+    //setup
+    final var testUnit = new ToIpOrDomainCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getIpOrDomain).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+  }
+
+  //method
+  @Test
+  void testCase_toIpOrDomain_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new ToIpOrDomainCaptor<>();
@@ -26,7 +38,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_toIpOrDomain() {
+  void testCase_toIpOrDomain_whenHasNext() {
 
     //parameter definition
     final var domain = "nolix.tech";
@@ -45,7 +57,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_toLocalAddress() {
+  void testCase_toLocalAddress_whenHasNext() {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();

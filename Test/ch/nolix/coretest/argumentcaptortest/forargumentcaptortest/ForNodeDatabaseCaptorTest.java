@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -17,7 +18,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_forNodeDatabase_whenDoesNotHaveNext() {
 
     //setup
     final var database = new MutableNode();
@@ -29,7 +30,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_forNodeDatabase() {
+  void testCase_forNodeDatabase_whenHasNext() {
 
     //setup
     final var database = new MutableNode();
@@ -46,7 +47,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_forTemporaryInMemoryNodeDatabase() {
+  void testCase_forTemporaryInMemoryNodeDatabase_whenHasNext() {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -58,5 +59,18 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getStoredNodeDatabase()).isOfType(IMutableNode.class);
     expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_getStoredNodeDatabase_whenDoesNotHaveANodeDatabase() {
+
+    //setup
+    final var testUnit = new ForNodeDatabaseCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getStoredNodeDatabase)
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

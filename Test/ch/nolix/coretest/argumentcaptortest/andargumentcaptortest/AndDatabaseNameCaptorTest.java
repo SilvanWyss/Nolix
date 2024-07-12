@@ -16,7 +16,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andDatabaseName() {
+  void testCase_andDatabase_whenHasNext() {
 
     //parameter definition
     final var databaseName = "my_database";
@@ -35,7 +35,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_andDatabase_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new AndDatabaseNameCaptor<>();

@@ -16,7 +16,7 @@ final class AndPasswordCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andPassword() {
+  void testCase_andPassword_whenHasNext() {
 
     //parameter definition
     final var password = "my_password";
@@ -35,7 +35,7 @@ final class AndPasswordCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_andPassword_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new AndPasswordCaptor<>();

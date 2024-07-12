@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -15,18 +16,18 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
-  
+  void testCase_forIpOrDomain_whenDoesNotHaveNext() {
+
     //setup
     final var testUnit = new ForIpOrDomainCaptor<>();
-  
+
     //execution & verification
     expectRunning(() -> testUnit.forIpOrDomain("nolix.tech")).throwsException().ofType(InvalidArgumentException.class);
   }
 
   //method
   @Test
-  void testCase_forIpOrDomain() {
+  void testCase_forIpOrDomain_whenHasNext() {
 
     //parameter definition
     final var domain = "nolix.tech";
@@ -45,7 +46,7 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_forLocalAddress() {
+  void testCase_forLocalAddress_whenHasNext() {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -57,5 +58,16 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getIpOrDomain()).isEqualTo("127.0.0.1");
     expect(result).is(andNameCaptor);
+  }
+
+  //method
+  @Test
+  void testCase_getIpOrDomain_whenDoesNotHaveAIpOrDomain() {
+
+    //setup
+    final var testUnit = new ForIpOrDomainCaptor<>();
+
+    //execution & verification
+    expectRunning(testUnit::getIpOrDomain).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

@@ -17,7 +17,7 @@ final class AndSchemaCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andSchema() {
+  void testCase_andSchema_whenHasNext() {
 
     //parameter definition
     final var schema = new VoidObject();
@@ -36,7 +36,7 @@ final class AndSchemaCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_andSchema_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new AndSchemaCaptor<>();

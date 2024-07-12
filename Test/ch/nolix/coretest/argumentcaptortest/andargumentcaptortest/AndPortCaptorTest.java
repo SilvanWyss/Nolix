@@ -16,7 +16,7 @@ final class AndPortCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andPort() {
+  void testCase_andPort_whenHasNext() {
 
     //parameter definition
     final var port = 8000;
@@ -35,7 +35,18 @@ final class AndPortCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andHttpPort() {
+  void testCase_andPort_whenDoesNotHaveNext() {
+
+    //setup
+    final var testUnit = new AndPortCaptor<>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.andPort(8000)).throwsException().ofType(InvalidArgumentException.class);
+  }
+
+  //method
+  @Test
+  void testCase_andHttpPort_whenHasNext() {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -51,7 +62,7 @@ final class AndPortCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andHttpsPort() {
+  void testCase_andHttpsPort_whenHasNext() {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -67,7 +78,7 @@ final class AndPortCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andMsSqlPort() {
+  void testCase_andMsSqlPort_whenHasNext() {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -79,17 +90,6 @@ final class AndPortCaptorTest extends StandardTest {
     //verification
     expect(testUnit.getPort()).isEqualTo(1433);
     expect(result).is(andNameCaptor);
-  }
-
-  //method
-  @Test
-  void testCase_defaultConstructor() {
-
-    //setup
-    final var testUnit = new AndPortCaptor<>();
-
-    //execution & verification
-    expectRunning(() -> testUnit.andPort(8000)).throwsException().ofType(InvalidArgumentException.class);
   }
 
   //method

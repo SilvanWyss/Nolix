@@ -16,7 +16,7 @@ final class AndLoginNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andLoginName() {
+  void testCase_andLoginName_whenHasNext() {
 
     //parameter definition
     final var loginName = "my_login_name";
@@ -35,7 +35,7 @@ final class AndLoginNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_andLoginName_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new AndLoginNameCaptor<>();

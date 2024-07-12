@@ -15,7 +15,7 @@ final class AndNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_andName() {
+  void testCase_andName_whenHasNext() {
 
     //parameter definition
     final var name = "my_name";
@@ -34,7 +34,7 @@ final class AndNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_defaultConstructor() {
+  void testCase_andName_whenDoesNotHaveNext() {
 
     //setup
     final var testUnit = new AndNameCaptor<>();
