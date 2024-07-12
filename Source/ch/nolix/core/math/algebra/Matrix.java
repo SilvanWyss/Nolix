@@ -268,7 +268,7 @@ public final class Matrix {
     //Asserts that as many row values are given than the number of columns of the
     //current Matrix.
     final var rowValueCount = rowValues.length + 1;
-    GlobalValidator.assertThat(rowValueCount).thatIsNamed("number of row value").isEqualTo(getColumnCount());
+    GlobalValidator.assertThat(rowValueCount).thatIsNamed("number of row values").isEqualTo(getColumnCount());
 
     var oldValues = values;
     values = Arrays.copyOf(values, oldValues.length + 1);
