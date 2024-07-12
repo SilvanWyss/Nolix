@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.noderawdata.datareader;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 //own imports
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;

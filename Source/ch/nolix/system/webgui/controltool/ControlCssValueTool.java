@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.controltool;
 
 //own imports
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
-//own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class

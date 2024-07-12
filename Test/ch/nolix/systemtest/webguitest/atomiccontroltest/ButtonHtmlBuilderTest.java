@@ -3,7 +3,6 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 //own imports
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-//own imports
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ButtonHtmlBuilder;

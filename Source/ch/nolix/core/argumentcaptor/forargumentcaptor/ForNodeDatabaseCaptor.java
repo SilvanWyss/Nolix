@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.argumentcaptor.forargumentcaptor;
 
-import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 //own imports
+import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;

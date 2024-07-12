@@ -3,7 +3,6 @@ package ch.nolix.system.sqlrawdata.datadto;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
