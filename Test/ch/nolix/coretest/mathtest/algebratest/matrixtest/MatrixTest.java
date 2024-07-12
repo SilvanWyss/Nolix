@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.mathtest.algebratest;
+package ch.nolix.coretest.mathtest.algebratest.matrixtest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
