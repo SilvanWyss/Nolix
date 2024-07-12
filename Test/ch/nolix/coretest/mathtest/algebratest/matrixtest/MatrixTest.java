@@ -5,6 +5,7 @@ package ch.nolix.coretest.mathtest.algebratest.matrixtest;
 import org.junit.jupiter.api.Test;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Vector;
@@ -28,6 +29,36 @@ final class MatrixTest extends StandardTest {
     //verification
     final var expectedResult = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
     expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @Test
+  void testCase_appendAtBottom() {
+
+    //setup
+    final var testUnit = new Matrix(2, 3).setValues(10, 11.0, 12.0, 20.0, 21.0, 22.0);
+
+    //setup verification
+    final var expectedResult = new Matrix(3, 3).setValues(10, 11.0, 12.0, 20.0, 21.0, 22.0, 30.0, 31.0, 32.0);
+
+    //execution
+    testUnit.appendAtBottom(30.0, 31.0, 32.0);
+
+    //verification
+    expect(testUnit).isEqualTo(expectedResult);
+  }
+
+  //method
+  @Test
+  void testCase_appendAtBottom_whenTheNumberOfTheGivenValuesDoesNotEqualTheNumberOfColumns() {
+
+    //setup
+    final var testUnit = new Matrix(2, 3).setValues(10, 11.0, 12.0, 20.0, 21.0, 22.0);
+
+    //execution
+    expectRunning(() -> testUnit.appendAtBottom(30.0, 31.0, 32.0, 33.0))
+      .throwsException()
+      .ofType(UnequalArgumentException.class);
   }
 
   //method
