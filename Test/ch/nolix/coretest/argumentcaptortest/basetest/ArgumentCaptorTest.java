@@ -87,7 +87,7 @@ final class ArgumentCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_setBuilder_whenHasAlreadyABuilder() {
+  void testCase_setBuilder_whenHasAlreadyBuilder() {
 
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {
