@@ -33,7 +33,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
     final var testUnit = new ToIpOrDomainCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.toIpOrDomain("nolix.tech")).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.toIpOrDomain("nolix.ch")).throwsException().ofType(InvalidArgumentException.class);
   }
 
   //method
@@ -41,7 +41,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
   void testCase_toIpOrDomain_whenHasNext() {
 
     //parameter definition
-    final var domain = "nolix.tech";
+    final var domain = "nolix.ch";
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
