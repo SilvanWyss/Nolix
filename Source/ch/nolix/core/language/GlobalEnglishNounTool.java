@@ -2,16 +2,32 @@
 package ch.nolix.core.language;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class GlobalEnglishNounTool {
 
+  //constant
+  private static final String ARTICLE_A = "a";
+
+  //constant
+  private static final String ARTICLE_AN = "an";
+
+  //constant
   private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
 
   //constructor
   private GlobalEnglishNounTool() {
+  }
+
+  //static method
+  public static String getArticleOfNoun(final String noun) {
+
+    final var firstLetter = noun.charAt(0);
+
+    return getArticleOfNounWithFirstLetter(firstLetter);
   }
 
   //static method
@@ -32,6 +48,35 @@ public final class GlobalEnglishNounTool {
         "teeth";
       default ->
         getPluralOfNounDependingOnEnding(noun);
+    };
+  }
+
+  //static method
+  private static String getArticleOfNounWithFirstLetter(final char firstLetter) {
+
+    //Asserts that the given letter is valid.
+    if (firstLetter < 65
+    || (firstLetter > 90 && firstLetter < 97)
+    || firstLetter > 122) {
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.LETTER, firstLetter);
+    }
+
+    //Enumerates the given letter.
+    return switch (firstLetter) {
+      case
+      'A',
+      'a',
+      'E',
+      'e',
+      'I',
+      'i',
+      'O',
+      'o',
+      'U',
+      'u' ->
+        ARTICLE_AN;
+      default ->
+        ARTICLE_A;
     };
   }
 
