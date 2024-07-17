@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.commontypetooltest;
+package ch.nolix.coretest.commontypetooltest.iterabletooltest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
