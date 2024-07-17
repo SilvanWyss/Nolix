@@ -6,8 +6,7 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-//own imports
-import ch.nolix.core.commontypetool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool;
+package ch.nolix.core.commontypetool.stringtool;
 
 //own imports
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;

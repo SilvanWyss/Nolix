@@ -4,8 +4,7 @@ package ch.nolix.coreapitest.programatomapitest.variableapitest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.commontypetool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.GlobalClassTool;
 import ch.nolix.core.testing.standardtest.StandardTest;

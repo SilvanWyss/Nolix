@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.container.pair;
 
-//own imports
-import ch.nolix.core.commontypetool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.pairapi.IKeyValuePair;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
