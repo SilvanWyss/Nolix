@@ -63,7 +63,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getStoredNodeDatabase_whenDoesNotHaveANodeDatabase() {
+  void testCase_getStoredNodeDatabase_whenDoesNotHaveNodeDatabase() {
 
     //setup
     final var testUnit = new ForNodeDatabaseCaptor<>();

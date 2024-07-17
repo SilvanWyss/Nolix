@@ -53,7 +53,7 @@ final class ArgumentCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_nxtArgCpt_whenDoesNotHaveANextArgumentCaptor() {
+  void testCase_nxtArgCpt_whenDoesNotHaveNextArgumentCaptor() {
 
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {

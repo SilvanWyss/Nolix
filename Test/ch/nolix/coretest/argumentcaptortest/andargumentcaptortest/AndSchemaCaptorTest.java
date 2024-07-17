@@ -47,7 +47,7 @@ final class AndSchemaCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getStoredSchema_whenDoesNotHaveASchema() {
+  void testCase_getStoredSchema_whenDoesNotHaveSchema() {
 
     //setup
     final var testUnit = new AndSchemaCaptor<>();

@@ -48,7 +48,7 @@ final class AndLoginNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getLoginName_whenDoesNotHaveALoginName() {
+  void testCase_getLoginName_whenDoesNotHaveLoginName() {
 
     //setup
     final var testUnit = new AndLoginNameCaptor<>();

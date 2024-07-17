@@ -46,7 +46,7 @@ final class AndDatabaseNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getDatabaseName_whenDoesNotHaveADatabaseName() {
+  void testCase_getDatabaseName_whenDoesNotHaveDatabaseName() {
 
     //setup
     final var testUnit = new AndDatabaseNameCaptor<>();

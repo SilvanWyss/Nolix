@@ -14,7 +14,7 @@ final class SelectingStyleTest extends StandardTest {
 
   //method
   @Test
-  void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveAnId() {
+  void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveId() {
 
     //setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();

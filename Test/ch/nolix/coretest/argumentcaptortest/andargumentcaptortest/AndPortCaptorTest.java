@@ -94,7 +94,7 @@ final class AndPortCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getPort_whenDoesNotHaveAPort() {
+  void testCase_getPort_whenDoesNotHavePort() {
 
     //setup
     final var testUnit = new AndPortCaptor<>();

@@ -16,7 +16,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getIpOrDomain_whenDoesNotHaveAIpOrDomain() {
+  void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
 
     //setup
     final var testUnit = new ToIpOrDomainCaptor<>();

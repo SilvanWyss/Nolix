@@ -46,7 +46,7 @@ final class AndPasswordCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getPassword_whenDoesNotHaveAPassword() {
+  void testCase_getPassword_whenDoesNotHavePassword() {
 
     //setup
     final var testUnit = new AndPasswordCaptor<>();

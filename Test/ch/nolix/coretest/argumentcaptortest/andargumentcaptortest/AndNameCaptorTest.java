@@ -45,7 +45,7 @@ final class AndNameCaptorTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getName_whenDoesNotHaveAName() {
+  void testCase_getName_whenDoesNotHaveName() {
 
     //setup
     final var testUnit = new AndNameCaptor<>();
