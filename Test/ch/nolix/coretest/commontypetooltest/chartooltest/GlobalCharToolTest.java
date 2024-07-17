@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.commontypetooltest;
+package ch.nolix.coretest.commontypetooltest.chartooltest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import ch.nolix.core.commontypetool.chartool.GlobalCharTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
-final class GlobalCharacterToolTest extends StandardTest {
+final class GlobalCharToolTest extends StandardTest {
 
   //method
   @Test
