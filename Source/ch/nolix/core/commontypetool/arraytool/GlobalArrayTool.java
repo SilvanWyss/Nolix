@@ -1,12 +1,6 @@
 //package declaration
 package ch.nolix.core.commontypetool.arraytool;
 
-//Java imports
-import java.util.Arrays;
-
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-
 //class
 public final class GlobalArrayTool {
 
@@ -32,22 +26,6 @@ public final class GlobalArrayTool {
     System.arraycopy(values, 0, array, 1, values.length);
 
     return array;
-  }
-
-  //static method
-  public static double[] createCopyOfArray(final double[] array) {
-
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
-
-    return Arrays.copyOf(array, array.length);
-  }
-
-  //static method
-  public static <E> E[] createCopyOfArray(final E[] array) {
-
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
-
-    return Arrays.copyOf(array, array.length);
   }
 
   //static method
