@@ -9,8 +9,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
-//own imports
-import ch.nolix.core.commontypetool.GlobalInputStreamTool;
+import ch.nolix.core.commontypetool.inputstreamtool.GlobalInputStreamTool;
 import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
