@@ -1,10 +1,9 @@
 //package declaration
-package ch.nolix.core.commontypetool;
+package ch.nolix.core.commontypetool.arraytool;
 
 //Java imports
 import java.util.Arrays;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 

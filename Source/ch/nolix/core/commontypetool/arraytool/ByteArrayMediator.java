@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool;
+package ch.nolix.core.commontypetool.arraytool;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

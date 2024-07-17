@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.math.algebra;
 
-//own imports
-import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.commontypetool.GlobalDoubleTool;
+import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
