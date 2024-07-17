@@ -15,7 +15,7 @@ public final class ByteArrayMediatorWithStartIndex {
   private int index;
 
   //constructor
-  ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
+  private ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
 
     GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
@@ -26,6 +26,12 @@ public final class ByteArrayMediatorWithStartIndex {
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
     index = startIndex;
+  }
+
+  //static method
+  public static ByteArrayMediatorWithStartIndex forByteArrayAndStartIndex(final byte[] byteArray,
+    final int startIndex) {
+    return new ByteArrayMediatorWithStartIndex(byteArray, startIndex);
   }
 
   //method

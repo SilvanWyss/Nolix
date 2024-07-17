@@ -25,6 +25,6 @@ public final class ByteArrayMediator {
 
   //method
   public ByteArrayMediatorWithStartIndex fromIndex(final int index) {
-    return new ByteArrayMediatorWithStartIndex(byteArray, index);
+    return ByteArrayMediatorWithStartIndex.forByteArrayAndStartIndex(byteArray, index);
   }
 }
