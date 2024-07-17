@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool;
+package ch.nolix.core.commontypetool.chartool;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -7,13 +7,13 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * The {@link GlobalCharacterTool} provides methods to handle characters. Of the
- * {@link GlobalCharacterTool} an instance cannot be created.
+ * The {@link GlobalCharTool} provides methods to handle characters. Of the
+ * {@link GlobalCharTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class GlobalCharacterTool {
+public final class GlobalCharTool {
 
   //constant
   private static final String ARTICLE_A = "a";
@@ -23,9 +23,9 @@ public final class GlobalCharacterTool {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalCharacterTool} can be created.
+   * Prevents that an instance of the {@link GlobalCharTool} can be created.
    */
-  private GlobalCharacterTool() {
+  private GlobalCharTool() {
   }
 
   //static method
