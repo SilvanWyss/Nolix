@@ -54,4 +54,20 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
     //execution & verification
     expectRunning(() -> testUnit.withIpOrDomain("nolix.ch")).throwsException().ofType(InvalidArgumentException.class);
   }
+
+  //method
+  @Test
+  void testCase_withLocalAddress_whenHasNext() {
+
+    //setup
+    final var andNameCaptor = new AndNameCaptor<>();
+    final var testUnit = new WithIpOrDomainCaptor<>(andNameCaptor);
+
+    //execution
+    final var result = testUnit.withLocalAddress();
+
+    //verification
+    expect(testUnit.getIpOrDomain()).isEqualTo("127.0.0.1");
+    expect(result).is(andNameCaptor);
+  }
 }
