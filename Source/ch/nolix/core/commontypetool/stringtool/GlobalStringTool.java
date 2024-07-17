@@ -242,7 +242,7 @@ public final class GlobalStringTool {
    * @return a new {@link String} in capital snake case for the given string.
    */
   public static String toUpperSnakeCase(final String string) {
-    return new CapitalSnakeCaseCreator().toCapitalSnakeCase(string);
+    return new CapitalSnakeCaseTransformer().toCapitalSnakeCase(string);
   }
 
   //static method

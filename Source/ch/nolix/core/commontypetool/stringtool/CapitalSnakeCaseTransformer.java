@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class
-final class CapitalSnakeCaseCreator {
+public final class CapitalSnakeCaseTransformer {
 
   //method
   public String toCapitalSnakeCase(final String string) {
