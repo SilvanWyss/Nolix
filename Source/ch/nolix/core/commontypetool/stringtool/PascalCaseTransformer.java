@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class
-final class PascalCaseCreator {
+public final class PascalCaseTransformer {
 
   //method
   public String toPascalCase(final String string) {

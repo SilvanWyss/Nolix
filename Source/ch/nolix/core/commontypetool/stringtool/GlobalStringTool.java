@@ -233,7 +233,7 @@ public final class GlobalStringTool {
    * @return a new {@link String} in pascal case for the given string.
    */
   public static String toPascalCase(final String string) {
-    return new PascalCaseCreator().toPascalCase(string);
+    return new PascalCaseTransformer().toPascalCase(string);
   }
 
   //static method
