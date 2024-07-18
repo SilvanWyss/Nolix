@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.arraycontrol;
+package ch.nolix.core.commontypetool.arraytool;
 
 //Java imports
 import java.util.NoSuchElementException;

@@ -4,8 +4,7 @@ package ch.nolix.core.container.arraylist;
 //Java imports
 import java.util.function.Function;
 
-//own imports
-import ch.nolix.core.container.arraycontrol.ArrayIterator;
+import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;

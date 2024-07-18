@@ -4,8 +4,7 @@ package ch.nolix.coretest.containertest.arraycontroltest.arrayiteratortest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.container.arraycontrol.ArrayIterator;
+import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
