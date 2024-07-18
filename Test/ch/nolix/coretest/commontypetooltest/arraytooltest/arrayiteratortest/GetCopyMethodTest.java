@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.containertest.arraycontroltest.arrayiteratortest;
+package ch.nolix.coretest.commontypetooltest.arraytooltest.arrayiteratortest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
