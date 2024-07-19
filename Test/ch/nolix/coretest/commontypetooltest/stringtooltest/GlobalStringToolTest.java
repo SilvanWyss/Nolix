@@ -2,10 +2,10 @@
 package ch.nolix.coretest.commontypetooltest.stringtooltest;
 
 //JUnit imports
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+//own imports
 import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -13,80 +13,63 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 final class GlobalStringToolTest extends StandardTest {
 
   //method
-  @Test
-  void testCase_createStringWithoutLastCharacters_1A() {
+  @ParameterizedTest
+  @CsvSource({
+  "'', 0, ''", //
+  "cheeseburger, 0, cheeseburger", //
+  "cheeseburger, 1, cheeseburge", //
+  "cheeseburger, 2, cheeseburg", //
+  "cheeseburger, 3, cheesebur", //
+  "cheeseburger, 4, cheesebu", //
+  "cheeseburger, 5, cheeseb", //
+  "cheeseburger, 6, cheese", //
+  "cheeseburger, 7, chees", //
+  "cheeseburger, 8, chee", //
+  "cheeseburger, 9, che", //
+  "cheeseburger, 10, ch", //
+  "cheeseburger, 11, c", //
+  "cheeseburger, 12, ''", //
+  })
+  void testCase_createStringWithoutLastCharacters(
+    final String string,
+    final int lastCharacterCount,
+    final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.createStringWithoutLastCharacters("cheeseburger", 0);
+    final var result = GlobalStringTool.createStringWithoutLastCharacters(string, lastCharacterCount);
 
     //verification
-    expect(result).isEqualTo("cheeseburger");
+    expect(result).isEqualTo(expectedResult);
   }
 
   //method
-  @Test
-  void testCase_createStringWithoutLastCharacters_1B() {
+  @ParameterizedTest
+  @CsvSource({
+  "'', '()'", //
+  "zebra, (zebra)" //
+  })
+  void testCase_getInParantheses(final String string, final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.createStringWithoutLastCharacters("cheeseburger", 6);
+    final var result = GlobalStringTool.getInSingleQuotes(string);
 
     //verification
-    expect(result).isEqualTo("cheese");
+    expect(result);
   }
 
   //method
-  @Test
-  void testCase_createStringWithoutLastCharacters_1C() {
+  @ParameterizedTest
+  @CsvSource({
+  "'', ''", //
+  "zebra, '\'zebra\''" //
+  })
+  void testCase_getInSingleQuotes(final String string, final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.createStringWithoutLastCharacters("cheeseburger", 12);
+    final var result = GlobalStringTool.getInSingleQuotes(string);
 
     //verification
-    expect(result).isEqualTo("");
-  }
-
-  //method
-  @Test
-  void testCase_getInParantheses_whenGivenStringIsEmpty() {
-
-    //execution
-    final var result = GlobalStringTool.getInParantheses("");
-
-    //verification
-    expect(result).isEqualTo("()");
-  }
-
-  //method
-  @Test
-  void testCase_getInParantheses_whenGivenStringIsNotEmpty() {
-
-    //execution
-    final var result = GlobalStringTool.getInParantheses("Zebra");
-
-    //verification
-    expect(result).isEqualTo("(Zebra)");
-  }
-
-  //method
-  @Test
-  void testCase_getInSingleQuotes_whenTheGivenStringIsEmpty() {
-
-    //execution
-    final var result = GlobalStringTool.getInSingleQuotes("");
-
-    //verification
-    expect(result).isEqualTo("''");
-  }
-
-  //method
-  @Test
-  void testCase_getInSingleQuotes_whenTheGivenStringIsNotEmpty() {
-
-    //execution
-    final var result = GlobalStringTool.getInSingleQuotes("Zebra");
-
-    //verification
-    expect(result).isEqualTo("'Zebra'");
+    expect(result);
   }
 
   //method
@@ -129,6 +112,37 @@ final class GlobalStringToolTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({
   "'', ''", //
+  "cursor, CURSOR", //
+  "CURSOR, CURSOR", //
+  "Cursor, CURSOR", //
+  "cursor_icon, CURSOR_ICON", //
+  "CURSOR_ICON, CURSOR_ICON", //
+  "Cursor_Icon, CURSOR_ICON", //
+  "cursorIcon, CURSOR_ICON", //
+  "CursorIcon, CURSOR_ICON", //
+  "500cursor, 500CURSOR", //
+  "500CURSOR, 500CURSOR", //
+  "500Cursor, 500CURSOR", //
+  "cursor500, CURSOR500", //
+  "CURSOR500, CURSOR500", //
+  "Cursor500, CURSOR500", //
+  "cursor500icon, CURSOR500ICON", //
+  "CURSOR500ICON, CURSOR500ICON", //
+  "Cursor500Icon, CURSOR500ICON" //
+  })
+  void testCase_toCapitalSnakeCase(final String string, final String expectedResult) {
+
+    //execution
+    final var result = GlobalStringTool.toUpperSnakeCase(string);
+
+    //verification
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "'', ''", //
   "cursor, Cursor", //
   "CURSOR, Cursor", //
   "Cursor, Cursor", //
@@ -147,100 +161,12 @@ final class GlobalStringToolTest extends StandardTest {
   "CURSOR500ICON, Cursor500Icon", //
   "Cursor500Icon, Cursor500Icon" //
   })
-  void testCase_toPascalCase(final String input, final String expectedResult) {
+  void testCase_toPascalCase(final String string, final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.toPascalCase(input);
+    final var result = GlobalStringTool.toPascalCase(string);
 
     //verification
     expect(result).isEqualTo(expectedResult);
-  }
-
-  //method
-  @Test
-  void testCase_toPascalCase_whenGivenStringIsEmpty() {
-
-    //execution
-    final var result = GlobalStringTool.toPascalCase("");
-
-    //verification
-    expect(result).isEqualTo("");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInLowerCase() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("zebra");
-
-    //verification
-    expect(result).isEqualTo("ZEBRA");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInUpperCase() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("ZEBRA");
-
-    //verification
-    expect(result).isEqualTo("ZEBRA");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInSentenceCase() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("Zebra");
-
-    //verification
-    expect(result).isEqualTo("ZEBRA");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("cursor_icon");
-
-    //verification
-    expect(result).isEqualTo("CURSOR_ICON");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("CURSOR_ICON");
-
-    //verification
-    expect(result).isEqualTo("CURSOR_ICON");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("Cursor_Icon");
-
-    //verification
-    expect(result).isEqualTo("CURSOR_ICON");
-  }
-
-  //method
-  @Test
-  void testCase_toUpperSnakeCase_whenGivenStringIsEmpty() {
-
-    //execution
-    final var result = GlobalStringTool.toUpperSnakeCase("");
-
-    //verification
-    expect(result).isEqualTo("");
   }
 }
