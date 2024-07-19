@@ -2,7 +2,6 @@
 package ch.nolix.core.commontypetool.stringtool;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
@@ -55,8 +54,6 @@ public final class CapitalSnakeCaseTransformer {
         case OTHER:
           stringBuilder.append(Character.toUpperCase(character));
           break;
-        default:
-          throw InvalidArgumentException.forArgument(characterType);
       }
 
       previousCharacterType = characterType;
