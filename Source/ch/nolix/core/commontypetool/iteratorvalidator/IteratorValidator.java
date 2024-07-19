@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.iteratorvalidator;
+package ch.nolix.core.commontypetool.iteratorvalidator;
 
 //Java imports
 import java.util.Iterator;
@@ -7,7 +7,7 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.containerapi.iteratorvalidatorapi.IIteratorValidator;
+import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIteratorValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
