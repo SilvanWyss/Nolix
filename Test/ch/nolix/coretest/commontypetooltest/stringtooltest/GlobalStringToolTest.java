@@ -133,7 +133,7 @@ final class GlobalStringToolTest extends StandardTest {
   void testCase_toCapitalSnakeCase(final String string, final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.toUpperSnakeCase(string);
+    final var result = GlobalStringTool.toCapitalSnakeCase(string);
 
     //verification
     expect(result).isEqualTo(expectedResult);
