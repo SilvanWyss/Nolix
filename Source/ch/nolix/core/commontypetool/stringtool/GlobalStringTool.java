@@ -207,7 +207,7 @@ public final class GlobalStringTool {
       case "1", "T", "TRUE", "True", "true" ->
         true;
       default ->
-        throw UnrepresentingArgumentException.forArgumentAndType(string, Boolean.class);
+        throw UnrepresentingArgumentException.forArgumentAndType(string, Boolean.TYPE);
     };
   }
 
