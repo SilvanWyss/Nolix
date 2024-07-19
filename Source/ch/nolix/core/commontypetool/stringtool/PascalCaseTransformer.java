@@ -75,7 +75,9 @@ public final class PascalCaseTransformer {
     final char previousCharacter,
     final CharacterType previousCharacterType) {
 
-    if (previousCharacterType == CharacterType.NUMBER || previousCharacter == CharacterCatalogue.UNDERSCORE) {
+    if (previousCharacterType == CharacterType.NUMBER
+    || previousCharacter == CharacterCatalogue.UNDERSCORE
+    || previousCharacterType == CharacterType.OTHER) {
       return Character.toUpperCase(sourceCharacter);
     }
 
@@ -90,7 +92,8 @@ public final class PascalCaseTransformer {
 
     if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
     || previousCharacterType == CharacterType.NUMBER
-    || previousCharacter == CharacterCatalogue.UNDERSCORE) {
+    || previousCharacter == CharacterCatalogue.UNDERSCORE
+    || previousCharacterType == CharacterType.OTHER) {
       return sourceCharacter;
     }
 
