@@ -145,9 +145,15 @@ final class GlobalStringToolTest extends StandardTest {
   "500cursor, 500CURSOR", //
   "500CURSOR, 500CURSOR", //
   "500Cursor, 500CURSOR", //
+  "§cursor, §CURSOR", //
+  "§CURSOR, §CURSOR", //
+  "§Cursor, §CURSOR", //
   "cursor500, CURSOR500", //
   "CURSOR500, CURSOR500", //
   "Cursor500, CURSOR500", //
+  "cursor§, CURSOR§", //
+  "CURSOR§, CURSOR§", //
+  "Cursor§, CURSOR§", //
   "cursor500icon, CURSOR500ICON", //
   "CURSOR500ICON, CURSOR500ICON", //
   "Cursor500Icon, CURSOR500ICON" //
@@ -176,9 +182,15 @@ final class GlobalStringToolTest extends StandardTest {
   "500cursor, 500Cursor", //
   "500CURSOR, 500Cursor", //
   "500Cursor, 500Cursor", //
+  "§cursor, §Cursor", //
+  "§CURSOR, §Cursor", //
+  "§Cursor, §Cursor", //
   "cursor500, Cursor500", //
   "CURSOR500, Cursor500", //
   "Cursor500, Cursor500", //
+  "cursor§, Cursor§", //
+  "CURSOR§, Cursor§", //
+  "Cursor§, Cursor§", //
   "cursor500icon, Cursor500Icon", //
   "CURSOR500ICON, Cursor500Icon", //
   "Cursor500Icon, Cursor500Icon" //
