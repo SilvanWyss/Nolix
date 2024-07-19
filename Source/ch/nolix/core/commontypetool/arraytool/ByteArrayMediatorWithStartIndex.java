@@ -43,6 +43,6 @@ public final class ByteArrayMediatorWithStartIndex {
 
     index += bytes.length;
 
-    return new NextIndexMediator(index);
+    return NextIndexMediator.forNextIndex(index);
   }
 }

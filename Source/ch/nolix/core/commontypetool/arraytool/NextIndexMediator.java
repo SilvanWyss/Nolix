@@ -5,15 +5,20 @@ package ch.nolix.core.commontypetool.arraytool;
 public final class NextIndexMediator {
 
   //attribute
-  private final int index;
+  private final int nextIndex;
 
   //constructor
-  NextIndexMediator(final int index) {
-    this.index = index;
+  private NextIndexMediator(final int nextIndex) {
+    this.nextIndex = nextIndex;
+  }
+
+  //static method
+  public static NextIndexMediator forNextIndex(final int nextIndex) {
+    return new NextIndexMediator(nextIndex);
   }
 
   //method
   public int andGetNextIndex() {
-    return index;
+    return nextIndex;
   }
 }
