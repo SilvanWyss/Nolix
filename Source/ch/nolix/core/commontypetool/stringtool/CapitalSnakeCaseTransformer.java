@@ -49,6 +49,9 @@ public final class CapitalSnakeCaseTransformer {
           stringBuilder.append(character);
 
           break;
+        case NUMBER:
+          stringBuilder.append(character);
+          break;
         case OTHER:
           stringBuilder.append(Character.toUpperCase(character));
           break;
