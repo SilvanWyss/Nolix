@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
@@ -31,42 +30,6 @@ public final class GlobalStringTool {
    * Prevents that an instance of the {@link GlobalStringTool} can be created.
    */
   private GlobalStringTool() {
-  }
-
-  //static method
-  /**
-   * @param string
-   * @param length
-   * @return a new {@link String} that is the given string extended to the given
-   *         length with spaces.
-   * @throws ArgumentIsNullException   if the given string is null.
-   * @throws NegativeArgumentException if the given length is negative.
-   * @throws InvalidArgumentException  if the given string is longer than the
-   *                                   given length.
-   */
-  public static String createStringWithLength(final String string, final int length) {
-
-    //Asserts that the given string is not null.
-    GlobalValidator.assertThat(string).isNotNull();
-
-    //Asserts that the given length is not negative.
-    GlobalValidator.assertThat(length).thatIsNamed("length").isNotNegative();
-
-    //Asserts that the given string is not longer than the given length.
-    if (string.length() > length) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.STRING,
-        string,
-        "is longer than " + length + " with a length of " + string.length());
-    }
-
-    final var stringBuilder = new StringBuilder(string);
-
-    GlobalSequencer
-      .forCount(length - string.length())
-      .run(() -> stringBuilder.append(CharacterCatalogue.SPACE));
-
-    return stringBuilder.toString();
   }
 
   //static method
