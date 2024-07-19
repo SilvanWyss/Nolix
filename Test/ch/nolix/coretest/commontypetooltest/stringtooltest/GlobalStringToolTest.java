@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
@@ -106,6 +107,27 @@ final class GlobalStringToolTest extends StandardTest {
 
     //verification
     expect(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "x", //
+  "y", //
+  "z", //
+  "-1", //
+  "+1", //
+  "2", //
+  "3", //
+  "10" //
+  })
+  void testCase_toBoolean_whenTheGivenStringDoesNotRepresentABoolean(final String string) {
+
+    //execution & verification
+    expectRunning(() -> GlobalStringTool.toBoolean(string))
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given String '" + string + "' does not represent a boolean.");
   }
 
   //method
