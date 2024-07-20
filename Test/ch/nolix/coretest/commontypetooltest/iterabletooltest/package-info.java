@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.coretest.commontypetooltest.iterabletooltest} package
- * defines tests for the {@link ch.nolix.core.commontypetool.iterabletool}
+ * defines tests for the {@link ch.nolix.core.commontypetool.iteratortool}
  * package.
  * 
  * @author Silvan Wyss

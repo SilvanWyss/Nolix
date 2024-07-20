@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool.iterabletool;
+package ch.nolix.core.commontypetool.iteratortool;
 
 //Java imports
 import java.util.Objects;

@@ -5,7 +5,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.iterabletool.GlobalIterableTool;
+import ch.nolix.core.commontypetool.iteratortool.GlobalIterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
