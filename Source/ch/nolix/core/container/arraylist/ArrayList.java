@@ -4,7 +4,7 @@ package ch.nolix.core.container.arraylist;
 //Java imports
 import java.util.function.Function;
 
-import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
+//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -236,7 +236,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return ArrayIterator.forArray(elements);
+    return ArrayListIterator.forArrayAndMaxNextIndex(elements, getCount());
   }
 
   //method
