@@ -2,11 +2,14 @@
 package ch.nolix.coretest.commontypetooltest.stringtooltest;
 
 //JUnit imports
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
 import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -46,16 +49,88 @@ final class GlobalStringToolTest extends StandardTest {
   //method
   @ParameterizedTest
   @CsvSource({
+  "0, ''", //
+  "1, '\t'", //
+  "2, '\t\t'", //
+  "3, '\t\t\t'", //
+  "4, '\t\t\t\t'", //
+  "5, '\t\t\t\t\t'", //
+  "6, '\t\t\t\t\t\t'", //
+  "7, '\t\t\t\t\t\t\t'", //
+  "8, '\t\t\t\t\t\t\t\t'", //
+  "9, '\t\t\t\t\t\t\t\t\t'", //
+  "10, '\t\t\t\t\t\t\t\t\t\t'" //
+  })
+  void testCase_createTabs(final int tabCount, final String expectedResult) {
+
+    //execution
+    final var result = GlobalStringTool.createTabs(tabCount);
+
+    //verification
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @Test
+  void testCase_createTabs_whenTheGivenTabCountIsNegative() {
+
+    //execution & verification
+    expectRunning(() -> GlobalStringTool.createTabs(-1))
+      .throwsException()
+      .ofType(NegativeArgumentException.class)
+      .withMessage("The given tab count '-1' is negative.");
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "'', '{}'", //
+  "zebra, {zebra}" //
+  })
+  void testCase_getIngetInBraces(final String string, final String expectedResult) {
+
+    //execution
+    final var result = GlobalStringTool.getInBraces(string);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @Test
+  void testCase_getIngetInBraces_whenTheGivenObjectIsNull() {
+
+    //execution & verification
+    expectRunning(() -> GlobalStringTool.getInBraces(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given Object is null.");
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
   "'', '()'", //
   "zebra, (zebra)" //
   })
   void testCase_getInParantheses(final String string, final String expectedResult) {
 
     //execution
-    final var result = GlobalStringTool.getInSingleQuotes(string);
+    final var result = GlobalStringTool.getInParantheses(string);
 
     //verification
     expect(result);
+  }
+
+  //method
+  @Test
+  void testCase_getInParantheses_whenTheGivenObjectIsNull() {
+
+    //execution & verification
+    expectRunning(() -> GlobalStringTool.getInParantheses(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given Object is null.");
   }
 
   //method
@@ -71,6 +146,121 @@ final class GlobalStringToolTest extends StandardTest {
 
     //verification
     expect(result);
+  }
+
+  //method
+  @Test
+  void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
+
+    //execution & verification
+    expectRunning(() -> GlobalStringTool.getInSingleQuotes(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given Object is null.");
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "cheeseburger, ''", //
+  "cheeseburger, c", //
+  "cheeseburger, ch", //
+  "cheeseburger, che", //
+  "cheeseburger, chee", //
+  "cheeseburger, chees", //
+  "cheeseburger, cheese", //
+  "cheeseburger, cheeseb", //
+  "cheeseburger, cheesebu", //
+  "cheeseburger, cheesebur", //
+  "cheeseburger, cheeseburg", //
+  "cheeseburger, cheeseburge", //
+  "cheeseburger, cheeseburger", //
+  "cheeseburger, C", //
+  "cheeseburger, cH", //
+  "cheeseburger, chE", //
+  "cheeseburger, cheE", //
+  "cheeseburger, cheeS", //
+  "cheeseburger, cheesE", //
+  "cheeseburger, cheeseB", //
+  "cheeseburger, cheesebU", //
+  "cheeseburger, cheesebuR", //
+  "cheeseburger, cheeseburG", //
+  "cheeseburger, cheeseburgE", //
+  "cheeseburger, cheeseburgeR" //
+  })
+  void testCase_startsWithIgnoringCase_whenTheGivenStringStartsWithTheGivenPrefix(
+    final String string,
+    final String prefix) {
+
+    //execution
+    final var result = GlobalStringTool.startsWithIgnoringCase(string, prefix);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  ", ''", //
+  ", c", //
+  ", ch", //
+  ", che", //
+  ", chee", //
+  ", chees", //
+  ", cheese", //
+  ", cheeseb", //
+  ", cheesebu", //
+  ", cheesebur", //
+  ", cheeseburg", //
+  ", cheeseburge", //
+  ", cheeseburger", //
+  ",", //
+  "c,", //
+  "ch,", //
+  "che,", //
+  "chee,", //
+  "chees,", //
+  "cheese,", //
+  "cheeseb,", //
+  "cheesebu,", //
+  "cheesebur,", //
+  "cheeseburg,", //
+  "cheeseburge,", //
+  "cheeseburger,", //
+  "cheeseburger, h", //
+  "cheeseburger, he", //
+  "cheeseburger, hee", //
+  "cheeseburger, hees", //
+  "cheeseburger, heese", //
+  "cheeseburger, heeseb", //
+  "cheeseburger, heesebu", //
+  "cheeseburger, heesebur", //
+  "cheeseburger, heeseburg", //
+  "cheeseburger, heeseburge", //
+  "cheeseburger, heeseburger", //
+  "'', c", //
+  "'', ch", //
+  "'', che", //
+  "'', chee", //
+  "'', chees", //
+  "'', cheese", //
+  "'', cheeseb", //
+  "'', cheesebu", //
+  "'', cheesebur", //
+  "'', cheeseburg", //
+  "'', cheeseburge", //
+  "'', cheeseburger" //
+  })
+  void testCase_startsWithIgnoringCase_whenTheGivenStringDoesNotStartWithTheGivenPrefix(
+    final String string,
+    final String prefix) {
+
+    //execution
+    final var result = GlobalStringTool.startsWithIgnoringCase(string, prefix);
+
+    //verification
+    expectNot(result);
   }
 
   //method
@@ -128,6 +318,45 @@ final class GlobalStringToolTest extends StandardTest {
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
       .withMessage("The given String '" + string + "' does not represent a boolean.");
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "-1.5", //
+  "-1.0", //
+  "-1.5", //
+  "0.0", //
+  "0.5", //
+  "1.0", //
+  "1.5" //
+  })
+  void testCase_toDouble_whenTheGivenStringRepresentsADouble(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.toDouble(string);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "-2", //
+  "-1", //
+  "-0", //
+  "0", //
+  "1", //
+  "2", //
+  })
+  void testCase_toDouble_whenTheGivenStringDoesNotRepresentADouble(final String string) {
+
+    //execution & verification
+    expectRunning(() -> GlobalStringTool.toDouble(string))
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given String '" + string + "' does not represent a double.");
   }
 
   //method
