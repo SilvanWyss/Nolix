@@ -20,6 +20,6 @@ final class ArrayListTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
-    return new ArrayList<>();
+    return ArrayList.createEmpty();
   }
 }

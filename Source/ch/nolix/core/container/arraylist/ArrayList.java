@@ -38,6 +38,22 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @SuppressWarnings("unchecked")
   private E[] elements = (E[]) new Object[0];
 
+  //constructor
+  /**
+   * Creates a new empty {@link ArrayList}.
+   */
+  private ArrayList() {
+  }
+
+  //static method
+  /**
+   * @return a new empty {@link ArrayList}.
+   * @param <E2> is the type of the elements of the {@link ArrayList}.
+   */
+  public static <E2> ArrayList<E2> createEmpty() {
+    return new ArrayList<>();
+  }
+
   //static method
   /**
    * @param element
