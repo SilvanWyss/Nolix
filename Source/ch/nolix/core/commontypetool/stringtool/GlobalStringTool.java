@@ -45,19 +45,19 @@ public final class GlobalStringTool {
 
   //static method
   /**
-   * @param tabulatorCount
+   * @param tabCount
    * @return a new {@link String} consisting of as many tabulators as the given
-   *         tabulatorCount says.
-   * @throws NegativeArgumentException if the given tabulatorCount is negative.
+   *         tabCount says.
+   * @throws NegativeArgumentException if the given tabCount is negative.
    */
-  public static String createTabulators(final int tabulatorCount) {
+  public static String createTabs(final int tabCount) {
 
     //Asserts that the given tabulatorCount is not negative.
-    GlobalValidator.assertThat(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
+    GlobalValidator.assertThat(tabCount).thatIsNamed("tab count").isNotNegative();
 
     final var stringBuilder = new StringBuilder();
 
-    for (var i = 1; i <= tabulatorCount; i++) {
+    for (var i = 1; i <= tabCount; i++) {
       stringBuilder.append(CharacterCatalogue.TABULATOR);
     }
 

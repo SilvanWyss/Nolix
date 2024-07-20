@@ -56,7 +56,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
-      .append(GlobalStringTool.createTabulators(leadingTabulatorCount))
+      .append(GlobalStringTool.createTabs(leadingTabulatorCount))
       .append('<')
       .append(mutableXmlNode.getName());
 
@@ -74,7 +74,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
       } else {
         stringBuilder
           .append(CharacterCatalogue.NEW_LINE)
-          .append(GlobalStringTool.createTabulators(leadingTabulatorCount + 1))
+          .append(GlobalStringTool.createTabs(leadingTabulatorCount + 1))
           .append(mutableXmlNode.getValue())
           .append(CharacterCatalogue.NEW_LINE);
 
@@ -93,7 +93,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     if (mutableXmlNode.containsChildNodes()) {
-      stringBuilder.append(GlobalStringTool.createTabulators(leadingTabulatorCount));
+      stringBuilder.append(GlobalStringTool.createTabs(leadingTabulatorCount));
     }
 
     stringBuilder

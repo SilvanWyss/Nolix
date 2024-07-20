@@ -432,7 +432,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
       }
 
       stringBuilder
-        .append(GlobalStringTool.createTabulators(leadingTabulators))
+        .append(GlobalStringTool.createTabs(leadingTabulators))
         .append(CharacterCatalogue.CLOSED_BRACKET);
     }
   }
@@ -484,7 +484,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
     final var stringBuilder = new StringBuilder();
 
-    stringBuilder.append(GlobalStringTool.createTabulators(leadingTabulators));
+    stringBuilder.append(GlobalStringTool.createTabs(leadingTabulators));
 
     //Handles the case that the current specification has a header.
     if (hasHeader()) {
