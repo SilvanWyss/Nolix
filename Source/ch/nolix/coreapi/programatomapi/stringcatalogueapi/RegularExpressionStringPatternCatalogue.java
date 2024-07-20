@@ -15,7 +15,7 @@ public final class RegularExpressionStringPatternCatalogue {
   public static final String DOT_PATTERN = ".";
 
   //constant
-  public static final String DOUBLE_PATTERN = "\\d+.\\d+";
+  public static final String DOUBLE_PATTERN = "[-]?\\d+.\\d+";
 
   //constructor
   /**
