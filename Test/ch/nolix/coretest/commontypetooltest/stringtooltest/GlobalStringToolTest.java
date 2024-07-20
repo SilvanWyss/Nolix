@@ -162,6 +162,74 @@ final class GlobalStringToolTest extends StandardTest {
   //method
   @ParameterizedTest
   @CsvSource({
+  "''", //
+  "cheeseburger", //
+  "cheeseburger_", //
+  "cheesburger5", //
+  "cheesburger§" //
+  })
+  void testCase_isLowerCase_whenTheGivenStringIsLowerCase(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.isLowerCase(string);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  ",", //
+  "Cheeseburger", //
+  "CheeseBurger", //
+  "Cheesburger5", //
+  "Cheesburger§" //
+  })
+  void testCase_isLowerCase_whenTheGivenStringIsNotLowerCase(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.isLowerCase(string);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "''", //
+  "Cursor", //
+  "CursorIcon" //
+  })
+  void testCase_iisPascalCase_whenTheGivenStringIsPascalCase(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.isPascalCase(string);
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  ",", //
+  "cursor", //
+  "cursorIcon" //
+  })
+  void testCase_iisPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
+
+    //execution
+    final var result = GlobalStringTool.isPascalCase(string);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
   "cheeseburger, ''", //
   "cheeseburger, c", //
   "cheeseburger, ch", //
