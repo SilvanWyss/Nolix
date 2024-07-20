@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -70,33 +69,33 @@ public final class GlobalStringTool {
   //static method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * @param string
-   * @return the given string in braces.
-   * @throws ArgumentIsNullException if the given string is null.
+   * @param object
+   * @return the {@link String} representation of the given object in quotes
+   * @throws ArgumentIsNullException if the given object is null.
    */
-  public static String getInBraces(final String string) {
+  public static String getInBraces(final Object object) {
 
-    if (string == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);
+    if (object == null) {
+      throw ArgumentIsNullException.forArgumentType(Object.class);
     }
 
-    return ("{" + string + "}");
+    return ("{" + object + "}");
   }
 
   //static method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * @param string
-   * @return the given string in parentheses.
-   * @throws ArgumentIsNullException if the given string is null.
+   * @param object
+   * @return the {@link String} representation of the given object in quotes
+   * @throws ArgumentIsNullException if the given object is null.
    */
-  public static String getInParantheses(final String string) {
+  public static String getInParantheses(final Object object) {
 
-    if (string == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.STRING);
+    if (object == null) {
+      throw ArgumentIsNullException.forArgumentType(Object.class);
     }
 
-    return ("(" + string + ")");
+    return ("(" + object + ")");
   }
 
   //static method
@@ -109,7 +108,7 @@ public final class GlobalStringTool {
   public static String getInSingleQuotes(final Object object) {
 
     if (object == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.OBJECT);
+      throw ArgumentIsNullException.forArgumentType(Object.class);
     }
 
     return ("'" + object + "'");
@@ -178,7 +177,7 @@ public final class GlobalStringTool {
   public static double toDouble(final String string) {
 
     if (!RegularExpressionPatternCatalogue.DOUBLE_PATTERN.matcher(string).matches()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(string, "does not represent a double");
+      throw UnrepresentingArgumentException.forArgumentAndType(string, Double.TYPE);
     }
 
     return Double.valueOf(string);
