@@ -12,13 +12,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * The {@link GlobalStringTool} provides methods to handle {@link String}s. Of
- * the {@link GlobalStringTool} an instance cannot be created.
+ * The {@link GlobalStringTool} provides methods to handle {@link String}s.
+ * 
+ * Of the {@link GlobalStringTool} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
@@ -40,6 +40,9 @@ public final class GlobalStringTool {
    *         characters.
    */
   public static String createStringWithoutLastCharacters(final String string, final int n) {
+
+    GlobalValidator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
+
     return string.substring(0, string.length() - n);
   }
 
@@ -118,14 +121,9 @@ public final class GlobalStringTool {
    * @return true if the given string is in lower case.
    */
   public static boolean isLowerCase(final String string) {
-
-    //Handles the case that the given string is null.
-    if (string == null) {
-      return false;
-    }
-
-    //Handles the case that the given string is not null.
-    return isLowerCaseWhenNotNull(string);
+    return //
+    string != null
+    && string.equals(string.toLowerCase(Locale.ENGLISH));
   }
 
   //static method
@@ -134,14 +132,9 @@ public final class GlobalStringTool {
    * @return true if the given string is in pascal case.
    */
   public static boolean isPascalCase(final String string) {
-
-    //Handles the case that the given string is null.
-    if (string == null) {
-      return false;
-    }
-
-    //Handles the case that the given string is not null.
-    return isPascalCaseWhenNotNull(string);
+    return //
+    string != null
+    && string.equals(toPascalCase(string));
   }
 
   //static method
@@ -164,7 +157,8 @@ public final class GlobalStringTool {
   public static boolean toBoolean(final String string) {
 
     //Enumerates the given string.
-    return switch (string) {
+    return //
+    switch (string) {
       case "0", "F", "FALSE", "False", "false" ->
         false;
       case "1", "T", "TRUE", "True", "true" ->
@@ -206,25 +200,5 @@ public final class GlobalStringTool {
    */
   public static String toCapitalSnakeCase(final String string) {
     return new CapitalSnakeCaseTransformer().toCapitalSnakeCase(string);
-  }
-
-  //static method
-  /**
-   * @param string
-   * @return true if the given string is in lower case for the case that the given
-   *         string is not null.
-   */
-  private static boolean isLowerCaseWhenNotNull(final String string) {
-    return !string.contains(StringCatalogue.UNDERSCORE) && string.equals(string.toLowerCase(Locale.ENGLISH));
-  }
-
-  //static method
-  /**
-   * @param string
-   * @return true if the given string is in pascal case for the case that the
-   *         given string is not null.
-   */
-  private static boolean isPascalCaseWhenNotNull(final String string) {
-    return string.equals(toPascalCase(string));
   }
 }
