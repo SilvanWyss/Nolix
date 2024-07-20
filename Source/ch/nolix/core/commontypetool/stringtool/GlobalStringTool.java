@@ -143,7 +143,10 @@ public final class GlobalStringTool {
    * @return true if the given string starts with the given prefix ignoring case.
    */
   public static boolean startsWithIgnoringCase(final String string, final String prefix) {
-    return string.regionMatches(true, 0, prefix, 0, prefix.length());
+    return //
+    string != null
+    && prefix != null
+    && string.regionMatches(true, 0, prefix, 0, prefix.length());
   }
 
   //static method
