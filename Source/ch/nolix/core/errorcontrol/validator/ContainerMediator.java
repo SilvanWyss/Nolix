@@ -185,13 +185,20 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
     final var localElements = GlobalArrayTool.createArrayWithElement(element, elements);
 
-    containsAsManyElementsAs(localElements);
+    containsExactlyInSameOrder(localElements);
+  }
+
+  //method
+  public void containsExactlyInSameOrder(final E[] elements) {
+
+    containsAsManyElementsAs(elements);
 
     var index = 0;
     for (final var e : getStoredArgument()) {
 
-      if (e != localElements[index]) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      if (e != elements[index]) {
+        throw //
+        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           (index + 1) + "th element",
           e,
           "is not the same as the element '" + elements[index] + "'");
