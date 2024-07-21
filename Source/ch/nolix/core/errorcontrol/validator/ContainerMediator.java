@@ -144,6 +144,14 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   //method
+  public void containsAsManyElementsAs(final Iterable<?> iterable) {
+
+    final var elementCountOfIterable = GlobalIterableTool.getElementCount(iterable);
+
+    hasElementCount(elementCountOfIterable);
+  }
+
+  //method
   public void containsExactly(final Object firstElement, final Object... elements) {
 
     final var allElements = GlobalArrayTool.createArrayWithElement(firstElement, elements);
@@ -202,6 +210,29 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
           (index + 1) + "th element",
           e,
           "is not the same as the element '" + elements[index] + "'");
+      }
+
+      index++;
+    }
+  }
+
+  //method
+  public void containsExactlyInSameOrder(final Iterable<E> elements) {
+
+    containsAsManyElementsAs(elements);
+
+    final var iterator = elements.iterator();
+    var index = 1;
+    for (final var e : getStoredArgument()) {
+
+      final var element = iterator.next();
+
+      if (e != element) {
+        throw //
+        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+          index + "th element",
+          e,
+          "is not the same as the element '" + element + "'");
       }
 
       index++;
