@@ -131,7 +131,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     final var localElementCount = getCount();
     final var newElementCount = localElementCount + 1 + elements.length;
 
-    growToMinimalCapacityIfRequired(newElementCount);
+    growAtLeastToRequiredCapacity(newElementCount);
     this.elements[localElementCount] = element;
     System.arraycopy(elements, 0, this.elements, localElementCount + 1, elements.length);
     elementCount = newElementCount;
@@ -152,7 +152,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     final var localElementCount = getCount();
     final var newElementCount = localElementCount + elements.length;
 
-    growToMinimalCapacityIfRequired(newElementCount);
+    growAtLeastToRequiredCapacity(newElementCount);
     System.arraycopy(elements, 0, this.elements, localElementCount, elements.length);
     elementCount = newElementCount;
   }
@@ -283,21 +283,21 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * The complexity of this implementation is O(1).
    * 
    * @return a newly calculated capacity for the current {@link ArrayList} and the
-   *         given minimalCapacity.
+   *         given requiredCapacity.
    */
-  private int calculateNewCapacityForMinimalCapacity(final int minimalCapacity) {
+  private int calculateTargetCapacityForRequiredCapacity(final int requiredCapacity) {
 
     final var capacity = getCapacity();
 
-    if (minimalCapacity <= capacity) {
+    if (requiredCapacity <= capacity) {
       return capacity;
     }
 
-    if (minimalCapacity > BILLION) {
+    if (requiredCapacity > BILLION) {
       return Integer.MAX_VALUE;
     }
 
-    return GlobalCalculator.getMax(minimalCapacity, 2 * capacity);
+    return GlobalCalculator.getMax(requiredCapacity, 2 * capacity);
   }
 
   //method
@@ -312,37 +312,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * Lets the current {@link ArrayList} grow to the given minimalCapacity.
-   * 
-   * @param minimalCapacity
-   * @throws SmallerArgumentException if the given minimalCapacity is smaller than
-   *                                  the capacity of the current
-   *                                  {@link ArrayList}.
-   */
-  private void growToMinimalCapacity(final int minimalCapacity) {
-
-    GlobalValidator.assertThat(minimalCapacity).thatIsNamed("minimal capacity").isBiggerThanOrEquals(getCapacity());
-
-    final var newCapacity = calculateNewCapacityForMinimalCapacity(minimalCapacity);
-
-    growToCapacity(newCapacity);
-  }
-
-  //method
-  /**
-   * Lets the current {@link ArrayList} grow to the given minimalCapacity if
-   * current {@ink ArrayList} is required to grow to the given minimalCapacity
-   * 
-   * @param minimalCapacity
-   */
-  private void growToMinimalCapacityIfRequired(final int minimalCapacity) {
-    if (isRequiredToGrowToMinimalCapacity(minimalCapacity)) {
-      growToMinimalCapacity(minimalCapacity);
-    }
-  }
-
-  //method
-  /**
    * Lets the current {@link ArrayList} grow to the given capacity.
    * 
    * @param capacity
@@ -350,17 +319,49 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    *                                  capacity of the current {@link ArrayList}.
    */
   private void growToCapacity(final int capacity) {
-
+  
     final var currentCapacity = getCapacity();
-
+  
     GlobalValidator
       .assertThat(capacity)
       .thatIsNamed(LowerCaseVariableCatalogue.CAPACITY)
       .isNotSmallerThan(currentCapacity);
-
+  
     if (capacity > currentCapacity) {
       growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(capacity);
     }
+  }
+
+  //method
+  /**
+   * Lets the current {@link ArrayList} grow at least to the given
+   * requiredCapacity.
+   * 
+   * @param requiredCapacity
+   */
+  private void growAtLeastToRequiredCapacity(final int requiredCapacity) {
+    if (needsToGrowForRequiredCapacity(requiredCapacity)) {
+      growAtLeastToRequiredCapacityWhenNeeded(requiredCapacity);
+    }
+  }
+
+  //method
+  /**
+   * Lets the current {@link ArrayList} grow at least to the given
+   * requiredCapacity for the case that this is needed.
+   * 
+   * @param requiredCapacity
+   * @throws SmallerArgumentException if the given requiredCapacity is smaller
+   *                                  than the current capacity of the current
+   *                                  {@link ArrayList}.
+   */
+  private void growAtLeastToRequiredCapacityWhenNeeded(final int requiredCapacity) {
+  
+    GlobalValidator.assertThat(requiredCapacity).thatIsNamed("required capacity").isBiggerThanOrEquals(getCapacity());
+  
+    final var targetCapacity = calculateTargetCapacityForRequiredCapacity(requiredCapacity);
+  
+    growToCapacity(targetCapacity);
   }
 
   //method
@@ -383,11 +384,11 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * @param minimalCapacity
-   * @return true if the current {@ink ArrayList} is required to grow to the given
-   *         minimalCapacity, false otherwise.
+   * @param requiredCapacity
+   * @return true if the current {@ink ArrayList} needs to grow to reach the
+   *         capacity the given requiredCapacity says, false otherwise.
    */
-  private boolean isRequiredToGrowToMinimalCapacity(final int minimalCapacity) {
-    return (minimalCapacity > getCapacity());
+  private boolean needsToGrowForRequiredCapacity(final int requiredCapacity) {
+    return (requiredCapacity > getCapacity());
   }
 }
