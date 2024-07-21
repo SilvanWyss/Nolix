@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
@@ -30,6 +29,21 @@ final class ArrayListTest extends ContainerTest {
 
   //method
   @Test
+  void testCase_addAtEnd_whenHasAvailableCapacity() {
+
+    //setup
+    final var elements = new String[] { "antelope", "elephant", "lion", "monkey", "rhino", "zebra" };
+    final var testUnit = ArrayList.withInitialCapacity(10);
+
+    //execution
+    testUnit.addAtEnd(elements);
+
+    //verification
+    expect(testUnit).containsAll(elements);
+  }
+
+  //method
+  @Test
   void testCase_clear_whenIsEmpty() {
 
     //setup
@@ -47,13 +61,55 @@ final class ArrayListTest extends ContainerTest {
   void testCase_clear_whenContainsAny() {
 
     //setup
-    final var testUnit = LinkedList.withElement("antelope", "elephant", "lion", "monkey", "rhino", "zebra");
+    final var testUnit = ArrayList.withElement("antelope", "elephant", "lion", "monkey", "rhino", "zebra");
 
     //execution
     testUnit.clear();
 
     //verification
     expect(testUnit).isEmpty();
+  }
+
+  //method
+  @Test
+  void testCase_getCopy() {
+
+    //setup
+    final var testUnit = ArrayList.withElement("antelope", "elephant", "lion", "monkey", "rhino", "zebra");
+
+    //execution
+    final var result = testUnit.getCopy();
+
+    //verification
+    expect(result).containsExactlyInSameOrder(testUnit);
+  }
+
+  //method
+  @Test
+  void testCase_isMaterialized() {
+
+    //setup
+    final var testUnit = ArrayList.createEmpty();
+
+    //execution
+    final var result = testUnit.isMaterialized();
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @Test
+  void testCase_withElemens() {
+
+    //setup
+    final var elements = new String[] { "antelope", "elephant", "lion", "monkey", "rhino", "zebra" };
+
+    //execution
+    final var result = ArrayList.withElements(elements);
+
+    //verification
+    expect(result).containsExactlyInSameOrder(elements);
   }
 
   //method
