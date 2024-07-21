@@ -166,7 +166,10 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @Override
   @SuppressWarnings("unchecked")
   public void clear() {
+
     elements = (E[]) new Object[0];
+
+    elementCount = 0;
   }
 
   //method
