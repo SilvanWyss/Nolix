@@ -3,10 +3,12 @@ package ch.nolix.core.commontypetool.arraytool;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediatorWithStartIndex;
+import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class ByteArrayMediatorWithStartIndex {
+public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
 
   //attribute
   private final byte[] byteArray;
@@ -35,7 +37,8 @@ public final class ByteArrayMediatorWithStartIndex {
   }
 
   //method
-  public NextIndexMediator write(final byte[] bytes) {
+  @Override
+  public INextIndexMediator write(final byte[] bytes) {
 
     for (var i = 0; i < bytes.length; i++) {
       byteArray[index + i] = bytes[i];

@@ -5,7 +5,7 @@ package ch.nolix.core.math.algebra;
 import java.util.Arrays;
 import java.util.Random;
 
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.doubletool.GlobalDoubleTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -30,6 +30,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @version 2016-02-01
  */
 public final class Matrix {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //constant
   private static final Random RANDOM = new Random();
@@ -271,7 +274,7 @@ public final class Matrix {
 
     var oldValues = values;
     values = Arrays.copyOf(values, oldValues.length + 1);
-    values[getRowCount() - 1] = GlobalArrayTool.createArrayWithValue(rowValue, rowValues);
+    values[getRowCount() - 1] = ARRAY_TOOL.createArrayWithValue(rowValue, rowValues);
 
     return this;
   }

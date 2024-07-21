@@ -4,7 +4,7 @@ package ch.nolix.core.math.algebra;
 //Java imports
 import java.util.Arrays;
 
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -21,6 +21,9 @@ public final class Vector {
 
   //constant
   public static final Vector EMPTY_VECTOR = new Vector();
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //multi-attribute
   private final double[] values;
@@ -59,7 +62,7 @@ public final class Vector {
    * @return a new {@link Vector} with the given values.
    */
   public static Vector withValue(final double value, final double... values) {
-    return new Vector(GlobalArrayTool.createArrayWithValue(value, values));
+    return new Vector(ARRAY_TOOL.createArrayWithValue(value, values));
   }
 
   //static method

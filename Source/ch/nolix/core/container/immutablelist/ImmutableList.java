@@ -5,7 +5,7 @@ package ch.nolix.core.container.immutablelist;
 import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.iteratortool.GlobalIterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
@@ -27,6 +27,9 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends Container<E> {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //multi-attribute
   private final E[] elements;
@@ -61,7 +64,7 @@ public final class ImmutableList<E> extends Container<E> {
    */
   private ImmutableList(final E element, final E[] elements) {
 
-    this.elements = GlobalArrayTool.createArrayWithElement(element, elements);
+    this.elements = ARRAY_TOOL.createArrayWithElement(element, elements);
 
     GlobalValidator.assertThatTheElements(elements).areNotNull();
   }

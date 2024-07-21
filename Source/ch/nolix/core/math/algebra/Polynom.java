@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.math.algebra;
 
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.doubletool.GlobalDoubleTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -28,6 +28,9 @@ public final class Polynom {
 
   //constant
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //optional attribute
   private Polynom derivedPolynom;
@@ -70,7 +73,7 @@ public final class Polynom {
 
   //static method
   public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
-    return new Polynom(GlobalArrayTool.createArrayWithValue(coefficient, coefficients));
+    return new Polynom(ARRAY_TOOL.createArrayWithValue(coefficient, coefficients));
   }
 
   //static method

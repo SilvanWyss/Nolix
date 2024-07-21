@@ -1,8 +1,11 @@
 //package declaration
 package ch.nolix.core.commontypetool.arraytool;
 
+//own imports
+import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
+
 //class
-public final class NextIndexMediator {
+public final class NextIndexMediator implements INextIndexMediator {
 
   //attribute
   private final int nextIndex;
@@ -18,6 +21,7 @@ public final class NextIndexMediator {
   }
 
   //method
+  @Override
   public int andGetNextIndex() {
     return nextIndex;
   }

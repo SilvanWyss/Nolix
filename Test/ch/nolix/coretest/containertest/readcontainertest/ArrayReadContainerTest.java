@@ -4,7 +4,7 @@ package ch.nolix.coretest.containertest.readcontainertest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.container.readcontainer.ArrayReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -12,6 +12,9 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 final class ArrayReadContainerTest extends ContainerTest {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //method
   @Test
@@ -29,7 +32,7 @@ final class ArrayReadContainerTest extends ContainerTest {
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-    return ArrayReadContainer.forArray(GlobalArrayTool.createArrayWithElement(element, elements));
+    return ArrayReadContainer.forArray(ARRAY_TOOL.createArrayWithElement(element, elements));
   }
 
   //method

@@ -5,11 +5,11 @@ package ch.nolix.coretest.commontypetooltest.arraytooltest;
 import org.junit.jupiter.api.Test;
 
 //own imports
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
-final class GlobalArrayToolTest extends StandardTest {
+final class ArrayToolTest extends StandardTest {
 
   //method
   @Test
@@ -17,9 +17,10 @@ final class GlobalArrayToolTest extends StandardTest {
 
     //setup
     final var array = new byte[10];
+    final var testUnit = new ArrayTool();
 
     //execution
-    final var result = GlobalArrayTool.onArray(array).fromIndex(2).write(new byte[] { 30, 40, 50 });
+    final var result = testUnit.onArray(array).fromIndex(2).write(new byte[] { 30, 40, 50 });
 
     //verification part 1
     expect(array[0]).isEqualTo(0);

@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.core.commontypetool.arraytool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
@@ -21,6 +21,9 @@ public final class WebSocketFrame {
 
   //constant
   private static final int MASK_LENGTH_IN_BYTES = 4;
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //attribute
   private final WebSocketFrameFirstNibble firstNibble;
@@ -263,10 +266,10 @@ public final class WebSocketFrame {
     }
 
     if (firstNibble.getMaskBit()) {
-      i = GlobalArrayTool.onArray(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
+      i = ARRAY_TOOL.onArray(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
     }
 
-    GlobalArrayTool.onArray(bytes).fromIndex(i).write(payload);
+    ARRAY_TOOL.onArray(bytes).fromIndex(i).write(payload);
 
     return bytes;
   }
