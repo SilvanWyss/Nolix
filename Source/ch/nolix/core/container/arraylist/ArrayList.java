@@ -10,7 +10,6 @@ import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
@@ -110,7 +109,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
       .isNotNegative();
 
     final var arrayList = new ArrayList<E2>();
-    arrayList.growToCapacity(initialCapacity);
+    arrayList.growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(initialCapacity);
 
     return arrayList;
   }
@@ -283,21 +282,16 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * The complexity of this implementation is O(1).
    * 
    * @return a newly calculated capacity for the current {@link ArrayList} and the
-   *         given requiredCapacity.
+   *         given requiredCapacity for the case when the current
+   *         {@link ArrayList} needs to grow for the requiredCapacity.
    */
-  private int calculateTargetCapacityForRequiredCapacity(final int requiredCapacity) {
-
-    final var capacity = getCapacity();
-
-    if (requiredCapacity <= capacity) {
-      return capacity;
-    }
+  private int calculateTargetCapacityForRequiredCapacityWhenNeedsToGrowForIt(final int requiredCapacity) {
 
     if (requiredCapacity > BILLION) {
       return Integer.MAX_VALUE;
     }
 
-    return GlobalCalculator.getMax(requiredCapacity, 2 * capacity);
+    return GlobalCalculator.getMax(requiredCapacity, 2 * getCapacity());
   }
 
   //method
@@ -312,28 +306,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * Lets the current {@link ArrayList} grow to the given capacity.
-   * 
-   * @param capacity
-   * @throws SmallerArgumentException if the given capacity is smaller than the
-   *                                  capacity of the current {@link ArrayList}.
-   */
-  private void growToCapacity(final int capacity) {
-  
-    final var currentCapacity = getCapacity();
-  
-    GlobalValidator
-      .assertThat(capacity)
-      .thatIsNamed(LowerCaseVariableCatalogue.CAPACITY)
-      .isNotSmallerThan(currentCapacity);
-  
-    if (capacity > currentCapacity) {
-      growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(capacity);
-    }
-  }
-
-  //method
-  /**
    * Lets the current {@link ArrayList} grow at least to the given
    * requiredCapacity.
    * 
@@ -341,27 +313,23 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   private void growAtLeastToRequiredCapacity(final int requiredCapacity) {
     if (needsToGrowForRequiredCapacity(requiredCapacity)) {
-      growAtLeastToRequiredCapacityWhenNeeded(requiredCapacity);
+      growAtLeastToRequiredCapacityWhenNeedsToGrowForIt(requiredCapacity);
     }
   }
 
   //method
   /**
    * Lets the current {@link ArrayList} grow at least to the given
-   * requiredCapacity for the case that this is needed.
+   * requiredCapacity for the case that the current {@link ArrayList} needs to
+   * grow for the requiredCapacity.
    * 
    * @param requiredCapacity
-   * @throws SmallerArgumentException if the given requiredCapacity is smaller
-   *                                  than the current capacity of the current
-   *                                  {@link ArrayList}.
    */
-  private void growAtLeastToRequiredCapacityWhenNeeded(final int requiredCapacity) {
-  
-    GlobalValidator.assertThat(requiredCapacity).thatIsNamed("required capacity").isBiggerThanOrEquals(getCapacity());
-  
-    final var targetCapacity = calculateTargetCapacityForRequiredCapacity(requiredCapacity);
-  
-    growToCapacity(targetCapacity);
+  private void growAtLeastToRequiredCapacityWhenNeedsToGrowForIt(final int requiredCapacity) {
+
+    final var targetCapacity = calculateTargetCapacityForRequiredCapacityWhenNeedsToGrowForIt(requiredCapacity);
+
+    growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(targetCapacity);
   }
 
   //method
