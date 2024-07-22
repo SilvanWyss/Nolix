@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.coretest.commontypetooltest.iterabletooltest;
+package ch.nolix.coretest.commontypetooltest.iteratortooltest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.commontypetool.iteratortool.GlobalIterableTool;
+import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
-final class GlobalIterableToolTest extends StandardTest {
+final class IterableToolTest extends StandardTest {
 
   //method
   @Test
@@ -17,9 +17,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = null;
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsAny(iterable);
+    final var result = testUnit.containsAny(iterable);
 
     //verification
     expectNot(result);
@@ -31,9 +32,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>();
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsAny(iterable);
+    final var result = testUnit.containsAny(iterable);
 
     //verification
     expectNot(result);
@@ -45,9 +47,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x" });
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsAny(iterable);
+    final var result = testUnit.containsAny(iterable);
 
     //verification
     expect(result);
@@ -59,9 +62,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx" });
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsAny(iterable);
+    final var result = testUnit.containsAny(iterable);
 
     //verification
     expect(result);
@@ -73,9 +77,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = null;
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsEqualing(iterable, "x");
+    final var result = testUnit.containsEqualing(iterable, "x");
 
     //verification
     expectNot(result);
@@ -87,9 +92,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>();
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsEqualing(iterable, "x");
+    final var result = testUnit.containsEqualing(iterable, "x");
 
     //verification
     expectNot(result);
@@ -101,9 +107,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsEqualing(iterable, "xxxx");
+    final var result = testUnit.containsEqualing(iterable, "xxxx");
 
     //verification
     expectNot(result);
@@ -115,9 +122,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsEqualing(iterable, "xx");
+    final var result = testUnit.containsEqualing(iterable, "xx");
 
     //verification
     expect(result);
@@ -129,9 +137,10 @@ final class GlobalIterableToolTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "x", "x" });
+    final var testUnit = new IterableTool();
 
     //execution
-    final var result = GlobalIterableTool.containsEqualing(iterable, "x");
+    final var result = testUnit.containsEqualing(iterable, "x");
 
     //verification
     expect(result);

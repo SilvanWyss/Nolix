@@ -4,29 +4,31 @@ package ch.nolix.core.commontypetool.iteratortool;
 //Java imports
 import java.util.Objects;
 
+//own imports
+import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
+
 //class
-public final class GlobalIterableTool {
+public final class IterableTool implements IIterableTool {
 
-  //constructor
-  private GlobalIterableTool() {
-  }
-
-  //static method
-  public static boolean containsAny(final Iterable<?> iterable) {
+  //method
+  @Override
+  public boolean containsAny(final Iterable<?> iterable) {
     return //
     iterable != null
     && iterable.iterator().hasNext();
   }
 
-  //static method
-  public static boolean containsEqualing(final Iterable<?> iterable, final Object object) {
+  //method
+  @Override
+  public boolean containsEqualing(final Iterable<?> iterable, final Object object) {
     return //
     iterable != null
     && containsEqualingWhenIsNotNull(iterable, object);
   }
 
-  //static method
-  public static int getElementCount(final Iterable<?> iterable) {
+  //method
+  @Override
+  public int getCount(final Iterable<?> iterable) {
 
     final var iterator = iterable.iterator();
     var elementCount = 0;
@@ -39,8 +41,8 @@ public final class GlobalIterableTool {
     return elementCount;
   }
 
-  //static method
-  private static boolean containsEqualingWhenIsNotNull(final Iterable<?> iterable, final Object object) {
+  //method
+  private boolean containsEqualingWhenIsNotNull(final Iterable<?> iterable, final Object object) {
 
     for (final var e : iterable) {
       if (Objects.equals(e, object)) {

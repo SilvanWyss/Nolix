@@ -13,7 +13,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
-import ch.nolix.core.commontypetool.iteratortool.GlobalIterableTool;
+import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -36,6 +36,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public abstract class Container<E> //NOSONAR: A Container has many methods and thus many dependencies.
 implements IContainer<E> {
+
+  //constant
+  private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
   //constant
   private static final Random RANDOM = new Random();
@@ -212,7 +215,7 @@ implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getCount() == GlobalIterableTool.getElementCount(container));
+    return (getCount() == ITERABLE_TOOL.getCount(container));
   }
 
   //method
@@ -277,7 +280,7 @@ implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getCount() < GlobalIterableTool.getElementCount(container));
+    return (getCount() < ITERABLE_TOOL.getCount(container));
   }
 
   //method
@@ -295,7 +298,7 @@ implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getCount() > GlobalIterableTool.getElementCount(container));
+    return (getCount() > ITERABLE_TOOL.getCount(container));
   }
 
   //method
@@ -461,7 +464,7 @@ implements IContainer<E> {
   public final boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container) {
 
     for (final var e : this) {
-      if (!GlobalIterableTool.containsEqualing(container, e)) {
+      if (!ITERABLE_TOOL.containsEqualing(container, e)) {
         return false;
       }
     }

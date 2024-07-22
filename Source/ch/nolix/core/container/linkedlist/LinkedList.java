@@ -5,7 +5,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.iteratortool.GlobalIterableTool;
+import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -32,6 +32,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> extends Container<E> implements ILinkedList<E> {
+
+  //constant
+  private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
   //attribute
   private int elementCount;
@@ -156,7 +159,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalogue.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
-    if (GlobalIterableTool.containsAny(elements)) {
+    if (ITERABLE_TOOL.containsAny(elements)) {
 
       final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
 

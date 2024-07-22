@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
-import ch.nolix.core.commontypetool.iteratortool.GlobalIterableTool;
+import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -30,6 +30,9 @@ public final class ImmutableList<E> extends Container<E> {
 
   //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+
+  //constant
+  private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
   //multi-attribute
   private final E[] elements;
@@ -91,7 +94,7 @@ public final class ImmutableList<E> extends Container<E> {
       return (ImmutableList<E2>) container;
     }
 
-    final var elementCount = GlobalIterableTool.getElementCount(container);
+    final var elementCount = ITERABLE_TOOL.getCount(container);
     final var elements = new Object[elementCount];
     var index = 0;
     for (final var e : container) {
