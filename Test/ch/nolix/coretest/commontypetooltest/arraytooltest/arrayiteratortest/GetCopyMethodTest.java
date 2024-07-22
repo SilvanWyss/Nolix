@@ -4,8 +4,10 @@ package ch.nolix.coretest.commontypetooltest.arraytooltest.arrayiteratortest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
+//own imports
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.programatom.voidobject.VoidObject;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
@@ -64,9 +66,7 @@ final class GetCopyMethodTest extends StandardTest {
 
     //setup part 2: Creates testUnit.
     final var testUnit = ArrayIterator.forArray(array);
-    testUnit.next();
-    testUnit.next();
-    testUnit.next();
+    GlobalSequencer.forCount(3).run(testUnit::next);
 
     //execution
     final var result = testUnit.getCopy();
@@ -99,12 +99,7 @@ final class GetCopyMethodTest extends StandardTest {
 
     //setup part 2: Creates testUnit.
     final var testUnit = ArrayIterator.forArray(array);
-    testUnit.next();
-    testUnit.next();
-    testUnit.next();
-    testUnit.next();
-    testUnit.next();
-    testUnit.next();
+    GlobalSequencer.forCount(6).run(testUnit::next);
 
     //execution
     final var result = testUnit.getCopy();
