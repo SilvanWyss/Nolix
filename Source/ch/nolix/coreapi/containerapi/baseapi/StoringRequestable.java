@@ -14,11 +14,11 @@ public interface StoringRequestable<E> {
 
   //method declaration
   /**
-   * @param element
+   * @param object
    * @return true if the current {@link StoringRequestable} contains the given
-   *         element.
+   *         object.
    */
-  boolean contains(Object element);
+  boolean contains(Object object);
 
   //method declaration
   /**

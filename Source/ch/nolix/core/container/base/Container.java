@@ -13,6 +13,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
+//own imports
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -51,18 +52,8 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean contains(final Object element) {
-
-    //Iterates the current IContainer.
-    for (final var e : this) {
-
-      //Handles the case that the current element is the given element.
-      if (e == element) {
-        return true;
-      }
-    }
-
-    return false;
+  public final boolean contains(final Object object) {
+    return ITERABLE_TOOL.containsObject(this, object);
   }
 
   //method
