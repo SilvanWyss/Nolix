@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+//own imports
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
@@ -15,6 +17,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class MutableXmlNode implements IMutableXmlNode {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //optional attribute
   private String name;
@@ -56,7 +61,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
-      .append(GlobalStringTool.createTabs(leadingTabulatorCount))
+      .append(STRING_TOOL.createTabs(leadingTabulatorCount))
       .append('<')
       .append(mutableXmlNode.getName());
 
@@ -74,7 +79,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
       } else {
         stringBuilder
           .append(CharacterCatalogue.NEW_LINE)
-          .append(GlobalStringTool.createTabs(leadingTabulatorCount + 1))
+          .append(STRING_TOOL.createTabs(leadingTabulatorCount + 1))
           .append(mutableXmlNode.getValue())
           .append(CharacterCatalogue.NEW_LINE);
 
@@ -93,7 +98,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     if (mutableXmlNode.containsChildNodes()) {
-      stringBuilder.append(GlobalStringTool.createTabs(leadingTabulatorCount));
+      stringBuilder.append(STRING_TOOL.createTabs(leadingTabulatorCount));
     }
 
     stringBuilder

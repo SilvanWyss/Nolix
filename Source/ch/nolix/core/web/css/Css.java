@@ -1,13 +1,18 @@
 //package declaration
 package ch.nolix.core.web.css;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+//own imports
+import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 //class
 public final class Css implements ICss {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //multi-attribute
   private final IContainer<CssRule> rules;
@@ -31,7 +36,7 @@ public final class Css implements ICss {
   //method
   @Override
   public String toString() {
-    return GlobalStringTool.getInBraces(toStringWithoutEnclosingBrackets());
+    return STRING_TOOL.getInBraces(toStringWithoutEnclosingBrackets());
   }
 
   //method

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 //own imports
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
@@ -39,8 +39,11 @@ final class GlobalStringToolTest extends StandardTest {
     final int lastCharacterCount,
     final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.createStringWithoutLastCharacters(string, lastCharacterCount);
+    final var result = testUnit.createStringWithoutLastCharacters(string, lastCharacterCount);
 
     //verification
     expect(result).isEqualTo(expectedResult);
@@ -63,8 +66,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_createTabs(final int tabCount, final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.createTabs(tabCount);
+    final var result = testUnit.createTabs(tabCount);
 
     //verification
     expect(result).isEqualTo(expectedResult);
@@ -74,8 +80,11 @@ final class GlobalStringToolTest extends StandardTest {
   @Test
   void testCase_createTabs_whenTheGivenTabCountIsNegative() {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution & verification
-    expectRunning(() -> GlobalStringTool.createTabs(-1))
+    expectRunning(() -> testUnit.createTabs(-1))
       .throwsException()
       .ofType(NegativeArgumentException.class)
       .withMessage("The given tab count '-1' is negative.");
@@ -89,8 +98,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_getIngetInBraces(final String string, final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.getInBraces(string);
+    final var result = testUnit.getInBraces(string);
 
     //verification
     expect(result);
@@ -100,8 +112,11 @@ final class GlobalStringToolTest extends StandardTest {
   @Test
   void testCase_getIngetInBraces_whenTheGivenObjectIsNull() {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution & verification
-    expectRunning(() -> GlobalStringTool.getInBraces(null))
+    expectRunning(() -> testUnit.getInBraces(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");
@@ -115,8 +130,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_getInParantheses(final String string, final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.getInParantheses(string);
+    final var result = testUnit.getInParantheses(string);
 
     //verification
     expect(result);
@@ -126,8 +144,11 @@ final class GlobalStringToolTest extends StandardTest {
   @Test
   void testCase_getInParantheses_whenTheGivenObjectIsNull() {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution & verification
-    expectRunning(() -> GlobalStringTool.getInParantheses(null))
+    expectRunning(() -> testUnit.getInParantheses(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");
@@ -141,8 +162,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_getInSingleQuotes(final String string, final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.getInSingleQuotes(string);
+    final var result = testUnit.getInSingleQuotes(string);
 
     //verification
     expect(result);
@@ -152,8 +176,11 @@ final class GlobalStringToolTest extends StandardTest {
   @Test
   void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution & verification
-    expectRunning(() -> GlobalStringTool.getInSingleQuotes(null))
+    expectRunning(() -> testUnit.getInSingleQuotes(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");
@@ -170,8 +197,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_isLowerCase_whenTheGivenStringIsLowerCase(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.isLowerCase(string);
+    final var result = testUnit.isLowerCase(string);
 
     //verification
     expect(result);
@@ -188,8 +218,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_isLowerCase_whenTheGivenStringIsNotLowerCase(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.isLowerCase(string);
+    final var result = testUnit.isLowerCase(string);
 
     //verification
     expectNot(result);
@@ -204,8 +237,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_iisPascalCase_whenTheGivenStringIsPascalCase(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.isPascalCase(string);
+    final var result = testUnit.isPascalCase(string);
 
     //verification
     expect(result);
@@ -220,8 +256,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_iisPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.isPascalCase(string);
+    final var result = testUnit.isPascalCase(string);
 
     //verification
     expectNot(result);
@@ -260,8 +299,11 @@ final class GlobalStringToolTest extends StandardTest {
     final String string,
     final String prefix) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.startsWithIgnoringCase(string, prefix);
+    final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
     //verification
     expect(result);
@@ -324,8 +366,11 @@ final class GlobalStringToolTest extends StandardTest {
     final String string,
     final String prefix) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.startsWithIgnoringCase(string, prefix);
+    final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
     //verification
     expectNot(result);
@@ -342,8 +387,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toBoolean_whenTheGivenStringRepresentsFalse(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.toBoolean(string);
+    final var result = testUnit.toBoolean(string);
 
     //verification
     expectNot(result);
@@ -360,8 +408,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toBoolean_whenTheGivenStringRepresentsTrue(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.toBoolean(string);
+    final var result = testUnit.toBoolean(string);
 
     //verification
     expect(result);
@@ -381,8 +432,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toBoolean_whenTheGivenStringDoesNotRepresentABoolean(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution & verification
-    expectRunning(() -> GlobalStringTool.toBoolean(string))
+    expectRunning(() -> testUnit.toBoolean(string))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
       .withMessage("The given String '" + string + "' does not represent a boolean.");
@@ -401,8 +455,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toDouble_whenTheGivenStringRepresentsADouble(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.toDouble(string);
+    final var result = testUnit.toDouble(string);
 
     //verification
     expect(result);
@@ -420,8 +477,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toDouble_whenTheGivenStringDoesNotRepresentADouble(final String string) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution & verification
-    expectRunning(() -> GlobalStringTool.toDouble(string))
+    expectRunning(() -> testUnit.toDouble(string))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
       .withMessage("The given String '" + string + "' does not represent a double.");
@@ -457,8 +517,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toCapitalSnakeCase(final String string, final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.toCapitalSnakeCase(string);
+    final var result = testUnit.toCapitalSnakeCase(string);
 
     //verification
     expect(result).isEqualTo(expectedResult);
@@ -494,8 +557,11 @@ final class GlobalStringToolTest extends StandardTest {
   })
   void testCase_toPascalCase(final String string, final String expectedResult) {
 
+    //setup
+    final var testUnit = new StringTool();
+
     //execution
-    final var result = GlobalStringTool.toPascalCase(string);
+    final var result = testUnit.toPascalCase(string);
 
     //verification
     expect(result).isEqualTo(expectedResult);

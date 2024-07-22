@@ -1,13 +1,17 @@
 //package declaration
 package ch.nolix.core.container.pair;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.pairapi.IKeyValuePair;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //attribute
   private final K key;
@@ -52,6 +56,6 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public String toString() {
-    return GlobalStringTool.getInParantheses(key + ";" + value);
+    return STRING_TOOL.getInParantheses(key + ";" + value);
   }
 }

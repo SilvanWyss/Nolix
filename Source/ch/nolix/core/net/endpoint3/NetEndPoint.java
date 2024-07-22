@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -31,6 +32,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @version 2016-01-01
  */
 public final class NetEndPoint extends EndPoint {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //attribute
   private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint;
@@ -321,9 +325,9 @@ public final class NetEndPoint extends EndPoint {
 
         return MessageHeaderCatalogue.DONE_HEADER;
       case MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER:
-        return MessageHeaderCatalogue.MULTI_DATA_HEADER
-        + GlobalStringTool.getInParantheses(
-          receiverController.getDataForRequests(message.getChildNodes()).toString());
+        return //
+        MessageHeaderCatalogue.MULTI_DATA_HEADER
+        + STRING_TOOL.getInParantheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.MESSAGE, message);
     }

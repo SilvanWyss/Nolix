@@ -5,12 +5,13 @@ package ch.nolix.core.document.node;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
@@ -36,6 +37,9 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
   //constant
   public static final String CLOSED_BRACKET_CODE = "$C";
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //static method
   /**
@@ -292,7 +296,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   @Override
   public final boolean toBoolean() {
-    return GlobalStringTool.toBoolean(toString());
+    return STRING_TOOL.toBoolean(toString());
   }
 
   //method
@@ -301,7 +305,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   @Override
   public final double toDouble() {
-    return GlobalStringTool.toDouble(toString());
+    return STRING_TOOL.toDouble(toString());
   }
 
   //method
@@ -432,7 +436,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
       }
 
       stringBuilder
-        .append(GlobalStringTool.createTabs(leadingTabulators))
+        .append(STRING_TOOL.createTabs(leadingTabulators))
         .append(CharacterCatalogue.CLOSED_BRACKET);
     }
   }
@@ -484,7 +488,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
     final var stringBuilder = new StringBuilder();
 
-    stringBuilder.append(GlobalStringTool.createTabs(leadingTabulators));
+    stringBuilder.append(STRING_TOOL.createTabs(leadingTabulators));
 
     //Handles the case that the current specification has a header.
     if (hasHeader()) {

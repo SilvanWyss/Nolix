@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.statementcreator;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+//own imports
+import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
 import ch.nolix.system.sqlrawschema.structure.IndexTableType;
@@ -17,6 +19,9 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class EntityStatementCreator implements IEntityStatementCreator {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //method
   @Override
@@ -39,7 +44,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "DELETE FROM "
     + IndexTableType.ENTITY_HEAD.getQualifiedName()
     + " WHERE EntityId = "
-    + GlobalStringTool.getInSingleQuotes(entityId)
+    + STRING_TOOL.getInSingleQuotes(entityId)
     + ";";
   }
 
@@ -100,9 +105,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ", "
     + EntityHeadTableColumn.ENTITY_ID.getName()
     + ") VALUES ("
-    + GlobalStringTool.getInSingleQuotes(tableId)
+    + STRING_TOOL.getInSingleQuotes(tableId)
     + ", "
-    + GlobalStringTool.getInSingleQuotes(entityId)
+    + STRING_TOOL.getInSingleQuotes(entityId)
     + ");";
   }
 

@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.schemainfo;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
@@ -11,6 +12,9 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 //class
 public record TableInfo(String tableId, String tableName, ImmutableList<IColumnInfo> columnInfos)
 implements ITableInfo {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //constructor
   public TableInfo(
@@ -76,6 +80,6 @@ implements ITableInfo {
   //method
   @Override
   public String getTableNameInQuotes() {
-    return GlobalStringTool.getInSingleQuotes(getTableName());
+    return STRING_TOOL.getInSingleQuotes(getTableName());
   }
 }

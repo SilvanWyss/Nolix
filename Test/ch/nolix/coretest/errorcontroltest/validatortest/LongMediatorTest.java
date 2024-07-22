@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+//own imports
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -15,9 +16,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 
 //class
 final class LongMediatorTest extends StandardTest {
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //method
   @Test
@@ -210,7 +215,7 @@ final class LongMediatorTest extends StandardTest {
     expectRunning(testUnit::isNegative)
       .throwsException()
       .ofType(NonNegativeArgumentException.class)
-      .withMessage("The given value " + GlobalStringTool.getInSingleQuotes(argument) + " is not negative.");
+      .withMessage("The given value " + STRING_TOOL.getInSingleQuotes(argument) + " is not negative.");
   }
 
   //method

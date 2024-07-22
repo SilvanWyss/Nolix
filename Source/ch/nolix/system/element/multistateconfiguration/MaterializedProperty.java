@@ -6,10 +6,11 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -20,6 +21,9 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 
   //constant
   private static final String NONE_HEADER = "None";
+
+  //constant
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   //attribute
   private final Function<INode<?>, V> valueCreator;
@@ -193,7 +197,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   protected final void setValueFromSpecification(final INode<?> specification) {
 
     for (final var s : parent.getAvailableStates()) {
-      if (GlobalStringTool.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
+      if (STRING_TOOL.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
         setValueFromSpecificationToState(s, specification);
         return;
       }
