@@ -2,13 +2,15 @@
 package ch.nolix.core.math.algebra;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
-import ch.nolix.core.commontypetool.doubletool.GlobalDoubleTool;
+import ch.nolix.core.commontypetool.doubletool.DoubleTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
+import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -30,7 +32,10 @@ public final class Polynom {
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
 
   //constant
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
+
+  //constant
+  private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
   //optional attribute
   private Polynom derivedPolynom;
@@ -375,7 +380,7 @@ public final class Polynom {
           stringBuilder.append("+");
         }
 
-        stringBuilder.append(GlobalDoubleTool.toString(constant));
+        stringBuilder.append(DOUBLE_TOOL.toString(constant));
       }
     }
   }
@@ -396,7 +401,7 @@ public final class Polynom {
         }
 
         if (coefficient != 1.0) {
-          stringBuilder.append(GlobalDoubleTool.toString(coefficient));
+          stringBuilder.append(DOUBLE_TOOL.toString(coefficient));
         }
 
         final var coefficientDegree = degree - i;
@@ -417,7 +422,7 @@ public final class Polynom {
           stringBuilder.append("+");
         }
 
-        stringBuilder.append(GlobalDoubleTool.toString(linearCoefficient) + parameterSymbol);
+        stringBuilder.append(DOUBLE_TOOL.toString(linearCoefficient) + parameterSymbol);
       }
     }
   }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
-import ch.nolix.core.commontypetool.doubletool.GlobalDoubleTool;
+import ch.nolix.core.commontypetool.doubletool.DoubleTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -15,6 +15,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
+import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -32,7 +34,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 public final class Matrix {
 
   //constant
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
+
+  //constant
+  private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
   //constant
   private static final Random RANDOM = new Random();
@@ -1136,7 +1141,7 @@ public final class Matrix {
 
       for (var j = 0; j < getColumnCount(); j++) {
 
-        stringBuilder.append(GlobalDoubleTool.toString(values[i][j]));
+        stringBuilder.append(DOUBLE_TOOL.toString(values[i][j]));
 
         if (j < getColumnCount() - 1) {
           stringBuilder.append(',');
