@@ -1,7 +1,8 @@
 //package info
 /**
- * The {@link ch.nolix.core.commontypetool.stringtool} package defines tools for
- * {@link java.lang.String}s.
+ * The {@link ch.nolix.core.commontypetool.stringtool} package defines the types
+ * that are declared in the
+ * {@link ch.nolix.coreapi.commontypetoolapi.stringtoolapi} package.
  * 
  * @author Silvan Wyss
  * @version 2024-07-17
