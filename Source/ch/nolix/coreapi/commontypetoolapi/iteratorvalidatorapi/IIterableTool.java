@@ -10,6 +10,9 @@ public interface IIterableTool {
   //method declaration
   boolean containsAnyThatEqualsTheObject(Iterable<?> iterable, Object object);
 
+  //method
+  boolean containsObject(Iterable<?> iterable, Object object);
+
   //method declaration
   int getCount(Iterable<?> iterable);
 }

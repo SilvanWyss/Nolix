@@ -28,6 +28,14 @@ public final class IterableTool implements IIterableTool {
 
   //method
   @Override
+  public boolean containsObject(final Iterable<?> iterable, final Object object) {
+    return //
+    iterable != null
+    && containsObjectWhenIsNotNull(iterable, object);
+  }
+
+  //method
+  @Override
   public int getCount(final Iterable<?> iterable) {
 
     final var iterator = iterable.iterator();
@@ -46,6 +54,18 @@ public final class IterableTool implements IIterableTool {
 
     for (final var e : iterable) {
       if (Objects.equals(e, object)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  //method
+  private boolean containsObjectWhenIsNotNull(final Iterable<?> iterable, final Object object) {
+
+    for (final var e : iterable) {
+      if (e == object) {
         return true;
       }
     }
