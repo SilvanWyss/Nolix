@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
-import ch.nolix.core.commontypetool.inputstreamtool.GlobalInputStreamTool;
+import ch.nolix.core.commontypetool.inputstreamtool.InputStreamTool;
 import ch.nolix.core.commontypetool.stringtool.GlobalStringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -18,6 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
+import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.SocketType;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
@@ -25,6 +26,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 public final class SocketHandler {
+
+  //constant
+  private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
   //method
   public void handleSocketForServer(final Socket socket, final Server server) {
@@ -79,7 +83,7 @@ public final class SocketHandler {
       return Optional.empty();
     }
 
-    final var firstReveivedLine = GlobalInputStreamTool.readLineFrom(socketInputStream.get());
+    final var firstReveivedLine = INPUT_STREAM_TOOL.readLineFromInputStream(socketInputStream.get());
 
     GlobalLogger.logInfo(
       "The current SocketHandler received the first line from the given socket: "
@@ -163,7 +167,7 @@ public final class SocketHandler {
     final InputStream inputStream) {
     while (true) {
 
-      final var line = GlobalInputStreamTool.readLineFrom(inputStream);
+      final var line = INPUT_STREAM_TOOL.readLineFromInputStream(inputStream);
 
       if (line == null) {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.LINE);

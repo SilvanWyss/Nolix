@@ -7,20 +7,17 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
 
 //class
-public final class GlobalInputStreamTool {
+public final class InputStreamTool implements IInputStreamTool {
 
-  //constructor
-  private GlobalInputStreamTool() {
-  }
-
-  //static method
+  //method
   /**
-   * @param inputStream
-   * @return the next line from the given inputStream or null.
+   * {@inheritDoc}
    */
-  public static String readLineFrom(final InputStream inputStream) {
+  @Override
+  public String readLineFromInputStream(final InputStream inputStream) {
 
     final var bytes = new LinkedList<Byte>();
 
