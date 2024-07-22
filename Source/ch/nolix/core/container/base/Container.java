@@ -464,7 +464,7 @@ implements IContainer<E> {
   public final boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container) {
 
     for (final var e : this) {
-      if (!ITERABLE_TOOL.containsEqualing(container, e)) {
+      if (!ITERABLE_TOOL.containsAnyThatEqualsTheObject(container, e)) {
         return false;
       }
     }

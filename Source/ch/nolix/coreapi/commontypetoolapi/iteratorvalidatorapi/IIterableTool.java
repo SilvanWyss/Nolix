@@ -8,7 +8,7 @@ public interface IIterableTool {
   boolean containsAny(Iterable<?> iterable);
 
   //method declaration
-  boolean containsEqualing(Iterable<?> iterable, Object object);
+  boolean containsAnyThatEqualsTheObject(Iterable<?> iterable, Object object);
 
   //method declaration
   int getCount(Iterable<?> iterable);

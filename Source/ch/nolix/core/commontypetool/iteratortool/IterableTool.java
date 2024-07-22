@@ -20,7 +20,7 @@ public final class IterableTool implements IIterableTool {
 
   //method
   @Override
-  public boolean containsEqualing(final Iterable<?> iterable, final Object object) {
+  public boolean containsAnyThatEqualsTheObject(final Iterable<?> iterable, final Object object) {
     return //
     iterable != null
     && containsEqualingWhenIsNotNull(iterable, object);

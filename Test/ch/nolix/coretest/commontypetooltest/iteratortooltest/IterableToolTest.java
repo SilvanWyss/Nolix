@@ -80,7 +80,7 @@ final class IterableToolTest extends StandardTest {
     final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.containsEqualing(iterable, "x");
+    final var result = testUnit.containsAnyThatEqualsTheObject(iterable, "x");
 
     //verification
     expectNot(result);
@@ -95,7 +95,7 @@ final class IterableToolTest extends StandardTest {
     final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.containsEqualing(iterable, "x");
+    final var result = testUnit.containsAnyThatEqualsTheObject(iterable, "x");
 
     //verification
     expectNot(result);
@@ -110,7 +110,7 @@ final class IterableToolTest extends StandardTest {
     final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.containsEqualing(iterable, "xxxx");
+    final var result = testUnit.containsAnyThatEqualsTheObject(iterable, "xxxx");
 
     //verification
     expectNot(result);
@@ -125,7 +125,7 @@ final class IterableToolTest extends StandardTest {
     final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.containsEqualing(iterable, "xx");
+    final var result = testUnit.containsAnyThatEqualsTheObject(iterable, "xx");
 
     //verification
     expect(result);
@@ -140,7 +140,7 @@ final class IterableToolTest extends StandardTest {
     final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.containsEqualing(iterable, "x");
+    final var result = testUnit.containsAnyThatEqualsTheObject(iterable, "x");
 
     //verification
     expect(result);
