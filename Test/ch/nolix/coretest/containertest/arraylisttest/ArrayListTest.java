@@ -44,6 +44,21 @@ final class ArrayListTest extends ContainerTest {
 
   //method
   @Test
+  void testCase_addAtEnd_whenDoesNotHaveAvailableCapacity() {
+
+    //setup
+    final var elements = new String[] { "antelope", "elephant", "lion", "monkey", "rhino", "zebra" };
+    final var testUnit = ArrayList.withInitialCapacity(5);
+
+    //execution
+    testUnit.addAtEnd(elements);
+
+    //verification
+    expect(testUnit).containsAll(elements);
+  }
+
+  //method
+  @Test
   void testCase_clear_whenIsEmpty() {
 
     //setup
