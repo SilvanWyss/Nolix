@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -37,7 +37,7 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   @Test
   void testCase_getMax() {
     expectOnAnObjectFrom(this::createLinkedList)
-      .running(l -> l.getMax(FunctionCatalogue::getSelf))
+      .running(l -> l.getMax(GlobalFunctionService::getSelf))
       .hasLinearOrLowerTimeComplexity();
   }
 
@@ -45,7 +45,7 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   @Test
   void testCase_getMedian() {
     expectOnAnObjectFrom(this::createLinkedList)
-      .running(l -> l.getMedian(FunctionCatalogue::getSelf))
+      .running(l -> l.getMedian(GlobalFunctionService::getSelf))
       .hasQuadraticOrLowerTimeComplexity();
   }
 
@@ -53,7 +53,7 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   @Test
   void testCase_getMin() {
     expectOnAnObjectFrom(this::createLinkedList)
-      .running(l -> l.getMin(FunctionCatalogue::getSelf))
+      .running(l -> l.getMin(GlobalFunctionService::getSelf))
       .hasLinearOrLowerTimeComplexity();
   }
 

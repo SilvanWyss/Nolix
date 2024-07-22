@@ -3,7 +3,7 @@ package ch.nolix.template.webgui.dialog;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -23,7 +23,7 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
   private static final String DEFAULT_YES_NO_QUESTION = "Do you want to run the action?";
 
   //constant
-  private static final Runnable DEFAULT_CONFIRM_ACTION = FunctionCatalogue::doNothing;
+  private static final Runnable DEFAULT_CONFIRM_ACTION = GlobalFunctionService::doNothing;
 
   //attribute
   private String yesNoQuestion = DEFAULT_YES_NO_QUESTION;

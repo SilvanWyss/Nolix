@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -33,7 +33,7 @@ final class GlobalSequencerTest extends StandardTest {
   void testCase_runInBackground_whenPassingProcessIsGiven() {
 
     //execution
-    final var result = GlobalSequencer.runInBackground(FunctionCatalogue::doNothing);
+    final var result = GlobalSequencer.runInBackground(GlobalFunctionService::doNothing);
     result.waitUntilIsFinished();
 
     //verification

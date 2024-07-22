@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MethodMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
@@ -135,7 +135,7 @@ final class GlobalValidatorTest extends StandardTest {
   void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
 
     //setup
-    final var argument = FunctionCatalogue.class.getMethod("doNothing");
+    final var argument = GlobalFunctionService.class.getMethod("doNothing");
 
     //execution
     final var result = GlobalValidator.assertThat(argument);

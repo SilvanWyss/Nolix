@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programatom.function.GlobalFunctionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -18,7 +18,7 @@ final class GlobalFunctionToolTest extends StandardTest {
   void testCase_createNegatorForBooleanSupplier_whenTrueSupplierIsGiven() {
 
     //execution
-    final var result = GlobalFunctionTool.createNegatorForBooleanSupplier(FunctionCatalogue::getTrue);
+    final var result = GlobalFunctionTool.createNegatorForBooleanSupplier(GlobalFunctionService::getTrue);
 
     //verification
     expectNot(result.getAsBoolean());
@@ -29,7 +29,7 @@ final class GlobalFunctionToolTest extends StandardTest {
   void testCase_createNegatorForBooleanSupplier_whenFalseSupplierIsGiven() {
 
     //execution
-    final var result = GlobalFunctionTool.createNegatorForBooleanSupplier(FunctionCatalogue::getFalse);
+    final var result = GlobalFunctionTool.createNegatorForBooleanSupplier(GlobalFunctionService::getFalse);
 
     //verification
     expect(result.getAsBoolean());

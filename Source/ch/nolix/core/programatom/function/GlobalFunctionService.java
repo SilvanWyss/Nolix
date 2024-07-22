@@ -10,12 +10,12 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
 //class
 /**
- * Of the {@link FunctionCatalogue} an instance cannot be created.
+ * Of the {@link GlobalFunctionService} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2017-01-01
  */
-public final class FunctionCatalogue {
+public final class GlobalFunctionService {
 
   //constant
   private static final long ZERO = 0L;
@@ -31,9 +31,9 @@ public final class FunctionCatalogue {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link FunctionCatalogue} can be created.
+   * Prevents that an instance of the {@link GlobalFunctionService} can be created.
    */
-  private FunctionCatalogue() {
+  private GlobalFunctionService() {
   }
 
   //static method

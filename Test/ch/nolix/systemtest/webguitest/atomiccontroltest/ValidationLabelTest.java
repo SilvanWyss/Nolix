@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -23,12 +23,12 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     //setup part 1: Creates a ValidationLabel and runs an action that produces an
     //error.
     final var testUnit = new ValidationLabel();
-    final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionCatalogue::throwException);
+    final var actionButton = new Button().setLeftMouseButtonPressAction(GlobalFunctionService::throwException);
     new VerticalStack().addControl(testUnit, actionButton);
     actionButton.pressLeftMouseButton();
 
     //setup part 2: Prepares an action that does not produce an error.
-    actionButton.setLeftMouseButtonPressAction(FunctionCatalogue::doNothing);
+    actionButton.setLeftMouseButtonPressAction(GlobalFunctionService::doNothing);
 
     //execution: Runs the action that does not produce an error.
     actionButton.pressLeftMouseButton();
@@ -43,7 +43,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
     //setup
     final var testUnit = new ValidationLabel();
-    final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionCatalogue::throwException);
+    final var actionButton = new Button().setLeftMouseButtonPressAction(GlobalFunctionService::throwException);
     new VerticalStack().addControl(testUnit, actionButton);
 
     //setup verification
@@ -67,7 +67,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
   private Exception getExceptionOfFunctionsCatalogueThrowExceptionMethod() {
 
     try {
-      FunctionCatalogue.throwException();
+      GlobalFunctionService.throwException();
     } catch (final GeneralException exception) {
       return exception;
     }

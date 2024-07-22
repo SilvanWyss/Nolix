@@ -14,7 +14,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
@@ -326,7 +326,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(Double.class);
 
     //execution & verification
-    expectRunning(() -> testUnit.getAverage(FunctionCatalogue::getSelf))
+    expectRunning(() -> testUnit.getAverage(GlobalFunctionService::getSelf))
       .throwsException()
       .ofType(EmptyArgumentException.class)
       .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
@@ -340,7 +340,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
 
     //execution
-    final var result = testUnit.getAverage(FunctionCatalogue::getSelf);
+    final var result = testUnit.getAverage(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(17.5);
@@ -354,7 +354,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(Double.class);
 
     //execution
-    final var result = testUnit.getAverageOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getAverageOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(0.0);
@@ -368,7 +368,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
 
     //execution
-    final var result = testUnit.getAverageOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getAverageOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(17.5);
@@ -498,7 +498,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
 
     //execution
-    final var result = testUnit.getMaxOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMaxOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(0.0);
@@ -516,7 +516,7 @@ public abstract class ContainerTest extends StandardTest {
       BigDecimal.valueOf(9.5));
 
     //execution
-    final var result = testUnit.getMaxOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMaxOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(11.5);
@@ -530,7 +530,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(Integer.class);
 
     //execution & verification
-    expectRunning(() -> testUnit.getMedian(FunctionCatalogue::getSelf))
+    expectRunning(() -> testUnit.getMedian(GlobalFunctionService::getSelf))
       .throwsException()
       .ofType(EmptyArgumentException.class);
   }
@@ -543,7 +543,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 
     //execution
-    final var result = testUnit.getMedian(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMedian(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(4.0);
@@ -557,7 +557,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(Integer.class);
 
     //execution
-    final var result = testUnit.getMedianOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMedianOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(0.0);
@@ -571,7 +571,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 
     //execution
-    final var result = testUnit.getMedianOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMedianOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(4.0);
@@ -627,7 +627,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
 
     //execution
-    final var result = testUnit.getMinOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMinOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(0.0);
@@ -645,7 +645,7 @@ public abstract class ContainerTest extends StandardTest {
       BigDecimal.valueOf(9.5));
 
     //execution
-    final var result = testUnit.getMinOrZero(FunctionCatalogue::getSelf);
+    final var result = testUnit.getMinOrZero(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(9.5);
@@ -985,7 +985,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(0.0, 0.0, 0.5, 1.0, 1.0);
 
     //execution
-    final var result = testUnit.getVariance(FunctionCatalogue::getSelf);
+    final var result = testUnit.getVariance(GlobalFunctionService::getSelf);
 
     //verification
     expect(result).isEqualTo(0.2);
@@ -1101,7 +1101,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
 
     //execution
-    final var result = testUnit.toOrderedList(FunctionCatalogue::getSelf);
+    final var result = testUnit.toOrderedList(GlobalFunctionService::getSelf);
 
     //verification
     expect(result.getCount()).isEqualTo(6);
