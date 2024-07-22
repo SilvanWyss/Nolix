@@ -18,10 +18,10 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 public final class GlobalFunctionService {
 
   //constant
-  private static final long ZERO = 0L;
+  private static final double ZERO = 0.0;
 
   //constant
-  private static final long ONE = 1L;
+  private static final double ONE = 1.0;
 
   //constant
   private static final boolean FALSE = false;
@@ -31,7 +31,8 @@ public final class GlobalFunctionService {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link GlobalFunctionService} can be created.
+   * Prevents that an instance of the {@link GlobalFunctionService} can be
+   * created.
    */
   private GlobalFunctionService() {
   }
@@ -86,9 +87,9 @@ public final class GlobalFunctionService {
 
   //static method
   /**
-   * @return 1.
+   * @return 1.0.
    */
-  public static long getOne() {
+  public static double getOne() {
     return ONE;
   }
 
@@ -135,9 +136,9 @@ public final class GlobalFunctionService {
 
   //static method
   /**
-   * @return 0.
+   * @return 0.0.
    */
-  public static long getZero() {
+  public static double getZero() {
     return ZERO;
   }
 
