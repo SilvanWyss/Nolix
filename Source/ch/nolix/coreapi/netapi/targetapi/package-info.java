@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi.netapi.targetapi} package declares
- * targets where can be connected to through a network.
+ * The {@link ch.nolix.coreapi.netapi.targetapi} package declares targets where
+ * can be connected to through a network.
  * 
  * @author Silvan Wyss
  * @version 2022-02-13
