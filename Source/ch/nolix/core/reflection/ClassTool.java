@@ -12,9 +12,12 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public final class ClassTool {
 
+  //constant
+  private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
+
   //method
   public <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
-    return GlobalConstructorTool.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
+    return CONSTRUCTOR_TOOL.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
   }
 
   //method

@@ -9,14 +9,10 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 
 //class
-public final class GlobalConstructorTool {
+public final class ConstructorTool {
 
-  //constructor
-  private GlobalConstructorTool() {
-  }
-
-  //static method
-  public static <T> T createInstanceFromDefaultConstructor(final Constructor<T> defaultConstructor) {
+  //method
+  public <T> T createInstanceFromDefaultConstructor(final Constructor<T> defaultConstructor) {
     try {
       return defaultConstructor.newInstance();
     } catch (final
