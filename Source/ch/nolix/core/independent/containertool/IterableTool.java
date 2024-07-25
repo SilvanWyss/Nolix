@@ -6,29 +6,21 @@ import java.util.Objects;
 
 //class
 /**
- * The {@link GlobalIterableTool} provides methods to handle {@link Iterable}s.
- * Of the {@link GlobalIterableTool} an instance cannot be created.
+ * The {@link IterableTool} provides methods to handle {@link Iterable}s.
  * 
  * @author Silvan Wyss
  * @version 2017-12-16
  */
-public final class GlobalIterableTool {
+public final class IterableTool {
 
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalIterableTool} can be created.
-   */
-  private GlobalIterableTool() {
-  }
-
-  //static method
+  //method
   /**
    * @param iterable
    * @param element
    * @return true if the given container contains the given element, false
    *         otherwise.
    */
-  public static boolean containsElement(final Iterable<?> iterable, final Object element) {
+  public boolean containsElement(final Iterable<?> iterable, final Object element) {
 
     if (iterable == null) {
       return false;
@@ -37,14 +29,14 @@ public final class GlobalIterableTool {
     return containsElementWhenIsNotNull(iterable, element);
   }
 
-  //static method
+  //method
   /**
    * @param iterable
    * @param element
    * @return true if the given iterable contains the given element exactly 1 time,
    *         false otherwise.
    */
-  public static boolean containsElementOnce(final Iterable<?> iterable, final Object element) {
+  public boolean containsElementOnce(final Iterable<?> iterable, final Object element) {
 
     var found = false;
 
@@ -62,14 +54,14 @@ public final class GlobalIterableTool {
     return found;
   }
 
-  //static method
+  //method
   /**
    * @param container
    * @param object
    * @return true if the given container contains an element that equals the given
    *         object.
    */
-  public static boolean containsEqualing(final Iterable<?> container, final Object object) {
+  public boolean containsEqualing(final Iterable<?> container, final Object object) {
 
     for (final var e : container) {
       if (Objects.equals(e, object)) {
@@ -80,12 +72,12 @@ public final class GlobalIterableTool {
     return false;
   }
 
-  //static method
+  //method
   /**
    * @param container
    * @return the number of elements of the given container.
    */
-  public static int getElementCount(final Iterable<?> container) {
+  public int getElementCount(final Iterable<?> container) {
 
     var elementCount = 0;
     final var iterator = container.iterator();
@@ -97,23 +89,23 @@ public final class GlobalIterableTool {
     return elementCount;
   }
 
-  //static method
+  //method
   /**
    * @param container
    * @return true if the given container is not empty.
    */
-  public static boolean isEmpty(final Iterable<?> container) {
+  public boolean isEmpty(final Iterable<?> container) {
     return !container.iterator().hasNext();
   }
 
-  //static method
+  //method
   /**
    * @param iterable
    * @param element
    * @return true if the given container contains the given element, false
    *         otherwise, for the case that the given iterable is not null.
    */
-  private static boolean containsElementWhenIsNotNull(final Iterable<?> iterable, final Object element) {
+  private boolean containsElementWhenIsNotNull(final Iterable<?> iterable, final Object element) {
 
     for (final var e : iterable) {
       if (e == element) {

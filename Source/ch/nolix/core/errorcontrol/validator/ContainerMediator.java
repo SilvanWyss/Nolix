@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.independent.containertool.ArrayTool;
-import ch.nolix.core.independent.containertool.GlobalIterableTool;
+import ch.nolix.core.independent.containertool.IterableTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
@@ -32,6 +32,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+
+  //constant
+  private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
   //constructor
   /**
@@ -71,7 +74,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                                not contain the given element.
    */
   public void contains(final Object element) {
-    if (!GlobalIterableTool.containsElement(getStoredArgument(), element)) {
+    if (!ITERABLE_TOOL.containsElement(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
         getArgumentName(),
         getStoredArgument(),
@@ -149,7 +152,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsAsManyElementsAs(final Iterable<?> iterable) {
 
-    final var elementCountOfIterable = GlobalIterableTool.getElementCount(iterable);
+    final var elementCountOfIterable = ITERABLE_TOOL.getElementCount(iterable);
 
     hasElementCount(elementCountOfIterable);
   }
@@ -251,7 +254,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  element for several times.
    */
   public void containsOnce(final Object element) {
-    if (!GlobalIterableTool.containsElementOnce(getStoredArgument(),
+    if (!ITERABLE_TOOL.containsElementOnce(getStoredArgument(),
       element)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
@@ -342,7 +345,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is empty.
-    if (!GlobalIterableTool.isEmpty(getStoredArgument())) {
+    if (!ITERABLE_TOOL.isEmpty(getStoredArgument())) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
@@ -360,7 +363,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is not empty.
-    if (GlobalIterableTool.isEmpty(getStoredArgument())) {
+    if (ITERABLE_TOOL.isEmpty(getStoredArgument())) {
       throw EmptyArgumentException.forArgument(getStoredArgument());
     }
   }
