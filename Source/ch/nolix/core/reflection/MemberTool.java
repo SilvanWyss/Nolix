@@ -6,24 +6,20 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 
 //class
-public final class GlobalMemberTool {
+public final class MemberTool {
 
-  //constructor
-  private GlobalMemberTool() {
-  }
-
-  //static method
-  public static boolean isPrivate(final Member member) {
+  //method
+  public boolean isPrivate(final Member member) {
     return Modifier.isPrivate(member.getModifiers());
   }
 
-  //static method
-  public static boolean isProtected(final Member member) {
+  //method
+  public boolean isProtected(final Member member) {
     return Modifier.isProtected(member.getModifiers());
   }
 
-  //static method
-  public static boolean isPublic(final Member member) {
+  //method
+  public boolean isPublic(final Member member) {
     return Modifier.isPublic(member.getModifiers());
   }
 }

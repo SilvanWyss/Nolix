@@ -24,6 +24,9 @@ public final class GlobalReflectionTool {
   //constant
   private static final ExecutableTool EXECUTABLE_TOOL = new ExecutableTool();
 
+  //constant
+  private static final MemberTool MEMBER_TOOL = new MemberTool();
+
   //constructor
   private GlobalReflectionTool() {
   }
@@ -98,17 +101,17 @@ public final class GlobalReflectionTool {
 
   //static method
   public static boolean isPrivate(final Member member) {
-    return GlobalMemberTool.isPrivate(member);
+    return MEMBER_TOOL.isPrivate(member);
   }
 
   //static method
   public static boolean isProtected(final Member member) {
-    return GlobalMemberTool.isProtected(member);
+    return MEMBER_TOOL.isProtected(member);
   }
 
   //static method
   public static boolean isPublic(final Member member) {
-    return GlobalMemberTool.isPublic(member);
+    return MEMBER_TOOL.isPublic(member);
   }
 
   //static method

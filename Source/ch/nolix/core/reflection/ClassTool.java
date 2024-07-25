@@ -43,7 +43,7 @@ public final class ClassTool {
     for (final var f : paramClass.getDeclaredFields()) {
 
       //Handles the case that the current field is .
-      if (GlobalFieldTool.isStatic(f) && GlobalMemberTool.isPublic(f)) {
+      if (GlobalFieldTool.isStatic(f) && GlobalReflectionTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));
         } catch (final IllegalAccessException illegalAccessException) {

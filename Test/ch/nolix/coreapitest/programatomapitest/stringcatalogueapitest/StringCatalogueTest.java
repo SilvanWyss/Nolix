@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.core.reflection.GlobalFieldTool;
-import ch.nolix.core.reflection.GlobalMemberTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
@@ -19,7 +19,7 @@ final class StringCatalogueTest extends StandardTest {
 
     //verification
     for (final var f : StringCatalogue.class.getFields()) {
-      expect(GlobalMemberTool.isPublic(f));
+      expect(GlobalReflectionTool.isPublic(f));
       expect(GlobalFieldTool.isStatic(f));
       expect(GlobalFieldTool.getValueFromStaticField(f).getClass()).is(String.class);
     }
