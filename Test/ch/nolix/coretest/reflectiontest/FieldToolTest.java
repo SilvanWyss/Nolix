@@ -17,7 +17,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 
 //class
-final class GlobalFieldToolTest extends StandardTest {
+final class FieldToolTest extends StandardTest {
 
   //constant
   private static final class Lecture {
