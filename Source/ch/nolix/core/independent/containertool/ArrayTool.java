@@ -6,22 +6,14 @@ import ch.nolix.core.independent.container.List;
 
 //class
 /**
- * The {@link GlobalArrayTool} provides functions to handle arrays. Of the
- * {@link GlobalArrayTool} class an instance cannot be created.
+ * The {@link ArrayTool} provides functions to handle arrays.
  * 
  * @author Silvan Wyss
  * @version 2017-08-14
  */
-public final class GlobalArrayTool {
+public final class ArrayTool {
 
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalArrayTool} can be created.
-   */
-  private GlobalArrayTool() {
-  }
-
-  //static method
+  // method
   /**
    * @param element
    * @param elements
@@ -29,7 +21,7 @@ public final class GlobalArrayTool {
    *                 elements.
    * @return a new array with the given firstElement and elements.
    */
-  public static <E> E[] createArrayWithElement(
+  public <E> E[] createArrayWithElement(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
 
@@ -40,13 +32,13 @@ public final class GlobalArrayTool {
     return array;
   }
 
-  //static method
+  // method
   /**
    * @param value
    * @param values
    * @return a new array with the given values.
    */
-  public static double[] createArrayWithValue(final double value, final double... values) {
+  public double[] createArrayWithValue(final double value, final double... values) {
 
     final var array = new double[1 + values.length];
     array[0] = value;
@@ -55,7 +47,7 @@ public final class GlobalArrayTool {
     return array;
   }
 
-  //static method
+  // method
   /**
    * Creates a new iterable object with the given values.
    * 
@@ -63,7 +55,7 @@ public final class GlobalArrayTool {
    * @return a new iterable object with the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static Iterable<Byte> createIterable(final byte[] values) {
+  public Iterable<Byte> createIterable(final byte[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {
@@ -80,7 +72,7 @@ public final class GlobalArrayTool {
     return valueList;
   }
 
-  //static method
+  // method
   /**
    * Creates a new iterable object with the given values.
    * 
@@ -88,7 +80,7 @@ public final class GlobalArrayTool {
    * @return a new iterable object with the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static Iterable<Double> createIterable(final double[] values) {
+  public Iterable<Double> createIterable(final double[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {
@@ -105,7 +97,7 @@ public final class GlobalArrayTool {
     return valueList;
   }
 
-  //static method
+  // method
   /**
    * Creates a new iterable object with the given elements.
    * 
@@ -114,7 +106,7 @@ public final class GlobalArrayTool {
    * @return a new iterable object with the given elements.
    * @throws IllegalArgumentException if the given elements is null.
    */
-  public static <E> Iterable<E> createIterable(final E[] elements) {
+  public <E> Iterable<E> createIterable(final E[] elements) {
 
     //Asserts that the given elements is not null.
     if (elements == null) {
@@ -131,7 +123,7 @@ public final class GlobalArrayTool {
     return elementList;
   }
 
-  //static method
+  // method
   /**
    * Creates a new iterable object with the given elements.
    * 
@@ -142,7 +134,7 @@ public final class GlobalArrayTool {
    * @return a new iterable object with the given elements and additional element.
    * @throws IllegalArgumentException if the given elements is null.
    */
-  public static <E> Iterable<E> createIterable(final Iterable<E> elements, final E additionalElement) {
+  public <E> Iterable<E> createIterable(final Iterable<E> elements, final E additionalElement) {
 
     //Asserts that the given elements is not null.
     if (elements == null) {
@@ -161,7 +153,7 @@ public final class GlobalArrayTool {
     return elementList;
   }
 
-  //static method
+  // method
   /**
    * Creates a new iterable object with the given values.
    * 
@@ -169,7 +161,7 @@ public final class GlobalArrayTool {
    * @return a new iterable object with the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static Iterable<Long> createIterable(final int[] values) {
+  public Iterable<Long> createIterable(final int[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {
@@ -186,7 +178,7 @@ public final class GlobalArrayTool {
     return valueList;
   }
 
-  //static method
+  // method
   /**
    * Creates a new iterable object with the given values.
    * 
@@ -194,7 +186,7 @@ public final class GlobalArrayTool {
    * @return a new iterable object with the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static Iterable<Long> createIterable(final long[] values) {
+  public Iterable<Long> createIterable(final long[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {
@@ -217,7 +209,7 @@ public final class GlobalArrayTool {
    * @return a {@link String} representation of the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static String createString(final double[] values) {
+  public String createString(final double[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {
@@ -238,13 +230,13 @@ public final class GlobalArrayTool {
     return stringBuilder.toString();
   }
 
-  //static method
+  // method
   /**
    * @param values
    * @return a {@link String} representation of the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static String createString(final int[] values) {
+  public String createString(final int[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {
@@ -271,7 +263,7 @@ public final class GlobalArrayTool {
    * @return a {@link String} representation of the given values.
    * @throws IllegalArgumentException if the given values is null.
    */
-  public static String createString(final long[] values) {
+  public String createString(final long[] values) {
 
     //Asserts that the given values is not null.
     if (values == null) {

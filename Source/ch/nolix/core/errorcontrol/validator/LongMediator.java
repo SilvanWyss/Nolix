@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.independent.containertool.GlobalArrayTool;
+import ch.nolix.core.independent.containertool.ArrayTool;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 
 //class
@@ -27,6 +27,9 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
  * @version 2017-01-01
  */
 public class LongMediator extends Mediator {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //attribute
   private final long argument;
@@ -187,7 +190,7 @@ public class LongMediator extends Mediator {
     throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
       getArgumentName(),
       argument,
-      "does not equal one of {" + GlobalArrayTool.createString(values) + "}");
+      "does not equal one of {" + ARRAY_TOOL.createString(values) + "}");
   }
 
   //method

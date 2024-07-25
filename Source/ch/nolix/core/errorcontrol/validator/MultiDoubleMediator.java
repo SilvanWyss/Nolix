@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.independent.containertool.GlobalArrayTool;
+import ch.nolix.core.independent.containertool.ArrayTool;
 
 //class
 /**
@@ -16,6 +16,9 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * @version 2017-01-01
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //constructor
   /**
@@ -40,7 +43,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   public MultiDoubleMediator(final double[] arguments) {
 
     //Calls constructor of the base class.
-    super(GlobalArrayTool.createIterable(arguments));
+    super(ARRAY_TOOL.createIterable(arguments));
   }
 
   //method

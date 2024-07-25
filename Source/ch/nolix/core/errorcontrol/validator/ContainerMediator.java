@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.core.independent.containertool.GlobalArrayTool;
+import ch.nolix.core.independent.containertool.ArrayTool;
 import ch.nolix.core.independent.containertool.GlobalIterableTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
@@ -29,6 +29,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  *            mediator.
  */
 public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //constructor
   /**
@@ -154,7 +157,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsExactly(final Object firstElement, final Object... elements) {
 
-    final var allElements = GlobalArrayTool.createArrayWithElement(firstElement, elements);
+    final var allElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
 
     hasElementCount(allElements.length);
 
@@ -164,7 +167,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsExactlyEqualing(final Object firstElement, final Object... elements) {
 
-    final var localElements = GlobalArrayTool.createArrayWithElement(firstElement, elements);
+    final var localElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
 
     containsExactlyEqualing(localElements);
   }
@@ -191,7 +194,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   //method
   public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked") E... elements) {
 
-    final var localElements = GlobalArrayTool.createArrayWithElement(element, elements);
+    final var localElements = ARRAY_TOOL.createArrayWithElement(element, elements);
 
     containsExactlyInSameOrder(localElements);
   }

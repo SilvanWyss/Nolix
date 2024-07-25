@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.independent.containertool.GlobalArrayTool;
+import ch.nolix.core.independent.containertool.ArrayTool;
 
 //class
 /**
@@ -19,6 +19,9 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * @param <A> is the type of the arguments of a multi argument mediator.
  */
 public class MultiArgumentMediator<A> {
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //attribute
   private final Iterable<A> arguments;
@@ -51,7 +54,7 @@ public class MultiArgumentMediator<A> {
   MultiArgumentMediator(final A[] arguments) {
 
     //Calls other constructor.
-    this(GlobalArrayTool.createIterable(arguments));
+    this(ARRAY_TOOL.createIterable(arguments));
   }
 
   //method

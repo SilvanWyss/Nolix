@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.independent.containertool.GlobalArrayTool;
+import ch.nolix.core.independent.containertool.ArrayTool;
 
 //class
 /**
@@ -18,6 +18,9 @@ import ch.nolix.core.independent.containertool.GlobalArrayTool;
  * @version 2016-12-01
  */
 public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all validation methods.
+
+  //constant
+  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   //constructor
   /**
@@ -60,7 +63,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
    * @return a new {@link ExtendedContainerMediator} for the given argument.
    */
   public static ExtendedContainerMediator<Byte> assertThat(final byte[] argument) {
-    return new ExtendedContainerMediator<>(GlobalArrayTool.createIterable(argument));
+    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
@@ -95,7 +98,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
     }
 
     //Handles the case that the given argument is not null.
-    return new ExtendedContainerMediator<>(GlobalArrayTool.createIterable(argument));
+    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
@@ -120,7 +123,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
     }
 
     //Handles the case that the given argument is not null.
-    return new ExtendedContainerMediator<>(GlobalArrayTool.createIterable(argument));
+    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
@@ -155,7 +158,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
     }
 
     //Handles the case that the given argument is not null.
-    return new ExtendedContainerMediator<>(GlobalArrayTool.createIterable(argument));
+    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
