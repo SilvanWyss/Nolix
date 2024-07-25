@@ -25,6 +25,9 @@ public final class GlobalReflectionTool {
   private static final ExecutableTool EXECUTABLE_TOOL = new ExecutableTool();
 
   //constant
+  private static final FieldTool FIELD_TOOL = new FieldTool();
+
+  //constant
   private static final MemberTool MEMBER_TOOL = new MemberTool();
 
   //constant
@@ -82,7 +85,7 @@ public final class GlobalReflectionTool {
 
   //static method
   public static <V> V getValueFromStaticField(final Field staticField) {
-    return GlobalFieldTool.getValueFromStaticField(staticField);
+    return FIELD_TOOL.getValueFromStaticField(staticField);
   }
 
   //static method
@@ -99,7 +102,7 @@ public final class GlobalReflectionTool {
 
   //static method
   public static boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
-    return GlobalFieldTool.hasGivenTypeOrSuperType(field, type);
+    return FIELD_TOOL.hasGivenTypeOrSuperType(field, type);
   }
 
   //static method
@@ -119,11 +122,11 @@ public final class GlobalReflectionTool {
 
   //static method
   public static boolean isStatic(final Field field) {
-    return GlobalFieldTool.isStatic(field);
+    return FIELD_TOOL.isStatic(field);
   }
 
   //method
   public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
-    return GlobalFieldTool.isStaticAndStoresValueOfGivenType(field, type);
+    return FIELD_TOOL.isStaticAndStoresValueOfGivenType(field, type);
   }
 }

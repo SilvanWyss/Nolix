@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.reflection.GlobalFieldTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 
 //class
 final class FieldFromEntityMapper {
@@ -52,7 +52,7 @@ final class FieldFromEntityMapper {
 
   //method
   private boolean isField(final java.lang.reflect.Field field) {
-    return GlobalFieldTool.hasGivenTypeOrSuperType(field, Field.class);
+    return GlobalReflectionTool.hasGivenTypeOrSuperType(field, Field.class);
   }
 
   //method

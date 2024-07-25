@@ -12,35 +12,31 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class GlobalFieldTool {
+public final class FieldTool {
 
-  //constructor
-  private GlobalFieldTool() {
-  }
-
-  //static method
+  //method
   @SuppressWarnings("unchecked")
-  public static <V> V getValueFromStaticField(final Field staticField) {
+  public <V> V getValueFromStaticField(final Field paramField) {
 
-    if (!isStatic(staticField)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(staticField, "is not static");
+    if (!isStatic(paramField)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(paramField, "is not ");
     }
 
     try {
-      staticField.setAccessible(true);
-      return (V) staticField.get(null);
+      paramField.setAccessible(true);
+      return (V) paramField.get(null);
     } catch (final IllegalAccessException illegalAccessException) {
       throw WrapperException.forError(illegalAccessException);
     }
   }
 
-  //static method
-  public static boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
+  //method
+  public boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
     return type.isAssignableFrom(field.getType());
   }
 
-  //static method
-  public static boolean isStatic(final Field field) {
+  //method
+  public boolean isStatic(final Field field) {
 
     if (field == null) {
       throw ArgumentIsNullException.forArgumentType(Field.class);
@@ -50,7 +46,7 @@ public final class GlobalFieldTool {
   }
 
   //method
-  public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
+  public boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TYPE);

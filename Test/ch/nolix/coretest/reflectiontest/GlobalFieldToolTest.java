@@ -9,7 +9,7 @@ import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.reflection.GlobalFieldTool;
+import ch.nolix.core.reflection.FieldTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
@@ -33,9 +33,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, LinkedList.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, LinkedList.class);
 
     //verification
     expect(result);
@@ -47,9 +48,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, Container.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, Container.class);
 
     //verification
     expect(result);
@@ -61,9 +63,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, ILinkedList.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, ILinkedList.class);
 
     //verification
     expect(result);
@@ -75,9 +78,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, IContainer.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, IContainer.class);
 
     //verification
     expect(result);
@@ -89,9 +93,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, Matrix.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, Matrix.class);
 
     //verification
     expectNot(result);
@@ -103,9 +108,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, ArrayList.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, ArrayList.class);
 
     //verification
     expectNot(result);
@@ -117,9 +123,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, IMatrix.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, IMatrix.class);
 
     //verification
     expectNot(result);
@@ -131,9 +138,10 @@ final class GlobalFieldToolTest extends StandardTest {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
+    final var testUnit = new FieldTool();
 
     //execution
-    final var result = GlobalFieldTool.hasGivenTypeOrSuperType(studentsField, IArrayList.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, IArrayList.class);
 
     //verification
     expectNot(result);

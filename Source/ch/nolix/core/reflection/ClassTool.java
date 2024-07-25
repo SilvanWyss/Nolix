@@ -15,6 +15,9 @@ public final class ClassTool {
   //constant
   private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
 
+  //constant
+  private static final FieldTool FIELD_TOOL = new FieldTool();
+
   //method
   public <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
     return CONSTRUCTOR_TOOL.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
@@ -43,7 +46,7 @@ public final class ClassTool {
     for (final var f : paramClass.getDeclaredFields()) {
 
       //Handles the case that the current field is .
-      if (GlobalFieldTool.isStatic(f) && GlobalReflectionTool.isPublic(f)) {
+      if (FIELD_TOOL.isStatic(f) && GlobalReflectionTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));
         } catch (final IllegalAccessException illegalAccessException) {
