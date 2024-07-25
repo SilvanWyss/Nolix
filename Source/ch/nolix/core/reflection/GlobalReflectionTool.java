@@ -18,7 +18,11 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 public final class GlobalReflectionTool {
 
+  //constant
   private static final ClassTool CLASS_TOOL = new ClassTool();
+
+  //constant
+  private static final ExecutableTool EXECUTABLE_TOOL = new ExecutableTool();
 
   //constructor
   private GlobalReflectionTool() {
@@ -26,7 +30,7 @@ public final class GlobalReflectionTool {
 
   //static method
   public static boolean allParametersOfMethodAreOfType(final Executable executable, final Class<?> type) {
-    return GlobalReflectionTool.allParametersOfMethodAreOfType(executable, type);
+    return EXECUTABLE_TOOL.allParametersOfMethodAreOfType(executable, type);
   }
 
   //static method
