@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.template.math.sequence.GlobalSequenceCreator;
+import ch.nolix.template.math.sequence.GlobalSequenceFactory;
 
 //class
 final class GlobalSequenceCreatorTest extends StandardTest {
@@ -16,7 +16,7 @@ final class GlobalSequenceCreatorTest extends StandardTest {
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
 
     //execution
-    final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
+    final var result = GlobalSequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
 
     //verification
     expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
@@ -31,7 +31,7 @@ final class GlobalSequenceCreatorTest extends StandardTest {
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
 
     //execution
-    final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
+    final var result = GlobalSequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
 
     //verification
     expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
@@ -46,7 +46,7 @@ final class GlobalSequenceCreatorTest extends StandardTest {
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
 
     //execution
-    final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));
+    final var result = GlobalSequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));
 
     //verification
     expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));

@@ -8,10 +8,10 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
 
 //class
-public final class GlobalSequenceCreator {
+public final class GlobalSequenceFactory {
 
   //constructor
-  private GlobalSequenceCreator() {
+  private GlobalSequenceFactory() {
   }
 
   //static method
