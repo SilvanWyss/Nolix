@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.reflection.GlobalClassTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -34,7 +34,7 @@ public final class ControlFactory {
 
     final var controlClass = getControlClassByName(type);
 
-    return GlobalClassTool.createInstanceFromDefaultConstructorOf(controlClass);
+    return GlobalReflectionTool.createInstanceFromDefaultConstructorOfClass(controlClass);
   }
 
   //method

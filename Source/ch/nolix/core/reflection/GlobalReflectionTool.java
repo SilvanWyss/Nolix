@@ -18,6 +18,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 //class
 public final class GlobalReflectionTool {
 
+  private static final ClassTool CLASS_TOOL = new ClassTool();
+
   //constructor
   private GlobalReflectionTool() {
   }
@@ -29,12 +31,12 @@ public final class GlobalReflectionTool {
 
   //static method
   public static <T> T createInstanceFromDefaultConstructorOfClass(final Class<T> paramClass) {
-    return GlobalClassTool.createInstanceFromDefaultConstructorOf(paramClass);
+    return CLASS_TOOL.createInstanceFromDefaultConstructorOf(paramClass);
   }
 
   //static method
   public static <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
-    return GlobalClassTool.getDefaultConstructorOfClass(paramClass);
+    return CLASS_TOOL.getDefaultConstructorOfClass(paramClass);
   }
 
   //static method
@@ -65,7 +67,7 @@ public final class GlobalReflectionTool {
 
   //static method
   public static IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
-    return GlobalClassTool.getPublicStaticFieldValuesOfClass(paramClass);
+    return CLASS_TOOL.getPublicStaticFieldValuesOfClass(paramClass);
   }
 
   //static method

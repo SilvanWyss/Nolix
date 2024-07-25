@@ -10,19 +10,15 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
-public final class GlobalClassTool {
+public final class ClassTool {
 
-  //constructor
-  private GlobalClassTool() {
-  }
-
-  //static method
-  public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
+  //method
+  public <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
     return GlobalConstructorTool.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
   }
 
-  //static method
-  public static <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
+  //method
+  public <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
     try {
 
       final var defaultConstructor = paramClass.getDeclaredConstructor();
@@ -35,15 +31,15 @@ public final class GlobalClassTool {
     }
   }
 
-  //static method
-  public static IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
+  //method
+  public IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
 
     final var publicStaticFields = new LinkedList<>();
 
     //Iterates the fields of the given Class.
     for (final var f : paramClass.getDeclaredFields()) {
 
-      //Handles the case that the current field is static.
+      //Handles the case that the current field is .
       if (GlobalFieldTool.isStatic(f) && GlobalMemberTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));

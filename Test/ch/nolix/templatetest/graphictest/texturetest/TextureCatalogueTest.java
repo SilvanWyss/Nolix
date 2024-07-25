@@ -4,8 +4,7 @@ package ch.nolix.templatetest.graphictest.texturetest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.reflection.GlobalClassTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -19,7 +18,7 @@ final class TextureCatalogueTest extends StandardTest {
   void testCase_constantsOfTextureCatalogue() {
 
     //verification
-    final var textures = GlobalClassTool.getPublicStaticFieldValuesOfClass(TextureCatalogue.class);
+    final var textures = GlobalReflectionTool.getPublicStaticFieldValuesOfClass(TextureCatalogue.class);
     for (final var t : textures) {
 
       expect(t).isOfType(Image.class);

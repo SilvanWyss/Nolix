@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.reflection.GlobalClassTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
@@ -26,7 +26,7 @@ final class PluralLowerCaseVariableCatalogueTest extends StandardTest {
     LinkedList.withElement(PluralLowerCaseVariableCatalogue.GUIS, PluralLowerCaseVariableCatalogue.URLS);
 
     //verification
-    for (final var c : GlobalClassTool.getPublicStaticFieldValuesOfClass(PluralLowerCaseVariableCatalogue.class)) {
+    for (final var c : GlobalReflectionTool.getPublicStaticFieldValuesOfClass(PluralLowerCaseVariableCatalogue.class)) {
 
       expect(c).isOfType(String.class);
 
