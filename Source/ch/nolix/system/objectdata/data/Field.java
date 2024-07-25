@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.reflection.GlobalObjectTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.fieldflyweight.VoidFieldFlyWeight;
@@ -52,7 +52,7 @@ public abstract class Field implements IField {
     }
 
     if (belongsToEntity()) {
-      return GlobalObjectTool.getNameOfFirstFieldOfObjectThatStoresValue(getStoredParentEntity(), this);
+      return GlobalReflectionTool.getNameOfFirstFieldOfObjectThatStoresValue(getStoredParentEntity(), this);
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");

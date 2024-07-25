@@ -13,14 +13,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class GlobalObjectTool {
+public final class ObjectTool {
 
-  //constructor
-  private GlobalObjectTool() {
-  }
-
-  //static method
-  public static Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
+  //method
+  public Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
 
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
 
@@ -40,16 +36,16 @@ public final class GlobalObjectTool {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, value.getClass());
   }
 
-  //static method
-  public static String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
+  //method
+  public String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
 
     final var field = getFirstFieldOfObjectThatStoresValue(object, value);
 
     return field.getName();
   }
 
-  //static method
-  public static Object getValueOfFieldOfObject(final Object object, final Field field) {
+  //method
+  public Object getValueOfFieldOfObject(final Object object, final Field field) {
 
     field.setAccessible(true);
 
@@ -60,7 +56,7 @@ public final class GlobalObjectTool {
     }
   }
 
-  //static method
+  //method
   /**
    * @param object
    * @param annotationType
@@ -68,7 +64,7 @@ public final class GlobalObjectTool {
    * @return true if the given object has an annotation of the given
    *         annotationType.
    */
-  public static <A extends Annotation> boolean hasAnnotation(
+  public <A extends Annotation> boolean hasAnnotation(
     final AnnotatedElement object,
     final Class<A> annotationType) {
     return (object.getAnnotation(annotationType) != null);

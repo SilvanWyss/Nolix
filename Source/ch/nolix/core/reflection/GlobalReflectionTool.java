@@ -27,6 +27,9 @@ public final class GlobalReflectionTool {
   //constant
   private static final MemberTool MEMBER_TOOL = new MemberTool();
 
+  //constant
+  private static final ObjectTool OBJECT_TOOL = new ObjectTool();
+
   //constructor
   private GlobalReflectionTool() {
   }
@@ -69,7 +72,7 @@ public final class GlobalReflectionTool {
 
   //static method
   public static String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
-    return GlobalObjectTool.getNameOfFirstFieldOfObjectThatStoresValue(object, value);
+    return OBJECT_TOOL.getNameOfFirstFieldOfObjectThatStoresValue(object, value);
   }
 
   //static method
@@ -84,14 +87,14 @@ public final class GlobalReflectionTool {
 
   //static method
   public static Object getValueOfFieldOfObject(final Object object, final Field field) {
-    return GlobalObjectTool.getValueOfFieldOfObject(object, field);
+    return OBJECT_TOOL.getValueOfFieldOfObject(object, field);
   }
 
   //static method
   public static <A extends Annotation> boolean hasAnnotation(
     final AnnotatedElement object,
     final Class<A> annotationType) {
-    return GlobalObjectTool.hasAnnotation(object, annotationType);
+    return OBJECT_TOOL.hasAnnotation(object, annotationType);
   }
 
   //static method

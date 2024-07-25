@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.reflection.GlobalObjectTool;
+import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -119,7 +119,7 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
 
     final var fieldParentEntity = field.getStoredParentEntity();
 
-    final var entityField = GlobalObjectTool.getFirstFieldOfObjectThatStoresValue(fieldParentEntity, field);
+    final var entityField = GlobalReflectionTool.getFirstFieldOfObjectThatStoresValue(fieldParentEntity, field);
 
     final var fieldDeclaredType = (ParameterizedType) entityField.getGenericType();
 
