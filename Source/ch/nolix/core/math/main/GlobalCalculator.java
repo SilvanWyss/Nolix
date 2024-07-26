@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
-import ch.nolix.core.math.basic.GlobalBasicCalculator;
+import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
@@ -28,7 +28,10 @@ public final class GlobalCalculator {
   /**
    * The default maximum deviation is 10^-9.
    */
-  public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
+  public static final double DEFAULT_MAX_DEVIATION = BasicCalculator.DEFAULT_MAX_DEVIATION;
+
+  //constant
+  private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
   //constructor
   /**
@@ -47,7 +50,7 @@ public final class GlobalCalculator {
    *                                  equal the count of the given xValues.
    */
   public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
-    return GlobalBasicCalculator.createFPNPairs(xValues, yValues);
+    return BASIC_CALCULATOR.createFPNPairs(xValues, yValues);
   }
 
   //static method
@@ -58,7 +61,7 @@ public final class GlobalCalculator {
    *         deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
   public static boolean equalsApproximatively(final double value1, final double value2) {
-    return GlobalBasicCalculator.equalsApproximatively(value1, value2);
+    return BASIC_CALCULATOR.equalsApproximatively(value1, value2);
   }
 
   //static method
@@ -71,7 +74,7 @@ public final class GlobalCalculator {
    * @throws NegativeArgumentException if the given maxDeviation is negative.
    */
   public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
-    return GlobalBasicCalculator.equalsApproximatively(value1, value2, maxDeviation);
+    return BASIC_CALCULATOR.equalsApproximatively(value1, value2, maxDeviation);
   }
 
   //static method
@@ -162,7 +165,7 @@ public final class GlobalCalculator {
    * @return the average of the given values.
    */
   public static double getAverage(final double value, final double... values) {
-    return GlobalBasicCalculator.getAverage(value, values);
+    return BASIC_CALCULATOR.getAverage(value, values);
   }
 
   //method
@@ -172,7 +175,7 @@ public final class GlobalCalculator {
    * @throws EmptyArgumentException if the given values is empty.
    */
   public static double getAverage(final Iterable<Double> values) {
-    return GlobalBasicCalculator.getAverage(values);
+    return BASIC_CALCULATOR.getAverage(values);
   }
 
   //static method
@@ -182,7 +185,7 @@ public final class GlobalCalculator {
    * @return the average of the given values.
    */
   public static int getAverage(final int value, final int... values) {
-    return GlobalBasicCalculator.getAverage(value, values);
+    return BASIC_CALCULATOR.getAverage(value, values);
   }
 
   //static method
@@ -193,7 +196,7 @@ public final class GlobalCalculator {
    * @throws EmptyArgumentException if the given values is empty.
    */
   public static long getAverage(final long value, final long... values) {
-    return GlobalBasicCalculator.getAverage(value, values);
+    return BASIC_CALCULATOR.getAverage(value, values);
   }
 
   //static method
@@ -256,7 +259,7 @@ public final class GlobalCalculator {
    * @return the biggest value of the given values.
    */
   public static double getMax(final double value, final double... values) {
-    return GlobalBasicCalculator.getMax(value, values);
+    return BASIC_CALCULATOR.getMax(value, values);
   }
 
   //static method
@@ -266,7 +269,7 @@ public final class GlobalCalculator {
    * @return the biggest value of the given values.
    */
   public static int getMax(final int value, final int... values) {
-    return GlobalBasicCalculator.getMax(value, values);
+    return BASIC_CALCULATOR.getMax(value, values);
   }
 
   //static method
@@ -276,7 +279,7 @@ public final class GlobalCalculator {
    * @return the biggest value of the given values.
    */
   public static long getMax(final long value, final long... values) {
-    return GlobalBasicCalculator.getMax(value, values);
+    return BASIC_CALCULATOR.getMax(value, values);
   }
 
   //static method
@@ -286,7 +289,7 @@ public final class GlobalCalculator {
    * @return the smallest value of the given values.
    */
   public static double getMin(final double value, final double... values) {
-    return GlobalBasicCalculator.getMin(value, values);
+    return BASIC_CALCULATOR.getMin(value, values);
   }
 
   //static method
@@ -296,7 +299,7 @@ public final class GlobalCalculator {
    * @return the smallest value of the given values.
    */
   public static int getMin(final int value, final int... values) {
-    return GlobalBasicCalculator.getMin(value, values);
+    return BASIC_CALCULATOR.getMin(value, values);
   }
 
   //static method
@@ -306,7 +309,7 @@ public final class GlobalCalculator {
    * @return the smallest value of the given values.
    */
   public static long getMin(final long value, final long... values) {
-    return GlobalBasicCalculator.getMin(value, values);
+    return BASIC_CALCULATOR.getMin(value, values);
   }
 
   //static method
@@ -315,7 +318,7 @@ public final class GlobalCalculator {
    * @return the square of the given value.
    */
   public static double getSquare(final double value) {
-    return GlobalBasicCalculator.getSquare(value);
+    return BASIC_CALCULATOR.getSquare(value);
   }
 
   //static method
@@ -324,7 +327,7 @@ public final class GlobalCalculator {
    * @return the square of the given value.
    */
   public static double getSquare(final int value) {
-    return GlobalBasicCalculator.getSquare(value);
+    return BASIC_CALCULATOR.getSquare(value);
   }
 
   //static method
@@ -333,7 +336,7 @@ public final class GlobalCalculator {
    * @return the square of the given value.
    */
   public static double getSquare(final long value) {
-    return GlobalBasicCalculator.getSquare(value);
+    return BASIC_CALCULATOR.getSquare(value);
   }
 
   //static method
@@ -343,7 +346,7 @@ public final class GlobalCalculator {
    * @return the sum of the given values.
    */
   public static double getSum(final double value, final double... values) {
-    return GlobalBasicCalculator.getSum(value, values);
+    return BASIC_CALCULATOR.getSum(value, values);
   }
 
   //static method
@@ -353,7 +356,7 @@ public final class GlobalCalculator {
    * @return the sum of the given values.
    */
   public static int getSum(final int value, final int... values) {
-    return GlobalBasicCalculator.getSum(value, values);
+    return BASIC_CALCULATOR.getSum(value, values);
   }
 
   //static method
@@ -362,7 +365,7 @@ public final class GlobalCalculator {
    * @return the sum of the given values.
    */
   public static double getSum(final Iterable<Double> values) {
-    return GlobalBasicCalculator.getSum(values);
+    return BASIC_CALCULATOR.getSum(values);
   }
 
   //static method
@@ -372,7 +375,7 @@ public final class GlobalCalculator {
    * @return the sum of the given values.
    */
   public static long getSum(final long value, final long... values) {
-    return GlobalBasicCalculator.getSum(value, values);
+    return BASIC_CALCULATOR.getSum(value, values);
   }
 
   //static method
@@ -382,7 +385,7 @@ public final class GlobalCalculator {
    *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
   public static boolean isApproximatelyOne(final double value) {
-    return GlobalBasicCalculator.isApproximatelyOne(value);
+    return BASIC_CALCULATOR.isApproximatelyOne(value);
   }
 
   //static method
@@ -394,7 +397,7 @@ public final class GlobalCalculator {
    * @throws NegativeArgumentException if the given maxDeviation is negative.
    */
   public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
-    return GlobalBasicCalculator.isApproximatelyOne(value, maxDeviation);
+    return BASIC_CALCULATOR.isApproximatelyOne(value, maxDeviation);
   }
 
   //static method
@@ -404,7 +407,7 @@ public final class GlobalCalculator {
    *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
   public static boolean isApproximatelyZero(final double value) {
-    return GlobalBasicCalculator.isApproximatelyZero(value);
+    return BASIC_CALCULATOR.isApproximatelyZero(value);
   }
 
   //static method
@@ -416,6 +419,6 @@ public final class GlobalCalculator {
    * @throws NegativeArgumentException if the given maxDeviation is negative.
    */
   public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
-    return GlobalBasicCalculator.isApproximatelyZero(value, maxDeviation);
+    return BASIC_CALCULATOR.isApproximatelyZero(value, maxDeviation);
   }
 }

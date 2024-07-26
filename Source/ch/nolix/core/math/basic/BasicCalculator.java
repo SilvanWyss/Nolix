@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
-public final class GlobalBasicCalculator {
+public final class BasicCalculator {
 
   //constant
   /**
@@ -19,15 +19,7 @@ public final class GlobalBasicCalculator {
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalBasicCalculator} can be
-   * created.
-   */
-  private GlobalBasicCalculator() {
-  }
-
-  //static method
+  //method
   /**
    * @param xValues
    * @param yValues
@@ -36,7 +28,7 @@ public final class GlobalBasicCalculator {
    * @throws InvalidArgumentException if the count of the given yValues does not
    *                                  equal the count of the given xValues.
    */
-  public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
+  public LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 
     //Asserts that the count of the given yValues equals the count of the given
     //xValues.
@@ -50,7 +42,7 @@ public final class GlobalBasicCalculator {
     return lFPNPairs;
   }
 
-  //static method
+  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value1
@@ -58,11 +50,11 @@ public final class GlobalBasicCalculator {
    * @return true if the given values equals approximately each other with a
    *         deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
-  public static boolean equalsApproximatively(final double value1, final double value2) {
+  public boolean equalsApproximatively(final double value1, final double value2) {
     return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
   }
 
-  //static method
+  //method
   /**
    * @param value1
    * @param value2
@@ -71,7 +63,7 @@ public final class GlobalBasicCalculator {
    *         deviation that is not bigger than the given maxDeviation.
    * @throws NegativeArgumentException if the given maxDeviation is negative.
    */
-  public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
+  public boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
 
     //Asserts that the given maxDeviation is not negative.
     GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
@@ -79,13 +71,13 @@ public final class GlobalBasicCalculator {
     return (Math.abs(value1 - value2) <= maxDeviation);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the average of the given values.
    */
-  public static double getAverage(final double value, final double... values) {
+  public double getAverage(final double value, final double... values) {
 
     final var sum = getSum(value, values);
     final var valueCount = 1 + values.length;
@@ -99,7 +91,7 @@ public final class GlobalBasicCalculator {
    * @return the average of the given values.
    * @throws EmptyArgumentException if the given values is empty.
    */
-  public static double getAverage(final Iterable<Double> values) {
+  public double getAverage(final Iterable<Double> values) {
 
     var count = 0;
     var sum = 0.0;
@@ -115,13 +107,13 @@ public final class GlobalBasicCalculator {
     return (sum / count);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the average of the given values.
    */
-  public static int getAverage(final int value, final int... values) {
+  public int getAverage(final int value, final int... values) {
 
     final var sum = getSum(value, values);
     final var valueCount = 1 + values.length;
@@ -129,13 +121,13 @@ public final class GlobalBasicCalculator {
     return (sum / valueCount);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the average of the given values.
    */
-  public static long getAverage(final long value, final long... values) {
+  public long getAverage(final long value, final long... values) {
 
     final var sum = getSum(value, values);
     final var valueCount = 1 + values.length;
@@ -143,13 +135,13 @@ public final class GlobalBasicCalculator {
     return (sum / valueCount);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the biggest value of the given values.
    */
-  public static double getMax(final double value, final double... values) {
+  public double getMax(final double value, final double... values) {
 
     var max = value;
     for (final var v : values) {
@@ -161,13 +153,13 @@ public final class GlobalBasicCalculator {
     return max;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the biggest value of the given values.
    */
-  public static int getMax(final int value, final int... values) {
+  public int getMax(final int value, final int... values) {
 
     var max = value;
     for (final var v : values) {
@@ -179,13 +171,13 @@ public final class GlobalBasicCalculator {
     return max;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the biggest value of the given values.
    */
-  public static long getMax(final long value, final long... values) {
+  public long getMax(final long value, final long... values) {
 
     var max = value;
     for (final var v : values) {
@@ -197,13 +189,13 @@ public final class GlobalBasicCalculator {
     return max;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the smallest value of the given values.
    */
-  public static double getMin(final double value, final double... values) {
+  public double getMin(final double value, final double... values) {
 
     var min = value;
     for (final var v : values) {
@@ -215,13 +207,13 @@ public final class GlobalBasicCalculator {
     return min;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the smallest value of the given values.
    */
-  public static int getMin(final int value, final int... values) {
+  public int getMin(final int value, final int... values) {
 
     var min = value;
     for (final var v : values) {
@@ -233,13 +225,13 @@ public final class GlobalBasicCalculator {
     return min;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the smallest value of the given values.
    */
-  public static long getMin(final long value, final long... values) {
+  public long getMin(final long value, final long... values) {
 
     var min = value;
     for (final var v : values) {
@@ -251,40 +243,40 @@ public final class GlobalBasicCalculator {
     return min;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @return the square of the given value.
    */
-  public static double getSquare(final double value) {
+  public double getSquare(final double value) {
     return (value * value);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @return the square of the given value.
    */
-  public static double getSquare(final int value) {
+  public double getSquare(final int value) {
     return (value * value);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @return the square of the given value.
    */
-  public static double getSquare(final long value) {
+  public double getSquare(final long value) {
     return (value * value);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the sum of the given values.
    */
-  public static double getSum(final double value, final double... values) {
+  public double getSum(final double value, final double... values) {
 
     var sum = value;
 
@@ -295,13 +287,13 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the sum of the given values.
    */
-  public static int getSum(final int value, final int... values) {
+  public int getSum(final int value, final int... values) {
 
     var sum = value;
     for (final var v : values) {
@@ -311,12 +303,12 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  //static method
+  //method
   /**
    * @param values
    * @return the sum of the given values.
    */
-  public static double getSum(final Iterable<Double> values) {
+  public double getSum(final Iterable<Double> values) {
 
     var sum = 0.0;
     for (final var v : values) {
@@ -326,13 +318,13 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param values
    * @return the sum of the given values.
    */
-  public static long getSum(final long value, final long... values) {
+  public long getSum(final long value, final long... values) {
 
     var sum = value;
     for (final var v : values) {
@@ -342,18 +334,18 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  //static method
+  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value
    * @return true if the given value is approximately 1.0 with a deviation that is
    *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
-  public static boolean isApproximatelyOne(final double value) {
+  public boolean isApproximatelyOne(final double value) {
     return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param maxDeviation
@@ -361,7 +353,7 @@ public final class GlobalBasicCalculator {
    *         not bigger than the given maxDeviation.
    * @throws NegativeArgumentException if the given maxDeviation is negative.
    */
-  public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
+  public boolean isApproximatelyOne(final double value, final double maxDeviation) {
 
     //Asserts that the given maxDeviation is not negative.
     GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
@@ -369,18 +361,18 @@ public final class GlobalBasicCalculator {
     return (Math.abs(value - 1.0) <= maxDeviation);
   }
 
-  //static method
+  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value
    * @return true if the given value is approximately 0.0 with a deviation that is
    *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
    */
-  public static boolean isApproximatelyZero(final double value) {
+  public boolean isApproximatelyZero(final double value) {
     return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
   }
 
-  //static method
+  //method
   /**
    * @param value
    * @param maxDeviation
@@ -388,7 +380,7 @@ public final class GlobalBasicCalculator {
    *         not bigger than the given maxDeviation.
    * @throws NegativeArgumentException if the given maxDeviation is negative.
    */
-  public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
+  public boolean isApproximatelyZero(final double value, final double maxDeviation) {
 
     //Asserts that the given maxDeviation is not negative.
     GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
