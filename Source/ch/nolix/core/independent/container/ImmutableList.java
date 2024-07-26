@@ -6,10 +6,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.core.independent.containervalidator.GlobalArrayValidator;
+import ch.nolix.core.independent.containervalidator.ArrayValidator;
 
 //class
 public final class ImmutableList<E> implements Iterable<E> {
+
+  //constant
+  private static final ArrayValidator ARRAY_VALIDATOR = new ArrayValidator();
 
   //multi-attribute
   private final E[] elements;
@@ -20,7 +23,7 @@ public final class ImmutableList<E> implements Iterable<E> {
 
     elements = (E[]) new Object[0];
 
-    GlobalArrayValidator.assertDoesNotContainNull(elements);
+    ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
   }
 
   //constructor
@@ -28,7 +31,7 @@ public final class ImmutableList<E> implements Iterable<E> {
 
     elements = paramElements.clone();
 
-    GlobalArrayValidator.assertDoesNotContainNull(elements);
+    ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
   }
 
   //constructor
@@ -37,7 +40,7 @@ public final class ImmutableList<E> implements Iterable<E> {
     elements = Arrays.copyOfRange(paramElements, 0, 1 + paramElements.length);
     elements[paramElements.length] = element;
 
-    GlobalArrayValidator.assertDoesNotContainNull(paramElements);
+    ARRAY_VALIDATOR.assertDoesNotContainNull(paramElements);
   }
 
   //static method

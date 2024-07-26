@@ -2,14 +2,10 @@
 package ch.nolix.core.independent.containervalidator;
 
 //class
-public final class GlobalArrayValidator {
+public final class ArrayValidator {
 
-  //constructor
-  private GlobalArrayValidator() {
-  }
-
-  //static method
-  public static void assertDoesNotContainNull(final Object[] array) {
+  //method
+  public void assertDoesNotContainNull(final Object[] array) {
 
     if (array == null) {
       throw new IllegalArgumentException("The given array is null.");
