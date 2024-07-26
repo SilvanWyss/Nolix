@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
-public final class GlobalEnglishNounTool {
+public final class EnglishNounTool {
 
   //constant
   private static final String ARTICLE_A = "a";
@@ -18,20 +18,16 @@ public final class GlobalEnglishNounTool {
   //constant
   private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
 
-  //constructor
-  private GlobalEnglishNounTool() {
-  }
-
-  //static method
-  public static String getArticleOfNoun(final String noun) {
+  //method
+  public String getArticleOfNoun(final String noun) {
 
     final var firstLetter = noun.charAt(0);
 
     return getArticleOfNounWithFirstLetter(firstLetter);
   }
 
-  //static method
-  public static String getPlural(final String noun) {
+  //method
+  public String getPlural(final String noun) {
 
     GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalogue.NOUN).isNotBlank();
 
@@ -51,8 +47,8 @@ public final class GlobalEnglishNounTool {
     };
   }
 
-  //static method
-  private static String getArticleOfNounWithFirstLetter(final char firstLetter) {
+  //method
+  private String getArticleOfNounWithFirstLetter(final char firstLetter) {
 
     //Asserts that the given letter is valid.
     if (firstLetter < 65
@@ -80,8 +76,8 @@ public final class GlobalEnglishNounTool {
     };
   }
 
-  //static method
-  private static String getPluralOfNounDependingOnEnding(final String noun) {
+  //method
+  private String getPluralOfNounDependingOnEnding(final String noun) {
 
     if (noun.endsWith("man")) {
       return (noun.substring(0, noun.length() - 3) + "men");
