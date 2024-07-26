@@ -14,14 +14,10 @@ import javax.imageio.ImageIO;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 
 //class
-public final class GlobalBufferedImageTool {
+public final class BufferedImageTool {
 
-  //constructor
-  private GlobalBufferedImageTool() {
-  }
-
-  //static method
-  public static BufferedImage fromBytes(final byte[] bytes) {
+  //method
+  public BufferedImage fromBytes(final byte[] bytes) {
     try {
       return ImageIO.read(new ByteArrayInputStream(bytes));
     } catch (final IOException pIOException) {
@@ -29,8 +25,8 @@ public final class GlobalBufferedImageTool {
     }
   }
 
-  //static method
-  public static BufferedImage fromFile(final String filePath) {
+  //method
+  public BufferedImage fromFile(final String filePath) {
     try {
       return ImageIO.read(new File(filePath));
     } catch (final IOException pIOException) {

@@ -42,6 +42,9 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //constant
   private static final String JPG_STRING = "JPGString";
 
+  //constant
+  private static final BufferedImageTool BUFFERED_IMAGE_TOOL = new BufferedImageTool();
+
   //attribute
   private final Value<Integer> width = new Value<>(
     PascalCaseVariableCatalogue.WIDTH,
@@ -86,7 +89,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   //static method
   public static MutableImage fromBytes(final byte[] bytes) {
-    return fromBufferedImage(GlobalBufferedImageTool.fromBytes(bytes));
+    return fromBufferedImage(BUFFERED_IMAGE_TOOL.fromBytes(bytes));
   }
 
   //static method
@@ -113,7 +116,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //static method
   public static MutableImage fromFile(final String filePath) {
 
-    final var bufferedImage = GlobalBufferedImageTool.fromFile(filePath);
+    final var bufferedImage = BUFFERED_IMAGE_TOOL.fromFile(filePath);
 
     return fromBufferedImage(bufferedImage);
   }
