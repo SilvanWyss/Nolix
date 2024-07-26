@@ -10,7 +10,6 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.function.GlobalFunctionTool;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
@@ -66,7 +65,7 @@ public final class GlobalSequencer {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public static AsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
-    return new AsSoonAsMediator(GlobalFunctionTool.createNegatorForBooleanSupplier(condition));
+    return new AsSoonAsMediator(() -> !condition.getAsBoolean());
   }
 
   //static method
@@ -161,7 +160,7 @@ public final class GlobalSequencer {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public static AsLongAsMediator until(final BooleanSupplier condition) {
-    return new AsLongAsMediator(GlobalFunctionTool.createNegatorForBooleanSupplier(condition));
+    return new AsLongAsMediator(() -> !condition.getAsBoolean());
   }
 
   //static method
