@@ -5,10 +5,19 @@ package ch.nolix.core.commontypetool.iteratortool;
 import java.util.Objects;
 
 //own imports
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
 public final class IterableTool implements IIterableTool {
+
+  //method
+  @Override
+  public boolean containsAllObjects(final Iterable<?> iterable, final Object[] objects) {
+    return iterable != null
+    && containsAllObjectsWhenIsNotNull(iterable, objects);
+  }
 
   //method
   @Override
@@ -47,6 +56,20 @@ public final class IterableTool implements IIterableTool {
     }
 
     return elementCount;
+  }
+
+  //method
+  private boolean containsAllObjectsWhenIsNotNull(final Iterable<?> iterable, final Object[] objects) {
+
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+
+    for (final var object : objects) {
+      if (!containsObject(iterable, object)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   //method

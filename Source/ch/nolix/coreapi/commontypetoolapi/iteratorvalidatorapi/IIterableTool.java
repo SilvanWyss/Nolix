@@ -5,6 +5,9 @@ package ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi;
 public interface IIterableTool {
 
   //method declaration
+  boolean containsAllObjects(Iterable<?> iterable, Object[] objects);
+
+  //method declaration
   boolean containsAny(Iterable<?> iterable);
 
   //method declaration
