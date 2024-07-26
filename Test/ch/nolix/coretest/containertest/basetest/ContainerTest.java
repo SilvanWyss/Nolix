@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
@@ -989,6 +990,20 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result).isEqualTo(0.2);
+  }
+
+  //method
+  @Test
+  final void testCase_isView() {
+
+    //setup
+    final var testUnit = createEmptyContainerForType(VoidObject.class);
+
+    //execution
+    final var result = testUnit.isView();
+
+    //verification
+    expect(result == !testUnit.isMaterialized());
   }
 
   //method
