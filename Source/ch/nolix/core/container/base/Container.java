@@ -476,7 +476,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> from1BasedStartIndex(final int startIndex) {
+  public final IContainer<E> getViewFrom1BasedStartIndex(final int startIndex) {
     return getSubContainerFromStartIndexToEndIndex(startIndex, getCount());
   }
 
@@ -487,7 +487,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> from1BasedStartIndexUntil1BasedEndIndex(final int startIndex, final int endIndex) {
+  public final IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(final int startIndex, final int endIndex) {
     return getSubContainerFromStartIndexToEndIndex(startIndex, endIndex);
   }
 
@@ -1474,7 +1474,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> until1BasedIndex(final int endIndex) {
+  public final IContainer<E> getViewTo1BasedEndIndex(final int endIndex) {
     return getSubContainerFromStartIndexToEndIndex(1, endIndex);
   }
 
@@ -1485,13 +1485,13 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> withoutFirst() {
+  public final IContainer<E> getViewWithoutFirst() {
 
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
 
-    return withoutFirst(1);
+    return getViewWithoutFirst(1);
   }
 
   //method
@@ -1501,7 +1501,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> withoutFirst(final int n) {
+  public final IContainer<E> getViewWithoutFirst(final int n) {
 
     //Asserts that the given n is positive.
     GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
@@ -1524,14 +1524,14 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> withoutLast() {
+  public final IContainer<E> getViewWithoutLast() {
 
     //Asserts that the current IContainer is not empty.
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
 
-    return withoutLast(1);
+    return getViewWithoutLast(1);
   }
 
   //method
@@ -1541,7 +1541,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> withoutLast(final int n) {
+  public final IContainer<E> getViewWithoutLast(final int n) {
 
     //Asserts that the given n is positive.
     GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
@@ -1706,7 +1706,7 @@ implements IContainer<E> {
     stringBuilder.append(getStoredFirst());
 
     //Iterates the elements of the current Container without the first element.
-    for (final var e : withoutFirst()) {
+    for (final var e : getViewWithoutFirst()) {
 
       //Appends the separator and the String representation of the current element to
       //the StringBuilder.

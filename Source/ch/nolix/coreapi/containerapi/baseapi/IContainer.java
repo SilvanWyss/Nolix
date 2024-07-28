@@ -30,34 +30,8 @@ StoringRequestable<E> {
 
   //method declaration
   /**
-   * @param p1BasedStartIndex
-   * @return a new sub {@link IContainer} of the current {@link IContainer} from
-   *         the given p1BasedStartIndex.
-   * @throws RuntimeException if the given p1BasedStartIndex is not positive.
-   * @throws RuntimeException if the current {@link IContainer} contains less
-   *                          elements than the given p1BasedStartIndex.
-   */
-  IContainer<E> from1BasedStartIndex(int p1BasedStartIndex);
-
-  //method declaration
-  /**
-   * @param p1BasedStartIndex
-   * @param p1BasedEndIndex
-   * @return a new sub {@link IContainer} of the current {@link IContainer} from
-   *         the given p1BasedStartIndex to the given p1BasedEndIndex.
-   * @throws RuntimeException if the given startIndex is not positive.
-   * @throws RuntimeException if the given p1BasedEndIndex is smaller than the
-   *                          given p1BasedStartIndex.
-   * @throws RuntimeException if the given p1BasedEndIndex is bigger than the
-   *                          number of elements of the current
-   *                          {@link IContainer}.
-   */
-  IContainer<E> from1BasedStartIndexUntil1BasedEndIndex(int p1BasedStartIndex, int p1BasedEndIndex);
-
-  //method declaration
-  /**
    * @param selector
-   * @return the 1 based index of the first element the given selector selects
+   * @return the 1-based index of the first element the given selector selects
    *         from the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} does not contain
    *                          an element the given selector selects.
@@ -86,6 +60,83 @@ StoringRequestable<E> {
 
   //method declaration
   /**
+   * @param param1BasedStartIndex
+   * @return a new view of the current {@link IContainer} from the given
+   *         param1BasedStartIndex.
+   * @throws RuntimeException if the given param1BasedStartIndex is not positive.
+   * @throws RuntimeException if the given param1BasedStartIndex is bigger than
+   *                          the number of elements of the current
+   *                          {@link IContainer}.
+   */
+  IContainer<E> getViewFrom1BasedStartIndex(int param1BasedStartIndex);
+
+  //method declaration
+  /**
+   * @param param1BasedStartIndex
+   * @param param1BasedEndIndex
+   * @return a new view of the current {@link IContainer} from the given
+   *         param1BasedStartIndex to the given param1BasedEndIndex.
+   * @throws RuntimeException if the given param1BasedStartIndex is not positive.
+   * @throws RuntimeException if the given param1BasedStartIndex is smaller than
+   *                          the given param1BasedEndIndex.
+   * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
+   *                          number of elements of the current
+   *                          {@link IContainer}.
+   */
+  IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(int param1BasedStartIndex, int param1BasedEndIndex);
+
+  //method declaration
+  /**
+   * @param param1BasedEndIndex
+   * @return a new view of the current {@link IContainer} to the given
+   *         param1BasedEndIndex.
+   * @throws RuntimeException if the given param1BasedEndIndex is not positive.
+   * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
+   *                          number of the elements of the current
+   *                          {@link IContainer}.
+   */
+  IContainer<E> getViewTo1BasedEndIndex(int param1BasedEndIndex);
+
+  //method declaration
+  /**
+   * @return a new view of the current {@link IContainer} without the first
+   *         element.
+   * @throws RuntimeException if the current {@link IContainer} is empty.
+   */
+  IContainer<E> getViewWithoutFirst();
+
+  //method declaration
+  /**
+   * @param n
+   * @return a new view of the current {@link IContainer} without the first n
+   *         elements.
+   * @throws RuntimeException if the given n is not positive.
+   * @throws RuntimeException if the given n is bigger than the number of the
+   *                          elements of the current {@link IContainer}.
+   */
+  IContainer<E> getViewWithoutFirst(int n);
+
+  //method declaration
+  /**
+   * @return a new view of the current {@link IContainer} without the last
+   *         element.
+   * @throws RuntimeException if the current {@link IContainer} is empty.
+   */
+  IContainer<E> getViewWithoutLast();
+
+  //method declaration
+  /**
+   * @param n
+   * @return a new sub view of the current {@link IContainer} without the last n
+   *         elements.
+   * @throws RuntimeException if the given n is not positive.
+   * @throws RuntimeException if the given n is bigger than the number of the
+   *                          elements of the current {@link IContainer}.
+   */
+  IContainer<E> getViewWithoutLast(int n);
+
+  //method declaration
+  /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
    * @return a new {@link IContainer} with the elements of the current
@@ -97,15 +148,15 @@ StoringRequestable<E> {
   //method declaration
   /**
    * @return a new {@link IContainer} with the elements of the current
-   *         {@link IContainer} in the reversed order.
+   *         {@link IContainer} in reversed order.
    */
   IContainer<E> toReversedList();
 
   //method declaration
   /**
    * 
-   * @return a new array with the Strings that represent the elements of the
-   *         current {@link IContainer}.
+   * @return a new array with the {@link String} representations of the elements
+   *         of the current {@link IContainer}.
    */
   String[] toStringArray();
 
@@ -119,8 +170,8 @@ StoringRequestable<E> {
   //method declaration
   /**
    * @param separator
-   * @return a {@link String} representation the current {@link IContainer} with
-   *         the given separator.
+   * @return a {@link String} representation of the current {@link IContainer}
+   *         with the given separator.
    */
   String toStringWithSeparator(char separator);
 
@@ -132,53 +183,4 @@ StoringRequestable<E> {
    * @throws RuntimeException if the given separator is null.
    */
   String toStringWithSeparator(String separator);
-
-  //method declaration
-  /**
-   * @param p1BasedEndIndex
-   * @return a new sub {@link IContainer} of the current {@link IContainer} with
-   *         the elements to the given p1BasedEndIndex.
-   * @throws RuntimeException if the given p1BasedEndIndex is not positive.
-   * @throws RuntimeException if the current {@link IContainer} contains more
-   *                          elements than the given p1BasedEndIndex.
-   */
-  IContainer<E> until1BasedIndex(int p1BasedEndIndex);
-
-  //method declaration
-  /**
-   * @return a new sub {@link IContainer} of the current {@link IContainer}
-   *         without the first element.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  IContainer<E> withoutFirst();
-
-  //method declaration
-  /**
-   * @param n
-   * @return a new sub {@link IContainer} of the current {@link IContainer}
-   *         without the first n elements.
-   * @throws RuntimeException if the given n is not positive.
-   * @throws RuntimeException if the current {@link IContainer} contains less than
-   *                          n elements.
-   */
-  IContainer<E> withoutFirst(int n);
-
-  //method declaration
-  /**
-   * @return a new sub {@link IContainer} of the current {@link IContainer}
-   *         without the last element.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  IContainer<E> withoutLast();
-
-  //method declaration
-  /**
-   * @param n
-   * @return a new sub {@link IContainer} of the current {@link IContainer}
-   *         without the last n elements of the current {@link IContainer}.
-   * @throws RuntimeException if the given n is not positive.
-   * @throws RuntimeException if the current {@link IContainer} contains less than
-   *                          n elements.
-   */
-  IContainer<E> withoutLast(int n);
 }

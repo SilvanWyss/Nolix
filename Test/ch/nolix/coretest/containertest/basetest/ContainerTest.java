@@ -310,7 +310,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     //execution
-    final var result = testUnit.from1BasedStartIndex(4);
+    final var result = testUnit.getViewFrom1BasedStartIndex(4);
 
     //verification
     expect(result.getCount()).isEqualTo(3);
@@ -1222,7 +1222,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     //execution
-    final var result = testUnit.until1BasedIndex(5);
+    final var result = testUnit.getViewTo1BasedEndIndex(5);
 
     //verification
     expect(result.getCount()).isEqualTo(5);
@@ -1267,7 +1267,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     //execution
-    final var result = testUnit.withoutFirst();
+    final var result = testUnit.getViewWithoutFirst();
 
     //verification
     expect(result.getCount()).isEqualTo(5);
