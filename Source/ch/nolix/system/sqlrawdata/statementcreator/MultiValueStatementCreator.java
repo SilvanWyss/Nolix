@@ -12,7 +12,8 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
   //method
   @Override
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
@@ -22,7 +23,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + multiValueColumnId
-    + "'";
+    + "';";
   }
 
   //method
@@ -31,7 +32,8 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entityId,
     final String multiValueColumnId,
     final String entry) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
@@ -45,7 +47,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + MultiValueEntryTableColumn.VALUE.getName()
     + " = '"
     + entry
-    + "'";
+    + "';";
   }
 
   //method
@@ -54,7 +56,8 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entityId,
     final String multiValueColumnId,
     final String entry) {
-    return "INSERT INTO "
+    return //
+    "INSERT INTO "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " ("
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
@@ -68,6 +71,6 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + multiValueColumnId
     + "', '"
     + entry
-    + "')";
+    + "');";
   }
 }
