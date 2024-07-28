@@ -11,8 +11,8 @@ import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 
 //enum
 public enum MultiValueEntryTableColumn implements INameHolder {
-  MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
   ENTITY_ID("EntityId"),
+  MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
   VALUE(PascalCaseVariableCatalogue.VALUE);
 
   //constant
