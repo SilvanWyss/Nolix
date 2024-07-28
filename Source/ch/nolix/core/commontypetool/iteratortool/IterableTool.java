@@ -15,7 +15,17 @@ public final class IterableTool implements IIterableTool {
   //method
   @Override
   public boolean containsAllObjects(final Iterable<?> iterable, final Object[] objects) {
-    return iterable != null
+    return //
+    iterable != null
+    && containsAllObjectsWhenIsNotNull(iterable, objects);
+  }
+
+  //method
+  @Override
+  public boolean containsAllObjects(final Iterable<?> iterable, final Object object, final Object... objects) {
+    return //
+    iterable != null
+    && containsObject(iterable, object)
     && containsAllObjectsWhenIsNotNull(iterable, objects);
   }
 

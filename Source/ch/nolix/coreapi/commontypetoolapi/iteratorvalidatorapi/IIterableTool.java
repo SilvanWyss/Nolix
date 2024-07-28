@@ -8,6 +8,9 @@ public interface IIterableTool {
   boolean containsAllObjects(Iterable<?> iterable, Object[] objects);
 
   //method declaration
+  boolean containsAllObjects(Iterable<?> iterable, Object object, Object... objects);
+
+  //method declaration
   boolean containsAny(Iterable<?> iterable);
 
   //method declaration
