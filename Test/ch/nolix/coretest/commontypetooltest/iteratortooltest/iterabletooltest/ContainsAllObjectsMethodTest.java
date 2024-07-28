@@ -12,7 +12,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
-final class ContainsAllMethodTest extends StandardTest {
+final class ContainsAllObjectsMethodTest extends StandardTest {
 
   //method
   @ParameterizedTest
