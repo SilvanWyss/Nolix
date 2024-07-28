@@ -4,6 +4,7 @@ package ch.nolix.coretest.commontypetooltest.iteratortooltest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
+//own imports
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.standardtest.StandardTest;
