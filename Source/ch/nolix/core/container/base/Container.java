@@ -58,31 +58,17 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n elements are given.
    * 
    * {@inheritDoc}
    */
   @Override
   public final boolean containsAll(final Object element, final Object... elements) {
-
-    //Handles the case that the current Container does not contain the given
-    //firstElement.
-    if (!contains(element)) {
-      return false;
-    }
-
-    //Iterates the given elements.
-    for (final var e : elements) {
-
-      //Handles the case that the current Container does not contain the current
-      //element.
-      if (!contains(e)) {
-        return false;
-      }
-    }
-
-    return true;
+    return ITERABLE_TOOL.containsAllObjects(this, element, elements);
   }
 
   //method
