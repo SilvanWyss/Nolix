@@ -127,4 +127,109 @@ final class ContainsAllMethodTest extends StandardTest {
     //verification
     expect(result);
   }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_whenDoesNotContainsAllObject_1A() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var list = new ImmutableList<String>();
+    final var elements = new String[] { antelope, elephant, lion, monkey, rhino };
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(list, elements);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_whenDoesNotContainsAllObject_1B() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var list = ImmutableList.withElement(antelope);
+    final var elements = new String[] { antelope, elephant, lion, monkey, rhino };
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(list, elements);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_whenDoesNotContainsAllObject_1C() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var list = ImmutableList.withElement(antelope, elephant);
+    final var elements = new String[] { antelope, elephant, lion, monkey, rhino };
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(list, elements);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_whenDoesNotContainsAllObject_1D() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var list = ImmutableList.withElement(antelope, elephant, lion);
+    final var elements = new String[] { antelope, elephant, lion, monkey, rhino };
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(list, elements);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_whenDoesNotContainsAllObject_1E() {
+
+    //setup
+    final var antelope = "antelope";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var monkey = "monkey";
+    final var rhino = "rhino";
+    final var list = ImmutableList.withElement(antelope, elephant, lion, monkey);
+    final var elements = new String[] { antelope, elephant, lion, monkey, rhino };
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(list, elements);
+
+    //verification
+    expectNot(result);
+  }
 }
