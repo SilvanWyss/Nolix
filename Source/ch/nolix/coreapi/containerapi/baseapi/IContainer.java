@@ -26,6 +26,7 @@ ISearchableContainer<E>,
 IMappableContainer<E>,
 MaterializationRequestable,
 IStatisticalConainer<E>,
+IViewProviderContainer<E>,
 StoringRequestable<E> {
 
   //method declaration
@@ -57,83 +58,6 @@ StoringRequestable<E> {
    *                          the given element.
    */
   int get1BasedIndexOfFirstOccuranceOf(E element);
-
-  //method declaration
-  /**
-   * @param param1BasedStartIndex
-   * @return a new view of the current {@link IContainer} from the given
-   *         param1BasedStartIndex.
-   * @throws RuntimeException if the given param1BasedStartIndex is not positive.
-   * @throws RuntimeException if the given param1BasedStartIndex is bigger than
-   *                          the number of elements of the current
-   *                          {@link IContainer}.
-   */
-  IContainer<E> getViewFrom1BasedStartIndex(int param1BasedStartIndex);
-
-  //method declaration
-  /**
-   * @param param1BasedStartIndex
-   * @param param1BasedEndIndex
-   * @return a new view of the current {@link IContainer} from the given
-   *         param1BasedStartIndex to the given param1BasedEndIndex.
-   * @throws RuntimeException if the given param1BasedStartIndex is not positive.
-   * @throws RuntimeException if the given param1BasedStartIndex is smaller than
-   *                          the given param1BasedEndIndex.
-   * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
-   *                          number of elements of the current
-   *                          {@link IContainer}.
-   */
-  IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(int param1BasedStartIndex, int param1BasedEndIndex);
-
-  //method declaration
-  /**
-   * @param param1BasedEndIndex
-   * @return a new view of the current {@link IContainer} to the given
-   *         param1BasedEndIndex.
-   * @throws RuntimeException if the given param1BasedEndIndex is not positive.
-   * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
-   *                          number of the elements of the current
-   *                          {@link IContainer}.
-   */
-  IContainer<E> getViewTo1BasedEndIndex(int param1BasedEndIndex);
-
-  //method declaration
-  /**
-   * @return a new view of the current {@link IContainer} without the first
-   *         element.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  IContainer<E> getViewWithoutFirst();
-
-  //method declaration
-  /**
-   * @param n
-   * @return a new view of the current {@link IContainer} without the first n
-   *         elements.
-   * @throws RuntimeException if the given n is not positive.
-   * @throws RuntimeException if the given n is bigger than the number of the
-   *                          elements of the current {@link IContainer}.
-   */
-  IContainer<E> getViewWithoutFirst(int n);
-
-  //method declaration
-  /**
-   * @return a new view of the current {@link IContainer} without the last
-   *         element.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  IContainer<E> getViewWithoutLast();
-
-  //method declaration
-  /**
-   * @param n
-   * @return a new sub view of the current {@link IContainer} without the last n
-   *         elements.
-   * @throws RuntimeException if the given n is not positive.
-   * @throws RuntimeException if the given n is bigger than the number of the
-   *                          elements of the current {@link IContainer}.
-   */
-  IContainer<E> getViewWithoutLast(int n);
 
   //method declaration
   /**
