@@ -580,21 +580,7 @@ implements IContainer<E> {
    */
   @Override
   public final int get1BasedIndexOfFirstEqualElement(final E element) {
-
-    //Iterates the current IContainer.
-    var index = 1;
-    for (final var e : this) {
-
-      //Handles the case that the current element equals the given element.
-      if (e.equals(element)) {
-        return index;
-      }
-
-      //Increments index.
-      index++;
-    }
-
-    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an equal element");
+    return ITERABLE_TOOL.get1BasedIndexOfFirstEqualElement(this, element);
   }
 
   //method

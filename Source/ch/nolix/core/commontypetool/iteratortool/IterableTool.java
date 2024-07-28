@@ -5,6 +5,7 @@ package ch.nolix.core.commontypetool.iteratortool;
 import java.util.Objects;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
@@ -59,6 +60,21 @@ public final class IterableTool implements IIterableTool {
     return //
     iterable != null
     && containsObjectOnceWhenIsNotNull(iterable, object);
+  }
+
+  //method
+  @Override
+  public int get1BasedIndexOfFirstEqualElement(final Iterable<?> iterable, final Object object) {
+
+    if (iterable == null) {
+      throw //
+      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+        Iterable.class.getSimpleName(),
+        iterable,
+        "does not contain an equal element");
+    }
+
+    return get1BasedIndexOfFirstEqualElementWhenIsNotNull(iterable, object);
   }
 
   //method
@@ -136,5 +152,22 @@ public final class IterableTool implements IIterableTool {
     }
 
     return false;
+  }
+
+  //method
+  private int get1BasedIndexOfFirstEqualElementWhenIsNotNull(final Iterable<?> iterable, final Object object) {
+
+    var index = 1;
+
+    for (final var e : iterable) {
+
+      if (Objects.equals(e, object)) {
+        return index;
+      }
+
+      index++;
+    }
+
+    throw InvalidArgumentException.forArgumentAndErrorPredicate(iterable, "does not contain an equal element");
   }
 }

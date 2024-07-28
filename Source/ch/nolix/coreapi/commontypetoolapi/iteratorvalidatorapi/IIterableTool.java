@@ -23,5 +23,8 @@ public interface IIterableTool {
   boolean containsObjectOnce(Iterable<?> iterable, Object object);
 
   //method declaration
+  int get1BasedIndexOfFirstEqualElement(Iterable<?> iterable, Object object);
+
+  //method declaration
   int getCount(Iterable<?> iterable);
 }
