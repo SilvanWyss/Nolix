@@ -11,7 +11,6 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
@@ -28,7 +27,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //constant
-  private static final int BILLION = 1_000_000_000;
+  private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
 
   //attribute
   private int elementCount;
@@ -281,17 +280,15 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   /**
    * The complexity of this implementation is O(1).
    * 
-   * @return a newly calculated capacity for the current {@link ArrayList} and the
-   *         given requiredCapacity for the case when the current
-   *         {@link ArrayList} needs to grow for the requiredCapacity.
+   * @return the target capacity for the current {@link ArrayList} and the given
+   *         requiredCapacity for the case when the current {@link ArrayList}
+   *         needs to grow for the given requiredCapacity.
    */
   private int calculateTargetCapacityForRequiredCapacityWhenNeedsToGrowForIt(final int requiredCapacity) {
-
-    if (requiredCapacity > BILLION) {
-      return Integer.MAX_VALUE;
-    }
-
-    return GlobalCalculator.getMax(requiredCapacity, 2 * getCapacity());
+    return //
+    ARRAY_LIST_CAPACITY_CALCULATOR.calculateTargetCapacityForActualCapacityAndRequiredCapacity(
+      getCapacity(),
+      requiredCapacity);
   }
 
   //method
@@ -357,6 +354,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    *         capacity the given requiredCapacity says, false otherwise.
    */
   private boolean needsToGrowForRequiredCapacity(final int requiredCapacity) {
-    return (requiredCapacity > getCapacity());
+    return ARRAY_LIST_CAPACITY_CALCULATOR.arrayListNeedsToGrowForRequiredCapacity(getCapacity(), requiredCapacity);
   }
 }
