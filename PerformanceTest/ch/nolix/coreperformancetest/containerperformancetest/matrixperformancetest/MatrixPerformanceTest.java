@@ -9,6 +9,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 //class
 final class MatrixPerformanceTest extends PerformanceTest {
@@ -26,7 +27,7 @@ final class MatrixPerformanceTest extends PerformanceTest {
 
     for (var i = 1; i <= rowAndColumnCount; i++) {
 
-      final var row = new LinkedList<Integer>();
+      final ILinkedList<Integer> row = LinkedList.createEmpty();
 
       GlobalSequencer.forCount(rowAndColumnCount).run(j -> row.addAtEnd(j - (j % 5)));
 

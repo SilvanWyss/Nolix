@@ -9,6 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -86,7 +87,7 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final IContainer<INode<?>> getAttributes() {
 
-    final var attributes = new LinkedList<INode<?>>();
+    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_ID_HEADER, getSelectorId()));

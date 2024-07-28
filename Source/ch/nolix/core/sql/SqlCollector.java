@@ -13,7 +13,7 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 public final class SqlCollector implements Clearable {
 
   //multi-attribute
-  private final LinkedList<String> sqlStatements = new LinkedList<>();
+  private final LinkedList<String> sqlStatements = LinkedList.createEmpty();
 
   //method
   public SqlCollector addSqlStatement(final String sqlstatement) {

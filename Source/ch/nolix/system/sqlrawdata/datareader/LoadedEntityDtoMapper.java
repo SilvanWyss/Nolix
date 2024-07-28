@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.sqlrawdata.datadto.LoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
@@ -38,7 +39,7 @@ final class LoadedEntityDtoMapper {
     final IContainer<String> sqlRecordValues,
     final IContainer<IColumnInfo> contentColumnDefinitions) {
 
-    final var contentFields = new LinkedList<ILoadedContentFieldDto>();
+    final ILinkedList<ILoadedContentFieldDto> contentFields = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecordValues.iterator();
 
     //Skips id and save stamp.

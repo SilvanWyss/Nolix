@@ -33,7 +33,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
   private Application<?, ?> defaultApplication;
 
   //multi-attribute
-  private final LinkedList<Application<?, ?>> applications = new LinkedList<>();
+  private final LinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
 
   //method
   /**

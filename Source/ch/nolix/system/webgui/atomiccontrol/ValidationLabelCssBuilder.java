@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
@@ -19,7 +17,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IValidationLabel control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
@@ -28,7 +26,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IValidationLabel text,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -36,7 +34,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IValidationLabel text,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -45,7 +43,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IValidationLabel text,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

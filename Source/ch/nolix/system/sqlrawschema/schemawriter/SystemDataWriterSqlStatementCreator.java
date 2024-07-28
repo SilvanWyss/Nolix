@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParameterizedFieldTypeSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
@@ -76,9 +77,9 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
   //method
   @Override
-  public LinkedList<String> createStatementsToAddTable(final ITableDto table) {
+  public ILinkedList<String> createStatementsToAddTable(final ITableDto table) {
 
-    final var statements = new LinkedList<String>();
+    final ILinkedList<String> statements = LinkedList.createEmpty();
 
     statements.addAtEnd(createStatementToAddTableIgnoringColumns(table));
 

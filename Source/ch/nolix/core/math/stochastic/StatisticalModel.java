@@ -20,7 +20,7 @@ public abstract class StatisticalModel {
   private final double[] inputValues;
 
   //multi-attribute
-  private final LinkedList<Double> forecasts = new LinkedList<>();
+  private final LinkedList<Double> forecasts = LinkedList.createEmpty();
 
   //constructor
   protected StatisticalModel(final int backStepsCount, final double[] inputValues) {

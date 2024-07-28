@@ -21,7 +21,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AC>, A
   private Session<C, AC> currentSession;
 
   //multi-attribute
-  private final LinkedList<Session<C, AC>> sessionStack = new LinkedList<>();
+  private final LinkedList<Session<C, AC>> sessionStack = LinkedList.createEmpty();
 
   //constructor
   private BackendClientSessionManager(final C parentClient) {

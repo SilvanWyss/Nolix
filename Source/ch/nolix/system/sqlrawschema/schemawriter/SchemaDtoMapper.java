@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.TableType;
@@ -44,7 +45,7 @@ final class SchemaDtoMapper {
   private IContainer<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> createSqlColumnDtosFrom(
     final ITableDto table) {
 
-    final var columns = new LinkedList<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto>();
+    final ILinkedList<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> columns = LinkedList.createEmpty();
 
     columns.addAtEnd(SQL_ID_COLUMN_DTO);
 

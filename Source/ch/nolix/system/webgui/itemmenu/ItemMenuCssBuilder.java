@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
@@ -18,7 +17,7 @@ extends ControlCssBuilder<IM, IMS> {
   protected final void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IM itemMenu,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -26,7 +25,7 @@ extends ControlCssBuilder<IM, IMS> {
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IM itemMenu,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 }

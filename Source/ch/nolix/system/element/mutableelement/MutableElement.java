@@ -10,6 +10,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.base.SpecificationCreator;
 import ch.nolix.system.element.multistateconfiguration.Property;
@@ -90,7 +91,7 @@ public abstract class MutableElement implements IMutableElement {
   @Override
   public final IContainer<INode<?>> getAttributes() {
 
-    final var attributes = new LinkedList<INode<?>>();
+    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     //Iterates the properties of the current MutableElement.
     for (final var p : getStoredProperties()) {
@@ -179,7 +180,7 @@ public abstract class MutableElement implements IMutableElement {
    */
   private void extractProperties() {
 
-    properties = new LinkedList<>();
+    properties = LinkedList.createEmpty();
 
     //Iterates the classes of the current MutableElement.
     Class<?> lClass = getClass();

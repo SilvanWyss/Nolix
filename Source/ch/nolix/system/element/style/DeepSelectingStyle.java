@@ -8,6 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
@@ -28,7 +29,8 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    * Creates a new empty {@link DeepSelectingStyle}.
    */
   public DeepSelectingStyle() {
-    super(null, null, ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty());
+    super(null, null, ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty(),
+      ImmutableList.createEmpty());
   }
 
   //constructor
@@ -68,10 +70,10 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     String optionalselectorId = null;
     String optionalSelectorType = null;
-    final var selectorRoles = new LinkedList<String>();
-    final var selectorTokens = new LinkedList<String>();
-    final var attachingAttributes = new LinkedList<INode<?>>();
-    final var subStyles = new LinkedList<BaseSelectingStyle>();
+    final ILinkedList<String> selectorRoles = LinkedList.createEmpty();
+    final ILinkedList<String> selectorTokens = LinkedList.createEmpty();
+    final ILinkedList<INode<?>> attachingAttributes = LinkedList.createEmpty();
+    final ILinkedList<BaseSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
@@ -145,7 +147,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
-    final var allAttachingAttributes = new LinkedList<Node>();
+    final ILinkedList<INode<?>> allAttachingAttributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
@@ -201,7 +203,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
-    final var allSelectorRoles = new LinkedList<String>();
+    final ILinkedList<String> allSelectorRoles = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
@@ -230,7 +232,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
-    final var allSelectorTokens = new LinkedList<String>();
+    final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
@@ -285,7 +287,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
-    final var allSubStyles = new LinkedList<ISelectingStyleWithSelectors>();
+    final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();

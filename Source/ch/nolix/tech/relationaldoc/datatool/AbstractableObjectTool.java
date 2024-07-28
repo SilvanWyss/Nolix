@@ -16,7 +16,7 @@ public final class AbstractableObjectTool implements IAbstractableObjectTool {
   public IContainer<? extends IAbstractableObject> getStoredSubTypesUsingSimplerMethods(
     IAbstractableObject abstractableObject) {
 
-    final var subTypes = new LinkedList<IAbstractableObject>();
+    final ILinkedList<IAbstractableObject> subTypes = LinkedList.createEmpty();
 
     fillUpSubTypesIntoListUsingSimplerMethods(abstractableObject, subTypes);
 

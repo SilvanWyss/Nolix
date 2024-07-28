@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
@@ -30,7 +31,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
   //method
   private IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
 
-    final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
+    final ILinkedList<IHtmlAttribute> htmlAttribtues = LinkedList.createEmpty();
 
     htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
 

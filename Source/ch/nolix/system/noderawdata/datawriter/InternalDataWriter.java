@@ -29,7 +29,7 @@ final class InternalDataWriter {
   private final IMutableNode<?> nodeDatabase;
 
   //multi-attribute
-  private final LinkedList<Consumer<IMutableNode<?>>> changeActions = new LinkedList<>();
+  private final LinkedList<Consumer<IMutableNode<?>>> changeActions = LinkedList.createEmpty();
 
   //constructor
   public InternalDataWriter(final IMutableNode<?> nodeDatabase) {

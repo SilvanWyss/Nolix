@@ -14,6 +14,7 @@ import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 import ch.nolix.system.graphic.color.Color;
@@ -170,9 +171,9 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   }
 
   //method
-  private LinkedList<IFuture> startFillImageAndGetFutures() {
+  private ILinkedList<IFuture> startFillImageAndGetFutures() {
 
-    final var lFutures = new LinkedList<IFuture>();
+    final ILinkedList<IFuture> lFutures = LinkedList.createEmpty();
 
     final var jobPool = new JobPool();
 

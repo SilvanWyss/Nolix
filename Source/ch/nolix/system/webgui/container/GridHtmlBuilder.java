@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.container;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
@@ -36,10 +37,9 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   }
 
   //method
-  private IContainer<HtmlElement> createHtmlElementsForChildControlsOfGrid(
-    final IGrid grid) {
+  private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfGrid(final IGrid grid) {
 
-    final var htmlElements = new LinkedList<HtmlElement>();
+    final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
 
     for (var ri = 1; ri <= grid.getRowCount(); ri++) {
       htmlElements.addAtEnd(createHtmlElementForRowOfGrid(grid, ri));
@@ -56,9 +56,9 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   }
 
   //method
-  private IContainer<HtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
+  private IContainer<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
 
-    final var htmlElements = new LinkedList<HtmlElement>();
+    final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
 
     for (var ci = 1; ci <= grid.getColumnCount(); ci++) {
       htmlElements.addAtEnd(createHtmlElementForCellOfGrid(grid, rowIndex, ci));

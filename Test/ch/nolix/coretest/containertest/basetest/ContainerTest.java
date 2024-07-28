@@ -290,7 +290,7 @@ public abstract class ContainerTest extends StandardTest {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
-    final var list = new LinkedList<String>();
+    final var list = LinkedList.createEmpty();
 
     //execution
     testUnit.forEach(list::addAtEnd);

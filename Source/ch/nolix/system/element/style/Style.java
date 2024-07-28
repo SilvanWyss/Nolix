@@ -8,6 +8,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
@@ -66,8 +67,8 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
    */
   public static Style fromSpecification(final INode<?> specification) {
 
-    final var attachingAttributes = new LinkedList<INode<?>>();
-    final var subStyles = new LinkedList<BaseSelectingStyle>();
+    final ILinkedList<INode<?>> attachingAttributes = LinkedList.createEmpty();
+    final ILinkedList<BaseSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
@@ -118,7 +119,7 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
   @Override
   public IStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
 
-    final var allAttachingAttributes = new LinkedList<Node>();
+    final ILinkedList<Node> allAttachingAttributes = LinkedList.createEmpty();
 
     for (final var aa : getAttachingAttributes()) {
       allAttachingAttributes.addAtEnd(Node.fromNode(aa));
@@ -138,7 +139,7 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
   @Override
   public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
-    final var allSubStyles = new LinkedList<ISelectingStyleWithSelectors>();
+    final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();
     allSubStyles.addAtEnd(getSubStyles());
     allSubStyles.addAtEnd(subStyles);
 

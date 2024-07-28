@@ -6,8 +6,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlAttributeNameCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
@@ -23,9 +25,9 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
   }
 
   //method
-  private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
+  private IContainer<IHtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
 
-    final var htmlAttributes = new LinkedList<HtmlAttribute>();
+    final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 
     if (imageControl.containsAny()) {
       htmlAttributes.addAtEnd(

@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
@@ -31,7 +32,7 @@ implements IControlCssBuilder<C, CS> {
   @Override
   public final IContainer<ICssRule> createCssRulesForControl(final C control) {
 
-    final var cssRules = new LinkedList<ICssRule>();
+    final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
     fillUpAllStateCssRulesIntoList(cssRules, control);
     fillUpBaseCssRulesIntoList(cssRules, control);
     fillUpHoverCssRulesIntoList(cssRules, control);
@@ -43,29 +44,29 @@ implements IControlCssBuilder<C, CS> {
   //method declaration
   protected abstract void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     C control,
-    LinkedList<? super ICssRule> list);
+    ILinkedList<? super ICssRule> list);
 
   //method declaration
   protected abstract void fillUpAdditionalCssRulesForControlAndStateIntoList(
     C control,
     ControlState state,
-    LinkedList<? super ICssRule> list);
+    ILinkedList<? super ICssRule> list);
 
   //method declaration
   protected abstract void fillUpCssPropertiesForControlAndAllStatesIntoList(
     C control,
-    LinkedList<CssProperty> list);
+    ILinkedList<ICssProperty> list);
 
   //method declaration
   protected abstract void fillUpCssPropertiesForControlAndStateIntoList(
     C control,
     ControlState state,
-    LinkedList<ICssProperty> list);
+    ILinkedList<ICssProperty> list);
 
   //method
-  private void fillUpAllStateCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+  private void fillUpAllStateCssRulesIntoList(final ILinkedList<ICssRule> list, final C control) {
     final var allStateSelectorPrefix = getCssSelectorForControlAndAllStates(control);
-    final var allStateCssRules = new LinkedList<ICssRule>();
+    final ILinkedList<ICssRule> allStateCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndAllStatesIntoList(control, allStateCssRules);
     for (final var r : allStateCssRules) {
       list.addAtEnd(r.withPrefixedSelector(allStateSelectorPrefix + StringCatalogue.SPACE));
@@ -73,9 +74,9 @@ implements IControlCssBuilder<C, CS> {
   }
 
   //method
-  private void fillUpBaseCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+  private void fillUpBaseCssRulesIntoList(final ILinkedList<ICssRule> list, final C control) {
     final var baseSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.BASE);
-    final var baseCssRules = new LinkedList<ICssRule>();
+    final ILinkedList<ICssRule> baseCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, baseCssRules);
     for (final var r : baseCssRules) {
       list.addAtEnd(r.withPrefixedSelector(baseSelectorPrefix + StringCatalogue.SPACE));
@@ -104,7 +105,7 @@ implements IControlCssBuilder<C, CS> {
   //method
   private void fillUpCssRulesForControlAndAllStatesIntoList(
     final C control,
-    final LinkedList<ICssRule> list) {
+    final ILinkedList<ICssRule> list) {
 
     list.addAtEnd(getCssRuleForControlAndAllStates(control));
 
@@ -115,7 +116,7 @@ implements IControlCssBuilder<C, CS> {
   private void fillUpCssRulesForControlAndStateIntoList(
     final C control,
     final ControlState state,
-    final LinkedList<ICssRule> list) {
+    final ILinkedList<ICssRule> list) {
 
     list.addAtEnd(getCssRuleForControlAndState(control, state));
 
@@ -123,9 +124,9 @@ implements IControlCssBuilder<C, CS> {
   }
 
   //method
-  private void fillUpFocusCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+  private void fillUpFocusCssRulesIntoList(final ILinkedList<ICssRule> list, final C control) {
     final var focusSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.FOCUS);
-    final var focusCssRules = new LinkedList<ICssRule>();
+    final ILinkedList<ICssRule> focusCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndStateIntoList(control, ControlState.FOCUS, focusCssRules);
     for (final var r : focusCssRules) {
       list.addAtEnd(r.withPrefixedSelector(focusSelectorPrefix + StringCatalogue.SPACE));
@@ -133,9 +134,9 @@ implements IControlCssBuilder<C, CS> {
   }
 
   //method
-  private void fillUpHoverCssRulesIntoList(final LinkedList<ICssRule> list, final C control) {
+  private void fillUpHoverCssRulesIntoList(final ILinkedList<ICssRule> list, final C control) {
     final var hoverSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.HOVER);
-    final var hoverCssRules = new LinkedList<ICssRule>();
+    final ILinkedList<ICssRule> hoverCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndStateIntoList(control, ControlState.HOVER, hoverCssRules);
     for (final var r : hoverCssRules) {
       list.addAtEnd(r.withPrefixedSelector(hoverSelectorPrefix + StringCatalogue.SPACE));
@@ -146,7 +147,7 @@ implements IControlCssBuilder<C, CS> {
   private void fillUpMandatoryCssPropertiesForControlAndStateIntoList(
     final C control,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
 
     var style = control.getStoredStyle();
 
@@ -198,7 +199,7 @@ implements IControlCssBuilder<C, CS> {
   private void fillUpOptionalCssPropertiesForControlAndStateIntoList(
     final C control,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
 
     var style = control.getStoredStyle();
 
@@ -222,9 +223,9 @@ implements IControlCssBuilder<C, CS> {
   }
 
   //method
-  private IContainer<CssProperty> getCssPropertiesForControlAndAllStates(final C control) {
+  private IContainer<ICssProperty> getCssPropertiesForControlAndAllStates(final C control) {
 
-    final var cssPropertiesForBaseState = new LinkedList<CssProperty>();
+    final ILinkedList<ICssProperty> cssPropertiesForBaseState = LinkedList.createEmpty();
 
     onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(control, cssPropertiesForBaseState);
 
@@ -234,7 +235,7 @@ implements IControlCssBuilder<C, CS> {
   //method
   private IContainer<ICssProperty> getCssPropertiesForControlAndState(final C control, final ControlState state) {
 
-    final var cssProperties = new LinkedList<ICssProperty>();
+    final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     onOwnFillUpCssPropertiesForControlAndStateIntoList(control, state, cssProperties);
 
@@ -271,7 +272,7 @@ implements IControlCssBuilder<C, CS> {
   //method
   private void onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(
     final C control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
 
     switch (control.getPresence()) {
       case VISIBLE:
@@ -333,7 +334,7 @@ implements IControlCssBuilder<C, CS> {
   private void onOwnFillUpCssPropertiesForControlAndStateIntoList(
     final C control,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
 
     final var style = control.getStoredStyle();
 

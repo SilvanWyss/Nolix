@@ -17,6 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
@@ -308,9 +309,9 @@ public final class GlobalFileSystemAccessor {
    * @return new {@link FileAccessor}s for the files in the folder with the given
    *         path recursively.
    */
-  public static LinkedList<FileAccessor> getFileAccessorsRecursively(final String path) {
+  public static ILinkedList<FileAccessor> getFileAccessorsRecursively(final String path) {
 
-    final var fileAccessors = new LinkedList<FileAccessor>();
+    final ILinkedList<FileAccessor> fileAccessors = LinkedList.createEmpty();
 
     for (final var f : new File(path).listFiles()) {
       if (f.isFile()) {
@@ -418,7 +419,7 @@ public final class GlobalFileSystemAccessor {
    * @throws InvalidArgumentException if there does not exist a file with the
    *                                  given path.
    */
-  public static LinkedList<String> readFileToLines(final String path) {
+  public static ILinkedList<String> readFileToLines(final String path) {
     return new FileAccessor(path).readFileToLines();
   }
 }

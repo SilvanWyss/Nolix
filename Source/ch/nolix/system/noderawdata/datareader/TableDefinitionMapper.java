@@ -4,6 +4,7 @@ package ch.nolix.system.noderawdata.datareader;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
@@ -30,7 +31,7 @@ final class TableDefinitionMapper {
   //method
   private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 
-    final var columnInfos = new LinkedList<IColumnInfo>();
+    final ILinkedList<IColumnInfo> columnInfos = LinkedList.createEmpty();
     var columnIndexOnEntityNode = 3;
     for (final var cn : getStoredColumnNodesInOrderFromTableNode(tableNode)) {
 

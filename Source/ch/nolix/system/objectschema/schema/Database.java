@@ -34,7 +34,7 @@ public final class Database extends SchemaObject implements IDatabase {
   private RawSchemaLinkerAdapter rawSchemaLinkerAdapter;
 
   //multi-attribute
-  private LinkedList<ITable> tables = new LinkedList<>();
+  private LinkedList<ITable> tables = LinkedList.createEmpty();
 
   //constructor
   public Database(final String name) {

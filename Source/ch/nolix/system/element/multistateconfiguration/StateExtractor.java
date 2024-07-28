@@ -4,6 +4,7 @@ package ch.nolix.system.element.multistateconfiguration;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 //class
 final class StateExtractor<S extends Enum<S>> {
@@ -22,7 +23,7 @@ final class StateExtractor<S extends Enum<S>> {
   //method
   private IContainer<State<S>> createStatesFromStateEnumValues(final S[] stateEnumValues) {
 
-    final var states = new LinkedList<State<S>>();
+    final ILinkedList<State<S>> states = LinkedList.createEmpty();
 
     var i = 0;
     for (final var sev : stateEnumValues) {

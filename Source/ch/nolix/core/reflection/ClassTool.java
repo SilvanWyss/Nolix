@@ -40,7 +40,7 @@ public final class ClassTool {
   //method
   public IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
 
-    final var publicStaticFields = new LinkedList<>();
+    final var publicStaticFields = LinkedList.createEmpty();
 
     //Iterates the fields of the given Class.
     for (final var f : paramClass.getDeclaredFields()) {

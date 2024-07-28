@@ -5,6 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
@@ -31,7 +32,7 @@ implements IMultiBackReference<E> {
   private boolean loadedAllPersistedBackReferencedEntityIds;
 
   //multi-attribute
-  private final LinkedList<MultiBackReferenceEntry<E>> localEntries = new LinkedList<>();
+  private final LinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
   //constructor
   private MultiBackReference(final String backReferencedTableName, final String backReferencedBaseReferenceName) {
@@ -87,7 +88,7 @@ implements IMultiBackReference<E> {
   @Override
   public IContainer<IField> getStoredReferencingFields() {
 
-    final var referencingFields = new LinkedList<IField>();
+    final ILinkedList<IField> referencingFields = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {

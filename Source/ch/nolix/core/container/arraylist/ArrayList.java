@@ -273,7 +273,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 
   //method

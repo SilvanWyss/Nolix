@@ -17,6 +17,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
@@ -182,7 +183,7 @@ public abstract class SqlConnection implements ISqlConnection {
   private final IContainer<? extends IContainer<String>> getRecordsFromResultSet(final ResultSet resultSet)
   throws SQLException {
 
-    final var records = new LinkedList<IContainer<String>>();
+    final ILinkedList<IContainer<String>> records = LinkedList.createEmpty();
 
     final var columnCount = resultSet.getMetaData().getColumnCount();
 

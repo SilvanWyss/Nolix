@@ -13,6 +13,7 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -49,7 +50,7 @@ public final class GlobalCalculator {
    * @throws InvalidArgumentException if the count of the given yValues does not
    *                                  equal the count of the given xValues.
    */
-  public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
+  public static ILinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
     return BASIC_CALCULATOR.createFPNPairs(xValues, yValues);
   }
 

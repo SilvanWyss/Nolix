@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 public final class LicenseManager {
 
   //multi-attribute
-  private final LinkedList<License> licenses = new LinkedList<>();
+  private final LinkedList<License> licenses = LinkedList.createEmpty();
 
   //method
   /**

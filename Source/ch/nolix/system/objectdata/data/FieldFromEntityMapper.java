@@ -5,14 +5,15 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 //class
 final class FieldFromEntityMapper {
 
   //method
-  public LinkedList<Field> getStoredFieldsFrom(final Object entity) {
+  public ILinkedList<Field> getStoredFieldsFrom(final Object entity) {
 
-    final var fields = new LinkedList<Field>();
+    final ILinkedList<Field> fields = LinkedList.createEmpty();
 
     fillUpFieldsFromObjectIntoList(entity, fields);
 
@@ -22,7 +23,7 @@ final class FieldFromEntityMapper {
   //method
   private void fillUpFieldsFromObjectIntoList(
     final Object object,
-    final LinkedList<Field> list) {
+    final ILinkedList<Field> list) {
     Class<?> lClass = object.getClass();
     while (lClass != null) {
       fillUpFieldsFromGivenObjectAndForGivenClassIntoGivenList(object, lClass, list);
@@ -34,7 +35,7 @@ final class FieldFromEntityMapper {
   private void fillUpFieldsFromGivenObjectAndForGivenClassIntoGivenList(
     final Object object,
     final Class<?> pClass,
-    final LinkedList<Field> list) {
+    final ILinkedList<Field> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialFieldFromObjectForFieldIntoList(object, f, list);
     }
@@ -44,7 +45,7 @@ final class FieldFromEntityMapper {
   private void fillUpPotentialFieldFromObjectForFieldIntoList(
     final Object object,
     final java.lang.reflect.Field field,
-    final LinkedList<Field> list) {
+    final ILinkedList<Field> list) {
     if (isField(field)) {
       fillUpFieldFromObjectForFieldIntoList(object, field, list);
     }
@@ -59,7 +60,7 @@ final class FieldFromEntityMapper {
   private void fillUpFieldFromObjectForFieldIntoList(
     final Object object,
     final java.lang.reflect.Field field,
-    final LinkedList<Field> list) {
+    final ILinkedList<Field> list) {
 
     field.setAccessible(true);
 

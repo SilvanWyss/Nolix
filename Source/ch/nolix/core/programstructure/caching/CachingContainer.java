@@ -28,7 +28,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   private long autoIdCounter;
 
   //multi-attribute
-  private final LinkedList<Pair<String, E>> elements = new LinkedList<>();
+  private final LinkedList<Pair<String, E>> elements = LinkedList.createEmpty();
 
   //method
   @Override
@@ -151,7 +151,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
    */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 
   //method

@@ -17,6 +17,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -766,7 +767,7 @@ public final class Matrix {
    */
   public Matrix removeZeroRows() {
 
-    final var newValues = new LinkedList<double[]>();
+    final ILinkedList<double[]> newValues = LinkedList.createEmpty();
 
     for (double[] r : values) {
 

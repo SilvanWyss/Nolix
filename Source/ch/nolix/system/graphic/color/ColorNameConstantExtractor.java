@@ -9,6 +9,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 //class
 public final class ColorNameConstantExtractor {
@@ -37,7 +38,7 @@ public final class ColorNameConstantExtractor {
   //method
   private LinkedList<Pair<String, Color>> extractAndGetColorNames() {
 
-    final LinkedList<Pair<String, Color>> lColorNames = new LinkedList<>();
+    final LinkedList<Pair<String, Color>> lColorNames = LinkedList.createEmpty();
 
     final var colorStringFields = getColorNameConnstantFields();
     final var colorFields = getColorFields();
@@ -57,9 +58,9 @@ public final class ColorNameConstantExtractor {
   }
 
   //method
-  private LinkedList<Field> getColorFields() {
+  private ILinkedList<Field> getColorFields() {
 
-    final var colorFields = new LinkedList<Field>();
+    final ILinkedList<Field> colorFields = LinkedList.createEmpty();
 
     for (final var f : Color.class.getDeclaredFields()) {
       if (declaresColor(f)) {
@@ -71,9 +72,9 @@ public final class ColorNameConstantExtractor {
   }
 
   //method
-  private LinkedList<Field> getColorNameConnstantFields() {
+  private ILinkedList<Field> getColorNameConnstantFields() {
 
-    final var colorNameConstantFields = new LinkedList<Field>();
+    final ILinkedList<Field> colorNameConstantFields = LinkedList.createEmpty();
 
     for (final var f : Color.class.getDeclaredFields()) {
       if (declaresColorName(f)) {

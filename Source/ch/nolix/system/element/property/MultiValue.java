@@ -30,7 +30,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
   private final Consumer<V> adderMethod;
 
   //multi-attribute
-  private final LinkedList<V> values = new LinkedList<>();
+  private final LinkedList<V> values = LinkedList.createEmpty();
 
   //constructor
   /**

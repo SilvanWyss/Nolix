@@ -17,10 +17,10 @@ implements IResourcePool<WR> {
   private final ICloseController closeController = CloseController.forElement(this);
 
   //multi-attribute
-  private final LinkedList<R> resources = new LinkedList<>();
+  private final LinkedList<R> resources = LinkedList.createEmpty();
 
   //multi-attribute
-  private final LinkedList<R> availableResources = new LinkedList<>();
+  private final LinkedList<R> availableResources = LinkedList.createEmpty();
 
   //method
   @Override

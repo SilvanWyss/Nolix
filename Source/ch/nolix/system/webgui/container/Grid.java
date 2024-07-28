@@ -87,7 +87,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
 
-    final var childControls = new LinkedList<IControl<?, ?>>();
+    final ILinkedList<IControl<?, ?>> childControls = LinkedList.createEmpty();
     for (final var c : cells) {
       if (c.containsAny()) {
         childControls.addAtEnd(c.getStoredControl());
@@ -183,7 +183,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
     for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
 
-      final var column = new LinkedList<GridCell>();
+      final ILinkedList<GridCell> column = LinkedList.createEmpty();
 
       for (var ri = 1; ri <= getRowCount(); ri++) {
         column.addAtEnd(GridCell.with1BasedRowIndexAndColumnIndex(ri, ci));
@@ -204,7 +204,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
     for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
 
-      final var row = new LinkedList<GridCell>();
+      final ILinkedList<GridCell> row = LinkedList.createEmpty();
 
       for (var ci = 1; ci <= getColumnCount(); ci++) {
         row.addAtEnd(GridCell.with1BasedRowIndexAndColumnIndex(ri, ci));

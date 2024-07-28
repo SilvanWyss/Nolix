@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 
 //class
@@ -30,10 +31,10 @@ import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 public final class SequencePattern<E> implements ISequencePattern<E> {
 
   //multi-attribute
-  private final LinkedList<Predicate<E>> elementConditions = new LinkedList<>();
+  private final LinkedList<Predicate<E>> elementConditions = LinkedList.createEmpty();
 
   //multi-attribute
-  private final LinkedList<Predicate<LinkedList<E>>> sequenceConditions = new LinkedList<>();
+  private final ILinkedList<Predicate<ILinkedList<E>>> sequenceConditions = LinkedList.createEmpty();
 
   //method
   /**
@@ -76,8 +77,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @throws ArgumentIsNullException if the given sequence condition is null.
    * 
    */
-  public SequencePattern<E> addSequenceCondition(
-    final Predicate<LinkedList<E>> sequenceCondition) {
+  public SequencePattern<E> addSequenceCondition(final Predicate<ILinkedList<E>> sequenceCondition) {
 
     sequenceConditions.addAtEnd(sequenceCondition);
 
@@ -102,7 +102,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   @Override
   public IContainer<? extends IContainer<E>> getMatchingSequencesFrom(final IContainer<E> list) {
 
-    final var sequences = new LinkedList<LinkedList<E>>();
+    final ILinkedList<ILinkedList<E>> sequences = LinkedList.createEmpty();
 
     final int maxSequenceCount = list.getCount() - getSize() + 1;
 
@@ -126,7 +126,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
       if (sequenceFulfillsElementConditions) {
 
-        final var sequence = new LinkedList<E>();
+        final ILinkedList<E> sequence = LinkedList.createEmpty();
         final var iterator3 = iterator.getCopy();
         GlobalSequencer.forCount(getSize()).run(() -> sequence.addAtEnd(iterator3.next()));
 

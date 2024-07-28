@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
@@ -28,7 +29,7 @@ public final class LayerCssBuilder {
   //method
   private IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
 
-    final var cssProperties = new LinkedList<ICssProperty>();
+    final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     if (layer.getStoredParentGui().getStoredTopLayer() == layer) {
       cssProperties.addAtEnd(CssProperty.withNameAndValue("position", "absolute"));

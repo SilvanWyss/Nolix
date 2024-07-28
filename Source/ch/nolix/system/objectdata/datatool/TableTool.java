@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.datatool;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -51,7 +52,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   public <E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(
     final ITable<E> table) {
 
-    final var columns = new LinkedList<IColumn>();
+    final ILinkedList<IColumn> columns = LinkedList.createEmpty();
     for (final var t : table.getStoredParentDatabase().getStoredTables()) {
       for (final var c : t.getStoredColumns()) {
         if (c.getParameterizedFieldType().referencesTable(table)) {

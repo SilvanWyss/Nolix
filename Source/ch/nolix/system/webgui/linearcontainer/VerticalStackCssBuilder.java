@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -24,7 +25,7 @@ extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IVerticalStack verticalStack,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> " + HtmlElementTypeCatalogue.DIV,
@@ -38,7 +39,7 @@ extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IVerticalStack verticalStack,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -46,7 +47,7 @@ extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IVerticalStack control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     list.addAtEnd(
       CssProperty.withNameAndValue("display", "flex"),
       CssProperty.withNameAndValue("flex-direction", "column"),
@@ -58,7 +59,7 @@ extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IVerticalStack verticalStack,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 

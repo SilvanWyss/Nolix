@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.element.base.Element;
@@ -85,7 +86,7 @@ implements IMultiStateConfiguration<MSC, S> {
   @Override
   public final IContainer<INode<?>> getAttributes() {
 
-    final var attributes = new LinkedList<INode<?>>();
+    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     for (final var p : getStoredProperties()) {
       p.fillUpValuesSpecificationInto(attributes);
@@ -181,7 +182,7 @@ implements IMultiStateConfiguration<MSC, S> {
   //method
   private void extractPropertiesWhenNotExtracted() {
 
-    final var lProperties = new LinkedList<Property<S>>();
+    final ILinkedList<Property<S>> lProperties = LinkedList.createEmpty();
     fillUpPropertiesIntoList(lProperties);
 
     properties = lProperties;
@@ -190,14 +191,14 @@ implements IMultiStateConfiguration<MSC, S> {
   }
 
   //method
-  private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final LinkedList<Property<S>> list) {
+  private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final ILinkedList<Property<S>> list) {
     if (fieldStoresProperty(field)) {
       list.addAtEnd(getPropertyFromField(field));
     }
   }
 
   //method
-  private void fillUpPropertiesIntoList(final LinkedList<Property<S>> list) {
+  private void fillUpPropertiesIntoList(final ILinkedList<Property<S>> list) {
     Class<?> lClass = getClass();
     while (lClass != null) {
       fillUpPropertiesFromClassIntoList(lClass, list);
@@ -206,7 +207,7 @@ implements IMultiStateConfiguration<MSC, S> {
   }
 
   //method
-  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final LinkedList<Property<S>> list) {
+  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<Property<S>> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialPropertyFromFieldIntoList(f, list);
     }

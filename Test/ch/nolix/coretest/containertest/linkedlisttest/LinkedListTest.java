@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
@@ -21,7 +22,7 @@ final class LinkedListTest extends ContainerTest {
 
     //setup
     final var elephant = "elephant";
-    final var testUnit = new LinkedList<String>();
+    final var testUnit = LinkedList.createEmpty();
 
     //execution
     testUnit.addAtBegin(elephant);
@@ -74,7 +75,7 @@ final class LinkedListTest extends ContainerTest {
 
     //setup
     final String element = null;
-    final var testUnit = new LinkedList<String>();
+    final var testUnit = LinkedList.createEmpty();
 
     //execution & verification
     expectRunning(() -> testUnit.addAtBegin(element))
@@ -89,7 +90,7 @@ final class LinkedListTest extends ContainerTest {
 
     //setup
     final String[] array = null;
-    final var testUnit = new LinkedList<String>();
+    final var testUnit = LinkedList.createEmpty();
 
     //execution & verification
     expectRunning(() -> testUnit.addAtBegin(array)).throwsException();
@@ -142,7 +143,7 @@ final class LinkedListTest extends ContainerTest {
     //setup
     final var elephant = "elephant";
     final var lion = "lion";
-    final var testUnit = new LinkedList<String>();
+    final ILinkedList<String> testUnit = LinkedList.createEmpty();
     final var list = LinkedList.withElement(elephant, lion);
 
     //execution
@@ -160,7 +161,7 @@ final class LinkedListTest extends ContainerTest {
     final var rhino = "rhino";
     final var zebra = "zebra";
     final var testUnit = LinkedList.withElement(rhino, zebra);
-    final var list = new LinkedList<String>();
+    final ILinkedList<String> list = LinkedList.createEmpty();
 
     //execution
     testUnit.addAtBegin(list);
@@ -174,7 +175,7 @@ final class LinkedListTest extends ContainerTest {
   void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
 
     //setup
-    final var testUnit = new LinkedList<String>();
+    final var testUnit = LinkedList.createEmpty();
     final Iterable<String> element = null;
 
     //execution & verification
@@ -189,7 +190,7 @@ final class LinkedListTest extends ContainerTest {
   void testCase_addAtEnd_whenTheGivenElementIsNull() {
 
     //setup
-    final var testUnit = new LinkedList<String>();
+    final var testUnit = LinkedList.createEmpty();
     final String element = null;
 
     //execution & verification
@@ -204,7 +205,7 @@ final class LinkedListTest extends ContainerTest {
   void testCase_clear_whenIsEmpty() {
 
     //setup
-    final var testUnit = new LinkedList<String>();
+    final var testUnit = LinkedList.createEmpty();
 
     //execution
     testUnit.clear();
@@ -390,7 +391,7 @@ final class LinkedListTest extends ContainerTest {
   void testCase_toString_whenIsEmpty() {
 
     //setup
-    final var testUnit = new LinkedList<>();
+    final var testUnit = LinkedList.createEmpty();
 
     //execution
     final var result = testUnit.toString();
@@ -410,6 +411,6 @@ final class LinkedListTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 }

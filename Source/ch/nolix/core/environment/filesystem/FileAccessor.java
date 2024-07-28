@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
@@ -124,9 +125,9 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * @return the lines of the file of this file accessor.
    * @throws RuntimeException if an error occurs.
    */
-  public LinkedList<String> readFileToLines() {
+  public ILinkedList<String> readFileToLines() {
 
-    final var lines = new LinkedList<String>();
+    final ILinkedList<String> lines = LinkedList.createEmpty();
 
     try (
     final var bufferedReader = new BufferedReader(new FileReader(getInternalAccessor(), StandardCharsets.UTF_8))) {

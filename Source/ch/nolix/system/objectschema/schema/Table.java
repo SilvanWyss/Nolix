@@ -43,7 +43,7 @@ public final class Table extends SchemaObject implements ITable {
   private Database parentDatabase;
 
   //multi-attribute
-  private LinkedList<IColumn> columns = new LinkedList<>();
+  private LinkedList<IColumn> columns = LinkedList.createEmpty();
 
   //constructor
   public Table(final String name) {

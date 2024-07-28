@@ -28,10 +28,10 @@ public final class MutableXmlNode implements IMutableXmlNode {
   private String value;
 
   //multi-attribute
-  private final LinkedList<IXmlAttribute> attributes = new LinkedList<>();
+  private final LinkedList<IXmlAttribute> attributes = LinkedList.createEmpty();
 
   //multi-attribute
-  private final LinkedList<IMutableXmlNode> childNodes = new LinkedList<>();
+  private final LinkedList<IMutableXmlNode> childNodes = LinkedList.createEmpty();
 
   //static method
   public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {

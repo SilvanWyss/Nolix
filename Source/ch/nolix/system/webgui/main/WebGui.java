@@ -9,6 +9,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
@@ -195,7 +196,7 @@ extends StyleElement<WebGui> implements IWebGui<WebGui> {
   @Override
   public IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations() {
 
-    final var htmlElementEventRegistrations = new LinkedList<IHtmlElementEvent>();
+    final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations = LinkedList.createEmpty();
 
     registerHtmlElementEventsAt(htmlElementEventRegistrations);
 
@@ -408,7 +409,7 @@ extends StyleElement<WebGui> implements IWebGui<WebGui> {
   }
 
   //method
-  private void registerHtmlElementEventsAt(final LinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
+  private void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
     for (final var c : getStoredControls()) {
       c.registerHtmlElementEventsAt(htmlElementEventRegistrations);
     }

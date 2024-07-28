@@ -26,7 +26,7 @@ public abstract class BaseServer implements IServer {
   private ISlot defaultSlot;
 
   //multi-attribute
-  private final LinkedList<ISlot> slots = new LinkedList<>();
+  private final LinkedList<ISlot> slots = LinkedList.createEmpty();
 
   //method
   /**

@@ -28,7 +28,7 @@ final class ColorConstantExtractor {
   //method
   private IContainer<Color> extractAndGetColors() {
 
-    final LinkedList<Color> lColors = new LinkedList<>();
+    final LinkedList<Color> lColors = LinkedList.createEmpty();
 
     for (final var f : Color.class.getDeclaredFields()) {
       if (declaresColor(f)) {

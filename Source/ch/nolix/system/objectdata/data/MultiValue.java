@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
@@ -30,7 +31,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   private boolean loadedAllPersistedValues;
 
   //multi-attribute
-  private final LinkedList<MultiValueEntry<V>> localEntries = new LinkedList<>();
+  private final LinkedList<MultiValueEntry<V>> localEntries = LinkedList.createEmpty();
 
   //constructor
   private MultiValue(final Class<V> valueType) {
@@ -142,7 +143,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   //method
   private IContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {
 
-    final var values = new LinkedList<V>();
+    final ILinkedList<V> values = LinkedList.createEmpty();
 
     for (final var e : localEntries) {
       if (DATABASE_OBJECT_TOOL.isNewOrLoadedOrEdited(e)) {

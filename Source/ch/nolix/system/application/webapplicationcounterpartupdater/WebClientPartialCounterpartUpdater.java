@@ -10,6 +10,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -80,7 +81,7 @@ public final class WebClientPartialCounterpartUpdater {
 
     final var webGui = controls.getStoredFirst().getStoredParentGui();
 
-    final var updatedCommands = new LinkedList<IChainedNode>();
+    final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
 
     updatedCommands.addAtEnd(controls.to(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
 

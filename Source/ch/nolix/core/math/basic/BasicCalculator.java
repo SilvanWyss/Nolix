@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
@@ -28,13 +29,13 @@ public final class BasicCalculator {
    * @throws InvalidArgumentException if the count of the given yValues does not
    *                                  equal the count of the given xValues.
    */
-  public LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
+  public ILinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 
     //Asserts that the count of the given yValues equals the count of the given
     //xValues.
     GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 
-    final var lFPNPairs = new LinkedList<FloatingPointNumberPair>();
+    final ILinkedList<FloatingPointNumberPair> lFPNPairs = LinkedList.createEmpty();
     for (var i = 0; i < xValues.length; i++) {
       lFPNPairs.addAtEnd(new FloatingPointNumberPair(xValues[i], yValues[i]));
     }

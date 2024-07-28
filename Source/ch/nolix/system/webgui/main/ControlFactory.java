@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 public final class ControlFactory {
 
   //multi-attribute
-  private final LinkedList<Class<Control<?, ?>>> controlClasses = new LinkedList<>();
+  private final LinkedList<Class<Control<?, ?>>> controlClasses = LinkedList.createEmpty();
 
   //method
   public boolean canCreateControlOfType(final String type) {

@@ -185,7 +185,7 @@ public final class Column extends SchemaObject implements IColumn {
   IContainer<IColumn> getStoredBackReferencingColumns() {
 
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
-      return new LinkedList<>();
+      return LinkedList.createEmpty();
     }
 
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
@@ -249,7 +249,7 @@ public final class Column extends SchemaObject implements IColumn {
         .getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 
   //method

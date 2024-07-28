@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
@@ -37,7 +38,7 @@ public final class Node extends BaseNode<Node> {
 
     header = null;
 
-    childNodes = ImmutableList.forIterable(new LinkedList<>());
+    childNodes = ImmutableList.forIterable(LinkedList.createEmpty());
   }
 
   //constructor
@@ -334,7 +335,7 @@ public final class Node extends BaseNode<Node> {
    */
   private static IContainer<Node> createNodesFromNodes(final Iterable<? extends INode<?>> nodes) {
 
-    final var lNodes = new LinkedList<Node>();
+    final ILinkedList<Node> lNodes = LinkedList.createEmpty();
 
     for (final var n : nodes) {
       lNodes.addAtEnd(fromNode(n));

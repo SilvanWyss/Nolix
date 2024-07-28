@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
@@ -18,7 +16,7 @@ public final class UploaderCssBuilder extends ControlCssBuilder<IUploader, IUplo
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IUploader button,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -27,7 +25,7 @@ public final class UploaderCssBuilder extends ControlCssBuilder<IUploader, IUplo
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IUploader button,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -35,7 +33,7 @@ public final class UploaderCssBuilder extends ControlCssBuilder<IUploader, IUplo
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IUploader control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
@@ -44,7 +42,7 @@ public final class UploaderCssBuilder extends ControlCssBuilder<IUploader, IUplo
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IUploader button,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -20,7 +19,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IImageControl imageControl,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -29,7 +28,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IImageControl imageControl,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -37,7 +36,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IImageControl control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
@@ -46,7 +45,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IImageControl imageControl,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     list.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "block"));
   }
 }

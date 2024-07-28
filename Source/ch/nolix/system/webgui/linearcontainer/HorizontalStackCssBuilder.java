@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -23,7 +24,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IHorizontalStack horizontalStack,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> " + HtmlElementTypeCatalogue.DIV,
@@ -38,7 +39,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IHorizontalStack horizontalStack,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> " + HtmlElementTypeCatalogue.DIV,
@@ -52,7 +53,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IHorizontalStack control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     list.addAtEnd(
       CssProperty.withNameAndValue("display", "flex"),
       CssProperty.withNameAndValue("overflow", "auto"),
@@ -64,7 +65,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IHorizontalStack horizontalStack,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 

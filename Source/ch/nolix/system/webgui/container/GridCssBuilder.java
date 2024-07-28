@@ -3,9 +3,9 @@ package ch.nolix.system.webgui.container;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -25,7 +25,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IGrid control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
@@ -34,7 +34,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IGrid control,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
@@ -43,7 +43,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IGrid control,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
 
     final var style = control.getStoredStyle();
     final var gridThickness = style.getGridThicknessWhenHasState(state);
@@ -70,7 +70,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IGrid control,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 }

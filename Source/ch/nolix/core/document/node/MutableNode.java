@@ -21,7 +21,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
   private String header;
 
   //multi-attribute
-  private final LinkedList<MutableNode> childNodes = new LinkedList<>();
+  private final LinkedList<MutableNode> childNodes = LinkedList.createEmpty();
 
   //static method
   /**

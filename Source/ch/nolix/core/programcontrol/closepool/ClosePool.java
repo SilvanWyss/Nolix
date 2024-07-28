@@ -22,7 +22,7 @@ final class ClosePool implements IClosePool {
   private CloseState state = CloseState.OPEN;
 
   //multi-attribute
-  private final LinkedList<GroupCloseable> elements = new LinkedList<>();
+  private final LinkedList<GroupCloseable> elements = LinkedList.createEmpty();
 
   //constructor
   /**

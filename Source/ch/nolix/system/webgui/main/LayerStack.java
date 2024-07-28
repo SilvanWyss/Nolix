@@ -24,7 +24,7 @@ public final class LayerStack implements ILayerStack {
   private Runnable removeLayerAction;
 
   //multi-atribute
-  private final ILinkedList<ILayer<?>> layers = new LinkedList<>();
+  private final ILinkedList<ILayer<?>> layers = LinkedList.createEmpty();
 
   //constructor
   private LayerStack(final IWebGui<?> parentGui) {

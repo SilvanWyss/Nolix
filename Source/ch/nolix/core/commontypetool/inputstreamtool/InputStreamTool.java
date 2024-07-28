@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 //class
 public final class InputStreamTool implements IInputStreamTool {
@@ -19,7 +20,7 @@ public final class InputStreamTool implements IInputStreamTool {
   @Override
   public String readLineFromInputStream(final InputStream inputStream) {
 
-    final var bytes = new LinkedList<Byte>();
+    final ILinkedList<Byte> bytes = LinkedList.createEmpty();
 
     while (true) {
       try {

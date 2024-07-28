@@ -35,7 +35,7 @@ public final class MultiReadContainer<E> extends Container<E> {
     final E2[] array,
     @SuppressWarnings("unchecked") final E2[]... arrays) {
 
-    final var containers = new LinkedList<ArrayReadContainer<E2>>();
+    final ILinkedList<ArrayReadContainer<E2>> containers = LinkedList.createEmpty();
 
     containers.addAtEnd(ArrayReadContainer.forArray(array));
 
@@ -52,7 +52,7 @@ public final class MultiReadContainer<E> extends Container<E> {
     final Iterable<? extends E2> iterable,
     final Iterable<? extends E2>... iterables) {
 
-    final var containers = new LinkedList<IterableReadContainer<E2>>();
+    final ILinkedList<IterableReadContainer<E2>> containers = LinkedList.createEmpty();
 
     containers.addAtEnd(IterableReadContainer.forIterable(iterable));
 
@@ -123,6 +123,6 @@ public final class MultiReadContainer<E> extends Container<E> {
   //method
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 }

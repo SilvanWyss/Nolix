@@ -56,10 +56,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private boolean loadedAllEntitiesInLocalData;
 
   //multi-attribute
-  private final LinkedList<IColumn> columns = new LinkedList<>();
+  private final LinkedList<IColumn> columns = LinkedList.createEmpty();
 
   //multi-attribute
-  private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
+  private final LinkedList<E> entitiesInLocalData = LinkedList.createEmpty();
 
   //constructor
   private Table(

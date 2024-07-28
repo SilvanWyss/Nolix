@@ -6,7 +6,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
@@ -44,9 +46,9 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
   }
 
   //method
-  private IContainer<HtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
+  private IContainer<IHtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
 
-    final var htmlAttributes = new LinkedList<HtmlAttribute>();
+    final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 
     if (item.isSelected()) {
       htmlAttributes.addAtEnd(HtmlAttribute.withNameAndValue("selected", "selected"));

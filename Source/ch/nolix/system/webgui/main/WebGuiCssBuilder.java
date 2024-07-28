@@ -7,6 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.Css;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -19,7 +20,7 @@ public final class WebGuiCssBuilder {
   //method
   public Css createCssForWebGui(final IWebGui<?> webGui) {
 
-    final var cssRules = new LinkedList<ICssRule>();
+    final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
 
     fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
 
@@ -29,7 +30,7 @@ public final class WebGuiCssBuilder {
   //method
   private void fillUpCssRulesOfWebGuiIntoList(
     final IWebGui<?> webGui,
-    final LinkedList<ICssRule> cssRules) {
+    final ILinkedList<ICssRule> cssRules) {
 
     cssRules.addAtEnd(
       CssRule.withSelectorAndProperties(
@@ -54,14 +55,14 @@ public final class WebGuiCssBuilder {
   //method
   private void fillUpCssRulesOfLayersOfWebGuiIntoList(
     final IWebGui<?> webGui,
-    final LinkedList<ICssRule> cssRules) {
+    final ILinkedList<ICssRule> cssRules) {
     for (final var l : webGui.getStoredLayers()) {
       fillUpCssRulesOfLayerIntoList(l, cssRules);
     }
   }
 
   //method
-  private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule> cssRules) {
+  private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final ILinkedList<ICssRule> cssRules) {
 
     cssRules.addAtEnd(layer.getCssRule());
 

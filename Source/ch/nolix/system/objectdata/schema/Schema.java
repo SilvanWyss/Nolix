@@ -6,6 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
@@ -32,7 +33,7 @@ public final class Schema implements ISchema {
     final Class<?> entityType,
     final Class<?>... entityTypes) {
 
-    final var allEntityTypes = new LinkedList<Class<? extends IEntity>>();
+    final ILinkedList<Class<? extends IEntity>> allEntityTypes = LinkedList.createEmpty();
 
     allEntityTypes.addAtEnd((Class<IEntity>) entityType);
 

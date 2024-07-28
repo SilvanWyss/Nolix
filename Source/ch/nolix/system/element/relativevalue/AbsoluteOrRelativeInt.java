@@ -12,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.element.base.Element;
@@ -107,7 +108,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
   @Override
   public IContainer<INode<?>> getAttributes() {
 
-    final var attributes = new LinkedList<INode<?>>();
+    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (isAbsolute()) {
       attributes.addAtEnd(Node.withHeader(getAbsoluteValue()));

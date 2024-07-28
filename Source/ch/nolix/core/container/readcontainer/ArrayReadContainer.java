@@ -149,6 +149,6 @@ public final class ArrayReadContainer<E> extends Container<E> {
    */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 }

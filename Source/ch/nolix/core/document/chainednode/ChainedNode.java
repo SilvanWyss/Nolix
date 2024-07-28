@@ -55,7 +55,7 @@ public final class ChainedNode implements IChainedNode {
   private ChainedNode nextNode;
 
   //multi-attribute
-  private final LinkedList<ChainedNode> childNodes = new LinkedList<>();
+  private final LinkedList<ChainedNode> childNodes = LinkedList.createEmpty();
 
   //constructor
   /**

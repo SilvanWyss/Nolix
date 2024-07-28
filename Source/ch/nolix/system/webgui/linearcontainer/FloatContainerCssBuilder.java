@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -20,7 +21,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final FloatContainer floatContainer,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> "
@@ -36,7 +37,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final FloatContainer floatContainer,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> "
@@ -51,7 +52,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final FloatContainer control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
@@ -60,7 +61,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final FloatContainer floatContainer,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

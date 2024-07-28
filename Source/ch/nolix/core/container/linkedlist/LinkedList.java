@@ -45,6 +45,22 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   //optional attribute
   private LinkedListNode<E> lastNode;
 
+  //constructor
+  /**
+   * Creates a new empty {@link LinkedList}.
+   */
+  private LinkedList() {
+  }
+
+  //static method
+  /**
+   * @param <E2> is the type of the elements of the created {@link LinkedList}.
+   * @return a new empty {@link LinkedList}.
+   */
+  public static <E2> LinkedList<E2> createEmpty() {
+    return new LinkedList<>();
+  }
+
   //static method
   /**
    * @param array
@@ -671,7 +687,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 
   //method

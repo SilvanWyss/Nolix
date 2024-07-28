@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.environment.filesystem;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -135,7 +134,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @return new {@link FileAccessor} for the files in the folder of the current
    *         {@link FolderAccessor} recursively.
    */
-  public LinkedList<FileAccessor> getFileAccessorsRecursively() {
+  public ILinkedList<FileAccessor> getFileAccessorsRecursively() {
     return GlobalFileSystemAccessor.getFileAccessorsRecursively(getPath());
   }
 

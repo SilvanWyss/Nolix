@@ -18,7 +18,7 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   private boolean complete;
 
   //attribute
-  private final LinkedList<Byte> message = new LinkedList<>();
+  private final LinkedList<Byte> message = LinkedList.createEmpty();
 
   //constructor
   public WebSocketCompleteMessage(

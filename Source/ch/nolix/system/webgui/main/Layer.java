@@ -11,6 +11,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -266,7 +267,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
 
-    final var childConfigurableElements = new LinkedList<IControl<?, ?>>();
+    final ILinkedList<IControl<?, ?>> childConfigurableElements = LinkedList.createEmpty();
 
     if (containsAny()) {
       childConfigurableElements.addAtEnd(getStoredRootControl());
@@ -440,7 +441,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
   //method
   private void fillUpChildControlsOfControlIntoListRecursively(
     final IControl<?, ?> control,
-    final LinkedList<IControl<?, ?>> list) {
+    final ILinkedList<IControl<?, ?>> list) {
 
     final var childControls = control.getStoredChildControls();
 
@@ -468,7 +469,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
   //method
   private IContainer<IControl<?, ?>> getStoredControlsWhenIsNotEmpty() {
 
-    final var controls = new LinkedList<IControl<?, ?>>();
+    final ILinkedList<IControl<?, ?>> controls = LinkedList.createEmpty();
     controls.addAtEnd(getStoredRootControl());
     fillUpChildControlsOfControlIntoListRecursively(getStoredRootControl(), controls);
 

@@ -71,9 +71,9 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   }
 
   //method
-  private LinkedList<Integer> createLinkedList(final int elementCount) {
+  private ILinkedList<Integer> createLinkedList(final int elementCount) {
 
-    final var list = new LinkedList<Integer>();
+    final ILinkedList<Integer> list = LinkedList.createEmpty();
 
     GlobalSequencer.forCount(elementCount).run(i -> list.addAtEnd(i - (i % 1000)));
 

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
@@ -19,7 +18,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ITextbox textbox,
     final ControlState state,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -27,7 +26,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ITextbox textbox,
-    final LinkedList<? super ICssRule> list) {
+    final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
@@ -35,7 +34,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ITextbox control,
-    final LinkedList<CssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     list.addAtEnd(CssProperty.withNameAndValue("outline", "none"));
   }
 
@@ -44,7 +43,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final ITextbox textbox,
     final ControlState state,
-    final LinkedList<ICssProperty> list) {
+    final ILinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

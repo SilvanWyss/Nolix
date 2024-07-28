@@ -46,7 +46,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
   private BaseServer<?> parentServer;
 
   //multi-attribute
-  private final LinkedList<BC> clients = new LinkedList<>();
+  private final LinkedList<BC> clients = LinkedList.createEmpty();
 
   //constructor
   /**

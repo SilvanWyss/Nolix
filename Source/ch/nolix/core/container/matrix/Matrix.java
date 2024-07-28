@@ -306,7 +306,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   @Override
   public IContainer<MatrixColumn<E>> getColumns() {
 
-    final var columns = new LinkedList<MatrixColumn<E>>();
+    final ILinkedList<MatrixColumn<E>> columns = LinkedList.createEmpty();
 
     //Iterates the columns of the current matrix.
     for (var i = 1; i <= getColumnCount(); i++) {
@@ -471,7 +471,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   @Override
   public IContainer<MatrixRow<E>> getRows() {
 
-    final var rows = new LinkedList<MatrixRow<E>>();
+    final ILinkedList<MatrixRow<E>> rows = LinkedList.createEmpty();
 
     //Iterates the rows of the current matrix.
     for (var i = 1; i <= getRowCount(); i++) {
@@ -722,7 +722,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return new LinkedList<>();
+    return LinkedList.createEmpty();
   }
 
   //method

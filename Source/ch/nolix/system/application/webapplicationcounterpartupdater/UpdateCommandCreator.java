@@ -6,6 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
@@ -132,7 +133,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   //method
   private ChainedNode createSetUserInputFunctionsCommandForControls(final IContainer<IControl<?, ?>> controls) {
 
-    final var userInputFunctions = new LinkedList<ChainedNode>();
+    final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {
       final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();

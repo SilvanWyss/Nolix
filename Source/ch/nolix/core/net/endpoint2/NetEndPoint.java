@@ -33,7 +33,7 @@ public final class NetEndPoint extends EndPoint {
   private final IEndPoint internalEndPoint;
 
   //multi-attribute
-  private final LinkedList<Package> receivedPackages = new LinkedList<>();
+  private final LinkedList<Package> receivedPackages = LinkedList.createEmpty();
 
   //constructor
   /**
