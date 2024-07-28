@@ -16,7 +16,7 @@ import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
 public final class ColumnDto implements IColumnDto {
 
   //constant
-  private static final IContainer<IConstraintDto> EMPTY_CONSTRAINTS_LIST = new ImmutableList<>();
+  private static final IContainer<IConstraintDto> EMPTY_CONSTRAINTS_LIST = ImmutableList.createEmpty();
 
   //attribute
   private final String name;

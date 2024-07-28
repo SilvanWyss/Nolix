@@ -71,7 +71,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

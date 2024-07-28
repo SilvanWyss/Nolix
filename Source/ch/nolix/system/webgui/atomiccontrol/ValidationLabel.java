@@ -68,7 +68,7 @@ implements IValidationLabel {
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

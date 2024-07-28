@@ -28,7 +28,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    * Creates a new empty {@link DeepSelectingStyle}.
    */
   public DeepSelectingStyle() {
-    super(null, null, new ImmutableList<>(), new ImmutableList<>(), new ImmutableList<>(), new ImmutableList<>());
+    super(null, null, ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty());
   }
 
   //constructor

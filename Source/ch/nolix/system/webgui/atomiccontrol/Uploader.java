@@ -50,7 +50,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

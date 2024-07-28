@@ -153,7 +153,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   //method
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

@@ -62,7 +62,7 @@ implements IOptionalBackReference<E> {
   public IContainer<IField> getStoredReferencingFields() {
 
     if (isEmpty()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return ImmutableList.withElement(

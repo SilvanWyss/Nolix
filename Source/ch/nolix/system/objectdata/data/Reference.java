@@ -65,7 +65,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
 
     if (isEmpty()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     final var backReferencingField = getStoredReferencedEntity().internalGetStoredFields()
@@ -75,7 +75,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingField.get());
     }
 
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

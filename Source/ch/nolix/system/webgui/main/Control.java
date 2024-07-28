@@ -229,7 +229,7 @@ implements IControl<C, CS> {
   public IContainer<Object> getStoredLinkedObjects() {
 
     if (!isLinkedToAnObject()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return ImmutableList.withElement(linkedObject);

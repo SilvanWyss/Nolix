@@ -84,7 +84,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
 
     if (isEmpty()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     final var backReferencingField = getReferencedEntity().internalGetStoredFields()
@@ -94,7 +94,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
       return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingField.get());
     }
 
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

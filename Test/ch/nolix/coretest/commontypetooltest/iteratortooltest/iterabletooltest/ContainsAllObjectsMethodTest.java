@@ -43,7 +43,7 @@ final class ContainsAllObjectsMethodTest extends StandardTest {
   void testCase_containsAllObjects_whenContainsAllObject_1A() {
 
     //setup
-    final var list = new ImmutableList<String>();
+    final var list = ImmutableList.createEmpty();
     final var elements = new String[] {};
     final var testUnit = new IterableTool();
 
@@ -138,7 +138,7 @@ final class ContainsAllObjectsMethodTest extends StandardTest {
     final var lion = "lion";
     final var monkey = "monkey";
     final var rhino = "rhino";
-    final var list = new ImmutableList<String>();
+    final var list = ImmutableList.createEmpty();
     final var elements = new String[] { antelope, elephant, lion, monkey, rhino };
     final var testUnit = new IterableTool();
 

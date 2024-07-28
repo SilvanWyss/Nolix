@@ -71,7 +71,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

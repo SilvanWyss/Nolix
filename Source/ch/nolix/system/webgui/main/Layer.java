@@ -462,7 +462,7 @@ extends StylableElement<Layer> implements ILayer<Layer> {
 
   //method
   private IContainer<IControl<?, ?>> getStoredControlsWhenIsEmpty() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

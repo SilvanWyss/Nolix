@@ -79,7 +79,7 @@ public final class SchemaInitializer {
     for (final var bv : baseValues) {
 
       final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bv,
-        new ImmutableList<>());
+        ImmutableList.createEmpty());
 
       table.addColumn(column);
     }

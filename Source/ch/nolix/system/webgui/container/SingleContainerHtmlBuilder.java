@@ -26,7 +26,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
     final ISingleContainer singleContainer) {
 
     if (singleContainer.isEmpty()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return ImmutableList.withElement(singleContainer.getStoredControl().getHtml());

@@ -60,7 +60,7 @@ public final class AbstractableFieldEvaluator {
   public IContainer<? extends IAbstractableField> getStoredRealisingFields(final IAbstractableField field) {
 
     if (field == null || field.isConcrete()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return getStoredRealisingFieldsWhenIsAbstract(field);

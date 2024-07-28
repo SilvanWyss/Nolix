@@ -31,7 +31,7 @@ extends BaseComponent<C, AC> {
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
 
     if (childControl == null) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return ImmutableList.withElement(childControl);

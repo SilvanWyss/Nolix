@@ -34,7 +34,7 @@ public final class LayerHtmlBuilder {
   private IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
 
     if (layer.isEmpty()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return ImmutableList.withElement(getContentHtmlElementForLayer(layer));

@@ -92,7 +92,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

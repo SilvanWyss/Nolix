@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 public final class Schema implements ISchema {
 
   //constant
-  public static final Schema EMPTY_SCHEMA = new Schema(new ImmutableList<>());
+  public static final Schema EMPTY_SCHEMA = new Schema(ImmutableList.createEmpty());
 
   //multi-attribute
   private final IContainer<Class<? extends IEntity>> entityTypes;

@@ -91,7 +91,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

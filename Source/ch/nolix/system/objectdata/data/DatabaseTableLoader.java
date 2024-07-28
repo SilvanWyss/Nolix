@@ -59,7 +59,7 @@ final class DatabaseTableLoader {
       final var column = COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
         c,
         table,
-        new ImmutableList<>());
+        ImmutableList.createEmpty());
 
       table.internalAddColumn(column);
     }

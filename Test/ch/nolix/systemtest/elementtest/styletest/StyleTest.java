@@ -70,7 +70,7 @@ final class StyleTest extends StandardTest {
       ImmutableList.withElement(
         Node.fromString("Title(my_title)"),
         Node.fromString("Background(Color(Blue))")),
-      new ImmutableList<>());
+      ImmutableList.createEmpty());
 
     //execution
     testUnit.applyToElement(webGui);

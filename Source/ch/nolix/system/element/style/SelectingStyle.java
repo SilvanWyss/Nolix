@@ -28,7 +28,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * Creates a new empty {@link SelectingStyle}.
    */
   public SelectingStyle() {
-    super(null, null, new ImmutableList<>(), new ImmutableList<>(), new ImmutableList<>(), new ImmutableList<>());
+    super(null, null, ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty());
   }
 
   //constructor

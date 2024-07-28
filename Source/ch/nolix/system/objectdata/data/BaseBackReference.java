@@ -64,7 +64,7 @@ public abstract class BaseBackReference<E extends IEntity> extends Field impleme
   //method
   @Override
   public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

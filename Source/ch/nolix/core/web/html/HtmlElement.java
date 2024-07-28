@@ -61,7 +61,7 @@ public final class HtmlElement implements IHtmlElement {
 
   //static method
   public static HtmlElement withType(final String type) {
-    return new HtmlElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, new ImmutableList<>());
+    return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
   //static method
@@ -74,7 +74,7 @@ public final class HtmlElement implements IHtmlElement {
       type,
       ImmutableList.withElement(attribute, attributes),
       StringCatalogue.EMPTY_STRING,
-      new ImmutableList<>());
+      ImmutableList.createEmpty());
   }
 
   //static method
@@ -93,7 +93,7 @@ public final class HtmlElement implements IHtmlElement {
   public static HtmlElement withTypeAndAttributes(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes) {
-    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
+    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
   //static method
@@ -121,7 +121,7 @@ public final class HtmlElement implements IHtmlElement {
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
     final String innerText) {
-    return new HtmlElement(type, attributes, innerText, new ImmutableList<>());
+    return new HtmlElement(type, attributes, innerText, ImmutableList.createEmpty());
   }
 
   //static method
@@ -132,7 +132,7 @@ public final class HtmlElement implements IHtmlElement {
     return //
     new HtmlElement(
       type,
-      new ImmutableList<>(),
+      ImmutableList.createEmpty(),
       StringCatalogue.EMPTY_STRING,
       ImmutableList.withElement(childElement, childElements));
   }
@@ -141,12 +141,12 @@ public final class HtmlElement implements IHtmlElement {
   public static HtmlElement withTypeAndChildElements(
     final String type,
     final IContainer<? extends IHtmlElement> childElements) {
-    return new HtmlElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
+    return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, childElements);
   }
 
   //static method
   public static HtmlElement withTypeAndInnerText(final String type, final String innerText) {
-    return new HtmlElement(type, new ImmutableList<>(), innerText, new ImmutableList<>());
+    return new HtmlElement(type, ImmutableList.createEmpty(), innerText, ImmutableList.createEmpty());
   }
 
   //method

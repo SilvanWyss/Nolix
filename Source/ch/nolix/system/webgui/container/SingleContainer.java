@@ -47,7 +47,7 @@ implements ISingleContainer {
   public IContainer<IControl<?, ?>> getStoredChildControls() {
 
     if (isEmpty()) {
-      return new ImmutableList<>();
+      return ImmutableList.createEmpty();
     }
 
     return ImmutableList.withElement(getStoredControl());

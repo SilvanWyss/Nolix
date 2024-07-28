@@ -92,7 +92,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

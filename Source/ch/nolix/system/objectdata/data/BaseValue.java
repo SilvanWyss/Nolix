@@ -27,13 +27,13 @@ public abstract class BaseValue<V> extends Field implements IBaseValue<V> {
   //method
   @Override
   public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method
   @Override
   public final IContainer<IField> getStoredReferencingFields() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

@@ -20,6 +20,6 @@ final class ImmutableListTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 }

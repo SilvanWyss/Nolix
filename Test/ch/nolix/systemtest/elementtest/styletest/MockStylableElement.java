@@ -26,7 +26,7 @@ public final class MockStylableElement extends StylableElement<MockStylableEleme
   //method
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

@@ -46,7 +46,7 @@ implements IBaseReference<E> {
   //method
   @Override
   public final IContainer<IField> getStoredReferencingFields() {
-    return new ImmutableList<>();
+    return ImmutableList.createEmpty();
   }
 
   //method

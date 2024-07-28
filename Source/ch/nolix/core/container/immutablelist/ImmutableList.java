@@ -39,10 +39,10 @@ public final class ImmutableList<E> extends Container<E> {
 
   //constructor
   /**
-   * Creates a new {@link ImmutableList} that is empty.
+   * Creates a new empty {@link ImmutableList}.
    */
   @SuppressWarnings("unchecked")
-  public ImmutableList() {
+  private ImmutableList() {
     elements = (E[]) new Object[0];
   }
 
@@ -70,6 +70,15 @@ public final class ImmutableList<E> extends Container<E> {
     this.elements = ARRAY_TOOL.createArrayWithElement(element, elements);
 
     GlobalValidator.assertThatTheElements(elements).areNotNull();
+  }
+
+  //static method
+  /**
+   * @return a new empty {@link ImmutableList}.
+   * @param <E2> is the type of the elements the {@link ImmutableList} could have.
+   */
+  public static <E2> ImmutableList<E2> createEmpty() {
+    return new ImmutableList<>();
   }
 
   //static method

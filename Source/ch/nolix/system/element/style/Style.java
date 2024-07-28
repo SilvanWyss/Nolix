@@ -27,7 +27,7 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
    * Creates a new empty {@link Style}.
    */
   public Style() {
-    super(new ImmutableList<>(), new ImmutableList<>());
+    super(ImmutableList.createEmpty(), ImmutableList.createEmpty());
   }
 
   //constructor

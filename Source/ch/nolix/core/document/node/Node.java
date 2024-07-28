@@ -65,7 +65,7 @@ public final class Node extends BaseNode<Node> {
 
     this.header = getValidHeaderFromHeader(header);
 
-    childNodes = new ImmutableList<>();
+    childNodes = ImmutableList.createEmpty();
   }
 
   //constructor
