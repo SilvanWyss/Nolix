@@ -21,9 +21,7 @@ final class ContainsAllObjectsMethodTest extends StandardTest {
   "antelope", //
   "antelope,elephant", //
   "antelope,elephant,lion", //
-  "antelope,elephant,lion,monkey", //
-  "antelope,elephant,lion,monkey,rhino", //
-  "antelope,elephant,lion,monkey,rhino,zebra"
+  "antelope,elephant,lion,monkey"
   })
   void testCase_containsAllObjects_whenIsNull(final String arrayAsString) {
 
@@ -33,6 +31,62 @@ final class ContainsAllObjectsMethodTest extends StandardTest {
 
     //execution
     final var result = testUnit.containsAllObjects(null, elements);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_withVarargs_whenIsNull_1A() {
+
+    //setup
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(null, "antelope");
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_withVarargs_whenIsNull_1B() {
+
+    //setup
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(null, "antelope", "elephant");
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_withVarargs_whenIsNull_1C() {
+
+    //setup
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(null, "antelope", "elephant", "lion");
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @Test
+  void testCase_containsAllObjects_withVarargs_whenIsNull_1D() {
+
+    //setup
+    final var testUnit = new IterableTool();
+
+    //execution
+    final var result = testUnit.containsAllObjects(null, "antelope", "elephant", "lion", "zebra");
 
     //verification
     expectNot(result);
