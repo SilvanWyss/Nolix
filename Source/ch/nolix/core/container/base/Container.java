@@ -322,7 +322,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOnce(final E element) {
+  public final boolean containsOnce(final Object element) {
     return ITERABLE_TOOL.containsObjectOnce(this, element);
   }
 

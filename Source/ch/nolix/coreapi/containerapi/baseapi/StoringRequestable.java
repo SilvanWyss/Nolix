@@ -131,9 +131,9 @@ public interface StoringRequestable<E> {
   /**
    * @param element
    * @return true if the current {@link StoringRequestable} contains the given
-   *         element exactly 1 time.
+   *         element exactly 1 time, false otherwise.
    */
-  boolean containsOnce(E element);
+  boolean containsOnce(Object element);
 
   //method declaration
   /**
