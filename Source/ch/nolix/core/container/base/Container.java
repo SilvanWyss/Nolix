@@ -323,25 +323,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOnce(final E element) {
-
-    var found = false;
-
-    //Iterates the current IContainer.
-    for (final var e : this) {
-
-      //Handles the case that the current element is the given element.
-      if (e == element) {
-
-        //Handles the case that the given element was already found.
-        if (found) {
-          return false;
-        }
-
-        found = true;
-      }
-    }
-
-    return found;
+    return ITERABLE_TOOL.containsObjectOnce(this, element);
   }
 
   //method

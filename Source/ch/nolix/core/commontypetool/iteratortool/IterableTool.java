@@ -55,6 +55,14 @@ public final class IterableTool implements IIterableTool {
 
   //method
   @Override
+  public boolean containsObjectOnce(final Iterable<?> iterable, final Object object) {
+    return //
+    iterable != null
+    && containsObjectOnceWhenIsNotNull(iterable, object);
+  }
+
+  //method
+  @Override
   public int getCount(final Iterable<?> iterable) {
 
     final var iterator = iterable.iterator();
@@ -92,6 +100,30 @@ public final class IterableTool implements IIterableTool {
     }
 
     return false;
+  }
+
+  //method
+  private boolean containsObjectOnceWhenIsNotNull(final Iterable<?> iterable, final Object object) {
+
+    var found = false;
+
+    //Iterates the given iterable.
+    for (final var e : iterable) {
+
+      //Handles the case that the current element is the given object.
+      if (e == object) {
+
+        //Handles the case that the given element is already found.
+        if (found) {
+          return false;
+        }
+
+        //Handles the case that the given element is not already found.
+        found = true;
+      }
+    }
+
+    return found;
   }
 
   //method
