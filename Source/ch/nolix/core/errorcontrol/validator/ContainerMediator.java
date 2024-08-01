@@ -247,6 +247,24 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   //method
   /**
+   * @param stringRepresentation
+   * @throws InvalidArgumentException if the argument of the current
+   *                                  {@link ContainerMediator} does not contain
+   *                                  an element with the given
+   *                                  stringRepresentation.
+   */
+  public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
+    if (!ITERABLE_TOOL.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {
+      throw //
+      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+        getArgumentName(),
+        getStoredArgument(),
+        "does not contain an element with the String representation '" + stringRepresentation + "'");
+    }
+  }
+
+  //method
+  /**
    * @param element
    * @throws InvalidArgumentException if the argument of the current
    *                                  {@link ContainerMediator} does not contain
