@@ -61,7 +61,8 @@ public final class HtmlElement implements IHtmlElement {
 
   //static method
   public static HtmlElement withType(final String type) {
-    return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
+    return //
+    new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
   //static method
