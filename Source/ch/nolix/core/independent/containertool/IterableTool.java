@@ -74,6 +74,21 @@ public final class IterableTool {
 
   //method
   /**
+   * @param iterable
+   * @param stringRepresentation
+   * @return true if the given iterable contains exactly 1 element with the given
+   *         stringRepresentation
+   */
+  public boolean containsExactlyOneWithStringRepresentation(
+    final Iterable<?> iterable,
+    final String stringRepresentation) {
+    return //
+    iterable != null
+    && containsExacltyOneWithStringRepresentationWhenIsNotNull(iterable, stringRepresentation);
+  }
+
+  //method
+  /**
    * @param container
    * @return the number of elements of the given container.
    */
@@ -114,5 +129,26 @@ public final class IterableTool {
     }
 
     return false;
+  }
+
+  //method
+  private boolean containsExacltyOneWithStringRepresentationWhenIsNotNull(
+    final Iterable<?> iterable,
+    final String stringRepresentation) {
+
+    var found = false;
+
+    for (final var e : iterable) {
+      if (e != null && e.toString().equals(stringRepresentation)) {
+
+        if (found) {
+          return false;
+        }
+
+        found = true;
+      }
+    }
+
+    return found;
   }
 }
