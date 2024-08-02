@@ -5,8 +5,8 @@ package ch.nolix.core.testing.standardtest;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
-import ch.nolix.core.errorcontrol.validator.IterableMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
+import ch.nolix.core.errorcontrol.validator.IterableMediator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
@@ -155,7 +155,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    *         value.
    */
   protected final <V> ArgumentMediator<V> expect(final V value) {
-    return new ArgumentMediator<>(value);
+    return ArgumentMediator.forArgument(value);
   }
 
   //method

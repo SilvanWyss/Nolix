@@ -32,7 +32,7 @@ public class ArgumentMediator<A> extends Mediator {
    * 
    * @param argument
    */
-  public ArgumentMediator(final A argument) {
+  protected ArgumentMediator(final A argument) {
 
     //Calls other constructor.
     this(DEFAULT_ARGUMENT_NAME, argument);
@@ -40,8 +40,8 @@ public class ArgumentMediator<A> extends Mediator {
 
   //constructor
   /**
-   * Creates a new {@link ArgumentMediator} for the given argument, that has the
-   * given argument name.
+   * Creates a new {@link ArgumentMediator} for the given argument, which has the
+   * given argumentName.
    * 
    * @param argumentName
    * @param argument
@@ -55,6 +55,16 @@ public class ArgumentMediator<A> extends Mediator {
 
     //Sets the argument of the current ArgumentMediator.
     this.argument = argument;
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @param <A2>     is the type of the given argument.
+   * @return a new {@link ArgumentMediator} for the given argument.
+   */
+  public static <A2> ArgumentMediator<A2> forArgument(final A2 argument) {
+    return new ArgumentMediator<>(argument);
   }
 
   //method
