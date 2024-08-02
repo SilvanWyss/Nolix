@@ -60,10 +60,10 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
   //static method
   /**
    * @param argument
-   * @return a new {@link ExtendedContainerMediator} for the given argument.
+   * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
-  public static ExtendedContainerMediator<Byte> assertThat(final byte[] argument) {
-    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
+  public static ExtendedIterableMediator<Byte> assertThat(final byte[] argument) {
+    return new ExtendedIterableMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
@@ -88,17 +88,17 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
   //static method
   /**
    * @param argument
-   * @return a new {@link ExtendedContainerMediator} for the given argument.
+   * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
-  public static ExtendedContainerMediator<Double> assertThat(final double[] argument) {
+  public static ExtendedIterableMediator<Double> assertThat(final double[] argument) {
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      return new ExtendedContainerMediator<>(null);
+      return new ExtendedIterableMediator<>(null);
     }
 
     //Handles the case that the given argument is not null.
-    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
+    return new ExtendedIterableMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
@@ -113,27 +113,27 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
   //static method
   /**
    * @param argument
-   * @return a new {@link ExtendedContainerMediator} for the given argument.
+   * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
-  public static ExtendedContainerMediator<Long> assertThat(final int[] argument) {
+  public static ExtendedIterableMediator<Long> assertThat(final int[] argument) {
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      return new ExtendedContainerMediator<>(null);
+      return new ExtendedIterableMediator<>(null);
     }
 
     //Handles the case that the given argument is not null.
-    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
+    return new ExtendedIterableMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method
   /**
    * @param argument
    * @param <A>      is the type of the elements of the given argument.
-   * @return a new {@link ExtendedContainerMediator} for the given argument.
+   * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
-  public static <A> ExtendedContainerMediator<A> assertThat(final Iterable<A> argument) {
-    return new ExtendedContainerMediator<>(argument);
+  public static <A> ExtendedIterableMediator<A> assertThat(final Iterable<A> argument) {
+    return new ExtendedIterableMediator<>(argument);
   }
 
   //static method
@@ -148,17 +148,17 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
   //static method
   /**
    * @param argument
-   * @return a new {@link ExtendedContainerMediator} for the given argument.
+   * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
-  public static ExtendedContainerMediator<Long> assertThat(final long[] argument) {
+  public static ExtendedIterableMediator<Long> assertThat(final long[] argument) {
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      return new ExtendedContainerMediator<>(null);
+      return new ExtendedIterableMediator<>(null);
     }
 
     //Handles the case that the given argument is not null.
-    return new ExtendedContainerMediator<>(ARRAY_TOOL.createIterable(argument));
+    return new ExtendedIterableMediator<>(ARRAY_TOOL.createIterable(argument));
   }
 
   //static method

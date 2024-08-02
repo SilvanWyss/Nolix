@@ -28,7 +28,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  * @param <E> is the type of the elements of the argument of a container
  *            mediator.
  */
-public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
+public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
@@ -42,7 +42,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    * 
    * @param argument
    */
-  public ContainerMediator(final Iterable<E> argument) {
+  public IterableMediator(final Iterable<E> argument) {
 
     //Calls constructor of the base class.
     super(argument);
@@ -58,7 +58,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    * @throws ArgumentIsNullException if the given argument name is null.
    * @throws EmptyArgumentException  if the given argument is empty.
    */
-  ContainerMediator(
+  IterableMediator(
     final String argumentName,
     final Iterable<E> argument) {
 
@@ -70,7 +70,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param element
    * @throws ArgumentDoesNotContainElementException if the argument of the current
-   *                                                {@link ContainerMediator} does
+   *                                                {@link IterableMediator} does
    *                                                not contain the given element.
    */
   public void contains(final Object element) {
@@ -249,7 +249,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param stringRepresentation
    * @throws InvalidArgumentException if the argument of the current
-   *                                  {@link ContainerMediator} does not contain
+   *                                  {@link IterableMediator} does not contain
    *                                  an element with the given
    *                                  stringRepresentation.
    */
@@ -267,7 +267,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param element
    * @throws InvalidArgumentException if the argument of the current
-   *                                  {@link ContainerMediator} does not contain
+   *                                  {@link IterableMediator} does not contain
    *                                  the given element or contains the given
    *                                  element for several times.
    */

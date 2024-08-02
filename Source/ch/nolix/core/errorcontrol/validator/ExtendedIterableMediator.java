@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * @param <E> is the type of the elements of the argument of an extended
  *            container mediator.
  */
-public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
+public class ExtendedIterableMediator<E> extends IterableMediator<E> {
 
   //constructor
   /**
@@ -22,7 +22,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
    * 
    * @param argument
    */
-  ExtendedContainerMediator(final Iterable<E> argument) {
+  ExtendedIterableMediator(final Iterable<E> argument) {
 
     //Calls constructor of the base class.
     super(argument);
@@ -34,8 +34,8 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
    * @return a new container mediator for the argument of this extended container
    *         mediator.
    */
-  public final ContainerMediator<E> thatIsInstanceOf(final Class<?> type) {
-    return new ContainerMediator<>(type.getSimpleName(), getStoredArgument());
+  public final IterableMediator<E> thatIsInstanceOf(final Class<?> type) {
+    return new IterableMediator<>(type.getSimpleName(), getStoredArgument());
   }
 
   //method
@@ -46,7 +46,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
    * @throws ArgumentIsNullException if the given argument name is null.
    * @throws EmptyArgumentException  if the given argument name is empty.
    */
-  public ContainerMediator<E> thatIsNamed(final String argumentName) {
-    return new ContainerMediator<>(argumentName, getStoredArgument());
+  public IterableMediator<E> thatIsNamed(final String argumentName) {
+    return new IterableMediator<>(argumentName, getStoredArgument());
   }
 }

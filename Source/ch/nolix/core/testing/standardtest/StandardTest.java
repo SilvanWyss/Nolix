@@ -5,7 +5,7 @@ package ch.nolix.core.testing.standardtest;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
-import ch.nolix.core.errorcontrol.validator.ContainerMediator;
+import ch.nolix.core.errorcontrol.validator.IterableMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
@@ -123,8 +123,8 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new container mediator that belongs to this test and is for the
    *         given container.
    */
-  protected final <E> ContainerMediator<E> expect(final Iterable<E> container) {
-    return new ContainerMediator<>(container);
+  protected final <E> IterableMediator<E> expect(final Iterable<E> container) {
+    return new IterableMediator<>(container);
   }
 
   //method

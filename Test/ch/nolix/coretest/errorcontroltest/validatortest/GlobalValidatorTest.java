@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
-import ch.nolix.core.errorcontrol.validator.ExtendedContainerMediator;
+import ch.nolix.core.errorcontrol.validator.ExtendedIterableMediator;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MethodMediator;
@@ -43,7 +43,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var result = GlobalValidator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedContainerMediator.class);
+    expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
   //method
@@ -71,7 +71,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var result = GlobalValidator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedContainerMediator.class);
+    expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
   //method
@@ -99,7 +99,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var result = GlobalValidator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedContainerMediator.class);
+    expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
   //method
@@ -127,7 +127,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var result = GlobalValidator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedContainerMediator.class);
+    expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
   //method
