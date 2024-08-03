@@ -48,10 +48,10 @@ public final class IterableTool implements IIterableTool {
 
   //method
   @Override
-  public boolean containsObject(final Iterable<?> iterable, final Object object) {
+  public boolean containsObject(final Iterable<?> iterable, final Object object, final Object... objects) {
     return //
     iterable != null
-    && containsObjectWhenIsNotNull(iterable, object);
+    && containsObjectWhenIsNotNull(iterable, object, objects);
   }
 
   //method
@@ -152,6 +152,27 @@ public final class IterableTool implements IIterableTool {
     }
 
     return false;
+  }
+
+  //method
+  private boolean containsObjectWhenIsNotNull(
+    final Iterable<?> iterable,
+    final Object object,
+    final Object... objects) {
+
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+
+    if (!containsObjectWhenIsNotNull(iterable, object)) {
+      return false;
+    }
+
+    for (final var o : objects) {
+      if (!containsObjectWhenIsNotNull(iterable, o)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   //method
