@@ -2,9 +2,6 @@
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 //own imports
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.LabelHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
@@ -27,8 +24,7 @@ final class LabelHtmlBuilderTest extends ControlHtmlBuilderTest<LabelHtmlBuilder
 
   //method
   @Override
-  protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
-    expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
-    expect(htmlElement.getInnerText()).isEqualTo(StringCatalogue.MINUS);
+  protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
+    return "<div>-</div>";
   }
 }

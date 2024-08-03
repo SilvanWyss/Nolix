@@ -2,9 +2,6 @@
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 //own imports
-import ch.nolix.coreapi.webapi.htmlapi.HtmlAttributeNameCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.system.webgui.atomiccontrol.TextboxHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
@@ -27,10 +24,7 @@ final class TextboxHtmlBuilderTest extends ControlHtmlBuilderTest<TextboxHtmlBui
 
   //method
   @Override
-  protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
-    expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.INPUT);
-    expect(htmlElement.getAttributes()).contains(a -> a.hasName(HtmlAttributeNameCatalogue.VALUE));
-    expectNot(htmlElement.containsChildElements());
-    expect(htmlElement.getInnerText()).isEmpty();
+  protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
+    return "<input value=\"\" />";
   }
 }

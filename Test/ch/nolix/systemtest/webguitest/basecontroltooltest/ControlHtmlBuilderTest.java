@@ -4,8 +4,8 @@ package ch.nolix.systemtest.webguitest.basecontroltooltest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
+//own imports
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -18,17 +18,13 @@ extends StandardTest {
   final void testCase_createHtmlElementForNewControl() {
 
     //setup
-    final var control = createControl();
     final var testUnit = createTestUnit();
 
     //execution
-    final var result = testUnit.createHtmlElementForControl(control);
+    final var result = testUnit.createHtmlElementForControl(createControl());
 
-    //verification part 1
-    expect(result.getAttributes().containsNone(a -> a.hasName("id")));
-
-    //verification part 2
-    expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(result);
+    //verification
+    expect(result).hasStringRepresentation(getExpectedStringRepresentationOfCreatedHtmlElementForNewControl());
   }
 
   //method declaration
@@ -38,5 +34,5 @@ extends StandardTest {
   protected abstract CHB createTestUnit();
 
   //method declaration
-  protected abstract void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(IHtmlElement htmlElement);
+  protected abstract String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl();
 }

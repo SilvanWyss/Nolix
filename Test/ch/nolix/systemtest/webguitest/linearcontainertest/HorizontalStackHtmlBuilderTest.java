@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 //own imports
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStackHtmlBuilder;
@@ -53,9 +52,7 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 
   //method
   @Override
-  protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
-    expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
-    expect(htmlElement.getInnerText()).isEmpty();
-    expectNot(htmlElement.containsChildElements());
+  protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
+    return "<div />";
   }
 }
