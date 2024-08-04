@@ -27,7 +27,7 @@ public final class EnglishNounTool {
   }
 
   //method
-  public String getPlural(final String noun) {
+  public String getPluralOfNoun(final String noun) {
 
     GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalogue.NOUN).isNotBlank();
 
@@ -87,7 +87,7 @@ public final class EnglishNounTool {
       return (noun.substring(0, noun.length() - 1) + "ves");
     }
 
-    if (noun.endsWith("ss") || noun.endsWith("x")) {
+    if (pluralOfNounEndsWithEs(noun)) {
       return (noun + "es");
     }
 
@@ -108,5 +108,13 @@ public final class EnglishNounTool {
     }
 
     return (noun + "s");
+  }
+
+  //method
+  private boolean pluralOfNounEndsWithEs(final String noun) {
+    return //
+    noun.endsWith("sh")
+    || noun.endsWith("ss")
+    || noun.endsWith("x");
   }
 }
