@@ -3,6 +3,7 @@ package ch.nolix.coreapi.netapi.websocketapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //enum
@@ -35,7 +36,11 @@ public enum WebSocketFrameOpcodeMeaning {
       case 0xB, 0xC, 0xD, 0xE, 0xF ->
         RESERVED;
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.NUMBER, number);
+        throw //
+        UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
+          LowerCaseVariableCatalogue.NUMBER,
+          number,
+          WebSocketFrameOpcodeMeaning.class);
     };
   }
 
