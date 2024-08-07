@@ -1,4 +1,4 @@
-//package declaration
+//package decl
 package ch.nolix.coretest.mathtest.maintest;
 
 //JUnit imports
@@ -9,7 +9,7 @@ import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
-final class GlobalCalculatorTest extends StandardTest {
+final class BasicCalculatorTest extends StandardTest {
 
   //method
   @Test
