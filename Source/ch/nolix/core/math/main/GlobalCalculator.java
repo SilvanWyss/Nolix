@@ -85,7 +85,7 @@ public final class GlobalCalculator {
    * @return the absolute difference between the given 2 values.
    */
   public static double getAbsoluteDifference(final double value1, final double value2) {
-    return getAbsoluteValue(value2 - value1);
+    return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
   }
 
   //static method
@@ -95,7 +95,7 @@ public final class GlobalCalculator {
    * @return the absolute difference between the given 2 values.
    */
   public static int getAbsoluteDifference(final int value1, final int value2) {
-    return getAbsoluteValue(value2 - value1);
+    return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
   }
 
   //static method
@@ -105,7 +105,7 @@ public final class GlobalCalculator {
    * @return the absolute difference between the given 2 values.
    */
   public static long getAbsoluteDifference(final long value1, final long value2) {
-    return getAbsoluteValue(value2 - value1);
+    return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
   }
 
   //static method

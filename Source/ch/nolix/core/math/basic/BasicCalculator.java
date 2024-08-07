@@ -74,6 +74,36 @@ public final class BasicCalculator {
 
   //method
   /**
+   * @param value1
+   * @param value2
+   * @return the absolute difference between the given 2 values.
+   */
+  public double getAbsoluteDifference(final double value1, final double value2) {
+    return getAbsoluteValue(value2 - value1);
+  }
+
+  //method
+  /**
+   * @param value1
+   * @param value2
+   * @return the absolute difference between the given 2 values.
+   */
+  public int getAbsoluteDifference(final int value1, final int value2) {
+    return getAbsoluteValue(value2 - value1);
+  }
+
+  //method
+  /**
+   * @param value1
+   * @param value2
+   * @return the absolute difference between the given 2 values.
+   */
+  public long getAbsoluteDifference(final long value1, final long value2) {
+    return getAbsoluteValue(value2 - value1);
+  }
+
+  //method
+  /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
    * @param value
