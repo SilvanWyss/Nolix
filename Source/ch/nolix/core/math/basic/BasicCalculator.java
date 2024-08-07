@@ -74,6 +74,54 @@ public final class BasicCalculator {
 
   //method
   /**
+   * The absolute value of a value x is -x if x is negative, x otherwise.
+   * 
+   * @param value
+   * @return the absolute value of the given value.
+   */
+  public double getAbsoluteValue(final double value) {
+
+    if (value < 0) {
+      return -value;
+    }
+
+    return value;
+  }
+
+  //method
+  /**
+   * The absolute value of a value x is -x if x is negative, x otherwise.
+   * 
+   * @param value
+   * @return the absolute value of the given value.
+   */
+  public int getAbsoluteValue(final int value) {
+
+    if (value < 0) {
+      return -value;
+    }
+
+    return value;
+  }
+
+  //method
+  /**
+   * The absolute value of a value x is -x if x is negative, x otherwise.
+   * 
+   * @param value
+   * @return the absolute value of the given value.
+   */
+  public long getAbsoluteValue(final long value) {
+
+    if (value < 0) {
+      return -value;
+    }
+
+    return value;
+  }
+
+  //method
+  /**
    * @param value
    * @param values
    * @return the average of the given values.
