@@ -196,7 +196,11 @@ public class StringMediator extends ArgumentMediator<String> {
     //Asserts that the argument of the current StringMediator matches the given
     //regularExpression.
     if (!getStoredArgument().matches(regularExpression)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
+      throw //
+      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+        getArgumentName(),
+        getStoredArgument(),
+        "does not match the regular expression '" + regularExpression + "'");
     }
   }
 
