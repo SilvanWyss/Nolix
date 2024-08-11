@@ -275,6 +275,31 @@ final class StringMediatorTest extends StandardTest {
 
   //method
   @Test
+  void testCase_matches_whenTheGivenArgumentMatches() {
+
+    //setup
+    final var testUnit = new StringMediator("lore");
+
+    //execution & verification
+    expectRunning(() -> testUnit.matches("....")).doesNotThrowException();
+  }
+
+  //method
+  @Test
+  void testCase_matches_whenTheGivenArgumentDoesNotMatch() {
+
+    //setup
+    final var testUnit = new StringMediator("lorem");
+
+    //execution & verification
+    expectRunning(() -> testUnit.matches("...."))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given argument 'lorem' does not match the regular expression '....'.");
+  }
+
+  //method
+  @Test
   void testCase_startsWith_whenTheGivenArgumentIsNull() {
 
     //setup
