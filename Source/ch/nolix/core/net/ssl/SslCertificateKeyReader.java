@@ -10,6 +10,21 @@ import ch.nolix.coreapi.netapi.sslapi.ISslCertificateKeyReader;
 public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
 
   //method
+  public String getKeyFromPemFileLines(final IContainer<String> pemFileLines) {
+  
+    final var keyLines = getKeyLinesFromPemFileLines(pemFileLines);
+  
+    return keyLines.toConcatenatedString();
+  }
+
+  //method
+  public boolean isKeyLine(final String line) {
+    return !line.isBlank()
+    && !line.trim().equals("-----BEGIN PRIVATE KEY-----")
+    && !line.trim().equals("-----END PRIVATE KEY-----");
+  }
+
+  //method
   @Override
   public String readKeyFromPemFile(final String pemFilePath) {
 
@@ -19,22 +34,7 @@ public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
   }
 
   //method
-  private String getKeyFromPemFileLines(final IContainer<String> pemFileLines) {
-
-    final var keyLines = getKeyLinesFromPemFileLines(pemFileLines);
-
-    return keyLines.toConcatenatedString();
-  }
-
-  //method
   private IContainer<String> getKeyLinesFromPemFileLines(final IContainer<String> pemFileLines) {
     return pemFileLines.getStoredSelected(this::isKeyLine);
-  }
-
-  //method
-  private boolean isKeyLine(final String line) {
-    return !line.isBlank()
-    && !line.trim().equals("-----BEGIN PRIVATE KEY-----")
-    && !line.trim().equals("-----END PRIVATE KEY-----");
   }
 }
