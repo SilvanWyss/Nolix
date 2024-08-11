@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.math.main;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.pair.FloatingPointNumberPair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,7 +10,6 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
@@ -39,19 +35,6 @@ public final class GlobalCalculator {
    * Prevents that an instance of the {@link GlobalCalculator} can be created.
    */
   private GlobalCalculator() {
-  }
-
-  //static method
-  /**
-   * @param xValues
-   * @param yValues
-   * @return a new {@link LinkedList} with {@link FloatingPointNumberPair}s
-   *         created from the given xValues and yValues.
-   * @throws InvalidArgumentException if the count of the given yValues does not
-   *                                  equal the count of the given xValues.
-   */
-  public static ILinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
-    return BASIC_CALCULATOR.createFPNPairs(xValues, yValues);
   }
 
   //static method

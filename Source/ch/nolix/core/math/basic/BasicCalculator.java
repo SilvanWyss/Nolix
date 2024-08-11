@@ -1,14 +1,9 @@
 //package declaration
 package ch.nolix.core.math.basic;
 
-//own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.pair.FloatingPointNumberPair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
@@ -19,29 +14,6 @@ public final class BasicCalculator {
    * The default maximum deviation is 10^-9.
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
-
-  //method
-  /**
-   * @param xValues
-   * @param yValues
-   * @return a new {@link LinkedList} with {@link FloatingPointNumberPair}s
-   *         created from the given xValues and yValues.
-   * @throws InvalidArgumentException if the count of the given yValues does not
-   *                                  equal the count of the given xValues.
-   */
-  public ILinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
-
-    //Asserts that the count of the given yValues equals the count of the given
-    //xValues.
-    GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
-
-    final ILinkedList<FloatingPointNumberPair> lFPNPairs = LinkedList.createEmpty();
-    for (var i = 0; i < xValues.length; i++) {
-      lFPNPairs.addAtEnd(new FloatingPointNumberPair(xValues[i], yValues[i]));
-    }
-
-    return lFPNPairs;
-  }
 
   //method
   //For a better performance, this implementation does not use all comfortable methods.
