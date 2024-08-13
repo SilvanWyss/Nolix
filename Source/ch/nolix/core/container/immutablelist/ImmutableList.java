@@ -3,7 +3,9 @@ package ch.nolix.core.container.immutablelist;
 
 //Java imports
 import java.util.function.Function;
+import java.util.stream.Stream;
 
+//own imports
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
@@ -118,6 +120,22 @@ public final class ImmutableList<E> extends Container<E> {
     }
 
     return new ImmutableList<>((E2[]) elements);
+  }
+
+  //static method
+  /**
+   * @param stream
+   * @param <E2>   is the type of the elements of the given stream.
+   * @return a new {@link ImmutableList} with the elements from the given stream.
+   * @throws ArgumentIsNullException if the given stream is null.
+   * @throws ArgumentIsNullException if one of the elements of the given stream is
+   *                                 null.
+   */
+  public static <E2> ImmutableList<E2> fromStream(final Stream<E2> stream) {
+
+    GlobalValidator.assertThat(stream).thatIsNamed(Stream.class).isNotNull();
+
+    return forIterable(stream.toList());
   }
 
   //static method
