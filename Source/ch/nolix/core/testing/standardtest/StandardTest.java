@@ -165,7 +165,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    *         given value.
    */
   protected final StringMediator expect(final String value) {
-    return new StringMediator(value);
+    return StringMediator.forArgument(value);
   }
 
   //method

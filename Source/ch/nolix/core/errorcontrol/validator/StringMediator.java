@@ -25,7 +25,7 @@ public class StringMediator extends ArgumentMediator<String> {
    * 
    * @param argument
    */
-  public StringMediator(final String argument) {
+  protected StringMediator(final String argument) {
 
     //Calls constructor of the base class.
     super(argument);
@@ -33,18 +33,27 @@ public class StringMediator extends ArgumentMediator<String> {
 
   //constructor
   /**
-   * Creates a new {@link StringMediator} for the given argument with the given
-   * argument name.
+   * Creates a new {@link StringMediator} for the given argument, which has the
+   * given argumentName.
    * 
    * @param argumentName
    * @param argument
-   * @throws ArgumentIsNullException  if the given argument name is null.
-   * @throws InvalidArgumentException if the given argument name is blank.
+   * @throws ArgumentIsNullException  if the given argumentName is null.
+   * @throws InvalidArgumentException if the given argumentName is blank.
    */
-  StringMediator(final String argumentName, final String argument) {
+  protected StringMediator(final String argumentName, final String argument) {
 
     //Calls constructor of the base class.
     super(argumentName, argument);
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @return a new {@link StringMediator} for the given argument.
+   */
+  public static StringMediator forArgument(final String argument) {
+    return new StringMediator(argument);
   }
 
   //method
