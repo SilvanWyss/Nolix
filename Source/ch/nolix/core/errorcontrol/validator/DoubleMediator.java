@@ -5,7 +5,6 @@ package ch.nolix.core.errorcontrol.validator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -29,33 +28,42 @@ public class DoubleMediator extends Mediator {
 
   //constructor
   /**
-   * Creates a new double mediator for the given argument.
+   * Creates a new {@link DoubleMediator} for the given argument.
    * 
    * @param argument
    */
-  public DoubleMediator(double argument) {
+  protected DoubleMediator(final double argument) {
 
-    //Sets the argument of this double mediator.
+    //Sets the argument of the current DoubleMediator.
     this.argument = argument;
   }
 
   //constructor
   /**
-   * Creates a new double mediator for the given argument with the given argument
-   * name.
+   * Creates a new {@link DoubleMediator} for the given argument, which has has
+   * the given argumentName.
    * 
    * @param argumentName
    * @param argument
-   * @throws ArgumentIsNullException if the given argument name is null.
-   * @throws EmptyArgumentException  if the given argument name is empty.
+   * @throws ArgumentIsNullException  if the given argumentName is null.
+   * @throws InvalidArgumentException if the given argumentName is blank.
    */
-  DoubleMediator(final String argumentName, final double argument) {
+  protected DoubleMediator(final String argumentName, final double argument) {
 
     //Calls constructor of the base class.
     super(argumentName);
 
-    //Sets the argument of this double mediator.
+    //Sets the argument of the current DoubleMediator.
     this.argument = argument;
+  }
+
+  //constructor
+  /**
+   * @param argument
+   * @return a new {@link DoubleMediator} for the given argument.
+   */
+  public static DoubleMediator forArgument(final double argument) {
+    return new DoubleMediator(argument);
   }
 
   //method

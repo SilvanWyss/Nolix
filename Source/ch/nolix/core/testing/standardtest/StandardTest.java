@@ -83,7 +83,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    *         value.
    */
   protected final DoubleMediator expect(final double value) {
-    return new DoubleMediator(value);
+    return DoubleMediator.forArgument(value);
   }
 
   //method
@@ -93,7 +93,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    *         value.
    */
   protected final DoubleMediator expect(final Double value) {
-    return new DoubleMediator(value);
+    return DoubleMediator.forArgument(value);
   }
 
   //method
