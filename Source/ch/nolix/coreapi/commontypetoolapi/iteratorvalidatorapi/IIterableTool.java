@@ -14,6 +14,9 @@ public interface IIterableTool {
   boolean containsAny(Iterable<?> iterable);
 
   //method declaration
+  boolean containsAnyOfTheObjects(Iterable<?> iterable, Object object, Object... objects);
+
+  //method declaration
   boolean containsAnyThatEqualsTheObject(Iterable<?> iterable, Object object);
 
   //method declaration

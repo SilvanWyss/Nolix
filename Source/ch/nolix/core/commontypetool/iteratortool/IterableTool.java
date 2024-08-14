@@ -40,6 +40,14 @@ public final class IterableTool implements IIterableTool {
 
   //method
   @Override
+  public boolean containsAnyOfTheObjects(final Iterable<?> iterable, final Object object, final Object... objects) {
+    return //
+    containsObject(iterable, object)
+    || containsAnyOfTheObjects(iterable, objects);
+  }
+
+  //method
+  @Override
   public boolean containsAnyThatEqualsTheObject(final Iterable<?> iterable, final Object object) {
     return //
     iterable != null
@@ -104,6 +112,25 @@ public final class IterableTool implements IIterableTool {
     }
 
     return true;
+  }
+
+  //method
+  private boolean containsAnyOfTheObjects(final Iterable<?> iterable, final Object[] objects) {
+    return //
+    iterable != null
+    && containsAnyOfTheObjectsWhenIsNotNull(iterable, objects);
+  }
+
+  //method
+  private boolean containsAnyOfTheObjectsWhenIsNotNull(final Iterable<?> iterable, final Object[] objects) {
+
+    for (final var o : objects) {
+      if (containsObject(iterable, o)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   //method

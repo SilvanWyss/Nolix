@@ -136,22 +136,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAny(final Object element, final Object... elements) {
-
-    //Handles the case that the current Container contains the given firstElement.
-    if (contains(element)) {
-      return true;
-    }
-
-    //Iterates the given elements.
-    for (final var e : elements) {
-
-      //Handles the case that the current Container contains the current element.
-      if (contains(e)) {
-        return true;
-      }
-    }
-
-    return false;
+    return ITERABLE_TOOL.containsAnyOfTheObjects(this, element, elements);
   }
 
   //method
