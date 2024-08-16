@@ -249,9 +249,8 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param stringRepresentation
    * @throws InvalidArgumentException if the argument of the current
-   *                                  {@link IterableMediator} does not contain
-   *                                  an element with the given
-   *                                  stringRepresentation.
+   *                                  {@link IterableMediator} does not contain an
+   *                                  element with the given stringRepresentation.
    */
   public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
     if (!ITERABLE_TOOL.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {

@@ -24,15 +24,15 @@ extends StandardTest {
   //method
   @Test
   final void testCase_createCssRulesForControl_whenGivenControlHasAHoverBackgroundColor() {
-  
+
     //setup
     final var control = createControl();
     control.editStyle(s -> s.setBackgroundColorForState(ControlState.HOVER, Color.fromString("0x102030")));
     final var testUnit = createTestUnit();
-  
+
     //execution
     final var result = testUnit.createCssRulesForControl(control);
-  
+
     //verification
     final var controlInternalId = control.getInternalId();
     final var hoverCssRule = result.getStoredOne(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"));

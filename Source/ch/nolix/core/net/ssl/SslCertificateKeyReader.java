@@ -11,9 +11,9 @@ public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
 
   //method
   public String getKeyFromPemFileLines(final IContainer<String> pemFileLines) {
-  
+
     final var keyLines = getKeyLinesFromPemFileLines(pemFileLines);
-  
+
     return keyLines.toConcatenatedString();
   }
 
