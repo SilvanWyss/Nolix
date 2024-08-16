@@ -56,6 +56,6 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public String toString() {
-    return STRING_TOOL.getInParantheses(key + ";" + value);
+    return STRING_TOOL.getInParentheses(key + ";" + value);
   }
 }

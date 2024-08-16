@@ -29,28 +29,26 @@ public interface IStringTool {
   String createTabs(int tabCount);
 
   //method declaration
-  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param object
-   * @return the {@link String} representation of the given object in quotes
+   * @return the {@link String} representation of the given object in braces.
    * @throws RuntimeException if the given object is null.
    */
   String getInBraces(Object object);
 
   //method declaration
-  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param object
-   * @return the {@link String} representation of the given object in quotes
+   * @return the {@link String} representation of the given object in parentheses.
    * @throws RuntimeException if the given object is null.
    */
-  String getInParantheses(Object object);
+  String getInParentheses(Object object);
 
   //method declaration
-  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param object
-   * @return the {@link String} representation of the given object in quotes
+   * @return the {@link String} representation of the given object in single
+   *         quotes.
    * @throws RuntimeException if the given object is null.
    */
   String getInSingleQuotes(Object object);

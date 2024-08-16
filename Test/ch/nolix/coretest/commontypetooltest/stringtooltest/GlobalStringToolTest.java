@@ -134,7 +134,7 @@ final class GlobalStringToolTest extends StandardTest {
     final var testUnit = new StringTool();
 
     //execution
-    final var result = testUnit.getInParantheses(string);
+    final var result = testUnit.getInParentheses(string);
 
     //verification
     expect(result);
@@ -148,7 +148,7 @@ final class GlobalStringToolTest extends StandardTest {
     final var testUnit = new StringTool();
 
     //execution & verification
-    expectRunning(() -> testUnit.getInParantheses(null))
+    expectRunning(() -> testUnit.getInParentheses(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");

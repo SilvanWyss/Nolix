@@ -327,7 +327,7 @@ public final class NetEndPoint extends EndPoint {
       case MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER:
         return //
         MessageHeaderCatalogue.MULTI_DATA_HEADER
-        + STRING_TOOL.getInParantheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
+        + STRING_TOOL.getInParentheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.MESSAGE, message);
     }

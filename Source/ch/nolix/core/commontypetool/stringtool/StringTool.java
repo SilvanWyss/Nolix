@@ -75,7 +75,7 @@ public final class StringTool implements IStringTool {
    * {@inheritDoc}
    */
   @Override
-  public String getInParantheses(final Object object) {
+  public String getInParentheses(final Object object) {
 
     if (object == null) {
       throw ArgumentIsNullException.forArgumentType(Object.class);
