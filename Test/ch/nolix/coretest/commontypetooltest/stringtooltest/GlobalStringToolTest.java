@@ -151,7 +151,7 @@ final class GlobalStringToolTest extends StandardTest {
     expectRunning(() -> testUnit.getInParentheses(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
-      .withMessage("The given Object is null.");
+      .withMessage("The given 1th object is null.");
   }
 
   //method

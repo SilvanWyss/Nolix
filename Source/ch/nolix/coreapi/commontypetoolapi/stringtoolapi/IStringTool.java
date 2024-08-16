@@ -39,10 +39,14 @@ public interface IStringTool {
   //method declaration
   /**
    * @param object
-   * @return the {@link String} representation of the given object in parentheses.
+   * @param objects
+   * @return the {@link String} representation of the given object and objects in
+   *         parentheses.
    * @throws RuntimeException if the given object is null.
+   * @throws RuntimeException if the given objects is null.
+   * @throws RuntimeException if one of the given objects is null.
    */
-  String getInParentheses(Object object);
+  String getInParentheses(Object object, Object... objects);
 
   //method declaration
   /**

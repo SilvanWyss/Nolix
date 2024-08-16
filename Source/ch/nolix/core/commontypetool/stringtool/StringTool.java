@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //class
 /**
@@ -75,13 +76,33 @@ public final class StringTool implements IStringTool {
    * {@inheritDoc}
    */
   @Override
-  public String getInParentheses(final Object object) {
+  public String getInParentheses(final Object object, final Object... objects) {
 
     if (object == null) {
-      throw ArgumentIsNullException.forArgumentType(Object.class);
+      throw ArgumentIsNullException.forArgumentName("1th object");
     }
 
-    return ("(" + object + ")");
+    if (objects == null) {
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.OBJECTS);
+    }
+
+    final var stringBuilder = new StringBuilder();
+    var index = 2;
+
+    stringBuilder.append(object);
+
+    for (final var o : objects) {
+
+      if (o == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th object");
+      }
+
+      stringBuilder.append(",");
+      stringBuilder.append(o);
+      index++;
+    }
+
+    return ("(" + stringBuilder.toString() + ")");
   }
 
   //method

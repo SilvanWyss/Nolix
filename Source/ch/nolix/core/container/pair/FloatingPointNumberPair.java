@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.container.pair;
 
+import ch.nolix.core.commontypetool.stringtool.StringTool;
+
 //class
 /**
  * A {@link FloatingPointNumberPair} contains two floating point numbers. FPN =
@@ -13,6 +15,9 @@ public final class FloatingPointNumberPair {
 
   //constant
   public static final double DEFAULT_VALUE = 0.0;
+
+  //constant
+  private static final StringTool STRING_TOOL = new StringTool();
 
   //attribute
   private final double value1;
@@ -92,6 +97,6 @@ public final class FloatingPointNumberPair {
    */
   @Override
   public String toString() {
-    return ("(" + getValue1() + "," + getValue2() + ")");
+    return STRING_TOOL.getInParentheses(getValue1(), getValue2());
   }
 }
