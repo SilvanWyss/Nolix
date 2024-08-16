@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 //class
-final class GlobalStringToolTest extends StandardTest {
+final class StringToolTest extends StandardTest {
 
   //method
   @ParameterizedTest
