@@ -51,7 +51,7 @@ final class MatrixTest extends ContainerTest {
     //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
-    matrix.addRow("elephant", "lion", "monkey");
+    matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
     //execution
@@ -61,11 +61,11 @@ final class MatrixTest extends ContainerTest {
 
     //verification
     expect(column1.getCount()).isEqualTo(3);
-    expect(column1.toString()).isEqualTo("apple,elephant,flower");
+    expect(column1.toString()).isEqualTo("apple,antelope,flower");
     expect(column2.getCount()).isEqualTo(3);
-    expect(column2.toString()).isEqualTo("banana,lion,tree");
+    expect(column2.toString()).isEqualTo("banana,baboon,tree");
     expect(column3.getCount()).isEqualTo(3);
-    expect(column3.toString()).isEqualTo("cerish,monkey,palm");
+    expect(column3.toString()).isEqualTo("cerish,elephant,palm");
   }
 
   //method
@@ -75,7 +75,7 @@ final class MatrixTest extends ContainerTest {
     //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
-    matrix.addRow("elephant", "lion", "monkey");
+    matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
     //execution
@@ -85,7 +85,7 @@ final class MatrixTest extends ContainerTest {
     expect(copy.getColumnCount()).isEqualTo(3);
     expect(copy.getRowCount()).isEqualTo(3);
     expect(copy.getRow(1).toString()).isEqualTo("apple,banana,cerish");
-    expect(copy.getRow(2).toString()).isEqualTo("elephant,lion,monkey");
+    expect(copy.getRow(2).toString()).isEqualTo("antelope,baboon,elephant");
     expect(copy.getRow(3).toString()).isEqualTo("flower,tree,palm");
   }
 
@@ -96,7 +96,7 @@ final class MatrixTest extends ContainerTest {
     //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
-    matrix.addRow("elephant", "lion", "monkey");
+    matrix.addRow("antelope", "baboon", "elephante");
     matrix.addRow("flower", "tree", "palm");
 
     //execution
@@ -129,7 +129,7 @@ final class MatrixTest extends ContainerTest {
     //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
-    matrix.addRow("elephant", "lion", "monkey");
+    matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
     //execution
@@ -141,7 +141,7 @@ final class MatrixTest extends ContainerTest {
     expect(row1.getCount()).isEqualTo(3);
     expect(row1.toString()).isEqualTo("apple,banana,cerish");
     expect(row2.getCount()).isEqualTo(3);
-    expect(row2.toString()).isEqualTo("elephant,lion,monkey");
+    expect(row2.toString()).isEqualTo("antelope,baboon,elephant");
     expect(row3.getCount()).isEqualTo(3);
     expect(row3.toString()).isEqualTo("flower,tree,palm");
   }
@@ -153,7 +153,7 @@ final class MatrixTest extends ContainerTest {
     //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
-    matrix.addRow("elephant", "lion", "monkey");
+    matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
     //execution
@@ -162,9 +162,9 @@ final class MatrixTest extends ContainerTest {
     //verification
     expect(leftRotatedMatrix.getRowCount()).isEqualTo(3);
     expect(leftRotatedMatrix.getColumnCount()).isEqualTo(3);
-    expect(leftRotatedMatrix.getRow(1).toString()).isEqualTo("cerish,monkey,palm");
-    expect(leftRotatedMatrix.getRow(2).toString()).isEqualTo("banana,lion,tree");
-    expect(leftRotatedMatrix.getRow(3).toString()).isEqualTo("apple,elephant,flower");
+    expect(leftRotatedMatrix.getRow(1).toString()).isEqualTo("cerish,elephant,palm");
+    expect(leftRotatedMatrix.getRow(2).toString()).isEqualTo("banana,baboon,tree");
+    expect(leftRotatedMatrix.getRow(3).toString()).isEqualTo("apple,antelope,flower");
   }
 
   //method
@@ -174,7 +174,7 @@ final class MatrixTest extends ContainerTest {
     //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
-    matrix.addRow("elephant", "lion", "monkey");
+    matrix.addRow("antelope", "elephant", "baboon");
     matrix.addRow("flower", "tree", "palm");
 
     //execution
@@ -183,9 +183,9 @@ final class MatrixTest extends ContainerTest {
     //verification
     expect(rightRotatedMatrix.getRowCount()).isEqualTo(3);
     expect(rightRotatedMatrix.getColumnCount()).isEqualTo(3);
-    expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,elephant,apple");
-    expect(rightRotatedMatrix.getRow(2).toString()).isEqualTo("tree,lion,banana");
-    expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,monkey,cerish");
+    expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,antelope,apple");
+    expect(rightRotatedMatrix.getRow(2).toString()).isEqualTo("tree,elephant,banana");
+    expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,baboon,cerish");
   }
 
   //method

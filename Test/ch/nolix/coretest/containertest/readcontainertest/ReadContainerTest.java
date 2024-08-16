@@ -18,7 +18,7 @@ final class ReadContainerTest extends ContainerTest {
 
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
-    final String[] array2 = { "elephant", "lion", "monkey" };
+    final String[] array2 = { "antelope", "baboon", "lion" };
     final String[] array3 = { "flower", "tree", "palm" };
 
     //execution
@@ -28,9 +28,9 @@ final class ReadContainerTest extends ContainerTest {
     expect(readContainer.containsEqualing("apple"));
     expect(readContainer.containsEqualing("banana"));
     expect(readContainer.containsEqualing("cerish"));
-    expect(readContainer.containsEqualing("elephant"));
+    expect(readContainer.containsEqualing("antelope"));
+    expect(readContainer.containsEqualing("baboon"));
     expect(readContainer.containsEqualing("lion"));
-    expect(readContainer.containsEqualing("monkey"));
     expect(readContainer.containsEqualing("flower"));
     expect(readContainer.containsEqualing("tree"));
     expect(readContainer.containsEqualing("palm"));
@@ -45,7 +45,7 @@ final class ReadContainerTest extends ContainerTest {
 
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
-    final String[] array2 = { "elephant", "lion", "monkey" };
+    final String[] array2 = { "antelope", "baboon", "elephant" };
     final String[] array3 = { "flower", "tree", "palm" };
 
     //execution
@@ -55,9 +55,9 @@ final class ReadContainerTest extends ContainerTest {
     expect(readContainer.getStoredAt1BasedIndex(1)).isEqualTo("apple");
     expect(readContainer.getStoredAt1BasedIndex(2)).isEqualTo("banana");
     expect(readContainer.getStoredAt1BasedIndex(3)).isEqualTo("cerish");
-    expect(readContainer.getStoredAt1BasedIndex(4)).isEqualTo("elephant");
-    expect(readContainer.getStoredAt1BasedIndex(5)).isEqualTo("lion");
-    expect(readContainer.getStoredAt1BasedIndex(6)).isEqualTo("monkey");
+    expect(readContainer.getStoredAt1BasedIndex(4)).isEqualTo("antelope");
+    expect(readContainer.getStoredAt1BasedIndex(5)).isEqualTo("baboon");
+    expect(readContainer.getStoredAt1BasedIndex(6)).isEqualTo("elephant");
     expect(readContainer.getStoredAt1BasedIndex(7)).isEqualTo("flower");
     expect(readContainer.getStoredAt1BasedIndex(8)).isEqualTo("tree");
     expect(readContainer.getStoredAt1BasedIndex(9)).isEqualTo("palm");

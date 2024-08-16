@@ -55,18 +55,18 @@ final class LinkedListTest extends ContainerTest {
 
     //setup
     final var antelope = "antelope";
+    final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
-    final var monkey = "monkey";
     final var rhino = "rhino";
     final var zebra = "zebra";
-    final var testUnit = LinkedList.withElement(monkey, rhino, zebra);
+    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
 
     //execution
-    testUnit.addAtBegin(antelope, elephant, lion);
+    testUnit.addAtBegin(antelope, baboon, elephant);
 
     //verification
-    expect(testUnit).containsExactlyInSameOrder(antelope, elephant, lion, monkey, rhino, zebra);
+    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
   //method
@@ -98,23 +98,23 @@ final class LinkedListTest extends ContainerTest {
 
   //method
   @Test
-  void testCase_forArray_whenContainsSeveralElementsAndServeralElementsAreGiven() {
+  void testCase_addAtBegin_forArray_whenContainsSeveralElementsAndServeralElementsAreGiven() {
 
     //setup
     final var antelope = "antelope";
+    final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
-    final var monkey = "monkey";
     final var rhino = "rhino";
     final var zebra = "zebra";
-    final var array = new String[] { antelope, elephant, lion };
-    final var testUnit = LinkedList.withElement(monkey, rhino, zebra);
+    final var array = new String[] { antelope, baboon, elephant };
+    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
 
     //execution
     testUnit.addAtBegin(array);
 
     //verification
-    expect(testUnit).containsExactlyInSameOrder(antelope, elephant, lion, monkey, rhino, zebra);
+    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
   //method
@@ -122,18 +122,20 @@ final class LinkedListTest extends ContainerTest {
   void testCase_addAtBegin_forIterable() {
 
     //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var rhino = "rhino";
     final var zebra = "zebra";
-    final var testUnit = LinkedList.withElement(rhino, zebra);
-    final var list = LinkedList.withElement(elephant, lion);
+    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
+    final var list = LinkedList.withElement(antelope, baboon, elephant);
 
     //execution
     testUnit.addAtBegin(list);
 
     //verification
-    expect(testUnit).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
+    expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
   //method
@@ -273,17 +275,19 @@ final class LinkedListTest extends ContainerTest {
   void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
 
     //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var rhino = "rhino";
     final var zebra = "zebra";
-    final var array = new String[] { elephant, lion, rhino, zebra };
+    final var array = new String[] { antelope, baboon, elephant, lion, rhino, zebra };
 
     //execution
     final var result = LinkedList.fromArray(array);
 
     //verification
-    expect(result).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
+    expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
   //method

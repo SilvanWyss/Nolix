@@ -26,13 +26,13 @@ public abstract class CopyableIteratorTest extends StandardTest {
 
     //setup
     final var antelope = "antelope";
+    final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
-    final var monkey = "monkey";
     final var rhino = "rhino";
     final var zebra = "zebra";
     final var testUnit = //
-    createIteratorForContainerWithElements(antelope, elephant, lion, monkey, rhino, zebra);
+    createIteratorForContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
     GlobalSequencer.forCount(4).run(testUnit::next);
 
     //execution

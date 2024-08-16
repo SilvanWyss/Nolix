@@ -32,7 +32,7 @@ final class ArrayListTest extends ContainerTest {
   void testCase_addAtEnd_whenHasAvailableCapacity() {
 
     //setup
-    final var elements = new String[] { "antelope", "elephant", "lion", "monkey", "rhino", "zebra" };
+    final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = ArrayList.withInitialCapacity(10);
 
     //execution
@@ -47,7 +47,7 @@ final class ArrayListTest extends ContainerTest {
   void testCase_addAtEnd_whenDoesNotHaveAvailableCapacity() {
 
     //setup
-    final var elements = new String[] { "antelope", "elephant", "lion", "monkey", "rhino", "zebra" };
+    final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = ArrayList.withInitialCapacity(5);
 
     //execution
@@ -76,7 +76,7 @@ final class ArrayListTest extends ContainerTest {
   void testCase_clear_whenContainsAny() {
 
     //setup
-    final var testUnit = ArrayList.withElement("antelope", "elephant", "lion", "monkey", "rhino", "zebra");
+    final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
     //execution
     testUnit.clear();
@@ -90,7 +90,7 @@ final class ArrayListTest extends ContainerTest {
   void testCase_getCopy() {
 
     //setup
-    final var testUnit = ArrayList.withElement("antelope", "elephant", "lion", "monkey", "rhino", "zebra");
+    final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
     //execution
     final var result = testUnit.getCopy();
@@ -118,7 +118,7 @@ final class ArrayListTest extends ContainerTest {
   void testCase_withElemens() {
 
     //setup
-    final var elements = new String[] { "antelope", "elephant", "lion", "monkey", "rhino", "zebra" };
+    final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
 
     //execution
     final var result = ArrayList.withElements(elements);
