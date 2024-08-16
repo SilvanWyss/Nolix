@@ -47,7 +47,7 @@ final class ContainsAnyMethodTest extends StandardTest {
   void testCase_containsAny_whenGivenIterableContains1Element() {
 
     //setup
-    final Iterable<Object> iterable = new List<>(new String[] { "x" });
+    final Iterable<Object> iterable = new List<>(new String[] { "antelope" });
     final var testUnit = new IterableTool();
 
     //execution
@@ -62,7 +62,7 @@ final class ContainsAnyMethodTest extends StandardTest {
   void testCase_containsAny_whenGivenIterableContains2Elements() {
 
     //setup
-    final Iterable<Object> iterable = new List<>(new String[] { "x", "xx" });
+    final Iterable<Object> iterable = new List<>(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableTool();
 
     //execution
