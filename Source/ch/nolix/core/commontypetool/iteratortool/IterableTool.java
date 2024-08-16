@@ -30,8 +30,8 @@ public final class IterableTool implements IIterableTool {
   @Override
   public boolean isEmpty(final Iterable<?> iterable) {
     return //
-    iterable != null
-    && !iterable.iterator().hasNext();
+    iterable == null
+    || !iterable.iterator().hasNext();
   }
 
   //method
