@@ -5,6 +5,7 @@ package ch.nolix.core.container.base;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.function.Function;
@@ -24,10 +25,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.StoringRequestable;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 //interface
 /**
@@ -39,7 +43,7 @@ public abstract class Container<E> //NOSONAR: A Container has many methods and t
 implements IContainer<E> {
 
   //constant
-  private static final IterableTool ITERABLE_TOOL = new IterableTool();
+  private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
   //constant
   private static final Random RANDOM = new Random();
@@ -53,7 +57,17 @@ implements IContainer<E> {
    */
   @Override
   public final boolean contains(final Object object) {
-    return ITERABLE_TOOL.containsObject(this, object);
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is the given object.
+      if (e == object) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   //method
@@ -62,31 +76,63 @@ implements IContainer<E> {
    * 
    * -The current {@link Container} contains m elements.
    * 
-   * -n elements are given.
+   * -n objects are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAll(final Object element, final Object... elements) {
-    return ITERABLE_TOOL.containsAllObjects(this, element, elements);
+  public final boolean containsAll(final Iterable<?> objects) {
+
+    //Iterates the given objects.
+    for (final var o : objects) {
+
+      //Handles the case that the current Container does not contain the current object.
+      if (!contains(o)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAll(final Iterable<?> elements) {
+  public final boolean containsAll(final Object object, final Object... objects) {
+    return //
+    contains(object)
+    && containsAll(objects);
+  }
 
-    //Iterates the given elements.
-    for (final var e : elements) {
+  //method
+  /**
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsAll(final Object[] objects) {
 
-      //Handles the case that the current IContainer does not contain the current
-      //element.
-      if (!contains(e)) {
+    //Asserts that the given objects is not null.
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+
+    //Iterates the given objects.
+    for (final var o : objects) {
+
+      //Handles the case that the current Container does not contain the given object.
+      if (!contains(o)) {
         return false;
       }
     }
@@ -115,7 +161,7 @@ implements IContainer<E> {
   @Override
   public final boolean containsAny(final Predicate<E> selector) {
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the given selector selects the current element.
@@ -129,31 +175,64 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAny(final Object element, final Object... elements) {
-    return ITERABLE_TOOL.containsAnyOfTheObjects(this, element, elements);
+  public final boolean containsAny(final Object object, final Object... objects) {
+    return //
+    contains(object)
+    || containsAnyOf(objects);
   }
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAnyOf(final Iterable<?> elements) {
+  public final boolean containsAnyOf(final Iterable<?> objects) {
 
-    //Iterates the given elements.
-    for (final var e : elements) {
+    //Iterates the given objects.
+    for (final var o : objects) {
 
-      //Handles the case that the current IContainer contains the current element.
-      if (contains(e)) {
+      //Handles the case that the current Container contains the current object.
+      if (contains(o)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsAnyOf(final Object[] objects) {
+
+    //Iterates the given objects.
+    for (final var o : objects) {
+
+      //Handles the case that the current Container contains the current object.
+      if (contains(o)) {
         return true;
       }
     }
@@ -169,15 +248,15 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAsManyAs(Iterable<?> container) {
+  public final boolean containsAsManyAs(Iterable<?> iterable) {
 
-    //Handles the case that the given container is a IContainer.
-    if (container instanceof IContainer<?> lContainer) {
-      return (getCount() == lContainer.getCount());
+    //Handles the case that the given iterable is a IContainer.
+    if (iterable instanceof IContainer<?> container) {
+      return (getCount() == container.getCount());
     }
 
-    //Handles the case that the given container is not a IContainer.
-    return (getCount() == ITERABLE_TOOL.getCount(container));
+    //Handles the case that the given iterable is not a IContainer.
+    return (getCount() == ITERABLE_TOOL.getCount(iterable));
   }
 
   //method
@@ -200,6 +279,28 @@ implements IContainer<E> {
     }
 
     return false;
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(m*n) if:
+   * 
+   * The current {@link Container} contains m elements.
+   * 
+   * The given iterable contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsExactlyEqualingInSameOrder(final Iterable<?> iterable) {
+
+    //Handles the case that the given iterable is null.
+    if (iterable != null) {
+      return containsExactlyEqualingInSameOrderIfGivenIterableIsNotNull(iterable);
+    }
+
+    //Handles the case that the given iterable is null.
+    return isEmpty();
   }
 
   //method
@@ -229,20 +330,23 @@ implements IContainer<E> {
   //method
   /**
    * The complexity of this implementation is -O(1) if the given container is a
-   * {@link IContainer}. -O(n) otherwise.
+   * {@link IContainer}.
+   * 
+   * The complexity of this implementation is O(n) if the given iterable is not a
+   * {@link IContainer} and if the current {@link Container} contains n elements..
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsLessThan(final Iterable<?> container) {
+  public final boolean containsLessThan(final Iterable<?> iterable) {
 
-    //Handles the case that the given container is a IContainer.
-    if (container instanceof IContainer<?> lContainer) {
-      return (getCount() < lContainer.getCount());
+    //Handles the case that the given iterable is a IContainer.
+    if (iterable instanceof IContainer<?> container) {
+      return (getCount() < container.getCount());
     }
 
-    //Handles the case that the given container is not a IContainer.
-    return (getCount() < ITERABLE_TOOL.getCount(container));
+    //Handles the case that the given iterable is not a IContainer.
+    return (getCount() < ITERABLE_TOOL.getCount(iterable));
   }
 
   //method
@@ -307,8 +411,27 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOnce(final Object element) {
-    return ITERABLE_TOOL.containsObjectOnce(this, element);
+  public final boolean containsOnce(final Object object) {
+
+    var found = false;
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is the given object.
+      if (e == object) {
+
+        //Handles the case that the given element is already found.
+        if (found) {
+          return false;
+        }
+
+        //Handles the case that the given element is not already found.
+        found = true;
+      }
+    }
+
+    return found;
   }
 
   //method
@@ -322,12 +445,12 @@ implements IContainer<E> {
 
     final var iterator = iterator();
 
-    //Handles the case that the current IContainer is empty.
+    //Handles the case that the current Container is empty.
     if (!iterator.hasNext()) {
       return false;
     }
 
-    //Handles the case that the current IContainer is not empty.
+    //Handles the case that the current Container is not empty.
     iterator.next();
     return !iterator.hasNext();
   }
@@ -344,7 +467,7 @@ implements IContainer<E> {
 
     var found = false;
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the given selector selects the current element.
@@ -385,36 +508,11 @@ implements IContainer<E> {
   @Override
   public final boolean containsOnly(final Predicate<E> selector) {
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the given selector does not select the current element.
       if (!selector.test(e)) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  //method
-  /**
-   * The complexity of this implementation is O(m*n) if the current
-   * {@link Container} contains m elements and the container contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container) {
-
-    for (final var e : this) {
-      if (!ITERABLE_TOOL.containsAnyThatEqualsTheObject(container, e)) {
-        return false;
-      }
-    }
-
-    for (final var e : container) {
-      if (!containsEqualing(e)) {
         return false;
       }
     }
@@ -494,7 +592,7 @@ implements IContainer<E> {
 
     var elementCount = 0;
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the given selector selects the current element.
@@ -518,7 +616,7 @@ implements IContainer<E> {
 
     var elementCount = 0;
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element is the given element.
@@ -564,8 +662,23 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirstEqualElement(final E element) {
-    return ITERABLE_TOOL.get1BasedIndexOfFirstEqualElement(this, element);
+  public final int get1BasedIndexOfFirstEqualElement(final E object) {
+
+    //Initializes index.
+    var index = 1;
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element equals the given object.
+      if (Objects.equals(e, object)) {
+        return index;
+      }
+
+      index++;
+    }
+
+    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an element an equal element");
   }
 
   //method
@@ -578,7 +691,7 @@ implements IContainer<E> {
   @Override
   public final int get1BasedIndexOfFirstOccuranceOf(final E element) {
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     var index = 1;
     for (final var e : this) {
 
@@ -785,7 +898,7 @@ implements IContainer<E> {
   @Override
   public final E getStoredAny() {
 
-    //Asserts that the current IContainer is not empty.
+    //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
     //Calculates a random element index.
@@ -855,7 +968,7 @@ implements IContainer<E> {
   @Override
   public final E getStoredFirst() {
 
-    //Asserts that the current IContainer is not empty.
+    //Asserts that the current Container is not empty.
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
@@ -873,7 +986,7 @@ implements IContainer<E> {
   @Override
   public final E getStoredFirst(final Predicate<? super E> selector) {
 
-    //Iterates the current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the given selector selects the current element.
@@ -1349,7 +1462,7 @@ implements IContainer<E> {
 
     final var stringArray = new String[getCount()];
 
-    //Iterates the elements of the current IContainer.
+    //Iterates the elements of the current Container.
     var i = 0;
     for (final var e : this) {
       stringArray[i] = e.toString();
@@ -1447,12 +1560,12 @@ implements IContainer<E> {
 
     final var elementCount = getCount();
 
-    //Handles the case that the current IContainer contains more than n elements.
+    //Handles the case that the current Container contains more than n elements.
     if (elementCount > n) {
       return getSubContainerFromStartIndexToEndIndex(n + 1, elementCount);
     }
 
-    //Handles the case that the current IContainer contains n or less elements.
+    //Handles the case that the current Container contains n or less elements.
     return createEmptyMutableList(new Marker<E>());
   }
 
@@ -1465,7 +1578,7 @@ implements IContainer<E> {
   @Override
   public final IContainer<E> getViewWithoutLast() {
 
-    //Asserts that the current IContainer is not empty.
+    //Asserts that the current Container is not empty.
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
@@ -1487,12 +1600,12 @@ implements IContainer<E> {
 
     final var elementCount = getCount();
 
-    //Handles the case that the current IContainer contains more than n elements.
+    //Handles the case that the current Container contains more than n elements.
     if (elementCount > 0) {
       return getSubContainerFromStartIndexToEndIndex(0, elementCount - n);
     }
 
-    //Handles the case that the current IContainer contains n or less elements.
+    //Handles the case that the current Container contains n or less elements.
     return createEmptyMutableList(new Marker<E>());
   }
 
@@ -1515,6 +1628,39 @@ implements IContainer<E> {
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
+  }
+
+  //method
+  /**
+   * @param iterable
+   * @return true if the current {@link StoringRequestable} contains exactly
+   *         elements that equal the elements of given iterable in the same order
+   *         like the given iterable, false otherwise, for the case that the given
+   *         iterable is not null
+   */
+  private boolean containsExactlyEqualingInSameOrderIfGivenIterableIsNotNull(final Iterable<?> iterable) {
+
+    //Gets a new iterator from the given iterable.
+    var iterator = iterable.iterator();
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the iterator has a next.
+      if (iterator.hasNext()) {
+
+        //Handles the case that the current element does not equal the next of the iterator.
+        if (!Objects.equals(e, iterator.next())) {
+          return false;
+        }
+
+        //Handles the case that the iterator has does not have a next.
+      } else {
+        return false;
+      }
+    }
+
+    return !iterator.hasNext();
   }
 
   //method

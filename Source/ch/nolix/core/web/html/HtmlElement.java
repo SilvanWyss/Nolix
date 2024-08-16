@@ -192,8 +192,8 @@ public final class HtmlElement implements IHtmlElement {
 
     if (object instanceof HtmlElement htmlElement) {
       return getType().equals(htmlElement.getType())
-      && getAttributes().containsOnlyEqualingAndViceVersa(htmlElement.getAttributes())
-      && getChildElements().containsOnlyEqualingAndViceVersa(htmlElement.getChildElements())
+      && getAttributes().containsExactlyEqualingInSameOrder(htmlElement.getAttributes())
+      && getChildElements().containsExactlyEqualingInSameOrder(htmlElement.getChildElements())
       && getInnerText().equals(htmlElement.getInnerText());
     }
 

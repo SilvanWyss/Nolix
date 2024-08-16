@@ -22,20 +22,30 @@ public interface StoringRequestable<E> {
 
   //method declaration
   /**
-   * @param element
-   * @param elements
+   * @param object
+   * @param objects
    * @return true if the current {@link StoringRequestable} contains the given
-   *         element and all of the given elements.
+   *         object and all of the given objects.
+   * @throws RuntimeException if the given objects is null.
    */
-  boolean containsAll(Object element, Object... elements);
+  boolean containsAll(Object object, Object... objects);
 
   //method declaration
   /**
-   * @param elements
+   * @param objects
    * @return true if the current {@link StoringRequestable} contains all of the
-   *         given elements.
+   *         given objects.
+   * @throws RuntimeException if the given objects is null.
    */
-  boolean containsAll(Iterable<?> elements);
+  boolean containsAll(Object[] objects);
+
+  //method declaration
+  /**
+   * @param objects
+   * @return true if the current {@link StoringRequestable} contains all of the
+   *         given objects.
+   */
+  boolean containsAll(Iterable<?> objects);
 
   //method declaration
   /**
@@ -47,20 +57,28 @@ public interface StoringRequestable<E> {
 
   //method declaration
   /**
-   * @param element
-   * @param elements
+   * @param object
+   * @param objects
    * @return true if the current {@link StoringRequestable} contains the given
-   *         element or one of the given elements.
+   *         object or one of the given objects.
    */
-  boolean containsAny(Object element, Object... elements);
+  boolean containsAny(Object object, Object... objects);
 
   //method declaration
   /**
    * @param elements
    * @return true if the current {@link StoringRequestable} contains any of the
-   *         given elements.
+   *         given objects.
    */
   boolean containsAnyOf(Iterable<?> elements);
+
+  //method declaration
+  /**
+   * @param objects
+   * @return true if the current {@link StoringRequestable} contains any of the
+   *         given objects.
+   */
+  boolean containsAnyOf(Object[] objects);
 
   //method declaration
   /**
@@ -80,11 +98,21 @@ public interface StoringRequestable<E> {
 
   //method declaration
   /**
-   * @param container
-   * @return true if the current {@link StoringRequestable} contains exactly the
-   *         elements of the given container in the same order, false otherwise.
+   * @param iterable
+   * @return true if the current {@link StoringRequestable} contains exactly
+   *         elements that equal the elements of given iterable in the same order
+   *         like the given iterable, false otherwise.
    */
-  boolean containsExactlyInSameOrder(Iterable<?> container);
+  boolean containsExactlyEqualingInSameOrder(Iterable<?> iterable);
+
+  //method declaration
+  /**
+   * @param iterable
+   * @return true if the current {@link StoringRequestable} contains exactly the
+   *         elements of the given iterable in the same order like the given
+   *         iterable, false otherwise.
+   */
+  boolean containsExactlyInSameOrder(Iterable<?> iterable);
 
   //method declaration
   /**
@@ -165,12 +193,4 @@ public interface StoringRequestable<E> {
    *         the given selector selects.
    */
   boolean containsOnly(Predicate<E> selector);
-
-  //method declaration
-  /**
-   * @param container
-   * @return true if the current {@link StoringRequestable} contains only elements
-   *         that equal an element in the given container and vice versa.
-   */
-  boolean containsOnlyEqualingAndViceVersa(Iterable<?> container);
 }
