@@ -110,7 +110,7 @@ final class StringToolTest extends StandardTest {
 
   //method
   @Test
-  void testCase_getIngetInBraces_whenTheGivenObjectIsNull() {
+  void testCase_getInInBraces_whenTheGivenObjectIsNull() {
 
     //setup
     final var testUnit = new StringTool();
@@ -120,38 +120,6 @@ final class StringToolTest extends StandardTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");
-  }
-
-  //method
-  @ParameterizedTest
-  @CsvSource({
-  "'', '()'", //
-  "zebra, (zebra)" //
-  })
-  void testCase_getInParantheses(final String string, final String expectedResult) {
-
-    //setup
-    final var testUnit = new StringTool();
-
-    //execution
-    final var result = testUnit.getInParentheses(string);
-
-    //verification
-    expect(result);
-  }
-
-  //method
-  @Test
-  void testCase_getInParantheses_whenTheGivenObjectIsNull() {
-
-    //setup
-    final var testUnit = new StringTool();
-
-    //execution & verification
-    expectRunning(() -> testUnit.getInParentheses(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given 1th object is null.");
   }
 
   //method
