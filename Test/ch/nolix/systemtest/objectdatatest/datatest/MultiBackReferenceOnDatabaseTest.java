@@ -1,0 +1,163 @@
+//package declaration
+package ch.nolix.systemtest.objectdatatest.datatest;
+
+//JUnit imports
+import org.junit.jupiter.api.Test;
+
+//own imports
+import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.system.objectdata.data.Entity;
+import ch.nolix.system.objectdata.data.MultiBackReference;
+import ch.nolix.system.objectdata.data.Reference;
+import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
+import ch.nolix.system.objectdata.schema.Schema;
+
+//class
+final class MultiBackReferenceOnDatabaseTest extends StandardTest {
+
+  //constant
+  private static final class Plane extends Entity {
+
+    //attribute
+    public final MultiBackReference<Flight> flights = MultiBackReference
+      .forBackReferencedEntityTypeAndBaseReference(Flight.class, "plane");
+
+    //constructor
+    public Plane() {
+      initialize();
+    }
+  }
+
+  //constant
+  private static final class Flight extends Entity {
+
+    //attribute
+    public final Reference<Plane> plane = Reference.forEntity(Plane.class);
+
+    //constructor
+    public Flight() {
+      initialize();
+    }
+  }
+
+  //method
+  @Test
+  void testCase_getAllStoredBackReferencedEntities_whenIsNewAndEmpty() {
+
+    //setup part 1: Creates nodeDatabase.
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+
+    //setup part 2: Creates and inserts plane.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+
+    //execution
+    final var result = a320.flights.getAllStoredBackReferencedEntities();
+
+    //verification
+    expect(result).isEmpty();
+  }
+
+  //method
+  @Test
+  void testCase_getAllStoredBackReferencedEntities_whenIsNewAndNotEmpty() {
+
+    //setup part 1: Creates nodeDatabase.
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+
+    //setup part 2: Creates and inserts planes and flights.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+    final var fx2650 = new Flight();
+    fx2650.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2650);
+    final var fx2651 = new Flight();
+    fx2651.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2651);
+
+    //execution
+    final var result = a320.flights.getAllStoredBackReferencedEntities();
+
+    //verification
+    expect(result).containsExactly(fx2650, fx2651);
+  }
+
+  //method
+  @Test
+  void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
+
+    //setup part 1: Creates nodeDatabase.
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+
+    //setup part 2: Creates and inserts and saves planes and flights.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+    final var fx2650 = new Flight();
+    fx2650.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2650);
+    final var fx2651 = new Flight();
+    fx2651.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2651);
+    nodeDataAdapter.saveChanges();
+
+    //execution
+    final var loaded320 = nodeDataAdapter.getStoredTableByEntityType(Plane.class).getStoredEntityById(a320.getId());
+    final var result = loaded320.flights.getAllBackReferencedEntityIds();
+
+    //verification
+    expect(result).containsExactlyEqualing(fx2650.getId(), fx2651.getId());
+  }
+
+  //method
+  @Test
+  void testCase_isSaved_whenIsEmpty() {
+
+    //setup part 1: Creates nodeDatabase.
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+
+    //setup part 2: Creates and inserts and saves plane.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+
+    //setup verification
+    expect(a320.flights.isEmpty());
+
+    //execution & verification
+    expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
+  }
+
+  //method
+  @Test
+  void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
+
+    //setup part 1: Creates nodeDatabase.
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+
+    //setup part 2: Creates and inserts and saves plane and flight.
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var a320 = new Plane();
+    nodeDataAdapter.insertEntity(a320);
+    final var fx2650 = new Flight();
+    fx2650.plane.setEntity(a320);
+    nodeDataAdapter.insertEntity(fx2650);
+    nodeDataAdapter.saveChanges();
+
+    //setup part 2: Delete flight of plane.
+    final var loadedFx2650 = nodeDataAdapter.getStoredTableByEntityType(Flight.class)
+      .getStoredEntityById(fx2650.getId());
+    loadedFx2650.delete();
+
+    //verification
+    expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
+  }
+}
