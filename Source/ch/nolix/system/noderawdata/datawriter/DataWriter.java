@@ -175,7 +175,7 @@ public final class DataWriter implements IDataWriter {
   public void insertMultiReferenceEntry(
     final String tableName,
     final String entityId,
-    final String multiReferenceColumnName,
+    final String multiReferenceColumnId,
     final String referencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
@@ -183,7 +183,7 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.insertEntryIntoMultiReference(
       tableInfo,
       entityId,
-      tableInfo.getColumnInfoByColumnName(multiReferenceColumnName),
+      tableInfo.getColumnInfoByColumnId(multiReferenceColumnId),
       referencedEntityId);
   }
 

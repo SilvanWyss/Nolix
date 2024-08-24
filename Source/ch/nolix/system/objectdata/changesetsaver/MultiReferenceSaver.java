@@ -51,7 +51,7 @@ public final class MultiReferenceSaver {
     dataAndSchemaAdapter.insertMultiReferenceEntry(
       entity.getParentTableName(),
       entity.getId(),
-      multiReference.getName(),
+      multiReference.getStoredParentColumn().getId(),
       multiReferenceEntry.getReferencedEntityId());
   }
 

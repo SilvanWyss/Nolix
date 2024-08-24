@@ -143,9 +143,9 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   public final void insertMultiReferenceEntry(
     final String tableName,
     final String entityId,
-    final String multiReferenceColumnName,
+    final String multiReferenceColumnId,
     final String referencedEntityId) {
-    dataWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+    dataWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnId, referencedEntityId);
   }
 
   //method

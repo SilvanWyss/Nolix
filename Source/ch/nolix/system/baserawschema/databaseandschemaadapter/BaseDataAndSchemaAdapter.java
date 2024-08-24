@@ -161,9 +161,9 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   public final void insertMultiReferenceEntry(
     final String tableName,
     final String entityId,
-    final String multiReferenceColumnName,
+    final String multiReferenceColumnId,
     final String referencedEntityId) {
-    dataAdapter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+    dataAdapter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnId, referencedEntityId);
   }
 
   //method
