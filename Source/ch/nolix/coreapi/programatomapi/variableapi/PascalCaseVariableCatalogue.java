@@ -185,6 +185,9 @@ public final class PascalCaseVariableCatalogue {
   public static final String DISTANCE = "Distance";
 
   //constant
+  public static final String DOMAIN = "Domain";
+
+  //constant
   public static final String DURATION = "Duration";
 
   //constant

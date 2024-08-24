@@ -186,6 +186,9 @@ public final class PluralPascalCaseVariableCatalogue {
   public static final String DISTANCES = "Distances";
 
   //constant
+  public static final String DOMAINS = "Domains";
+
+  //constant
   public static final String DURATIONS = "Durations";
 
   //constant

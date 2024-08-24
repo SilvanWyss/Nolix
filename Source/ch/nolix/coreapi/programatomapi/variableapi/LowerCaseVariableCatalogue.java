@@ -185,6 +185,9 @@ public final class LowerCaseVariableCatalogue {
   public static final String DISTANCE = "distance";
 
   //constant
+  public static final String DOMAIN = "domain";
+
+  //constant
   public static final String DURATION = "duration";
 
   //constant

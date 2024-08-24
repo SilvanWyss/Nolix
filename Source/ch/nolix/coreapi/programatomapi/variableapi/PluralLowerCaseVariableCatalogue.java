@@ -186,6 +186,9 @@ public final class PluralLowerCaseVariableCatalogue {
   public static final String DISTANCES = "distances";
 
   //constant
+  public static final String DOMAINS = "domains";
+
+  //constant
   public static final String DURATIONS = "durations";
 
   //constant
