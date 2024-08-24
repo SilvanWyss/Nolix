@@ -2,13 +2,10 @@
 package ch.nolix.system.application.main;
 
 //Java imports
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -18,6 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.reflection.ClassTool;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
@@ -35,6 +33,9 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @param <AC> is the type of the application context of a {@link Application}.
  */
 public abstract class Application<BC extends BackendClient<BC, AC>, AC> implements IApplication<AC> {
+
+  //constant
+  private static final ClassTool CLASS_TOOL = new ClassTool();
 
   //attribute
   private final AC applicationContext;
@@ -196,15 +197,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
    */
   @SuppressWarnings("unchecked")
   protected final Session<BC, AC> createInitialSession() {
-    try {
-      return (Session<BC, AC>) getInitialSessionConstructor().newInstance();
-    } catch (final
-    InstantiationException
-    | IllegalAccessException
-    | IllegalArgumentException
-    | InvocationTargetException exception) {
-      throw WrapperException.forError(exception);
-    }
+    return (Session<BC, AC>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
   }
 
   //method
@@ -325,17 +318,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     backendClient.internalSetEndPoint(endPoint);
 
     return backendClient;
-  }
-
-  //method
-  /**
-   * @return the constructor of the initial {@link Session} class of the current
-   *         {@link Application}.
-   */
-  private Constructor<?> getInitialSessionConstructor() {
-    final var constructor = getInitialSessionClass().getDeclaredConstructors()[0];
-    constructor.setAccessible(true);
-    return constructor;
   }
 
   //method
