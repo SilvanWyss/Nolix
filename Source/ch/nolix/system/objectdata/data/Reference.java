@@ -8,6 +8,7 @@ import java.util.Optional;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
+import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
@@ -249,12 +250,17 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   //method
   private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
 
-    final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
+    for (final var bbr : getStoredBaseBackReferences()) {
+      if (new FieldTool().isForSingleContent(bbr)) {
+        final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
-    if (pendantReferencingField.isPresent()) {
-      final var reference = (Reference<?>) pendantReferencingField.get();
-      reference.clear();
+        if (pendantReferencingField.isPresent()) {
+          final var reference = (Reference<?>) pendantReferencingField.get();
+          reference.clear();
+        }
+      }
     }
+
   }
 
   //method
