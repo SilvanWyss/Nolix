@@ -1,0 +1,45 @@
+//package declaration
+package ch.nolix.systemapitest.webguiapitest.basecontainerapitest;
+
+//JUnit imports
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+//own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
+
+//class
+final class ContainerRoleTest extends StandardTest {
+
+  //method
+  @MethodSource
+  private static IContainer<Arguments> getSpecificationsAndTheirContainerRole() {
+    return //
+    ImmutableList.withElement(
+      Arguments.of(Node.withChildNode("DIALOG_CONTAINER"), ContainerRole.DIALOG_CONTAINER),
+      Arguments.of(Node.withChildNode("OVERALL_CONTAINER"), ContainerRole.OVERALL_CONTAINER),
+      Arguments.of(Node.withChildNode("MAIN_CONTENT_CONTAINER"), ContainerRole.MAIN_CONTENT_CONTAINER),
+      Arguments.of(Node.withChildNode("HEADER_CONTAINER"), ContainerRole.HEADER_CONTAINER),
+      Arguments.of(Node.withChildNode("FOOTER_CONTAINER"), ContainerRole.FOOTER_CONTAINER),
+      Arguments.of(Node.withChildNode("COMPONENT_CONTAINER"), ContainerRole.COMPONENT_CONTAINER),
+      Arguments.of(Node.withChildNode("TITLE_CONTAINER"), ContainerRole.TITLE_CONTAINER));
+  }
+
+  //method
+  @ParameterizedTest
+  @MethodSource("getSpecificationsAndTheirContainerRole")
+  void fromSpecification(final INode<?> specification, final ContainerRole expectedContainerRole) {
+
+    //execution
+    final var result = ContainerRole.fromSpecification(specification);
+
+    //verification
+    expect(result).is(expectedContainerRole);
+  }
+}
