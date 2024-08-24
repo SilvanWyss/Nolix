@@ -5,10 +5,11 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 
 //class
-record SslServerHtmlPage(String serverDomain, int serverPort) {
+public final class SslServerHtmlPage {
 
   //constant
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
@@ -19,16 +20,25 @@ record SslServerHtmlPage(String serverDomain, int serverPort) {
   //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
+  //attribute
+  private final String domain;
+
+  //attribute
+  private final int port;
+
   //constructor
-  public SslServerHtmlPage( //NOSONAR: This constructor does more than the default one.
-    final String serverDomain,
-    final int serverPort) {
+  private SslServerHtmlPage(final String domain, final int port) {
 
-    GlobalValidator.assertThat(serverDomain).thatIsNamed("server domain").isNotBlank();
-    GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isPort();
+    GlobalValidator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalogue.DOMAIN).isNotBlank();
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isPort();
 
-    this.serverDomain = serverDomain;
-    this.serverPort = serverPort;
+    this.domain = domain;
+    this.port = port;
+  }
+
+  //static method
+  public static SslServerHtmlPage forDomainAndPort(final String domain, final int port) {
+    return new SslServerHtmlPage(domain, port);
   }
 
   //method
@@ -58,18 +68,18 @@ record SslServerHtmlPage(String serverDomain, int serverPort) {
   }
 
   //method
-  public String getServerDomain() {
-    return serverDomain;
+  public String getDomain() {
+    return domain;
   }
 
   //method
-  public int getServerPort() {
-    return serverPort;
+  public int getPort() {
+    return port;
   }
 
   //method
   private String getServerDomainInQuotes() {
-    return STRING_TOOL.getInSingleQuotes(getServerDomain());
+    return STRING_TOOL.getInSingleQuotes(getDomain());
   }
 
   //method
@@ -79,7 +89,7 @@ record SslServerHtmlPage(String serverDomain, int serverPort) {
     + "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURLOnSecureWebSocket("
     + getServerDomainInQuotes()
     + ", "
-    + getServerPort()
+    + getPort()
     + ");"
     + "});\n"
     + "</script>\n";

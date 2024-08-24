@@ -35,7 +35,7 @@ public final class SslServer extends BaseServer<SslServer> {
   //constructor
   public SslServer(final int port, final String domain, final ISslCertificate paramSSLCertificate) {
 
-    final var htmlPage = new SslServerHtmlPage(domain, port);
+    final var htmlPage = SslServerHtmlPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
     internalWebSocketServer = new ch.nolix.core.net.endpoint3.SslServer(port, htmlPageAsString, paramSSLCertificate);
