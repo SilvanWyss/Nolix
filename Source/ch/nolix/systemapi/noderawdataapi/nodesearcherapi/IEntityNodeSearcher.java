@@ -8,9 +8,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 public interface IEntityNodeSearcher {
 
   //method declaration
-  String getEntitySaveStampFromEntityNode(IMutableNode<?> entityNode);
-
-  //method declaration
   IMutableNode<?> getStoredIdNodeFromEntityNode(IMutableNode<?> entityNode);
 
   //method declaration
