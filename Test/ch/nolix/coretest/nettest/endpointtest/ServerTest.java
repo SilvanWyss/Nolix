@@ -3,10 +3,13 @@ package ch.nolix.coretest.nettest.endpointtest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 //own imports
 import ch.nolix.core.net.endpoint.Server;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
@@ -30,6 +33,49 @@ final class ServerTest extends StandardTest {
       //verification
       expect(testUnit.containsAny());
       expect(testUnit.containsDefaultSlot());
+    }
+  }
+
+  //method
+  @Test
+  void testCase_clear_whenIsEmpty() {
+
+    //parameter definition
+    final var port = 50000;
+
+    try (final var testUnit = Server.forPort(port)) {
+
+      //setup verification
+      expect(testUnit.isEmpty());
+
+      //execution
+      testUnit.clear();
+
+      //verification
+      expect(testUnit.isEmpty());
+    }
+  }
+
+  //method
+  @Test
+  void testCase_clear_whenContainsAny() {
+
+    //parameter definition
+    final var port = 50000;
+
+    try (final var testUnit = Server.forPort(port)) {
+
+      //setup
+      GlobalSequencer.forCount(5).run(() -> testUnit.addDefaultSlot(Mockito.mock(ISlot.class)));
+
+      //setup verification
+      expect(testUnit.containsAny());
+
+      //execution
+      testUnit.clear();
+
+      //verification
+      expect(testUnit.isEmpty());
     }
   }
 
