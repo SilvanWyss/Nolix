@@ -25,7 +25,7 @@ public interface IServer extends Clearable, GroupCloseable {
   /**
    * @return the {@link SecurityMode} of the current {@link IServer}.
    */
-  SecurityMode getSecurityLevel();
+  SecurityMode getSecurityMode();
 
   //method
   /**

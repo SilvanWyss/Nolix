@@ -22,7 +22,7 @@ final class ServerTest extends StandardTest {
       //verification
       expect(testUnit.getIp()).isEqualTo(LocalComputer.getLanIp());
       expect(testUnit.getPort()).isEqualTo(PortCatalogue.HTTP);
-      expect(testUnit.getSecurityLevel()).is(SecurityMode.NONE);
+      expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
       expect(testUnit.getStoredApplications()).isEmpty();
       expectNot(testUnit.containsDefaultApplication());
     }

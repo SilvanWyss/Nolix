@@ -25,7 +25,7 @@ public final class LocalServer extends BaseServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
   }
 

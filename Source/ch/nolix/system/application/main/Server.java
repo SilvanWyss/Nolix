@@ -98,7 +98,7 @@ public final class Server extends BaseServer<Server> {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return internalServer.getSecurityMode();
   }
 

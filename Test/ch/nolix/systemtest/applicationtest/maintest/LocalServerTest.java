@@ -68,7 +68,7 @@ final class LocalServerTest extends StandardTest {
     try (final var testUnit = new LocalServer()) {
 
       //verification
-      expect(testUnit.getSecurityLevel()).is(SecurityMode.NONE);
+      expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
       expect(testUnit.isEmpty());
       expectNot(testUnit.containsDefaultApplication());
       expectNot(testUnit.hasClientConnected());
