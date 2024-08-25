@@ -221,7 +221,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeThat(final Predicate<? extends INode<?>> selector) {
+  public void removeFirstChildNodeThat(final Predicate<INode<?>> selector) {
     internalSpecification.removeFirstChildNodeThat(selector);
     save();
   }

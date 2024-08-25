@@ -233,8 +233,8 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeThat(final Predicate<? extends INode<?>> selector) {
-    childNodes.removeFirstOccurrenceOf(selector);
+  public void removeFirstChildNodeThat(final Predicate<INode<?>> selector) {
+    childNodes.removeFirst(selector::test);
   }
 
   //method

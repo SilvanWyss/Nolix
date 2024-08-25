@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
@@ -103,8 +104,8 @@ public final class SchemaWriter implements ISchemaWriter {
       tableName);
 
     tableNode.removeFirstChildNodeThat(
-      (final IMutableNode<?> a) -> a.hasHeader(StructureHeaderCatalogue.COLUMN)
-      && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(a).getStoredSingleChildNode()
+      (final INode<?> a) -> a.hasHeader(StructureHeaderCatalogue.COLUMN)
+      && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(columnName));
 
     hasChanges = true;
@@ -115,8 +116,9 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteTable(final String tableName) {
 
     editedDatabaseNode.removeFirstChildNodeThat(
-      (final IMutableNode<?> a) -> a.hasHeader(StructureHeaderCatalogue.TABLE)
-      && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(a).getStoredSingleChildNode().hasHeader(tableName));
+      (final INode<?> a) -> a.hasHeader(StructureHeaderCatalogue.TABLE)
+      && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
+        .hasHeader(tableName));
 
     hasChanges = true;
   }
