@@ -46,7 +46,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   void testCase_getStoredEntity_whenIsNewAndEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -61,7 +61,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -82,7 +82,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   void testCase_getStoredEntity_whenIsLoaded() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -106,7 +106,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -121,7 +121,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -144,7 +144,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();

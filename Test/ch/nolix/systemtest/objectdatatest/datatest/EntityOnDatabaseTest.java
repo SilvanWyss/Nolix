@@ -38,7 +38,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_isInserted_whenHasInsertAction() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var testUnit = new Pet();
@@ -60,7 +60,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_isLoaded() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var garfield = new Pet();
@@ -82,7 +82,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_isSaved() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -101,7 +101,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsChangedInTheMeanwhile() {
 
     //setup part 1: Initializes database.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapterA = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldA = new Pet();
@@ -132,7 +132,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
 
     //setup part 1: Initializes database.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapterA = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfieldA = new Pet();
@@ -163,7 +163,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_delete_whenIsLoaded() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -198,7 +198,7 @@ final class EntityOnDatabaseTest extends StandardTest {
   void testCase_delete_whenIsClosed() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();

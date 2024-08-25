@@ -46,7 +46,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndEmpty() {
 
     //setup part 1: Creates nodeDatabase.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts plane.
@@ -66,7 +66,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndNotEmpty() {
 
     //setup part 1: Creates nodeDatabase.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts planes and flights.
@@ -92,7 +92,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
 
     //setup part 1: Creates nodeDatabase.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts and saves planes and flights.
@@ -120,7 +120,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsEmpty() {
 
     //setup part 1: Creates nodeDatabase.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts and saves plane.
@@ -140,7 +140,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 
     //setup part 1: Creates nodeDatabase.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts and saves plane and flight.

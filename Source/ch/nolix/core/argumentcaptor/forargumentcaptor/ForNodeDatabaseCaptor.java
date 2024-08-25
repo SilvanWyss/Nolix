@@ -30,7 +30,7 @@ public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N>
   //method
   public final N forTemporaryInMemoryNodeDatabase() {
 
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
 
     return forNodeDatabase(nodeDatabase);
   }

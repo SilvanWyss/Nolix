@@ -129,7 +129,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     }
 
     if (index < string.length()) {
-      var node = new MutableNode();
+      var node = MutableNode.createEmpty();
       index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
       addChildNode(node);
     }
@@ -137,7 +137,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     while (index < string.length()) {
       switch (string.charAt(index)) {
         case ',':
-          var node = new MutableNode();
+          var node = MutableNode.createEmpty();
           index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
           addChildNode(node);
           break;

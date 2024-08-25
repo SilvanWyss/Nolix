@@ -10,14 +10,14 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
   //method
   @Override
   protected MutableNode createBlankNode() {
-    return new MutableNode();
+    return MutableNode.createEmpty();
   }
 
   //method
   @Override
   protected MutableNode createNodeWithHeader(final String header) {
 
-    final var mutableNode = new MutableNode();
+    final var mutableNode = MutableNode.createEmpty();
 
     mutableNode.setHeader(header);
 
@@ -28,13 +28,13 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
   @Override
   protected MutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 
-    final var mutableNode = new MutableNode();
+    final var mutableNode = MutableNode.createEmpty();
 
     mutableNode.setHeader(header);
 
     for (final var cnh : childNodeHeaders) {
 
-      final var childNode = new MutableNode();
+      final var childNode = MutableNode.createEmpty();
       childNode.setHeader(cnh);
 
       mutableNode.addChildNode(childNode);

@@ -20,7 +20,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_getStoredBaseTypes_whenDoesNotHaveBaseTypes() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter
@@ -44,7 +44,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_getStoredBaseTypes_whenHasSeveralBaseTypes() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter
@@ -83,7 +83,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_getStoredBaseTypes_whenHasBaseTypeWithBaseType() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter
@@ -122,7 +122,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_getStoredConcreteSubTypes_whenHasSeveralConcreteSubTypes() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter
@@ -159,7 +159,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_getStoredSubTypes_whenDoesNotHaveSubTypes() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter
@@ -183,7 +183,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_getStoredSubTypes_whenHasSeveralSubTypes() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter
@@ -221,7 +221,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenNewFieldWasAdded() {
 
     //setup part 1: Create database.
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup part 2: Create dataAdapter.
     final var dataAdapter = NodeDataAdapter

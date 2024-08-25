@@ -47,7 +47,7 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
   void testCase_whenIsEmptyAndSaved() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -67,7 +67,7 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
   void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -86,7 +86,7 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
   void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();

@@ -18,7 +18,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_creation() {
 
     //setup
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup verification
     expect(database.isBlank());
@@ -41,7 +41,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_addTable_whenSavesChangesAndResets() {
 
     //setup
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
     final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 
     //execution
@@ -65,7 +65,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_getSaveCount_whenIsNew() {
 
     //setup
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
+    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", MutableNode.createEmpty());
 
     //execution
     final var result = testUnit.getSaveCount();
@@ -79,7 +79,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
 
     //setup
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
+    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", MutableNode.createEmpty());
     testUnit.addTable(new Table("MyTable1"));
     testUnit.saveChanges();
 
@@ -95,7 +95,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
 
     //setup
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
+    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", MutableNode.createEmpty());
     testUnit.addTable(new Table("MyTable1"));
     testUnit.saveChanges();
     testUnit.addTable(new Table("MyTable2"));

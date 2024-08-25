@@ -50,7 +50,7 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
     for (final var cnh : childNodeHeaders) {
 
-      final var childNode = new MutableNode();
+      final var childNode = MutableNode.createEmpty();
       childNode.setHeader(cnh);
 
       fileNode.addChildNode(childNode);

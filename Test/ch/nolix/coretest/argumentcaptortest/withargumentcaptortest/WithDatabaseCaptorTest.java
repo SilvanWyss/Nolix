@@ -32,7 +32,7 @@ final class WithDatabaseCaptorTest extends StandardTest {
   void testCase_withDatabase_whenHasNext() {
 
     //parameter definition
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -54,7 +54,7 @@ final class WithDatabaseCaptorTest extends StandardTest {
     final var testUnit = new WithDatabaseCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.withDatabase(new MutableNode()))
+    expectRunning(() -> testUnit.withDatabase(MutableNode.createEmpty()))
       .throwsException()
       .ofType(InvalidArgumentException.class);
   }

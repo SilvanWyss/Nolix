@@ -23,6 +23,21 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
   //multi-attribute
   private final LinkedList<MutableNode> childNodes = LinkedList.createEmpty();
 
+  //constructor
+  /**
+   * Creates a new empty {@link MutableNode}.
+   */
+  private MutableNode() {
+  }
+
+  //static method
+  /**
+   * @return a new empty {@link MutableNode}.
+   */
+  public static MutableNode createEmpty() {
+    return new MutableNode();
+  }
+
   //static method
   /**
    * @param filePath
@@ -34,7 +49,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    */
   public static MutableNode fromFile(final String filePath) {
 
-    final var mutableNode = new MutableNode();
+    final var mutableNode = MutableNode.createEmpty();
     mutableNode.resetFromFile(filePath);
 
     return mutableNode;
@@ -47,7 +62,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    */
   public static MutableNode fromNode(final INode<?> node) {
 
-    final var mutableNode = new MutableNode();
+    final var mutableNode = MutableNode.createEmpty();
 
     if (node.hasHeader()) {
       mutableNode.setHeader(node.getHeader());
@@ -67,7 +82,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    */
   public static MutableNode fromString(final String string) {
 
-    final var mutableNode = new MutableNode();
+    final var mutableNode = MutableNode.createEmpty();
     mutableNode.resetFromString(string);
 
     return mutableNode;

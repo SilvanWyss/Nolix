@@ -46,7 +46,7 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
   void testCase_isSaved_whenContainsSeveral() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var garfield = new Pet();
@@ -82,7 +82,7 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
   void testCase_removeEntity_whenContainsEntity() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var garfield = new Pet();

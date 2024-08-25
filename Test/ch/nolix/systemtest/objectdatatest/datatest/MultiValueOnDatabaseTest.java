@@ -32,7 +32,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsNewAndEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var round = new Round();
@@ -51,7 +51,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsNewAndContainsValue() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var round = new Round();
@@ -76,7 +76,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
   void testCase_removeValue_whenIsLoadedAndContainsValue() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var round = new Round();

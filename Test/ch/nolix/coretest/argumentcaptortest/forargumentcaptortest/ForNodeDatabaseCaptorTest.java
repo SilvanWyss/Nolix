@@ -21,7 +21,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
   void testCase_forNodeDatabase_whenDoesNotHaveNext() {
 
     //setup
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
     //execution & verification
@@ -33,7 +33,7 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
   void testCase_forNodeDatabase_whenHasNext() {
 
     //setup
-    final var database = new MutableNode();
+    final var database = MutableNode.createEmpty();
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);
 

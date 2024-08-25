@@ -34,7 +34,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_close_whenIsOpen() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = //
     NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
 
@@ -53,7 +53,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_close_whenIsClosed() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = //
     NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
     testUnit.close();
@@ -73,7 +73,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_constructor_whenTheGivenDatabaseIsEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
 
     //execution
     final var result = //
@@ -104,7 +104,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_getEmptyCopy_whenHasChanges() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
@@ -125,7 +125,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 
@@ -142,7 +142,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_saveChangesAndReset_whenHasChanges() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
@@ -160,7 +160,7 @@ final class NodeDataAdapterTest extends StandardTest {
   void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
 
     //setup part 1: Creates a database.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class);
     NodeDataAdapter
       .forNodeDatabase(nodeDatabase)

@@ -36,7 +36,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenIsNewAndEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var john = new Person();
@@ -55,7 +55,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -76,7 +76,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   void testCase_getStoredEntity_whenIsLoadedAndNotEmpty() {
 
     //setup part 1
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -101,7 +101,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   void testCase_isSaved_whenReferencedEntityIsDeleted() {
 
     //setup part 1: Initializes database.
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -132,7 +132,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
@@ -151,7 +151,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
   void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot_andIsSaved() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();

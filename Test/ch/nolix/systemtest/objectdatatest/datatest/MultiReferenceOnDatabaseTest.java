@@ -41,7 +41,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   void testCase_whenIsLoadedAndEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var john = new Person();
@@ -60,7 +60,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   void testCase_whenIsLoadedAndNotEmpty() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -87,7 +87,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   void testCase_whenReferencedEntityIsLoadedAndDeleted() {
 
     //setup part 1: initialize database
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -113,7 +113,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
 
     //setup part 1: initialize database
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
@@ -147,7 +147,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
@@ -166,7 +166,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
 
     //setup
-    final var nodeDatabase = new MutableNode();
+    final var nodeDatabase = MutableNode.createEmpty();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
