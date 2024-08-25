@@ -37,7 +37,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
     DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(databaseNode);
 
     schemaReader = new SchemaReader(databaseNode);
-    schemaWriter = new SchemaWriter(databaseNode);
+    schemaWriter = SchemaWriter.forDatabaseNode(databaseNode);
 
     createCloseDependencyTo(schemaReader);
     createCloseDependencyTo(schemaWriter);

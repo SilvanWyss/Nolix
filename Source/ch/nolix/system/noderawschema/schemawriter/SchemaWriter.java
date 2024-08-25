@@ -60,13 +60,18 @@ public final class SchemaWriter implements ISchemaWriter {
   private boolean hasChanges;
 
   //constructor
-  public SchemaWriter(final IMutableNode<?> databaseNode) {
+  private SchemaWriter(final IMutableNode<?> databaseNode) {
 
     GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 
     this.databaseNode = databaseNode;
 
     reset();
+  }
+
+  //static method
+  public static SchemaWriter forDatabaseNode(final IMutableNode<?> databaseNode) {
+    return new SchemaWriter(databaseNode);
   }
 
   //method
