@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.netapi.endpoint2api;
 
+//own imports
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
@@ -21,7 +22,7 @@ public interface IServer extends Clearable, GroupCloseable {
   boolean containsSlotWithName(String name);
 
   //method declaration
-  SecurityMode getSecurityLevel();
+  SecurityMode getSecurityMode();
 
   //method declaration
   void removeSlotByName(String name);
