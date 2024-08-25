@@ -43,7 +43,7 @@ final class SslServerEndPoint extends NetEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return SecurityMode.SSL;
   }
 

@@ -109,7 +109,7 @@ final class LocalEndPointTest extends StandardTest {
     //verification
     expect(result.getConnectionType()).is(ConnectionType.LOCAL);
     expect(result.getPeerType()).is(PeerType.FRONTEND);
-    expect(result.getSecurityLevel()).is(SecurityMode.NONE);
+    expect(result.getSecurityMode()).is(SecurityMode.NONE);
   }
 
   //method
@@ -142,7 +142,7 @@ final class LocalEndPointTest extends StandardTest {
       expect(result.getCustomTargetSlot()).is(slot.getName());
       expect(result.getConnectionType()).is(ConnectionType.LOCAL);
       expect(result.getPeerType()).is(PeerType.FRONTEND);
-      expect(result.getSecurityLevel()).is(SecurityMode.NONE);
+      expect(result.getSecurityMode()).is(SecurityMode.NONE);
     }
   }
 

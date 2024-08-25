@@ -64,7 +64,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
    *         {@link Client}.
    */
   public SecurityMode getConnectionSecurityLevel() {
-    return endPoint.getSecurityLevel();
+    return endPoint.getSecurityMode();
   }
 
   //method

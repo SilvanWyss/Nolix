@@ -20,7 +20,7 @@ public interface IBaseEndPoint extends GroupCloseable {
   PeerType getPeerType();
 
   //method declaration
-  SecurityMode getSecurityLevel();
+  SecurityMode getSecurityMode();
 
   //method declaration
   TargetSlotDefinition getTargetSlotDefinition();

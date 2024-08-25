@@ -150,7 +150,7 @@ public final class LocalEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
   }
 
