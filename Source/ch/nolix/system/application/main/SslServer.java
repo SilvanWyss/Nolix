@@ -93,7 +93,7 @@ public final class SslServer extends BaseServer<SslServer> {
    */
   @Override
   public SecurityMode getSecurityLevel() {
-    return internalWebSocketServer.getSecurityLevel();
+    return internalWebSocketServer.getSecurityMode();
   }
 
   //method

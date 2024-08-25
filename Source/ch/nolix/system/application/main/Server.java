@@ -99,7 +99,7 @@ public final class Server extends BaseServer<Server> {
    */
   @Override
   public SecurityMode getSecurityLevel() {
-    return internalServer.getSecurityLevel();
+    return internalServer.getSecurityMode();
   }
 
   //method

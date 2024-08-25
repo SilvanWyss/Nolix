@@ -39,7 +39,7 @@ public final class SslServer extends BaseServer {
 
   //method
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return SecurityMode.SSL;
   }
 
