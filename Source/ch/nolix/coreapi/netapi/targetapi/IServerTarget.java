@@ -14,7 +14,7 @@ public interface IServerTarget {
   int getPort();
 
   //method declaration
-  SecurityMode getSecurityLevelForConnections();
+  SecurityMode getSecurityModeForConnection();
 
   //method declaration
   String toUrl();

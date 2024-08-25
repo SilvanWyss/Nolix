@@ -61,14 +61,14 @@ public class ServerTarget implements IServerTarget {
 
   //method
   @Override
-  public final SecurityMode getSecurityLevelForConnections() {
+  public final SecurityMode getSecurityModeForConnection() {
     return securityLevelForConnections;
   }
 
   //method
   @Override
   public String toUrl() {
-    return switch (getSecurityLevelForConnections()) {
+    return switch (getSecurityModeForConnection()) {
       case NONE ->
         toHttpUrl();
       case SSL ->

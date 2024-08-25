@@ -304,7 +304,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
         serverTarget.getPort(),
         getInstanceName(),
         getUrlInstanceName(),
-        serverTarget.getSecurityLevelForConnections());
+        serverTarget.getSecurityModeForConnection());
   }
 
   //method

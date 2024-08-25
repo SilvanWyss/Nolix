@@ -91,7 +91,7 @@ implements ISqlDatabaseTarget {
 
   //method
   @Override
-  public SecurityMode getSecurityLevelForConnections() {
+  public SecurityMode getSecurityModeForConnection() {
     return SECURITY_LEVEL_FOR_CONNECTIONS;
   }
 
