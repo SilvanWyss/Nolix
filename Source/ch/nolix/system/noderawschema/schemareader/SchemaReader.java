@@ -46,11 +46,16 @@ public final class SchemaReader implements ISchemaReader {
   private final IMutableNode<?> databaseNode;
 
   //constructor
-  public SchemaReader(final IMutableNode<?> databaseNode) {
+  private SchemaReader(final IMutableNode<?> databaseNode) {
 
     GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 
     this.databaseNode = databaseNode;
+  }
+
+  //static method
+  public static SchemaReader forDatabaseNode(final IMutableNode<?> databaseNode) {
+    return new SchemaReader(databaseNode);
   }
 
   //method
