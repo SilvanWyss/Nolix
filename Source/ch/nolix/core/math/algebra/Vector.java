@@ -8,7 +8,6 @@ import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
@@ -168,17 +167,19 @@ public final class Vector {
 
   //method
   /**
-   * @param p1BasedIndex
-   * @return the value at the given index
-   * @throws ArgumentIsOutOfRangeException if the given index is not positive or
-   *                                       the given p1BasedIndex is bigger than
-   *                                       the size of the current {@link Vector}.
+   * @param param1BasedIndex
+   * @return the value of the current {@link Vector} at the given
+   *         param1BasedIndex.
+   * @throws ArgumentIsOutOfRangeException if the given param1BasedIndex is not
+   *                                       positive or the given p1BasedIndex is
+   *                                       bigger than the size of the current
+   *                                       {@link Vector}.
    */
-  public double getValueAt1BasedIndex(int p1BasedIndex) {
+  public double getValueAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isBetween(1, getSize());
+    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
 
-    return values[p1BasedIndex - 1];
+    return values[param1BasedIndex - 1];
   }
 
   //method
