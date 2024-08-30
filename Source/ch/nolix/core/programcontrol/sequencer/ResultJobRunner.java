@@ -128,9 +128,9 @@ final class ResultJobRunner<R> extends Thread {
   public void run() {
     try {
       result = resultJob.get();
-    } catch (final Throwable lError) { //NOSONAR: All Throwables must be caught here.
-      error = lError;
-      GlobalLogger.logError(lError);
+    } catch (final Throwable paramError) { //NOSONAR: Each Throwable must be caught here.
+      error = paramError;
+      GlobalLogger.logError(paramError);
     } finally {
       running = false;
     }
