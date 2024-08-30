@@ -43,6 +43,6 @@ final class MultiReadContainerTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
-    return new MultiReadContainer<>();
+    return MultiReadContainer.forEmpty();
   }
 }

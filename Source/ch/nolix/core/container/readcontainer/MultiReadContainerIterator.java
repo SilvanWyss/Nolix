@@ -2,7 +2,6 @@
 package ch.nolix.core.container.readcontainer;
 
 //own imports
-import ch.nolix.core.container.base.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -12,18 +11,18 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 
   //attribute
-  private final CopyableIterator<IContainer<E>> rootIterator;
+  private final CopyableIterator<IContainer<E>> mainIterator;
 
   //optional attribute
-  private CopyableIterator<E> currentIterator;
+  private CopyableIterator<E> currentSubIterator;
 
   //constructor
-  public MultiReadContainerIterator(final Container<IContainer<E>> containers) {
+  private MultiReadContainerIterator(final IContainer<IContainer<E>> containers) {
 
-    rootIterator = containers.iterator();
+    mainIterator = containers.iterator();
 
-    if (rootIterator.hasNext()) {
-      currentIterator = rootIterator.next().iterator();
+    if (mainIterator.hasNext()) {
+      currentSubIterator = mainIterator.next().iterator();
     }
   }
 
@@ -31,20 +30,26 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
   private MultiReadContainerIterator(
     final CopyableIterator<IContainer<E>> rootIterator,
     final CopyableIterator<E> currentIterator) {
-    this.rootIterator = rootIterator;
-    this.currentIterator = currentIterator;
+    this.mainIterator = rootIterator;
+    this.currentSubIterator = currentIterator;
+  }
+
+  //static method
+  public static <E2> MultiReadContainerIterator<E2> forContainers(
+    final IContainer<IContainer<E2>> containers) {
+    return new MultiReadContainerIterator<>(containers);
   }
 
   //method
   @Override
   public CopyableIterator<E> getCopy() {
-    return new MultiReadContainerIterator<>(rootIterator.getCopy(), currentIterator.getCopy());
+    return new MultiReadContainerIterator<>(mainIterator.getCopy(), currentSubIterator.getCopy());
   }
 
   //method
   @Override
   public boolean hasNext() {
-    return (currentIterator != null && currentIterator.hasNext());
+    return (currentSubIterator != null && currentSubIterator.hasNext());
   }
 
   //method
@@ -56,13 +61,13 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT);
     }
 
-    final var element = currentIterator.next();
+    final var element = currentSubIterator.next();
 
-    if (!currentIterator.hasNext()) {
-      if (!rootIterator.hasNext()) {
-        currentIterator = null;
+    if (!currentSubIterator.hasNext()) {
+      if (!mainIterator.hasNext()) {
+        currentSubIterator = null;
       } else {
-        currentIterator = rootIterator.next().iterator();
+        currentSubIterator = mainIterator.next().iterator();
       }
     }
 

@@ -7,6 +7,7 @@ import java.util.function.Function;
 //own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
@@ -18,32 +19,53 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 public final class MultiReadContainer<E> extends Container<E> {
 
   //attribute
-  private final IterableReadContainer<IContainer<E>> containers;
+  private final IContainer<IContainer<E>> containers;
 
-  //constructor
-  public MultiReadContainer() {
-    containers = new IterableReadContainer<>();
+  //constructor 
+  private MultiReadContainer() {
+    containers = ImmutableList.createEmpty();
   }
 
   //constructor
-  private MultiReadContainer(final IContainer<? extends IContainer<E>> container) {
-    this.containers = IterableReadContainer.forIterable(container);
+  private MultiReadContainer(final E[] array, @SuppressWarnings("unchecked") final E[]... arrays) {
+
+    final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
+
+    localContainers.addAtEnd(ArrayReadContainer.forArray(array));
+
+    for (final var a : arrays) {
+      localContainers.addAtEnd(ArrayReadContainer.forArray(a));
+    }
+
+    containers = localContainers;
+  }
+
+  //constructor
+  private MultiReadContainer(
+    final Iterable<? extends E> iterable,
+    @SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
+
+    final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
+
+    localContainers.addAtEnd(IterableReadContainer.forIterable(iterable));
+
+    for (final var i : iterables) {
+      localContainers.addAtEnd(IterableReadContainer.forIterable(i));
+    }
+
+    containers = localContainers;
   }
 
   //static method
   public static <E2> MultiReadContainer<E2> forArray(
     final E2[] array,
     @SuppressWarnings("unchecked") final E2[]... arrays) {
+    return new MultiReadContainer<>(array, arrays);
+  }
 
-    final ILinkedList<ArrayReadContainer<E2>> containers = LinkedList.createEmpty();
-
-    containers.addAtEnd(ArrayReadContainer.forArray(array));
-
-    for (final var a : arrays) {
-      containers.addAtEnd(ArrayReadContainer.forArray(a));
-    }
-
-    return new MultiReadContainer<>(containers);
+  //static method
+  public static <E2> MultiReadContainer<E2> forEmpty() {
+    return new MultiReadContainer<>();
   }
 
   //static method
@@ -51,22 +73,13 @@ public final class MultiReadContainer<E> extends Container<E> {
   public static <E2> MultiReadContainer<E2> forIterable(
     final Iterable<? extends E2> iterable,
     final Iterable<? extends E2>... iterables) {
-
-    final ILinkedList<IterableReadContainer<E2>> containers = LinkedList.createEmpty();
-
-    containers.addAtEnd(IterableReadContainer.forIterable(iterable));
-
-    for (final var i : iterables) {
-      containers.addAtEnd(IterableReadContainer.forIterable(i));
-    }
-
-    return new MultiReadContainer<>(containers);
+    return new MultiReadContainer<>(iterable, iterables);
   }
 
   //method
   @Override
   public CopyableIterator<E> iterator() {
-    return new MultiReadContainerIterator<>(containers);
+    return MultiReadContainerIterator.forContainers(containers);
   }
 
   //method
@@ -77,21 +90,22 @@ public final class MultiReadContainer<E> extends Container<E> {
 
   //method
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
     var i = 1;
     for (final var e : this) {
 
-      if (i == p1BasedIndex) {
+      if (i == param1BasedIndex) {
         return e;
       }
 
       i++;
     }
 
-    throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
+    throw //
+    ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
       "1-based index",
-      p1BasedIndex,
+      param1BasedIndex,
       1,
       getCount());
   }
@@ -111,7 +125,7 @@ public final class MultiReadContainer<E> extends Container<E> {
   //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
+    return containers.toFromGroups(c -> c).toOrderedList(norm);
   }
 
   //method
