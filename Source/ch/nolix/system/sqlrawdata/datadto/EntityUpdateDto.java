@@ -59,7 +59,7 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
     final String saveStamp,
     final IContentFieldDto updatedContentField,
     final IContentFieldDto... updatedContentFields) {
-    this(id, saveStamp, ReadContainer.forElement(updatedContentField, updatedContentFields));
+    this(id, saveStamp, ReadContainer.forElementAndArray(updatedContentField, updatedContentFields));
   }
 
   //method

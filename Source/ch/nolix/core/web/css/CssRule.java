@@ -50,7 +50,10 @@ public final class CssRule implements ICssRule {
     final String selector,
     final ICssProperty property,
     final ICssProperty... properties) {
-    return new CssRule(selector, ReadContainer.forElement(property, properties));
+
+    final var allProperties = ReadContainer.forElementAndArray(property, properties);
+
+    return new CssRule(selector, allProperties);
   }
 
   //method

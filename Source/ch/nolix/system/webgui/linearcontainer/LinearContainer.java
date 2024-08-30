@@ -32,7 +32,7 @@ implements ILinearContainer<LC, LCS> {
   @Override
   public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 
-    final var allControls = ReadContainer.forElement(control, controls);
+    final var allControls = ReadContainer.forElementAndArray(control, controls);
 
     return addControls(allControls);
   }

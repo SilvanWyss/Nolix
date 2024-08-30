@@ -47,7 +47,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   @Override
   public final IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
 
-    final var allItems = ReadContainer.forElement(item, items);
+    final var allItems = ReadContainer.forElementAndArray(item, items);
 
     for (final var i : allItems) {
 
@@ -85,7 +85,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   @Override
   public final IM addItemWithText(final String text, final String... texts) {
 
-    final var allTexts = ReadContainer.forElement(text, texts);
+    final var allTexts = ReadContainer.forElementAndArray(text, texts);
 
     for (final var t : allTexts) {
       addItem(ItemMenuItem.withText(t));

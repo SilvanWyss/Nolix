@@ -42,7 +42,7 @@ public final class ControlFactory {
     final Class<Control<?, ?>> controlClass,
     final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
 
-    final var allControlClasses = ReadContainer.forElement(controlClass, controlClasses);
+    final var allControlClasses = ReadContainer.forElementAndArray(controlClass, controlClasses);
 
     for (final var cc : allControlClasses) {
 

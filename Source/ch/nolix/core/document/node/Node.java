@@ -83,7 +83,8 @@ public final class Node extends BaseNode<Node> {
 
     this.header = getValidHeaderFromHeader(header);
 
-    this.childNodes = ImmutableList.forIterable(createNodesFromNodes(ReadContainer.forElement(childNode, childNodes)));
+    this.childNodes = //
+    ImmutableList.forIterable(createNodesFromNodes(ReadContainer.forElementAndArray(childNode, childNodes)));
   }
 
   //constructor
@@ -177,7 +178,10 @@ public final class Node extends BaseNode<Node> {
    * @return a new {@link Node} with the given childNodes.
    */
   public static Node withChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    return new Node(ReadContainer.forElement(childNode, childNodes));
+
+    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes);
+
+    return new Node(allChildNodes);
   }
 
   //static method
@@ -198,7 +202,10 @@ public final class Node extends BaseNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   public static Node withChildNode(final String childNode, final String... childNodes) {
-    return withChildNodes(ReadContainer.forElement(childNode, childNodes).to(Node::withHeader));
+
+    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes).to(Node::withHeader);
+
+    return withChildNodes(allChildNodes);
   }
 
   //static method
@@ -324,7 +331,10 @@ public final class Node extends BaseNode<Node> {
    * @throws InvalidArgumentException if one of the given childNodes is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
-    return withHeaderAndChildNodes(header, ReadContainer.forElement(childNode, childNodes).to(Node::withHeader));
+
+    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes).to(Node::withHeader);
+
+    return withHeaderAndChildNodes(header, allChildNodes);
   }
 
   //static method

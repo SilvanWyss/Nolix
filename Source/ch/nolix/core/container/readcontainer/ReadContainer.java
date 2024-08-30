@@ -7,20 +7,21 @@ import java.util.function.Function;
 //own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * A {@link ReadContainer} can read a given container. A {@link ReadContainer}
- * prevents that its accessed container can be mutated. A {@link ReadContainer}
- * does not prevent that the elements of its accessed container can be mutated.
+ * A {@link ReadContainer} can read a given {@link Iterable} or array. A
+ * {@link ReadContainer} prevents that its accessed {@link Iterable} or array
+ * can be mutated. A {@link ReadContainer} does not prevent that the elements of
+ * its {@link Iterable} or array can be mutated.
  * 
  * @author Silvan Wyss
  * @version 2017-07-01
@@ -29,34 +30,22 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 public final class ReadContainer<E> extends Container<E> {
 
   //attribute
-  private final Container<E> container;
-
-  //constructor
-  /**
-   * Creates a new {@link ReadContainer} for an empty container.
-   */
-  public ReadContainer() {
-
-    //Calls other constructor.
-    this(LinkedList.createEmpty());
-  }
+  private final IContainer<E> internalContainer;
 
   //constructor
   /**
    * Creates a new {@link ReadContainer} for the given container.
    * 
    * @param container
-   * @param <E2>      is the type of the elements of the given container.
    * @throws ArgumentIsNullException if the given container is null.
    */
-  @SuppressWarnings("unchecked")
-  private <E2 extends E> ReadContainer(final Container<E2> container) {
+  private ReadContainer(final IContainer<E> container) {
 
     //Asserts that the given container is not null.
     GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalogue.CONTAINER).isNotNull();
 
     //Sets the container of the current ReadContainer.
-    this.container = (Container<E>) container;
+    internalContainer = container;
   }
 
   //static method
@@ -67,59 +56,86 @@ public final class ReadContainer<E> extends Container<E> {
    * @return a new {@link ReadContainer} for the given array and arrays.
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if the given arrays is null.
-   * @throws ArgumentIsNullException if one of the given arrays is null.
+   * @throws ArgumentIsNullException if one array of the given arrays is null.
    */
   @SuppressWarnings("unchecked")
   public static <E2> ReadContainer<E2> forArray(final E2[] array, final E2[]... arrays) {
-    return new ReadContainer<>(MultiReadContainer.forArray(array, arrays));
+
+    final var container = MultiReadContainer.forArray(array, arrays);
+
+    return new ReadContainer<>(container);
   }
 
   //static method
   /**
-   * @param firstElement
-   * @param elements
-   * @param <E2>         is the type of the given elements.
-   * @return a new {@link ReadContainer} with the given elements.
-   * @throws ArgumentIsNullException if the given firstElement or one of the given
-   *                                 elements is null.
+   * @param element
+   * @param array
+   * @param <E2>    is the type of the given element and elements of the given
+   *                array.
+   * @return a new {@link ReadContainer} for the given element and array.
+   * @throws ArgumentIsNullException if the given element is null.
+   * @throws ArgumentIsNullException if the given array is null.
+   * @throws ArgumentIsNullException if one element of the given arrays is null.
    */
-  @SuppressWarnings("unchecked")
-  public static <E2> ReadContainer<E2> forElement(final E2 firstElement, final E2... elements) {
-    return new ReadContainer<>(LinkedList.withElement(firstElement, elements));
+  public static <E2> ReadContainer<E2> forElementAndArray(final E2 element, final E2[] array) {
+
+    @SuppressWarnings("unchecked")
+    final var arrayWithElement = (E2[]) new Object[] { element };
+
+    @SuppressWarnings("unchecked")
+    final var container = MultiReadContainer.forArray(arrayWithElement, array);
+
+    return new ReadContainer<>(container);
   }
 
   //static method
   /**
-   * @param container
-   * @param containers
-   * @param <E2>       is the type of the elements of the given container and
-   *                   containers.
-   * @return a new {@link ReadContainer} for the given containers.
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given containers is null.
-   * @throws ArgumentIsNullException if one of the given containers is null.
+   * @param <E2> is the type of the hypothetical elements of the created empty
+   *             {@link ReadContainer}.
+   * @return a new empty {@link ReadContainer}.
+   */
+  public static <E2> ReadContainer<E2> forEmpty() {
+
+    final IContainer<E2> container = ImmutableList.createEmpty();
+
+    return new ReadContainer<>(container);
+  }
+
+  //static method
+  /**
+   * @param iterable
+   * @param iterables
+   * @param <E2>      is the type of the elements of the given iterable and
+   *                  iterables.
+   * @return a new {@link ReadContainer} for the given iterable and iterables.
+   * @throws ArgumentIsNullException if the given iterable is null.
+   * @throws ArgumentIsNullException if the given iterables is null.
+   * @throws ArgumentIsNullException if one of the given iterables is null.
    */
   @SafeVarargs
   public static <E2> ReadContainer<E2> forIterable(
-    final Iterable<? extends E2> container,
-    final Iterable<? extends E2>... containers) {
-    return new ReadContainer<>(MultiReadContainer.forIterable(container, containers));
+    final Iterable<? extends E2> iterable,
+    final Iterable<? extends E2>... iterables) {
+
+    final var container = MultiReadContainer.forIterable(iterable, iterables);
+
+    return new ReadContainer<>(container);
   }
 
   //method
   /**
    * An object equals a {@link ReadContainer} when the object is a
-   * {@link ReadContainer} that contains exactly the same elements in the same
-   * order.
+   * {@link Iterable} that contains exactly the same elements in the same order
+   * like the {@link ReadContainer}.
    * 
    * {@inheritDoc}
    */
   @Override
   public boolean equals(final Object object) {
 
-    //Handles the case that the given object is a ReadContainer.
-    if (object instanceof ReadContainer<?> localContainer) {
-      return containsExactlyInSameOrder(localContainer);
+    //Handles the case that the given object is a Iterable.
+    if (object instanceof Iterable<?> iterable) {
+      return containsExactlyInSameOrder(iterable);
     }
 
     //Handles the case that the given object is not a ReadContainer.
@@ -132,7 +148,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public int getCount() {
-    return container.getCount();
+    return internalContainer.getCount();
   }
 
   //method
@@ -140,8 +156,8 @@ public final class ReadContainer<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
-    return container.getStoredAt1BasedIndex(p1BasedIndex);
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
+    return internalContainer.getStoredAt1BasedIndex(param1BasedIndex);
   }
 
   //method
@@ -150,7 +166,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public E getStoredLast() {
-    return container.getStoredLast();
+    return internalContainer.getStoredLast();
   }
 
   //method
@@ -159,7 +175,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public int hashCode() {
-    return toString().hashCode();
+    return internalContainer.hashCode();
   }
 
   //method
@@ -168,7 +184,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public boolean isMaterialized() {
-    return false;
+    return internalContainer.isMaterialized();
   }
 
   //method
@@ -177,7 +193,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return container.iterator();
+    return internalContainer.iterator();
   }
 
   //method
@@ -186,7 +202,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
+    return internalContainer.toOrderedList(norm);
   }
 
   //method
@@ -195,7 +211,7 @@ public final class ReadContainer<E> extends Container<E> {
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return internalContainer.toString();
   }
 
   //method

@@ -184,7 +184,7 @@ implements ISelectingStyleWithSelectors {
   public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
     final Enum<?>... selectorRoles) {
 
-    final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles).to(Object::toString);
+    final var allSelectorRoles = ReadContainer.forElementAndArray(selectorRole, selectorRoles).to(Object::toString);
 
     return withSelectorRoles(allSelectorRoles);
   }
@@ -193,7 +193,7 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
 
-    final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles);
+    final var allSelectorRoles = ReadContainer.forElementAndArray(selectorRole, selectorRoles);
 
     return withSelectorRoles(allSelectorRoles);
   }
@@ -204,7 +204,7 @@ implements ISelectingStyleWithSelectors {
     final String selectorToken,
     final String... selectorTokens) {
 
-    final var allSelectorTokens = ReadContainer.forElement(selectorToken, selectorTokens);
+    final var allSelectorTokens = ReadContainer.forElementAndArray(selectorToken, selectorTokens);
 
     return withSelectorTokens(allSelectorTokens);
   }

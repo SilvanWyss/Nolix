@@ -50,7 +50,10 @@ public final class ColumnDto implements IColumnDto {
     final IDataTypeDto dataType,
     final IConstraintDto constraint,
     final IConstraintDto... constraints) {
-    return withNameAndDataTypeAndConstraints(name, dataType, ReadContainer.forElement(constraint, constraints));
+
+    final var allConstraints = ReadContainer.forElementAndArray(constraint, constraints);
+
+    return withNameAndDataTypeAndConstraints(name, dataType, allConstraints);
   }
 
   //static method

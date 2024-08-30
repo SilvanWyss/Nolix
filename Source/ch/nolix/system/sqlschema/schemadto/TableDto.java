@@ -31,7 +31,10 @@ public final class TableDto implements ITableDto {
 
   //static method
   public static TableDto withNameAndColumn(final String name, final IColumnDto column, final IColumnDto... columns) {
-    return withNameAndColumns(name, ReadContainer.forElement(column, columns));
+
+    final var allColumns = ReadContainer.forElementAndArray(column, columns);
+
+    return withNameAndColumns(name, allColumns);
   }
 
   //static method

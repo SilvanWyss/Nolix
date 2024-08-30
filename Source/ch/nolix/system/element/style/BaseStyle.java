@@ -79,7 +79,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
   @Override
   public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
 
-    final var allAttachingAttributes = ReadContainer.forElement(attachingAttribute, attachingAttributes);
+    final var allAttachingAttributes = ReadContainer.forElementAndArray(attachingAttribute, attachingAttributes);
 
     return withAttachingAttributes(allAttachingAttributes);
   }
@@ -93,9 +93,9 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     final ISelectingStyleWithSelectors subStyle,
     final ISelectingStyleWithSelectors... subStyles) {
 
-    final var localSubStyles = ReadContainer.forElement(subStyle, subStyles);
+    final var allSubStyles = ReadContainer.forElementAndArray(subStyle, subStyles);
 
-    return withSubStyles(localSubStyles);
+    return withSubStyles(allSubStyles);
   }
 
   //method

@@ -1404,7 +1404,10 @@ public final class Color extends Element implements IColor {
 
   //static method
   public static Color createAverageFrom(final IColor color, final IColor... colors) {
-    return createAverageFrom(ReadContainer.forElement(color, colors));
+
+    final var allColors = ReadContainer.forElementAndArray(color, colors);
+
+    return createAverageFrom(allColors);
   }
 
   //static method

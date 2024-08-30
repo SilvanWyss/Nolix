@@ -86,12 +86,12 @@ final class ReadContainerTest extends ContainerTest {
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-    return ReadContainer.forElement(element, elements);
+    return ReadContainer.forElementAndArray(element, elements);
   }
 
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
-    return new ReadContainer<>();
+    return ReadContainer.forEmpty();
   }
 }

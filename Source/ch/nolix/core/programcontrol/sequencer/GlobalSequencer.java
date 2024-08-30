@@ -135,7 +135,10 @@ public final class GlobalSequencer {
    * @return a new {@link IFuture} for the running of the given jobs.
    */
   public static IFuture runInBackgroundAndOrder(final Runnable job, final Runnable... jobs) {
-    return new Future(JobRunner.forJobs(ReadContainer.forElement(job, jobs)));
+
+    final var allJobes = ReadContainer.forElementAndArray(job, jobs);
+
+    return new Future(JobRunner.forJobs(allJobes));
   }
 
   //static method

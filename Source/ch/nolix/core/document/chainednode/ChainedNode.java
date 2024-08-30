@@ -299,8 +299,10 @@ public final class ChainedNode implements IChainedNode {
     final INode<?>... childNodes) {
 
     final var chainedNode = new ChainedNode();
+    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes);
+
     chainedNode.setHeader(header);
-    chainedNode.addChildNodesFromNodes(ReadContainer.forElement(childNode, childNodes));
+    chainedNode.addChildNodesFromNodes(allChildNodes);
 
     return chainedNode;
   }

@@ -73,8 +73,11 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   @SuppressWarnings("unchecked")
   public Matrix<E> addColumn(final E element, final E... elements) {
 
+    //Collects allElements.
+    final var allElements = ReadContainer.forElementAndArray(element, elements);
+
     //Calls other method.
-    return addColumn(ReadContainer.forElement(element, elements));
+    return addColumn(allElements);
   }
 
   //method
@@ -162,8 +165,11 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   @SuppressWarnings("unchecked")
   public Matrix<E> addRow(final E element, final E... elements) {
 
+    //Collects allElements.
+    final var allElements = ReadContainer.forElementAndArray(element, elements);
+
     //Calls other method.
-    return addRow(ReadContainer.forElement(element, elements));
+    return addRow(allElements);
   }
 
   //method

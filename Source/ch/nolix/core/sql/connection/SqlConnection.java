@@ -114,7 +114,10 @@ public abstract class SqlConnection implements ISqlConnection {
   //method
   @Override
   public final void executeStatement(final String statement, final String... statements) {
-    executeStatements(ReadContainer.forElement(statement, statements));
+
+    final var allStatements = ReadContainer.forElementAndArray(statement, statements);
+
+    executeStatements(allStatements);
   }
 
   //method
