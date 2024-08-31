@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 
 //class
-public final class SslServerHtmlPage {
+public final class SslServerPage {
 
   //constant
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
@@ -27,7 +27,7 @@ public final class SslServerHtmlPage {
   private final int port;
 
   //constructor
-  private SslServerHtmlPage(final String domain, final int port) {
+  private SslServerPage(final String domain, final int port) {
 
     GlobalValidator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalogue.DOMAIN).isNotBlank();
     GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isPort();
@@ -37,8 +37,8 @@ public final class SslServerHtmlPage {
   }
 
   //static method
-  public static SslServerHtmlPage forDomainAndPort(final String domain, final int port) {
-    return new SslServerHtmlPage(domain, port);
+  public static SslServerPage forDomainAndPort(final String domain, final int port) {
+    return new SslServerPage(domain, port);
   }
 
   //method
