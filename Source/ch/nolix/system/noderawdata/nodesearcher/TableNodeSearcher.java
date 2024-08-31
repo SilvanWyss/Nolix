@@ -92,7 +92,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     return //
     tableNode.containsChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-      && entitiesToIgnoreIds.containsNone(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX))
+      && entitiesToIgnoreIds.containsNone(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader())
       && a.getStoredChildNodeAt1BasedIndex(index).hasHeader(header));
   }
 }
