@@ -24,13 +24,15 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
     if (mainIterator.hasNext()) {
       currentSubIterator = mainIterator.next().iterator();
     }
+
+    forwardSubIteratorToNextOrEnd();
   }
 
   //constructor
   private MultiReadContainerIterator(
-    final CopyableIterator<IContainer<E>> rootIterator,
+    final CopyableIterator<IContainer<E>> mainIterator,
     final CopyableIterator<E> currentIterator) {
-    this.mainIterator = rootIterator;
+    this.mainIterator = mainIterator;
     this.currentSubIterator = currentIterator;
   }
 
@@ -63,14 +65,19 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 
     final var element = currentSubIterator.next();
 
-    if (!currentSubIterator.hasNext()) {
-      if (!mainIterator.hasNext()) {
-        currentSubIterator = null;
-      } else {
-        currentSubIterator = mainIterator.next().iterator();
-      }
-    }
+    forwardSubIteratorToNextOrEnd();
 
     return element;
+  }
+
+  //method
+  private void forwardSubIteratorToNextOrEnd() {
+    while (currentSubIterator != null && !currentSubIterator.hasNext()) {
+      if (mainIterator.hasNext()) {
+        currentSubIterator = mainIterator.next().iterator();
+      } else {
+        currentSubIterator = null;
+      }
+    }
   }
 }
