@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi} package declares types for basic purpose.
+ * The {@link ch.nolix.coreapi} package declares types for basic purpose. For
+ * example containers.
  * 
  * @author Silvan Wyss
  * @version 2022-06-24

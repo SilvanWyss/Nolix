@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.techapi} package defines APIs for business purpose. E.g.
- * APIs for calendars or fractals.
+ * The {@link ch.nolix.techapi} package defines types for technical purpose. For
+ * example fractal builders.
  * 
  * @author Silvan Wyss
  * @version 2020-12-01

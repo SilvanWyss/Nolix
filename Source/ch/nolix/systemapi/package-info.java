@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi} package defines APIs that declares types for
- * technical use.
+ * The {@link ch.nolix.systemapi} package declares types for system purpose. For
+ * example web applications.
  * 
  * @author Silvan Wyss
  * @version 2021-06-30
