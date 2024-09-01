@@ -9,7 +9,7 @@ import ch.nolix.system.webgui.main.Layer;
 final class LayerToolTest extends StandardTest {
 
   @Test
-  void testCase() {
+  void testCase_createIdHtmlAttributeForLayer() {
 
     //setup
     final var layer = new Layer();
