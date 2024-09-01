@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 //own imports
 import ch.nolix.core.commontypetool.iteratorvalidator.IteratorValidator;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
+import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
 //class
 public final class ArrayIterator<E> implements CopyableIterator<E> {

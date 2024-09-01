@@ -3,7 +3,7 @@ package ch.nolix.coretest.containertest.arraylisttest;
 
 //own imports
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
+import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coretest.containertest.basetest.CopyableIteratorTest;
 
 //class

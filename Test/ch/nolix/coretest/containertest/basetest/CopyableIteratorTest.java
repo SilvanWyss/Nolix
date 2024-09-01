@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 //own imports
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
+import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
 //class
 public abstract class CopyableIteratorTest extends StandardTest {

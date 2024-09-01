@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
+import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+
 //interface
 /**
  * A {@link IterableWithCopyableIterator} is a {@link Iterable} that provide

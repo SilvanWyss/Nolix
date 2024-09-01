@@ -4,7 +4,7 @@ package ch.nolix.core.container.arraylist;
 //own imports
 import ch.nolix.core.commontypetool.iteratorvalidator.IteratorValidator;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
+import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
 //class
 public final class ArrayListIterator<E> implements CopyableIterator<E> {

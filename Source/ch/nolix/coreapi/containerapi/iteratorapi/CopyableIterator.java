@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.containerapi.baseapi;
+package ch.nolix.coreapi.containerapi.iteratorapi;
 
 //Java imports
 import java.util.Iterator;

@@ -3,7 +3,7 @@ package ch.nolix.core.programstructure.caching;
 
 //own imports
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
+import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
 //class
 final class CachingContainerIterator<E> implements CopyableIterator<E> {
