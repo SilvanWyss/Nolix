@@ -368,14 +368,12 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
   public final IMutableXmlNode toXml() {
 
     //Creates an XmlNode.
-    final var xmlNode = new MutableXmlNode()
-      .setName(getHeader());
+    final var xmlNode = new MutableXmlNode().setName(getHeader());
 
     //Iterates the child nodes of the current BaseNode.
     for (final BaseNode<?> cn : getStoredChildNodes()) {
 
-      //Handles the case that the current child node itself does not contain child
-      //nodes.
+      //Handles the case that the current child node itself does not contain child nodes.
       if (!cn.containsChildNodes()) {
         xmlNode.setValue(cn.toString());
 
