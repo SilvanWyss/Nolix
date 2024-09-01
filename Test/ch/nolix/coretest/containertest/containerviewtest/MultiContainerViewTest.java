@@ -1,17 +1,17 @@
 //package declaration
-package ch.nolix.coretest.containertest.readcontainertest;
+package ch.nolix.coretest.containertest.containerviewtest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
 //own imports
+import ch.nolix.core.container.containerview.MultiContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.readcontainer.MultiReadContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
-final class MultiReadContainerTest extends ContainerTest {
+final class MultiContainerViewTest extends ContainerTest {
 
   //method
   @Test
@@ -23,7 +23,7 @@ final class MultiReadContainerTest extends ContainerTest {
     final var array3 = new String[] { "z", "zz" };
 
     //execution
-    final var result = MultiReadContainer.forArray(array1, array2, array3);
+    final var result = MultiContainerView.forArray(array1, array2, array3);
 
     //verification
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
@@ -37,12 +37,12 @@ final class MultiReadContainerTest extends ContainerTest {
 
     final var container = ImmutableList.withElement(element, elements);
 
-    return MultiReadContainer.forIterable(container);
+    return MultiContainerView.forIterable(container);
   }
 
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
-    return MultiReadContainer.forEmpty();
+    return MultiContainerView.forEmpty();
   }
 }

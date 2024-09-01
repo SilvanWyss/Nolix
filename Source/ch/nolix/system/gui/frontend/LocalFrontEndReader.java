@@ -15,8 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -82,7 +81,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
       final var files = (List<File>) (Toolkit.getDefaultToolkit().getSystemClipboard()
         .getData(DataFlavor.javaFileListFlavor));
 
-      return ReadContainer.forIterable(files).to(File::getPath);
+      return ContainerView.forIterable(files).to(File::getPath);
     } catch (final IOException | UnsupportedFlavorException exception) {
       throw WrapperException.forError(exception);
     }

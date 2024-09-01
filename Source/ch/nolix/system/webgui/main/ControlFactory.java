@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -42,7 +42,7 @@ public final class ControlFactory {
     final Class<Control<?, ?>> controlClass,
     final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
 
-    final var allControlClasses = ReadContainer.forElementAndArray(controlClass, controlClasses);
+    final var allControlClasses = ContainerView.forElementAndArray(controlClass, controlClasses);
 
     for (final var cc : allControlClasses) {
 

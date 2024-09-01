@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemadto;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -32,7 +32,7 @@ public final class TableDto implements ITableDto {
   //static method
   public static TableDto withNameAndColumn(final String name, final IColumnDto column, final IColumnDto... columns) {
 
-    final var allColumns = ReadContainer.forElementAndArray(column, columns);
+    final var allColumns = ContainerView.forElementAndArray(column, columns);
 
     return withNameAndColumns(name, allColumns);
   }

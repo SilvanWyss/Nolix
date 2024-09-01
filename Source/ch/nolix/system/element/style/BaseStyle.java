@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -79,7 +79,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
   @Override
   public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
 
-    final var allAttachingAttributes = ReadContainer.forElementAndArray(attachingAttribute, attachingAttributes);
+    final var allAttachingAttributes = ContainerView.forElementAndArray(attachingAttribute, attachingAttributes);
 
     return withAttachingAttributes(allAttachingAttributes);
   }
@@ -93,7 +93,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     final ISelectingStyleWithSelectors subStyle,
     final ISelectingStyleWithSelectors... subStyles) {
 
-    final var allSubStyles = ReadContainer.forElementAndArray(subStyle, subStyles);
+    final var allSubStyles = ContainerView.forElementAndArray(subStyle, subStyles);
 
     return withSubStyles(allSubStyles);
   }

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.readcontainer;
+package ch.nolix.core.container.containerview;
 
 //Java imports
 import java.util.function.Function;
@@ -16,70 +16,70 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 
 //class
-public final class MultiReadContainer<E> extends Container<E> {
+public final class MultiContainerView<E> extends Container<E> {
 
   //attribute
   private final IContainer<IContainer<E>> containers;
 
   //constructor 
-  private MultiReadContainer() {
+  private MultiContainerView() {
     containers = ImmutableList.createEmpty();
   }
 
   //constructor
-  private MultiReadContainer(final E[] array, @SuppressWarnings("unchecked") final E[]... arrays) {
+  private MultiContainerView(final E[] array, @SuppressWarnings("unchecked") final E[]... arrays) {
 
     final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
 
-    localContainers.addAtEnd(ArrayReadContainer.forArray(array));
+    localContainers.addAtEnd(ArrayView.forArray(array));
 
     for (final var a : arrays) {
-      localContainers.addAtEnd(ArrayReadContainer.forArray(a));
+      localContainers.addAtEnd(ArrayView.forArray(a));
     }
 
     containers = localContainers;
   }
 
   //constructor
-  private MultiReadContainer(
+  private MultiContainerView(
     final Iterable<? extends E> iterable,
     @SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
 
     final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
 
-    localContainers.addAtEnd(IterableReadContainer.forIterable(iterable));
+    localContainers.addAtEnd(IterableView.forIterable(iterable));
 
     for (final var i : iterables) {
-      localContainers.addAtEnd(IterableReadContainer.forIterable(i));
+      localContainers.addAtEnd(IterableView.forIterable(i));
     }
 
     containers = localContainers;
   }
 
   //static method
-  public static <E2> MultiReadContainer<E2> forArray(
+  public static <E2> MultiContainerView<E2> forArray(
     final E2[] array,
     @SuppressWarnings("unchecked") final E2[]... arrays) {
-    return new MultiReadContainer<>(array, arrays);
+    return new MultiContainerView<>(array, arrays);
   }
 
   //static method
-  public static <E2> MultiReadContainer<E2> forEmpty() {
-    return new MultiReadContainer<>();
+  public static <E2> MultiContainerView<E2> forEmpty() {
+    return new MultiContainerView<>();
   }
 
   //static method
   @SafeVarargs
-  public static <E2> MultiReadContainer<E2> forIterable(
+  public static <E2> MultiContainerView<E2> forIterable(
     final Iterable<? extends E2> iterable,
     final Iterable<? extends E2>... iterables) {
-    return new MultiReadContainer<>(iterable, iterables);
+    return new MultiContainerView<>(iterable, iterables);
   }
 
   //method
   @Override
   public CopyableIterator<E> iterator() {
-    return MultiReadContainerIterator.forContainers(containers);
+    return MultiContainerViewIterator.forContainers(containers);
   }
 
   //method

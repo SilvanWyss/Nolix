@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpoint3test;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -39,7 +39,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
   //method
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-    return ReadContainer.forIterable(requests).to(this::getDataForRequest);
+    return ContainerView.forIterable(requests).to(this::getDataForRequest);
   }
 
   //method

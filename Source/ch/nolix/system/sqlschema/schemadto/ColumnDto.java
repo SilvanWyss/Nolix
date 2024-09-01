@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemadto;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -51,7 +51,7 @@ public final class ColumnDto implements IColumnDto {
     final IConstraintDto constraint,
     final IConstraintDto... constraints) {
 
-    final var allConstraints = ReadContainer.forElementAndArray(constraint, constraints);
+    final var allConstraints = ContainerView.forElementAndArray(constraint, constraints);
 
     return withNameAndDataTypeAndConstraints(name, dataType, allConstraints);
   }

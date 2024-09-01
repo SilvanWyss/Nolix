@@ -4,8 +4,7 @@ package ch.nolix.core.document.node;
 //Java imports
 import java.util.function.Predicate;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -179,8 +178,8 @@ public final class FileNode extends BaseMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public ReadContainer<FileNode> getStoredChildNodes() {
-    return ReadContainer.forIterable(
+  public ContainerView<FileNode> getStoredChildNodes() {
+    return ContainerView.forIterable(
       internalSpecification.getStoredChildNodes().to(
         a -> new FileNode(getStoredRootFileNode(), a)));
   }

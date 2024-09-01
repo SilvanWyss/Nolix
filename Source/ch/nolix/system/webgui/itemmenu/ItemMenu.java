@@ -4,9 +4,9 @@ package ch.nolix.system.webgui.itemmenu;
 //Java imports
 import java.util.function.Consumer;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -47,7 +47,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   @Override
   public final IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
 
-    final var allItems = ReadContainer.forElementAndArray(item, items);
+    final var allItems = ContainerView.forElementAndArray(item, items);
 
     for (final var i : allItems) {
 
@@ -85,7 +85,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   @Override
   public final IM addItemWithText(final String text, final String... texts) {
 
-    final var allTexts = ReadContainer.forElementAndArray(text, texts);
+    final var allTexts = ContainerView.forElementAndArray(text, texts);
 
     for (final var t : allTexts) {
       addItem(ItemMenuItem.withText(t));

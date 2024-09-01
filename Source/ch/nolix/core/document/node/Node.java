@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -84,7 +84,7 @@ public final class Node extends BaseNode<Node> {
     this.header = getValidHeaderFromHeader(header);
 
     this.childNodes = //
-    ImmutableList.forIterable(createNodesFromNodes(ReadContainer.forElementAndArray(childNode, childNodes)));
+    ImmutableList.forIterable(createNodesFromNodes(ContainerView.forElementAndArray(childNode, childNodes)));
   }
 
   //constructor
@@ -179,7 +179,7 @@ public final class Node extends BaseNode<Node> {
    */
   public static Node withChildNode(final INode<?> childNode, final INode<?>... childNodes) {
 
-    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes);
+    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes);
 
     return new Node(allChildNodes);
   }
@@ -203,7 +203,7 @@ public final class Node extends BaseNode<Node> {
    */
   public static Node withChildNode(final String childNode, final String... childNodes) {
 
-    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes).to(Node::withHeader);
+    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
 
     return withChildNodes(allChildNodes);
   }
@@ -332,7 +332,7 @@ public final class Node extends BaseNode<Node> {
    */
   public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
 
-    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes).to(Node::withHeader);
+    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
 
     return withHeaderAndChildNodes(header, allChildNodes);
   }

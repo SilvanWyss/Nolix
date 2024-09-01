@@ -11,8 +11,8 @@ import java.util.Properties;
 
 //own imports
 import ch.nolix.core.container.arraylist.ArrayList;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
@@ -115,7 +115,7 @@ public abstract class SqlConnection implements ISqlConnection {
   @Override
   public final void executeStatement(final String statement, final String... statements) {
 
-    final var allStatements = ReadContainer.forElementAndArray(statement, statements);
+    final var allStatements = ContainerView.forElementAndArray(statement, statements);
 
     executeStatements(allStatements);
   }

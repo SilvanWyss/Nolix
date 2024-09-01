@@ -8,9 +8,9 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -287,7 +287,7 @@ public final class GlobalFileSystemAccessor {
    *         path.
    */
   public static IContainer<FileAccessor> getFileAccessors(final String path) {
-    return ReadContainer.forArray(new File(path).listFiles())
+    return ContainerView.forArray(new File(path).listFiles())
       .getStoredSelected(File::isFile)
       .to(f -> new FileAccessor(f.getAbsolutePath()));
   }
@@ -333,7 +333,7 @@ public final class GlobalFileSystemAccessor {
    *         folder with the given path.
    */
   public static IContainer<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
-    return ReadContainer.forArray(new File(path).listFiles())
+    return ContainerView.forArray(new File(path).listFiles())
       .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }
 

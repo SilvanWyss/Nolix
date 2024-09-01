@@ -3,7 +3,7 @@ package ch.nolix.core.web.css;
 
 //own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -51,7 +51,7 @@ public final class CssRule implements ICssRule {
     final ICssProperty property,
     final ICssProperty... properties) {
 
-    final var allProperties = ReadContainer.forElementAndArray(property, properties);
+    final var allProperties = ContainerView.forElementAndArray(property, properties);
 
     return new CssRule(selector, allProperties);
   }

@@ -3,8 +3,8 @@ package ch.nolix.core.document.xml;
 
 //own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
@@ -124,7 +124,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
     addAttribute(attribute);
 
-    return addAttributes(ReadContainer.forArray(attributes));
+    return addAttributes(ContainerView.forArray(attributes));
   }
 
   //method
@@ -157,7 +157,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
     addChildNode(childNode);
 
-    return addChildNodes(ReadContainer.forArray(childNodes));
+    return addChildNodes(ContainerView.forArray(childNodes));
   }
 
   //method

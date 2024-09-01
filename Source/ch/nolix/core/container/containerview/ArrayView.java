@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.readcontainer;
+package ch.nolix.core.container.containerview;
 
 //Java imports
 import java.util.function.Function;
@@ -20,19 +20,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 /**
  * @author Silvan Wyss
  * @version 2017-11-26
- * @param <E> is the type of the elements of a {@link ArrayReadContainer}.
+ * @param <E> is the type of the elements of a {@link ArrayView}.
  */
-public final class ArrayReadContainer<E> extends Container<E> {
+public final class ArrayView<E> extends Container<E> {
 
   //attribute
   private final E[] array;
 
   //constructor
   /**
-   * Creates a new {@link ArrayReadContainer} for a new empty array.
+   * Creates a new {@link ArrayView} for a new empty array.
    */
   @SuppressWarnings("unchecked")
-  public ArrayReadContainer() {
+  public ArrayView() {
 
     //Calls other constructor.
     this((E[]) new Object[0]);
@@ -40,12 +40,12 @@ public final class ArrayReadContainer<E> extends Container<E> {
 
   //constructor
   /**
-   * Creates a new {@link ArrayReadContainer} for the given array.
+   * Creates a new {@link ArrayView} for the given array.
    * 
    * @param array
    * @throws ArgumentIsNullException if the given array is null.
    */
-  private ArrayReadContainer(final E[] array) {
+  private ArrayView(final E[] array) {
 
     //Asserts that the given array is not null.
     GlobalValidator
@@ -53,19 +53,19 @@ public final class ArrayReadContainer<E> extends Container<E> {
       .thatIsNamed(LowerCaseVariableCatalogue.ARRAY)
       .isNotNull();
 
-    //Sets the array of the current ArrayReadContainer.
-    this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.
+    //Sets the array of the current ArrayView.
+    this.array = array; //NOSONAR: An ArrayView operates on the original instance.
   }
 
   //static method
   /**
    * @param array
    * @param <E2>  is the type of the elements of the given array.
-   * @return a new {@link ArrayReadContainer} for the given array.
+   * @return a new {@link ArrayView} for the given array.
    * @throws ArgumentIsNullException if the given array is null.
    */
-  public static <E2> ArrayReadContainer<E2> forArray(final E2[] array) {
-    return new ArrayReadContainer<>(array);
+  public static <E2> ArrayView<E2> forArray(final E2[] array) {
+    return new ArrayView<>(array);
   }
 
   //method
@@ -133,10 +133,9 @@ public final class ArrayReadContainer<E> extends Container<E> {
   //method
   /**
    * The complexity of this implementation is O(n). if the current
-   * {@link ArrayReadContainer} contains n elements.
+   * {@link ArrayView} contains n elements.
    * 
-   * @return a {@link String} representation of the current
-   *         {@link ArrayReadContainer}.
+   * @return a {@link String} representation of the current {@link ArrayView}.
    */
   @Override
   public String toString() {

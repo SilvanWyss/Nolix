@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
@@ -32,7 +31,7 @@ implements ILinearContainer<LC, LCS> {
   @Override
   public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 
-    final var allControls = ReadContainer.forElementAndArray(control, controls);
+    final var allControls = ContainerView.forElementAndArray(control, controls);
 
     return addControls(allControls);
   }

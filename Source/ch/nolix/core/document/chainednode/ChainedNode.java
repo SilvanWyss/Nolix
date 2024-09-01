@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.document.chainednode;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -299,7 +299,7 @@ public final class ChainedNode implements IChainedNode {
     final INode<?>... childNodes) {
 
     final var chainedNode = new ChainedNode();
-    final var allChildNodes = ReadContainer.forElementAndArray(childNode, childNodes);
+    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes);
 
     chainedNode.setHeader(header);
     chainedNode.addChildNodesFromNodes(allChildNodes);

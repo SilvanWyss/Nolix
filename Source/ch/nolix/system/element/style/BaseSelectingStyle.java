@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -184,7 +184,7 @@ implements ISelectingStyleWithSelectors {
   public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
     final Enum<?>... selectorRoles) {
 
-    final var allSelectorRoles = ReadContainer.forElementAndArray(selectorRole, selectorRoles).to(Object::toString);
+    final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles).to(Object::toString);
 
     return withSelectorRoles(allSelectorRoles);
   }
@@ -193,7 +193,7 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
 
-    final var allSelectorRoles = ReadContainer.forElementAndArray(selectorRole, selectorRoles);
+    final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles);
 
     return withSelectorRoles(allSelectorRoles);
   }
@@ -204,7 +204,7 @@ implements ISelectingStyleWithSelectors {
     final String selectorToken,
     final String... selectorTokens) {
 
-    final var allSelectorTokens = ReadContainer.forElementAndArray(selectorToken, selectorTokens);
+    final var allSelectorTokens = ContainerView.forElementAndArray(selectorToken, selectorTokens);
 
     return withSelectorTokens(allSelectorTokens);
   }

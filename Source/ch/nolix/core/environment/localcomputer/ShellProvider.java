@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
@@ -87,7 +86,7 @@ public final class ShellProvider {
 
     final var preCommand = new String[] { "cmd.exe", "/c" };
 
-    return ReadContainer.forArray(preCommand, command).toStringArray();
+    return ContainerView.forArray(preCommand, command).toStringArray();
   }
 
   //static method

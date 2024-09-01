@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.web.html;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
@@ -217,7 +217,7 @@ public final class HtmlElement implements IHtmlElement {
   public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
 
     final var allAttributes = //
-    ReadContainer.forIterable(getAttributes(), ReadContainer.forElementAndArray(attribute, attributes));
+    ContainerView.forIterable(getAttributes(), ContainerView.forElementAndArray(attribute, attributes));
 
     if (containsChildElements()) {
       return withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());

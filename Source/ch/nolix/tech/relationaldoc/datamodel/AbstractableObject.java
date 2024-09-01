@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
 import ch.nolix.system.objectdata.data.Entity;
@@ -89,7 +88,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredBaseTypes() {
-    return ReadContainer
+    return ContainerView
       .forIterable(
         getStoredDirectBaseTypes(),
         getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredBaseTypes));
@@ -122,7 +121,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredFields() {
-    return ReadContainer.forIterable(
+    return ContainerView.forIterable(
       getStoredDeclaredFields().getStoredOther(IAbstractableField::inheritsFromBaseField),
       getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
   }

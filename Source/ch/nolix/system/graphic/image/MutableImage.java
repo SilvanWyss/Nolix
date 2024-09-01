@@ -13,9 +13,9 @@ import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -171,7 +171,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
       }
 
       for (var i = 1; i <= height; i++) {
-        pixels.addRow(ReadContainer.forArray(row));
+        pixels.addRow(ContainerView.forArray(row));
       }
     }
 
@@ -321,7 +321,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //method
   public void setPixelArray(final Iterable<Color> pixelArray) {
 
-    final var lPixelArray = ReadContainer.forIterable(pixelArray);
+    final var lPixelArray = ContainerView.forIterable(pixelArray);
 
     GlobalValidator.assertThat(lPixelArray.getCount()).thatIsNamed("number of pixels")
       .isEqualTo(getPixelCount());

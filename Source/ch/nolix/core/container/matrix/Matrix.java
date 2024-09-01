@@ -8,8 +8,8 @@ import java.util.function.Function;
 //own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -74,7 +74,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   public Matrix<E> addColumn(final E element, final E... elements) {
 
     //Collects allElements.
-    final var allElements = ReadContainer.forElementAndArray(element, elements);
+    final var allElements = ContainerView.forElementAndArray(element, elements);
 
     //Calls other method.
     return addColumn(allElements);
@@ -100,7 +100,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     //Asserts that the given elements are not null.
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
-    final var lElements = ReadContainer.forIterable(elements);
+    final var lElements = ContainerView.forIterable(elements);
 
     //Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
@@ -166,7 +166,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   public Matrix<E> addRow(final E element, final E... elements) {
 
     //Collects allElements.
-    final var allElements = ReadContainer.forElementAndArray(element, elements);
+    final var allElements = ContainerView.forElementAndArray(element, elements);
 
     //Calls other method.
     return addRow(allElements);
@@ -192,7 +192,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     //Asserts that the given elements are not null.
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
-    final var lElements = ReadContainer.forIterable(elements);
+    final var lElements = ContainerView.forIterable(elements);
 
     //Handles the case that the current matrix is empty.
     if (isEmpty()) {

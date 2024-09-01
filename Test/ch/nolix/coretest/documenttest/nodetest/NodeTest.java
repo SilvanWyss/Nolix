@@ -4,8 +4,7 @@ package ch.nolix.coretest.documenttest.nodetest;
 //JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 
 //class
@@ -68,6 +67,6 @@ final class NodeTest extends BaseNodeTest<Node> {
   //method
   @Override
   protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
-    return Node.withHeaderAndChildNodes(header, ReadContainer.forArray(childNodeHeaders).to(Node::withHeader));
+    return Node.withHeaderAndChildNodes(header, ContainerView.forArray(childNodeHeaders).to(Node::withHeader));
   }
 }

@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.graphic.color;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -1405,7 +1405,7 @@ public final class Color extends Element implements IColor {
   //static method
   public static Color createAverageFrom(final IColor color, final IColor... colors) {
 
-    final var allColors = ReadContainer.forElementAndArray(color, colors);
+    final var allColors = ContainerView.forElementAndArray(color, colors);
 
     return createAverageFrom(allColors);
   }

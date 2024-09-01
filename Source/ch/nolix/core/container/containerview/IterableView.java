@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.readcontainer;
+package ch.nolix.core.container.containerview;
 
 //Java imports
 import java.util.function.Function;
@@ -21,18 +21,18 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 /**
  * @author Silvan Wyss
  * @version 2017-11-26
- * @param <E> is the type of the elements of a {@link IterableReadContainer}.
+ * @param <E> is the type of the elements of a {@link IterableView}.
  */
-public final class IterableReadContainer<E> extends Container<E> {
+public final class IterableView<E> extends Container<E> {
 
   //attribute
-  private final Iterable<E> container;
+  private final Iterable<E> iterable;
 
   //constructor
   /**
-   * Creates a new {@link IterableReadContainer} for a new empty container.
+   * Creates a new {@link IterableView} for a new empty container.
    */
-  public IterableReadContainer() {
+  public IterableView() {
 
     //Calls other constructor.
     this(LinkedList.createEmpty());
@@ -40,14 +40,14 @@ public final class IterableReadContainer<E> extends Container<E> {
 
   //constructor
   /**
-   * Creates a new {@link IterableReadContainer} for the given container.
+   * Creates a new {@link IterableView} for the given container.
    * 
    * @param container
    * @param <E2>      is the type of the elements of the given container.
    * @throws ArgumentIsNullException if the given container is null.
    */
   @SuppressWarnings("unchecked")
-  private <E2 extends E> IterableReadContainer(final Iterable<E2> container) {
+  private <E2 extends E> IterableView(final Iterable<E2> container) {
 
     //Asserts that the given container is not null.
     GlobalValidator
@@ -55,19 +55,19 @@ public final class IterableReadContainer<E> extends Container<E> {
       .thatIsNamed(LowerCaseVariableCatalogue.CONTAINER)
       .isNotNull();
 
-    //Sets the container of the current IterableReadContainer.
-    this.container = (Iterable<E>) container;
+    //Sets the container of the current IterableView.
+    this.iterable = (Iterable<E>) container;
   }
 
   //static method
   /**
    * @param iterable
    * @param <E2>     is the type of the elements of the given iterable.
-   * @return a new {@link IterableReadContainer} for the given iterable.
+   * @return a new {@link IterableView} for the given iterable.
    * @throws ArgumentIsNullException if the given iterable is null.
    */
-  public static <E2> IterableReadContainer<E2> forIterable(final Iterable<? extends E2> iterable) {
-    return new IterableReadContainer<>(iterable);
+  public static <E2> IterableView<E2> forIterable(final Iterable<? extends E2> iterable) {
+    return new IterableView<>(iterable);
   }
 
   //method
@@ -79,8 +79,8 @@ public final class IterableReadContainer<E> extends Container<E> {
 
     var size = 0;
 
-    //Iterates the current IterableReadContainer.
-    final var iterator = container.iterator();
+    //Iterates the current IterableView.
+    final var iterator = iterable.iterator();
     while (iterator.hasNext()) {
       size++;
       iterator.next();
@@ -96,7 +96,7 @@ public final class IterableReadContainer<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
-    //Iterates the current IterableReadContainer.
+    //Iterates the current IterableView.
     var i = 1;
     for (final var e : this) {
 
@@ -139,7 +139,7 @@ public final class IterableReadContainer<E> extends Container<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return IterableReadContainerIterator.forIterable(container);
+    return IterableViewIterator.forIterable(iterable);
   }
 
   //method
@@ -154,10 +154,9 @@ public final class IterableReadContainer<E> extends Container<E> {
   //method
   /**
    * The complexity of this implementation is O(n). if the current
-   * {@link IterableReadContainer} contains n elements.
+   * {@link IterableView} contains n elements.
    * 
-   * @return a {@link String} representation of the current
-   *         {@link IterableReadContainer}.
+   * @return a {@link String} representation of the current {@link IterableView}.
    */
   @Override
   public String toString() {

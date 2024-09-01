@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+import ch.nolix.core.container.containerview.ContainerView;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -97,7 +97,7 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
    */
   @Override
   public IContainer<INode<?>> getAttributes() {
-    return ReadContainer.forIterable(
+    return ContainerView.forIterable(
       getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
       getSubStyles().to(ISelectingStyle::getSpecification));
   }

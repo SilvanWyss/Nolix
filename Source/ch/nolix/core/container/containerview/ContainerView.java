@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.readcontainer;
+package ch.nolix.core.container.containerview;
 
 //Java imports
 import java.util.function.Function;
@@ -18,33 +18,33 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 //class
 /**
- * A {@link ReadContainer} can read a given {@link Iterable} or array. A
- * {@link ReadContainer} prevents that its accessed {@link Iterable} or array
- * can be mutated. A {@link ReadContainer} does not prevent that the elements of
+ * A {@link ContainerView} can read a given {@link Iterable} or array. A
+ * {@link ContainerView} prevents that its accessed {@link Iterable} or array
+ * can be mutated. A {@link ContainerView} does not prevent that the elements of
  * its {@link Iterable} or array can be mutated.
  * 
  * @author Silvan Wyss
  * @version 2017-07-01
- * @param <E> is the type of the elements of a {@link ReadContainer}.
+ * @param <E> is the type of the elements of a {@link ContainerView}.
  */
-public final class ReadContainer<E> extends Container<E> {
+public final class ContainerView<E> extends Container<E> {
 
   //attribute
   private final IContainer<E> internalContainer;
 
   //constructor
   /**
-   * Creates a new {@link ReadContainer} for the given container.
+   * Creates a new {@link ContainerView} for the given container.
    * 
    * @param container
    * @throws ArgumentIsNullException if the given container is null.
    */
-  private ReadContainer(final IContainer<E> container) {
+  private ContainerView(final IContainer<E> container) {
 
     //Asserts that the given container is not null.
     GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalogue.CONTAINER).isNotNull();
 
-    //Sets the container of the current ReadContainer.
+    //Sets the container of the current ContainerView.
     internalContainer = container;
   }
 
@@ -53,17 +53,17 @@ public final class ReadContainer<E> extends Container<E> {
    * @param array
    * @param arrays
    * @param <E2>   is the type of the elements of the given array and arrays.
-   * @return a new {@link ReadContainer} for the given array and arrays.
+   * @return a new {@link ContainerView} for the given array and arrays.
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if the given arrays is null.
    * @throws ArgumentIsNullException if one array of the given arrays is null.
    */
   @SuppressWarnings("unchecked")
-  public static <E2> ReadContainer<E2> forArray(final E2[] array, final E2[]... arrays) {
+  public static <E2> ContainerView<E2> forArray(final E2[] array, final E2[]... arrays) {
 
-    final var container = MultiReadContainer.forArray(array, arrays);
+    final var container = MultiContainerView.forArray(array, arrays);
 
-    return new ReadContainer<>(container);
+    return new ContainerView<>(container);
   }
 
   //static method
@@ -72,33 +72,33 @@ public final class ReadContainer<E> extends Container<E> {
    * @param array
    * @param <E2>    is the type of the given element and elements of the given
    *                array.
-   * @return a new {@link ReadContainer} for the given element and array.
+   * @return a new {@link ContainerView} for the given element and array.
    * @throws ArgumentIsNullException if the given element is null.
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if one element of the given arrays is null.
    */
-  public static <E2> ReadContainer<E2> forElementAndArray(final E2 element, final E2[] array) {
+  public static <E2> ContainerView<E2> forElementAndArray(final E2 element, final E2[] array) {
 
     @SuppressWarnings("unchecked")
     final var arrayWithElement = (E2[]) new Object[] { element };
 
     @SuppressWarnings("unchecked")
-    final var container = MultiReadContainer.forArray(arrayWithElement, array);
+    final var container = MultiContainerView.forArray(arrayWithElement, array);
 
-    return new ReadContainer<>(container);
+    return new ContainerView<>(container);
   }
 
   //static method
   /**
    * @param <E2> is the type of the hypothetical elements of the created empty
-   *             {@link ReadContainer}.
-   * @return a new empty {@link ReadContainer}.
+   *             {@link ContainerView}.
+   * @return a new empty {@link ContainerView}.
    */
-  public static <E2> ReadContainer<E2> forEmpty() {
+  public static <E2> ContainerView<E2> forEmpty() {
 
     final IContainer<E2> container = ImmutableList.createEmpty();
 
-    return new ReadContainer<>(container);
+    return new ContainerView<>(container);
   }
 
   //static method
@@ -107,26 +107,26 @@ public final class ReadContainer<E> extends Container<E> {
    * @param iterables
    * @param <E2>      is the type of the elements of the given iterable and
    *                  iterables.
-   * @return a new {@link ReadContainer} for the given iterable and iterables.
+   * @return a new {@link ContainerView} for the given iterable and iterables.
    * @throws ArgumentIsNullException if the given iterable is null.
    * @throws ArgumentIsNullException if the given iterables is null.
    * @throws ArgumentIsNullException if one of the given iterables is null.
    */
   @SafeVarargs
-  public static <E2> ReadContainer<E2> forIterable(
+  public static <E2> ContainerView<E2> forIterable(
     final Iterable<? extends E2> iterable,
     final Iterable<? extends E2>... iterables) {
 
-    final var container = MultiReadContainer.forIterable(iterable, iterables);
+    final var container = MultiContainerView.forIterable(iterable, iterables);
 
-    return new ReadContainer<>(container);
+    return new ContainerView<>(container);
   }
 
   //method
   /**
-   * An object equals a {@link ReadContainer} when the object is a
+   * An object equals a {@link ContainerView} when the object is a
    * {@link Iterable} that contains exactly the same elements in the same order
-   * like the {@link ReadContainer}.
+   * like the {@link ContainerView}.
    * 
    * {@inheritDoc}
    */
@@ -138,7 +138,7 @@ public final class ReadContainer<E> extends Container<E> {
       return containsExactlyInSameOrder(iterable);
     }
 
-    //Handles the case that the given object is not a ReadContainer.
+    //Handles the case that the given object is not a Iterable.
     return false;
   }
 

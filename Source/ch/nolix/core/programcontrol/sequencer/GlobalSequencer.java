@@ -5,8 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -136,7 +135,7 @@ public final class GlobalSequencer {
    */
   public static IFuture runInBackgroundAndOrder(final Runnable job, final Runnable... jobs) {
 
-    final var allJobes = ReadContainer.forElementAndArray(job, jobs);
+    final var allJobes = ContainerView.forElementAndArray(job, jobs);
 
     return new Future(JobRunner.forJobs(allJobes));
   }

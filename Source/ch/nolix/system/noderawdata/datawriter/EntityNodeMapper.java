@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawdata.datawriter;
 
-//own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
@@ -46,7 +45,7 @@ final class EntityNodeMapper {
       }
     }
 
-    return ReadContainer.forArray(attributes);
+    return ContainerView.forArray(attributes);
   }
 
   //method
