@@ -5,6 +5,7 @@ package ch.nolix.core.document.node;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;

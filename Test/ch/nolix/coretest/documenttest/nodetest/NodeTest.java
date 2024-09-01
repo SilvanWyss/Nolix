@@ -3,6 +3,8 @@ package ch.nolix.coretest.documenttest.nodetest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
@@ -50,6 +52,25 @@ final class NodeTest extends BaseNodeTest<Node> {
 
     //verification
     expect(result).hasStringRepresentation("b");
+  }
+
+  //method
+  @ParameterizedTest
+  @CsvSource({
+  "a, <a></a>",
+  "a(b), <a>b</a>",
+  "a(b(c)), <a><b>c</b></a>"
+  })
+  void testCase_toXml(final String nodeStringRepresentation, final String expectedXmlStringRepresentation) {
+
+    //setup
+    final var testUnit = Node.fromString(nodeStringRepresentation);
+
+    //execution
+    final var result = testUnit.toXml();
+
+    //verification
+    expect(result).hasStringRepresentation(expectedXmlStringRepresentation);
   }
 
   //method

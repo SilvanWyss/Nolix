@@ -152,20 +152,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
-  @Test
-  final void testCase_toXml() {
-
-    //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("a");
-
-    //execution
-    final var result = testUnit.toXml();
-
-    //verification
-    expect(result).hasStringRepresentation("<a></a>");
-  }
-
   //method declaration
   protected abstract BN createBlankNode();
 
