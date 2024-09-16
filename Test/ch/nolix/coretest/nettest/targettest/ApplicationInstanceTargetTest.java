@@ -15,6 +15,27 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
+  void testCase_forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {
+
+    //execution
+    final var result = ApplicationInstanceTarget
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
+        "nolix.tech",
+        PortCatalogue.HTTPS,
+        "Demo Application",
+        "demo_application",
+        SecurityMode.SSL);
+
+    //verification
+    expect(result.getIpOrDomain()).isEqualTo("nolix.tech");
+    expect(result.getPort()).isEqualTo(PortCatalogue.HTTPS);
+    expect(result.getApplicationInstanceName()).isEqualTo("Demo Application");
+    expect(result.getApplicationUrlInstanceName()).isEqualTo("demo_application");
+    expect(result.getSecurityModeForConnection()).isEqualTo(SecurityMode.SSL);
+  }
+
+  //method
+  @Test
   void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
 
     //setup
