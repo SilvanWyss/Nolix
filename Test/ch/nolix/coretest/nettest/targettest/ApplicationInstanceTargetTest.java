@@ -15,11 +15,11 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  void testCase_toUrl_forHttpPortAndUnsecureSecurityLevel() {
+  void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         PortCatalogue.HTTP,
         "Demo Application",
@@ -35,11 +35,11 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  void testCase_toUrl_forHttpsPortAndSecureSecurityLevel() {
+  void testCase_toUrl_forHttpsPortAndSSLSecurityMode() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         PortCatalogue.HTTPS,
         "Demo Application",
@@ -55,11 +55,11 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  void testCase_toUrl_forCustomPortAndUnsecureSecurityLevel() {
+  void testCase_toUrl_forCustomPortAndNoneSecurityMode() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         50000,
         "Demo Application",
@@ -75,11 +75,11 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   //method
   @Test
-  void testCase_toUrl_forCustomPortAndSecureSecurityLevel() {
+  void testCase_toUrl_forCustomPortAndSslSecurityMode() {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
         50000,
         "Demo Application",

@@ -299,7 +299,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
    */
   private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
     return ApplicationInstanceTarget
-      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         serverTarget.getIpOrDomain(),
         serverTarget.getPort(),
         getInstanceName(),

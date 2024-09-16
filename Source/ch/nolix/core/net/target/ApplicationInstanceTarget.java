@@ -21,9 +21,9 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
-    final SecurityMode securityLevelForConnections) {
+    final SecurityMode securityModeForConnections) {
 
-    super(ipOrDomain, port, securityLevelForConnections);
+    super(ipOrDomain, port, securityModeForConnections);
 
     GlobalValidator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();
     GlobalValidator.assertThat(applicationUrlInstanceName).thatIsNamed("application url instance name").isNotBlank();
@@ -34,18 +34,18 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 
   //static method
   public static ApplicationInstanceTarget//
-  forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+  forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
     final String ipOrDomain,
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
-    final SecurityMode securityLevelForConnections) {
+    final SecurityMode securityModeForConnections) {
     return new ApplicationInstanceTarget(
       ipOrDomain,
       port,
       applicationInstanceName,
       applicationUrlInstanceName,
-      securityLevelForConnections);
+      securityModeForConnections);
   }
 
   //method

@@ -18,33 +18,33 @@ public class ServerTarget implements IServerTarget {
   private final int port;
 
   //attribute
-  private final SecurityMode securityLevelForConnections;
+  private final SecurityMode securityModeForConnections;
 
   //constructor
   protected ServerTarget(
     final String ipOrDomain,
     final int port,
-    final SecurityMode securityLevelForConnections) {
+    final SecurityMode securityModeForConnections) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
     GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isPort();
 
     GlobalValidator
-      .assertThat(securityLevelForConnections)
-      .thatIsNamed("security level for connections")
+      .assertThat(securityModeForConnections)
+      .thatIsNamed("security mode for connections")
       .isNotNull();
 
     this.ipOrDomain = ipOrDomain;
     this.port = port;
-    this.securityLevelForConnections = securityLevelForConnections;
+    this.securityModeForConnections = securityModeForConnections;
   }
 
   //static method
-  public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
+  public static ServerTarget forIpOrDomainAndPortAndSecurityModeForConnections(
     final String ipOrDomain,
     final int port,
-    final SecurityMode securityLevelForConnections) {
-    return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
+    final SecurityMode securityModeForConnections) {
+    return new ServerTarget(ipOrDomain, port, securityModeForConnections);
   }
 
   //method
@@ -62,7 +62,7 @@ public class ServerTarget implements IServerTarget {
   //method
   @Override
   public final SecurityMode getSecurityModeForConnection() {
-    return securityLevelForConnections;
+    return securityModeForConnections;
   }
 
   //method

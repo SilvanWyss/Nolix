@@ -21,7 +21,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 public final class Server extends BaseServer<Server> {
 
   //constant
-  private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.NONE;
+  private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
   //attribute
   private ch.nolix.core.net.endpoint3.Server internalServer;
@@ -71,10 +71,10 @@ public final class Server extends BaseServer<Server> {
    */
   @Override
   public IServerTarget asTarget() {
-    return ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
+    return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
       getIp(),
       getPort(),
-      SECURITY_LEVEL_FOR_CONNECTIONS);
+      SECURITY_MODE_FOR_CONNECTIONS);
   }
 
   //method

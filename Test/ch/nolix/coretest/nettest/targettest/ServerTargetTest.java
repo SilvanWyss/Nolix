@@ -14,7 +14,7 @@ final class ServerTargetTest extends StandardTest {
 
   //method
   @Test
-  void testCase_forIpOrDomainAndPortAndSecurityLevelForConnections() {
+  void testCase_forIpOrDomainAndPortAndSecurityModeForConnections() {
 
     //parameter definition
     final var domain = "nolix.ch";
@@ -22,7 +22,7 @@ final class ServerTargetTest extends StandardTest {
     final var securiyMode = SecurityMode.SSL;
 
     //execution
-    final var result = ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(domain, port, securiyMode);
+    final var result = ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(domain, port, securiyMode);
 
     //verification
     expect(result.getIpOrDomain()).isEqualTo(domain);

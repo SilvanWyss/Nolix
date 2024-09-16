@@ -18,7 +18,7 @@ public final class SqlConnectionPool extends ResourcePool<WrapperSqlConnection, 
 implements ISqlDatabaseTarget {
 
   //constant
-  private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.NONE;
+  private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
   //constant
   private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
@@ -92,7 +92,7 @@ implements ISqlDatabaseTarget {
   //method
   @Override
   public SecurityMode getSecurityModeForConnection() {
-    return SECURITY_LEVEL_FOR_CONNECTIONS;
+    return SECURITY_MODE_FOR_CONNECTIONS;
   }
 
   //method

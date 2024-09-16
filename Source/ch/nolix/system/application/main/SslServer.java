@@ -17,7 +17,7 @@ public final class SslServer extends BaseServer<SslServer> {
   public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
 
   //constant
-  private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.SSL;
+  private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
   //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
@@ -81,10 +81,10 @@ public final class SslServer extends BaseServer<SslServer> {
   //method
   @Override
   public IServerTarget asTarget() {
-    return ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
+    return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
       domain,
       port,
-      SECURITY_LEVEL_FOR_CONNECTIONS);
+      SECURITY_MODE_FOR_CONNECTIONS);
   }
 
   //method
