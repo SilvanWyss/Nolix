@@ -161,7 +161,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     GlobalValidator.assertThat(height).thatIsNamed(LowerCaseVariableCatalogue.HEIGHT).isPositive();
     GlobalValidator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 
-    var pixels = new Matrix<IColor>();
+    Matrix<IColor> pixels = Matrix.createEmpty();
 
     if (width > 0 && height > 0) {
 
@@ -479,12 +479,12 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   @Override
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
 
-    final var lPixels = new Matrix<IColor>();
+    final Matrix<IColor> localPixels = Matrix.createEmpty();
     for (final var r : pixels.getRows()) {
-      lPixels.addRow(r.to(p -> p.withFloatingPointAlphaValue(alphaValue)));
+      localPixels.addRow(r.to(p -> p.withFloatingPointAlphaValue(alphaValue)));
     }
 
-    return new MutableImage(lPixels);
+    return new MutableImage(localPixels);
   }
 
   //method

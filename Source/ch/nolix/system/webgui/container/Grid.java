@@ -33,7 +33,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   private static final GridCssBuilder CSS_BUILDER = new GridCssBuilder();
 
   //multi-attribute
-  private Matrix<GridCell> cells = new Matrix<>();
+  private Matrix<GridCell> cells = Matrix.createEmpty();
 
   //attribute
   @SuppressWarnings("unused")

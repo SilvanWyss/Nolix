@@ -23,7 +23,7 @@ final class MatrixPerformanceTest extends PerformanceTest {
   //method
   private Matrix<Integer> createMatrix(final int rowAndColumnCount) {
 
-    final var matrix = new Matrix<Integer>();
+    final Matrix<Integer> matrix = Matrix.createEmpty();
 
     for (var i = 1; i <= rowAndColumnCount; i++) {
 

@@ -17,7 +17,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_addColumn() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
 
     //execution
     matrix.addColumn("apple", "banana", "cerish");
@@ -33,7 +33,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_addRow() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
 
     //execution
     matrix.addRow("apple", "banana", "cerish");
@@ -49,7 +49,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_getColumn() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -73,7 +73,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_getCopy() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -94,7 +94,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_getIndexOf() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephante");
     matrix.addRow("flower", "tree", "palm");
@@ -127,7 +127,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_getRow() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -151,7 +151,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_toLeftRotatedMatrix() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
@@ -172,7 +172,7 @@ final class MatrixTest extends ContainerTest {
   void testCase_toRightRotatedMatrix() {
 
     //setup
-    final var matrix = new Matrix<String>();
+    final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "elephant", "baboon");
     matrix.addRow("flower", "tree", "palm");
@@ -194,7 +194,7 @@ final class MatrixTest extends ContainerTest {
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
 
-    final var matrix = new Matrix<E>();
+    final Matrix<E> matrix = Matrix.createEmpty();
 
     matrix.addRow(element, elements);
 
@@ -204,6 +204,6 @@ final class MatrixTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
-    return new Matrix<>();
+    return Matrix.createEmpty();
   }
 }

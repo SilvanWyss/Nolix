@@ -39,6 +39,15 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //static method
   /**
+   * @return a new empty {@link Matrix}.
+   * @param <E2> is the type of the elements of the created {@link Matrix}.
+   */
+  public static <E2> Matrix<E2> createEmpty() {
+    return new Matrix<>();
+  }
+
+  //static method
+  /**
    * @param matrix
    * @param <E2>   is the type of the elements of the given matrix.
    * @return a new {@link Matrix} with the size and elements of the given matrix.
@@ -52,6 +61,13 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     }
 
     return newMatrix;
+  }
+
+  //constructor
+  /**
+   * Creates a new empty {@link Matrix}.
+   */
+  private Matrix() {
   }
 
   //method
