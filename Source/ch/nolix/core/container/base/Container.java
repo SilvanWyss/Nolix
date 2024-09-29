@@ -1765,7 +1765,7 @@ implements IContainer<E> {
   private IContainer<E> getSubContainerFromStartIndexToEndIndex(
     final int p1BasedStartIndex,
     final int p1BasedEndIndex) {
-    return new ContainerView<>(this, p1BasedStartIndex, p1BasedEndIndex);
+    return ContainerView.forContainerAndStartIndexAndEndIndex(this, p1BasedStartIndex, p1BasedEndIndex);
   }
 
   //method

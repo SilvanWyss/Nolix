@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @version 2017-08-27
  * @param <E> is the type of the elements of a {@link ContainerView}.
  */
-final class ContainerView<E> extends Container<E> {
+public final class ContainerView<E> extends Container<E> {
 
   //attribute
   private final Container<E> container;
@@ -39,6 +39,31 @@ final class ContainerView<E> extends Container<E> {
 
   //attribute
   private final int endIndex;
+
+  //static method
+  /**
+   * @param container
+   * @param startIndex
+   * @param endIndex
+   * @param <E2>       is the type of the elements of the created
+   *                   {@link ContainerView}.
+   * @return a new {@link ContainerView} with the given container, startIndex and
+   *         endIndex.
+   * @throws ArgumentIsNullException      if the given container is null.
+   * @throws NonPositiveArgumentException if the given startIndex is not positive.
+   * @throws NonPositiveArgumentException if the given endIndex is not positive.
+   * @throws SmallerArgumentException     if the given endIndex is smaller than
+   *                                      the given startIndex.
+   * @throws BiggerArgumentException      if the given endIndex is bigger than the
+   *                                      number of elements of the given
+   *                                      container.
+   */
+  public static <E2> ContainerView<E2> forContainerAndStartIndexAndEndIndex(
+    final Container<E2> container,
+    final int startIndex,
+    final int endIndex) {
+    return new ContainerView<E2>(container, startIndex, endIndex);
+  }
 
   //constructor
   /**
@@ -57,7 +82,7 @@ final class ContainerView<E> extends Container<E> {
    *                                      number of elements of the given
    *                                      container.
    */
-  public ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
+  private ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
 
     GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalogue.CONTAINER).isNotNull();
     GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalogue.START_INDEX).isPositive();
