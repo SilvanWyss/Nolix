@@ -332,7 +332,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     //Creates a LinkedList.
     final var copy = new LinkedList<E>();
 
-    //Iterates the current LinkedList
+    //Iterates the current LinkedList.
     for (final var e : this) {
       copy.addAtEnd(e);
     }
