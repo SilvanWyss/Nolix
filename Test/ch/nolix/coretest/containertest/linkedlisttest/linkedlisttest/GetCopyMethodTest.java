@@ -1,4 +1,4 @@
-package ch.nolix.coretest.containertest.linkedlisttest;
+package ch.nolix.coretest.containertest.linkedlisttest.linkedlisttest;
 
 import org.junit.jupiter.api.Test;
 
