@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.containertest.linkedlisttest;
+package ch.nolix.coretest.containertest.linkedlisttest.linkedlisttest;
 
 //JUnit imports
 import org.junit.jupiter.api.Test;
