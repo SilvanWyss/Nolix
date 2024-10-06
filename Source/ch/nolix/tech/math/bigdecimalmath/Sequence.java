@@ -32,20 +32,20 @@ abstract class Sequence<V> implements ISequence<V> {
 
   //method
   @Override
-  public BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(final int p1BasedIndex) {
+  public BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(final int param1BasedIndex) {
 
-    calculateValuesAndSquaredMagnitudesToIndex(p1BasedIndex);
+    calculateValuesAndSquaredMagnitudesToIndex(param1BasedIndex);
 
-    return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getStoredElement2();
+    return valuesAndSquaredMagnitudes.get(param1BasedIndex - 1).getStoredElement2();
   }
 
   //method
   @Override
-  public V getValueAt1BasedIndex(final int p1BasedIndex) {
+  public V getValueAt1BasedIndex(final int param1BasedIndex) {
 
-    calculateValuesAndSquaredMagnitudesToIndex(p1BasedIndex);
+    calculateValuesAndSquaredMagnitudesToIndex(param1BasedIndex);
 
-    return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getStoredElement1();
+    return valuesAndSquaredMagnitudes.get(param1BasedIndex - 1).getStoredElement1();
   }
 
   //method declaration

@@ -1750,13 +1750,13 @@ implements IContainer<E> {
    * @param param1BasedStartIndex
    * @param param1BasedEndIndex
    * @return a {@link IContainer} that views the current {@link Container} from
-   *         the given p1BasedStartIndex to the given p1BasedEndIndex.
-   * @throws NonPositiveArgumentException if the given p1BasedStartIndex is not
+   *         the given param1BasedStartIndex to the given param1BasedEndIndex.
+   * @throws NonPositiveArgumentException if the given param1BasedStartIndex is not
    *                                      positive.
-   * @throws NonPositiveArgumentException if the given p1BasedEndIndex is not
+   * @throws NonPositiveArgumentException if the given param1BasedEndIndex is not
    *                                      positive.
-   * @throws SmallerArgumentException     if the given p1BasedEndIndex is smaller
-   *                                      than the given p1BasedStartIndex.
+   * @throws SmallerArgumentException     if the given param1BasedEndIndex is smaller
+   *                                      than the given param1BasedStartIndex.
    * @throws BiggerArgumentException      if the given endIndex is bigger than the
    *                                      number of elements of the current
    *                                      {@link Container}.

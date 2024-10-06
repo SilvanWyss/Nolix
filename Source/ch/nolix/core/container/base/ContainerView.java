@@ -117,16 +117,16 @@ public final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
+    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
 
     GlobalValidator
-      .assertThat(p1BasedIndex)
+      .assertThat(param1BasedIndex)
       .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
       .isNotBiggerThan(getCount());
 
-    return container.getStoredAt1BasedIndex(startIndex + p1BasedIndex - 1);
+    return container.getStoredAt1BasedIndex(startIndex + param1BasedIndex - 1);
   }
 
   //method

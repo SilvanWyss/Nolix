@@ -31,13 +31,13 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
 
   //method declaration
   /**
-   * @param p1BasedIndex
+   * @param param1BasedIndex
    * @return the child node of the current {@link IChainedNode} at the given
-   *         p1BasedIndex .
+   *         param1BasedIndex .
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
-   *                          a child node at the given p1BasedIndex.
+   *                          a child node at the given param1BasedIndex.
    */
-  IChainedNode getChildNodeAt1BasedIndex(int p1BasedIndex);
+  IChainedNode getChildNodeAt1BasedIndex(int param1BasedIndex);
 
   //method declaration
   /**

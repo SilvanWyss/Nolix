@@ -35,13 +35,13 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   //constructor
   private GapMatrixIterator(
     final GapMatrix<E> parentGapMatrix,
-    final int p1BasedNextElementRowIndex,
-    final int p1BasedNextElementColumnIndex) {
+    final int param1BasedNextElementRowIndex,
+    final int param1BasedNextElementColumnIndex) {
     GlobalValidator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
 
     this.parentGapMatrix = parentGapMatrix;
-    nextElementColumnIndex = p1BasedNextElementRowIndex;
-    nextElementColumnIndex = p1BasedNextElementColumnIndex;
+    nextElementColumnIndex = param1BasedNextElementRowIndex;
+    nextElementColumnIndex = param1BasedNextElementColumnIndex;
   }
 
   //static method
@@ -52,9 +52,9 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   //static method
   private static <E2> GapMatrixIterator<E2> forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
     final GapMatrix<E2> gapMatrix,
-    final int p1BasedNextElementRowIndex,
-    final int p1BasedNextElementColumnIndex) {
-    return new GapMatrixIterator<>(gapMatrix, p1BasedNextElementRowIndex, p1BasedNextElementColumnIndex);
+    final int param1BasedNextElementRowIndex,
+    final int param1BasedNextElementColumnIndex) {
+    return new GapMatrixIterator<>(gapMatrix, param1BasedNextElementRowIndex, param1BasedNextElementColumnIndex);
   }
 
   //method

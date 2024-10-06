@@ -45,12 +45,12 @@ public interface ISearchableContainer<E> {
 
   //method declaration declaration
   /**
-   * @param p1BasedIndex
-   * @return the element at the given p1BasedIndex.
+   * @param param1BasedIndex
+   * @return the element at the given param1BasedIndex.
    * @throws RuntimeException if the current {@link ISearchableContainer} does not
-   *                          contain an element at the given p1BasedIndex.
+   *                          contain an element at the given param1BasedIndex.
    */
-  E getStoredAt1BasedIndex(int p1BasedIndex);
+  E getStoredAt1BasedIndex(int param1BasedIndex);
 
   //method declaration
   /**

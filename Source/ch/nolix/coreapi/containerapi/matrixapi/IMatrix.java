@@ -15,7 +15,7 @@ public interface IMatrix<E> extends Clearable, IContainer<E> {
   IContainer<? extends IContainer<E>> getColumns();
 
   //method declaration
-  E getStoredAt1BasedRowIndexAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
+  E getStoredAt1BasedRowIndexAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex);
 
   //method declaration
   int getRowCount();

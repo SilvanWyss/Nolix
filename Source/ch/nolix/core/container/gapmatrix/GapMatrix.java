@@ -75,17 +75,17 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
   }
 
   //method
-  public boolean containsAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
-    return containsCellAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex)
-    && rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] != null;
+  public boolean containsAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
+    return containsCellAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex)
+    && rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] != null;
   }
 
   //method
-  public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
-    return p1BasedRowIndex > 0
-    && p1BasedRowIndex <= getRowCount()
-    && p1BasedColumnIndex > 0
-    && p1BasedColumnIndex <= getColumnCount();
+  public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
+    return param1BasedRowIndex > 0
+    && param1BasedRowIndex <= getRowCount()
+    && param1BasedColumnIndex > 0
+    && param1BasedColumnIndex <= getColumnCount();
   }
 
   //method
@@ -107,17 +107,17 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 
   //method
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
-    return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
+    return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(param1BasedIndex), getColumnIndexOf(param1BasedIndex));
   }
 
   //method
   @SuppressWarnings("unchecked")
-  public E getStoredAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
+  public E getStoredAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
 
-    assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
+    assertContainsAt(param1BasedRowIndex, param1BasedColumnIndex);
 
-    return (E) rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1];
+    return (E) rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1];
   }
 
   //method
@@ -159,19 +159,19 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 
   //method
   public void setAt1BasedRowIndexAndColumnIndex(
-    final int p1BasedRowIndex,
-    final int p1BasedColumnIndex,
+    final int param1BasedRowIndex,
+    final int param1BasedColumnIndex,
     final E element) {
 
     GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
 
-    assertCanContainElementAt(p1BasedRowIndex, p1BasedColumnIndex);
+    assertCanContainElementAt(param1BasedRowIndex, param1BasedColumnIndex);
 
-    if (!containsAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex)) {
+    if (!containsAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex)) {
       elementCount++;
     }
 
-    rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] = element;
+    rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] = element;
   }
 
   //method

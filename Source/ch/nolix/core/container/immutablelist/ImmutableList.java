@@ -167,11 +167,11 @@ public final class ImmutableList<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed("1-based index").isBetween(1, getCount());
+    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(1, getCount());
 
-    return elements[p1BasedIndex - 1];
+    return elements[param1BasedIndex - 1];
   }
 
   //method

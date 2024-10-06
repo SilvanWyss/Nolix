@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IGrid extends IContainer<IGrid, IGridStyle> {
 
   //method declaration
-  boolean containsControlAt1BasedRowAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
+  boolean containsControlAt1BasedRowAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex);
 
   //method declaration
   int getColumnCount();

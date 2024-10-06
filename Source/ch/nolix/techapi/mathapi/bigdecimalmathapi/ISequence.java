@@ -11,8 +11,8 @@ public interface ISequence<V> {
   int getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal limit, int maxIndex);
 
   //method declaration
-  BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(int p1BasedIndex);
+  BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(int param1BasedIndex);
 
   //method declaration
-  V getValueAt1BasedIndex(int p1BasedIndex);
+  V getValueAt1BasedIndex(int param1BasedIndex);
 }

@@ -94,14 +94,14 @@ public final class IterableView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
     //Iterates the current IterableView.
     var i = 1;
     for (final var e : this) {
 
       //Asserts that the current index is the given index.
-      if (i == p1BasedIndex) {
+      if (i == param1BasedIndex) {
         return e;
       }
 
@@ -110,7 +110,7 @@ public final class IterableView<E> extends Container<E> {
 
     throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
       "1-based index",
-      p1BasedIndex,
+      param1BasedIndex,
       1,
       getCount());
   }

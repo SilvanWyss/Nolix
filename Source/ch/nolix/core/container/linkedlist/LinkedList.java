@@ -345,7 +345,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
-   * @param p1BasedIndex
+   * @param param1BasedIndex
    * @return the element at the given index.
    * @throws NonPositiveArgumentException          if the given index is not
    *                                               positive.
@@ -355,14 +355,14 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    *                                               index.
    */
   @Override
-  public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
     //Iterates the current LinkedList.
     var i = 1;
     for (final var e : this) {
 
       //Asserts that the current index is the given index.
-      if (i == p1BasedIndex) {
+      if (i == param1BasedIndex) {
         return e;
       }
 
@@ -371,7 +371,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
     throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
       "1-based index",
-      p1BasedIndex,
+      param1BasedIndex,
       1,
       getCount());
   }

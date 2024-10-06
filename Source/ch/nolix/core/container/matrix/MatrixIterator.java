@@ -44,25 +44,25 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
   //constructor
   /**
    * Creates a new {@link MatrixIterator} with the given parentMatrix and
-   * p1BasedStartIndex.
+   * param1BasedStartIndex.
    * 
    * @param parentMatrix
-   * @param p1BasedStartIndex
+   * @param param1BasedStartIndex
    * @throws ArgumentIsNullException if the given parentMatrix is null.
-   * @throws BiggerArgumentException if the given p1BasedStartIndex is bigger than
+   * @throws BiggerArgumentException if the given param1BasedStartIndex is bigger than
    *                                 the element count of the given parentMatrix.
    */
-  private MatrixIterator(final Matrix<E> parentMatrix, final int p1BasedStartIndex) {
+  private MatrixIterator(final Matrix<E> parentMatrix, final int param1BasedStartIndex) {
 
     GlobalValidator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     GlobalValidator
-      .assertThat(p1BasedStartIndex)
+      .assertThat(param1BasedStartIndex)
       .thatIsNamed("start index")
       .isNotBiggerThan(parentMatrix.getCount());
 
     this.parentMatrix = parentMatrix;
-    nextElement1BasedIndex = p1BasedStartIndex;
+    nextElement1BasedIndex = param1BasedStartIndex;
   }
 
   //static method
@@ -73,8 +73,8 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
   //static mehtod
   public static <E2> MatrixIterator<E2> forMatrixAnd1BasedStartIndex(
     final Matrix<E2> matrix,
-    final int p1BasedStartIndex) {
-    return new MatrixIterator<>(matrix, p1BasedStartIndex);
+    final int param1BasedStartIndex) {
+    return new MatrixIterator<>(matrix, param1BasedStartIndex);
   }
 
   //method
