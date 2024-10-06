@@ -17,17 +17,13 @@ public final class GlobalSequenceFactory {
   //static method
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(
     final IComplexNumber increment) {
-    return new ComplexSequenceDefinedBy1Predecessor(
-      new ComplexNumber(0.0, 0.0, increment.getDecimalPlaces()),
-      z -> z.getPower2().getSum(increment));
+    return createMandelbrotSequenceForStartValueAndIncrement(new ComplexNumber(0.0, 0.0), increment);
   }
 
   //static method
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForStartValueAndIncrement(
     final IComplexNumber startValue,
     final IComplexNumber increment) {
-    return new ComplexSequenceDefinedBy1Predecessor(
-      startValue,
-      z -> z.getPower2().getSum(increment));
+    return new ComplexSequenceDefinedBy1Predecessor(startValue, z -> z.getPower2().getSum(increment));
   }
 }
