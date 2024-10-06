@@ -1602,7 +1602,7 @@ implements IContainer<E> {
 
     //Handles the case that the current Container contains more than n elements.
     if (elementCount > 0) {
-      return getSubContainerFromStartIndexToEndIndex(0, elementCount - n);
+      return getSubContainerFromStartIndexToEndIndex(1, elementCount - n);
     }
 
     //Handles the case that the current Container contains n or less elements.
@@ -1747,8 +1747,8 @@ implements IContainer<E> {
 
   //method declaration
   /**
-   * @param p1BasedStartIndex
-   * @param p1BasedEndIndex
+   * @param param1BasedStartIndex
+   * @param param1BasedEndIndex
    * @return a {@link IContainer} that views the current {@link Container} from
    *         the given p1BasedStartIndex to the given p1BasedEndIndex.
    * @throws NonPositiveArgumentException if the given p1BasedStartIndex is not
@@ -1763,9 +1763,9 @@ implements IContainer<E> {
    */
   //method
   private IContainer<E> getSubContainerFromStartIndexToEndIndex(
-    final int p1BasedStartIndex,
-    final int p1BasedEndIndex) {
-    return ContainerView.forContainerAndStartIndexAndEndIndex(this, p1BasedStartIndex, p1BasedEndIndex);
+    final int param1BasedStartIndex,
+    final int param1BasedEndIndex) {
+    return ContainerView.forContainerAndStartIndexAndEndIndex(this, param1BasedStartIndex, param1BasedEndIndex);
   }
 
   //method
