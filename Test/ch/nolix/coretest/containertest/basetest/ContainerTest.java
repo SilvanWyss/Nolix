@@ -994,6 +994,68 @@ public abstract class ContainerTest extends StandardTest {
 
   //method
   @Test
+  final void testCase_getViewWithoutFirst_whenIsEmpty() {
+
+    //setup
+    final var testUnit = createEmptyContainerForType(String.class);
+
+    //execution & verification
+    expectRunning(testUnit::getViewWithoutFirst).throwsException();
+  }
+
+  //method
+  @Test
+  final void testCase_getViewWithoutFirst_whenContainsSeveral() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
+
+    //execution
+    final var result = testUnit.getViewWithoutFirst();
+
+    //verification
+    expect(result).containsExactlyInSameOrder(baboon, elephant, lion, rhino, zebra);
+  }
+
+  //method
+  @Test
+  final void testCase_getViewWithoutLast_whenIsEmpty() {
+
+    //setup
+    final var testUnit = createEmptyContainerForType(String.class);
+
+    //execution & verification
+    expectRunning(testUnit::getViewWithoutLast).throwsException();
+  }
+
+  //method
+  @Test
+  final void testCase_getViewWithoutLast_whenContainsSeveral() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
+
+    //execution
+    final var result = testUnit.getViewWithoutLast();
+
+    //verification
+    expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino);
+  }
+
+  //method
+  @Test
   final void testCase_isView() {
 
     //setup
