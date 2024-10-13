@@ -151,7 +151,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if n elements are given.
+   * The time complexity of this implementation is O(n) if n elements are given.
    * 
    * {@inheritDoc}
    */
@@ -208,7 +208,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -230,7 +230,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if n elements are given.
+   * The time complexity of this implementation is O(n) if n elements are given.
    * 
    * {@inheritDoc}
    */
@@ -250,7 +250,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if n elements are given.
+   * The time complexity of this implementation is O(n) if n elements are given.
    * 
    * {@inheritDoc}
    */
@@ -321,7 +321,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -342,7 +342,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * @param param1BasedIndex
@@ -378,7 +378,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the last element of the current {@link LinkedList}.
    * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
@@ -393,7 +393,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the number of elements of the current {@link LinkedList}.
    */
@@ -422,7 +422,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return a new iterator of the current {@link LinkedList}.
    */
@@ -433,7 +433,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -450,7 +450,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -462,7 +462,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -478,7 +478,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -495,7 +495,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -511,7 +511,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -533,7 +533,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -555,7 +555,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -571,7 +571,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -587,7 +587,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n).
+   * The time complexity of this implementation is O(n).
    * 
    * {@inheritDoc}
    */
@@ -602,7 +602,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n).
+   * The time complexity of this implementation is O(n).
    * 
    * {@inheritDoc}
    */
@@ -616,7 +616,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n).
+   * The time complexity of this implementation is O(n).
    * 
    * {@inheritDoc}
    */
@@ -631,7 +631,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    *
    * {@inheritDoc}
@@ -671,7 +671,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * {@inheritDoc}
@@ -844,7 +844,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * Removes the first occurrence of the given element from the current
@@ -902,7 +902,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n).
+   * The time complexity of this implementation is O(n).
    * 
    * Removes the last element from the current {@link LinkedList} for the case
    * that the current {@link LinkedList} contains elements.
@@ -956,7 +956,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
    * Removes the first occurrence of the given element from the current

@@ -132,7 +132,7 @@ public final class ArrayView<E> extends Container<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n). if the current
+   * The time complexity of this implementation is O(n). if the current
    * {@link ArrayView} contains n elements.
    * 
    * @return a {@link String} representation of the current {@link ArrayView}.

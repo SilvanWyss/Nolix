@@ -281,7 +281,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the number of columns of the current {@link Matrix}.
    */
@@ -340,8 +340,8 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m * n) if: -This matrix contains m
-   * rows. -This matrix contains n columns.
+   * The time complexity of this implementation is O(m * n) if: -This matrix
+   * contains m rows. -This matrix contains n columns.
    * 
    * @return a new {@link Matrix} with the elements of the current {@link Matrix}.
    */
@@ -362,7 +362,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the number of elements of the current {@link Matrix}.
    */
@@ -411,7 +411,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @param param1BasedRowIndex
    * @param param1BasedColumnIndex
@@ -505,7 +505,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the number of rows of the current {@link Matrix}.
    */
@@ -532,7 +532,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return a new iterator for the current {@link Matrix}.
    */
@@ -571,7 +571,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    * Sets the given element to the current {@link Matrix} to the row with the
    * given row index and the column with the given column index.
    * 
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @param param1BasedRowIndex
    * @param param1BasedColumnIndex
@@ -608,8 +608,8 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if: -This matrix contains n
-   * elements. -The given transformer has a complexity of O(1).
+   * The time complexity of this implementation is O(n) if: -This matrix contains
+   * n elements. -The given transformer has a complexity of O(1).
    * 
    * @param transformer
    * @param <O>         is the type of the elements the given transformer returns.
@@ -638,8 +638,8 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * The complexity of this implementation is O(n) if the current {@link Matrix}
-   * contains n elements.
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Matrix} contains n elements.
    * 
    * @return a new left rotated {@link Matrix} of the current {@link Matrix}.
    */
@@ -677,8 +677,8 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * The complexity of this implementation is O(n) if the current {@link Matrix}
-   * contains n elements.
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Matrix} contains n elements.
    * 
    * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
    */
@@ -706,9 +706,9 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if: -The current {@link Matrix}
-   * contains n elements. -The toString method of the elements of the current
-   * {@link Matrix} has a complexity of O(1).
+   * The time complexity of this implementation is O(n) if: -The current
+   * {@link Matrix} contains n elements. -The toString method of the elements of
+   * the current {@link Matrix} has a complexity of O(1).
    * 
    * @return a {@link String} representation of the current {@link Matrix}.
    */

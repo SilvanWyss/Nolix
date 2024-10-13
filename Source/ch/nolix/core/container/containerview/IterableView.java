@@ -153,7 +153,7 @@ public final class IterableView<E> extends Container<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n). if the current
+   * The time complexity of this implementation is O(n). if the current
    * {@link IterableView} contains n elements.
    * 
    * @return a {@link String} representation of the current {@link IterableView}.

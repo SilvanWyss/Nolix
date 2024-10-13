@@ -73,7 +73,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //static method
   /**
-   * The complexity of this implementation is O(n) when n elements are given.
+   * The time complexity of this implementation is O(n) when n elements are given.
    * 
    * @param elements
    * @param <E2>     is the type of the given elements.
@@ -92,7 +92,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //static method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @param initialCapacity
    * @param <E2>            is the type of the elements of the created
@@ -115,7 +115,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n+m) when the current
+   * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
    * 
    * {@inheritDoc}
@@ -137,7 +137,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n+m) when the current
+   * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
    * 
    * {@inheritDoc}
@@ -157,7 +157,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -172,7 +172,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) when the current
+   * The time complexity of this implementation is O(n) when the current
    * {@link ArrayList} contains n elements.
    * 
    * {@inheritDoc}
@@ -184,7 +184,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -195,7 +195,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -209,7 +209,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -220,7 +220,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -231,7 +231,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -255,7 +255,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link ArrayList} contains n elements.
    * 
    * {@inheritDoc}
@@ -267,7 +267,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -278,7 +278,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the target capacity for the current {@link ArrayList} and the given
    *         requiredCapacity for the case when the current {@link ArrayList}
@@ -293,7 +293,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @return the capacity of the current {@link ArrayList}.
    */

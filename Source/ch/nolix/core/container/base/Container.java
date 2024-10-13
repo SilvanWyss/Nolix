@@ -50,7 +50,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -72,7 +72,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
    * 
@@ -97,7 +97,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
    * 
@@ -114,7 +114,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
    * 
@@ -142,7 +142,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -164,7 +164,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
    * 
@@ -181,7 +181,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
    * 
@@ -206,7 +206,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
    * 
@@ -231,8 +231,8 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is -O(1) if the given container is a
-   * {@link IContainer}. -O(n) otherwise.
+   * The time complexity of this implementation is -O(1) if the given container is
+   * a {@link IContainer}. -O(n) otherwise.
    * 
    * {@inheritDoc}
    */
@@ -250,7 +250,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -272,7 +272,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if:
+   * The time complexity of this implementation is O(m*n) if:
    * 
    * The current {@link Container} contains m elements.
    * 
@@ -294,7 +294,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -318,11 +318,12 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is -O(1) if the given container is a
-   * {@link IContainer}.
+   * The time complexity of this implementation is -O(1) if the given container is
+   * a {@link IContainer}.
    * 
-   * The complexity of this implementation is O(n) if the given iterable is not a
-   * {@link IContainer} and if the current {@link Container} contains n elements..
+   * The time complexity of this implementation is O(n) if the given iterable is
+   * not a {@link IContainer} and if the current {@link Container} contains n
+   * elements..
    * 
    * {@inheritDoc}
    */
@@ -340,7 +341,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -358,7 +359,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -370,7 +371,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
+   * The time complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
    * 
    * {@inheritDoc}
@@ -382,7 +383,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
+   * The time complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
    * 
    * {@inheritDoc}
@@ -394,7 +395,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -425,7 +426,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -446,7 +447,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -477,7 +478,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -489,7 +490,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(m*n) if: -The current
+   * The time complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
    * 
    * {@inheritDoc}
@@ -511,7 +512,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -522,7 +523,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -533,7 +534,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -552,7 +553,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -571,7 +572,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -595,7 +596,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -619,7 +620,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -645,7 +646,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -672,7 +673,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -698,7 +699,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -722,7 +723,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -741,7 +742,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n*log(n)) if the current
+   * The time complexity of this implementation is O(n*log(n)) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -778,7 +779,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n*log(n)) if the current
+   * The time complexity of this implementation is O(n*log(n)) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -797,7 +798,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -864,7 +865,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -885,7 +886,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -903,7 +904,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -929,7 +930,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -955,7 +956,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -972,7 +973,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -994,7 +995,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n^2) if the current
+   * The time complexity of this implementation is O(n^2) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1026,7 +1027,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1039,7 +1040,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -1059,7 +1060,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1101,7 +1102,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1113,7 +1114,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1139,7 +1140,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1151,7 +1152,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1170,7 +1171,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1189,7 +1190,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1240,7 +1241,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1261,7 +1262,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1284,7 +1285,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1307,7 +1308,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1330,7 +1331,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1349,7 +1350,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1372,7 +1373,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1391,7 +1392,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1414,7 +1415,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1437,7 +1438,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1456,7 +1457,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1478,7 +1479,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1490,7 +1491,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1504,7 +1505,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
@@ -1525,7 +1526,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -1536,7 +1537,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -1552,7 +1553,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -1575,7 +1576,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -1592,7 +1593,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
@@ -1624,7 +1625,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1).
    * 
    * @throws EmptyArgumentException if the current {@link Container} is empty.
    */
@@ -1669,7 +1670,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * @param norm
@@ -1699,7 +1700,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * @param norm
@@ -1729,7 +1730,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * @return a new {@link ILinkedList} with the elements of the current
@@ -1775,7 +1776,7 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(n) if the current
+   * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
    * @param separator
