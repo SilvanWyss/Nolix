@@ -142,17 +142,6 @@ implements IContainer<E> {
 
   //method
   /**
-   * The complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean containsAny() {
-    return iterator().hasNext();
-  }
-
-  //method
-  /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
