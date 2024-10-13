@@ -171,8 +171,8 @@ public final class Vector {
    * @return the value of the current {@link Vector} at the given
    *         param1BasedIndex.
    * @throws ArgumentIsOutOfRangeException if the given param1BasedIndex is not
-   *                                       positive or the given param1BasedIndex is
-   *                                       bigger than the size of the current
+   *                                       positive or the given param1BasedIndex
+   *                                       is bigger than the size of the current
    *                                       {@link Vector}.
    */
   public double getValueAt1BasedIndex(final int param1BasedIndex) {

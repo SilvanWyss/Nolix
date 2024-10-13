@@ -75,13 +75,15 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
   }
 
   //method
-  public boolean containsAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
+  public boolean containsAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex,
+    final int param1BasedColumnIndex) {
     return containsCellAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex)
     && rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] != null;
   }
 
   //method
-  public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
+  public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex,
+    final int param1BasedColumnIndex) {
     return param1BasedRowIndex > 0
     && param1BasedRowIndex <= getRowCount()
     && param1BasedColumnIndex > 0

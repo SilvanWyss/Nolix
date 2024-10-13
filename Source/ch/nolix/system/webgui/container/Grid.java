@@ -59,7 +59,8 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
   //method
   @Override
-  public boolean containsControlAt1BasedRowAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
+  public boolean containsControlAt1BasedRowAndColumnIndex(final int param1BasedRowIndex,
+    final int param1BasedColumnIndex) {
     return cells.getStoredAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex).containsAny();
   }
 
@@ -74,7 +75,8 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   public IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(
     final int param1BasedRowIndex,
     final int param1BasedColumnIndex) {
-    return cells.getStoredAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex).getStoredControl();
+    return cells.getStoredAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex)
+      .getStoredControl();
   }
 
   //method

@@ -91,8 +91,8 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
   //method declaration
   /**
    * @param param1BasedIndex
-   * @return the child {@link INode} at the given param1BasedIndex from the current
-   *         {@link INode}.
+   * @return the child {@link INode} at the given param1BasedIndex from the
+   *         current {@link INode}.
    * @throws RuntimeException if the given index is not positive.
    * @throws RuntimeException if the current {@link INode} does not contain a
    *                          child {@link INode} at the given param1BasedIndex.

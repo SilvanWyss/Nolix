@@ -49,8 +49,9 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
    * @param parentMatrix
    * @param param1BasedStartIndex
    * @throws ArgumentIsNullException if the given parentMatrix is null.
-   * @throws BiggerArgumentException if the given param1BasedStartIndex is bigger than
-   *                                 the element count of the given parentMatrix.
+   * @throws BiggerArgumentException if the given param1BasedStartIndex is bigger
+   *                                 than the element count of the given
+   *                                 parentMatrix.
    */
   private MatrixIterator(final Matrix<E> parentMatrix, final int param1BasedStartIndex) {
 
