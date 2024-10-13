@@ -849,22 +849,27 @@ implements IContainer<E> {
   //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * The complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1) if the current Container
+   * cannot not contain null elements. The time complexity of this implementation
+   * is O(n) if the current Container can contain null elements and if the current
+   * Container contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
   public final Optional<E> getOptionalStoredFirst() {
 
-    //Creates iterator.
     final var iterator = iterator();
 
-    //Handles the case that the current Container is not empty.
-    if (iterator.hasNext()) {
-      return Optional.of(iterator.next());
+    while (iterator.hasNext()) {
+
+      final var element = iterator.next();
+
+      if (element != null) {
+        return Optional.of(element);
+      }
     }
 
-    //Handles the case that the current Container is empty.
     return Optional.empty();
   }
 
@@ -1751,12 +1756,13 @@ implements IContainer<E> {
    * @param param1BasedEndIndex
    * @return a {@link IContainer} that views the current {@link Container} from
    *         the given param1BasedStartIndex to the given param1BasedEndIndex.
-   * @throws NonPositiveArgumentException if the given param1BasedStartIndex is not
-   *                                      positive.
+   * @throws NonPositiveArgumentException if the given param1BasedStartIndex is
+   *                                      not positive.
    * @throws NonPositiveArgumentException if the given param1BasedEndIndex is not
    *                                      positive.
-   * @throws SmallerArgumentException     if the given param1BasedEndIndex is smaller
-   *                                      than the given param1BasedStartIndex.
+   * @throws SmallerArgumentException     if the given param1BasedEndIndex is
+   *                                      smaller than the given
+   *                                      param1BasedStartIndex.
    * @throws BiggerArgumentException      if the given endIndex is bigger than the
    *                                      number of elements of the current
    *                                      {@link Container}.
