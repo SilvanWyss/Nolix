@@ -29,7 +29,7 @@ public interface ISearchableContainer<E> {
    * @return a new {@link Optional} with the first element the given selector
    *         selects from the current {@link ISearchableContainer} if the current
    *         {@link ISearchableContainer} contains an element the given selector
-   *         selects, an empty {@link Optional} otherwise.
+   *         selects, an empty {@link Optional} otherwise. Ignores null elements.
    * @throws RuntimeException if the given selector is null.
    */
   Optional<E> getOptionalStoredFirst(Predicate<? super E> selector);

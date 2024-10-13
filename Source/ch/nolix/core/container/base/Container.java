@@ -850,8 +850,8 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(1) if the current Container
-   * cannot not contain null elements. The time complexity of this implementation
-   * is O(n) if the current Container can contain null elements and if the current
+   * does not contain null elements. The time complexity of this implementation is
+   * O(n) if the current Container contains null elements and if the current
    * Container contains n elements.
    * 
    * {@inheritDoc}
@@ -886,7 +886,7 @@ implements IContainer<E> {
     GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
 
     for (final var e : this) {
-      if (selector.test(e)) {
+      if (e != null && selector.test(e)) {
         return Optional.of(e);
       }
     }
