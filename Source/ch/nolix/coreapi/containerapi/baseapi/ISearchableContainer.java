@@ -19,7 +19,7 @@ public interface ISearchableContainer<E> {
    * @return a {@link Optional} with the first element of the current
    *         {@link ISearchableContainer} if the current
    *         {@link ISearchableContainer} contains any, an empty {@link Optional}
-   *         otherwise. Ignores null elements.
+   *         otherwise.
    */
   Optional<E> getOptionalStoredFirst();
 
