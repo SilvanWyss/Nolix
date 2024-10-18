@@ -845,14 +845,9 @@ implements IContainer<E> {
   @Override
   public final Optional<E> getOptionalStoredFirst() {
 
-    final var iterator = iterator();
-
-    while (iterator.hasNext()) {
-
-      final var element = iterator.next();
-
-      if (element != null) {
-        return Optional.of(element);
+    for (final var e : this) {
+      if (e != null) {
+        return Optional.of(e);
       }
     }
 
@@ -935,19 +930,23 @@ implements IContainer<E> {
 
   //method
   /**
-   * The time complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(1) if the current Container
+   * does not contain null elements. The time complexity of this implementation is
+   * O(n) if the current Container contains null elements and if the current
+   * Container contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
   public final E getStoredFirst() {
 
-    //Asserts that the current Container is not empty.
-    if (isEmpty()) {
-      throw EmptyArgumentException.forArgument(this);
+    for (final var e : this) {
+      if (e != null) {
+        return e;
+      }
     }
 
-    return iterator().next();
+    throw EmptyArgumentException.forArgument(this);
   }
 
   //method

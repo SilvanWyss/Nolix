@@ -70,6 +70,7 @@ public interface ISearchableContainer<E> {
   //method declaration
   /**
    * @return the first element of the current {@link ISearchableContainer}.
+   *         Ignores null elements.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
    *                          empty.
    */
