@@ -44,7 +44,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
       if (passed) {
 
-        if (stopWatch.getTotalRunningTimeInMilliseconds() > 500 || maxRunCount > 244_140_625 /* 5^12 */) {
+        if (stopWatch.getTotalRunningTimeInMilliseconds() > 500 || maxRunCount >= 9_765_625 /* 5^10 */) {
           return true;
         }
 
