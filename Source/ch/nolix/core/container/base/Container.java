@@ -7,7 +7,6 @@ import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
@@ -44,9 +43,6 @@ implements IContainer<E> {
 
   //constant
   private static final IIterableTool ITERABLE_TOOL = new IterableTool();
-
-  //constant
-  private static final Random RANDOM = new Random();
 
   //method
   /**
@@ -882,24 +878,6 @@ implements IContainer<E> {
     }
 
     return Optional.empty();
-  }
-
-  //method
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final E getStoredAny() {
-
-    //Asserts that the current Container is not empty.
-    assertIsNotEmpty();
-
-    //Calculates a random element index.
-    final var randomElementIndex = RANDOM.nextInt(getCount()) + 1;
-
-    return getStoredAt1BasedIndex(randomElementIndex);
   }
 
   //method

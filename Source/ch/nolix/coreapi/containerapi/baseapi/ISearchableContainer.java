@@ -34,15 +34,6 @@ public interface ISearchableContainer<E> {
    */
   Optional<E> getOptionalStoredFirst(Predicate<? super E> selector);
 
-  //method declaration
-  /**
-   * @return a randomly selected element of the current
-   *         {@link ISearchableContainer}.
-   * @throws RuntimeException if the current {@link ISearchableContainer} is
-   *                          empty.
-   */
-  E getStoredAny();
-
   //method declaration declaration
   /**
    * @param param1BasedIndex
