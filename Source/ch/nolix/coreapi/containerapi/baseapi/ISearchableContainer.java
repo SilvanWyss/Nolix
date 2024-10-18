@@ -15,7 +15,7 @@ public interface ISearchableContainer<E> {
    * @return a {@link Optional} with the first element of the current
    *         {@link ISearchableContainer} if the current
    *         {@link ISearchableContainer} contains any, an empty {@link Optional}
-   *         otherwise.
+   *         otherwise. Ignores null elements.
    */
   Optional<E> getOptionalStoredFirst();
 
@@ -31,7 +31,7 @@ public interface ISearchableContainer<E> {
 
   /**
    * @param param1BasedIndex
-   * @return the element at the given param1BasedIndex.
+   * @return the element at the given param1BasedIndex. The element can be null.
    * @throws RuntimeException if the current {@link ISearchableContainer} does not
    *                          contain an element at the given param1BasedIndex.
    */
@@ -53,7 +53,7 @@ public interface ISearchableContainer<E> {
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
    * @return the element with the smallest {@link Comparable} the given norm
    *         returns from the elements of the current
-   *         {@link ISearchableContainer}.
+   *         {@link ISearchableContainer}. Ignores null elements.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
    *                          empty.
    */

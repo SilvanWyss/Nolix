@@ -845,6 +845,7 @@ implements IContainer<E> {
 
     for (final var e : this) {
       if (e != null) {
+
         final var comparableValueOfElement = norm.apply(e);
 
         if (comparableValueOfElement.compareTo(comparebleOfMax) > 0) {
@@ -867,15 +868,17 @@ implements IContainer<E> {
   public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> norm) {
 
     var min = getStoredFirst();
-    var comparebleValueOfMin = norm.apply(min);
+    var comparebleOfMin = norm.apply(min);
 
     for (var e : this) {
+      if (e != null) {
 
-      final var comparableValueOfElement = norm.apply(e);
+        final var comparableValueOfElement = norm.apply(e);
 
-      if (comparableValueOfElement.compareTo(comparebleValueOfMin) < 0) {
-        min = e;
-        comparebleValueOfMin = norm.apply(min);
+        if (comparableValueOfElement.compareTo(comparebleOfMin) < 0) {
+          min = e;
+          comparebleOfMin = norm.apply(min);
+        }
       }
     }
 
