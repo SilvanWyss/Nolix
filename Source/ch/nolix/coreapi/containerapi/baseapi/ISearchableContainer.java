@@ -49,7 +49,7 @@ public interface ISearchableContainer<E> {
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
    * @return the element with the biggest {@link Comparable} the given norm
    *         returns from the elements of the current
-   *         {@link ISearchableContainer}.
+   *         {@link ISearchableContainer}. Ignores null elements.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
    *                          empty.
    */

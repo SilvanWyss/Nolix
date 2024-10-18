@@ -891,15 +891,16 @@ implements IContainer<E> {
   public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> norm) {
 
     var max = getStoredFirst();
-    var comparebleValueOfMax = norm.apply(max);
+    var comparebleOfMax = norm.apply(max);
 
-    for (var e : this) {
+    for (final var e : this) {
+      if (e != null) {
+        final var comparableValueOfElement = norm.apply(e);
 
-      final var comparableValueOfElement = norm.apply(e);
-
-      if (comparableValueOfElement.compareTo(comparebleValueOfMax) > 0) {
-        max = e;
-        comparebleValueOfMax = norm.apply(max);
+        if (comparableValueOfElement.compareTo(comparebleOfMax) > 0) {
+          max = e;
+          comparebleOfMax = norm.apply(max);
+        }
       }
     }
 
