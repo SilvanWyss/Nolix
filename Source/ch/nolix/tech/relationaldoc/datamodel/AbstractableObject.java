@@ -122,7 +122,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   @Override
   public IContainer<? extends IAbstractableField> getStoredFields() {
     return ContainerView.forIterable(
-      getStoredDeclaredFields().getStoredOther(IAbstractableField::inheritsFromBaseField),
+      getStoredDeclaredFields().getStoredOthers(IAbstractableField::inheritsFromBaseField),
       getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
   }
 

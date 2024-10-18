@@ -81,7 +81,7 @@ public final class DataAdapter implements IDataAdapter {
 
     final var objects = table.getStoredEntities();
 
-    return objects.getStoredOther(ABSTRACTABLE_OBJECT_EVALUATOR::hasBaseTypes);
+    return objects.getStoredOthers(ABSTRACTABLE_OBJECT_EVALUATOR::hasBaseTypes);
   }
 
   //method

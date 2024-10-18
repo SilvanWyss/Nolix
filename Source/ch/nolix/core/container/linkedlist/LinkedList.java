@@ -441,7 +441,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void removeAll(final Predicate<E> selector) {
 
-    final var remainingElements = getStoredOther(selector);
+    final var remainingElements = getStoredOthers(selector);
 
     clear();
 

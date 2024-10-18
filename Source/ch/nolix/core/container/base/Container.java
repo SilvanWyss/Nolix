@@ -1086,7 +1086,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getStoredOther(final Predicate<E> selector) {
+  public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
     return getStoredSelected(e -> !selector.test(e));
   }
 

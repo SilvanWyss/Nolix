@@ -139,7 +139,7 @@ public interface ISearchableContainer<E> {
    * @return a new {@link ISearchableContainer} with the elements from the current
    *         {@link ISearchableContainer} the given selector skips (!).
    */
-  IContainer<E> getStoredOther(Predicate<E> selector);
+  IContainer<E> getStoredOthers(Predicate<E> selector);
 
   //method declaration
   /**

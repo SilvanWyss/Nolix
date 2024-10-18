@@ -45,7 +45,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
   private IContainer<IWebApplicationSheet> getWebApplicationSheets() {
     return getStoredApplicationContext()
       .getWebApplicationSheets()
-      .getStoredOther(
+      .getStoredOthers(
         as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName()));
   }
 }
