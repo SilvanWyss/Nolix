@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -10,10 +8,8 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.LayerStack;
 import ch.nolix.system.webgui.main.WebGui;
 
-//class
 final class LayerStackTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {
 
@@ -31,7 +27,6 @@ final class LayerStackTest extends StandardTest {
     expect(result.isEmpty());
   }
 
-  //method
   @Test
   void testCase_getOptionalStoredControlByInternalId_whenContainsSuchAControl() {
 
@@ -47,7 +42,6 @@ final class LayerStackTest extends StandardTest {
     expect(result.get()).is(control); //NOSONAR: The current test case expects a non-empty result.
   }
 
-  //method
   @Test
   void testCase_getStoredControls_whenIsEmpty() {
 
@@ -64,7 +58,6 @@ final class LayerStackTest extends StandardTest {
     expect(result).isEmpty();
   }
 
-  //method
   @Test
   void testCase_getStoredControls_whenContains1Control() {
 
@@ -80,7 +73,6 @@ final class LayerStackTest extends StandardTest {
     expect(result).containsExactlyInSameOrder(label);
   }
 
-  //method
   @Test
   void testCase_getStoredControls_whenContains4Control() {
 

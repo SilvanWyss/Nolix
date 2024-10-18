@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,10 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class StringMediatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_isEmpty_whenTheGivenArgumentIsNull() {
 
@@ -30,7 +25,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is null.");
   }
 
-  //method
   @Test
   void testCase_isEmpty_whenTheGivenArgumentIsEmpty() {
 
@@ -41,7 +35,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(testUnit::isEmpty).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isEmpty_whenTheGivenArgumentConsistsOfASpace() {
 
@@ -55,7 +48,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is not empty.");
   }
 
-  //method
   @Test
   void testCase_isEmpty_whenTheGivenArgumentConsistsOfLetters() {
 
@@ -69,7 +61,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument 'aaa' is not empty.");
   }
 
-  //method
   @Test
   void testCase_hasLength_whenTheGivenLengthIsNegative() {
 
@@ -83,7 +74,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given length '-1' is negative.");
   }
 
-  //method
   @Test
   void testCase_hasLength_whenTheGivenArgumentIsNull() {
 
@@ -97,7 +87,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is null.");
   }
 
-  //method
   @Test
   void testCase_hasLength_whenTheGivenArgumentIsShorterThanTheGivenLength() {
 
@@ -111,7 +100,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument 'aaa' does not have the length 4.");
   }
 
-  //method
   @Test
   void testCase_hasLength_whenTheGivenArgumentHasTheGivenLength() {
 
@@ -122,7 +110,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.hasLength(4)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_hasLength_whenTheGivenArgumentIsLongerThanTheGivenLength() {
 
@@ -136,7 +123,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument 'aaaaa' does not have the length 4.");
   }
 
-  //method
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentIsNull() {
 
@@ -150,7 +136,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is null.");
   }
 
-  //method
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentIsEmpty() {
 
@@ -164,7 +149,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is empty.");
   }
 
-  //method
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfASpace() {
 
@@ -175,7 +159,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(testUnit::isNotEmpty).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfALetter() {
 
@@ -186,7 +169,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(testUnit::isNotEmpty).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentIsNull() {
 
@@ -200,7 +182,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is null.");
   }
 
-  //method
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentIsEmpty() {
 
@@ -213,7 +194,6 @@ final class StringMediatorTest extends StandardTest {
       .ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentConsistsOfASpace() {
 
@@ -226,7 +206,6 @@ final class StringMediatorTest extends StandardTest {
       .ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentConsistsOfALetter() {
 
@@ -237,7 +216,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(testUnit::isNotBlank).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isNotLongerThan_whenTheArgumentIsShorterThanTheMaxLength() {
 
@@ -248,7 +226,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.isNotLongerThan(10)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isNotLongerThan_whenTheArgumentHasTheMaxLength() {
 
@@ -259,7 +236,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.isNotLongerThan(10)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isNotLongerThan_whenTheArgumentIsLongerThanTheMaxLength() {
 
@@ -273,7 +249,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument 'lorem ipsum dolor' is longer than 10.");
   }
 
-  //method
   @Test
   void testCase_matches_whenTheGivenArgumentMatches() {
 
@@ -284,7 +259,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.matches("....")).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_matches_whenTheGivenArgumentDoesNotMatch() {
 
@@ -298,7 +272,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument 'lorem' does not match the regular expression '....'.");
   }
 
-  //method
   @Test
   void testCase_startsWith_whenTheGivenArgumentIsNull() {
 
@@ -312,7 +285,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument is null.");
   }
 
-  //method
   @Test
   void testCase_startsWith_whenTheGivenArgumentStartWithTheGivenPrefix() {
 
@@ -323,7 +295,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.startsWith("Mada")).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_startsWith_whenTheGivenArgumentEqualsTheGivenPrefix() {
 
@@ -334,7 +305,6 @@ final class StringMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.startsWith("Madagascar")).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_1() {
 
@@ -348,7 +318,6 @@ final class StringMediatorTest extends StandardTest {
       .withMessage("The given argument 'Madagascar' does not start with the prefix 'mada'.");
   }
 
-  //method
   @Test
   void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_2() {
 

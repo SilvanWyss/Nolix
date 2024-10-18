@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
 
-//interface
 /**
  * A {@link IMutableTitleHolder} is a {@link ITitleHolder} whose title can be
  * set programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
  */
 public interface IMutableTitleHolder extends ITitleHolder {
 
-  //method declaration
   /**
    * Sets the title of the current {@link IMutableTitleHolder}.
    * 

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalSaveStampHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalSaveStampHolder} is a
  * {@link IOptionalSaveStampHolder} whose save stamp can be set and removed
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalSaveStampHold
 public interface IFluentMutableOptionalSaveStampHolder<FMSSH extends IFluentMutableOptionalSaveStampHolder<FMSSH>>
 extends IOptionalSaveStampHolder {
 
-  //method declaration
   /**
    * Removes the save stamp of the current
    * {@link IFluentMutableOptionalSaveStampHolder}.
@@ -27,7 +23,6 @@ extends IOptionalSaveStampHolder {
    */
   FMSSH removeSaveStamp();
 
-  //method declaration
   /**
    * Sets the save stamp of the current
    * {@link IFluentMutableOptionalSaveStampHolder}.

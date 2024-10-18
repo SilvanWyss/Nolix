@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -9,7 +7,6 @@ import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.graphic.color.Color;
 
-//class
 final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
 
   //static enum
@@ -20,13 +17,11 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     D
   }
 
-  //constant
   private static final class CustomMultiStateConfiguration
   extends MultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
 
     static final CustomState BASE_STATE = CustomState.A;
 
-    //attribute
     final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
       "Color",
       CustomState.class,
@@ -34,7 +29,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
       Color::getSpecification,
       Color.WHITE);
 
-    //constructor
     CustomMultiStateConfiguration() {
 
       super(BASE_STATE);
@@ -42,13 +36,11 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
       reset();
     }
 
-    //method
     void addChild(final CustomMultiStateConfiguration child) {
       internalAddChild(child);
     }
   }
 
-  //method
   @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
 
@@ -63,7 +55,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     expect(result).is(Color.WHITE);
   }
 
-  //method
   @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndDefinesValueForBaseState() {
 
@@ -79,7 +70,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     expect(result).is(Color.RED);
   }
 
-  //method
   @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndGetsValueFromParent() {
 
@@ -97,7 +87,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     expect(result).is(Color.RED);
   }
 
-  //method
   @Test
   void testCase_getValueOfState_whenDefinesValueForGivenState() {
 

@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.core.math.basic;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -6,16 +5,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
-//class
 public final class BasicCalculator {
 
-  //constant
   /**
    * The default maximum deviation is 10^-9.
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value1
@@ -27,7 +23,6 @@ public final class BasicCalculator {
     return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
   }
 
-  //method
   /**
    * @param value1
    * @param value2
@@ -44,7 +39,6 @@ public final class BasicCalculator {
     return (Math.abs(value1 - value2) <= maxDeviation);
   }
 
-  //method
   /**
    * @param value1
    * @param value2
@@ -54,7 +48,6 @@ public final class BasicCalculator {
     return getAbsoluteValue(value2 - value1);
   }
 
-  //method
   /**
    * @param value1
    * @param value2
@@ -64,7 +57,6 @@ public final class BasicCalculator {
     return getAbsoluteValue(value2 - value1);
   }
 
-  //method
   /**
    * @param value1
    * @param value2
@@ -74,7 +66,6 @@ public final class BasicCalculator {
     return getAbsoluteValue(value2 - value1);
   }
 
-  //method
   /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
@@ -90,7 +81,6 @@ public final class BasicCalculator {
     return value;
   }
 
-  //method
   /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
@@ -106,7 +96,6 @@ public final class BasicCalculator {
     return value;
   }
 
-  //method
   /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
@@ -122,7 +111,6 @@ public final class BasicCalculator {
     return value;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -136,7 +124,6 @@ public final class BasicCalculator {
     return (sum / valueCount);
   }
 
-  //method
   /**
    * @param values
    * @return the average of the given values.
@@ -158,7 +145,6 @@ public final class BasicCalculator {
     return (sum / count);
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -172,7 +158,6 @@ public final class BasicCalculator {
     return (sum / valueCount);
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -186,7 +171,6 @@ public final class BasicCalculator {
     return (sum / valueCount);
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -204,7 +188,6 @@ public final class BasicCalculator {
     return max;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -222,7 +205,6 @@ public final class BasicCalculator {
     return max;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -240,7 +222,6 @@ public final class BasicCalculator {
     return max;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -258,7 +239,6 @@ public final class BasicCalculator {
     return min;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -276,7 +256,6 @@ public final class BasicCalculator {
     return min;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -294,7 +273,6 @@ public final class BasicCalculator {
     return min;
   }
 
-  //method
   /**
    * @param value
    * @return the square of the given value.
@@ -303,7 +281,6 @@ public final class BasicCalculator {
     return (value * value);
   }
 
-  //method
   /**
    * @param value
    * @return the square of the given value.
@@ -312,7 +289,6 @@ public final class BasicCalculator {
     return (value * value);
   }
 
-  //method
   /**
    * @param value
    * @return the square of the given value.
@@ -321,7 +297,6 @@ public final class BasicCalculator {
     return (value * value);
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -338,7 +313,6 @@ public final class BasicCalculator {
     return sum;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -354,7 +328,6 @@ public final class BasicCalculator {
     return sum;
   }
 
-  //method
   /**
    * @param values
    * @return the sum of the given values.
@@ -369,7 +342,6 @@ public final class BasicCalculator {
     return sum;
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -385,7 +357,6 @@ public final class BasicCalculator {
     return sum;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value
@@ -396,7 +367,6 @@ public final class BasicCalculator {
     return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
   }
 
-  //method
   /**
    * @param value
    * @param maxDeviation
@@ -412,7 +382,6 @@ public final class BasicCalculator {
     return (Math.abs(value - 1.0) <= maxDeviation);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param value
@@ -423,7 +392,6 @@ public final class BasicCalculator {
     return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
   }
 
-  //method
   /**
    * @param value
    * @param maxDeviation

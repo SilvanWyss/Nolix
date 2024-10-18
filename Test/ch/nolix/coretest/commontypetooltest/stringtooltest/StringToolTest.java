@@ -1,22 +1,17 @@
-//package declaration
 package ch.nolix.coretest.commontypetooltest.stringtooltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class StringToolTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'', 0, ''", //
@@ -49,7 +44,6 @@ final class StringToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0, ''", //
@@ -76,7 +70,6 @@ final class StringToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createTabs_whenTheGivenTabCountIsNegative() {
 
@@ -90,7 +83,6 @@ final class StringToolTest extends StandardTest {
       .withMessage("The given tab count '-1' is negative.");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'', '{}'", //
@@ -108,7 +100,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_getInInBraces_whenTheGivenObjectIsNull() {
 
@@ -122,7 +113,6 @@ final class StringToolTest extends StandardTest {
       .withMessage("The given Object is null.");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'', ''", //
@@ -140,7 +130,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
 
@@ -154,7 +143,6 @@ final class StringToolTest extends StandardTest {
       .withMessage("The given Object is null.");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "''", //
@@ -175,7 +163,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   ",", //
@@ -196,7 +183,6 @@ final class StringToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "''", //
@@ -215,7 +201,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   ",", //
@@ -234,7 +219,6 @@ final class StringToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "cheeseburger, ''", //
@@ -277,7 +261,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   ", ''", //
@@ -344,7 +327,6 @@ final class StringToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0", //
@@ -365,7 +347,6 @@ final class StringToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "1", //
@@ -386,7 +367,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "x", //
@@ -410,7 +390,6 @@ final class StringToolTest extends StandardTest {
       .withMessage("The given String '" + string + "' does not represent a boolean.");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "-1.5", //
@@ -433,7 +412,6 @@ final class StringToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "-2", //
@@ -455,7 +433,6 @@ final class StringToolTest extends StandardTest {
       .withMessage("The given String '" + string + "' does not represent a double.");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'', ''", //
@@ -495,7 +472,6 @@ final class StringToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'', ''", //

@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
-//Java imports
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
 
-//interface
 /**
  * A {@link IContainer} can store several elements of a certain type. A
  * {@link IContainer} stores its element in a linear order. There can exists
@@ -29,7 +26,6 @@ IStatisticalConainer<E>,
 IViewProviderContainer<E>,
 StoringRequestable<E> {
 
-  //method declaration
   /**
    * @param selector
    * @return the 1-based index of the first element the given selector selects
@@ -39,7 +35,6 @@ StoringRequestable<E> {
    */
   int get1BasedIndexOfFirst(Predicate<E> selector);
 
-  //method declaration
   /**
    * @param element
    * @return the 1-based index of the first element of the current
@@ -49,7 +44,6 @@ StoringRequestable<E> {
    */
   int get1BasedIndexOfFirstEqualElement(E element);
 
-  //method declaration
   /**
    * @param element
    * @return the 1-based index of the given element in the current
@@ -59,7 +53,6 @@ StoringRequestable<E> {
    */
   int get1BasedIndexOfFirstOccuranceOf(E element);
 
-  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -69,14 +62,12 @@ StoringRequestable<E> {
    */
   <C extends Comparable<C>> IContainer<E> toOrderedList(Function<E, C> norm);
 
-  //method declaration
   /**
    * @return a new {@link IContainer} with the elements of the current
    *         {@link IContainer} in reversed order.
    */
   IContainer<E> toReversedList();
 
-  //method declaration
   /**
    * 
    * @return a new array with the {@link String} representations of the elements
@@ -84,14 +75,12 @@ StoringRequestable<E> {
    */
   String[] toStringArray();
 
-  //method declaration
   /**
    * @return a new {@link IContainer} with the {@link String} representations of
    *         the elements of the current {@link IContainer}.
    */
   IContainer<String> toStrings();
 
-  //method declaration
   /**
    * @param separator
    * @return a {@link String} representation of the current {@link IContainer}
@@ -99,7 +88,6 @@ StoringRequestable<E> {
    */
   String toStringWithSeparator(char separator);
 
-  //method declaration
   /**
    * @param separator
    * @return a {@link String} representation of the current {@link IContainer}

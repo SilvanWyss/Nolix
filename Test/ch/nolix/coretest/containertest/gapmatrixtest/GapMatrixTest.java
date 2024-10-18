@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.containertest.gapmatrixtest;
 
-//Java imports
 import java.util.NoSuchElementException;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.gapmatrix.GapMatrix;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class GapMatrixTest extends ContainerTest {
 
-  //method
   @Test
   void testCase_addColumn_whenGapMatrixIsExpanded() {
 
@@ -30,7 +25,6 @@ final class GapMatrixTest extends ContainerTest {
     expect(testUnit.getColumnCount()).isEqualTo(201);
   }
 
-  //method
   @Test
   void testCase_addColumn_whenGapMatrixIsMinimal() {
 
@@ -46,7 +40,6 @@ final class GapMatrixTest extends ContainerTest {
     expect(testUnit.getColumnCount()).isEqualTo(1);
   }
 
-  //method
   @Test
   void testCase_addRow_whenGapMatrixIsExpanded() {
 
@@ -62,7 +55,6 @@ final class GapMatrixTest extends ContainerTest {
     expect(testUnit.getColumnCount()).isEqualTo(200);
   }
 
-  //method
   @Test
   void testCase_addRow_whenGapMatrixIsMinimal() {
 
@@ -78,7 +70,6 @@ final class GapMatrixTest extends ContainerTest {
     expect(testUnit.getColumnCount()).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_create() {
 
@@ -91,7 +82,6 @@ final class GapMatrixTest extends ContainerTest {
     expect(result.getColumnCount()).isEqualTo(200);
   }
 
-  //method
   @Test
   void testCase_iterate_whenGapMatrixContainsElements() {
 
@@ -124,7 +114,6 @@ final class GapMatrixTest extends ContainerTest {
     expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
   }
 
-  //method
   @Test
   void testCase_iterate_whenGapMatrixIsEmpty() {
 
@@ -139,7 +128,6 @@ final class GapMatrixTest extends ContainerTest {
     expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return new GapMatrix<>();

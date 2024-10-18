@@ -1,24 +1,18 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.containertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 
-//class
 final class GridTest extends ContainerTest<IGrid> {
 
-  //method
   @Override
   protected IGrid createTestUnit() {
     return new Grid();
   }
 
-  //method
   @Test
   void testCase_clear() {
 
@@ -34,7 +28,6 @@ final class GridTest extends ContainerTest<IGrid> {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_insertControlAtRowAndColumn_whenIsEmpty() {
 

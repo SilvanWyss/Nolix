@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.processproperty;
 
-//enum
 /**
  * A {@link OnOffState} defines if something is on or off.
  * 

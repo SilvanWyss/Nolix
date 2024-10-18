@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
@@ -13,35 +10,27 @@ import ch.nolix.system.objectdata.data.Reference;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Plane extends Entity {
 
-    //attribute
     public final MultiBackReference<Flight> flights = MultiBackReference
       .forBackReferencedEntityTypeAndBaseReference(Flight.class, "plane");
 
-    //constructor
     public Plane() {
       initialize();
     }
   }
 
-  //constant
   private static final class Flight extends Entity {
 
-    //attribute
     public final Reference<Plane> plane = Reference.forEntity(Plane.class);
 
-    //constructor
     public Flight() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndEmpty() {
 
@@ -61,7 +50,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     expect(result).isEmpty();
   }
 
-  //method
   @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndNotEmpty() {
 
@@ -87,7 +75,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     expect(result).containsExactly(fx2650, fx2651);
   }
 
-  //method
   @Test
   void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
 
@@ -115,7 +102,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     expect(result).containsExactlyEqualing(fx2650.getId(), fx2651.getId());
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsEmpty() {
 
@@ -135,7 +121,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 

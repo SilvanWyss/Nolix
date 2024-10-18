@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.nettest.endpoint3test;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.net.endpoint3.NetEndPoint;
@@ -12,10 +9,8 @@ import ch.nolix.core.net.endpoint3.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class NetEndPointTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor() {
 
@@ -38,7 +33,6 @@ final class NetEndPointTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_runCommand() {
 
@@ -63,7 +57,6 @@ final class NetEndPointTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getData() {
 

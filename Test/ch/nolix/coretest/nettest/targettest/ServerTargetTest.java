@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.nettest.targettest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 final class ServerTargetTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forIpOrDomainAndPortAndSecurityModeForConnections() {
 

@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
-//class
 /**
  * A string container mediator is not mutable.
  * 
@@ -15,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
 
-  //constructor
   /**
    * Creates a new string container mediator with the given arguments.
    * 
@@ -28,7 +24,6 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
     super(arguments);
   }
 
-  //constructor
   /**
    * Creates a new string container mediator with the given arguments.
    * 
@@ -41,7 +36,6 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
     super(arguments);
   }
 
-  //method
   /**
    * for the arguments of the current {@link MultiStringMediator}.
    * 
@@ -70,7 +64,6 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException if one of the arguments of this strinc
    *                                 container mediator is null.

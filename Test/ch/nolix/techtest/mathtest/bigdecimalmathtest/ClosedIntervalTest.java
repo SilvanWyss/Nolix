@@ -1,23 +1,17 @@
-//package declaration
 package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 
-//Java imports
 import java.math.BigDecimal;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 
-//class
 final class ClosedIntervalTest extends StandardTest {
 
-  //method
   @Test
   void testCase_containsValue_whenNullIsGiven() {
 
@@ -31,7 +25,6 @@ final class ClosedIntervalTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0.0, 1.0, 0.0", //value = min
@@ -51,7 +44,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0.0, 1.0, -1.0", //The given value is smaller than min.
@@ -70,7 +62,6 @@ final class ClosedIntervalTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_constructor_whenTheGivenMinIsNull() {
 
@@ -81,7 +72,6 @@ final class ClosedIntervalTest extends StandardTest {
       .withMessage("The given minimum is null.");
   }
 
-  //method
   @Test
   void testCase_constructor_whenTheGivenMaxIsNull() {
 
@@ -92,7 +82,6 @@ final class ClosedIntervalTest extends StandardTest {
       .withMessage("The given maximum is null.");
   }
 
-  //method
   @Test
   void testCase_equals_whenNullIsGiven() {
 
@@ -107,7 +96,6 @@ final class ClosedIntervalTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenUnequalClosedIntervalIsGiven() {
 
@@ -121,7 +109,6 @@ final class ClosedIntervalTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenEqualClosedIntervalIsGiven() {
 
@@ -135,7 +122,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_getHalfs_1A() {
 
@@ -155,7 +141,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result.getStoredElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getHalfs_1B() {
 
@@ -175,7 +160,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result.getStoredElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getHalfs_whenHasLength0() {
 
@@ -195,7 +179,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result.getStoredElement2().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getLength_1A() {
 
@@ -212,7 +195,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getLength_1B() {
 
@@ -229,7 +211,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getLength_1C() {
 
@@ -246,7 +227,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(2.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getLength_whenHasLength0() {
 
@@ -263,7 +243,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getMidpoint_1A() {
 
@@ -280,7 +259,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getMidpoint_1B() {
 
@@ -297,7 +275,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getMidpoint_whenHasLength0() {
 
@@ -314,7 +291,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "-2.0, -1.0, false", //When the given ClosedInterval is before.
@@ -338,7 +314,6 @@ final class ClosedIntervalTest extends StandardTest {
     expect(result == expectedResult);
   }
 
-  //method
   @Test
   void testCase_toString() {
 

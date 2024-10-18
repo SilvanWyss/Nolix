@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.styletest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -9,10 +7,8 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.graphic.image.Image;
 
-//class
 final class SelectingStyleTest extends StandardTest {
 
-  //method
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveId() {
 
@@ -32,7 +28,6 @@ final class SelectingStyleTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
 
@@ -53,7 +48,6 @@ final class SelectingStyleTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
 
@@ -74,7 +68,6 @@ final class SelectingStyleTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
 
@@ -91,7 +84,6 @@ final class SelectingStyleTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
 
@@ -108,7 +100,6 @@ final class SelectingStyleTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
 
@@ -125,7 +116,6 @@ final class SelectingStyleTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_selectsChildElements() {
 
@@ -139,7 +129,6 @@ final class SelectingStyleTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_skipsChildElements() {
 

@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.schemainfo;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
@@ -9,14 +8,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
-//class
 public record TableInfo(String tableId, String tableName, ImmutableList<IColumnInfo> columnInfos)
 implements ITableInfo {
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //constructor
   public TableInfo(
     final String tableId,
     final String tableName,
@@ -24,7 +20,6 @@ implements ITableInfo {
     this(tableId, tableName, ImmutableList.forIterable(columnInfos));
   }
 
-  //constructor
   public TableInfo( //NOSONAR: This implementations checks the given arguments.
     final String tableId,
     final String tableName,
@@ -47,37 +42,31 @@ implements ITableInfo {
     this.columnInfos = columnInfos;
   }
 
-  //method
   @Override
   public IColumnInfo getColumnInfoByColumnId(final String columnId) {
     return getColumnInfos().getStoredFirst(ci -> ci.getColumnId().equals(columnId));
   }
 
-  //method
   @Override
   public IColumnInfo getColumnInfoByColumnName(final String columnName) {
     return getColumnInfos().getStoredFirst(cd -> cd.getColumnName().equals(columnName));
   }
 
-  //method
   @Override
   public IContainer<IColumnInfo> getColumnInfos() {
     return columnInfos;
   }
 
-  //method
   @Override
   public String getTableId() {
     return tableId;
   }
 
-  //method
   @Override
   public String getTableName() {
     return tableName;
   }
 
-  //method
   @Override
   public String getTableNameInQuotes() {
     return STRING_TOOL.getInSingleQuotes(getTableName());

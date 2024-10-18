@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link IOptionalQualifiedNameHolder} can have a qualified name.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
 
-  //method
   /**
    * @return the qualified name of the current
    *         {@link IOptionalQualifiedNameHolder}.
@@ -25,7 +21,6 @@ public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
     return (getQualifyingPrefix() + getName());
   }
 
-  //method
   /**
    * @return the qualifiedName of the current {@link IOptionalQualifiedNameHolder}
    *         in quotes.
@@ -36,14 +31,12 @@ public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
     return ("'" + getQualifiedName() + "'");
   }
 
-  //method declaration
   /**
    * @return the qualifying prefix of the current
    *         {@link IOptionalQualifiedNameHolder}.
    */
   String getQualifyingPrefix();
 
-  //method
   /**
    * @return true if the current {@link IOptionalQualifiedNameHolder} has a
    *         qualifiedName.

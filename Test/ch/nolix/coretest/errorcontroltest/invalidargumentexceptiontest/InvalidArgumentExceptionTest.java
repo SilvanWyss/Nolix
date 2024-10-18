@@ -1,21 +1,15 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.invalidargumentexceptiontest;
 
-//Java imports
 import java.math.BigDecimal;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class InvalidArgumentExceptionTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forArgument_whenArgumentIsNull() {
 
@@ -29,7 +23,6 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     expect(result.getMessage()).isEqualTo("The given argument is not valid.");
   }
 
-  //method
   @Test
   void testCase_forArgument_whenArgumentIsANode() {
 
@@ -46,7 +39,6 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     expect(result.getMessage()).isEqualTo("The given Node 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
   }
 
-  //method
   @Test
   void testCase_forArgumentAndErrorPredicate() {
 
@@ -63,7 +55,6 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     expect(result.getMessage()).isEqualTo("The given BigDecimal '10.5' is not a whole number.");
   }
 
-  //method
   @Test
   void testCase_forArgumentNameAndArgumentAndErrorPredicate() {
 

@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.systemapi.guiapi.guiproperty;
 
-//Java imports
 import java.awt.Cursor;
 import java.util.Locale;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 /**
  * @author Silvan Wyss
  * @version 2016-06-01
@@ -22,7 +18,6 @@ public enum CursorIcon {
   MOVE,
   WAIT;
 
-  //static method
   /**
    * @param specification
    * @return a new {@link CursorIcon} from the given specification.
@@ -33,7 +28,6 @@ public enum CursorIcon {
     return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
   }
 
-  //method
   /**
    * @return a CSS value representation of the current {@link CursorIcon}.
    */
@@ -56,7 +50,6 @@ public enum CursorIcon {
     };
   }
 
-  //method
   /**
    * @return a {@link Cursor} representation of the current {@link CursorIcon}.
    */

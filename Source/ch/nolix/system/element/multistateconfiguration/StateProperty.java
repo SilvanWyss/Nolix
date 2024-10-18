@@ -1,22 +1,16 @@
-//package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
-//class
 final class StateProperty<V> {
 
-  //attribute
   private boolean hasValueOrDefinesEmpty;
 
-  //optional attribute
   private V value;
 
-  //method
   public ValueStoringState getAssignmentType() {
 
     if (!hasValueOrDefinesEmpty()) {
@@ -30,7 +24,6 @@ final class StateProperty<V> {
     return ValueStoringState.STORING_VALUE;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   public V getValue() {
 
@@ -41,29 +34,24 @@ final class StateProperty<V> {
     return value;
   }
 
-  //method
   public boolean hasValue() {
     return (value != null);
   }
 
-  //method
   public boolean hasValueOrDefinesEmpty() {
     return hasValueOrDefinesEmpty;
   }
 
-  //method
   public void setEmpty() {
     hasValueOrDefinesEmpty = true;
     value = null;
   }
 
-  //method
   public void setForwarding() {
     hasValueOrDefinesEmpty = false;
     value = null;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   public void setValue(final V value) {
 

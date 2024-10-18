@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.coretest.containertest.arraylisttest;
 
-//own imports
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coretest.containertest.basetest.CopyableIteratorTest;
 
-//class
 final class ArrayListIteratorTest extends CopyableIteratorTest {
 
-  //method
   @Override
   protected <E> CopyableIterator<E> createIteratorForEmptyContainerForType(final Class<E> type) {
 
@@ -18,7 +14,6 @@ final class ArrayListIteratorTest extends CopyableIteratorTest {
     return arrayList.iterator();
   }
 
-  //method
   @Override
   protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
     final E element,

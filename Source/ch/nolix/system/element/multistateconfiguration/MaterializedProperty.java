@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//Java imports
 import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -16,28 +14,20 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
-//class
 public abstract class MaterializedProperty<S extends Enum<S>, V> extends Property<S> {
 
-  //constant
   private static final String NONE_HEADER = "None";
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //attribute
   private final Function<INode<?>, V> valueCreator;
 
-  //attribute
   private final Function<V, INode<?>> specificationCreator;
 
-  //optional attribute
   private final BiConsumer<S, V> setterMethod;
 
-  //multi-attribute
   protected final StateProperty<V>[] stateProperties;
 
-  //constructor
   @SuppressWarnings("unchecked")
   protected MaterializedProperty(
     final String name,
@@ -58,7 +48,6 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     extractStateProperties();
   }
 
-  //constructor
   @SuppressWarnings("unchecked")
   protected MaterializedProperty(
     final String name,
@@ -81,12 +70,10 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     extractStateProperties();
   }
 
-  //method
   public final ValueStoringState getAssignmentTypeForState(final S state) {
     return stateProperties[(getStateOf(state).getIndex())].getAssignmentType();
   }
 
-  //method
   public final Optional<V> getOptionalValueOfState(final S state) {
 
     final var stateProperty = stateProperties[getStateOf(state).getIndex()];
@@ -98,32 +85,26 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     return Optional.of(stateProperty.getValue());
   }
 
-  //method
   public final V getValueOfState(final S state) {
     return stateProperties[getStateOf(state).getIndex()].getValue();
   }
 
-  //method
   public final V getValueWhenHasState(final S state) {
     return getValueWhenHasState(getStateOf(state));
   }
 
-  //method
   public final boolean hasSetterMethod() {
     return (setterMethod != null);
   }
 
-  //method
   public final boolean hasValueForState(final S state) {
     return stateProperties[getStateOf(state).getIndex()].hasValue();
   }
 
-  //method
   public final boolean hasValueOrIsEmptyForState(final S state) {
     return stateProperties[getStateOf(state).getIndex()].hasValueOrDefinesEmpty();
   }
 
-  //method
   @Override
   public void setUndefined() {
     for (final var sp : stateProperties) {
@@ -131,17 +112,14 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     }
   }
 
-  //method
   public void setUndefinedForState(final S state) {
     stateProperties[getStateOf(state).getIndex()].setForwarding();
   }
 
-  //method
   public final void setValueForState(final S state, final V value) {
     stateProperties[getStateOf(state).getIndex()].setValue(value);
   }
 
-  //method
   @Override
   protected final void fillUpValuesSpecificationInto(final ILinkedList<INode<?>> list) {
     for (final var s : parent.getAvailableStates()) {
@@ -170,17 +148,14 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     }
   }
 
-  //method
   protected final StateProperty<V> getStoredBaseStateProperty() {
     return stateProperties[parent.getBaseStateObject().getIndex()];
   }
 
-  //method
   protected final State<S> getStateOf(final S state) {
     return parent.getStateObjectFor(state);
   }
 
-  //method declaration
   protected abstract V getValueWhenHasState(State<S> state);
 
   //mehod declaration
@@ -192,7 +167,6 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     setFrom((MaterializedProperty<S, V>) property);
   }
 
-  //method
   @Override
   protected final void setValueFromSpecification(final INode<?> specification) {
 
@@ -206,14 +180,12 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
   }
 
-  //method
   private void extractStateProperties() {
     for (var i = 0; i < stateProperties.length; i++) {
       stateProperties[i] = new StateProperty<>();
     }
   }
 
-  //method
   private void setFrom(final MaterializedProperty<S, V> materializedProperty) {
     for (var i = 0; i < stateProperties.length; i++) {
       switch (materializedProperty.stateProperties[i].getAssignmentType()) {
@@ -230,7 +202,6 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     }
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   private void setValueForStateUsingSetterMethod(final S state, final V value) {
     if (setterMethod == null) {
@@ -240,7 +211,6 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     }
   }
 
-  //method
   private void setValueFromSpecificationToState(final State<S> state, final INode<?> specification) {
     if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
       stateProperties[state.getIndex()].setEmpty();

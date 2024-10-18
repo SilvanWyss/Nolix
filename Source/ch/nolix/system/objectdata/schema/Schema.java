@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.schema;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -10,16 +8,12 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
-//class
 public final class Schema implements ISchema {
 
-  //constant
   public static final Schema EMPTY_SCHEMA = new Schema(ImmutableList.createEmpty());
 
-  //multi-attribute
   private final IContainer<Class<? extends IEntity>> entityTypes;
 
-  //constructor
   private Schema(final IContainer<Class<? extends IEntity>> entityTypes) {
 
     assertContainsDifferentEntityTypesOnly(entityTypes);
@@ -27,7 +21,6 @@ public final class Schema implements ISchema {
     this.entityTypes = entityTypes;
   }
 
-  //static method
   @SuppressWarnings("unchecked")
   public static Schema withEntityType(
     final Class<?> entityType,
@@ -44,24 +37,20 @@ public final class Schema implements ISchema {
     return new Schema(allEntityTypes);
   }
 
-  //static method
   public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
     return new Schema(entityTypes);
   }
 
-  //method
   @Override
   public Class<? extends IEntity> getEntityTypeByName(final String name) {
     return getEntityTypes().getStoredFirst(et -> et.getSimpleName().equals(name));
   }
 
-  //method
   @Override
   public IContainer<Class<? extends IEntity>> getEntityTypes() {
     return entityTypes;
   }
 
-  //method
   private void assertContainsDifferentEntityTypesOnly(
     final IContainer<Class<? extends IEntity>> entityTypes) {
     if (!containsDifferentEntityTypesOnly(entityTypes)) {
@@ -72,7 +61,6 @@ public final class Schema implements ISchema {
     }
   }
 
-  //method
   private boolean containsDifferentEntityTypesOnly(
     final IContainer<Class<? extends IEntity>> entityTypes) {
     return entityTypes.getStoredGroups(Class::getSimpleName).containsAsManyAs(entityTypes);

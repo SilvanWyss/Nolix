@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
 
-//interface
 /**
  * A {@link IMutableLabelHolder} is a {@link ILabelHolder} whose label can be
  * set programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
  */
 public interface IMutableLabelHolder extends ILabelHolder {
 
-  //method declaration
   /**
    * Sets the label of the current {@link IMutableLabelHolder}.
    * 

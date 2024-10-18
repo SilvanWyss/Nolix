@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.argumentcaptortest.andargumentcaptortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class AndLoginNameCaptorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_andLoginName_whenHasNext() {
 
@@ -33,7 +28,6 @@ final class AndLoginNameCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_andLoginName_whenDoesNotHaveNext() {
 
@@ -46,7 +40,6 @@ final class AndLoginNameCaptorTest extends StandardTest {
       .ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_getLoginName_whenDoesNotHaveLoginName() {
 

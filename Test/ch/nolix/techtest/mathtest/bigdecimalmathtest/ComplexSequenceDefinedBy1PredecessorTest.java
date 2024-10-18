@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 
-//Java imports
 import java.math.BigDecimal;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
-//class
 final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
-  //method
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_1() {
 
@@ -34,7 +29,6 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
       .isEqualTo(-1);
   }
 
-  //method
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_2() {
 
@@ -54,7 +48,6 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
       .isEqualTo(3);
   }
 
-  //method
   @Test
   void test_getSquaredMagnitudeOfValueAt1BasedIndex() {
 
@@ -70,7 +63,6 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
     expect(testUnit.getSquaredMagnitudeOfValueAt1BasedIndex(4)).isEqualTo(BigDecimal.valueOf(25.0).setScale(20));
   }
 
-  //method
   @Test
   void test_getValueAt1BasedIndex() {
 

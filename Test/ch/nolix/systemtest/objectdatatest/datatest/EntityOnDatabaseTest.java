@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -14,16 +11,12 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
-//class
 final class EntityOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Pet extends Entity {
 
-    //attribute
     final Value<Integer> ageInYears = Value.withValueType(Integer.class);
 
-    //constructor
     Pet() {
       initialize();
     }
@@ -33,7 +26,6 @@ final class EntityOnDatabaseTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_isInserted_whenHasInsertAction() {
 
@@ -55,7 +47,6 @@ final class EntityOnDatabaseTest extends StandardTest {
     expect(testUnit.ageInYears.getStoredValue()).isEqualTo(1);
   }
 
-  //method
   @Test
   void testCase_isLoaded() {
 
@@ -77,7 +68,6 @@ final class EntityOnDatabaseTest extends StandardTest {
     expect(loadedGarfield.getSaveStamp()).isNotEmpty();
   }
 
-  //method
   @Test
   void testCase_isSaved() {
 
@@ -96,7 +86,6 @@ final class EntityOnDatabaseTest extends StandardTest {
     expect(garfield.isClosed());
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsChangedInTheMeanwhile() {
 
@@ -127,7 +116,6 @@ final class EntityOnDatabaseTest extends StandardTest {
       .withMessage("The data was changed in the meanwhile.");
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
 
@@ -158,7 +146,6 @@ final class EntityOnDatabaseTest extends StandardTest {
       .withMessage("The data was changed in the meanwhile.");
   }
 
-  //method
   @Test
   void testCase_delete_whenIsLoaded() {
 
@@ -193,7 +180,6 @@ final class EntityOnDatabaseTest extends StandardTest {
         .containsNone(e -> e.hasId(garfield.getId())));
   }
 
-  //method
   @Test
   void testCase_delete_whenIsClosed() {
 

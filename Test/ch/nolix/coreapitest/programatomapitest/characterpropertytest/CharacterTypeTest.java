@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.coreapitest.programatomapitest.characterpropertytest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 
-//class
 final class CharacterTypeTest extends StandardTest {
 
-  //method
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsANumber() {
     expect(CharacterType.ofCharacter('0')).is(CharacterType.NUMBER);
@@ -25,7 +21,6 @@ final class CharacterTypeTest extends StandardTest {
     expect(CharacterType.ofCharacter('9')).is(CharacterType.NUMBER);
   }
 
-  //method
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsALowerCaseLetter() { //NOSONAR: The number of assertions makes sense.
 
@@ -61,7 +56,6 @@ final class CharacterTypeTest extends StandardTest {
     expect(CharacterType.ofCharacter('ü')).is(CharacterType.LOWER_CASE_LETTER);
   }
 
-  //method
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsAnUpperCaseLetter() { //NOSONAR: The number of assertions makes sense.
 
@@ -97,7 +91,6 @@ final class CharacterTypeTest extends StandardTest {
     expect(CharacterType.ofCharacter('Ü')).is(CharacterType.UPPER_CASE_LETTER);
   }
 
-  //method
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsASpecialCharacter() {
 

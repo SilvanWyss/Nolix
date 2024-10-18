@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.iteratorapi;
 
-//Java imports
 import java.util.Iterator;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.builderapi.Copyable;
 
-//interface
 /**
  * A {@link CopyableIterator} is a {@link Iterator} that can be copied.
  * 

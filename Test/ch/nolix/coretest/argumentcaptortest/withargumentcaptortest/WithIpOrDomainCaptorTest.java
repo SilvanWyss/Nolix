@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.argumentcaptortest.withargumentcaptortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithIpOrDomainCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class WithIpOrDomainCaptorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
 
@@ -25,7 +20,6 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
     expectRunning(testUnit::getIpOrDomain).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
-  //method
   @Test
   void testCase_withIpOrDomain_whenHasNext() {
 
@@ -44,7 +38,6 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_withIpOrDomain_whenDoesNotHaveNext() {
 
@@ -55,7 +48,6 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
     expectRunning(() -> testUnit.withIpOrDomain("nolix.ch")).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_withLocalAddress_whenHasNext() {
 

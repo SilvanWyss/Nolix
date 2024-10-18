@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.core.sql.connectionpool;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.core.sql.connection.MsSqlConnection;
 import ch.nolix.core.sql.connection.SqlConnection;
 
-//class
 public final class SqlConnectionFactory {
 
-  //method
   public SqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {
       case MSSQL ->
@@ -22,7 +18,6 @@ public final class SqlConnectionFactory {
     };
   }
 
-  //method
   private MsSqlConnection createMsSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return //
     new MsSqlConnection(

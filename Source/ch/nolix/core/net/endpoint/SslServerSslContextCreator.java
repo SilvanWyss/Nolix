@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.KeyFactory;
@@ -23,25 +21,20 @@ import java.util.Base64;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 
-//own imports
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.net.ssl.SslCertificateKeyReader;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
-//Netty imports
+
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 
-//class
 final class SslServerSslContextCreator {
 
-  //constant
   private static final String PASSWORD = "my_password";
 
-  //constant
   private static final SslCertificateKeyReader SSL_CERTIFICATE_KEY_READER = new SslCertificateKeyReader();
 
-  //method
   public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
     try {
 
@@ -74,7 +67,6 @@ final class SslServerSslContextCreator {
     }
   }
 
-  //method
   private X509Certificate getCert(final ISslCertificate paramSSLCertificate) throws CertificateException {
 
     final var filePath = paramSSLCertificate.getPublicKeyPemFilePath();
@@ -84,7 +76,6 @@ final class SslServerSslContextCreator {
       .generateCertificate(new ByteArrayInputStream(GlobalFileSystemAccessor.readFileToBytes(filePath)));
   }
 
-  //method
   private PrivateKey getPrivateKey(final ISslCertificate paramSSLCertificate)
   throws InvalidKeySpecException, NoSuchAlgorithmException {
     final var privateKeyPemFilePath = paramSSLCertificate.getPrivateKeyPemFilePath();

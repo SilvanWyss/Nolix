@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.graphic.image;
 
-//Java imports
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -14,7 +12,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
@@ -33,47 +31,36 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
-//class
 public final class MutableImage extends MutableElement implements IMutableImage<MutableImage> {
 
-  //constant
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 
-  //constant
   private static final String JPG_STRING = "JPGString";
 
-  //constant
   private static final BufferedImageTool BUFFERED_IMAGE_TOOL = new BufferedImageTool();
 
-  //attribute
   private final Value<Integer> width = new Value<>(
     PascalCaseVariableCatalogue.WIDTH,
     this::setWidth,
     INode::getSingleChildNodeAsInt,
     Node::withChildNode);
 
-  //attribute
   private final Value<Integer> height = new Value<>(
     PascalCaseVariableCatalogue.HEIGHT,
     this::setHeight,
     INode::getSingleChildNodeAsInt,
     Node::withChildNode);
 
-  //attribute
   private final Matrix<IColor> pixels;
 
-  //attribute
   @SuppressWarnings("unused")
   private final MutableSpecificationValueExtractor pixelsExtractor = new MutableSpecificationValueExtractor(
     PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 
-  //optional attribute
   private Node pixelArraySpecification;
 
-  //optional attribute
   private BufferedImage bufferedImage;
 
-  //constructor
   private MutableImage(final Matrix<IColor> pixels) {
 
     setWidth(pixels.getColumnCount());
@@ -82,17 +69,14 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     this.pixels = pixels;
   }
 
-  //static method
   public static MutableImage fromAnyImage(final IImage image) {
     return withPixels(image.getPixels());
   }
 
-  //static method
   public static MutableImage fromBytes(final byte[] bytes) {
     return fromBufferedImage(BUFFERED_IMAGE_TOOL.fromBytes(bytes));
   }
 
-  //static method
   public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
 
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(bufferedImage.getWidth(), bufferedImage.getHeight());
@@ -113,7 +97,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return image;
   }
 
-  //static method
   public static MutableImage fromFile(final String filePath) {
 
     final var bufferedImage = BUFFERED_IMAGE_TOOL.fromFile(filePath);
@@ -121,12 +104,10 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return fromBufferedImage(bufferedImage);
   }
 
-  //static method
   public static MutableImage fromResource(final String path) {
     return fromBytes(RunningJar.getResourceAsBytes(path));
   }
 
-  //static method
   public static MutableImage fromSpecification(final INode<?> specification) {
 
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
@@ -144,17 +125,14 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return image;
   }
 
-  //static method
   public static MutableImage fromString(final String string) {
     return fromSpecification(Node.fromString(string));
   }
 
-  //static method
   public static MutableImage withPixels(final IMatrix<IColor> pixels) {
     return new MutableImage(Matrix.fromMatrix(pixels));
   }
 
-  //static method
   public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final IColor color) {
 
     GlobalValidator.assertThat(width).thatIsNamed(LowerCaseVariableCatalogue.WIDTH).isPositive();
@@ -178,53 +156,44 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return new MutableImage(pixels);
   }
 
-  //static method
   public static MutableImage withWidthAndHeightAndWhiteColor(final int width, final int height) {
     return withWidthAndHeightAndColor(width, height, Color.WHITE);
   }
 
-  //method
   @Override
   public IColor getBottomLeftPixel() {
     return getPixel(1, getHeight());
   }
 
-  //method
   @Override
   public IColor getBottomRightPixel() {
     return getPixel(getWidth(), getHeight());
   }
 
-  //method
   public MutableImage getCopy() {
     return new MutableImage(pixels.getCopy());
   }
 
-  //method
   @Override
   public int getHeight() {
     return height.getValue();
   }
 
-  //method
   @Override
   public IColor getPixel(final int xPosition, final int yPosition) {
     return pixels.getStoredAt1BasedRowIndexAndColumnIndex(yPosition, xPosition);
   }
 
-  //method
   @Override
   public int getPixelCount() {
     return pixels.getCount();
   }
 
-  //method
   @Override
   public Matrix<IColor> getPixels() {
     return pixels.getCopy();
   }
 
-  //method
   @Override
   public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
 
@@ -251,25 +220,21 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return section;
   }
 
-  //method
   @Override
   public IColor getTopLeftPixel() {
     return getPixel(1, 1);
   }
 
-  //method
   @Override
   public IColor getTopRightPixel() {
     return getPixel(getWidth(), 1);
   }
 
-  //method
   @Override
   public int getWidth() {
     return width.getValue();
   }
 
-  //method
   @Override
   public void reset() {
 
@@ -281,7 +246,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
   }
 
-  //method
   public void saveAsPNG() {
     try {
       ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalogue.EMPTY_STRING));
@@ -290,7 +254,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
   }
 
-  //method
   @Override
   public MutableImage setPixel(int xPosition, int yPosition, final IColor color) {
 
@@ -301,7 +264,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return this;
   }
 
-  //method
   public void setPixelArray(final INode<?> pixelArray) {
 
     final var lPixelArray = pixelArray.getStoredChildNodes();
@@ -318,7 +280,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
   }
 
-  //method
   public void setPixelArray(final Iterable<Color> pixelArray) {
 
     final var lPixelArray = ContainerView.forIterable(pixelArray);
@@ -335,7 +296,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
   }
 
-  //method
   @Override
   public BufferedImage toBufferedImage() {
 
@@ -344,13 +304,11 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return bufferedImage;
   }
 
-  //method
   @Override
   public Image toImmutableImage() {
     return Image.withPixels(pixels);
   }
 
-  //method
   @Override
   public byte[] toJPG() {
 
@@ -373,19 +331,16 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
   }
 
-  //method
   @Override
   public String toJPGString() {
     return Base64.getEncoder().encodeToString(toJPG());
   }
 
-  //method
   @Override
   public MutableImage toLeftRotatedImage() {
     return new MutableImage(pixels.toLeftRotatedMatrix());
   }
 
-  //method
   @Override
   public byte[] toPNG() {
 
@@ -401,14 +356,11 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
   }
 
-  //method
   @Override
   public String toPNGString() {
     return Base64.getEncoder().encodeToString(toPNG());
   }
 
-  //method
-  //method
   @Override
   public MutableImage toRepeatedImage(final int width, final int height) {
 
@@ -426,13 +378,11 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return image;
   }
 
-  //method
   @Override
   public MutableImage toRightRotatedImage() {
     return new MutableImage(pixels.toRightRotatedMatrix());
   }
 
-  //method
   @Override
   public MutableImage toScaledImage(final double factor) {
 
@@ -441,7 +391,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return toScaledImage(factor, factor);
   }
 
-  //method
   @Override
   public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
 
@@ -475,7 +424,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return image;
   }
 
-  //method
   @Override
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
 
@@ -487,13 +435,11 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return new MutableImage(localPixels);
   }
 
-  //method
   @Override
   public IMutableImage<?> withWidthAndHeight(final int width, final int height) {
     return toScaledImage((double) width / getWidth(), (double) height / getHeight());
   }
 
-  //method
   private BufferedImage createBufferedImage() {
 
     final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
@@ -509,7 +455,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return lBufferedImage;
   }
 
-  //method
   private BufferedImage createJPGBufferedImage() {
 
     final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -525,34 +470,29 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return lBufferedImage;
   }
 
-  //method
   private Node createPixelArraySpecification() {
     return Node.withHeaderAndChildNodes(
       PIXEL_ARRAY_HEADER,
       pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue())));
   }
 
-  //method
   private void deletePixelArraySpecificationAndBufferedImage() {
     pixelArraySpecification = null;
     bufferedImage = null;
   }
 
-  //method
   private void generateBufferedImageIfNeeded() {
     if (bufferedImage == null) {
       bufferedImage = createBufferedImage();
     }
   }
 
-  //method
   private void generatePixelArraySpecificationIfNeeded() {
     if (pixelArraySpecification == null) {
       pixelArraySpecification = createPixelArraySpecification();
     }
   }
 
-  //method
   private Node getPixelArraySpecification() {
 
     generatePixelArraySpecificationIfNeeded();
@@ -560,7 +500,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     return pixelArraySpecification;
   }
 
-  //method
   private void setHeight(final int height) {
 
     GlobalValidator.assertThat(height).thatIsNamed(LowerCaseVariableCatalogue.HEIGHT).isPositive();
@@ -568,7 +507,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     this.height.setValue(height);
   }
 
-  //method
   private void setWidth(final int width) {
 
     GlobalValidator.assertThat(width).thatIsNamed(LowerCaseVariableCatalogue.WIDTH).isPositive();

@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.systemtest.objectschematest.schemaadaptertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
-//class
 final class NodeSchemaAdapterTest extends StandardTest {
 
-  //method
   @Test
   void test_creation() {
 
@@ -36,7 +31,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
     expect(database.getStoredChildNodeAt1BasedIndex(2).getHeader()).isEqualTo("EntityHeads");
   }
 
-  //method
   @Test
   void test_addTable_whenSavesChangesAndResets() {
 
@@ -60,7 +54,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
     expect(nameNode.getSingleChildNodeHeader()).isEqualTo("MyTable");
   }
 
-  //method
   @Test
   void test_getSaveCount_whenIsNew() {
 
@@ -74,7 +67,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
     expect(result).isEqualTo(0);
   }
 
-  //method
   @Test
   void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
 
@@ -90,7 +82,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
     expect(result).isEqualTo(1);
   }
 
-  //method
   @Test
   void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
 

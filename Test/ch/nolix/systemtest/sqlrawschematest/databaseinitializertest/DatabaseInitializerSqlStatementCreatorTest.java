@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.systemtest.sqlrawschematest.databaseinitializertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializerSqlStatementCreator;
 import ch.nolix.system.time.moment.Time;
 
-//class
 final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_createSqlStatementToCreateSchemaTimestampEntry() {
 

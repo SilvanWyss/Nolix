@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.container.base;
 
-//Java imports
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -13,7 +11,6 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
-//own imports
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -32,7 +29,6 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
@@ -41,10 +37,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
 public abstract class Container<E> //NOSONAR: A Container has many methods and thus many dependencies.
 implements IContainer<E> {
 
-  //constant
   private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -66,7 +60,6 @@ implements IContainer<E> {
     return false;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -91,7 +84,6 @@ implements IContainer<E> {
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -108,7 +100,6 @@ implements IContainer<E> {
     && containsAll(objects);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -136,7 +127,6 @@ implements IContainer<E> {
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -158,7 +148,6 @@ implements IContainer<E> {
     return false;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -175,7 +164,6 @@ implements IContainer<E> {
     || containsAnyOf(objects);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -200,7 +188,6 @@ implements IContainer<E> {
     return false;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -225,7 +212,6 @@ implements IContainer<E> {
     return false;
   }
 
-  //method
   /**
    * The time complexity of this implementation is -O(1) if the given container is
    * a {@link IContainer}. -O(n) otherwise.
@@ -244,7 +230,6 @@ implements IContainer<E> {
     return (getCount() == ITERABLE_TOOL.getCount(iterable));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -266,7 +251,6 @@ implements IContainer<E> {
     return false;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
@@ -288,7 +272,6 @@ implements IContainer<E> {
     return isEmpty();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -312,7 +295,6 @@ implements IContainer<E> {
     return !iterator.hasNext();
   }
 
-  //method
   /**
    * The time complexity of this implementation is -O(1) if the given container is
    * a {@link IContainer}.
@@ -335,7 +317,6 @@ implements IContainer<E> {
     return (getCount() < ITERABLE_TOOL.getCount(iterable));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -353,7 +334,6 @@ implements IContainer<E> {
     return (getCount() > ITERABLE_TOOL.getCount(container));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -365,7 +345,6 @@ implements IContainer<E> {
     return !containsAny(selector::test);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -377,7 +356,6 @@ implements IContainer<E> {
     return !containsAny(element, elements);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -389,7 +367,6 @@ implements IContainer<E> {
     return !containsAnyOf(elements);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -420,7 +397,6 @@ implements IContainer<E> {
     return found;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -441,7 +417,6 @@ implements IContainer<E> {
     return !iterator.hasNext();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -472,7 +447,6 @@ implements IContainer<E> {
     return found;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -484,7 +458,6 @@ implements IContainer<E> {
     return containsOne(e -> e.equals(element));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -506,7 +479,6 @@ implements IContainer<E> {
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -517,7 +489,6 @@ implements IContainer<E> {
     return getSubContainerFromStartIndexToEndIndex(startIndex, getCount());
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -528,7 +499,6 @@ implements IContainer<E> {
     return getSubContainerFromStartIndexToEndIndex(startIndex, endIndex);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -547,7 +517,6 @@ implements IContainer<E> {
     return averageAsBigDecimal.doubleValue();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -566,7 +535,6 @@ implements IContainer<E> {
     return getAverage(norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -590,7 +558,6 @@ implements IContainer<E> {
     return elementCount;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -614,7 +581,6 @@ implements IContainer<E> {
     return elementCount;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -640,7 +606,6 @@ implements IContainer<E> {
     throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -667,7 +632,6 @@ implements IContainer<E> {
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an element an equal element");
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -693,7 +657,6 @@ implements IContainer<E> {
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the given element");
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -717,7 +680,6 @@ implements IContainer<E> {
     return max;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -736,7 +698,6 @@ implements IContainer<E> {
     return getMaxWhenContainsAny(norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
    * {@link Container} contains n elements.
@@ -773,7 +734,6 @@ implements IContainer<E> {
     return orderedValues.getStoredAt1BasedIndex((valueCount / 2) + 1).doubleValue();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
    * {@link Container} contains n elements.
@@ -792,7 +752,6 @@ implements IContainer<E> {
     return getMedian(norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -816,7 +775,6 @@ implements IContainer<E> {
     return min;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -832,7 +790,6 @@ implements IContainer<E> {
     return getMinWhenContainsAny(norm);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(1) if the current Container
@@ -854,7 +811,6 @@ implements IContainer<E> {
     return Optional.empty();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -875,7 +831,6 @@ implements IContainer<E> {
     return Optional.empty();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -902,7 +857,6 @@ implements IContainer<E> {
     return max;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -928,7 +882,6 @@ implements IContainer<E> {
     return min;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1) if the current Container
    * does not contain null elements. The time complexity of this implementation is
@@ -949,7 +902,6 @@ implements IContainer<E> {
     throw EmptyArgumentException.forArgument(this);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -971,7 +923,6 @@ implements IContainer<E> {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element the given selector selects");
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n^2) if the current
    * {@link Container} contains n elements.
@@ -1003,7 +954,6 @@ implements IContainer<E> {
     return groups;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1016,7 +966,6 @@ implements IContainer<E> {
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1036,7 +985,6 @@ implements IContainer<E> {
     };
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1078,7 +1026,6 @@ implements IContainer<E> {
     return selectedElement;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1090,7 +1037,6 @@ implements IContainer<E> {
     return getStoredSelected(e -> !selector.test(e));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1116,7 +1062,6 @@ implements IContainer<E> {
     return list;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1128,7 +1073,6 @@ implements IContainer<E> {
     return Math.sqrt(getVariance(norm));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1147,7 +1091,6 @@ implements IContainer<E> {
     return sum;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1166,7 +1109,6 @@ implements IContainer<E> {
     return sum;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1196,7 +1138,6 @@ implements IContainer<E> {
     return varianceAsBigDecimal.doubleValue();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1) if the current Container
    * does not contain null elements. The time complexity of this implementation is
@@ -1217,7 +1158,6 @@ implements IContainer<E> {
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1238,7 +1178,6 @@ implements IContainer<E> {
     return list;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1261,7 +1200,6 @@ implements IContainer<E> {
     return array;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1284,7 +1222,6 @@ implements IContainer<E> {
     return array;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1307,7 +1244,6 @@ implements IContainer<E> {
     return array;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1326,7 +1262,6 @@ implements IContainer<E> {
     return stringBuilder.toString();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1349,7 +1284,6 @@ implements IContainer<E> {
     return array;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1368,7 +1302,6 @@ implements IContainer<E> {
     return list;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1391,7 +1324,6 @@ implements IContainer<E> {
     return array;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1414,7 +1346,6 @@ implements IContainer<E> {
     return array;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1433,7 +1364,6 @@ implements IContainer<E> {
     return getReversedListWhenContainsElements();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1455,7 +1385,6 @@ implements IContainer<E> {
     return stringArray;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1467,7 +1396,6 @@ implements IContainer<E> {
     return to(E::toString);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1481,7 +1409,6 @@ implements IContainer<E> {
     return toStringWithSeparator(String.valueOf(separator));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1502,7 +1429,6 @@ implements IContainer<E> {
     };
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1513,7 +1439,6 @@ implements IContainer<E> {
     return getSubContainerFromStartIndexToEndIndex(1, endIndex);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1529,7 +1454,6 @@ implements IContainer<E> {
     return getViewWithoutFirst(1);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1552,7 +1476,6 @@ implements IContainer<E> {
     return createEmptyMutableList(new Marker<E>());
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1569,7 +1492,6 @@ implements IContainer<E> {
     return getViewWithoutLast(1);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1592,7 +1514,6 @@ implements IContainer<E> {
     return createEmptyMutableList(new Marker<E>());
   }
 
-  //method declaration
   /**
    * @param marker
    * @param <E2>   is the type of the elements the created {@link ILinkedList} can
@@ -1601,7 +1522,6 @@ implements IContainer<E> {
    */
   protected abstract <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker);
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1613,7 +1533,6 @@ implements IContainer<E> {
     }
   }
 
-  //method
   /**
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains exactly
@@ -1646,7 +1565,6 @@ implements IContainer<E> {
     return !iterator.hasNext();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1676,7 +1594,6 @@ implements IContainer<E> {
     return max;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1706,7 +1623,6 @@ implements IContainer<E> {
     return min;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1728,7 +1644,6 @@ implements IContainer<E> {
     return reversedList;
   }
 
-  //method declaration
   /**
    * @param param1BasedStartIndex
    * @param param1BasedEndIndex
@@ -1745,14 +1660,13 @@ implements IContainer<E> {
    *                                      number of elements of the current
    *                                      {@link Container}.
    */
-  //method
+
   private IContainer<E> getSubContainerFromStartIndexToEndIndex(
     final int param1BasedStartIndex,
     final int param1BasedEndIndex) {
     return ContainerView.forContainerAndStartIndexAndEndIndex(this, param1BasedStartIndex, param1BasedEndIndex);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.

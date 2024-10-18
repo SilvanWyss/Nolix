@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.datamodelapi.fieldproperty;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
 
-//enum
 public enum DataType {
   INTEGER_1BYTE(Byte.class),
   INTEGER_2BYTE(Short.class),
@@ -16,15 +13,12 @@ public enum DataType {
   STRING(String.class),
   BINARY_OBJECT(IBinaryObject.class);
 
-  //attribute
   private final Class<?> dataTypeClass;
 
-  //constructor
   <V> DataType(final Class<V> dataTypeClass) {
     this.dataTypeClass = dataTypeClass;
   }
 
-  //static method
   public static DataType forType(final Class<?> type) {
     return switch (type.getSimpleName()) {
       case "Byte" -> INTEGER_1BYTE;
@@ -39,7 +33,6 @@ public enum DataType {
     };
   }
 
-  //method
   public Class<?> getDataTypeClass() {
     return dataTypeClass;
   }

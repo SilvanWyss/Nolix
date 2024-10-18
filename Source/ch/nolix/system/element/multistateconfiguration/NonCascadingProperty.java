@@ -1,24 +1,18 @@
-//package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//Java imports
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class NonCascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 
-  //optional attribute
   private final V defaultValue;
 
-  //constructor
   public NonCascadingProperty(
     final String name,
     final Class<S> stateClass,
@@ -30,7 +24,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     defaultValue = null;
   }
 
-  //constructor
   public NonCascadingProperty(
     final String name,
     final Class<S> stateClass,
@@ -45,7 +38,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     this.defaultValue = defaultValue;
   }
 
-  //constructor
   public NonCascadingProperty(
     final String name,
     final Class<S> stateClass,
@@ -58,7 +50,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     defaultValue = null;
   }
 
-  //constructor
   public NonCascadingProperty(
     final String name,
     final Class<S> stateClass,
@@ -74,7 +65,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     this.defaultValue = defaultValue;
   }
 
-  //static method
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Double> //
   forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -90,7 +80,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       defaultValue);
   }
 
-  //static method
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
     final String name,
     final Class<S2> stateClass,
@@ -104,7 +93,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       setterMethod);
   }
 
-  //static method
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>//
   forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -120,17 +108,14 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       defaultValue);
   }
 
-  //method
   public boolean hasDefaultValue() {
     return (defaultValue != null);
   }
 
-  //method
   public void setEmptyForState(final S state) {
     stateProperties[(getStateOf(state).getIndex())].setEmpty();
   }
 
-  //method
   @Override
   protected V getValueWhenHasState(final State<S> state) {
 
@@ -153,7 +138,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       "value for the" + state.getQualifyingPrefix() + " state");
   }
 
-  //method
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
 

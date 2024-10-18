@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTitleHolder;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2022-07-31
@@ -15,19 +12,16 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
  */
 public interface IGui<G extends IGui<G>> extends IFluentMutableTitleHolder<G> {
 
-  //method declaration
   /**
    * @return the {@link IFrontEndReader} of the current {@link IGui}.
    */
   IFrontEndReader fromFrontEnd();
 
-  //method declaration
   /**
    * @return the icon of the current {@link IGui}.
    */
   IImage getIcon();
 
-  //method declaration
   /**
    * A root {@link IGui} is a {@link IGui} that is not contained in another
    * {@link IGui}.
@@ -36,13 +30,11 @@ public interface IGui<G extends IGui<G>> extends IFluentMutableTitleHolder<G> {
    */
   boolean isRootGui();
 
-  //method declaration
   /**
    * @return the {@link IFrontEndWriter} of the current {@link IGui}.
    */
   IFrontEndWriter onFrontEnd();
 
-  //method
   /**
    * Sets the icon of the current{@link IGui}.
    * 

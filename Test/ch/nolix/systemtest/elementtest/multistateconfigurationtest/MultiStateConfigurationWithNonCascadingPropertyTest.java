@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 
-//class
 final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
 
   //static enum
@@ -22,17 +18,14 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     D
   }
 
-  //constant
   private static final class CustomFormatElement extends MultiStateConfiguration<CustomFormatElement, CustomState> {
 
-    //attribute
     final NonCascadingProperty<CustomState, Color> color = new NonCascadingProperty<>(
       "Color",
       CustomState.class,
       Color::fromSpecification,
       Color::getSpecification);
 
-    //constructor
     CustomFormatElement() {
 
       super(CustomState.A);
@@ -41,7 +34,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     }
   }
 
-  //method
   @Test
   void testCase_addOrChangeAttribute_1A() {
 
@@ -55,7 +47,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     expect(testUnit.color.getValueOfState(CustomState.A)).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_addOrChangeAttribute_1B() {
 
@@ -69,7 +60,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     expect(testUnit.color.getValueOfState(CustomState.B)).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_addOrChangeAttribute_1C() {
 
@@ -83,7 +73,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     expect(testUnit.color.getValueOfState(CustomState.C)).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_addOrChangeAttribute_1D() {
 
@@ -97,7 +86,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     expect(testUnit.color.getValueOfState(CustomState.D)).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_constructor() {
 
@@ -108,7 +96,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     expect(testUnit.color.getName()).isEqualTo("Color");
   }
 
-  //method
   @Test
   void testCase_getSpecification() {
 

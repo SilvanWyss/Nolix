@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.license;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
-//class
 /**
  * Of the {@link GlobalLicenseManager} an instance cannot be created.
  * 
@@ -15,17 +12,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 public final class GlobalLicenseManager {
 
-  //constant
   private static final LicenseManager LICENSE_MANAGER = new LicenseManager();
 
-  //constructor
   /**
    * Prevents that an instance of the {@link GlobalLicenseManager} can be created.
    */
   private GlobalLicenseManager() {
   }
 
-  //static method
   /**
    * Adds the given license to the {@link GlobalLicenseManager}.
    * 
@@ -39,7 +33,6 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.addLicense(license);
   }
 
-  //static method
   /**
    * Creates and adds a new {@link License} of the given licenseType to the
    * {@link GlobalLicenseManager}.
@@ -60,7 +53,6 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.addLicense(licenseType);
   }
 
-  //static method
   /**
    * Requires the {@link GlobalLicenseManager} to contain a {@link Feature} of the
    * given featureType.
@@ -77,7 +69,6 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.requireFeature(featureType);
   }
 
-  //static method
   /**
    * Removes the given license from the {@link GlobalLicenseManager}.
    * 
@@ -89,7 +80,6 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.removeLicense(license);
   }
 
-  //static method
   /**
    * @param value
    * @return a new {@link LongMediator} for the given value.

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
@@ -22,40 +19,30 @@ import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalReferenceValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
-//class
 public final class OptionalReference<E extends IEntity> extends BaseReference<E> implements IOptionalReference<E> {
 
-  //constant
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
-  //constant
   private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
 
-  //constant
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
-  //constant
   private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();
 
-  //optional attribute
   private String referencedEntityId;
 
-  //constructor
   private OptionalReference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  //static method
   public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> type) {
     return new OptionalReference<>(type.getSimpleName());
   }
 
-  //static method
   public static OptionalReference<BaseEntity> forEntityWithTableName(final String tableName) {
     return new OptionalReference<>(tableName);
   }
 
-  //method
   @Override
   public void clear() {
     if (containsAny()) {
@@ -63,13 +50,11 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
   }
 
-  //method
   @Override
   public E getReferencedEntity() {
     return getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
-  //method
   @Override
   public String getReferencedEntityId() {
 
@@ -78,7 +63,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     return referencedEntityId;
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
@@ -97,13 +81,11 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     return ImmutableList.createEmpty();
   }
 
-  //method
   @Override
   public ContentType getType() {
     return ContentType.OPTIONAL_REFERENCE;
   }
 
-  //method
   @Override
   public IContentFieldDto internalToContentField() {
 
@@ -114,19 +96,16 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     return new ContentFieldDto(getName(), getReferencedEntityId());
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return (referencedEntityId == null);
   }
 
-  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  //method
   @Override
   public boolean referencesEntity(IEntity entity) {
     return containsAny()
@@ -134,21 +113,18 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     && getReferencedEntityId().equals(entity.getId());
   }
 
-  //method
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
     && !getReferencedEntity().belongsToTable();
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public void setEntity(final Object entity) {
     setCastedEntity((E) entity);
   }
 
-  //method
   @Override
   public void setEntityById(final String id) {
 
@@ -157,7 +133,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     setEntity(entity);
   }
 
-  //method
   @Override
   void internalSetOrClearFromContent(final Object content) {
     if (content == null) {
@@ -167,7 +142,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
   }
 
-  //method
   @Override
   void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
@@ -175,17 +149,14 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
   }
 
-  //method
   private void assertCanClear() {
     OPTIONAL_REFERENCE_VALIDATOR.assertCanClear(this);
   }
 
-  //method
   private void assertCanSetEntity(final E entity) {
     OPTIONAL_REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
   }
 
-  //method
   private void clearWhenContainsAny() {
 
     assertCanClear();
@@ -197,14 +168,12 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
     return ENTITY_TOOL
       .getStoredReferencingFields(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
   }
 
-  //method
   private void insertEntityIntoDatabaseIfPossible(final E entity) {
     if (belongsToEntity()
     && getStoredParentEntity().belongsToTable()
@@ -214,7 +183,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
   }
 
-  //method
   private void setCastedEntity(final E entity) {
 
     assertCanSetEntity(entity);
@@ -232,7 +200,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   private void updateBackReferencingFieldForClear(final IField backReferencingField) {
     switch (backReferencingField.getType()) {
       case BACK_REFERENCE:
@@ -254,19 +221,16 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
   }
 
-  //method
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
     BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
-  //method
   private void updateProbableBackReferencingFieldForClear() {
     if (containsAny()) {
       updateProbableBackReferencingFieldForClearWhenIsNotEmpty();
     }
   }
 
-  //method
   private void updateProbableBackReferencingFieldForClearWhenIsNotEmpty() {
 
     final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingField(this);
@@ -274,7 +238,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     backReferencingField.ifPresent(this::updateBackReferencingFieldForClear);
   }
 
-  //method
   private void updatePropbableBackReferencingFieldOfEntityForClear(final E entity) {
 
     final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
@@ -285,12 +248,10 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
   }
 
-  //method
   private void updateStateForSetEntity(final E entity) {
     referencedEntityId = entity.getId();
   }
 
-  //method
   private void updateStateForClear() {
     referencedEntityId = null;
   }

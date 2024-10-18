@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.system.application.webapplication;
 
-//Java imports
 import java.util.Base64;
 import java.util.Optional;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -21,23 +18,18 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-//class
 public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
-  //constant
   private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
 
-  //attribute
   private final WebClientRefreshQueue refreshQueue = WebClientRefreshQueue
     .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
-  //method
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
     throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REQUEST, request);
   }
 
-  //method
   @Override
   protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
@@ -49,29 +41,24 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  //method
   void internalUpdateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
     refreshQueue.updateControlOnCounterpart(control, updateConstellationOrStyle);
   }
 
-  //method
   void internalUpdateControlsOnCounterpart(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     refreshQueue.updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
-  //method
   void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui, final boolean updateConstellationOrStyle) {
     refreshQueue.updateWebGuiOfCounterpart(webGui, updateConstellationOrStyle);
   }
 
-  //method
   void internalRunOnCounterpart(final IContainer<? extends IChainedNode> updateCommands) {
     runOnCounterpart(updateCommands);
   }
 
-  //method
   private Optional<IComponent> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
 
     if (control.isLinkedToAnObject()
@@ -86,12 +73,10 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     return Optional.empty();
   }
 
-  //method
   private void refreshCounterpartGui() {
     ((WebClientSession<AC>) getStoredCurrentSession()).refresh();
   }
 
-  //method
   private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
@@ -114,7 +99,6 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  //method
   private void runControlCommand(final IChainedNode guiCommand) {
 
     final var command = guiCommand.getNextNode();
@@ -130,7 +114,6 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  //method
   private void runGuiCommand(final IChainedNode guiCommand) {
     switch (guiCommand.getHeader()) {
       case ObjectProtocol.CONTROL_BY_INTERNAL_ID:
@@ -156,7 +139,6 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
       this::updateCounterpartWhenOpen);
   }
 
-  //method
   private void runSetUserInputsCommand(final IChainedNode guiCommand) {
 
     final var webClientSession = (WebClientSession<AC>) getStoredCurrentSession();
@@ -176,7 +158,6 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  //method
   private void updateCounterpartWhenOpen(final IComponent component) {
     switch (component.getRefreshBehavior()) {
       case DO_NOT_REFRESH_ANYTHING:
@@ -190,7 +171,6 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  //method
   private void updateCounterpartWhenOpen(final IControl<?, ?> control) {
 
     final var component = getOptionalStoredParentComponentOfControl(control);

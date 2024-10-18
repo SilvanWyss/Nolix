@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
 import ch.nolix.core.web.css.CssProperty;
@@ -11,11 +10,9 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class ImageControlCssBuilder
 extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IImageControl imageControl,
@@ -23,7 +20,6 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IImageControl imageControl,
@@ -32,7 +28,6 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IImageControl control,
@@ -40,7 +35,6 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IImageControl imageControl,

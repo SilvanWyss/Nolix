@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//interface
 /**
  * A {@link OnOffRequestable} can be asked if it is on or off.
  * 
@@ -10,13 +8,11 @@ package ch.nolix.coreapi.stateapi.staterequestapi;
  */
 public interface OnOffRequestable {
 
-  //method declaration
   /**
    * @return true if the current {@link OnOffRequestable} is off, false otherwise.
    */
   boolean isOff();
 
-  //method declaration
   /**
    * @return true if the current {@link OnOffRequestable} is on, false otherwise.
    */

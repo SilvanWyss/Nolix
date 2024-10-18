@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.webtest.csstest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.css.CssProperty;
 
-//class
 final class CssPropertyTest extends StandardTest {
 
-  //method
   @Test
   void testCase_toString() {
 
@@ -26,7 +21,6 @@ final class CssPropertyTest extends StandardTest {
     expect(result).isEqualTo("width: 200px;");
   }
 
-  //method
   @Test
   void testCase_withNameAndValue() {
 
@@ -38,7 +32,6 @@ final class CssPropertyTest extends StandardTest {
     expect(result.getValue()).isEqualTo("200px");
   }
 
-  //method
   @Test
   void testCase_withNameAndValue_whenTheGivenNameIsNull() {
 
@@ -49,7 +42,6 @@ final class CssPropertyTest extends StandardTest {
       .withMessage("The given name is null.");
   }
 
-  //method
   @Test
   void testCase_withNameAndValue_whenTheGivenValueIsNull() {
 

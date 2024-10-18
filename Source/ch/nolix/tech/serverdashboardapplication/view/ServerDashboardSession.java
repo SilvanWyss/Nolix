@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.serverdashboardapplication.view;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -15,10 +13,8 @@ import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebAppli
 import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
 import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
-//class
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 
-  //method
   @Override
   protected void initialize() {
     getStoredGui()
@@ -35,13 +31,11 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
       .setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
   }
 
-  //method
   private IContainer<IComponent> createApplicationComponents() {
     return getWebApplicationSheets()
       .to(was -> new WebApplicationComponent(new WebApplicationController(was), this));
   }
 
-  //method
   private IContainer<IWebApplicationSheet> getWebApplicationSheets() {
     return getStoredApplicationContext()
       .getWebApplicationSheets()

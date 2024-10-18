@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.applicationtest.maintest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BasicApplication;
@@ -12,10 +9,8 @@ import ch.nolix.system.application.main.LocalServer;
 import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.application.webapplication.WebClient;
 
-//class
 final class BasicApplicationOnServerTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getNameAddendum_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
@@ -37,7 +32,6 @@ final class BasicApplicationOnServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getInstanceName_whenDoesNotBelongToAServer() {
 
@@ -56,7 +50,6 @@ final class BasicApplicationOnServerTest extends StandardTest {
     expect(result).isEqualTo("My application");
   }
 
-  //method
   @Test
   void testCase_getInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
@@ -78,7 +71,6 @@ final class BasicApplicationOnServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getUrlInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {

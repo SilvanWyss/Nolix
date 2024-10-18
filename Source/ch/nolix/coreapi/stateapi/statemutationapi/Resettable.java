@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.statemutationapi;
 
-//interface
 /**
  * A {@link Resettable} can be reset.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.stateapi.statemutationapi;
  */
 public interface Resettable {
 
-  //method declaration
   /**
    * Resets the current {@link Resettable}.
    */

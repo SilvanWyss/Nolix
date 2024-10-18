@@ -1,37 +1,28 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//Java imports
 import java.lang.reflect.Modifier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 
-  //constructor
   protected TypeMediator(final Class<T> argument) {
     super(LowerCaseVariableCatalogue.TYPE, argument);
   }
 
-  //constructor
   protected TypeMediator(final String argumentName, final Class<T> argument) {
     super(argumentName, argument);
   }
 
-  //static method
   public static <T2> TypeMediator<T2> forArgument(final Class<T2> argument) {
     return new TypeMediator<>(argument);
   }
 
-  //static method
   public static <T2> TypeMediator<T2> forArgumentNameAndArgument(final String argumentName, final Class<T2> argument) {
     return new TypeMediator<>(argumentName, argument);
   }
 
-  //method
   public final void isAbstract() {
 
     isNotNull();
@@ -44,7 +35,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isClass() {
 
     isNotNull();
@@ -59,7 +49,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isConcrete() {
 
     isNotNull();
@@ -72,7 +61,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isEnum() {
 
     isNotNull();
@@ -85,7 +73,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isImplementing(final Class<?> pInterface) {
 
     new TypeMediator<>(pInterface).isInterface();
@@ -100,7 +87,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isInterface() {
 
     isNotNull();
@@ -113,7 +99,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isSubTypeOf(final Class<?> type) {
     if (!type.isAssignableFrom(getStoredArgument())
     || getStoredArgument().isAssignableFrom(type)) {
@@ -124,7 +109,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  //method
   public final void isSuperTypeOf(final Class<?> type) {
     if (!getStoredArgument().isAssignableFrom(type)
     || type.isAssignableFrom(getStoredArgument())) {

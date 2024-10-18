@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
@@ -21,49 +19,36 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
-//class
 public final class Column extends SchemaObject implements IColumn {
 
-  //constant
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 
-  //constant
   private static final ParameterizedFieldType INITIAL_FIELD_TYPE = //
   ParameterizedValueType.forDataType(DataType.INTEGER_4BYTE);
 
-  //constant
   private static final ParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ParameterizedFieldTypeMapper();
 
-  //constant
   private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
 
-  //constant
   private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
 
-  //constant
   private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
-  //attribute
   private final String id;
 
-  //attribute
   private String name = INITIAL_HEADER;
 
-  //attribute
   private IParameterizedFieldType parameterizedFieldType = INITIAL_FIELD_TYPE;
 
-  //optional attribute
   private Table parentTable;
 
-  //constructor
   public Column(
     final String name,
     final IParameterizedFieldType parameterizedFieldType) {
     this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parameterizedFieldType);
   }
 
-  //constructor
   private Column(
     final String id,
     final String name,
@@ -76,7 +61,6 @@ public final class Column extends SchemaObject implements IColumn {
     setParameterizedFieldType(parameterizedFieldType);
   }
 
-  //static method
   public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
     return new Column(
       columnDto.getId(),
@@ -86,7 +70,6 @@ public final class Column extends SchemaObject implements IColumn {
         tables));
   }
 
-  //method
   @Override
   public boolean belongsToTable() {
     return (parentTable != null);
@@ -99,25 +82,21 @@ public final class Column extends SchemaObject implements IColumn {
     MUTATION_EXECUTOR.deleteColumn(this);
   }
 
-  //method
   @Override
   public String getName() {
     return name;
   }
 
-  //method
   @Override
   public String getId() {
     return id;
   }
 
-  //method
   @Override
   public IParameterizedFieldType getParameterizedFieldType() {
     return parameterizedFieldType;
   }
 
-  //method
   @Override
   public Table getParentTable() {
 
@@ -126,7 +105,6 @@ public final class Column extends SchemaObject implements IColumn {
     return parentTable;
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return //
@@ -134,13 +112,11 @@ public final class Column extends SchemaObject implements IColumn {
     || internalGetRefRawSchemaAdapter().columnIsEmpty(this);
   }
 
-  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
   }
 
-  //method
   @Override
   public Column setName(final String name) {
 
@@ -150,7 +126,6 @@ public final class Column extends SchemaObject implements IColumn {
     return this;
   }
 
-  //method
   @Override
   public Column setParameterizedFieldType(
     final IParameterizedFieldType parameterizedFieldType) {
@@ -161,27 +136,23 @@ public final class Column extends SchemaObject implements IColumn {
     return this;
   }
 
-  //method
   @Override
   public ColumnDto toDto() {
     return new ColumnDto(getId(), getName(), getParameterizedFieldType().toDto());
   }
 
-  //method
   void assertIsEmpty() {
     if (containsAny()) {
       throw NonEmptyArgumentException.forArgument(this);
     }
   }
 
-  //method
   void assertIsNotBackReferenced() {
     if (isBackReferenced()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is back referenced");
     }
   }
 
-  //method
   IContainer<IColumn> getStoredBackReferencingColumns() {
 
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
@@ -191,12 +162,10 @@ public final class Column extends SchemaObject implements IColumn {
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
   }
 
-  //method
   RawSchemaLinkerAdapter internalGetRefRawSchemaAdapter() {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
   }
 
-  //method
   boolean isBackReferenced() {
 
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
@@ -206,34 +175,28 @@ public final class Column extends SchemaObject implements IColumn {
     return isBackReferencedWhenIsAnyReferenceColumn();
   }
 
-  //method
   void setNameAttribute(final String header) {
     this.name = header;
   }
 
-  //method
   void setParameterizedFieldTypeAttribute(
     final IParameterizedFieldType parameterizedFieldType) {
     this.parameterizedFieldType = parameterizedFieldType;
   }
 
-  //method
   void setParameterizedFieldTypeToDatabase() {
     internalGetRefRawSchemaAdapter().setColumnParameterizedFieldType(this, parameterizedFieldType);
   }
 
-  //method
   void setParentTableAttribute(final Table parentTable) {
     this.parentTable = parentTable;
   }
 
-  //method
   @Override
   protected void noteClose() {
     //Does nothing.
   }
 
-  //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
 
     if (COLUMN_TOOL.belongsToDatabase(this)) {
@@ -252,7 +215,6 @@ public final class Column extends SchemaObject implements IColumn {
     return LinkedList.createEmpty();
   }
 
-  //method
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
 
     if (COLUMN_TOOL.belongsToDatabase(this)) {

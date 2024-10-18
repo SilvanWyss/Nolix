@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.net.websocket.WebSocketHandShakeResponse;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class WebSocketHandShakeResponseTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getSecWebSocketAccept() {
 
@@ -29,7 +24,6 @@ final class WebSocketHandShakeResponseTest extends StandardTest {
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 
-  //method
   @Test
   void testCase_getSecWebSocketAccept_2() {
 

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -9,20 +7,16 @@ import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2021-06-28
  */
 final class ServerSlot implements ISlot {
 
-  //attribute
   private final String name;
 
-  //attribute
   private final BaseServer<?> parentServer;
 
-  //constructor
   /**
    * Creates a new {@ServerClientTaker} with the given name that will belong to
    * the given parentServer.
@@ -42,7 +36,6 @@ final class ServerSlot implements ISlot {
     this.name = name;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -51,7 +44,6 @@ final class ServerSlot implements ISlot {
     return name;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

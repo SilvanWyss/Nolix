@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//Java imports
 import java.lang.reflect.Field;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -17,21 +14,16 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 
-//class
 public abstract class MultiStateConfiguration<MSC extends IMultiStateConfiguration<MSC, S>, S extends Enum<S>>
 extends Element
 implements IMultiStateConfiguration<MSC, S> {
 
-  //attribute
   private final State<S> baseState;
 
-  //multi-attribute
   private final IContainer<State<S>> availableStates;
 
-  //multi-attribute
   private IContainer<Property<S>> properties;
 
-  //constructor
   protected MultiStateConfiguration(final S baseState) {
 
     GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
@@ -40,12 +32,10 @@ implements IMultiStateConfiguration<MSC, S> {
     this.baseState = availableStates.getStoredFirst(s -> s.hasEnumValue(baseState));
   }
 
-  //static method
   private static boolean fieldStoresProperty(final Field field) {
     return Property.class.isAssignableFrom(field.getType());
   }
 
-  //method
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -59,7 +49,6 @@ implements IMultiStateConfiguration<MSC, S> {
     return false;
   }
 
-  //method
   @Override
   public final void addOrChangeAttribute(final String attribtue, final String... attributes) {
 
@@ -74,7 +63,6 @@ implements IMultiStateConfiguration<MSC, S> {
     }
   }
 
-  //method
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
     if (!addedOrChangedAttribute(attribute)) {
@@ -82,7 +70,6 @@ implements IMultiStateConfiguration<MSC, S> {
     }
   }
 
-  //method
   @Override
   public final IContainer<INode<?>> getAttributes() {
 
@@ -95,19 +82,16 @@ implements IMultiStateConfiguration<MSC, S> {
     return attributes;
   }
 
-  //method
   @Override
   public final S getBaseState() {
     return baseState.getEnumValue();
   }
 
-  //method
   @Override
   public final void reset() {
     getStoredProperties().forEach(Property::setUndefined);
   }
 
-  //method
   public final void setFrom(final MSC element) {
 
     @SuppressWarnings("unchecked")
@@ -118,7 +102,6 @@ implements IMultiStateConfiguration<MSC, S> {
     }
   }
 
-  //method
   /**
    * @return the current {@link MultiStateConfiguration} as concrete
    *         {@link MultiStateConfiguration}.
@@ -128,7 +111,6 @@ implements IMultiStateConfiguration<MSC, S> {
     return (MSC) this;
   }
 
-  //method
   @SuppressWarnings("unchecked")
   protected final void internalAddChild(final MSC child) {
 
@@ -137,22 +119,18 @@ implements IMultiStateConfiguration<MSC, S> {
     ((MultiStateConfiguration<?, S>) child).setParent(this);
   }
 
-  //method
   protected final void initialize() {
     extractPropertiesIfNotExtracted();
   }
 
-  //method
   final IContainer<State<S>> getAvailableStates() {
     return availableStates;
   }
 
-  //method
   final State<S> getBaseStateObject() {
     return baseState;
   }
 
-  //method
   final IContainer<Property<S>> getStoredProperties() {
 
     extractPropertiesIfNotExtracted();
@@ -160,7 +138,6 @@ implements IMultiStateConfiguration<MSC, S> {
     return properties;
   }
 
-  //method
   final State<S> getStateObjectFor(final S state) {
 
     for (final var s : availableStates) {
@@ -172,14 +149,12 @@ implements IMultiStateConfiguration<MSC, S> {
     throw InvalidArgumentException.forArgument(state);
   }
 
-  //method
   private void extractPropertiesIfNotExtracted() {
     if (!propertiesAreExtracted()) {
       extractPropertiesWhenNotExtracted();
     }
   }
 
-  //method
   private void extractPropertiesWhenNotExtracted() {
 
     final ILinkedList<Property<S>> lProperties = LinkedList.createEmpty();
@@ -190,14 +165,12 @@ implements IMultiStateConfiguration<MSC, S> {
     setItselsAsParentToProperties();
   }
 
-  //method
   private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final ILinkedList<Property<S>> list) {
     if (fieldStoresProperty(field)) {
       list.addAtEnd(getPropertyFromField(field));
     }
   }
 
-  //method
   private void fillUpPropertiesIntoList(final ILinkedList<Property<S>> list) {
     Class<?> lClass = getClass();
     while (lClass != null) {
@@ -206,14 +179,12 @@ implements IMultiStateConfiguration<MSC, S> {
     }
   }
 
-  //method
   private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<Property<S>> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialPropertyFromFieldIntoList(f, list);
     }
   }
 
-  //method
   private Property<S> getPropertyFromField(final Field field) {
     try {
 
@@ -230,25 +201,21 @@ implements IMultiStateConfiguration<MSC, S> {
     }
   }
 
-  //method
   @SuppressWarnings("unchecked")
   private IContainer<CascadingProperty<S, ?>> getStoredCascadingProperties() {
     return getStoredProperties().getStoredOfType(CascadingProperty.class);
   }
 
-  //method
   private boolean propertiesAreExtracted() {
     return (properties != null);
   }
 
-  //method
   private void setItselsAsParentToProperties() {
     for (final var p : getStoredProperties()) {
       p.setParent(this);
     }
   }
 
-  //method
   private void setParent(final MultiStateConfiguration<?, S> parentElement) {
 
     final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getStoredCascadingProperties());

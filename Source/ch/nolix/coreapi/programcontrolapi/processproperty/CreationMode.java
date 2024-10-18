@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.processproperty;
 
-//enum
 /**
  * A {@link CreationMode} defines the behavior when a target, that should be
  * created, exist already.

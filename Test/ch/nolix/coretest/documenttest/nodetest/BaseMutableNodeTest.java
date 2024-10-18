@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-//own imports
 import ch.nolix.core.document.node.BaseMutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
-//class
 abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
 
-  //method
   @Test
   void testCase_removeHeader() {
 
@@ -31,7 +26,6 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
     expectNot(testUnit.hasHeader());
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(strings = {
   "",
@@ -58,7 +52,6 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
     expect(testUnit).hasStringRepresentation(string);
   }
 
-  //method
   @Test
   void testCase_resetFromString_whenTheGivenStringIsNotValid() {
 
@@ -71,7 +64,6 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
       .ofType(UnrepresentingArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_setHeader() {
 

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.math.algebra;
 
-//Java imports
 import java.util.Arrays;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
@@ -9,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
-//class
 /**
  * A {@link Vector} is not mutable.
  * 
@@ -18,16 +15,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  */
 public final class Vector {
 
-  //constant
   public static final Vector EMPTY_VECTOR = new Vector();
 
-  //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //multi-attribute
   private final double[] values;
 
-  //constructor
   /**
    * Creates a new empty {@link Vector}.
    */
@@ -35,7 +28,6 @@ public final class Vector {
     values = new double[0];
   }
 
-  //constructor
   /**
    * Creates a new {@link Vector} with the given values.
    * 
@@ -45,7 +37,6 @@ public final class Vector {
     this.values = Arrays.copyOf(values, values.length);
   }
 
-  //static method
   /**
    * @param values
    * @return a new {@link Vector} with the given values.
@@ -54,7 +45,6 @@ public final class Vector {
     return new Vector(values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -64,7 +54,6 @@ public final class Vector {
     return new Vector(ARRAY_TOOL.createArrayWithValue(value, values));
   }
 
-  //static method
   /**
    * @param values
    * @return a new {@link Vector} with the given values.
@@ -73,7 +62,6 @@ public final class Vector {
     return new Vector(values);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -82,7 +70,6 @@ public final class Vector {
     return (object instanceof Vector vector && equalsVector(vector));
   }
 
-  //method
   /**
    * @return the euclid norm of the current {@link Vector}.
    */
@@ -96,7 +83,6 @@ public final class Vector {
     return Math.sqrt(sum);
   }
 
-  //method
   /**
    * @return the Manhattan norm of the current {@link Vector}.
    */
@@ -111,7 +97,6 @@ public final class Vector {
     return manhattanNorm;
   }
 
-  //method
   /**
    * @param factor
    * @return a new {@link Vector} that is the product of the current
@@ -129,7 +114,6 @@ public final class Vector {
     return new Vector(productValues);
   }
 
-  //method
   /**
    * @return the size of the current {@link Vector}.
    */
@@ -137,7 +121,6 @@ public final class Vector {
     return values.length;
   }
 
-  //method
   /**
    * @param vector
    * @return a new {@link Vector} that is the sum of the current {@link Vector}
@@ -165,7 +148,6 @@ public final class Vector {
     return new Vector(sumValues);
   }
 
-  //method
   /**
    * @param param1BasedIndex
    * @return the value of the current {@link Vector} at the given
@@ -182,18 +164,15 @@ public final class Vector {
     return values[param1BasedIndex - 1];
   }
 
-  //method
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
-  //method
   public boolean hasSameSizeAs(final Vector vector) {
     return (getSize() == vector.getSize());
   }
 
-  //method
   /**
    * @return an array with the values of the current {@link Vector}
    */
@@ -201,7 +180,6 @@ public final class Vector {
     return Arrays.copyOf(values, values.length);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -227,7 +205,6 @@ public final class Vector {
     return stringBuilder.toString();
   }
 
-  //method
   /**
    * @param vector
    * @return true if the current {@link Vector} can equal the given vector because
@@ -238,7 +215,6 @@ public final class Vector {
     && getSize() == vector.getSize();
   }
 
-  //method
   /**
    * @param vector
    * @return true if the current {@link Vector} equals the given vector.

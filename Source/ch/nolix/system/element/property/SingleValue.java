@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2018-03-04
@@ -23,13 +19,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 abstract class SingleValue<V> extends BaseValue<V> {
 
-  //attribute
   private final Consumer<V> setterMethod;
 
-  //optional attribute
   private V value;
 
-  //constructor
   /**
    * Creates a new {@link SingleValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
@@ -60,7 +53,6 @@ abstract class SingleValue<V> extends BaseValue<V> {
     this.setterMethod = setterMethod;
   }
 
-  //method
   /**
    * @return a new specification of the current {@link SingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -71,7 +63,6 @@ abstract class SingleValue<V> extends BaseValue<V> {
     return Node.withHeaderAndChildNodes(getName(), specificationCreator.apply(getValue()).getStoredChildNodes());
   }
 
-  //method
   /**
    * @return the value of the current {@link SingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -91,7 +82,6 @@ abstract class SingleValue<V> extends BaseValue<V> {
     return value;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -100,7 +90,6 @@ abstract class SingleValue<V> extends BaseValue<V> {
     return (value == null);
   }
 
-  //method
   /**
    * Sets the value of the current {@link SingleValue}.
    * 
@@ -124,13 +113,11 @@ abstract class SingleValue<V> extends BaseValue<V> {
     this.value = value;
   }
 
-  //method
   @Override
   protected final void addOrChangeValue(final V value) {
     setterMethod.accept(value);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -146,7 +133,6 @@ abstract class SingleValue<V> extends BaseValue<V> {
     }
   }
 
-  //method
   /**
    * Removes the value of the current {@link SingleValue}.
    */

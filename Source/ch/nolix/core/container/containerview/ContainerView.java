@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.containerview;
 
-//Java imports
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link ContainerView} can read a given {@link Iterable} or array. A
  * {@link ContainerView} prevents that its accessed {@link Iterable} or array
@@ -29,10 +25,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class ContainerView<E> extends Container<E> {
 
-  //attribute
   private final IContainer<E> internalContainer;
 
-  //constructor
   /**
    * Creates a new {@link ContainerView} for the given container.
    * 
@@ -48,7 +42,6 @@ public final class ContainerView<E> extends Container<E> {
     internalContainer = container;
   }
 
-  //static method
   /**
    * @param array
    * @param arrays
@@ -66,7 +59,6 @@ public final class ContainerView<E> extends Container<E> {
     return new ContainerView<>(container);
   }
 
-  //static method
   /**
    * @param element
    * @param array
@@ -88,7 +80,6 @@ public final class ContainerView<E> extends Container<E> {
     return new ContainerView<>(container);
   }
 
-  //static method
   /**
    * @param <E2> is the type of the hypothetical elements of the created empty
    *             {@link ContainerView}.
@@ -101,7 +92,6 @@ public final class ContainerView<E> extends Container<E> {
     return new ContainerView<>(container);
   }
 
-  //static method
   /**
    * @param iterable
    * @param iterables
@@ -122,7 +112,6 @@ public final class ContainerView<E> extends Container<E> {
     return new ContainerView<>(container);
   }
 
-  //method
   /**
    * An object equals a {@link ContainerView} when the object is a
    * {@link Iterable} that contains exactly the same elements in the same order
@@ -142,7 +131,6 @@ public final class ContainerView<E> extends Container<E> {
     return false;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -151,7 +139,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.getCount();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -160,7 +147,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.getStoredAt1BasedIndex(param1BasedIndex);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -169,7 +155,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.getStoredLast();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -178,7 +163,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.hashCode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -187,7 +171,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.isMaterialized();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -196,7 +179,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.iterator();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -205,7 +187,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.toOrderedList(norm);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -214,7 +195,6 @@ public final class ContainerView<E> extends Container<E> {
     return internalContainer.toString();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

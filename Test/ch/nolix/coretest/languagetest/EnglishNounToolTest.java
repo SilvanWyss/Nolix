@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.languagetest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.language.EnglishNounTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class EnglishNounToolTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "bear",
@@ -64,7 +59,6 @@ final class EnglishNounToolTest extends StandardTest {
     expect(result).isEqualTo("a");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "antelope",
@@ -90,7 +84,6 @@ final class EnglishNounToolTest extends StandardTest {
     expect(result).isEqualTo("an");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "antelope, antelopes",

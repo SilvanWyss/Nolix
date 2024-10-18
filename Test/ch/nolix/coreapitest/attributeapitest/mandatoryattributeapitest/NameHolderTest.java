@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class NameHolderTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getNameInQuotes() {
 
@@ -23,7 +19,6 @@ final class NameHolderTest extends StandardTest {
     expect(result).isEqualTo("'my_name'");
   }
 
-  //method
   @Test
   void testCase_hasName_whenDoesNotHaveTheGivenName() {
 
@@ -37,7 +32,6 @@ final class NameHolderTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_hasName_whenHasTheGivenName() {
 
@@ -51,7 +45,6 @@ final class NameHolderTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_hasSameNameAs_whenDoesNotHaveTheSameName() {
 
@@ -66,7 +59,6 @@ final class NameHolderTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_hasSameNameAs_whenHasTheSameName() {
 

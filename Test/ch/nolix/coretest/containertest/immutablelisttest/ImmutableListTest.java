@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.coretest.containertest.immutablelisttest;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class ImmutableListTest extends ContainerTest {
 
-  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -17,7 +13,6 @@ final class ImmutableListTest extends ContainerTest {
     return ImmutableList.withElement(element, elements);
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ImmutableList.createEmpty();

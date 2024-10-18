@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.multivalueentrytable;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
@@ -9,20 +7,16 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 
-//enum
 public enum MultiValueEntryTableColumn implements INameHolder {
   ENTITY_ID("EntityId"),
   MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
   VALUE(PascalCaseVariableCatalogue.VALUE);
 
-  //constant
   private static final String NAME_PREFIX = MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
   + StringCatalogue.DOT;
 
-  //attribute
   private final String name;
 
-  //constructor
   MultiValueEntryTableColumn(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
@@ -30,18 +24,15 @@ public enum MultiValueEntryTableColumn implements INameHolder {
     this.name = name;
   }
 
-  //method
   @Override
   public final String getName() {
     return name;
   }
 
-  //method
   public String getQualifiedName() {
     return (getQualifyingPrefix() + getName());
   }
 
-  //method
   public String getQualifyingPrefix() {
     return NAME_PREFIX;
   }

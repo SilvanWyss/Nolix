@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.license;
 
-//Java imports
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.environment.filesystem.FolderAccessor;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
@@ -19,7 +16,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link LicenseManager} contains {@link License}s.
  * 
@@ -28,10 +24,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class LicenseManager {
 
-  //multi-attribute
   private final LinkedList<License> licenses = LinkedList.createEmpty();
 
-  //method
   /**
    * Creates and adds a new {@link License} of the given licenseType to the
    * current {@link LicenseManager}
@@ -61,7 +55,6 @@ public final class LicenseManager {
     return this;
   }
 
-  //method
   /**
    * Adds the given license to the current {@link LicenseManager}.
    * 
@@ -90,7 +83,6 @@ public final class LicenseManager {
     return this;
   }
 
-  //method
   /**
    * @param featureType
    * @param <F>         is the given featureType.
@@ -112,7 +104,6 @@ public final class LicenseManager {
     }
   }
 
-  //method
   /**
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -123,7 +114,6 @@ public final class LicenseManager {
     return licenses.containsAny(l -> l.getClass() == licenseType);
   }
 
-  //method
   /**
    * @return the types of the licenses of the current {@link LicenseManager}.
    */
@@ -131,7 +121,6 @@ public final class LicenseManager {
     return licenses.to(License::getClass);
   }
 
-  //method
   /**
    * Removes the given license from the current {@link LicenseManager}.
    * 
@@ -144,7 +133,6 @@ public final class LicenseManager {
     licenses.removeStrictlyFirstOccurrenceOf(license);
   }
 
-  //method
   /**
    * Requires the current {@link LicenseManager} to contain a {@link Feature} of
    * the given featureType.
@@ -176,7 +164,6 @@ public final class LicenseManager {
     return new LongMediator(this, value);
   }
 
-  //method
   /**
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -192,7 +179,6 @@ public final class LicenseManager {
     return readKeyFromLicenseFile(licenseType.getName());
   }
 
-  //method
   /**
    * @param licenseName
    * @return the key of the license with the given licenseName from the license

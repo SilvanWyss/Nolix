@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.programcontroltest.sequencertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.ForCountMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ForCountMediatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forMaxRunCount_whenTheGivenMaxRunCountIsNegative() {
 
@@ -25,7 +20,6 @@ final class ForCountMediatorTest extends StandardTest {
       .withMessage("The given max run count '-1' is negative.");
   }
 
-  //method
   @Test
   void testCase_run_whenTheGivenMaxRunCountIs0() {
 
@@ -40,7 +34,6 @@ final class ForCountMediatorTest extends StandardTest {
     Mockito.verify(mockRunnable, Mockito.never()).run();
   }
 
-  //method
   @Test
   void testCase_run_whenTheGivenMaxRunCountIs1() {
 
@@ -55,7 +48,6 @@ final class ForCountMediatorTest extends StandardTest {
     Mockito.verify(mockRunnable).run();
   }
 
-  //method
   @Test
   void testCase_run_whenTheGivenMaxRunCountIs5() {
 
@@ -70,7 +62,6 @@ final class ForCountMediatorTest extends StandardTest {
     Mockito.verify(mockRunnable, Mockito.times(5)).run();
   }
 
-  //method
   @Test
   void testCase_runInBackground_whenTheGivenMaxRunCountIs0() {
 
@@ -87,7 +78,6 @@ final class ForCountMediatorTest extends StandardTest {
     Mockito.verify(mockRunnable, Mockito.never()).run();
   }
 
-  //method
   @Test
   void testCase_runInBackground_whenTheGivenMaxRunCountIs1() {
 
@@ -104,7 +94,6 @@ final class ForCountMediatorTest extends StandardTest {
     Mockito.verify(mockRunnable).run();
   }
 
-  //method
   @Test
   void testCase_runInBackground_whenTheGivenMaxRunCountIs5() {
 

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.graphictest.colortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,10 +8,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 
-//class
 final class ColorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_equals_whenGivenColorIsEqual() {
 
@@ -28,7 +24,6 @@ final class ColorTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenGivenColorIsNotEqual() {
 
@@ -43,7 +38,6 @@ final class ColorTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_fromString_1A() {
 
@@ -54,7 +48,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo("0x000000");
   }
 
-  //method
   @Test
   void testCase_fromString_1B() {
 
@@ -65,7 +58,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
   }
 
-  //method
   @Test
   void testCase_getAlphaValue() {
 
@@ -79,7 +71,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo(0xA0);
   }
 
-  //method
   @Test
   void testCase_getBlueValue() {
 
@@ -93,7 +84,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo(0x30);
   }
 
-  //method
   @Test
   void testCase_getGreenValue() {
 
@@ -107,7 +97,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo(0x20);
   }
 
-  //method
   @Test
   void testCase_getColorNameOrHexadecimalString_1A() {
 
@@ -121,7 +110,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo("AliceBlue");
   }
 
-  //method
   @Test
   void testCase_getColorNameOrHexadecimalString_1B() {
 
@@ -135,7 +123,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo("YellowGreen");
   }
 
-  //method
   @Test
   void testCase_getInvertedColor_1A() {
 
@@ -149,7 +136,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
   }
 
-  //method
   @Test
   void testCase_getInvertedColor_1B() {
 
@@ -163,7 +149,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo("0x000000");
   }
 
-  //method
   @Test
   void testCase_getRedValue() {
 
@@ -177,7 +162,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo(0x10);
   }
 
-  //method
   @Test
   void testCase_getSpecification() {
 
@@ -191,7 +175,6 @@ final class ColorTest extends StandardTest {
     expect(result).hasStringRepresentation("Color(0x102030)");
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(strings = {
   "0x00000001",
@@ -227,7 +210,6 @@ final class ColorTest extends StandardTest {
     expect(result).isEqualTo(string);
   }
 
-  //method
   @Test
   void testCase_withAlphaValue_1A() {
 
@@ -241,7 +223,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo("0x10203000");
   }
 
-  //method
   @Test
   void testCase_withAlphaValue_1B() {
 
@@ -255,7 +236,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo("0x102030A0");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0x010203, 0.0, 0x01020300",
@@ -279,7 +259,6 @@ final class ColorTest extends StandardTest {
     expect(result.toHexadecimalString()).isEqualTo(expectedHexadecimaString);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0x01020300, 0x010203",

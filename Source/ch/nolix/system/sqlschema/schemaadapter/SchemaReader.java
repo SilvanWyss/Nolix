@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlschema.schemaadapter;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
@@ -17,19 +15,14 @@ import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
-//class
 final class SchemaReader implements ISchemaReader {
 
-  //attribute
   private final ISqlConnection sqlConnection;
 
-  //attribute
   private final ISchemaQueryCreator schemaQueryCreator;
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //constructor
   private SchemaReader(
     final String databaseName,
     final ISqlConnection sqlConnection,
@@ -44,7 +37,6 @@ final class SchemaReader implements ISchemaReader {
     sqlConnection.executeStatement("USE " + databaseName);
   }
 
-  //static method
   public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
@@ -55,7 +47,6 @@ final class SchemaReader implements ISchemaReader {
       schemaQueryCreator);
   }
 
-  //method
   @Override
   public boolean columnsIsEmpty(final String tableName, final String columnName) {
     return sqlConnection
@@ -64,13 +55,11 @@ final class SchemaReader implements ISchemaReader {
       .isEmpty();
   }
 
-  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  //method
   @Override
   public IContainer<IColumnDto> loadColumns(final String tableName) {
     return sqlConnection
@@ -79,7 +68,6 @@ final class SchemaReader implements ISchemaReader {
         r -> ColumnDto.withNameAndDataType(r.getStoredAt1BasedIndex(1), new DataTypeDto(r.getStoredAt1BasedIndex(2))));
   }
 
-  //method
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return sqlConnection
@@ -87,19 +75,16 @@ final class SchemaReader implements ISchemaReader {
       .to(FlatTableDto::new);
   }
 
-  //method
   @Override
   public IContainer<ITableDto> loadTables() {
     return loadFlatTables().to(t -> TableDto.withNameAndColumns(t.getName(), loadColumns(t.getName())));
   }
 
-  //method
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
-  //method
   @Override
   public boolean tableExists(String tableName) {
     return sqlConnection

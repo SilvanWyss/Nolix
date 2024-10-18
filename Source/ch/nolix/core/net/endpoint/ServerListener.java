@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -14,7 +11,6 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 
-//class
 /**
  * A {@link ServerListener} listens to {@link SocketEndPoint}s for a
  * {@link Server}.
@@ -24,16 +20,13 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequesta
  */
 public final class ServerListener extends Worker implements CloseStateRequestable {
 
-  //constant
   private static final SocketHandler SOCKET_HANDLER = new SocketHandler();
 
-  //attribute
   /**
    * The {@link Server} the current {@link ServerListener} is for.
    */
   private final Server parentServer;
 
-  //constructor
   /**
    * Creates a new {@link ServerListener} that will belong to the given
    * parentServer. The {@link ServerListener} will start automatically.
@@ -53,7 +46,6 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
     start();
   }
 
-  //static method
   /**
    * @param server
    * @return a new {@link ServerListener} for the given server. The
@@ -64,7 +56,6 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
     return new ServerListener(server);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -73,7 +64,6 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
     return parentServer.isClosed();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -99,7 +89,6 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
     }
   }
 
-  //method
   /**
    * Lets the current {@link ServerListener} handle the given socket.
    * 

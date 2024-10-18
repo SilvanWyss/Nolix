@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -12,23 +10,18 @@ import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.IServer;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-05-06
  */
 public abstract class BaseServer implements IServer {
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //optional attribute
   private ISlot defaultSlot;
 
-  //multi-attribute
   private final LinkedList<ISlot> slots = LinkedList.createEmpty();
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -40,7 +33,6 @@ public abstract class BaseServer implements IServer {
     this.defaultSlot = defaultSlot;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -52,7 +44,6 @@ public abstract class BaseServer implements IServer {
     this.slots.addAtEnd(slot);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -64,7 +55,6 @@ public abstract class BaseServer implements IServer {
     defaultSlot = null;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -73,7 +63,6 @@ public abstract class BaseServer implements IServer {
     return (defaultSlot != null);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -82,7 +71,6 @@ public abstract class BaseServer implements IServer {
     return slots.containsAny(s -> s.hasName(name));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -91,7 +79,6 @@ public abstract class BaseServer implements IServer {
     return closeController;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -100,7 +87,6 @@ public abstract class BaseServer implements IServer {
     return slots.isEmpty();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -109,7 +95,6 @@ public abstract class BaseServer implements IServer {
     removeSlot(slots.getStoredFirst(s -> s.hasName(name)));
   }
 
-  //method
   /**
    * Lets the current {@link BaseServer} take the given endPoint.
    * 
@@ -143,7 +128,6 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
@@ -156,7 +140,6 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  //method
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
@@ -170,7 +153,6 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  //method
   /**
    * @param endPoint
    * @throws ClosedArgumentException if the given endPoint is closed.
@@ -181,7 +163,6 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  //method
   /**
    * @return the default {@link ISlot} of the current {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -196,7 +177,6 @@ public abstract class BaseServer implements IServer {
     return defaultSlot;
   }
 
-  //method
   /**
    * 
    * @param name
@@ -211,7 +191,6 @@ public abstract class BaseServer implements IServer {
     return slots.getStoredFirst(ept -> ept.hasName(name));
   }
 
-  //method
   /**
    * Removes the given slot from the current {@link BaseServer}.
    * 

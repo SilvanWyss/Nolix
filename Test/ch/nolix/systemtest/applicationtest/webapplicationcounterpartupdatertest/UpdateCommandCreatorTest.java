@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.applicationtest.webapplicationcounterpartupdatertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -10,10 +8,8 @@ import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.system.webgui.main.WebGui;
 
-//class
 final class UpdateCommandCreatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_createSetCssCommandFromWebGui() {
 
@@ -28,7 +24,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
     expect(result.toString()).matches("GUI.SetCSS(.*)");
   }
 
-  //method
   @Test
   void testCase_createSetTitleCommandForTitle() {
 
@@ -42,7 +37,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
   }
 
-  //method
   @Test
   void testCase_createSetTitleCommandFromWebGui() {
 
@@ -57,7 +51,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
   }
 
-  //method
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
 
@@ -72,7 +65,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 
-  //method
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
 
@@ -88,7 +80,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 
-  //method
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
 

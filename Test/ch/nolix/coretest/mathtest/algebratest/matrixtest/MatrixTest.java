@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.mathtest.algebratest.matrixtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.math.algebra.Matrix;
@@ -12,10 +9,8 @@ import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class MatrixTest extends StandardTest {
 
-  //method
   @Test
   void testCase_add() {
 
@@ -31,7 +26,6 @@ final class MatrixTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_appendAtBottom() {
 
@@ -48,7 +42,6 @@ final class MatrixTest extends StandardTest {
     expect(testUnit).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_appendAtBottom_whenTheNumberOfTheGivenValuesDoesNotEqualTheNumberOfColumns() {
 
@@ -61,7 +54,6 @@ final class MatrixTest extends StandardTest {
       .ofType(UnequalArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_appendAtRight() {
 
@@ -77,7 +69,6 @@ final class MatrixTest extends StandardTest {
     expect(testUnit).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createIdendityMatrix_with1Row() {
 
@@ -90,7 +81,6 @@ final class MatrixTest extends StandardTest {
     expect(result.getValue(1, 1)).isEqualTo(1.0);
   }
 
-  //method
   @Test
   void testCase_createIdendityMatrix_with10Rows() {
 
@@ -111,7 +101,6 @@ final class MatrixTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getInverse_whenMatrixIs2x2Matrix() {
 
@@ -126,7 +115,6 @@ final class MatrixTest extends StandardTest {
     expect(testUnit.getProduct(result)).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getInverse_whenMatrixIs3x3Matrix() {
 
@@ -141,7 +129,6 @@ final class MatrixTest extends StandardTest {
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
 
-  //method
   @Test
   void testCase_getInverse_whenMatrixIs4x4Matrix() {
 
@@ -158,7 +145,6 @@ final class MatrixTest extends StandardTest {
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
 
-  //method
   @Test
   void testCase_getProduct() {
 
@@ -174,7 +160,6 @@ final class MatrixTest extends StandardTest {
     expect(result).isEqualTo(expectedProduct);
   }
 
-  //method
   @Test
   void testCase_getRank_whenMatrixIsIdentityMatrix() {
 
@@ -195,7 +180,6 @@ final class MatrixTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
 
@@ -211,7 +195,6 @@ final class MatrixTest extends StandardTest {
     expect(result[1]).isEqualTo(5.0);
   }
 
-  //method
   @Test
   void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
 
@@ -228,7 +211,6 @@ final class MatrixTest extends StandardTest {
     expect(result[2]).isEqualTo(1.0);
   }
 
-  //method
   @Test
   void testCase_getTrace_whenMatrixIsIdentityMatrix() {
 
@@ -249,7 +231,6 @@ final class MatrixTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
 
@@ -265,7 +246,6 @@ final class MatrixTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_toPolynom_whenHas1Row() {
 
@@ -280,7 +260,6 @@ final class MatrixTest extends StandardTest {
     expect(result).hasStringRepresentation("x->x^3+2x^2+3x+4");
   }
 
-  //method
   @Test
   void testCase_toPolynom_whenHas1Column() {
 
@@ -295,7 +274,6 @@ final class MatrixTest extends StandardTest {
     expect(result).hasStringRepresentation("x->x^3+2x^2+3x+4");
   }
 
-  //method
   @Test
   void testCase_toPolynom_whenHas2Rows() {
 
@@ -310,7 +288,6 @@ final class MatrixTest extends StandardTest {
       .withMessage("The given Matrix '[1,2,3,4;11,12,13,14]' does not represent a Polynom.");
   }
 
-  //method
   @Test
   void testCase_toPolynom_whenHas2Columns() {
 
@@ -325,7 +302,6 @@ final class MatrixTest extends StandardTest {
       .withMessage("The given Matrix '[1,2;3,4;11,12;13,14]' does not represent a Polynom.");
   }
 
-  //method
   @Test
   void testCase_toVector_whenContains1Row() {
 
@@ -339,7 +315,6 @@ final class MatrixTest extends StandardTest {
     expect(result).isEqualTo(Vector.withValue(1.0, 2.0, 3.0, 4.0));
   }
 
-  //method
   @Test
   void testCase_toVector_whenContains1Column() {
 
@@ -353,7 +328,6 @@ final class MatrixTest extends StandardTest {
     expect(result).isEqualTo(Vector.withValue(1.0, 2.0, 3.0, 4.0));
   }
 
-  //method
   @Test
   void testCase_toVector_whenIs2x2Matrix() {
 

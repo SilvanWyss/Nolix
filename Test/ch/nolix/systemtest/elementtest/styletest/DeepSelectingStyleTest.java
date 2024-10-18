@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.styletest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 
-//class
 final class DeepSelectingStyleTest extends StandardTest {
 
-  //method
   @Test
   void testCase_selectsChildElements() {
 
@@ -24,7 +20,6 @@ final class DeepSelectingStyleTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_skipsChildElements() {
 

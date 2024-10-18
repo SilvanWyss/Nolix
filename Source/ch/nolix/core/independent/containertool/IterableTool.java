@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.independent.containertool;
 
-//Java imports
 import java.util.Objects;
 
-//class
 /**
  * The {@link IterableTool} provides methods to handle {@link Iterable}s.
  * 
@@ -13,7 +10,6 @@ import java.util.Objects;
  */
 public final class IterableTool {
 
-  //method
   /**
    * @param iterable
    * @param element
@@ -29,7 +25,6 @@ public final class IterableTool {
     return containsElementWhenIsNotNull(iterable, element);
   }
 
-  //method
   /**
    * @param iterable
    * @param element
@@ -54,7 +49,6 @@ public final class IterableTool {
     return found;
   }
 
-  //method
   /**
    * @param container
    * @param object
@@ -72,7 +66,6 @@ public final class IterableTool {
     return false;
   }
 
-  //method
   /**
    * @param iterable
    * @param stringRepresentation
@@ -87,7 +80,6 @@ public final class IterableTool {
     && containsExacltyOneWithStringRepresentationWhenIsNotNull(iterable, stringRepresentation);
   }
 
-  //method
   /**
    * @param container
    * @return the number of elements of the given container.
@@ -104,7 +96,6 @@ public final class IterableTool {
     return elementCount;
   }
 
-  //method
   /**
    * @param container
    * @return true if the given container is not empty.
@@ -113,7 +104,6 @@ public final class IterableTool {
     return !container.iterator().hasNext();
   }
 
-  //method
   /**
    * @param iterable
    * @param element
@@ -131,7 +121,6 @@ public final class IterableTool {
     return false;
   }
 
-  //method
   private boolean containsExacltyOneWithStringRepresentationWhenIsNotNull(
     final Iterable<?> iterable,
     final String stringRepresentation) {

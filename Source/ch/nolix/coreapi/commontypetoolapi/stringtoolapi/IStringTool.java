@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.commontypetoolapi.stringtoolapi;
 
-//interface
 /**
  * The {@link IStringTool} provides methods to handle {@link String}s.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.commontypetoolapi.stringtoolapi;
  */
 public interface IStringTool {
 
-  //method declaration
   /**
    * @param string
    * @param n
@@ -19,7 +16,6 @@ public interface IStringTool {
    */
   String createStringWithoutLastCharacters(String string, int n);
 
-  //method declaration
   /**
    * @param tabCount
    * @return a new {@link String} consisting of as many tabulators as the given
@@ -28,7 +24,6 @@ public interface IStringTool {
    */
   String createTabs(int tabCount);
 
-  //method declaration
   /**
    * @param object
    * @return the {@link String} representation of the given object in braces.
@@ -36,7 +31,6 @@ public interface IStringTool {
    */
   String getInBraces(Object object);
 
-  //method declaration
   /**
    * @param object
    * @param objects
@@ -48,7 +42,6 @@ public interface IStringTool {
    */
   String getInParentheses(Object object, Object... objects);
 
-  //method declaration
   /**
    * @param object
    * @return the {@link String} representation of the given object in single
@@ -57,21 +50,18 @@ public interface IStringTool {
    */
   String getInSingleQuotes(Object object);
 
-  //method declaration
   /**
    * @param string
    * @return true if the given string is in lower case.
    */
   boolean isLowerCase(String string);
 
-  //method declaration
   /**
    * @param string
    * @return true if the given string is in pascal case.
    */
   boolean isPascalCase(String string);
 
-  //method declaration
   /**
    * @param string
    * @param prefix
@@ -79,7 +69,6 @@ public interface IStringTool {
    */
   boolean startsWithIgnoringCase(String string, String prefix);
 
-  //method declaration
   /**
    * @param string
    * @return the boolean the given string represents.
@@ -87,14 +76,12 @@ public interface IStringTool {
    */
   boolean toBoolean(String string);
 
-  //method declaration
   /**
    * @param string
    * @return a new {@link String} in capital snake case for the given string.
    */
   String toCapitalSnakeCase(String string);
 
-  //method declaration
   /**
    * @param string
    * @return the double the given string represents.
@@ -102,7 +89,6 @@ public interface IStringTool {
    */
   double toDouble(String string);
 
-  //method declaration
   /**
    * @param string
    * @return a new {@link String} in pascal case for the given string.

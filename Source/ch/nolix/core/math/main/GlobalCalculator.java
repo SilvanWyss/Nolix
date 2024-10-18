@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.core.math.main;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -12,7 +11,6 @@ import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * The {@link GlobalCalculator} provides mathematical functions.
  * 
@@ -21,23 +19,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class GlobalCalculator {
 
-  //constant
   /**
    * The default maximum deviation is 10^-9.
    */
   public static final double DEFAULT_MAX_DEVIATION = BasicCalculator.DEFAULT_MAX_DEVIATION;
 
-  //constant
   private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
-  //constructor
   /**
    * Prevents that an instance of the {@link GlobalCalculator} can be created.
    */
   private GlobalCalculator() {
   }
 
-  //static method
   /**
    * @param value1
    * @param value2
@@ -48,7 +42,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.equalsApproximatively(value1, value2);
   }
 
-  //static method
   /**
    * @param value1
    * @param value2
@@ -61,7 +54,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.equalsApproximatively(value1, value2, maxDeviation);
   }
 
-  //static method
   /**
    * @param value1
    * @param value2
@@ -71,7 +63,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
   }
 
-  //static method
   /**
    * @param value1
    * @param value2
@@ -81,7 +72,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
   }
 
-  //static method
   /**
    * @param value1
    * @param value2
@@ -91,7 +81,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAbsoluteDifference(value2, value1);
   }
 
-  //static method
   /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
@@ -102,7 +91,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAbsoluteValue(value);
   }
 
-  //static method
   /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
@@ -113,7 +101,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAbsoluteValue(value);
   }
 
-  //static method
   /**
    * The absolute value of a value x is -x if x is negative, x otherwise.
    * 
@@ -124,7 +111,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAbsoluteValue(value);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -134,7 +120,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAverage(value, values);
   }
 
-  //method
   /**
    * @param values
    * @return the average of the given values.
@@ -144,7 +129,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAverage(values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -154,7 +138,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAverage(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -165,7 +148,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getAverage(value, values);
   }
 
-  //static method
   /**
    * @param pOrder
    * @param inputValues
@@ -176,7 +158,6 @@ public final class GlobalCalculator {
     return new ARModel(pOrder, inputValues);
   }
 
-  //static method
   /**
    * @param degree
    * @param xValues
@@ -218,7 +199,6 @@ public final class GlobalCalculator {
     return factorMatrix.getMinimalFactorMatrix(solutionMatrix).toPolynom();
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -228,7 +208,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getMax(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -238,7 +217,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getMax(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -248,7 +226,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getMax(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -258,7 +235,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getMin(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -268,7 +244,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getMin(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -278,7 +253,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getMin(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -287,7 +261,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSquare(value);
   }
 
-  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -296,7 +269,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSquare(value);
   }
 
-  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -305,7 +277,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSquare(value);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -315,7 +286,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSum(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -325,7 +295,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSum(value, values);
   }
 
-  //static method
   /**
    * @param values
    * @return the sum of the given values.
@@ -334,7 +303,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSum(values);
   }
 
-  //static method
   /**
    * @param value
    * @param values
@@ -344,7 +312,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.getSum(value, values);
   }
 
-  //static method
   /**
    * @param value
    * @return true if the given value is approximately 1.0 with a deviation that is
@@ -354,7 +321,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.isApproximatelyOne(value);
   }
 
-  //static method
   /**
    * @param value
    * @param maxDeviation
@@ -366,7 +332,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.isApproximatelyOne(value, maxDeviation);
   }
 
-  //static method
   /**
    * @param value
    * @return true if the given value is approximately 0.0 with a deviation that is
@@ -376,7 +341,6 @@ public final class GlobalCalculator {
     return BASIC_CALCULATOR.isApproximatelyZero(value);
   }
 
-  //static method
   /**
    * @param value
    * @param maxDeviation

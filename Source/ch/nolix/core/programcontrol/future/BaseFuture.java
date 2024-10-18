@@ -1,18 +1,14 @@
-//package declaration
 package ch.nolix.core.programcontrol.future;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2022-06-18
  */
 public abstract class BaseFuture implements IFuture {
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -21,7 +17,6 @@ public abstract class BaseFuture implements IFuture {
     return (isFinished() && !caughtError());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -30,7 +25,6 @@ public abstract class BaseFuture implements IFuture {
     return (isFinished() && caughtError());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -42,7 +36,6 @@ public abstract class BaseFuture implements IFuture {
     handleProbableError();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +47,6 @@ public abstract class BaseFuture implements IFuture {
     handleProbableError();
   }
 
-  //method
   private void handleError() {
 
     if (getError().getMessage() == null || getError().getMessage().isBlank()) {
@@ -68,7 +60,6 @@ public abstract class BaseFuture implements IFuture {
       "has caught the error '" + getError().getClass().getName() + ": " + getError().getMessage() + "'");
   }
 
-  //method
   private void handleProbableError() {
     if (caughtError()) {
       handleError();

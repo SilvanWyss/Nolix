@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.tabletable;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
-//class
 public record TableTableRecord(String idValue, String nameValue) {
 
-  //constructor
   //For a better performance, this implementation does not use all comfortable methods.
   public TableTableRecord( //NOSONAR: This constructor does more than the default one.
     final String idValue,
@@ -25,12 +21,10 @@ public record TableTableRecord(String idValue, String nameValue) {
     this.nameValue = nameValue;
   }
 
-  //method
   public String getIdValue() {
     return idValue;
   }
 
-  //method
   public String getNameValue() {
     return nameValue;
   }

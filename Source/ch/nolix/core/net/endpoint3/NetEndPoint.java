@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.core.net.endpoint3;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
@@ -26,20 +25,16 @@ import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
  */
 public final class NetEndPoint extends EndPoint {
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //attribute
   private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint;
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the given port on the local machine.
@@ -53,7 +48,6 @@ public final class NetEndPoint extends EndPoint {
     this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given targetSlot
    * on the given port on the local machine.
@@ -70,7 +64,6 @@ public final class NetEndPoint extends EndPoint {
     this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, targetSlot);
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the default port on the machine with the given ip.
@@ -83,7 +76,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the given port on the machine with the given ip.
@@ -98,7 +90,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip, port));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given target slot
    * on the given port on the machine with the given ip.
@@ -116,7 +107,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip, port, targetSlot));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
@@ -139,7 +129,6 @@ public final class NetEndPoint extends EndPoint {
     createCloseDependencyTo(internalEndPoint);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -148,7 +137,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getConnectionType();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -157,7 +145,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getCustomTargetSlot();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -169,7 +156,6 @@ public final class NetEndPoint extends EndPoint {
     return getDataForRequests(requests).getStoredOne();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -183,7 +169,6 @@ public final class NetEndPoint extends EndPoint {
     return getDataForRequests(concatenatedRequests);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -207,7 +192,6 @@ public final class NetEndPoint extends EndPoint {
     };
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -216,7 +200,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getPeerType();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -225,7 +208,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getSecurityMode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -234,7 +216,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.hasCustomTargetSlot();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -243,7 +224,6 @@ public final class NetEndPoint extends EndPoint {
     runCommands(LinkedList.withElement(command));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -275,7 +255,6 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message. This method
    * does not throw any exception and returns a reply in any case because the
@@ -300,7 +279,6 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message.
    * 

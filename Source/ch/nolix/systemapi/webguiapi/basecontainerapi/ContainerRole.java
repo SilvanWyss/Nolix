@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.systemapi.webguiapi.basecontainerapi;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 /**
  * @author Silvan Wyss
  * @version 2016-09-01
@@ -19,7 +16,6 @@ public enum ContainerRole {
   COMPONENT_CONTAINER,
   TITLE_CONTAINER;
 
-  //static method
   /**
    * @param specification
    * @return a new {@link ContainerRole} from the given specification.

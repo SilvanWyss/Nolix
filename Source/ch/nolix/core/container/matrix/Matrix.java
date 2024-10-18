@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.container.matrix;
 
-//Java imports
 import java.util.Arrays;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.ContainerView;
@@ -23,7 +20,6 @@ import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link Matrix} is a {@link Container} that stores its elements in rows and
  * columns. A {@link Matrix} is clearable.
@@ -34,10 +30,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
-  //multi-attribute
   private Object[][] elements = new Object[0][0];
 
-  //static method
   /**
    * @return a new empty {@link Matrix}.
    * @param <E2> is the type of the elements of the created {@link Matrix}.
@@ -46,7 +40,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return new Matrix<>();
   }
 
-  //static method
   /**
    * @param matrix
    * @param <E2>   is the type of the elements of the given matrix.
@@ -63,14 +56,12 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return newMatrix;
   }
 
-  //constructor
   /**
    * Creates a new empty {@link Matrix}.
    */
   private Matrix() {
   }
 
-  //method
   /**
    * Adds a new column to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -96,7 +87,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return addColumn(allElements);
   }
 
-  //method
   /**
    * Adds a new column to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -162,7 +152,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return this;
   }
 
-  //method
   /**
    * Adds a new row to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -188,7 +177,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return addRow(allElements);
   }
 
-  //method
   /**
    * Adds a new row to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -255,7 +243,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return this;
   }
 
-  //method
   /**
    * Removes all elements of the current {@link Matrix}. The complexity of this
    * implementation is O(1).
@@ -265,7 +252,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     elements = new Object[0][0];
   }
 
-  //method
   /**
    * @param columnIndex
    * @return the column of the current {@link Matrix} with the given column index.
@@ -279,7 +265,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return new MatrixColumn<>(this, columnIndex);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -297,7 +282,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return elements[0].length;
   }
 
-  //method
   /**
    * @param index
    * @return the index of the column of the element of the current {@link Matrix}
@@ -321,7 +305,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return ((index - 1) % columnCount + 1);
   }
 
-  //method
   /**
    * @return the columns of the current {@link Matrix}.
    */
@@ -338,7 +321,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return columns;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(m * n) if: -This matrix
    * contains m rows. -This matrix contains n columns.
@@ -360,7 +342,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return matrix;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -371,7 +352,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return (getRowCount() * getColumnCount());
   }
 
-  //method
   /**
    * @param rowIndex
    * @param columnIndex
@@ -396,7 +376,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return ((rowIndex - 1) * getColumnCount() + columnIndex);
   }
 
-  //method
   /**
    * @return the element of the current {@link Matrix} at the given index .
    * @throws NonPositiveArgumentException if the given index is not positive.
@@ -409,7 +388,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(param1BasedIndex), getColumnIndexOf(param1BasedIndex));
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -438,7 +416,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return (E) elements[param1BasedRowIndex - 1][param1BasedColumnIndex - 1];
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -449,7 +426,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return (E) elements[getRowCount() - 1][getColumnCount() - 1];
   }
 
-  //method
   /**
    * @param rowIndex
    * @return the row of the current {@link Matrix} at the given row index.
@@ -462,7 +438,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return new MatrixRow<>(this, rowIndex);
   }
 
-  //method
   /**
    * @param index
    * @return the index of the row of the element of the current {@link Matrix} at
@@ -486,7 +461,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return ((index - 1) / columnCount + 1);
   }
 
-  //method
   /**
    * @return the rows of the current {@link Matrix}.
    */
@@ -503,7 +477,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return rows;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -521,7 +494,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return elements.length;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -530,7 +502,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -541,7 +512,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return MatrixIterator.forMatrix(this);
   }
 
-  //method
   /**
    * Sets the given element to the current {@link Matrix} at the given index. The
    * complexity of this implementation is O(1).
@@ -566,7 +536,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
   }
 
-  //method
   /**
    * Sets the given element to the current {@link Matrix} to the row with the
    * given row index and the column with the given column index.
@@ -606,7 +575,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     elements[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] = element;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if: -This matrix contains
    * n elements. -The given transformer has a complexity of O(1).
@@ -635,7 +603,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return matrix;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -665,7 +632,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return leftRotatedMatrix;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -674,7 +640,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -704,7 +669,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return rightRotatedMatrix;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if: -The current
    * {@link Matrix} contains n elements. -The toString method of the elements of
@@ -738,7 +702,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return stringBuilder.toString();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -747,7 +710,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return LinkedList.createEmpty();
   }
 
-  //method
   /**
    * @param index
    * @throws NonPositiveArgumentException if the given index is not positive.
@@ -768,7 +730,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
       .isNotBiggerThan(getCount());
   }
 
-  //method
   /**
    * @param rowIndex
    * @param columnIndex

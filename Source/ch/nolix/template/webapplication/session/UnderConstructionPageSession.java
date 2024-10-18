@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.template.webapplication.session;
 
-//own imports
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
@@ -14,16 +12,12 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
 
-  //constant
   private static final String CRANE_IMAGE_RESOURCE_PATH = "image/crane.jpg";
 
-  //constant
   private static final IImage CRANE_IMAGE = Image.fromResource(CRANE_IMAGE_RESOURCE_PATH);
 
-  //method
   @Override
   protected void initialize() {
     getStoredGui()

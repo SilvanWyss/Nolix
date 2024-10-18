@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.systemtest.graphictest.imagetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 
-//class
 final class MutableImageTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor() {
 
@@ -35,7 +31,6 @@ final class MutableImageTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_getBottomLeftPixel() {
 
@@ -50,7 +45,6 @@ final class MutableImageTest extends StandardTest {
     expect(result).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_getBottomRightPixel() {
 
@@ -65,7 +59,6 @@ final class MutableImageTest extends StandardTest {
     expect(result).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_getCopy_whenOriginIsChangedAfterwards() {
 
@@ -94,7 +87,6 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(2, 2)).isEqualTo(Color.BLUE);
   }
 
-  //method
   @Test
   void testCase_getSection() {
 
@@ -131,7 +123,6 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(2, 2)).isEqualTo(Color.GREY);
   }
 
-  //method
   @Test
   void testCase_getTopLeftPixel() {
 
@@ -146,7 +137,6 @@ final class MutableImageTest extends StandardTest {
     expect(result).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_getTopRightPixel() {
 
@@ -161,7 +151,6 @@ final class MutableImageTest extends StandardTest {
     expect(result).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_reset() {
 
@@ -190,7 +179,6 @@ final class MutableImageTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_toLeftRotatedImage() {
 
@@ -214,7 +202,6 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(2, 2)).isEqualTo(Color.RED);
   }
 
-  //method
   @Test
   void testCase_toRepeatedImage() {
 
@@ -250,7 +237,6 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(4, 4)).isEqualTo(Color.BLUE);
   }
 
-  //method
   @Test
   void testCase_toRightRotatedImage() {
 
@@ -274,7 +260,6 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(2, 2)).isEqualTo(Color.GREEN);
   }
 
-  //method
   @Test
   void testCase_toScaledImage() {
 
@@ -310,7 +295,6 @@ final class MutableImageTest extends StandardTest {
     expect(result.getPixel(4, 4)).isEqualTo(Color.BLUE);
   }
 
-  //method
   @Test
   void testCase_withAlphaValue() {
 

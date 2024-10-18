@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.core.environment.localcomputer;
 
-//Java imports
 import javax.swing.JOptionPane;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 
-//class
 /**
  * The {@link PopupWindowProvider} provides methods to show small pop-up
  * windows. Of the {@link PopupWindowProvider} an instance cannot be created.
@@ -17,23 +13,18 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
  */
 public final class PopupWindowProvider {
 
-  //constant
   private static final String ERROR_WINDOW_TITLE = "Error";
 
-  //constant
   private static final String MESSAGE_WINDOW_TITLE = "Message";
 
-  //constant
   private static final String REQUEST_WINDOW_TITLE = "Request";
 
-  //constructor
   /**
    * Prevents that an instance of the {@link PopupWindowProvider} can be created.
    */
   private PopupWindowProvider() {
   }
 
-  //static method
   /**
    * Shows an error window with the given error message.
    * 
@@ -47,7 +38,6 @@ public final class PopupWindowProvider {
       JOptionPane.ERROR_MESSAGE);
   }
 
-  //static method
   /**
    * Shows an error window for the given error.
    * 
@@ -109,7 +99,6 @@ public final class PopupWindowProvider {
       JOptionPane.INFORMATION_MESSAGE);
   }
 
-  //static method
   /**
    * Shows a request window with the given question.
    * 

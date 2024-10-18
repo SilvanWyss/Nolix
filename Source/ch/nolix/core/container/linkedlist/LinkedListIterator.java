@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.core.container.linkedlist;
 
-//Java imports
 import java.util.NoSuchElementException;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
@@ -17,10 +13,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 final class LinkedListIterator<E> implements CopyableIterator<E> {
 
-  //optional attribute
   private LinkedListNode<E> nextNode;
 
-  //constructor
   /**
    * Creates a new {@link LinkedListIterator} with the given nullableFirstNode.
    * The given nullableFirstNode can be null.
@@ -31,12 +25,10 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     nextNode = nullableFirstNode;
   }
 
-  //static method
   public static <E2> LinkedListIterator<E2> withNullableFirstNode(final LinkedListNode<E2> nullableFirstNode) {
     return new LinkedListIterator<>(nullableFirstNode);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -45,7 +37,6 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     return withNullableFirstNode(nextNode);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +45,6 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     return (nextNode != null);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -66,7 +56,6 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw //
@@ -75,7 +64,6 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  //method
   private E nextWhenHasNext() {
 
     final var element = nextNode.getElement();

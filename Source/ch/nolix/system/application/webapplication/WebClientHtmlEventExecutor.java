@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.system.application.webapplication;
 
-//Java imports
 import java.util.Optional;
 import java.util.function.BooleanSupplier;
 
-//own imports
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 
-//class
 public final class WebClientHtmlEventExecutor {
 
-  //method
   public void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
     final IControl<?, ?> triggeredControl,
     final String htmlEvent,
@@ -41,7 +36,6 @@ public final class WebClientHtmlEventExecutor {
     }
   }
 
-  //method
   private Optional<IControl<?, ?>> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
 
     if (control.isLinkedToAnObject()
@@ -56,7 +50,6 @@ public final class WebClientHtmlEventExecutor {
     return Optional.empty();
   }
 
-  //method
   private RefreshBehavior getRefreshBehavior(
     final IControl<?, ?> triggeredControl,
     final int originalLayerCount,
@@ -80,7 +73,6 @@ public final class WebClientHtmlEventExecutor {
     return RefreshBehavior.REFRESH_SELF;
   }
 
-  //method
   private IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {
 
     final var componentContainer = getOptionalStoredParentComponentOfControl(triggeredControl);

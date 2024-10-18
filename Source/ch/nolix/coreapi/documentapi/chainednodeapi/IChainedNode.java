@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.coreapi.documentapi.chainednodeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
 
-//interface
 /**
  * A {@link IChainedNode} has the following attributes. -0 or 1 header -an
  * arbitrary number of child {@link IChainedNode}s -0 or 1 next
@@ -23,13 +20,11 @@ import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
  */
 public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolder {
 
-  //method declaration
   /**
    * @return true if the current {@link IChainedNode} contains child nodes.
    */
   boolean containsChildNodes();
 
-  //method declaration
   /**
    * @param param1BasedIndex
    * @return the child node of the current {@link IChainedNode} at the given
@@ -39,19 +34,16 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   IChainedNode getChildNodeAt1BasedIndex(int param1BasedIndex);
 
-  //method declaration
   /**
    * @return the number of child nodes of the current {@link IChainedNode}.
    */
   int getChildNodeCount();
 
-  //method declaration
   /**
    * @return the child nodes of the current {@link IChainedNode}.
    */
   IContainer<? extends IChainedNode> getChildNodes();
 
-  //method declaration
   /**
    * @param header
    * @return the first child node with the given header from the current
@@ -61,7 +53,6 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   IChainedNode getFirstChildNodeWithHeader(String header);
 
-  //method declaration
   /**
    * @return the next node of the current {@link IChainedNode}.
    * @throws RuntimeException if the current {@link IChainedNode} does not have a
@@ -69,7 +60,6 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   IChainedNode getNextNode();
 
-  //method declaration
   /**
    * @return the single child node of the current {@link IChainedNode}.
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
@@ -77,7 +67,6 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   IChainedNode getSingleChildNode();
 
-  //method declaration
   /**
    * 
    * @return the header of the single child node of the current
@@ -89,13 +78,11 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   String getSingleChildNodeHeader();
 
-  //method declaration
   /**
    * @return true if the current {@link IChainedNode} has a next node.
    */
   boolean hasNextNode();
 
-  //method declaration
   /**
    * @return the double the current {@link IChainedNode} represents.
    * @throws RuntimeException if the current {@link IChainedNode} does not
@@ -103,7 +90,6 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   double toDouble();
 
-  //method declaration
   /**
    * @return the int the current {@link IChainedNode} represents.
    * @throws RuntimeException if the current {@link IChainedNode} does not
@@ -111,7 +97,6 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    */
   int toInt();
 
-  //method declaration
   /**
    * A {@link IChainedNode} represents a {@link INode} if: -The
    * {@link IChainedNode} does not have a next node. -Each child nodes of the

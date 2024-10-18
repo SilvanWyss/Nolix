@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalNameHolder} is a {@link IOptionalNameHolder}
  * whose name can be set and removed programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
 public interface IFluentMutableOptionalNameHolder<FMONH extends IFluentMutableOptionalNameHolder<FMONH>>
 extends IOptionalNameHolder {
 
-  //method declaration
   /**
    * Removes the name of the current {@link IFluentMutableOptionalNameHolder}.
    * 
@@ -24,7 +20,6 @@ extends IOptionalNameHolder {
    */
   FMONH removeName();
 
-  //method declaration
   /**
    * Sets the name of the current {@link IFluentMutableOptionalNameHolder}.
    * 

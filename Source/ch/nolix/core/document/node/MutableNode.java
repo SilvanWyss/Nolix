@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.document.node;
 
-//Java imports
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -14,23 +11,18 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class MutableNode extends BaseMutableNode<MutableNode> {
 
-  //optional attribute
   private String header;
 
-  //multi-attribute
   private final LinkedList<MutableNode> childNodes = LinkedList.createEmpty();
 
-  //constructor
   /**
    * Creates a new empty {@link MutableNode}.
    */
   private MutableNode() {
   }
 
-  //static method
   /**
    * @return a new empty {@link MutableNode}.
    */
@@ -38,7 +30,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return new MutableNode();
   }
 
-  //static method
   /**
    * @param filePath
    * @return a new {@link MutableNode} from the file with the given filePath.
@@ -55,7 +46,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return mutableNode;
   }
 
-  //static method
   /**
    * @param node
    * @return a new {@link MutableNode} from the given {@link INode}.
@@ -73,7 +63,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return mutableNode;
   }
 
-  //static method
   /**
    * @param string
    * @return a new {@link MutableNode} from the given string.
@@ -88,7 +77,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return mutableNode;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -104,7 +92,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -120,7 +107,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -134,7 +120,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -148,7 +133,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -157,7 +141,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return Node.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -171,7 +154,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return equalsNode((MutableNode) object);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -180,7 +162,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return childNodes;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -192,7 +173,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return header;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -201,7 +181,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return (header != null);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -210,7 +189,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return toString().hashCode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -219,7 +197,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     childNodes.clear();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -228,7 +205,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return childNodes.removeAndGetStoredFirst(selector::test);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -237,7 +213,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     childNodes.removeFirst(selector::test);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -246,7 +221,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     childNodes.removeFirst(cn -> cn.hasHeader(header));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -258,7 +232,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -267,7 +240,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     childNodes.replaceFirst(a -> a.hasHeader(header), fromNode(childNode));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -277,7 +249,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     removeChildNodes();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -291,7 +262,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -300,7 +270,6 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
     return this;
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link MutableNode} does not

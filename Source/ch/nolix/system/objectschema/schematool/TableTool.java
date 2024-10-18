@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schematool;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -14,13 +12,10 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
-//class
 public final class TableTool extends DatabaseObjectTool implements ITableTool {
 
-  //constant
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
-  //method
   @Override
   public void assertContainsGivenColumn(final ITable table, final IColumn column) {
     if (!containsGivenColumn(table, column)) {
@@ -28,7 +23,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     }
   }
 
-  //method
   @Override
   public void assertDoesNotBelongToDatabase(final ITable table) {
     if (table.belongsToDatabase()) {
@@ -36,7 +30,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     }
   }
 
-  //method
   @Override
   public void assertDoesNotContainGivenColumn(final ITable table, final IColumn column) {
     if (containsGivenColumn(table, column)) {
@@ -44,7 +37,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     }
   }
 
-  //method
   @Override
   public void assertDoesNotContainColumnWithGivenName(final ITable table, final String name) {
     if (containsColumnWithGivenName(table, name)) {
@@ -54,7 +46,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     }
   }
 
-  //method
   @Override
   public void assertIsNotReferenced(final ITable table) {
     if (isReferenced(table)) {
@@ -62,7 +53,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     }
   }
 
-  //method
   @Override
   public boolean canBeAddedToDatabase(final ITable table) {
     return table != null
@@ -70,13 +60,11 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     && !table.belongsToDatabase();
   }
 
-  //method
   @Override
   public boolean containsGivenColumn(final ITable table, final IColumn column) {
     return table.getStoredColumns().contains(column);
   }
 
-  //method
   @Override
   public boolean containsColumnBackReferencedByGivenColumn(final ITable table, final IColumn column) {
 
@@ -89,7 +77,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
   }
 
-  //method
   @Override
   public boolean containsColumnThatReferencesBackGivenColumn(final ITable table, final IColumn column) {
 
@@ -102,7 +89,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
   }
 
-  //method
   @Override
   public boolean containsColumnThatReferencesGivenTable(
     final ITable table,
@@ -110,25 +96,21 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesGivenTable(c, table));
   }
 
-  //method
   @Override
   public boolean containsColumnWithGivenName(final ITable table, final String name) {
     return table.getStoredColumns().containsAny(c -> c.hasName(name));
   }
 
-  //method
   @Override
   public int getColumnCount(final ITable table) {
     return table.getStoredColumns().getCount();
   }
 
-  //method
   @Override
   public IContainer<IColumn> getStoredBackReferenceColumns(final ITable table) {
     return table.getStoredColumns().getStoredSelected(COLUMN_TOOL::isABackReferenceColumn);
   }
 
-  //method
   @Override
   public IContainer<IColumn> getStoredBackReferencingColumns(final ITable table) {
 
@@ -139,7 +121,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return getStoredBackReferencingColumnsWhenBelongsToDatabase(table);
   }
 
-  //method
   @Override
   public IContainer<IColumn> getStoredReferencingColumns(final ITable table) {
 
@@ -150,7 +131,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return getStoredReferencingColumnsWhenBelongsToDatabase(table);
   }
 
-  //method
   @Override
   public boolean isReferenced(final ITable table) {
     return table.belongsToDatabase()
@@ -158,7 +138,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
       .containsAny(t -> containsColumnThatReferencesGivenTable(t, table));
   }
 
-  //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
 
@@ -169,7 +148,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
       .getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
-  //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
 
@@ -178,7 +156,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
-  //method
   private IContainer<IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
     return table
       .getParentDatabase()
@@ -187,7 +164,6 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
       .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
   }
 
-  //method
   private IContainer<IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
     return table.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));

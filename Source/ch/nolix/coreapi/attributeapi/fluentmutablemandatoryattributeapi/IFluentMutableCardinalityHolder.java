@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 
-//interface
 /**
  * A {@link IFluentMutableCardinalityHolder} is a {@link ICardinalityHolder}
  * whose {@link Cardinality} can be set programmatically and fluently.
@@ -17,7 +14,6 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 public interface IFluentMutableCardinalityHolder<FMCH extends IFluentMutableCardinalityHolder<FMCH>>
 extends ICardinalityHolder {
 
-  //method declaration
   /**
    * Sets the {@link Cardinality} of the current
    * {@link IFluentMutableCardinalityHolder}.

@@ -1,14 +1,10 @@
-//package declaration
 package ch.nolix.core.commontypetool.arraytool;
 
-//own imports
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediator;
 
-//class
 public final class ArrayTool implements IArrayTool {
 
-  //method
   @Override
   public <E> E[] createArrayWithElement(final E element, final @SuppressWarnings("unchecked") E... elements) {
 
@@ -19,7 +15,6 @@ public final class ArrayTool implements IArrayTool {
     return array;
   }
 
-  //method
   @Override
   public double[] createArrayWithValue(final double value, final double... values) {
 
@@ -30,7 +25,6 @@ public final class ArrayTool implements IArrayTool {
     return array;
   }
 
-  //method
   @Override
   public IByteArrayMediator onArray(final byte[] byteArray) {
     return ByteArrayMediator.forByteArray(byteArray);

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2024-07-28
@@ -9,7 +7,6 @@ package ch.nolix.coreapi.containerapi.baseapi;
  */
 public interface IViewProviderContainer<E> {
 
-  //method declaration
   /**
    * @param param1BasedStartIndex
    * @return a new view of the current {@link IViewProviderContainer} from the
@@ -21,7 +18,6 @@ public interface IViewProviderContainer<E> {
    */
   IContainer<E> getViewFrom1BasedStartIndex(int param1BasedStartIndex);
 
-  //method declaration
   /**
    * @param param1BasedStartIndex
    * @param param1BasedEndIndex
@@ -36,7 +32,6 @@ public interface IViewProviderContainer<E> {
    */
   IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(int param1BasedStartIndex, int param1BasedEndIndex);
 
-  //method declaration
   /**
    * @param param1BasedEndIndex
    * @return a new view of the current {@link IViewProviderContainer} to the given
@@ -48,7 +43,6 @@ public interface IViewProviderContainer<E> {
    */
   IContainer<E> getViewTo1BasedEndIndex(int param1BasedEndIndex);
 
-  //method declaration
   /**
    * @return a new view of the current {@link IViewProviderContainer} without the
    *         first element.
@@ -57,7 +51,6 @@ public interface IViewProviderContainer<E> {
    */
   IContainer<E> getViewWithoutFirst();
 
-  //method declaration
   /**
    * @param n
    * @return a new view of the current {@link IViewProviderContainer} without the
@@ -69,7 +62,6 @@ public interface IViewProviderContainer<E> {
    */
   IContainer<E> getViewWithoutFirst(int n);
 
-  //method declaration
   /**
    * @return a new view of the current {@link IViewProviderContainer} without the
    *         last element.
@@ -78,7 +70,6 @@ public interface IViewProviderContainer<E> {
    */
   IContainer<E> getViewWithoutLast();
 
-  //method declaration
   /**
    * @param n
    * @return a new sub view of the current {@link IViewProviderContainer} without

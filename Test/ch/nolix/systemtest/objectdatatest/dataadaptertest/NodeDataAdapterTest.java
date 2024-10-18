@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
@@ -17,19 +14,15 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedValueTyp
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
-//class
 final class NodeDataAdapterTest extends StandardTest {
 
-  //constant
   private static final class Pet extends Entity {
 
-    //constructor
     Pet() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_close_whenIsOpen() {
 
@@ -48,7 +41,6 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(testUnit.isClosed());
   }
 
-  //method
   @Test
   void testCase_close_whenIsClosed() {
 
@@ -68,7 +60,6 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(testUnit.isClosed());
   }
 
-  //method
   @Test
   void testCase_constructor_whenTheGivenDatabaseIsEmpty() {
 
@@ -84,7 +75,6 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(result.isChangeFree());
   }
 
-  //method
   @Test
   void testCase_constructor_whenTheGivenDatabaseIsNotValid() {
 
@@ -99,7 +89,6 @@ final class NodeDataAdapterTest extends StandardTest {
       .withMessage("The database has a schema that does not suit.");
   }
 
-  //method
   @Test
   void testCase_getEmptyCopy_whenHasChanges() {
 
@@ -120,7 +109,6 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(result.isChangeFree());
   }
 
-  //method
   @Test
   void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 
@@ -137,7 +125,6 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(testUnit.isChangeFree());
   }
 
-  //method
   @Test
   void testCase_saveChangesAndReset_whenHasChanges() {
 
@@ -155,7 +142,6 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(testUnit.isChangeFree());
   }
 
-  //method
   @Test
   void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
 

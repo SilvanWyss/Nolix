@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.systemtest.applicationtest.maintest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
-//class
 final class BackendClientSessionManagerTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forClient() {
 
@@ -30,7 +25,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
     expectNot(testUnit.containsNextSession());
   }
 
-  //method
   @Test
   void testCase_forClient_whenTheGivenClientIsNull() {
 
@@ -41,7 +35,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
       .withMessage("The given parent client is null.");
   }
 
-  //method
   @Test
   void testCase_popCurrentSession_whenDoesNotContainSession() {
 
@@ -53,7 +46,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
     expectRunning(testUnit::popCurrentSession).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_popCurrentSession_whenContains1Session() {
 
@@ -73,7 +65,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
     expectNot(testUnit.containsNextSession());
   }
 
-  //method
   @Test
   void testCase_pushSession_whenDoesNotContainSession() {
 
@@ -93,7 +84,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
     expect(testUnit.getStoredCurrentSession()).is(mockBackendClientSession);
   }
 
-  //method
   @Test
   void testCase_pushSession_whenContains1Session() {
 

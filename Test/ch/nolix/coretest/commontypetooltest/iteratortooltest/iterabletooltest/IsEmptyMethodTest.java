@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.commontypetooltest.iteratortooltest.iterabletooltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class IsEmptyMethodTest extends StandardTest {
 
-  //method
   @Test
   void testCase_isEmpty_whenGivenIterableIsNull() {
 
@@ -27,7 +22,6 @@ final class IsEmptyMethodTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isEmpty_whenGivenIterableIsEmpty() {
 
@@ -42,7 +36,6 @@ final class IsEmptyMethodTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isEmpty_whenGivenIterableContains1Element() {
 
@@ -57,7 +50,6 @@ final class IsEmptyMethodTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isEmpty_whenGivenIterableContains2Elements() {
 

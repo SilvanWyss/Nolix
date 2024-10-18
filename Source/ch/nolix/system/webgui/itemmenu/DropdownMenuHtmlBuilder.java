@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
@@ -14,10 +12,8 @@ import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
-//class
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
 
-  //method
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
     return HtmlElement.withTypeAndChildElements(
@@ -25,19 +21,16 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
       createHtmlChildElementsForDropdownMenu(dropdownMenu));
   }
 
-  //method
   private IContainer<IHtmlElement> createHtmlChildElementsForDropdownMenu(
     final IDropdownMenu dropdownMenu) {
     return createHtmlElementsFromItems(dropdownMenu.getStoredItems());
   }
 
-  //method
   private IContainer<IHtmlElement> createHtmlElementsFromItems(
     final IContainer<? extends IItemMenuItem<?>> items) {
     return items.to(this::createHtmlElementForItem);
   }
 
-  //method
   private IHtmlElement createHtmlElementForItem(final IItemMenuItem<?> item) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
       HtmlElementTypeCatalogue.OPTION,
@@ -45,7 +38,6 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
       item.getText());
   }
 
-  //method
   private IContainer<IHtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
 
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();

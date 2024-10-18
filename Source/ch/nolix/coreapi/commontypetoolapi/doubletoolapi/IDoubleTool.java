@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.commontypetoolapi.doubletoolapi;
 
-//interface
 /**
  * A {@link IDoubleTool} provides methods to handle doubles.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.commontypetoolapi.doubletoolapi;
  */
 public interface IDoubleTool {
 
-  //method declaration
   /**
    * @param value
    * @return a {@link String} representation of the given value. The

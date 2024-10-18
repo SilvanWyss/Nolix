@@ -1,25 +1,18 @@
-//package declaration
 package ch.nolix.system.objectschema.schemadto;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-//class
 public final class ColumnDto implements IColumnDto {
 
-  //attribute
   private final String id;
 
-  //attribute
   private final String name;
 
-  //attribute
   private final IParameterizedFieldTypeDto parameterizedFieldTypeDto;
 
-  //constructor
   //For a better performance, this implementation does not use all comfortable methods.
   public ColumnDto(
     final String id,
@@ -43,19 +36,16 @@ public final class ColumnDto implements IColumnDto {
     this.parameterizedFieldTypeDto = parameterizedFieldTypeDto;
   }
 
-  //method
   @Override
   public String getId() {
     return id;
   }
 
-  //method
   @Override
   public String getName() {
     return name;
   }
 
-  //method
   @Override
   public IParameterizedFieldTypeDto getParameterizedFieldType() {
     return parameterizedFieldTypeDto;

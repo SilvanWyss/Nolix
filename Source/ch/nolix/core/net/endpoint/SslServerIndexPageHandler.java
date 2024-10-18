@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Netty imports
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.Unpooled;
@@ -18,7 +16,6 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.CharsetUtil;
 
-//class
 final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
   private final String htmlPage;

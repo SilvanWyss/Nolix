@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
 import ch.nolix.core.web.css.CssProperty;
@@ -10,10 +9,8 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILinkStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ILink control,
@@ -21,7 +18,6 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ILink control,
@@ -30,7 +26,6 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ILink control,
@@ -38,7 +33,6 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
     list.addAtEnd(CssProperty.withNameAndValue("text-decoration", "none"));
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final ILink control,

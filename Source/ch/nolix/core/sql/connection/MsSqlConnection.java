@@ -1,28 +1,20 @@
-//package declaration
 package ch.nolix.core.sql.connection;
 
-//Java imports
 import java.sql.Connection;
 
-//own imports
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
-//class
 public final class MsSqlConnection extends SqlConnection {
 
-  //constant
   public static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MSSQL;
 
-  //constant
   private static final String MSSQL_DATABASE_ENINGE_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-  //constructor
   public MsSqlConnection(
     final Connection connection) {
     super(SQL_DATABASE_ENGINE, connection);
   }
 
-  //constructor
   public MsSqlConnection(
     final int port,
     final String userName,
@@ -34,7 +26,6 @@ public final class MsSqlConnection extends SqlConnection {
       userPassword);
   }
 
-  //constructor
   public MsSqlConnection(
     final String ip,
     final int port,
@@ -48,7 +39,6 @@ public final class MsSqlConnection extends SqlConnection {
       userPassword);
   }
 
-  //method
   @Override
   protected String getSqlDatabaseEngineDriverClass() {
     return MSSQL_DATABASE_ENINGE_DRIVER_CLASS;

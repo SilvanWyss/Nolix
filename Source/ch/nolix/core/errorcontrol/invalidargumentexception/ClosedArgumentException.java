@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ClosedArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when an argument is undesirably closed.
@@ -12,10 +10,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ClosedArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is closed";
 
-  //constructor
   /**
    * Creates a new {@link ClosedArgumentException} for the given argument.
    * 
@@ -27,7 +23,6 @@ public final class ClosedArgumentException extends InvalidArgumentException {
     super(argument, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link ClosedArgumentException} for the given argumentName and
    * argument.
@@ -43,7 +38,6 @@ public final class ClosedArgumentException extends InvalidArgumentException {
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ClosedArgumentException} for the given argument.
@@ -52,7 +46,6 @@ public final class ClosedArgumentException extends InvalidArgumentException {
     return new ClosedArgumentException(argument);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

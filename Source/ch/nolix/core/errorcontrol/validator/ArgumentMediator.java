@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//Java imports
 import java.util.Objects;
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -13,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link ArgumentMediator} is not mutable.
  * 
@@ -23,10 +19,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public class ArgumentMediator<A> extends Mediator {
 
-  //attribute
   private final A argument;
 
-  //constructor
   /**
    * Creates a new {@link ArgumentMediator} for the given argument.
    * 
@@ -38,7 +32,6 @@ public class ArgumentMediator<A> extends Mediator {
     this(DEFAULT_ARGUMENT_NAME, argument);
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentMediator} for the given argument, which has the
    * given argumentName.
@@ -57,7 +50,6 @@ public class ArgumentMediator<A> extends Mediator {
     this.argument = argument;
   }
 
-  //static method
   /**
    * @param argument
    * @param <A2>     is the type of the given argument.
@@ -67,7 +59,6 @@ public class ArgumentMediator<A> extends Mediator {
     return new ArgumentMediator<>(argument);
   }
 
-  //method
   /**
    * @param condition
    * @throws ArgumentIsNullException  if the given condition is null.
@@ -92,7 +83,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @param object
    * @throws ArgumentIsNullException  if the given object is null.
@@ -115,7 +105,6 @@ public class ArgumentMediator<A> extends Mediator {
     hasStringRepresentation(stringRepresentation);
   }
 
-  //method
   /**
    * @param stringRepresentation
    * @throws InvalidArgumentException if the argument of the current
@@ -137,7 +126,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -153,7 +141,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -172,7 +159,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -191,7 +177,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -207,7 +192,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException if the argument of the current
    *                                 {@link ArgumentMediator} is null.
@@ -220,7 +204,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNotNullException if the argument of the current
    *                                    {@link ArgumentMediator} is not (!) null.
@@ -233,7 +216,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @param type
    * @throws ArgumentIsNullException  if the argument of the current
@@ -257,7 +239,6 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  //method
   /**
    * @return the argument of the current {@link ArgumentMediator}.
    */

@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.webtest.htmltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 
-//class
 final class HtmlElementTest extends StandardTest {
 
-  //method
   @Test
   void testCase_withAttribute_whenContainsAttributesAndHasNonEmptyInnerText() {
 

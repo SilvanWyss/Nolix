@@ -1,19 +1,15 @@
-//package declaration
 package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-//own imports
+
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 
-//class
 public final class ArrayListCapacityCalculator {
 
-  //constant
   private static final int BILLION = 1_000_000_000;
 
-  //method
   /**
    * @param actualCapacity
    * @param requiredCapacity
@@ -38,7 +34,6 @@ public final class ArrayListCapacityCalculator {
     return GlobalCalculator.getMax(requiredCapacity, 2 * actualCapacity);
   }
 
-  //method
   /**
    * @param capacity
    * @param requiredCapacity

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link IHeaderHolder} has a header.
  * 
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface IHeaderHolder {
 
-  //method declaration
   /**
    * @return the header of the current {@link IHeaderHolder}.
    */
   String getHeader();
 
-  //method
   /**
    * @return the header of the current {@link IHeaderHolder} in quotes.
    */
@@ -28,7 +23,6 @@ public interface IHeaderHolder {
     return ("'" + getHeader() + "'");
   }
 
-  //method
   /**
    * @param header
    * @return true if the current {@link IHeaderHolder} has the given header.
@@ -37,7 +31,6 @@ public interface IHeaderHolder {
     return getHeader().equals(header);
   }
 
-  //method
   /**
    * @param object
    * @return true if the current {@link IHeaderHolder} has the same header as the

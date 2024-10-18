@@ -1,41 +1,31 @@
-//package declaration
 package ch.nolix.system.graphic.color;
 
-//Java imports
 import java.lang.reflect.Field;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
-//class
 public final class ColorNameConstantExtractor {
 
-  //constant
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 
-  //multi-attribute
   private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
 
-  //method
   public IContainer<Pair<String, Color>> getWebColorsAndNames() {
     return colorNames;
   }
 
-  //method
   private boolean declaresColor(final Field field) {
     return GlobalReflectionTool.isStaticAndStoresValueOfGivenType(field, Color.class);
   }
 
-  //method
   private boolean declaresColorName(final Field field) {
     return (GlobalReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
   }
 
-  //method
   private LinkedList<Pair<String, Color>> extractAndGetColorNames() {
 
     final LinkedList<Pair<String, Color>> lColorNames = LinkedList.createEmpty();
@@ -57,7 +47,6 @@ public final class ColorNameConstantExtractor {
     return lColorNames;
   }
 
-  //method
   private ILinkedList<Field> getColorFields() {
 
     final ILinkedList<Field> colorFields = LinkedList.createEmpty();
@@ -71,7 +60,6 @@ public final class ColorNameConstantExtractor {
     return colorFields;
   }
 
-  //method
   private ILinkedList<Field> getColorNameConnstantFields() {
 
     final ILinkedList<Field> colorNameConstantFields = LinkedList.createEmpty();

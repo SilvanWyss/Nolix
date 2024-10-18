@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
@@ -13,19 +11,14 @@ import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-//class
 public final class SchemaInitializer {
 
-  //constant
   private static final ITableMapper TABLE_MAPPER = new ch.nolix.system.objectdata.schemamapper.TableMapper();
 
-  //constant
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  //constant
   private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
-  //method
   public void initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
     final ISchema schema,
     final ISchemaAdapter schemaAdapter) {
@@ -34,12 +27,10 @@ public final class SchemaInitializer {
     }
   }
 
-  //method
   private boolean databaseIsEmpty(final ISchemaAdapter schemaAdapter) {
     return (schemaAdapter.getTableCount() == 0);
   }
 
-  //method
   private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
     final ISchema schema,
     final ISchemaAdapter schemaAdapter) {
@@ -55,7 +46,6 @@ public final class SchemaInitializer {
     schemaAdapter.saveChanges();
   }
 
-  //method
   private void addBaseValueColumnsToTablesFromSchema(
     final IContainer<ITable> tables,
     final ISchema schema) {
@@ -65,7 +55,6 @@ public final class SchemaInitializer {
     }
   }
 
-  //method
   private void addBaseValueColumnsToTableFromEntityType(
     final ITable table,
     final Class<? extends IEntity> entityType) {
@@ -85,7 +74,6 @@ public final class SchemaInitializer {
     }
   }
 
-  //method
   private void addBaseReferenceColumnsToTablesFromSchema(
     final IContainer<ITable> tables,
     final ISchema schema,
@@ -96,7 +84,6 @@ public final class SchemaInitializer {
     }
   }
 
-  //method
   private void addBaseReferenceColumnsToTableFromEntityType(
     final ITable table,
     final Class<? extends IEntity> entityType,
@@ -117,7 +104,6 @@ public final class SchemaInitializer {
     }
   }
 
-  //method
   private void addBaseBackReferenceColumnsToTablesFromSchema(
     final IContainer<ITable> tables,
     final ISchema schema,
@@ -128,7 +114,6 @@ public final class SchemaInitializer {
     }
   }
 
-  //method
   private void addBaseBackReferenceColumnsToTableFromEntityType(
     final ITable table,
     final Class<? extends IEntity> entityType,

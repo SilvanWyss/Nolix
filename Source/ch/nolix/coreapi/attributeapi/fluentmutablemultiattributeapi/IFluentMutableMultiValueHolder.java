@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
 
-//interface
 /**
  * A {@link IFluentMutableMultiValueHolder} is a {@link IMultiValueHolder} whose
  * values can be added and removed programmatically and fluently.
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
 public interface IFluentMutableMultiValueHolder<FMMVH extends IFluentMutableMultiValueHolder<FMMVH, V>, V>
 extends IMultiValueHolder<V> {
 
-  //method declaration
   /**
    * Adds the given value to the current {@link IFluentMutableMultiValueHolder}.
    * 
@@ -28,7 +24,6 @@ extends IMultiValueHolder<V> {
    */
   FMMVH addValue(V value);
 
-  //method declaration
   /**
    * Removes the given value from the current
    * {@link IFluentMutableMultiValueHolder}.
@@ -40,7 +35,6 @@ extends IMultiValueHolder<V> {
    */
   void removeValue(V value);
 
-  //method declaration
   /**
    * Removes all values from the current {@link IFluentMutableMultiValueHolder}.
    */

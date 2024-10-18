@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.timeapi.timestructureapi;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 public enum Month {
   JANUARY,
   FEBRUARY,
@@ -19,7 +16,6 @@ public enum Month {
   NOVEMBER,
   DECEMBER;
 
-  //static method
   public static Month fromJavaMonth(final java.time.Month month) { //NOSONAR: This method is uniform.
     return switch (month) {
       case JANUARY ->
@@ -51,7 +47,6 @@ public enum Month {
     };
   }
 
-  //static method
   public Month fromSpecification(final INode<?> specification) {
     return Month.valueOf(specification.getSingleChildNodeHeader());
   }

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.elementapi.mutableelementapi;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2021-04-01
@@ -12,7 +9,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement {
 
-  //method declaration
   /**
    * Adds or changes the given attribute to the current
    * {@link IRespondingMutableElement} if the given attributes matches.

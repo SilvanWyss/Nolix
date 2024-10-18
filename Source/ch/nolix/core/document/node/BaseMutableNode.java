@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.document.node;
 
-//own imports
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -11,10 +9,8 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends BaseNode<MN> implements IMutableNode<MN> {
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -36,7 +32,6 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     return asConcrete();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -58,7 +53,6 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     return asConcrete();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -71,7 +65,6 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
         .replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -88,7 +81,6 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -101,13 +93,11 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     return asConcrete();
   }
 
-  //method declaration
   /**
    * @return the current {@link BaseMutableNode}.
    */
   protected abstract MN asConcrete();
 
-  //method
   final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
 
     final var headerLength = getHeaderLengthFromStringAndStartIndex(string, startIndex);
@@ -150,7 +140,6 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
   }
 
-  //method
   private int getHeaderLengthFromStringAndStartIndex(final String string, final int startIndex) {
 
     for (var index = startIndex; index < string.length(); index++) {

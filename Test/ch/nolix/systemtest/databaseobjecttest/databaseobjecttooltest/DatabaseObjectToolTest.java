@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.databaseobjecttest.databaseobjecttooltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;
@@ -11,10 +9,8 @@ import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
-//class
 final class DatabaseObjectToolTest extends StandardTest {
 
-  //method
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNull() {
 
@@ -28,7 +24,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNew() {
 
@@ -46,7 +41,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsLoaded() {
 
@@ -64,7 +58,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsEdited() {
 
@@ -82,7 +75,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsDeleted() {
 
@@ -100,7 +92,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsClosed() {
 
@@ -118,7 +109,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNull() {
 
@@ -132,7 +122,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNew() {
 
@@ -150,7 +139,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
 
@@ -168,7 +156,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsEdited() {
 
@@ -186,7 +173,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
 
@@ -204,7 +190,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsClosed() {
 
@@ -222,7 +207,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNull() {
 
@@ -236,7 +220,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNew() {
 
@@ -254,7 +237,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsLoaded() {
 
@@ -272,7 +254,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsEdited() {
 
@@ -290,7 +271,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsDeleted() {
 
@@ -308,7 +288,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsClosed() {
 
@@ -326,7 +305,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNull() {
 
@@ -340,7 +318,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNew() {
 
@@ -358,7 +335,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
 
@@ -376,7 +352,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsEdited() {
 
@@ -394,7 +369,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
 
@@ -412,7 +386,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsClosed() {
 

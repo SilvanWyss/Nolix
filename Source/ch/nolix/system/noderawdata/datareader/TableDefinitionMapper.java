@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.noderawdata.datareader;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -11,16 +9,12 @@ import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
-//class
 final class TableDefinitionMapper {
 
-  //constant
   private static final ColumnDefinitionMapper COLUMN_DEFINITION_MAPPER = new ColumnDefinitionMapper();
 
-  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  //method
   public ITableInfo createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
     return new TableInfo(
       getTableIdFromTableNode(tableNode),
@@ -28,7 +22,6 @@ final class TableDefinitionMapper {
       getContentColumnDefinitionsFromTableNode(tableNode));
   }
 
-  //method
   private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 
     final ILinkedList<IColumnInfo> columnInfos = LinkedList.createEmpty();
@@ -46,18 +39,15 @@ final class TableDefinitionMapper {
     return columnInfos;
   }
 
-  //method
   private IContainer<? extends IMutableNode<?>> getStoredColumnNodesInOrderFromTableNode(
     final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
   }
 
-  //method
   private String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
   }
 
-  //method
   private String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
   }

@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.container.immutablelist;
 
-//Java imports
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-//own imports
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
@@ -20,7 +17,6 @@ import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 
-//class
 /**
  * A {@link ImmutableList} is a {@link Container} that is not mutable.
  * 
@@ -30,16 +26,12 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
  */
 public final class ImmutableList<E> extends Container<E> {
 
-  //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //constant
   private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
-  //multi-attribute
   private final E[] elements;
 
-  //constructor
   /**
    * Creates a new empty {@link ImmutableList}.
    */
@@ -48,7 +40,6 @@ public final class ImmutableList<E> extends Container<E> {
     elements = (E[]) new Object[0];
   }
 
-  //constructor
   /**
    * Creates a new {@link ImmutableList} with the given elements.
    * 
@@ -58,7 +49,6 @@ public final class ImmutableList<E> extends Container<E> {
     this.elements = elements; //NOSONAR: A ImmutableList operates on the original instance.
   }
 
-  //constructor
   /**
    * Creates a new {@link ImmutableList} with the given element and elements.
    * 
@@ -74,7 +64,6 @@ public final class ImmutableList<E> extends Container<E> {
     GlobalValidator.assertThatTheElements(elements).areNotNull();
   }
 
-  //static method
   /**
    * @return a new empty {@link ImmutableList}.
    * @param <E2> is the type of the elements the {@link ImmutableList} could have.
@@ -83,12 +72,10 @@ public final class ImmutableList<E> extends Container<E> {
     return new ImmutableList<>();
   }
 
-  //static method
   public static <E2> ImmutableList<E2> forArray(final E2[] array) {
     return new ImmutableList<>(array.clone());
   }
 
-  //static method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param <E2>
@@ -122,7 +109,6 @@ public final class ImmutableList<E> extends Container<E> {
     return new ImmutableList<>((E2[]) elements);
   }
 
-  //static method
   /**
    * @param stream
    * @param <E2>   is the type of the elements of the given stream.
@@ -138,7 +124,6 @@ public final class ImmutableList<E> extends Container<E> {
     return forIterable(stream.toList());
   }
 
-  //static method
   /**
    * @param element
    * @param elements
@@ -153,7 +138,6 @@ public final class ImmutableList<E> extends Container<E> {
     return new ImmutableList<>(element, elements);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -162,7 +146,6 @@ public final class ImmutableList<E> extends Container<E> {
     return elements.length;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -174,7 +157,6 @@ public final class ImmutableList<E> extends Container<E> {
     return elements[param1BasedIndex - 1];
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -183,7 +165,6 @@ public final class ImmutableList<E> extends Container<E> {
     return elements[getCount() - 1];
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -192,7 +173,6 @@ public final class ImmutableList<E> extends Container<E> {
     return true;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -201,7 +181,6 @@ public final class ImmutableList<E> extends Container<E> {
     return ArrayIterator.forArray(elements);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -210,7 +189,6 @@ public final class ImmutableList<E> extends Container<E> {
     return ContainerView.forIterable(this).toOrderedList(norm);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -219,7 +197,6 @@ public final class ImmutableList<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

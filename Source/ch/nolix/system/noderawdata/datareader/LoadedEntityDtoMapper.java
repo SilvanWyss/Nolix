@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.noderawdata.datareader;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -12,16 +10,12 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
-//class
 public final class LoadedEntityDtoMapper {
 
-  //constant
   private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
-  //constant
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  //method
   public ILoadedEntityDto createLoadedEntityDtoFromEntityNode(
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo) {
@@ -31,7 +25,6 @@ public final class LoadedEntityDtoMapper {
       createContentFieldsFromEntityNode(entityNode, tableInfo));
   }
 
-  //method
   private IContainer<ILoadedContentFieldDto> createContentFieldsFromEntityNode(
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo) {
@@ -47,7 +40,6 @@ public final class LoadedEntityDtoMapper {
     return contentFields;
   }
 
-  //method
   private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
 
     final var idNode = ENTITY_NODE_SEARCHER.getStoredIdNodeFromEntityNode(entityNode);
@@ -55,7 +47,6 @@ public final class LoadedEntityDtoMapper {
     return idNode.getHeader();
   }
 
-  //method
   private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
 
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);

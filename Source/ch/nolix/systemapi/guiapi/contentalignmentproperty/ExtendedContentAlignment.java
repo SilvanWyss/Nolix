@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.guiapi.contentalignmentproperty;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 /**
  * @author Silvan Wyss
  * @version 2019-05-18
@@ -21,7 +18,6 @@ public enum ExtendedContentAlignment {
   BOTTOM_RIGHT,
   FREE;
 
-  //static method
   /**
    * @param specification
    * @return a new {@link ExtendedContentAlignment} from the given specification.

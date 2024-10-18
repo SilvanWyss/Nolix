@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.testing.standardtest;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link ExtendedThrownExceptionMediator} is not mutable.
  * 
@@ -15,14 +12,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
 
-  //constructor
   /**
    * Creates a new {@link ExtendedThrownExceptionMediator}.
    */
   ExtendedThrownExceptionMediator() {
   }
 
-  //constructor
   /**
    * Creates a new {@link ExtendedThrownExceptionMediator} for the given
    * exception.
@@ -36,7 +31,6 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
     super(exception);
   }
 
-  //method
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} is not of the given type.

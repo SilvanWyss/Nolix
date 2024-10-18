@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -22,33 +19,24 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
-//class
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
-  //constant
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
-  //constant
   private static final MultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
 
-  //constant
   private static final MultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 
-  //constant
   private static final MultiReferenceEntryTool MULTI_REFERENCE_ENTRY_TOOL = new MultiReferenceEntryTool();
 
-  //attribute
   private boolean loadedAllPersistedReferencedEntityIds;
 
-  //multi-attribute
   private final LinkedList<MultiReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
-  //constructor
   private MultiReference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  //static method
   public static <E2 extends Entity> MultiReference<E2> forReferencedEntityType(final Class<E2> referencedEntityType) {
 
     final var referencedTableName = referencedEntityType.getSimpleName();
@@ -56,19 +44,16 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     return forReferencedTable(referencedTableName);
   }
 
-  //static method
   public static <E2 extends Entity> MultiReference<E2> forReferencedTable(final String referencedTableName) {
     return new MultiReference<>(referencedTableName);
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public void addEntity(final Object entity) {
     addCastedEntity((E) entity);
   }
 
-  //method
   @Override
   public void clear() {
 
@@ -77,7 +62,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   @Override
   public IContainer<String> getAllReferencedEntityIds() {
 
@@ -88,7 +72,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
       .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
-  //method
   @Override
   public IContainer<E> getAllStoredReferencedEntities() {
 
@@ -99,7 +82,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
       .to(IMultiReferenceEntry::getStoredReferencedEntity);
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
@@ -119,43 +101,36 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     return backReferencingFields;
   }
 
-  //method
   @Override
   public IContainer<? extends IMultiReferenceEntry<E>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(MULTI_REFERENCE_ENTRY_TOOL::isNewOrDeleted);
   }
 
-  //method
   @Override
   public ContentType getType() {
     return ContentType.MULTI_REFERENCE;
   }
 
-  //method
   @Override
   public IContentFieldDto internalToContentField() {
     return new ContentFieldDto(getName());
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return getAllReferencedEntityIds().isEmpty();
   }
 
-  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  //method
   @Override
   public boolean loadedAllPersistedReferencedEntityIds() {
     return loadedAllPersistedReferencedEntityIds;
   }
 
-  //method
   @Override
   public boolean referencesEntity(final IEntity entity) {
 
@@ -166,20 +141,17 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     return getAllReferencedEntityIds().containsEqualing(entity.getId());
   }
 
-  //method
   @Override
   public boolean referencesUninsertedEntity() {
     return getAllStoredReferencedEntities().containsAny(e -> !e.belongsToTable());
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public void removeEntity(final Object entity) {
     removeCastedEntity((E) entity);
   }
 
-  //method
   @Override
   public void removeFirstEntity(final Predicate<E> selector) {
 
@@ -188,13 +160,11 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     entity.ifPresent(this::removeEntity);
   }
 
-  //method
   @Override
   void internalSetOrClearFromContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
-  //method
   @Override
   void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
@@ -204,7 +174,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     }
   }
 
-  //method
   private void addCastedEntity(final E entity) {
 
     assertCanAddEntity(entity);
@@ -218,12 +187,10 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   private void assertCanAddEntity(final E entity) {
     MULTI_REFERENCE_VALIDATOR.assertCanAddGivenEntity(this, entity);
   }
 
-  //method
   private void insertEntityIntoDatabaseIfPossible(final E entity) {
     if (belongsToEntity()
     && getStoredParentEntity().belongsToTable()
@@ -233,7 +200,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     }
   }
 
-  //method
   private IContainer<MultiReferenceEntry<E>> loadAllPersistedReferencedEntityIds() {
     return internalGetStoredDataAndSchemaAdapter().loadMultiReferenceEntries(
       getStoredParentEntity().getParentTableName(),
@@ -242,13 +208,11 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
       .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
   }
 
-  //method
   private boolean needsToLoadAllPersistedReferencedEntityIds() {
     return !loadedAllPersistedReferencedEntityIds()
     && MULTI_REFERENCE_TOOL.belongsToLoadedEntity(this);
   }
 
-  //method
   private void removeCastedEntity(final E entity) {
 
     MULTI_REFERENCE_VALIDATOR.assertCanRemoveEntity(this, entity);
@@ -260,17 +224,14 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   private void updatePotentialBaseBackReferenceOfEntityForAddEntity(final E entity) {
     BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
-  //method
   private void updateStateAddingEntity(final E entity) {
     localEntries.addAtEnd(MultiReferenceEntry.newEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
   }
 
-  //method
   private void updateStateLoadingAllPersistedReferencedEntityIds() {
 
     loadedAllPersistedReferencedEntityIds = true;
@@ -278,7 +239,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     localEntries.addAtEnd(loadAllPersistedReferencedEntityIds());
   }
 
-  //method
   private void updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded() {
     if (needsToLoadAllPersistedReferencedEntityIds()) {
       updateStateLoadingAllPersistedReferencedEntityIds();

@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.containertest.matrixtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class MatrixTest extends ContainerTest {
 
-  //method
   @Test
   void testCase_addColumn() {
 
@@ -28,7 +23,6 @@ final class MatrixTest extends ContainerTest {
     expect(matrix.getColumn(1).toString()).isEqualTo("apple,banana,cerish");
   }
 
-  //method
   @Test
   void testCase_addRow() {
 
@@ -44,7 +38,6 @@ final class MatrixTest extends ContainerTest {
     expect(matrix.getRow(1).toString()).isEqualTo("apple,banana,cerish");
   }
 
-  //method
   @Test
   void testCase_getColumn() {
 
@@ -68,7 +61,6 @@ final class MatrixTest extends ContainerTest {
     expect(column3.toString()).isEqualTo("cerish,elephant,palm");
   }
 
-  //method
   @Test
   void testCase_getCopy() {
 
@@ -89,7 +81,6 @@ final class MatrixTest extends ContainerTest {
     expect(copy.getRow(3).toString()).isEqualTo("flower,tree,palm");
   }
 
-  //method
   @Test
   void testCase_getIndexOf() {
 
@@ -122,7 +113,6 @@ final class MatrixTest extends ContainerTest {
     expect(index9).isEqualTo(9);
   }
 
-  //method
   @Test
   void testCase_getRow() {
 
@@ -146,7 +136,6 @@ final class MatrixTest extends ContainerTest {
     expect(row3.toString()).isEqualTo("flower,tree,palm");
   }
 
-  //method
   @Test
   void testCase_toLeftRotatedMatrix() {
 
@@ -167,7 +156,6 @@ final class MatrixTest extends ContainerTest {
     expect(leftRotatedMatrix.getRow(3).toString()).isEqualTo("apple,antelope,flower");
   }
 
-  //method
   @Test
   void testCase_toRightRotatedMatrix() {
 
@@ -188,7 +176,6 @@ final class MatrixTest extends ContainerTest {
     expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,baboon,cerish");
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -201,7 +188,6 @@ final class MatrixTest extends ContainerTest {
     return matrix;
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return Matrix.createEmpty();

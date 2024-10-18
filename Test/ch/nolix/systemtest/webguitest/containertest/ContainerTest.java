@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.containertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
-//class
 abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
 
-  //method
   @Test
   final void testCase_constructor() {
 

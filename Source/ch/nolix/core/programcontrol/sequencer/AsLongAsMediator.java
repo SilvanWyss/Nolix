@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
-//class
 /**
  * An as long as mediator is not mutable.
  * 
@@ -19,13 +15,10 @@ import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
  */
 public final class AsLongAsMediator {
 
-  //attribute
   private final BooleanSupplier condition;
 
-  //optional attribute
   private final Integer maxRunCount;
 
-  //constructor
   /**
    * Creates a new as long as mediator with the given condition.
    * 
@@ -41,7 +34,6 @@ public final class AsLongAsMediator {
     this.condition = condition;
   }
 
-  //method
   /**
    * @param timeIntervalInMilliseconds
    * @return a new after all mediator with the given time interval in
@@ -60,7 +52,6 @@ public final class AsLongAsMediator {
     return new AfterEveryMediator(maxRunCount, condition, timeIntervalInMilliseconds);
   }
 
-  //method
   /**
    * @return a new {@link AfterEveryMediator} with a time interval of 1 second.
    */
@@ -68,7 +59,6 @@ public final class AsLongAsMediator {
     return afterEveryMilliseconds(TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND);
   }
 
-  //method
   /**
    * Lets this as long as mediator run the given job.
    * 
@@ -113,7 +103,6 @@ public final class AsLongAsMediator {
     return new Future(new JobRunner(job, maxRunCount, condition));
   }
 
-  //method
   /**
    * @return true if this as long as mediator has max run count.
    */

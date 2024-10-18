@@ -1,25 +1,20 @@
-//package declaration
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//class
 public final class ControlFactory {
 
-  //multi-attribute
   private final LinkedList<Class<Control<?, ?>>> controlClasses = LinkedList.createEmpty();
 
-  //method
   public boolean canCreateControlOfType(final String type) {
     return containsControlClassWithName(type);
   }
 
-  //method
   public Control<?, ?> createControlFromSpecification(final INode<?> specification) {
 
     final var control = createControlOfType(specification.getHeader());
@@ -29,7 +24,6 @@ public final class ControlFactory {
     return control;
   }
 
-  //method
   public Control<?, ?> createControlOfType(final String type) {
 
     final var controlClass = getControlClassByName(type);
@@ -37,7 +31,6 @@ public final class ControlFactory {
     return GlobalReflectionTool.createInstanceFromDefaultConstructorOfClass(controlClass);
   }
 
-  //method
   public void registerControlClass(
     final Class<Control<?, ?>> controlClass,
     final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
@@ -52,7 +45,6 @@ public final class ControlFactory {
     }
   }
 
-  //method
   private void assertDoesNotContainControlClassWithName(final String name) {
     if (containsControlClassWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -61,12 +53,10 @@ public final class ControlFactory {
     }
   }
 
-  //method
   private boolean containsControlClassWithName(final String name) {
     return controlClasses.containsAny(cc -> cc.getSimpleName().equals(name));
   }
 
-  //method
   private Class<Control<?, ?>> getControlClassByName(final String name) {
     return controlClasses.getStoredFirst(cc -> cc.getSimpleName().equals(name));
   }

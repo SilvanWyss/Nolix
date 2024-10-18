@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.core.web.html;
 
-//own imports
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
-//class
 public final class HtmlElementStringRepresentator {
 
-  //method
   public String toString(final IHtmlElement htmlElement) {
 
     if (!htmlElement.containsChildElements()) {
@@ -17,7 +13,6 @@ public final class HtmlElementStringRepresentator {
     return toStringWhenContainsChildElements(htmlElement);
   }
 
-  //method
   private String toStringWhenDoesNotContainChildElements(final IHtmlElement htmlElement) {
 
     if (htmlElement.getInnerText().isEmpty()) {
@@ -27,7 +22,6 @@ public final class HtmlElementStringRepresentator {
     return toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(htmlElement);
   }
 
-  //method
   private String toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
 
     if (!htmlElement.containsAttributes()) {
@@ -37,7 +31,6 @@ public final class HtmlElementStringRepresentator {
     return ("<" + htmlElement.getType() + " " + getAttributesAsString(htmlElement) + " />");
   }
 
-  //method
   private String toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
 
     if (!htmlElement.containsAttributes()) {
@@ -55,7 +48,6 @@ public final class HtmlElementStringRepresentator {
     + ">";
   }
 
-  //method
   private String toStringWhenContainsChildElements(final IHtmlElement htmlElement) {
 
     if (htmlElement.getInnerText().isEmpty()) {
@@ -65,7 +57,6 @@ public final class HtmlElementStringRepresentator {
     return toStringWhenContainsChildElementsAndHasNonEmptyInnerText(htmlElement);
   }
 
-  //method
   private String toStringWhenContainsChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
 
     if (!htmlElement.containsAttributes()) {
@@ -89,7 +80,6 @@ public final class HtmlElementStringRepresentator {
     + ">";
   }
 
-  //method
   private String toStringWhenContainsChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
 
     if (!htmlElement.containsAttributes()) {
@@ -114,12 +104,10 @@ public final class HtmlElementStringRepresentator {
     + ">";
   }
 
-  //method
   private String getChildElementsAsString(final IHtmlElement htmlElement) {
     return htmlElement.getChildElements().toStringWithSeparator("");
   }
 
-  //method
   private String getAttributesAsString(final IHtmlElement htmlElement) {
     return htmlElement.getAttributes().toStringWithSeparator(" ");
   }

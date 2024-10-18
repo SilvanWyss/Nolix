@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.sql.connection;
 
-//Java imports
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-//own imports
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -22,19 +19,14 @@ import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
-//class
 public abstract class SqlConnection implements ISqlConnection {
 
-  //attribute
   private final SqlDatabaseEngine sqlDatabaseEngine;
 
-  //attribute
   private final Connection connection;
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //constructor
   protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
@@ -44,7 +36,6 @@ public abstract class SqlConnection implements ISqlConnection {
     this.connection = connection;
   }
 
-  //constructor
   protected SqlConnection(
     final SqlDatabaseEngine sqlDatabaseEngine,
     final int port,
@@ -58,7 +49,6 @@ public abstract class SqlConnection implements ISqlConnection {
       userPassword);
   }
 
-  //constructor
   protected SqlConnection(
     final SqlDatabaseEngine sqlDatabaseEngine,
     final String ip,
@@ -85,7 +75,6 @@ public abstract class SqlConnection implements ISqlConnection {
     }
   }
 
-  //method
   @Override
   public final void executeStatements(final IContainer<String> statements) {
 
@@ -111,7 +100,6 @@ public abstract class SqlConnection implements ISqlConnection {
     }
   }
 
-  //method
   @Override
   public final void executeStatement(final String statement, final String... statements) {
 
@@ -120,13 +108,11 @@ public abstract class SqlConnection implements ISqlConnection {
     executeStatements(allStatements);
   }
 
-  //method
   @Override
   public final SqlDatabaseEngine getDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
-  //method
   @Override
   public final IContainer<? extends IContainer<String>> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
@@ -136,13 +122,11 @@ public abstract class SqlConnection implements ISqlConnection {
     }
   }
 
-  //method
   @Override
   public final IContainer<String> getRecordsHavingSinlgeEntryFromQuery(final String query) {
     return getRecordsFromQuery(query).to(IContainer::getStoredOne);
   }
 
-  //method
   @Override
   public final IContainer<String> getSingleRecordFromQuery(final String query) {
     return getRecordsFromQuery(query).getStoredOne();
@@ -153,13 +137,11 @@ public abstract class SqlConnection implements ISqlConnection {
     return getRecordsFromQuery(query).getStoredOne().getStoredOne();
   }
 
-  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  //method
   @Override
   public final void noteClose() {
     try {
@@ -169,10 +151,8 @@ public abstract class SqlConnection implements ISqlConnection {
     }
   }
 
-  //method declaration
   protected abstract String getSqlDatabaseEngineDriverClass();
 
-  //method
   private IContainer<? extends IContainer<String>> getRecordsFromStatement(
     final String query,
     final Statement statement)
@@ -182,7 +162,6 @@ public abstract class SqlConnection implements ISqlConnection {
     }
   }
 
-  //method
   private final IContainer<? extends IContainer<String>> getRecordsFromResultSet(final ResultSet resultSet)
   throws SQLException {
 
@@ -211,7 +190,6 @@ public abstract class SqlConnection implements ISqlConnection {
     return records;
   }
 
-  //method
   private void registerSqlDatabaseEngineDriver() {
     try {
       Class.forName( //NOSONAR: Dynamic class loading is needed to gain driver class.

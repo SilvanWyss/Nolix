@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link ExpansionRequestable} can be asked if it is expanded or collapsed.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface ExpansionRequestable {
 
-  //method
   /**
    * @return true if the current {@link ExpansionRequestable} is collapsed.
    */
@@ -22,7 +18,6 @@ public interface ExpansionRequestable {
     return !isExpanded();
   }
 
-  //method declaration
   /**
    * @return true if the current {@link ExpansionRequestable} is expanded.
    */

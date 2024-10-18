@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.errorcontrol.logging;
 
-//class
 public final class StandardConsoleLogHandler extends LogHandler {
 
-  //method
   @Override
   protected void log(final LogEntry logEntry) {
 

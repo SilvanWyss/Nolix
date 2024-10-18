@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.containertest.arraylisttest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.container.arraylist.ArrayListCapacityCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ArrayListCapacityCalculatorTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0, 1, 1", //

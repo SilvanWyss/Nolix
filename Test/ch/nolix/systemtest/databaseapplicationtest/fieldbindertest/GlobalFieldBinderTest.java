@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.databaseapplicationtest.fieldbindertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -10,10 +8,8 @@ import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
-//class
 final class GlobalFieldBinderTest extends StandardTest {
 
-  //method
   @Test
   void testCase_createControlAndBindItWith() {
 
@@ -52,7 +48,6 @@ final class GlobalFieldBinderTest extends StandardTest {
     expect(textBox.getText()).isEqualTo("");
   }
 
-  //method
   @Test
   void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
 
@@ -73,7 +68,6 @@ final class GlobalFieldBinderTest extends StandardTest {
     expect(textBox.getText()).isEqualTo("");
   }
 
-  //method
   @Test
   void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
 

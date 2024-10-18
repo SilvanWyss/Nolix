@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.core.container.linkedlist;
 
-//Java imports
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link LinkedListNode} contains an element. A {@link LinkedListNode} can
  * have a next node.
@@ -21,13 +17,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 final class LinkedListNode<E> {
 
-  //attribute
   private E element;
 
-  //optional attribute
   private LinkedListNode<E> nextNode;
 
-  //constructor
   /**
    * Creates a new {@link LinkedListNode} with the given element.
    * 
@@ -38,7 +31,6 @@ final class LinkedListNode<E> {
     setElement(element);
   }
 
-  //method
   /**
    * @param selector
    * @return true if the current {@link LinkedListNode} contains an element the
@@ -48,7 +40,6 @@ final class LinkedListNode<E> {
     return selector.test(getElement());
   }
 
-  //method
   /**
    * @param element
    * @return true if the current {@link LinkedListNode} contains the given
@@ -58,7 +49,6 @@ final class LinkedListNode<E> {
     return (getElement() == element);
   }
 
-  //method
   /**
    * @return the element of the current {@link LinkedListNode}.
    */
@@ -66,7 +56,6 @@ final class LinkedListNode<E> {
     return element;
   }
 
-  //method
   /**
    * @return the next node of the current {@link LinkedListNode}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -83,7 +72,6 @@ final class LinkedListNode<E> {
     return nextNode;
   }
 
-  //method
   /**
    * @return true if the current {@link LinkedListNode} has a next node.
    */
@@ -91,7 +79,6 @@ final class LinkedListNode<E> {
     return (nextNode != null);
   }
 
-  //method
   /**
    * Removes the next node of the current {@link LinkedListNode}.
    */
@@ -99,7 +86,6 @@ final class LinkedListNode<E> {
     nextNode = null;
   }
 
-  //method
   /**
    * Sets the element of the current {@link LinkedListNode}.
    * 
@@ -118,7 +104,6 @@ final class LinkedListNode<E> {
     this.element = element;
   }
 
-  //method
   /**
    * Sets the next node of the current {@link LinkedListNode}.
    * 
@@ -134,7 +119,6 @@ final class LinkedListNode<E> {
     this.nextNode = nextNode;
   }
 
-  //method
   /**
    * Swaps the element of the current {@link LinkedListNode} with the element of
    * the next node of the current {@link LinkedListNode}.

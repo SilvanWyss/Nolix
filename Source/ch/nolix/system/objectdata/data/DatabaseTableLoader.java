@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -10,16 +8,12 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
-//class
 final class DatabaseTableLoader {
 
-  //constant
   private static final TableMapper TABLE_MAPPER = new TableMapper();
 
-  //constant
   private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
-  //method
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 
     final var rawTables = database.internalGetStoredDataAndSchemaAdapter().loadTables();
@@ -33,7 +27,6 @@ final class DatabaseTableLoader {
     return LinkedList.fromIterable(tables);
   }
 
-  //method
   private void addBaseValueColumnsToTablesFromRawTables(
     final IContainer<Table<IEntity>> tables,
     final IContainer<ITableDto> rawTables) {
@@ -44,7 +37,6 @@ final class DatabaseTableLoader {
     }
   }
 
-  //method
   private void addBaseValueColumnsToTableFromRawTable(
     final Table<IEntity> table,
     final ITableDto rawTable) {
@@ -65,7 +57,6 @@ final class DatabaseTableLoader {
     }
   }
 
-  //method
   private void addBaseReferenceColumnsToTablesFromRawTables(
     final IContainer<Table<IEntity>> tables,
     final IContainer<ITableDto> rawTables,
@@ -77,7 +68,6 @@ final class DatabaseTableLoader {
     }
   }
 
-  //method
   private void addBaseReferenceColumnsToTableFromRawTable(
     final Table<IEntity> table,
     final ITableDto rawTable,
@@ -99,7 +89,6 @@ final class DatabaseTableLoader {
     }
   }
 
-  //method
   private void addBaseBackReferenceColumnsToTablesFromRawTables(
     final IContainer<Table<IEntity>> tables,
     final IContainer<ITableDto> rawTables,
@@ -111,7 +100,6 @@ final class DatabaseTableLoader {
     }
   }
 
-  //method
   private void addBaseBackReferenceColumnsToTableFromRawTable(
     final Table<IEntity> table,
     final ITableDto rawTable,

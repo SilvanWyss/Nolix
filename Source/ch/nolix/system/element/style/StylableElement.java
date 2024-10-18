@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.element.style;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -14,28 +12,21 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-//class
 public abstract class StylableElement<SE extends IStylableElement<SE>>
 extends MutableElement
 implements IStylableElement<SE> {
 
-  //constant
   private static final String ID_HEADER = PascalCaseVariableCatalogue.ID;
 
-  //constant
   private static final String TOKEN_HEADER = PascalCaseVariableCatalogue.TOKEN;
 
-  //constant
   private static final StructureSpecificationCreator STRUCTURE_SPECIFICATION_CREATOR = //
   new StructureSpecificationCreator();
 
-  //attribute
   private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
 
-  //attribute
   private final MultiValue<String> tokens = MultiValue.forStrings(TOKEN_HEADER, this::addToken);
 
-  //method
   @Override
   public final SE addToken(final String token) {
 
@@ -46,37 +37,31 @@ implements IStylableElement<SE> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IContainer<? extends IStructureElement> getChildStructureElements() {
     return getStoredChildStylableElements();
   }
 
-  //method
   @Override
   public final String getId() {
     return id.getValue();
   }
 
-  //method
   @Override
   public final IContainer<String> getTokens() {
     return tokens.getStoredValues();
   }
 
-  //method
   @Override
   public final INode<?> getStructureSpecification() {
     return STRUCTURE_SPECIFICATION_CREATOR.getStructureSpecificationOfElement(this);
   }
 
-  //method
   @Override
   public final boolean hasId() {
     return id.containsAny();
   }
 
-  //method
   @Override
   public SE removeId() {
 
@@ -85,7 +70,6 @@ implements IStylableElement<SE> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final SE removeToken(final String token) {
 
@@ -94,7 +78,6 @@ implements IStylableElement<SE> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final SE removeTokens() {
 
@@ -103,7 +86,6 @@ implements IStylableElement<SE> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final void reset() {
 
@@ -115,7 +97,6 @@ implements IStylableElement<SE> {
     resetStylableElement();
   }
 
-  //method
   @Override
   public final void resetStyleRecursively() {
 
@@ -124,7 +105,6 @@ implements IStylableElement<SE> {
     getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
   }
 
-  //method
   @Override
   public final SE setId(final String id) {
 
@@ -135,15 +115,12 @@ implements IStylableElement<SE> {
     return asConcrete();
   }
 
-  //method
   @SuppressWarnings("unchecked")
   protected final SE asConcrete() {
     return (SE) this;
   }
 
-  //method declaration
   protected abstract void resetStylableElement();
 
-  //method declaration
   protected abstract void resetStyle();
 }

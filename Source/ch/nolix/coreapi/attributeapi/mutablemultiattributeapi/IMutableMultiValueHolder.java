@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemultiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
 
-//interface
 /**
  * A {@link IMutableMultiValueHolder} is a {@link IMultiValueHolder} whose
  * values can be added and removed programmatically.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
  */
 public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
 
-  //method declaration
   /**
    * Adds the given value to the current {@link IMutableMultiValueHolder}.
    * 
@@ -24,7 +20,6 @@ public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
    */
   void addValue(V value);
 
-  //method declaration
   /**
    * Removes the given value from the current {@link IMutableMultiValueHolder}.
    * 
@@ -34,7 +29,6 @@ public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
    */
   void removeValue(V value);
 
-  //method declaration
   /**
    * Removes all values from the current {@link IMutableMultiValueHolder}.
    */

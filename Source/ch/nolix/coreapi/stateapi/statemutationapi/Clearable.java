@@ -1,9 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.statemutationapi;
 
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
-//interface
 /**
  * A {@link Clearable} can contain elements that can be removed.
  * 
@@ -12,7 +10,6 @@ import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
  */
 public interface Clearable extends EmptinessRequestable {
 
-  //method declaration
   /**
    * Removes the elements of the current {@link Clearable}.
    */

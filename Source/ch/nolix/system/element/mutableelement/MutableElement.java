@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.element.mutableelement;
 
-//Java imports
 import java.lang.reflect.Field;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -18,20 +15,16 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-10-29
  */
 public abstract class MutableElement implements IMutableElement {
 
-  //constant
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
-  //multi-attribute
   private LinkedList<IProperty> properties;
 
-  //method
   /**
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
@@ -44,8 +37,7 @@ public abstract class MutableElement implements IMutableElement {
     //Iterates the properties of the current MutableElement.
     for (final var p : getStoredProperties()) {
 
-      //Handles the case that the current Property has added or changed the given
-      //attribute.
+      //Handles the case that the current Property has added or changed the given attribute.
       if (p.addedOrChangedAttribute(attribute)) {
         return;
       }
@@ -55,7 +47,6 @@ public abstract class MutableElement implements IMutableElement {
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot not have a " + attribute.getHeader());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -73,7 +64,6 @@ public abstract class MutableElement implements IMutableElement {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -84,7 +74,6 @@ public abstract class MutableElement implements IMutableElement {
     && hasSameSpecificationAs((IElement) object);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -103,7 +92,6 @@ public abstract class MutableElement implements IMutableElement {
     return attributes;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -112,7 +100,6 @@ public abstract class MutableElement implements IMutableElement {
     return SPECIFICATION_CREATOR.getSpecificationOfElement(this);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -121,7 +108,6 @@ public abstract class MutableElement implements IMutableElement {
     return getSpecification().hashCode();
   }
 
-  //method
   /**
    * Resets the current {@link MutableElement} from the file with the given
    * filePath.
@@ -133,7 +119,6 @@ public abstract class MutableElement implements IMutableElement {
     resetFromSpecification(Node.fromFile(filePath));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -142,7 +127,6 @@ public abstract class MutableElement implements IMutableElement {
     return getSpecification().toString();
   }
 
-  //method
   /**
    * @param illegalAccessException
    * @return a new {@link IllegalAccessError} for the given
@@ -159,7 +143,6 @@ public abstract class MutableElement implements IMutableElement {
     throw new IllegalAccessError(message);
   }
 
-  //method
   /**
    * Lets the current {@link MutableElement} extract the {@link Property} from the
    * given field if the given field stores a {@link Property}.
@@ -174,7 +157,6 @@ public abstract class MutableElement implements IMutableElement {
     }
   }
 
-  //method
   /**
    * Extracts the properties of the current {@link MutableElement}.
    */
@@ -190,7 +172,6 @@ public abstract class MutableElement implements IMutableElement {
     }
   }
 
-  //method
   /**
    * Extracts the {@link Property}s of the {@link MutableElement} that are from
    * the given pClass.
@@ -205,7 +186,6 @@ public abstract class MutableElement implements IMutableElement {
     }
   }
 
-  //method
   /**
    * Extracts the {@link Property}s of the current {@link MutableElement} if they
    * are not extracted yet.
@@ -216,7 +196,6 @@ public abstract class MutableElement implements IMutableElement {
     }
   }
 
-  //method
   /**
    * Extracts the {@link Property} of the {@link MutableElement} that is from the
    * given field.
@@ -240,7 +219,6 @@ public abstract class MutableElement implements IMutableElement {
     }
   }
 
-  //method
   /**
    * @return the {@link Property}s of the current {@link MutableElement}.
    */
@@ -251,7 +229,6 @@ public abstract class MutableElement implements IMutableElement {
     return properties;
   }
 
-  //method
   /**
    * @return true if the {@link Property}s of the current {@link MutableElement}
    *         are extracted.
@@ -260,7 +237,6 @@ public abstract class MutableElement implements IMutableElement {
     return (properties != null);
   }
 
-  //method
   /**
    * @param element
    * @return true if the current {@link MutableElement} has the same specification

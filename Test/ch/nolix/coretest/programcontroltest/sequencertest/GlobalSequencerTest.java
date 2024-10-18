@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.programcontroltest.sequencertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class GlobalSequencerTest extends StandardTest {
 
-  //method
   @Test
   void testCase_runInBackground_whenFailingProcessIsGiven() {
 
@@ -28,7 +23,6 @@ final class GlobalSequencerTest extends StandardTest {
     expect(result.getError()).isOfType(GeneralException.class);
   }
 
-  //method
   @Test
   void testCase_runInBackground_whenPassingProcessIsGiven() {
 
@@ -40,7 +34,6 @@ final class GlobalSequencerTest extends StandardTest {
     expect(result.isFinishedSuccessfully());
   }
 
-  //method
   @Test
   void testCase_runInBackground_whenFunctionIsGiven() {
 

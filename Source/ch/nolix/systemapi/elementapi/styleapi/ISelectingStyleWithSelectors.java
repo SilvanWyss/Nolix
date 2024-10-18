@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.elementapi.styleapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-//interface
 /**
  * A {@link ISelectingStyleWithSelectors} is a {@link ISelectingStyle} that can
  * have specific selectors.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelectingStyleWithSelectors> {
 
-  //method declaration
   /**
    * @return the selector id of the current {@link ISelectingStyleWithSelectors}.
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}
@@ -22,21 +18,18 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   String getSelectorId();
 
-  //method declaration
   /**
    * @return the selector roles of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
   IContainer<String> getSelectorRoles();
 
-  //method declaration
   /**
    * @return the selector tokens of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
   IContainer<String> getSelectorTokens();
 
-  //method declaration
   /**
    * @return the selector type of the current
    *         {@link ISelectingStyleWithSelectors}.
@@ -45,21 +38,18 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   String getSelectorType();
 
-  //method declaration
   /**
    * @return true if the current {@link ISelectingStyleWithSelectors} has a
    *         selector id.
    */
   boolean hasSelectorId();
 
-  //method declaration
   /**
    * @return true if the current {@link ISelectingStyleWithSelectors} has a
    *         selector type.
    */
   boolean hasSelectorType();
 
-  //method declaration
   /**
    * @param selectorId
    * @return a new {@link ISelectingStyleWithSelectors} from the current
@@ -68,7 +58,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorId(String selectorId);
 
-  //method declaration
   /**
    * @param selectorRole
    * @param selectorRoles
@@ -81,7 +70,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorRole(Enum<?> selectorRole, Enum<?>... selectorRoles);
 
-  //method declaration
   /**
    * @param selectorRole
    * @param selectorRoles
@@ -94,7 +82,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorRole(String selectorRole, String... selectorRoles);
 
-  //method declaration
   /**
    * @param selectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
@@ -105,7 +92,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorRoles(IContainer<String> selectorRoles);
 
-  //method declaration
   /**
    * @param selectorToken
    * @param selectorTokens
@@ -118,7 +104,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorToken(String selectorToken, String... selectorTokens);
 
-  //method declaration
   /**
    * @param selectorTokens
    * @return a new {@link ISelectingStyleWithSelectors} from the current
@@ -129,7 +114,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorTokens(IContainer<String> selectorTokens);
 
-  //method declaration
   /**
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current
@@ -138,7 +122,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    */
   ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType);
 
-  //method declaration
   /**
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current

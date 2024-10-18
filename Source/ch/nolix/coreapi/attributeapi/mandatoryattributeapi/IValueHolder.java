@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//interface
 /**
  * A {@link IValueHolder} has a value.
  * 
@@ -11,7 +9,6 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  */
 public interface IValueHolder<V> {
 
-  //method declaration
   /**
    * @return the value of the current {@link IValueHolder}.
    */

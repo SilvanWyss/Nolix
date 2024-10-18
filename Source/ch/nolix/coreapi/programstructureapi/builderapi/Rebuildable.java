@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programstructureapi.builderapi;
 
-//interface
 /**
  * A {@link Rebuildable} can rebuild itself.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.programstructureapi.builderapi;
  */
 public interface Rebuildable {
 
-  //method declaration
   /**
    * Rebuilds the current {@link Rebuildable}.
    */

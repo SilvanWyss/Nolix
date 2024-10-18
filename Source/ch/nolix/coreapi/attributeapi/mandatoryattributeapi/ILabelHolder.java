@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link ILabelHolder} has a label.
  * 
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface ILabelHolder {
 
-  //method declaration
   /**
    * @return the label of the current {@link ILabelHolder}.
    */
   String getLabel();
 
-  //method
   /**
    * @return the label of the current {@link ILabelHolder} in quotes.
    */

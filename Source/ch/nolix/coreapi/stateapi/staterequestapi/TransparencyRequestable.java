@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link TransparencyRequestable} can be asked if it is transparent.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface TransparencyRequestable {
 
-  //method
   /**
    * @return true if the current {@link TransparencyRequestable} is opaque.
    */
@@ -22,7 +18,6 @@ public interface TransparencyRequestable {
     return !isTransparent();
   }
 
-  //method
   /**
    * @return true if the current {@link TransparencyRequestable} is transparent.
    */

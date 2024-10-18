@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.columntable;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
@@ -11,10 +9,8 @@ import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-//class
 public final class ColumnDtoMapper {
 
-  //method
   public ColumnDto createColumnDto(final IContainer<String> columnSystemTableSqlRecord) {
     return switch (ContentType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)).getBaseType()) {
       case BASE_VALUE ->
@@ -30,7 +26,6 @@ public final class ColumnDtoMapper {
     };
   }
 
-  //method
   private ColumnDto createColumnDtoForBaseBackReference(final IContainer<String> columnSystemTableSqlRecord) {
     return new ColumnDto(
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(1),
@@ -41,7 +36,6 @@ public final class ColumnDtoMapper {
         columnSystemTableSqlRecord.getStoredAt1BasedIndex(7)));
   }
 
-  //method
   private ColumnDto createColumnDtoForBaseReference(final IContainer<String> columnSystemTableSqlRecord) {
     return new ColumnDto(
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(1),
@@ -52,7 +46,6 @@ public final class ColumnDtoMapper {
         columnSystemTableSqlRecord.getStoredAt1BasedIndex(6)));
   }
 
-  //method
   private ColumnDto createColumnDtoForBaseValue(final IContainer<String> columnSystemTableSqlRecord) {
     return new ColumnDto(
       columnSystemTableSqlRecord.getStoredAt1BasedIndex(1),

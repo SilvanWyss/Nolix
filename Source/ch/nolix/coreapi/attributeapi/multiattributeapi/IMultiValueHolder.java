@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.multiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-//interface
 /**
  * A {@link IMultiValueHolder} can contain several values.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface IMultiValueHolder<V> {
 
-  //method declaration
   /**
    * @return the values of the current {@link IMultiValueHolder}.
    */

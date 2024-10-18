@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.core.sql.connectionpool;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
@@ -8,7 +7,6 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.core.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithSqlDatabaseEngineCaptor;
 
-//class
 public final class SqlConnectionPoolBuilder
 extends
 ForIpOrDomainCaptor< //
@@ -18,7 +16,6 @@ WithSqlDatabaseEngineCaptor< //
 AndLoginNameCaptor< //
 AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
 
-  //constructor
   private SqlConnectionPoolBuilder() {
 
     super(
@@ -31,12 +28,10 @@ AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
     setBuilder(this::buildSqlConnectionPool);
   }
 
-  //static method
   public static SqlConnectionPoolBuilder createConnectionPool() {
     return new SqlConnectionPoolBuilder();
   }
 
-  //method
   private SqlConnectionPool buildSqlConnectionPool() {
     return new SqlConnectionPool(
       getIpOrDomain(),

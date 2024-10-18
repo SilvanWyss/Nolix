@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.environment.filesystem;
 
-//Java imports
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -10,7 +8,6 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A file accessor can access a given file.
  * 
@@ -27,7 +23,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class FileAccessor extends FileSystemItemAccessor {
 
-  //constructor
   /**
    * Creates a new file accessor for a file with the given file path.
    * 
@@ -51,7 +46,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  //method
   /**
    * Clears the file of this file accessor. Deletes the content of the file of
    * this file accessor, but not the file itself.
@@ -60,7 +54,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
     overwriteFile(StringCatalogue.EMPTY_STRING);
   }
 
-  //method
   /**
    * Overwrites the file of this file accessor with the given bytes.
    * 
@@ -76,7 +69,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  //method
   /**
    * Overwrites the file of this file accessor with the given content.
    * 
@@ -92,7 +84,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  //method
   /**
    * Reads the content of the file of this file accessor.
    * 
@@ -103,7 +94,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
     return new String(readFileToBytes(), StandardCharsets.UTF_8).replace("\r", StringCatalogue.EMPTY_STRING);
   }
 
-  //method
   /**
    * Reads the content of the file of this file accessor to bytes.
    * 
@@ -118,7 +108,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  //method
   /**
    * Reads the content of the file of this file accessor to lines.
    * 

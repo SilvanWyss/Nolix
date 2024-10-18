@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.coreapi.programatomapi.characterproperty;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 
-//enum
 public enum CharacterType {
   UPPER_CASE_LETTER,
   LOWER_CASE_LETTER,
   NUMBER,
   OTHER;
 
-  //static method
   public static CharacterType ofCharacter(final char character) {
     return switch (character) {
       case
@@ -81,7 +77,6 @@ public enum CharacterType {
     };
   }
 
-  //static method
   private static CharacterType ofNonLetterCharacter(final char nonLetterCharacter) {
     return switch (nonLetterCharacter) {
       case

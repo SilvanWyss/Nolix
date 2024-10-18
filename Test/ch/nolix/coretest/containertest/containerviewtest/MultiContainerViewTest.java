@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.containertest.containerviewtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.containerview.MultiContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class MultiContainerViewTest extends ContainerTest {
 
-  //method
   @Test
   void testCase_forArray() {
 
@@ -29,7 +24,6 @@ final class MultiContainerViewTest extends ContainerTest {
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -40,7 +34,6 @@ final class MultiContainerViewTest extends ContainerTest {
     return MultiContainerView.forIterable(container);
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return MultiContainerView.forEmpty();

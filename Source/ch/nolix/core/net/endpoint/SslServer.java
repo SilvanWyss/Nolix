@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
-//class
 public final class SslServer extends BaseServer {
 
-  //constant
   public static final String DEFAULT_HTML_PAGE = """
   <!DOCTYPE html>
   <html>
@@ -24,24 +20,19 @@ public final class SslServer extends BaseServer {
   </html>
   """;
 
-  //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();
 
-  //attribute
   private final SslServerWorker sslServerWorker;
 
-  //constructor
   public SslServer(final int port, final ISslCertificate paramSSLCertificate) {
     this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
   }
 
-  //constructor
   public SslServer(final int port, final String htmlPage, final ISslCertificate paramSSLCertificate) {
     sslServerWorker = new SslServerWorker(this, port, htmlPage, paramSSLCertificate);
   }
 
-  //static method
   public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
@@ -52,7 +43,6 @@ public final class SslServer extends BaseServer {
     return new SslServer(port, htmlPage, paramSSLCertificate);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -61,7 +51,6 @@ public final class SslServer extends BaseServer {
     return SecurityMode.SSL;
   }
 
-  //method
   @Override
   public void noteClose() {
     sslServerWorker.internalStop();

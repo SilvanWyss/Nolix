@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.applicationtest.maintest;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -9,16 +7,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.application.main.BackendClient;
 
-//class
 public final class MockBackendClient extends BackendClient<MockBackendClient, Object> {
 
-  //optional attribute
   private IChainedNode latestRunHereCommand;
 
-  //optional attribute
   private IChainedNode latestGetDataFromHereRequest;
 
-  //method
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
 
@@ -29,7 +23,6 @@ public final class MockBackendClient extends BackendClient<MockBackendClient, Ob
     return Node.EMPTY_NODE;
   }
 
-  //method
   @Override
   protected void runHere(final IChainedNode command) {
 
@@ -38,7 +31,6 @@ public final class MockBackendClient extends BackendClient<MockBackendClient, Ob
     latestRunHereCommand = command;
   }
 
-  //method
   public IChainedNode getStoredLatestGetDataFromHereRequest() {
 
     GlobalValidator
@@ -49,7 +41,6 @@ public final class MockBackendClient extends BackendClient<MockBackendClient, Ob
     return latestGetDataFromHereRequest;
   }
 
-  //method
   public IChainedNode getStoredLatestRunHereCommand() {
 
     GlobalValidator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();

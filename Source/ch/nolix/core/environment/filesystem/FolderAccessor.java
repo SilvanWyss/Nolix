@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.core.environment.filesystem;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -6,7 +5,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link FolderAccessor} can access a folder.
  * 
@@ -15,7 +13,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 
-  //constructor
   /**
    * Creates a new {@link FolderAccessor} for the folder of the running jar file.
    */
@@ -25,7 +22,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     super(GlobalFileSystemAccessor.getFolderPathOfRunningJarFile());
   }
 
-  //constructor
   /**
    * Creates a new {@link FolderAccessor} for the folder with the given path.
    * 
@@ -48,7 +44,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     }
   }
 
-  //method
   /**
    * @param relativePath
    * @return true if the folder of the current {@link FolderAccessor} contains an
@@ -58,7 +53,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return GlobalFileSystemAccessor.exists(getPath() + "/" + relativePath);
   }
 
-  //method
   /**
    * Creates a new empty file with the given relative path in the folder of the
    * current {@link FolderAccessor}.
@@ -73,7 +67,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return (GlobalFileSystemAccessor.createFile(getPath() + "/" + relativePath));
   }
 
-  //method
   /**
    * Creates a new empty folder with the given relative path in the folder of the
    * current {@link FolderAccessor}.
@@ -88,7 +81,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return GlobalFileSystemAccessor.createFolder(getPath() + "/" + relativePath);
   }
 
-  //method
   /**
    * Deletes the file system item with the given relative path from the folder of
    * the current {@link FolderAccessor} if it exists.
@@ -99,7 +91,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     GlobalFileSystemAccessor.deleteFileSystemItem(getPath() + "/" + relativePath);
   }
 
-  //method
   /**
    * @return new {@link FileAccessor}s for the files in the folder of the current
    *         {@link FolderAccessor}.
@@ -108,7 +99,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return GlobalFileSystemAccessor.getFileAccessors(getPath());
   }
 
-  //method
   /**
    * @param extension
    * @return a new {@link FileAccessor}s for the files in the folder of the
@@ -118,7 +108,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return GlobalFileSystemAccessor.getFileAccessors(getPath(), extension);
   }
 
-  //method
   /**
    * @param extension
    * @return new {@link FileAccessor} for the files in the folder of the current
@@ -129,7 +118,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
       .getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
-  //method
   /**
    * @return new {@link FileAccessor} for the files in the folder of the current
    *         {@link FolderAccessor} recursively.
@@ -138,7 +126,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return GlobalFileSystemAccessor.getFileAccessorsRecursively(getPath());
   }
 
-  //method
   /**
    * @return new {@link FileSystemItemAccessor}s to the file system items in the
    *         folder of the current {@link FolderAccessor}.
@@ -147,7 +134,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return GlobalFileSystemAccessor.getFileSystemItemAccessors(getPath());
   }
 
-  //method
   /**
    * @param relativePath
    * @return a new {@link FolderAccessor} for the folder with the given relative
@@ -157,7 +143,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     return new FolderAccessor(getPath() + "/" + relativePath);
   }
 
-  //method
   /**
    * Opens the folder of the current {@link FolderAccessor} in a new file
    * explorer.
@@ -166,7 +151,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     GlobalFileSystemAccessor.openInFileExplorer(getPath());
   }
 
-  //method
   /**
    * Reads the content of the file with the given relative path.
    * 

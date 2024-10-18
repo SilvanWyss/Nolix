@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemultiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
 
-//interface
 /**
  * A {@link IMutableMultiTextHolder} is a {@link IMultiTextHolder} whose texts
  * can be added and removed programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
  */
 public interface IMutableMultiTextHolder extends IMultiTextHolder {
 
-  //method declaration
   /**
    * Adds the given text to the current {@link IMutableMultiTextHolder}.
    * 
@@ -23,7 +19,6 @@ public interface IMutableMultiTextHolder extends IMultiTextHolder {
    */
   void addText(String text);
 
-  //method declaration
   /**
    * Removes the given text from the current {@link IMutableMultiTextHolder}.
    * 
@@ -33,7 +28,6 @@ public interface IMutableMultiTextHolder extends IMultiTextHolder {
    */
   void removeText(String text);
 
-  //method declaration
   /**
    * Removes all texts from the current {@link IMutableMultiTextHolder}.
    */

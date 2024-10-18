@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.core.nolixlicense;
 
-//own imports
 import ch.nolix.core.license.License;
 
-//class
 public final class Nolix2024Pro extends License {
 
-  //method
   //key = '45680060'
   @Override
   protected boolean acceptsFilteredKey(final String filteredKey) {

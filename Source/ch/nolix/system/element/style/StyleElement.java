@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.system.element.style;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 
-//class
 /**
  * A {@link StyleElement} is a {@link StyleElement} that can have a
  * {@link Style}.
@@ -20,17 +17,14 @@ public abstract class StyleElement<SE extends StyleElement<SE>>
 extends StylableElement<SE>
 implements IStyleElement<SE> {
 
-  //constant
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalogue.CONFIGURATION;
 
-  //attribute
   private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(
     CONFIGURATION_HEADER,
     this::setStyle,
     Style::fromSpecification,
     IStyle::getSpecification);
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -44,7 +38,6 @@ implements IStyleElement<SE> {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -53,7 +46,6 @@ implements IStyleElement<SE> {
     return style.containsAny();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -63,7 +55,6 @@ implements IStyleElement<SE> {
     resetStyleRecursively();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -76,7 +67,6 @@ implements IStyleElement<SE> {
     return asConcrete();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -88,13 +78,11 @@ implements IStyleElement<SE> {
     resetConfigurationElement();
   }
 
-  //method
   /**
    * Resets the current {@link StyleElement}.
    */
   protected abstract void resetConfigurationElement();
 
-  //method
   /**
    * @return the {@link Style} of the current {@link StyleElement}.
    */

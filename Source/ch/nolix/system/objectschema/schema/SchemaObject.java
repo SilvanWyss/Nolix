@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -9,52 +7,42 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
-//class
 abstract class SchemaObject implements IDatabaseObject {
 
-  //attribute
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
-  //method
   @Override
   public final DatabaseObjectState getState() {
     return state;
   }
 
-  //method
   @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
 
-  //method
   @Override
   public final boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
-  //method
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
-  //method
   @Override
   public final boolean isLoaded() {
     return (getState() == DatabaseObjectState.LOADED);
   }
 
-  //method
   @Override
   public final boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }
 
-  //method declaration
   protected abstract void noteClose();
 
-  //method
   final void internalClose() {
 
     state = DatabaseObjectState.CLOSED;
@@ -62,7 +50,6 @@ abstract class SchemaObject implements IDatabaseObject {
     noteClose();
   }
 
-  //method
   final void internalSetDeleted() {
     state = switch (getState()) {
       case NEW ->
@@ -78,7 +65,6 @@ abstract class SchemaObject implements IDatabaseObject {
     };
   }
 
-  //method
   final void internalSetEdited() {
     switch (getState()) {
       case NEW:
@@ -95,7 +81,6 @@ abstract class SchemaObject implements IDatabaseObject {
     }
   }
 
-  //method
   final void internalSetLoaded() {
     state = switch (getState()) {
       case NEW ->

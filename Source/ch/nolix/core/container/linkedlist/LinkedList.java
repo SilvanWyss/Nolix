@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.container.linkedlist;
 
-//Java imports
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -22,7 +20,6 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link LinkedList} is a {@link Container} that can add elements at the
  * begin or end. A {@link LinkedList} is clearable.
@@ -33,26 +30,20 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  */
 public final class LinkedList<E> extends Container<E> implements ILinkedList<E> {
 
-  //constant
   private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
-  //attribute
   private int elementCount;
 
-  //optional attribute
   private LinkedListNode<E> firstNode;
 
-  //optional attribute
   private LinkedListNode<E> lastNode;
 
-  //constructor
   /**
    * Creates a new empty {@link LinkedList}.
    */
   private LinkedList() {
   }
 
-  //static method
   /**
    * @param <E2> is the type of the elements of the created {@link LinkedList}.
    * @return a new empty {@link LinkedList}.
@@ -61,7 +52,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return new LinkedList<>();
   }
 
-  //static method
   /**
    * @param array
    * @param <E2>  is the type of the elements of the given array.
@@ -80,7 +70,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  //static method
   /**
    * @param container
    * @param <E2>      is the type of the elements of the given container.
@@ -97,7 +86,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  //static method
   /**
    * @param element
    * @param elements
@@ -115,7 +103,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -135,7 +122,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount++;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -149,7 +135,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     addAtBegin(element);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if n elements are given.
    * 
@@ -164,7 +149,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -206,7 +190,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -228,7 +211,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount++;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if n elements are given.
    * 
@@ -248,7 +230,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if n elements are given.
    * 
@@ -263,7 +244,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * Adds the given elements at the end of the current {@link LinkedList}. The
    * complexity of this implementation is O(n) if n elements are given.
@@ -276,7 +256,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elements.forEach(this::addAtEnd);
   }
 
-  //method
   /**
    * Removes all elements of the current {@link LinkedList}. The complexity of
    * this implementation is O(n) when the current {@link LinkedList} contains n
@@ -301,7 +280,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * An object equals a list if it is a list containing exactly the same elements.
    * 
@@ -319,7 +297,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return false;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -340,7 +317,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return copy;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -376,7 +352,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       getCount());
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -391,7 +366,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return lastNode.getElement();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -402,7 +376,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return elementCount;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -411,7 +384,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return toString().hashCode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -420,7 +392,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -431,7 +402,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return LinkedListIterator.withNullableFirstNode(firstNode);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -448,7 +418,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     addAtEnd(remainingElements);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -460,7 +429,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     removeAll(e -> e == element);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -476,7 +444,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return element;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -493,7 +460,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return element;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -509,7 +475,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return element;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -531,7 +496,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -553,7 +517,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -569,7 +532,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -585,7 +547,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n).
    * 
@@ -600,7 +561,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n).
    * 
@@ -614,7 +574,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     removeLastWhenContainsAny();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n).
    * 
@@ -629,7 +588,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -656,7 +614,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * This implementation uses the merge sort algorithm. The complexity of this
    * implementation is O(n*log(n)) if the current {@link Container} contains n
@@ -669,7 +626,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return getOrderedSubList(1, getCount(), norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -681,7 +637,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -690,7 +645,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return LinkedList.createEmpty();
   }
 
-  //method
   /**
    * Adds the given elements at the begin of the current {@link LinkedList} for
    * the case that the current {@link LinkedList} is not empty. The elements will
@@ -725,8 +679,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount += elements.length;
   }
 
-  //method
-  //method
   /**
    * Adds the given elements at the begin of the current {@link LinkedList} for
    * the case that the current {@link LinkedList} is empty. The elements will be
@@ -756,7 +708,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount += elements.length;
   }
 
-  //method
   /**
    * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
    */
@@ -766,7 +717,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * @param startIndex
    * @param endIndex
@@ -842,7 +792,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -873,7 +822,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * Removes the first element the given selector selects from the current
    * {@link ILinkedList} for the case that the current {@link LinkedList} contains
@@ -900,7 +848,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n).
    * 
@@ -928,7 +875,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  //method
   /**
    * Removes the next node of the given node.
    * 
@@ -954,7 +900,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount--;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.

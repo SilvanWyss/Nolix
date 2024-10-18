@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.math.algebra;
 
-//Java imports
 import java.util.Arrays;
 import java.util.Random;
 
@@ -20,7 +18,6 @@ import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link Matrix} represents a mathematical matrix of doubles. A
  * {@link Matrix} has at least 1 row and 1 column.
@@ -34,19 +31,14 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class Matrix {
 
-  //constant
   private static final IArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //constant
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
-  //constant
   private static final Random RANDOM = new Random();
 
-  //multi-attribute
   private double[][] values;
 
-  //constructor
   /**
    * Creates a new {@link Matrix} with the given size. The values of the
    * {@link Matrix} will be all 0.0.
@@ -62,7 +54,6 @@ public final class Matrix {
     values = new double[size][size];
   }
 
-  //constructor
   /**
    * Creates a new {@link Matrix} with the given number of rows and the given
    * number of columns.
@@ -84,7 +75,6 @@ public final class Matrix {
     values = new double[rowCount][columnCount];
   }
 
-  //constructor
   /**
    * Creates a new {@link Matrix} with the given number of rows and columns. The
    * values of the matrix will be all set to the given value.
@@ -104,7 +94,6 @@ public final class Matrix {
     setAllValuesTo(value);
   }
 
-  //static method
   /**
    * @param size
    * @return a new identity {@link Matrix} with the given size.
@@ -114,7 +103,6 @@ public final class Matrix {
     return new Matrix(size).setDiagonalValuesTo(1.0);
   }
 
-  //static method
   /**
    * The values of the created {@link Matrix} will be all 1.0
    * 
@@ -126,7 +114,6 @@ public final class Matrix {
     return new Matrix(size).setAllValuesTo(1.0);
   }
 
-  //static method
   /**
    * The values of the created {@link Matrix} will be all 1.0
    * 
@@ -142,7 +129,6 @@ public final class Matrix {
     return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
   }
 
-  //static method
   /**
    * The values of the created {@link Matrix} will be all a whole random number in
    * [0, 99].
@@ -158,7 +144,6 @@ public final class Matrix {
     return createRandomMatrix(size, size);
   }
 
-  //static method
   /**
    * The values of the created {@link Matrix} will be all a whole random number in
    * [0, 99].
@@ -188,7 +173,6 @@ public final class Matrix {
     return matrix;
   }
 
-  //method
   /**
    * Adds the given matrix to the current {@link Matrix}.
    * 
@@ -225,7 +209,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Appends the given matrix at the right of the current {@link Matrix}.
    * 
@@ -259,7 +242,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Appends a new row with the given row values on the bottom of the current
    * {@link Matrix}.
@@ -285,7 +267,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -294,7 +275,6 @@ public final class Matrix {
     return (object instanceof Matrix matrix && equals(matrix));
   }
 
-  //method
   /**
    * @param matrix
    * @param epsilon
@@ -318,7 +298,6 @@ public final class Matrix {
     return true;
   }
 
-  //method
   /**
    * @return the number of columns of the current {@link Matrix}
    */
@@ -326,7 +305,6 @@ public final class Matrix {
     return values[0].length;
   }
 
-  //method
   /**
    * @return a clone of the current {@link Matrix}
    */
@@ -338,7 +316,6 @@ public final class Matrix {
     return matrix;
   }
 
-  //method
   /**
    * @return the column vectors of the current {@link Matrix}
    */
@@ -360,7 +337,6 @@ public final class Matrix {
     return columns;
   }
 
-  //method
   /**
    * @return the inverse matrix of the current {@link Matrix}.
    * @throws InvalidArgumentException if the current {@link Matrix} is not
@@ -381,7 +357,6 @@ public final class Matrix {
     return matrix.getMatrixWithLastColumns(getColumnCount());
   }
 
-  //method
   /**
    * @param columnCount
    * @return a matrix with the first columns of the current {@link Matrix}.
@@ -404,7 +379,6 @@ public final class Matrix {
     return matrix;
   }
 
-  //method
   /**
    * @param columnCount
    * @return a matrix with the last columns of the current {@link Matrix}.
@@ -429,7 +403,6 @@ public final class Matrix {
     return matrix;
   }
 
-  //method
   /**
    * This method implements the least squares algorithm.
    * 
@@ -474,7 +447,6 @@ public final class Matrix {
       .getProduct(solutionMatrix);
   }
 
-  //method
   /**
    * @param matrix
    * @return the product of the current {@link Matrix} and the given matrix.
@@ -503,7 +475,6 @@ public final class Matrix {
     return product;
   }
 
-  //method
   /**
    * @return a pseudo inverse matrix of the current {@link Matrix}.
    * @throws InvalidArgumentException if the current {@link Matrix} is not
@@ -519,7 +490,6 @@ public final class Matrix {
       .getInverse();
   }
 
-  //method
   /**
    * @return the rank of the current {@link Matrix}.
    * @throws InvalidArgumentException if the current {@link Matrix} is not
@@ -533,7 +503,6 @@ public final class Matrix {
     return getClone().transformToEquivalentUpperLeftMatrix().getRowCount();
   }
 
-  //method
   /**
    * @return the number of rows of the current {@link Matrix}
    */
@@ -541,7 +510,6 @@ public final class Matrix {
     return values.length;
   }
 
-  //method
   /**
    * @return the row vectors of the current {@link Matrix}
    */
@@ -556,7 +524,6 @@ public final class Matrix {
     return rows;
   }
 
-  //method
   /**
    * @return the size of the current {@link Matrix}
    */
@@ -564,7 +531,6 @@ public final class Matrix {
     return (getRowCount() * getColumnCount());
   }
 
-  //method
   /**
    * @return the solution when the current {@link Matrix} is an extended matrix of
    *         a linear equation system
@@ -593,7 +559,6 @@ public final class Matrix {
     return solution;
   }
 
-  //method
   /**
    * @param matrix
    * @return the matrix that is the sum of the current {@link Matrix} and the
@@ -605,7 +570,6 @@ public final class Matrix {
     return getClone().add(matrix);
   }
 
-  //method
   /**
    * @return the transposed matrix of the current {@link Matrix}.
    */
@@ -613,7 +577,6 @@ public final class Matrix {
     return getClone().transpose();
   }
 
-  //method
   /**
    * @return the trace of the current {@link Matrix}.
    * @throws InvalidArgumentException if the current {@link Matrix} is not
@@ -632,7 +595,6 @@ public final class Matrix {
     return trace;
   }
 
-  //method
   /**
    * @param rowIndex
    * @param columnIndex
@@ -662,7 +624,6 @@ public final class Matrix {
     return values[rowIndex - 1][columnIndex - 1];
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -671,7 +632,6 @@ public final class Matrix {
     return toString().hashCode();
   }
 
-  //method
   /**
    * @param matrix
    * @return true if the current {@link Matrix} has the same size as the given
@@ -681,7 +641,6 @@ public final class Matrix {
     return (getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount());
   }
 
-  //method
   /**
    * @return true if the current {@link Matrix} is an identity matrix
    */
@@ -702,7 +661,6 @@ public final class Matrix {
     return true;
   }
 
-  //method
   /**
    * @return true if the current {@link Matrix} is a quadratic matrix
    */
@@ -710,7 +668,6 @@ public final class Matrix {
     return (getRowCount() == getColumnCount());
   }
 
-  //method
   /**
    * @return true if the current {@link Matrix} is regular
    */
@@ -718,7 +675,6 @@ public final class Matrix {
     return (isQuadratic() && getRank() == getRowCount());
   }
 
-  //method
   /**
    * Multiplies the current {@link Matrix} with the given factor.
    * 
@@ -736,7 +692,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Multiplies the row with the given row index with the given factor.
    * 
@@ -759,7 +714,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Removes the zero rows of the current {@link Matrix} using an epsilon
    * 
@@ -793,7 +747,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Sets the values of the current {@link Matrix} to the given value.
    * 
@@ -811,7 +764,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Sets the value in the row with the given row index and the column with the
    * given column index.
@@ -846,7 +798,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Sets the values of the current {@link Matrix}.
    * 
@@ -880,7 +831,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Sets the values of the current {@link Matrix}.
    * 
@@ -907,7 +857,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Sets the diagonal values of the current {@link Matrix} to the given value.
    * 
@@ -927,7 +876,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Swaps the rows with the given indexes.
    * 
@@ -954,7 +902,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * @return a polynom representation of the current {@link Matrix}
    * @throws UnrepresentingArgumentException if the current {@link Matrix} does
@@ -989,7 +936,6 @@ public final class Matrix {
     throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
   }
 
-  //method
   /**
    * @return a vector representation of the current {@link Matrix}
    * @throws UnrepresentingArgumentException if the current {@link Matrix} does
@@ -1019,7 +965,6 @@ public final class Matrix {
     throw UnrepresentingArgumentException.forArgumentAndType(this, Vector.class);
   }
 
-  //method
   /**
    * Transforms the first part of the current {@link Matrix} to an identity
    * matrix.
@@ -1072,7 +1017,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * Transforms the current {@link Matrix} to an equivalent upper left matrix.
    * 
@@ -1127,7 +1071,6 @@ public final class Matrix {
     return removeZeroRows();
   }
 
-  //method
   /**
    * @return a {@link String} representation of this object
    */
@@ -1159,7 +1102,6 @@ public final class Matrix {
     return stringBuilder.toString();
   }
 
-  //method
   /**
    * Transposes the current {@link Matrix}.
    * 
@@ -1180,7 +1122,6 @@ public final class Matrix {
     return this;
   }
 
-  //method
   /**
    * @throws InvalidArgumentException if the current {@link Matrix} is not
    *                                  quadratic.
@@ -1193,7 +1134,6 @@ public final class Matrix {
     }
   }
 
-  //method
   /**
    * @param lineIndex
    * @return true if the line with the given index of the current {@link Matrix}
@@ -1216,7 +1156,6 @@ public final class Matrix {
     return true;
   }
 
-  //method
   /**
    * @param matrix
    * @return true if the current {@link Matrix} equals the given matrix.

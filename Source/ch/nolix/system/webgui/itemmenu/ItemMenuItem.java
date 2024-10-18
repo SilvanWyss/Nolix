@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-//Java imports
 import java.util.function.Consumer;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
@@ -19,36 +16,28 @@ import ch.nolix.system.element.property.Value;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
-//class
 public final class ItemMenuItem extends MutableElement implements IItemMenuItem<ItemMenuItem> {
 
-  //constant
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
-  //constant
   private static final String ID_HEADER = PascalCaseVariableCatalogue.ID;
 
-  //constant
   private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
-  //constant
   private static final String SELECTION_FLAG_HEADER = "Selected";
 
-  //attribute
   private final OptionalValue<String> id = new OptionalValue<>(
     ID_HEADER,
     this::setId,
     INode::getSingleChildNodeHeader,
     Node::withChildNode);
 
-  //attribute
   private final Value<String> text = new Value<>(
     TEXT_HEADER,
     this::setText,
     INode::getSingleChildNodeHeader,
     Node::withChildNode);
 
-  //attribute
   private final MutableValue<Boolean> selectionFlag = new MutableValue<>(
     SELECTION_FLAG_HEADER,
     DEFAULT_SELECTION_FLAG,
@@ -56,18 +45,14 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     INode::getSingleChildNodeAsBoolean,
     Node::withChildNode);
 
-  //optional attribute
   private IItemMenu<?, ?> parentMenu;
 
-  //optional attribute
   private final Consumer<IItemMenuItem<?>> selectAction;
 
-  //constructor
   private ItemMenuItem() {
     selectAction = null;
   }
 
-  //constructor
   private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
 
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
@@ -75,12 +60,10 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     this.selectAction = selectAction;
   }
 
-  //static method
   public static ItemMenuItem createBlankItem() {
     return withText(StringCatalogue.EMPTY_STRING);
   }
 
-  //static method
   public static ItemMenuItem fromSpecification(final INode<?> specification) {
 
     final var item = new ItemMenuItem();
@@ -89,7 +72,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //static method
   public static ItemMenuItem withIdAndText(
     final String id,
     final String text) {
@@ -101,7 +83,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //static method
   public static ItemMenuItem withIdAndTextAndSelectAction(
     final String id,
     final String text,
@@ -114,7 +95,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //static method
   public static ItemMenuItem withIdAndTextAndSelectAction(
     final String id,
     final String text,
@@ -127,7 +107,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //static method
   public static ItemMenuItem withText(
     final String text) {
 
@@ -138,7 +117,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //static method
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Runnable selectAction) {
@@ -150,7 +128,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //static method
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {
@@ -162,43 +139,36 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     return item;
   }
 
-  //method
   @Override
   public boolean belongsToMenu() {
     return (parentMenu != null);
   }
 
-  //method
   @Override
   public String getId() {
     return id.getValue();
   }
 
-  //method
   @Override
   public String getText() {
     return text.getValue();
   }
 
-  //method
   @Override
   public boolean isBlank() {
     return getText().isEmpty();
   }
 
-  //method
   @Override
   public boolean isSelected() {
     return selectionFlag.getValue();
   }
 
-  //method
   @Override
   public void reset() {
     unselect();
   }
 
-  //method
   @Override
   public void select() {
     if (!isSelected()) {
@@ -206,13 +176,11 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     }
   }
 
-  //method
   @Override
   public void unselect() {
     selectionFlag.setValue(false);
   }
 
-  //method
   @Override
   public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
 
@@ -221,19 +189,16 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     this.parentMenu = parentMenu;
   }
 
-  //method
   private boolean hasSelectAction() {
     return (selectAction != null);
   }
 
-  //method
   private void runOptionalSelectAction() {
     if (hasSelectAction()) {
       selectAction.accept(this);
     }
   }
 
-  //method
   private void selectWhenNotSelected() {
 
     unselectItemsOfOptionalParentMenu();
@@ -247,7 +212,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     runOptionalSelectAction();
   }
 
-  //method
   private void setId(final String id) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
@@ -255,7 +219,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     this.id.setValue(id);
   }
 
-  //method
   private void setSelectionFlag(final boolean selected) {
     if (selected) {
       select();
@@ -264,12 +227,10 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     }
   }
 
-  //method
   private void setText(final String text) {
     this.text.setValue(text);
   }
 
-  //method
   private void unselectItemsOfOptionalParentMenu() {
     if (belongsToMenu()) {
       parentMenu.getStoredItems().forEach(IItemMenuItem::unselect);

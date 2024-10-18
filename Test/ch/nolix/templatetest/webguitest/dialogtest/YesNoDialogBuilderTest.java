@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.templatetest.webguitest.dialogtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 //Mockito imports
 import org.mockito.Mockito;
@@ -19,10 +17,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 
-//class
 final class YesNoDialogBuilderTest extends StandardTest {
 
-  //method
   @Test
   void testCase_build() {
 
@@ -53,7 +49,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
     expect(controls.containsAny(this::isCancelButton));
   }
 
-  //method
   @Test
   void testCase_build_thenClickCancelButton() {
 
@@ -73,7 +68,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
     Mockito.verify(confirmActionMock, Mockito.never()).run();
   }
 
-  //method
   @Test
   void testCase_build_thenClickConfirmButton() {
 
@@ -93,7 +87,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
     Mockito.verify(confirmActionMock).run();
   }
 
-  //method
   @Test
   void testCase_build_thenAddToWebGui_thenClickCancelButton() {
 
@@ -116,7 +109,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
     Mockito.verify(confirmActionMock, Mockito.never()).run();
   }
 
-  //method
   @Test
   void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
 
@@ -139,7 +131,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
     expectNot(result.belongsToGui());
   }
 
-  //method
   private boolean isCancelButton(final IControl<?, ?> control) {
 
     if (control instanceof IButton button) {
@@ -149,7 +140,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
     return false;
   }
 
-  //method
   private boolean isConfirmButton(final IControl<?, ?> control) {
 
     if (control instanceof IButton button) {

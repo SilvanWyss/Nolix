@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link DeletedArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument is undesirably deleted.
@@ -12,10 +10,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class DeletedArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is deleted";
 
-  //constructor
   /**
    * Creates a new {@link DeletedArgumentException} for the given argument.
    * 
@@ -27,7 +23,6 @@ public final class DeletedArgumentException extends InvalidArgumentException {
     super(argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link DeletedArgumentException} for the given argument.

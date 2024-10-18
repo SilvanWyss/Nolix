@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.system.objectdata.fieldtool;
 
-//own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
-//class
 public final class OptionalValueTool extends FieldTool implements IOptionalValueTool {
 
   @Override
@@ -17,7 +14,6 @@ public final class OptionalValueTool extends FieldTool implements IOptionalValue
     && value != null;
   }
 
-  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetValue(
     final IOptionalValue<?> optionalValue,
@@ -31,7 +27,6 @@ public final class OptionalValueTool extends FieldTool implements IOptionalValue
       new ContentFieldDto(optionalValue.getName(), value.toString()));
   }
 
-  //method
   private boolean canSetValue(final IOptionalValue<?> optionalValue) {
     return optionalValue != null
     && optionalValue.isOpen();

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.datatool;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
@@ -22,13 +19,10 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 
-//class
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
 
-  //constant
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
-  //method
   @Override
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IEntity entity) {
 
@@ -39,7 +33,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return true;
   }
 
-  //method
   @Override
   public boolean canBeDeleted(final IEntity entity) {
     return //
@@ -48,7 +41,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     && !isReferencedIgnoringLocallyDeletedEntities(entity);
   }
 
-  //method
   @Override
   public boolean canBeInsertedIntoTable(final IEntity entity) {
     return //
@@ -57,13 +49,11 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     && entity.belongsToTable();
   }
 
-  //method
   @Override
   public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity entity) {
     return entity.internalGetStoredFields().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
   }
 
-  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForEntity(final IEntity entity) {
     return new EntityUpdateDto(
@@ -72,20 +62,17 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
       getStoredEditedFields(entity).to(IField::internalToContentField));
   }
 
-  //method
   @Override
   public IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity) {
     return new EntityHeadDto(entity.getId(), entity.getSaveStamp());
   }
 
-  //method
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
     return //
     new NewEntityDto(entity.getId(), entity.internalGetStoredFields().to(IField::internalToContentField));
   }
 
-  //method
   @Override
   public Optional<? extends IBaseBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
@@ -102,25 +89,21 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return Optional.empty();
   }
 
-  //method
   @Override
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
     return entity.internalGetStoredFields().toFromGroups(IField::getStoredBaseBackReferences);
   }
 
-  //method
   @Override
   public IContainer<? extends IField> getStoredEditedFields(final IEntity entity) {
     return entity.internalGetStoredFields().getStoredSelected(IField::isEdited);
   }
 
-  //method
   @Override
   public IContainer<? extends IField> getStoredReferencingFields(final IEntity entity) {
     return entity.internalGetStoredFields().toFromGroups(IField::getStoredReferencingFields);
   }
 
-  //method
   @Override
   public boolean isReferenced(final IEntity entity) {
     return //
@@ -135,7 +118,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     || isReferencedInPersistedDataIgnoringLocallyDeletedEntities(entity);
   }
 
-  //method
   @Override
   public boolean isReferencedInLocalData(final IEntity entity) {
 
@@ -152,19 +134,16 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return false;
   }
 
-  //method
   @Override
   public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
     return sourceEntity.internalGetStoredFields().containsAny(p -> p.referencesEntity(entity));
   }
 
-  //method
   @Override
   public boolean referencesUninsertedEntity(final IEntity entity) {
     return entity.internalGetStoredFields().containsAny(IField::referencesUninsertedEntity);
   }
 
-  //method
   private boolean baseBackReferenceWouldReferenceBackBaseReference(
     final IBaseBackReference<?> baseBackReference,
     final IBaseReference<? extends IEntity> baseReference) {
@@ -173,7 +152,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     && baseBackReference.getBackReferencedFieldName().equals(baseReference.getName());
   }
 
-  //method
   private boolean isBaseValueOrBaseReference(final IField field) {
 
     final var baseType = field.getType().getBaseType();
@@ -182,13 +160,11 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     || baseType == BaseContentType.BASE_REFERENCE;
   }
 
-  //method
   private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IField field) {
     return isBaseValueOrBaseReference(field)
     && FIELD_TOOL.isMandatoryAndEmptyBoth(field);
   }
 
-  //method
   private boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
 
     if (entity.isReferencedInPersistedData()) {
@@ -201,7 +177,6 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
     return false;
   }
 
-  //method
   private IContainer<String> getLocallyDeletedEntities(final IEntity entity) {
     return //
     entity

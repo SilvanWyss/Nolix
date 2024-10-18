@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -10,16 +8,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-//class
 public abstract class BaseSubElement<ME extends IMutableElement> implements IProperty {
 
-  //attribute
   private final String attributePrefix;
 
-  //attribute
   private ME internalSubElement;
 
-  //constructor
   protected BaseSubElement(
     final String attributePrefix,
     final ME internalSubElement) {
@@ -30,20 +24,16 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     internalSetSubElement(internalSubElement);
   }
 
-  //method
   public String getAttributePrefix() {
     return attributePrefix;
   }
 
-  //method
   public ME getSubElement() {
     return internalSubElement;
   }
 
-  //method declaration
   public abstract boolean isExchangable();
 
-  //method
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -60,7 +50,6 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     return false;
   }
 
-  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var a : internalSubElement.getAttributes()) {
@@ -69,7 +58,6 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     }
   }
 
-  //method
   protected final void internalSetSubElement(final ME internalSubElement) {
 
     GlobalValidator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();

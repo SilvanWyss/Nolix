@@ -1,17 +1,12 @@
-//package dlecaration
 package ch.nolix.coretest.commontypetooltest.arraytooltest;
 
-//JUnit imports 
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ArrayToolTest extends StandardTest {
 
-  //method
   @Test
   void testCase_onArray_fromIndex_write() {
 

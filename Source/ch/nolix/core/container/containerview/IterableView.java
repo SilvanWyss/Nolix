@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.containerview;
 
-//Java imports
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -17,7 +14,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-11-26
@@ -25,10 +21,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class IterableView<E> extends Container<E> {
 
-  //attribute
   private final Iterable<E> iterable;
 
-  //constructor
   /**
    * Creates a new {@link IterableView} for a new empty container.
    */
@@ -38,7 +32,6 @@ public final class IterableView<E> extends Container<E> {
     this(LinkedList.createEmpty());
   }
 
-  //constructor
   /**
    * Creates a new {@link IterableView} for the given container.
    * 
@@ -59,7 +52,6 @@ public final class IterableView<E> extends Container<E> {
     this.iterable = (Iterable<E>) container;
   }
 
-  //static method
   /**
    * @param iterable
    * @param <E2>     is the type of the elements of the given iterable.
@@ -70,7 +62,6 @@ public final class IterableView<E> extends Container<E> {
     return new IterableView<>(iterable);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -89,7 +80,6 @@ public final class IterableView<E> extends Container<E> {
     return size;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -115,7 +105,6 @@ public final class IterableView<E> extends Container<E> {
       getCount());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -124,7 +113,6 @@ public final class IterableView<E> extends Container<E> {
     return getStoredAt1BasedIndex(getCount());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -133,7 +121,6 @@ public final class IterableView<E> extends Container<E> {
     return false;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -142,7 +129,6 @@ public final class IterableView<E> extends Container<E> {
     return IterableViewIterator.forIterable(iterable);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -151,7 +137,6 @@ public final class IterableView<E> extends Container<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n). if the current
    * {@link IterableView} contains n elements.
@@ -163,7 +148,6 @@ public final class IterableView<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//Java imports
 import java.util.NoSuchElementException;
 
-//class
 /**
  * A {@link ArgumentDoesNotHaveAttributeException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -16,7 +13,6 @@ import java.util.NoSuchElementException;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argument and attributeType.
@@ -31,7 +27,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     super(argument, "does not have a " + getNameOfAttributeType(attributeType));
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argument and attributeName.
@@ -47,7 +42,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     super(argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argumentName, argument and attributeType.
@@ -68,7 +62,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     super(argumentName, argument, "does not have a " + getNameOfAttributeType(attributeType));
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argumentName, argument and attributeName.
@@ -90,7 +83,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
   }
 
-  //constructor
   /**
    * @param argument
    * @param attributeName
@@ -105,7 +97,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argument, attributeName);
   }
 
-  //static method
   /**
    * @param argument
    * @param attributeType
@@ -119,7 +110,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argument, attributeType);
   }
 
-  //constructor
   /**
    * @param argumentName
    * @param argument
@@ -138,7 +128,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeName);
   }
 
-  //constructor
   /**
    * @param argumentName
    * @param argument
@@ -156,7 +145,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeType);
   }
 
-  //static method
   /**
    * @param attributeType
    * @return the name of the given attribtueType.
@@ -172,7 +160,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return attributeType.getSimpleName();
   }
 
-  //static method
   /**
    * @param attributeName
    * @return a valid attribute name of the given attributeName.
@@ -194,7 +181,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return attributeName;
   }
 
-  //method
   /**
    * @return a new {@link NoSuchElementException} representation of the current
    *         {@link ArgumentDoesNotHaveAttributeException}.

@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.container.pair;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 
-//class
 /**
  * A {@link Pair} contains 2 elements. A {@link Pair} is not mutable.
  * 
@@ -17,13 +14,10 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
  */
 public final class Pair<E1, E2> implements IPair<E1, E2> {
 
-  //attribute
   private final E1 element1;
 
-  //attribute
   private final E2 element2;
 
-  //constructor
   /**
    * Creates a new {@link Pair} with the given elements.
    * 
@@ -47,7 +41,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     this.element2 = element2;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -56,7 +49,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return element1;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -65,7 +57,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return element2;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -74,7 +65,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return (element1 == object);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -83,7 +73,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return (element2 == object);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

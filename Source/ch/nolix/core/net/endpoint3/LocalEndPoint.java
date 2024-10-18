@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint3;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -15,7 +13,6 @@ import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 /**
  * A local duplex controller can interact with another local duplex controller.
  * 
@@ -24,16 +21,12 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  */
 public final class LocalEndPoint extends EndPoint {
 
-  //attribute
   private final PeerType peerType;
 
-  //attribute
   private final LocalEndPoint counterpart;
 
-  //optional attribute
   private final String target;
 
-  //constructor
   /**
    * Creates a new local duplex controller that will connect to another new local
    * duplex controller.
@@ -49,7 +42,6 @@ public final class LocalEndPoint extends EndPoint {
     target = null;
   }
 
-  //constructor
   /**
    * Creates a new local duplex controller that will connect to the given target.
    * 
@@ -69,7 +61,6 @@ public final class LocalEndPoint extends EndPoint {
     target.takeBackendEndPoint(getStoredCounterpart());
   }
 
-  //constructor
   /**
    * Creates a new local duplex controller with the given counterpart.
    * 
@@ -92,7 +83,6 @@ public final class LocalEndPoint extends EndPoint {
     target = null;
   }
 
-  //constructor
   /**
    * Creates a new local duplex controller with the given counterpart and target.
    * 
@@ -120,7 +110,6 @@ public final class LocalEndPoint extends EndPoint {
     this.target = target;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -129,7 +118,6 @@ public final class LocalEndPoint extends EndPoint {
     return ConnectionType.LOCAL;
   }
 
-  //method
   /**
    * @return the data the given request requests from this local duplex
    *         controller.
@@ -142,7 +130,6 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart.getStoredReceiverController().getDataForRequest(request);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -151,7 +138,6 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart.getStoredReceiverController().getDataForRequests(request, requests);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -160,7 +146,6 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 
-  //method
   /**
    * @return the counterpart of this local duplex controller.
    */
@@ -168,7 +153,6 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart;
   }
 
-  //method
   /**
    * @return the target of this local duplex controller.
    */
@@ -177,7 +161,6 @@ public final class LocalEndPoint extends EndPoint {
     return target;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -186,7 +169,6 @@ public final class LocalEndPoint extends EndPoint {
     return peerType;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -195,7 +177,6 @@ public final class LocalEndPoint extends EndPoint {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -204,7 +185,6 @@ public final class LocalEndPoint extends EndPoint {
     return (target != null);
   }
 
-  //method
   /**
    * Lets this local duplex controller run the given command.
    * 
@@ -224,7 +204,6 @@ public final class LocalEndPoint extends EndPoint {
     counterpart.getStoredReceiverController().runCommand(command);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

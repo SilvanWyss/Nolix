@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
 
-//class
 final class WebSocketFramePayloadLengthTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getType_whenPayloadLengthIs0() {
 
@@ -27,7 +22,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result).is(WebSocketFramePayloadLengthType.BITS_7);
   }
 
-  //method
   @Test
   void testCase_getType_whenPayloadLengthIs125() {
 
@@ -41,7 +35,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result).is(WebSocketFramePayloadLengthType.BITS_7);
   }
 
-  //method
   @Test
   void testCase_getType_whenPayloadLengthIs126() {
 
@@ -55,7 +48,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result).is(WebSocketFramePayloadLengthType.BITS_16);
   }
 
-  //method
   @Test
   void testCase_getType_whenPayloadLengthIs65535() {
 
@@ -69,7 +61,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result).is(WebSocketFramePayloadLengthType.BITS_16);
   }
 
-  //method
   @Test
   void testCase_getType_whenPayloadLengthIs65536() {
 
@@ -83,7 +74,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result).is(WebSocketFramePayloadLengthType.BITS_64);
   }
 
-  //method
   @Test
   void testCase_getType_whenPayloadLengthIs9223372036854775807() {
 
@@ -97,7 +87,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result).is(WebSocketFramePayloadLengthType.BITS_64);
   }
 
-  //method
   @Test
   void testCase_toBytes_whenPayloadLengthIs0() {
 
@@ -111,7 +100,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(result[0]).consistsOfBits("00000000");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenPayloadLengthIs125() {
 
@@ -126,7 +114,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(new UnsignedByte(result[0]).toBitString()).isEqualTo("01111101");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenPayloadLengthIs126() {
 
@@ -142,7 +129,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("01111110");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenPayloadLengthIs65535() {
 
@@ -158,7 +144,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("11111111");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenPayloadLengthIs65536() {
 
@@ -180,7 +165,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
     expect(new UnsignedByte(result[7]).toBitString()).isEqualTo("00000000");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenPayloadLengthIs9223372036854775807() {
 

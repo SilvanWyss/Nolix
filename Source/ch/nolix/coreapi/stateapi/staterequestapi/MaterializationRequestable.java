@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link MaterializationRequestable} can be asked if it is either
  * materialized or a view. A materialized object manages its content by itself.
@@ -26,14 +23,12 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface MaterializationRequestable {
 
-  //method declaration
   /**
    * @return true if the current {@link MaterializationRequestable} is
    *         materialized, false otherwise.
    */
   boolean isMaterialized();
 
-  //method
   /**
    * @return true if the current {@link MaterializationRequestable} is a view,
    *         false otherwise.

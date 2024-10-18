@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentIsNotNullException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably not (!)
@@ -13,10 +11,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsNotNullException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is not null";
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsNotNullException} for the given argument.
    * 
@@ -34,7 +30,6 @@ public final class ArgumentIsNotNullException extends InvalidArgumentException {
     }
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsNotNullException} for the given argument.

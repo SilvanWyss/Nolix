@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 
-//class
 /**
  * An extended generic argument mediator is not mutable.
  * 
@@ -16,7 +13,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  */
 public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 
-  //constructor
   /**
    * Creates a new extended generic argument mediator for the given argument.
    * 
@@ -28,7 +24,6 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
     super(argument);
   }
 
-  //method
   /**
    * @param type
    * @return a new generic argument mediator with the argument name from the given
@@ -38,7 +33,6 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
     return new ArgumentMediator<>(type.getSimpleName(), getStoredArgument());
   }
 
-  //method
   /**
    * @param argumentName
    * @return a new generic argument mediator with the given argument name and for

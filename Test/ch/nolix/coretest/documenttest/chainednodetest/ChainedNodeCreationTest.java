@@ -1,21 +1,16 @@
-//package declaration
 package ch.nolix.coretest.documenttest.chainednodetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ChainedNodeCreationTest extends StandardTest {
 
-  //method
   @Test
   void testCase_fromNode_whenNodeIsBlank() {
 
@@ -32,7 +27,6 @@ final class ChainedNodeCreationTest extends StandardTest {
     expect(result).hasStringRepresentation("");
   }
 
-  //method
   @Test
   void testCase_fromNode_whenNodeHasHeaderOnly() {
 
@@ -46,7 +40,6 @@ final class ChainedNodeCreationTest extends StandardTest {
     expect(result).hasStringRepresentation("a");
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(strings = {
   "",
@@ -73,7 +66,6 @@ final class ChainedNodeCreationTest extends StandardTest {
     expect(result).hasStringRepresentation(string);
   }
 
-  //method
   @Test
   void testCase_withHeader_whenNullHeaderIsGiven() {
 
@@ -84,7 +76,6 @@ final class ChainedNodeCreationTest extends StandardTest {
       .withMessage("The given header is null.");
   }
 
-  //method
   @Test
   void testCase_withHeader_whenHeaderIsGiven() {
 

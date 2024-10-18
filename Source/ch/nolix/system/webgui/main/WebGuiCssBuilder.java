@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.main;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.Css;
@@ -14,10 +12,8 @@ import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-//class
 public final class WebGuiCssBuilder {
 
-  //method
   public Css createCssForWebGui(final IWebGui<?> webGui) {
 
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
@@ -27,7 +23,6 @@ public final class WebGuiCssBuilder {
     return Css.withRules(cssRules);
   }
 
-  //method
   private void fillUpCssRulesOfWebGuiIntoList(
     final IWebGui<?> webGui,
     final ILinkedList<ICssRule> cssRules) {
@@ -52,7 +47,6 @@ public final class WebGuiCssBuilder {
     fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
   }
 
-  //method
   private void fillUpCssRulesOfLayersOfWebGuiIntoList(
     final IWebGui<?> webGui,
     final ILinkedList<ICssRule> cssRules) {
@@ -61,7 +55,6 @@ public final class WebGuiCssBuilder {
     }
   }
 
-  //method
   private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final ILinkedList<ICssRule> cssRules) {
 
     cssRules.addAtEnd(layer.getCssRule());

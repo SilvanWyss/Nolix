@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.commontypetooltest.arraytooltest.arrayiteratortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class GetCopyMethodTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getCopy_whenIsAtStartIndex() {
 
@@ -51,7 +46,6 @@ final class GetCopyMethodTest extends StandardTest {
     expectNot(result.hasNext());
   }
 
-  //method
   @Test
   void testCase_getCopy_whenIsAtIndexBetweenStartAndEnd() {
 
@@ -84,7 +78,6 @@ final class GetCopyMethodTest extends StandardTest {
     expectNot(result.hasNext());
   }
 
-  //method
   @Test
   void testCase_getCopy_whenIsAtEndIndex() {
 

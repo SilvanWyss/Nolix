@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.statementcreator;
 
-//own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
@@ -17,13 +15,10 @@ import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//class
 public final class EntityStatementCreator implements IEntityStatementCreator {
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //method
   @Override
   public String createStatementToDeleteEntity(
     final String tableName,
@@ -38,7 +33,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  //method
   @Override
   public String createStatementToDeleteEntityHead(final String entityId) {
     return "DELETE FROM "
@@ -48,7 +42,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ";";
   }
 
-  //method
   @Override
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return "IF NOT EXISTS (SELECT * FROM "
@@ -64,7 +57,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
   }
 
-  //method
   @Override
   public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
     return "SELECT Id FROM "
@@ -79,7 +71,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ".', 0) END;";
   }
 
-  //method
   @Override
   public String createStatementToInsertEntity(final String tableName, final INewEntityDto newEntity) {
     return "INSERT INTO "
@@ -95,7 +86,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ");";
   }
 
-  //method
   @Override
   public String createStatementToInsertEntityHead(final String tableId, final String entityId) {
     return "INSERT INTO "
@@ -111,7 +101,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ");";
   }
 
-  //method
   @Override
   public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     return "UPDATE"
@@ -126,7 +115,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  //method
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
 
@@ -153,7 +141,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  //method
   private String getSqlValueRepresentationOfContentField(final IContentFieldDto contentField) {
 
     final var valueAsString = contentField.getOptionalValueAsString();

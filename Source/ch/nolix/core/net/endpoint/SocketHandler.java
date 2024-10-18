@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,16 +23,12 @@ import ch.nolix.coreapi.netapi.endpointapi.SocketType;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class SocketHandler {
 
-  //constant
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //method
   public void handleSocketForServer(final Socket socket, final Server server) {
 
     final var backendNetEndPoint = createOptionalBackendNetEndPointForSocketAndServer(socket, server);
@@ -46,7 +40,6 @@ public final class SocketHandler {
     }
   }
 
-  //method
   private void closeSocket(final Socket socket) {
     try {
       socket.close();
@@ -55,7 +48,6 @@ public final class SocketHandler {
     }
   }
 
-  //method
   private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
     final Socket socket,
     final InputStream socketInputStream,
@@ -75,7 +67,6 @@ public final class SocketHandler {
     };
   }
 
-  //method
   private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
     final Socket socket,
     final Server server) {
@@ -108,7 +99,6 @@ public final class SocketHandler {
       server);
   }
 
-  //method
   private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServerWhenIsHttpSocketOrWebSocket(
     final Socket socket,
     final InputStream socketInputStream,
@@ -144,7 +134,6 @@ public final class SocketHandler {
     return Optional.empty();
   }
 
-  //method
   private SocketEndPoint createSocketEndPointWithCustomTarget(
     final Socket socket,
     final InputStream socketInputStream,
@@ -157,7 +146,6 @@ public final class SocketHandler {
       Node.fromString(firstReveivedLine.substring(1)).getHeader());
   }
 
-  //method
   private SocketEndPoint createSocketEndPointWithDefaultTarget(
     final Socket socket,
     final InputStream socketInputStream,
@@ -165,7 +153,6 @@ public final class SocketHandler {
     return new SocketEndPoint(socket, socketInputStream, socketOutputStream);
   }
 
-  //method
   private void fillUpLinesIntoListUntilReceivesEmptyLine(
     final LinkedList<String> lines,
     final InputStream inputStream) {
@@ -185,7 +172,6 @@ public final class SocketHandler {
     }
   }
 
-  //method
   private Optional<InputStream> getOptionalInputStreamOfSocket(final Socket socket) {
     try {
       return Optional.of(socket.getInputStream());
@@ -197,7 +183,6 @@ public final class SocketHandler {
     }
   }
 
-  //method
   private Optional<OutputStream> getOptionalOutputStreamOfSocket(final Socket socket) {
     try {
       return Optional.of(socket.getOutputStream());
@@ -209,7 +194,6 @@ public final class SocketHandler {
     }
   }
 
-  //method
   private Optional<SocketType> getSocketTypeFromFirstReceivedLine(
     final String firstReceivedLine) {
 
@@ -228,7 +212,6 @@ public final class SocketHandler {
     return Optional.empty();
   }
 
-  //method
   private void sendRawMessageToOutputStream(final OutputStream outputStream, final String rawMessage) {
     try {
       outputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));

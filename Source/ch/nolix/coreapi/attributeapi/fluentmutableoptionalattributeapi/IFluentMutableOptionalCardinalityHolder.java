@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalCardinalityHolder} is a
  * {@link ICardinalityHolder} whose cardinality can be set and removed
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
 public interface IFluentMutableOptionalCardinalityHolder<FMOCH extends IFluentMutableOptionalCardinalityHolder<FMOCH>>
 extends ICardinalityHolder {
 
-  //method declaration
   /**
    * Removes the cardinality of the current
    * {@link IFluentMutableOptionalCardinalityHolder}.
@@ -27,7 +23,6 @@ extends ICardinalityHolder {
    */
   FMOCH removeCardinality();
 
-  //method declaration
   /**
    * Sets the cardinality of the current
    * {@link IFluentMutableOptionalCardinalityHolder}.

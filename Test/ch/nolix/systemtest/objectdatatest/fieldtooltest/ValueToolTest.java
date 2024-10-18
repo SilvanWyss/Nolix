@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.fieldtooltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Value;
@@ -12,22 +9,17 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class ValueToolTest extends StandardTest {
 
-  //constant
   private static class Pet extends Entity {
 
-    //attribute
     private final Value<String> name = Value.withValueType(String.class);
 
-    //constructor
     public Pet() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_canSetValue() {
 
@@ -43,7 +35,6 @@ final class ValueToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_canSetValue_whenTheGivenValueIsClosed() {
 
@@ -66,7 +57,6 @@ final class ValueToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_canSetValue_whenTheGivenValueToSetIsNull() {
 

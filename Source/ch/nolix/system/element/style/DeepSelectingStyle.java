@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.element.style;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -14,17 +12,14 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
  */
 public final class DeepSelectingStyle extends BaseSelectingStyle {
 
-  //constant
   public static final String TYPE_NAME = "DeepSelectingStyle";
 
-  //constructor
   /**
    * Creates a new empty {@link DeepSelectingStyle}.
    */
@@ -33,7 +28,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       ImmutableList.createEmpty());
   }
 
-  //constructor
   /**
    * Creates a new {@link DeepSelectingStyle}.
    * 
@@ -60,7 +54,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       subStyles);
   }
 
-  //static method
   /**
    * @param specification
    * @return a new {@link DeepSelectingStyle} from the given specification.
@@ -114,7 +107,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       subStyles);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -123,7 +115,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     return true;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -138,7 +129,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     styleChildElementsOfElement(element);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -175,7 +165,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
 
@@ -197,7 +186,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorRoles(final IContainer<String> selectorRoles) {
 
@@ -226,7 +214,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorTokens(final IContainer<String> selectorTokens) {
 
@@ -255,7 +242,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorType(final String selectorType) {
 
@@ -277,7 +263,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -310,7 +295,6 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       allSubStyles);
   }
 
-  //method
   private void styleChildElementsOfElement(final IStylableElement<?> element) {
 
     final var childElements = element.getStoredChildStylableElements();

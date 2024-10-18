@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.processproperty;
 
-//enum
 /**
  * A {@link ChangeState} defines if something is unchanged or changed.
  * 

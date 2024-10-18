@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -10,7 +8,6 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
-//class
 /**
  * A {@link NetEndPoint} can send messages to an other {@link NetEndPoint} that
  * is on: -the same process on the local computer -another process on the local
@@ -21,13 +18,10 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  */
 public abstract class NetEndPoint extends EndPoint {
 
-  //constant
   private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
 
-  //attribute
   private boolean hasTargetInfo;
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given targetInfoState.
    * 
@@ -45,7 +39,6 @@ public abstract class NetEndPoint extends EndPoint {
     }
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given target.
    * 
@@ -62,7 +55,6 @@ public abstract class NetEndPoint extends EndPoint {
     confirmReceivedTargetInfo();
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} send the given message.
    * 
@@ -73,7 +65,6 @@ public abstract class NetEndPoint extends EndPoint {
     sendRawMessage(MessageType.CONTENT_MESSAGE.getPrefix() + message);
   }
 
-  //method
   /**
    * @return true if the current {@link NetEndPoint} has a target info.
    */
@@ -81,7 +72,6 @@ public abstract class NetEndPoint extends EndPoint {
     return hasTargetInfo;
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} send the given rawMessage.
    * 
@@ -93,7 +83,6 @@ public abstract class NetEndPoint extends EndPoint {
     sendRawMessage(String.valueOf(rawMessage));
   }
 
-  //method declaration
   /**
    * Lets the current {@link NetEndPoint} send the given rawMessage.
    * 
@@ -101,7 +90,6 @@ public abstract class NetEndPoint extends EndPoint {
    */
   protected abstract void sendRawMessage(String rawMessage);
 
-  //method
   /**
    * Sends the target message of the current {@link NetEndPoint} to the
    * counterpart of the current {@link NetEndPoint}.
@@ -110,7 +98,6 @@ public abstract class NetEndPoint extends EndPoint {
     sendRawMessage(getTargetMessage());
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given rawMessage
    * asynchronously.
@@ -121,7 +108,6 @@ public abstract class NetEndPoint extends EndPoint {
     GlobalSequencer.runInBackground(() -> receiveRawMessage(rawMessage));
   }
 
-  //method
   /**
    * Confirms that the current {@link NetEndPoint} has a target info.
    * 
@@ -138,7 +124,6 @@ public abstract class NetEndPoint extends EndPoint {
     hasTargetInfo = true;
   }
 
-  //method
   /**
    * @return the target message of the current {@link NetEndPoint}.
    */
@@ -153,7 +138,6 @@ public abstract class NetEndPoint extends EndPoint {
     return (MessageType.TARGET_MESSAGE.getPrefix() + getCustomTargetSlot());
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message.
    * 
@@ -168,7 +152,6 @@ public abstract class NetEndPoint extends EndPoint {
     getStoredReceiver().accept(message);
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given rawMessage.
    * 

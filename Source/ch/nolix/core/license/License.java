@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.license;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
@@ -10,17 +8,14 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-05-16
  */
 public abstract class License implements INameHolder {
 
-  //attribute
   private boolean activated;
 
-  //method
   /**
    * Activates the current {@link License} with the given key.
    * 
@@ -38,7 +33,6 @@ public abstract class License implements INameHolder {
     activated = true;
   }
 
-  //method
   /**
    * @throws InvalidArgumentException if the current {@link License} is not
    *                                  activated.
@@ -49,7 +43,6 @@ public abstract class License implements INameHolder {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -58,7 +51,6 @@ public abstract class License implements INameHolder {
     return getClass().getName();
   }
 
-  //method
   /**
    * @return true if the current {@link License} is activated.
    */
@@ -66,14 +58,12 @@ public abstract class License implements INameHolder {
     return activated;
   }
 
-  //method declaration
   /**
    * @param filteredKey
    * @return true if the current {@link License} accepts the given filteredKey.
    */
   protected abstract boolean acceptsFilteredKey(String filteredKey);
 
-  //method
   /**
    * @param key
    * @return true if the current {@link License} accepts the given key.
@@ -82,7 +72,6 @@ public abstract class License implements INameHolder {
     return acceptsFilteredKey(getFilteredKey(key));
   }
 
-  //method
   /**
    * @param key
    * @throws UnacceptedKeyException if the current {@link License} does no accepts
@@ -94,7 +83,6 @@ public abstract class License implements INameHolder {
     }
   }
 
-  //method
   /**
    * @throws InvalidArgumentException if the current {@link License} is activated.
    */

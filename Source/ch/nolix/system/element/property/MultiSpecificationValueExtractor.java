@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -14,19 +11,14 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-//class
 public final class MultiSpecificationValueExtractor implements IProperty, INameHolder {
 
-  //attribute
   private final String name;
 
-  //attribute
   private final Consumer<INode<?>> adder;
 
-  //attribute
   private final Supplier<IContainer<INode<?>>> getter;
 
-  //constructor
   public MultiSpecificationValueExtractor(
     final String name,
     final Consumer<INode<?>> adder,
@@ -41,13 +33,11 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     this.getter = getter;
   }
 
-  //method
   @Override
   public String getName() {
     return name;
   }
 
-  //method
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -59,7 +49,6 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     return false;
   }
 
-  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     list.addAtEnd(getter.get());

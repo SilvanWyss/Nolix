@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.element.style;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -14,17 +12,14 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2023-07-09
  */
 public final class SelectingStyle extends BaseSelectingStyle {
 
-  //constant
   public static final String TYPE_NAME = "SelectingStyle";
 
-  //constructor
   /**
    * Creates a new empty {@link SelectingStyle}.
    */
@@ -33,7 +28,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       ImmutableList.createEmpty());
   }
 
-  //constructor
   /**
    * Creates a new {@link SelectingStyle}.
    * 
@@ -79,7 +73,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       selectingStyle.getSubStyles());
   }
 
-  //static method
   /**
    * @param specification
    * @return a new {@link SelectingStyle} from the given specification.
@@ -134,7 +127,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       subStyles);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -143,7 +135,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
     return false;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -155,7 +146,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -192,7 +182,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
 
@@ -214,7 +203,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorRoles(final IContainer<String> selectorRoles) {
 
@@ -243,7 +231,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorTokens(final IContainer<String> selectorTokens) {
 
@@ -272,7 +259,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   @Override
   public ISelectingStyleWithSelectors withSelectorType(final String selectorType) {
 
@@ -294,7 +280,6 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

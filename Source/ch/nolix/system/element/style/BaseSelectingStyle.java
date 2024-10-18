@@ -1,8 +1,7 @@
-//package declaration
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -14,36 +13,26 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-//class
 public abstract class BaseSelectingStyle
 extends BaseStyle<ISelectingStyleWithSelectors>
 implements ISelectingStyleWithSelectors {
 
-  //constant
   protected static final String SELECTOR_ID_HEADER = "SelectorId";
 
-  //constant
   protected static final String SELECTOR_TYPE_HEADER = "SelectorType";
 
-  //constant
   protected static final String SELECTOR_ROLE_HEADER = "SelectorRole";
 
-  //constant
   protected static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
 
-  //optional attribute
   private final String selectorId;
 
-  //optional attribute
   private final String selectorType;
 
-  //multi-attribute
   private final ImmutableList<String> selectorRoles;
 
-  //multi-attribute
   private final ImmutableList<String> selectorTokens;
 
-  //constructor
   protected BaseSelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
@@ -63,27 +52,22 @@ implements ISelectingStyleWithSelectors {
     this.selectorTokens = ImmutableList.forIterable(selectorTokens);
   }
 
-  //method
   public final boolean containsSelectorRole(final String selectorRole) {
     return selectorRoles.containsEqualing(selectorRole);
   }
 
-  //method
   public final boolean containsSelectorRoles() {
     return selectorRoles.containsAny();
   }
 
-  //method
   public final boolean containsSelectorToken(final String selectorToken) {
     return selectorTokens.containsEqualing(selectorToken);
   }
 
-  //method
   public final boolean containsSelectorTokens() {
     return selectorTokens.containsAny();
   }
 
-  //method
   @Override
   public final IContainer<INode<?>> getAttributes() {
 
@@ -108,7 +92,6 @@ implements ISelectingStyleWithSelectors {
     return attributes;
   }
 
-  //method
   @Override
   public final String getSelectorId() {
 
@@ -117,19 +100,16 @@ implements ISelectingStyleWithSelectors {
     return selectorId;
   }
 
-  //method
   @Override
   public final IContainer<String> getSelectorRoles() {
     return selectorRoles;
   }
 
-  //method
   @Override
   public final IContainer<String> getSelectorTokens() {
     return selectorTokens;
   }
 
-  //method
   @Override
   public final String getSelectorType() {
 
@@ -138,13 +118,11 @@ implements ISelectingStyleWithSelectors {
     return selectorType;
   }
 
-  //method
   @Override
   public final boolean hasSelectorId() {
     return (selectorId != null);
   }
 
-  //method
   public final boolean hasSelectorId(final String selectorId) {
 
     if (!hasSelectorId()) {
@@ -154,13 +132,11 @@ implements ISelectingStyleWithSelectors {
     return getSelectorId().equals(selectorId);
   }
 
-  //method
   @Override
   public final boolean hasSelectorType() {
     return (selectorType != null);
   }
 
-  //method
   public final boolean hasSelectorType(final String selectorType) {
 
     if (!hasSelectorType()) {
@@ -170,7 +146,6 @@ implements ISelectingStyleWithSelectors {
     return getSelectorType().equals(selectorType);
   }
 
-  //method
   @Override
   public final boolean selectsElement(IStylableElement<?> element) {
     return selectorIdAllowsToSelectElement(element)
@@ -179,7 +154,6 @@ implements ISelectingStyleWithSelectors {
     && selectorTokensAllowToSelectElement(element);
   }
 
-  //method
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
     final Enum<?>... selectorRoles) {
@@ -189,7 +163,6 @@ implements ISelectingStyleWithSelectors {
     return withSelectorRoles(allSelectorRoles);
   }
 
-  //method
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
 
@@ -198,7 +171,6 @@ implements ISelectingStyleWithSelectors {
     return withSelectorRoles(allSelectorRoles);
   }
 
-  //method
   @Override
   public final ISelectingStyleWithSelectors withSelectorToken(
     final String selectorToken,
@@ -209,42 +181,35 @@ implements ISelectingStyleWithSelectors {
     return withSelectorTokens(allSelectorTokens);
   }
 
-  //method
   @Override
   public final ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType) {
     return withSelectorType(selectorType.getSimpleName());
   }
 
-  //method
   private void assertHasSelectorId() {
     if (!hasSelectorId()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector id");
     }
   }
 
-  //method
   private void assertHasSelectorType() {
     if (!hasSelectorType()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector type");
     }
   }
 
-  //method
   private boolean selectorIdAllowsToSelectElement(final IStylableElement<?> element) {
     return !hasSelectorId() || element.hasId(getSelectorId());
   }
 
-  //method
   private boolean selectorRolesAllowToSelectElement(IStylableElement<?> element) {
     return !containsSelectorRoles() || getSelectorRoles().containsAny(element::hasRole);
   }
 
-  //method
   private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {
     return !containsSelectorTokens() || getSelectorTokens().containsAnyOf(element.getTokens());
   }
 
-  //method
   private boolean selectorTypeAllowsToSelectElement(final IStylableElement<?> element) {
     return !hasSelectorType() || element.isOfType(getSelectorType());
   }

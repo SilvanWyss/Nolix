@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.changesetsaver;
 
-//own imports
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
@@ -16,19 +14,14 @@ import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-//class
 public final class ChangeSetSaveValidator {
 
-  //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
-  //constant
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
-  //constant
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
-  //method
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IDatabase database,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -40,7 +33,6 @@ public final class ChangeSetSaveValidator {
     }
   }
 
-  //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IEntity entity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -49,7 +41,6 @@ public final class ChangeSetSaveValidator {
     }
   }
 
-  //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -58,7 +49,6 @@ public final class ChangeSetSaveValidator {
     }
   }
 
-  //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -68,7 +58,6 @@ public final class ChangeSetSaveValidator {
     }
   }
 
-  //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenFieldIsNewOrEdited(
     final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -119,7 +108,6 @@ public final class ChangeSetSaveValidator {
     }
   }
 
-  //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
     final IOptionalReference<?> optionalReference,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -130,7 +118,6 @@ public final class ChangeSetSaveValidator {
     }
   }
 
-  //method
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(
     final IReference<?> reference,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {

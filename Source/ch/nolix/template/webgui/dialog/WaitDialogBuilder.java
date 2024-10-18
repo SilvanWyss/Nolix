@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.template.webgui.dialog;
 
-//own imports
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
@@ -13,22 +11,16 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
-//class
 public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
 
-  //constant
   private static final Runnable DEFAULT_JOB = GlobalFunctionService::doNothing;
 
-  //constant
   private static final Runnable DEFAULT_TERMINAL_ACTION = GlobalFunctionService::doNothing;
 
-  //attribute
   private Runnable job = DEFAULT_JOB;
 
-  //attribute
   private Runnable terminalAction = DEFAULT_TERMINAL_ACTION;
 
-  //method
   @Override
   public ILayer<?> build() {
 
@@ -47,7 +39,6 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
     return waitDialog;
   }
 
-  //method
   public WaitDialogBuilder setJob(final Runnable job) {
 
     this.job = job;
@@ -55,7 +46,6 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  //method
   public WaitDialogBuilder setTerminalAction(final Runnable terminalAction) {
 
     this.terminalAction = terminalAction;
@@ -63,12 +53,10 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  //method
   private Runnable getJob() {
     return job;
   }
 
-  //method
   private Runnable getTerminalAction() {
     return terminalAction;
   }

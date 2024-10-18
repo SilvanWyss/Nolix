@@ -1,22 +1,16 @@
-//package declaration
 package ch.nolix.system.sqlschema.schemadto;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
 
-//class
 public final class DataTypeDto implements IDataTypeDto {
 
-  //attribute
   private final String name;
 
-  //optional attribute
   private final String parameter;
 
-  //constructor
   public DataTypeDto(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
@@ -25,7 +19,6 @@ public final class DataTypeDto implements IDataTypeDto {
     parameter = null;
   }
 
-  //constructor
   public DataTypeDto(final String name, final String parameter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
@@ -35,7 +28,6 @@ public final class DataTypeDto implements IDataTypeDto {
     this.parameter = parameter;
   }
 
-  //method
   @Override
   public String getName() {
     return name;
@@ -49,13 +41,11 @@ public final class DataTypeDto implements IDataTypeDto {
     return parameter;
   }
 
-  //method
   @Override
   public boolean hasParameter() {
     return (parameter != null);
   }
 
-  //method
   private void assertHasParameter() {
     if (!hasParameter()) {
       throw //

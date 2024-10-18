@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
 
-//interface
 /**
  * A {@link IMutableSaveStampHolder} is a {@link ISaveStampHolder} whose save
  * stamp can be set programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
  */
 public interface IMutableSaveStampHolder extends ISaveStampHolder {
 
-  //method declaration
   /**
    * Sets the save stamp of the current {@link IMutableSaveStampHolder}.
    * 

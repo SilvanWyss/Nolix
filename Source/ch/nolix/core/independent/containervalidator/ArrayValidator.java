@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.independent.containervalidator;
 
-//class
 public final class ArrayValidator {
 
-  //method
   public void assertDoesNotContainNull(final Object[] array) {
 
     if (array == null) {

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.container;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -11,10 +9,8 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
-//class
 public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 
-  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
@@ -22,21 +18,18 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
       createHtmlElementForTableOfGrid(control));
   }
 
-  //method
   public HtmlElement createHtmlElementForTableOfGrid(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
       HtmlElementTypeCatalogue.TABLE,
       createHtmlElementForTableBodyOfGrid(control));
   }
 
-  //method
   private HtmlElement createHtmlElementForTableBodyOfGrid(final IGrid grid) {
     return HtmlElement.withTypeAndChildElements(
       HtmlElementTypeCatalogue.TBODY,
       createHtmlElementsForChildControlsOfGrid(grid));
   }
 
-  //method
   private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfGrid(final IGrid grid) {
 
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
@@ -48,14 +41,12 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
     return htmlElements;
   }
 
-  //method
   private HtmlElement createHtmlElementForRowOfGrid(final IGrid grid, final int rowIndex) {
     return HtmlElement.withTypeAndChildElements(
       HtmlElementTypeCatalogue.TR,
       createHtmlElementsForCellsOfRowOfGrid(grid, rowIndex));
   }
 
-  //method
   private IContainer<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
 
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
@@ -67,7 +58,6 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
     return htmlElements;
   }
 
-  //method
   private HtmlElement createHtmlElementForCellOfGrid(final IGrid grid, final int rowIndex, final int columnIndex) {
 
     if (!grid.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {

@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.documenttest.xmltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.xml.XmlAttribute;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class XmlAttributeTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor() {
 
@@ -23,7 +18,6 @@ final class XmlAttributeTest extends StandardTest {
     expect(result.getValue()).isEqualTo("green");
   }
 
-  //method
   @Test
   void testCase_toString() {
 

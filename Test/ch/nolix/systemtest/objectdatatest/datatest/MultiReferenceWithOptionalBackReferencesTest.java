@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
@@ -13,35 +10,27 @@ import ch.nolix.system.objectdata.data.OptionalBackReference;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class MultiReferenceWithOptionalBackReferencesTest extends StandardTest {
 
-  //constant
   private static final class Person extends Entity {
 
-    //attribute
     final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
 
-    //constructor
     Person() {
       initialize();
     }
   }
 
-  //constant
   private static final class Pet extends Entity {
 
-    //attribute
     final OptionalBackReference<Person> owner = OptionalBackReference
       .forEntityAndBackReferencedFieldName(Person.class, "pets");
 
-    //constructor
     Pet() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_isSaved_whenContainsSeveral() {
 
@@ -77,7 +66,6 @@ final class MultiReferenceWithOptionalBackReferencesTest extends StandardTest {
     expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
   }
 
-  //method
   @Test
   void testCase_removeEntity_whenContainsEntity() {
 

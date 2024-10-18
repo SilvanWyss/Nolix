@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.databaseapplication.fieldbinder;
 
-//own imports
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 
-//class
 public final class OptionalReferenceBinder
 extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
-  //method
   @Override
   protected void addSelectionOptionsToControlForField(
     final IDropdownMenu dropdownMenu,
@@ -24,13 +20,11 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
     }
   }
 
-  //method
   @Override
   protected IDropdownMenu createControl() {
     return new DropdownMenu();
   }
 
-  //method
   @Override
   protected void setNoteUpdateActionToControl(
     final IDropdownMenu dropdownMenu,
@@ -38,7 +32,6 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
     dropdownMenu.setSelectAction(noteUpdateAction);
   }
 
-  //method
   @Override
   protected void updateFieldFromControl(
     final IOptionalReference<IEntity> optionalReference,
@@ -53,7 +46,6 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
     }
   }
 
-  //method
   @Override
   protected void updateControlFromField(
     final IDropdownMenu dropdownMenu,

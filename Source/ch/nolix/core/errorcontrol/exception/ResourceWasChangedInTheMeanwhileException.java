@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.exception;
 
-//class
 /**
  * A {@link ResourceWasChangedInTheMeanwhileException} is a
  * {@link RuntimeException} that is supposed to be thrown when a specific
@@ -14,7 +12,6 @@ package ch.nolix.core.errorcontrol.exception;
 @SuppressWarnings("serial")
 public final class ResourceWasChangedInTheMeanwhileException extends RuntimeException {
 
-  //constructor
   /**
    * Creates a new {@link ResourceWasChangedInTheMeanwhileException} for the given
    * resource.
@@ -27,7 +24,6 @@ public final class ResourceWasChangedInTheMeanwhileException extends RuntimeExce
     super("The " + validateAndGetResource(resource) + " was changed in the meanwhile.");
   }
 
-  //static method
   /**
    * @param resource
    * @return a new {@link ResourceWasChangedInTheMeanwhileException} for the given
@@ -39,7 +35,6 @@ public final class ResourceWasChangedInTheMeanwhileException extends RuntimeExce
     return new ResourceWasChangedInTheMeanwhileException(resource);
   }
 
-  //static method
   /**
    * @param resource
    * @return a valid resource for the given resource.

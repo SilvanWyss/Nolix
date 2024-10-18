@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.systemapi.timeapi.timestructureapi;
 
-//Java imports
 import java.time.DayOfWeek;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 public enum Weekday {
   MONDAY,
   TUESDAY,
@@ -17,7 +13,6 @@ public enum Weekday {
   SATURDAY,
   SUNDAY;
 
-  //static method
   public static Weekday fromDayOfWeek(final DayOfWeek dayOfWeek) {
     return switch (dayOfWeek) {
       case MONDAY ->
@@ -39,7 +34,6 @@ public enum Weekday {
     };
   }
 
-  //static method
   public static Weekday fromSpecification(final INode<?> specification) {
     return Weekday.valueOf(specification.getSingleChildNodeHeader());
   }

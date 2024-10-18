@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.arraylist;
 
-//Java imports
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2024-01-30
@@ -26,24 +22,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
-  //constant
   private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
 
-  //attribute
   private int elementCount;
 
-  //multi-attribute
   @SuppressWarnings("unchecked")
   private E[] elements = (E[]) new Object[0];
 
-  //constructor
   /**
    * Creates a new empty {@link ArrayList}.
    */
   private ArrayList() {
   }
 
-  //static method
   /**
    * @return a new empty {@link ArrayList}.
    * @param <E2> is the type of the elements of the {@link ArrayList}.
@@ -52,7 +43,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return new ArrayList<>();
   }
 
-  //static method
   /**
    * @param element
    * @param elements
@@ -71,7 +61,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return arrayList;
   }
 
-  //static method
   /**
    * The time complexity of this implementation is O(n) when n elements are given.
    * 
@@ -90,7 +79,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return arrayList;
   }
 
-  //static method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -113,7 +101,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return arrayList;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
@@ -135,7 +122,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     elementCount = newElementCount;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
@@ -155,7 +141,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     elementCount = newElementCount;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -170,7 +155,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     elementCount = 0;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) when the current
    * {@link ArrayList} contains n elements.
@@ -182,7 +166,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return withElements(elements);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -193,7 +176,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return elementCount;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -207,7 +189,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return elements[param1BasedIndex - 1];
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -218,7 +199,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return getStoredAt1BasedIndex(getCount());
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -229,7 +209,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return true;
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -240,7 +219,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return ArrayListIterator.forArrayAndMaxNextIndex(elements, getCount());
   }
 
-  //method
   /**
    * This implementation uses the merge sort algorithm. The complexity of this
    * implementation is O(n*log(n)) if the current {@link ArrayList} contains n
@@ -253,7 +231,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link ArrayList} contains n elements.
@@ -265,7 +242,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -276,7 +252,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return LinkedList.createEmpty();
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -291,7 +266,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
       requiredCapacity);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -301,7 +275,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     return elements.length;
   }
 
-  //method
   /**
    * Lets the current {@link ArrayList} grow at least to the given
    * requiredCapacity.
@@ -314,7 +287,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     }
   }
 
-  //method
   /**
    * Lets the current {@link ArrayList} grow at least to the given
    * requiredCapacity for the case that the current {@link ArrayList} needs to
@@ -329,7 +301,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(targetCapacity);
   }
 
-  //method
   /**
    * Lets the current {@link ArrayList} grow to the given capacity for the case
    * when the given capacity is bigger than the capacity of the current
@@ -347,7 +318,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     elements = newElements;
   }
 
-  //method
   /**
    * @param requiredCapacity
    * @return true if the current {@ink ArrayList} needs to grow to reach the

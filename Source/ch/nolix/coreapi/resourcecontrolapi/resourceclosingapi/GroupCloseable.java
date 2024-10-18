@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2020-07-05
@@ -12,7 +9,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface GroupCloseable extends Closeable {
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -21,7 +17,6 @@ public interface GroupCloseable extends Closeable {
     getStoredCloseController().close();
   }
 
-  //method
   /**
    * Creates a close dependency between the current {@link GroupCloseable} and the
    * given element.
@@ -40,13 +35,11 @@ public interface GroupCloseable extends Closeable {
     getStoredCloseController().createCloseDependencyTo(element);
   }
 
-  //method declaration
   /**
    * @return the {@link ICloseController} of the current {@link GroupCloseable}.
    */
   ICloseController getStoredCloseController();
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -55,7 +48,6 @@ public interface GroupCloseable extends Closeable {
     return getStoredCloseController().hasClosed();
   }
 
-  //method declaration
   /**
    * Lets the current {@link GroupCloseable} note a close.
    */

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.stateapi.staterequestapi.MutabilityRequestable;
 import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-10-29
@@ -22,16 +18,12 @@ import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
  */
 public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {
 
-  //attribute
   private final String name;
 
-  //attribute
   private final Function<INode<?>, V> valueCreator;
 
-  //attribute
   protected final Function<V, INode<?>> specificationCreator;
 
-  //constructor
   /**
    * Creates a new {@link BaseValue} with the given name, valueCreator and
    * specificationCreator.
@@ -58,7 +50,6 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     this.specificationCreator = specificationCreator;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -67,7 +58,6 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     return name;
   }
 
-  //method
   /**
    * Adds or changes the value from the given attribute to the current
    * {@link BaseValue}.
@@ -85,7 +75,6 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     return false;
   }
 
-  //method declaration
   /**
    * Adds or change the given value to the current {@link BaseValue}.
    * 

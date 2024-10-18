@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.systemapi.elementapi.styleapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
-//interface
 /**
  * A {@link IBaseStyle} can style {@link IStylableElement}s. A
  * {@link IBaseStyle} can distinguish if it would style also the child elements
@@ -18,7 +15,6 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
  */
 public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
 
-  //method declaration
   /**
    * Applies the current {@link IBaseStyle} to the given element.
    * 
@@ -26,19 +22,16 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    */
   void applyToElement(IStylableElement<?> element);
 
-  //method declaration
   /**
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
   IContainer<? extends INode<?>> getAttachingAttributes();
 
-  //method declaration
   /**
    * @return the sub styles of the current {@link IBaseStyle}.
    */
   IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
 
-  //method declaration
   /**
    * @param attachingAttribute
    * @param attachingAttributes
@@ -51,7 +44,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    */
   S withAttachingAttribute(String attachingAttribute, String... attachingAttributes);
 
-  //method declaration
   /**
    * @param attachingAttributes
    * @return a new {@link IStyle} from the current {@link IStyle} with the given

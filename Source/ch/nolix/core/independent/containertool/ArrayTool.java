@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.independent.containertool;
 
-//own imports
 import ch.nolix.core.independent.container.List;
 
-//class
 /**
  * The {@link ArrayTool} provides functions to handle arrays.
  * 
@@ -203,7 +200,6 @@ public final class ArrayTool {
     return valueList;
   }
 
-  //method
   /**
    * @param values
    * @return a {@link String} representation of the given values.
@@ -257,7 +253,6 @@ public final class ArrayTool {
     return stringBuilder.toString();
   }
 
-  //method
   /**
    * @param values
    * @return a {@link String} representation of the given values.

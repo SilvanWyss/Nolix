@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.net.endpoint2;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRole;
 
-//class
 /**
  * A package in end point 3 is a package with a message role.
  * 
@@ -15,10 +12,8 @@ import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRole;
  */
 final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
 
-  //attribute
   private final MessageRole messageRole;
 
-  //constructor
   /**
    * Creates a new zeta package with the given index and message and the role the
    * given message has.
@@ -41,7 +36,6 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
     this.messageRole = messageRole;
   }
 
-  //static method
   /**
    * @param string
    * @return a new zeta package the given string represents.
@@ -53,7 +47,6 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
       string.substring(9));
   }
 
-  //method
   /**
    * @return the role of the message of this zeta package.
    */
@@ -61,7 +54,6 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
     return messageRole;
   }
 
-  //method
   /**
    * @return a {@link String} representation of this zeta package.
    */

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.reflection;
 
-//Java imports
 import java.lang.reflect.Executable;
 
-//class
 /**
  * The {@link ExecutableTool} provides methods to handle {@link Executable}s.
  * 
@@ -13,7 +10,6 @@ import java.lang.reflect.Executable;
  */
 public final class ExecutableTool {
 
-  //method
   /**
    * @param executable
    * @param type

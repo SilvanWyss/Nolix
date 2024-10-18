@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.coreapi.netapi.endpoint2protocol;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//enum
 /**
  * @author Silvan Wyss
  * @version 2016-10-01
@@ -16,10 +13,8 @@ public enum MessageRole {
   SUCCESS_RESPONSE(MessageRolePrefixCatalogue.SUCCESS_RESPONSE_PREFIX),
   ERROR_RESPONSE(MessageRolePrefixCatalogue.ERROR_RESPONSE_PREFIX);
 
-  //attribute
   private final char prefix;
 
-  //constructor
   /**
    * Creates a new {@link MessageRole} with the given prefix.
    * 
@@ -29,7 +24,6 @@ public enum MessageRole {
     this.prefix = prefix;
   }
 
-  //static method
   /**
    * @param prefix
    * @return a new {@link MessageRole} from the given prefix
@@ -53,7 +47,6 @@ public enum MessageRole {
     };
   }
 
-  //static method
   /**
    * @param prefix
    * @return a new {@link UnrepresentingArgumentException} for the given prefix
@@ -66,7 +59,6 @@ public enum MessageRole {
       MessageRole.class);
   }
 
-  //method
   /**
    * @return the prefix of the current {@link MessageRole}.
    */

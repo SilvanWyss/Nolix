@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalTokenHolder} is a {@link IOptionalTokenHolder}
  * whose token can be set and removed programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
 public interface IFluentMutableOptionalTokenHolder<FMOTH extends IFluentMutableOptionalTokenHolder<FMOTH>>
 extends IOptionalTokenHolder {
 
-  //method declaration
   /**
    * Removes the token of the current {@link IFluentMutableOptionalTokenHolder}.
    * 
@@ -24,7 +20,6 @@ extends IOptionalTokenHolder {
    */
   FMOTH removeToken();
 
-  //method declaration
   /**
    * Sets the token of the current {@link IFluentMutableOptionalTokenHolder}.
    * 

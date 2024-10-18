@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.mathtest.algebratest.matrixtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ToStringMethodTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "1, '[1]'",
@@ -33,7 +28,6 @@ final class ToStringMethodTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_toString_whenMatrixIs1x1Matrix() {
 
@@ -47,7 +41,6 @@ final class ToStringMethodTest extends StandardTest {
     expect(result).isEqualTo("[0]");
   }
 
-  //method
   @Test
   void testCase_toString_whenMatrixIs2x2Matrix() {
 
@@ -61,7 +54,6 @@ final class ToStringMethodTest extends StandardTest {
     expect(result).isEqualTo("[0,0;0,0]");
   }
 
-  //method
   @Test
   void testCase_toString_whenMatrixIs3x3Matrix() {
 
@@ -75,7 +67,6 @@ final class ToStringMethodTest extends StandardTest {
     expect(result).isEqualTo("[0,0,0;0,0,0;0,0,0]");
   }
 
-  //method
   @Test
   void testCase_toString_whenMatrixIs4x4Matrix() {
 

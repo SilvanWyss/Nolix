@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 
-//Java imports
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -13,10 +10,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
-//class
 final class ComplexNumberTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor_1A() {
 
@@ -28,7 +23,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result.getImaginaryComponent().doubleValue()).isEqualTo(0.0);
   }
 
-  //method
   @Test
   void testCase_constructor_1B() {
 
@@ -40,7 +34,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result.getImaginaryComponent().doubleValue()).isEqualTo(0.0);
   }
 
-  //method
   @Test
   void testCase_constructor_1C() {
 
@@ -52,7 +45,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result.getImaginaryComponent().doubleValue()).isEqualTo(1.0);
   }
 
-  //method
   @Test
   void testCase_constructor_2A() {
 
@@ -69,7 +61,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182818285");
   }
 
-  //method
   @Test
   void testCase_constructor_2B() {
 
@@ -86,7 +77,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182800000");
   }
 
-  //method
   @Test
   void testCase_getConjugate_1A() {
 
@@ -100,7 +90,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_getConjugate_1B() {
 
@@ -114,7 +103,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(new ComplexNumber(0.0, -1.0));
   }
 
-  //method
   @Test
   void testCase_getConjugate_1C() {
 
@@ -128,7 +116,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(new ComplexNumber(1.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_getConjugate_1D() {
 
@@ -142,7 +129,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(new ComplexNumber(1.0, -1.0));
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "0.0, 0.0, 0.0",
@@ -169,7 +155,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(BigDecimal.valueOf(expectedMagnitude).setScale(scale));
   }
 
-  //method
   @Test
   void testCase_getProduct_1A() {
 
@@ -186,7 +171,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_getProduct_1B() {
 
@@ -203,7 +187,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_getSum_1A() {
 
@@ -222,7 +205,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_getSum_1B() {
 
@@ -241,7 +223,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(1.0, 1.0));
   }
 
-  //method
   @Test
   void testCase_getSum_1C() {
 
@@ -260,7 +241,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(2.0, 2.0));
   }
 
-  //method
   @Test
   void testCase_inDecimalPlaces() {
 
@@ -276,7 +256,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result.getImaginaryComponent().scale()).isEqualTo(50);
   }
 
-  //method
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
 
@@ -290,7 +269,6 @@ final class ComplexNumberTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
 
@@ -304,7 +282,6 @@ final class ComplexNumberTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
 
@@ -318,7 +295,6 @@ final class ComplexNumberTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
 
@@ -332,7 +308,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
 
@@ -346,7 +321,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
 
@@ -360,7 +334,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
 
@@ -374,7 +347,6 @@ final class ComplexNumberTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
 
@@ -388,7 +360,6 @@ final class ComplexNumberTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
 
@@ -402,7 +373,6 @@ final class ComplexNumberTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
 
@@ -416,7 +386,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
 
@@ -430,7 +399,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
 
@@ -444,7 +412,6 @@ final class ComplexNumberTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_toString() {
 

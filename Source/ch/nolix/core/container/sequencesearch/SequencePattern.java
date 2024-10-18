@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.container.sequencesearch;
 
-//Java imports
 import java.util.Iterator;
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 
-//class
 /**
  * A {@link SequencePattern} is a pattern for sequences. -The sequences of a
  * {@link SequencePattern} must have a defined length. -The elements of the
@@ -30,13 +26,10 @@ import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {
 
-  //multi-attribute
   private final LinkedList<Predicate<E>> elementConditions = LinkedList.createEmpty();
 
-  //multi-attribute
   private final ILinkedList<Predicate<ILinkedList<E>>> sequenceConditions = LinkedList.createEmpty();
 
-  //method
   /**
    * Adds a blank condition for the next element of the sequences of the current
    * {@link SequencePattern}.
@@ -50,7 +43,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return this;
   }
 
-  //method
   /**
    * Adds the given condition for the next element of the sequences of the current
    * {@link SequencePattern}.
@@ -66,7 +58,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return this;
   }
 
-  //method
   /**
    * Adds the given sequence condition to the current {@link SequencePattern}. The
    * sequence conditions must be fulfilled from the sequences of a
@@ -84,7 +75,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return this;
   }
 
-  //method
   /**
    * @param count
    * @return a new {@link SequencePatternNextMediator} for the current
@@ -95,7 +85,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return new SequencePatternNextMediator<>(this, count);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -144,7 +133,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return sequences;
   }
 
-  //method
   /**
    * @return the number of elements of the sequences of the current
    *         {@link SequencePattern}.
@@ -153,7 +141,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return elementConditions.getCount();
   }
 
-  //method
   /**
    * @param list
    * @return true if this {@link SequencePattern} matches the given list.

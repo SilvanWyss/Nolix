@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programstructureapi.builderapi;
 
-//interface
 /**
  * A {@link Copyable} can be copied.
  * 
@@ -11,7 +9,6 @@ package ch.nolix.coreapi.programstructureapi.builderapi;
  */
 public interface Copyable<C extends Copyable<C>> {
 
-  //method declaration
   /**
    * @return a copy of the current {@link Copyable}.
    */

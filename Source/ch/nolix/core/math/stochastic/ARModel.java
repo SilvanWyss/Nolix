@@ -1,25 +1,19 @@
-//package declaration
 package ch.nolix.core.math.stochastic;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-08-01
  */
 public final class ARModel extends StatisticalModel {
 
-  //attribute
   private final double constant;
 
-  //multi-attribute
   private final double[] pCoefficients;
 
-  //constructor
   public ARModel(final int pOrder, final double[] inputValues) {
 
     //Calls constructor of the base class.
@@ -55,7 +49,6 @@ public final class ARModel extends StatisticalModel {
     constant = factor2Matrix.getValue(factor2Matrix.getSize(), 1);
   }
 
-  //method
   /**
    * @return the constant of this AR model
    */
@@ -63,7 +56,6 @@ public final class ARModel extends StatisticalModel {
     return constant;
   }
 
-  //method
   public double getPCoefficient(final int index) {
 
     GlobalValidator.assertThat(index).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isBetween(1, getPOrder());
@@ -71,7 +63,6 @@ public final class ARModel extends StatisticalModel {
     return pCoefficients[index - 1];
   }
 
-  //method
   /**
    * @return the p-order of this AR model
    */

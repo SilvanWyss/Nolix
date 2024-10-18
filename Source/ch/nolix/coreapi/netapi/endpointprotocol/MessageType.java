@@ -1,22 +1,17 @@
-//package declaration
 package ch.nolix.coreapi.netapi.endpointprotocol;
 
-//enum
 public enum MessageType {
   TARGET_MESSAGE(MessagePrefixCatalogue.TARGET_MESSAGE),
   DEFAULT_TARGET_MESSAGE(MessagePrefixCatalogue.DEFAULT_TARGET_MESSAGE),
   CONTENT_MESSAGE(MessagePrefixCatalogue.CONTENT_MESSAGE),
   CLOSE_MESSAGE(MessagePrefixCatalogue.CLOSE_MESSAGE);
 
-  //attribute
   private final String prefix;
 
-  //constructor
   MessageType(final String prefix) {
     this.prefix = prefix;
   }
 
-  //static method
   public static MessageType forPrefix(final String prefix) {
     return switch (prefix) {
       case MessagePrefixCatalogue.TARGET_MESSAGE ->
@@ -32,7 +27,6 @@ public enum MessageType {
     };
   }
 
-  //method
   public String getPrefix() {
     return prefix;
   }

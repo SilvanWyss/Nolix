@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.testing.standardtest;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
-//class
 /**
  * A {@link ClosureMediator} is not mutable.
  * 
@@ -14,10 +11,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  */
 public final class ClosureMediator {
 
-  //attribute
   private final Runnable closure;
 
-  //constructor
   /**
    * Creates a new {@link ClosureMediator} for the given closure.
    * 
@@ -35,7 +30,6 @@ public final class ClosureMediator {
     this.closure = closure;
   }
 
-  //method
   /**
    * Generates an error if the closure of the current {@link ClosureMediator} does
    * not throw an exception.
@@ -51,7 +45,6 @@ public final class ClosureMediator {
     }
   }
 
-  //method
   /**
    * Generates an error if the closure of the current {@link ClosureMediator}
    * throws an exception.

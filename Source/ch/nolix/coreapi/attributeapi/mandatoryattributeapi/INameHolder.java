@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link INameHolder} has a name.
  * 
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface INameHolder {
 
-  //method declaration
   /**
    * @return the name of the current {@link INameHolder}.
    */
   String getName();
 
-  //method
   /**
    * @return the name of the current {@link INameHolder} in quotes.
    */
@@ -28,7 +23,6 @@ public interface INameHolder {
     return ("'" + getName() + "'");
   }
 
-  //method
   /**
    * @param name
    * @return true if the current {@link INameHolder} has the given name.
@@ -37,7 +31,6 @@ public interface INameHolder {
     return getName().equals(name);
   }
 
-  //method
   /**
    * @param nameHolder
    * @return true if the current {@link INameHolder} has the same name as the

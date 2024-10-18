@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.mathtest.stochastictest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ARModelTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor_1() {
 
@@ -26,7 +21,6 @@ final class ARModelTest extends StandardTest {
     expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
   }
 
-  //method
   @Test
   void testCase_constructor_2() {
 
@@ -41,7 +35,6 @@ final class ARModelTest extends StandardTest {
     expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
   }
 
-  //method
   @Test
   void testCase_constructor_3() {
 
@@ -56,7 +49,6 @@ final class ARModelTest extends StandardTest {
     expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
   }
 
-  //method
   @Test
   void testCase_constructor_4() {
 
@@ -71,7 +63,6 @@ final class ARModelTest extends StandardTest {
     expect(lARModel.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
   }
 
-  //method
   @Test
   void testCase_constructor_5() {
 
@@ -88,7 +79,6 @@ final class ARModelTest extends StandardTest {
     expect(lARModel.getForecast(6)).withMaxDeviation(0.01).isEqualTo(3.0);
   }
 
-  //method
   @Test
   void testCase_constructor_6() {
 

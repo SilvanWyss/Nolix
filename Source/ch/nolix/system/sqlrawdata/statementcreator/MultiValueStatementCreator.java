@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.statementcreator;
 
-//own imports
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiValueStatementCreator;
 
-//class
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
 
-  //method
   @Override
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
@@ -26,7 +22,6 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + "';";
   }
 
-  //method
   @Override
   public String createStatementToDeleteMultiValueEntry(
     final String entityId,
@@ -50,7 +45,6 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + "';";
   }
 
-  //method
   @Override
   public String createStatementToInsertMultiValueEntry(
     final String entityId,

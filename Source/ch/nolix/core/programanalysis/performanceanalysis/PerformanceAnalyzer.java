@@ -1,24 +1,18 @@
-//package declaration
 package ch.nolix.core.programanalysis.performanceanalysis;
 
-//Java imports
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
-//own imports
 import ch.nolix.core.programcontrol.stopwatch.RuntimeMeter;
 import ch.nolix.core.programcontrol.stopwatch.StopWatch;
 import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.IPerformanceAnalyzer;
 
-//class
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
-  //constant
   private static final RuntimeMeter RUNTIME_METER = new RuntimeMeter();
 
-  //method
   @Override
   public <O> boolean onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
     final IntFunction<O> objectSupplier,
@@ -31,7 +25,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
       timeComplexityFunction);
   }
 
-  //method
   private <O> boolean onObjectsFromObjectSupplierActionRunsAtLeastOnceWithGivenOrLowerTimeComplexity(
     final IntFunction<O> objectSupplier,
     final Consumer<O> action,
@@ -62,7 +55,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     return false;
   }
 
-  //method
   private <O> boolean onObjectsFromObjectSupplierUpToMaxRunCountActionRunsWithGivenOrLowerTimeComplexity(
     final IntFunction<O> objectSupplier,
     final int maxRunCount,
@@ -100,7 +92,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     return true;
   }
 
-  //method
   private <O> Optional<Double> //
   getOpionalTimeComplexityInvariantOfActionOnObjectFromObjectSupplierByRunCountAndTimeComplexityFunction(
     final IntFunction<O> objectSupplier,
@@ -122,7 +113,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     return Optional.empty();
   }
 
-  //method
   private <O> int getRuntimeInMillisecondsOfActionOnObjectFromObjectSupplierByRunCount(
     final IntFunction<O> objectSupplier,
     final int runCount,
@@ -134,7 +124,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     return getRuntimeOfActionInMilliseconds(actionOnObject);
   }
 
-  //method
   private int getRuntimeOfActionInMilliseconds(final Runnable actionOnObject) {
     return (int) RUNTIME_METER.getRuntimeOfActionInMilliseconds(actionOnObject);
   }

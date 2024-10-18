@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.gui.frontend;
 
-//Java imports
 import javax.swing.JFileChooser;
 
-//own imports
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
@@ -13,28 +10,23 @@ import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
-//class
 public final class LocalFrontEndWriter implements IFrontEndWriter {
 
-  //method
   @Override
   public void openNewTabWithUrl(final String url) {
     ShellProvider.startDefaultWebBrowserOpeningUrl(url);
   }
 
-  //method
   @Override
   public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectTo");
   }
 
-  //method
   @Override
   public void redirectToUrl(String url) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectToUrl");
   }
 
-  //method
   @Override
   public void saveFile(final byte[] bytes) {
 
@@ -55,7 +47,6 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
     }
   }
 
-  //method
   @Override
   public void writeTextToClipboard(final String text) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "writeTextToClipboard");

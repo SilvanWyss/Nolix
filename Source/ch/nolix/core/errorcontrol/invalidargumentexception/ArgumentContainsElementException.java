@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentContainsElementException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -13,10 +11,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentContainsElementException extends InvalidArgumentException {
 
-  //constant
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
-  //constructor
   /**
    * Creates a new {@link ArgumentContainsElementException} for the given argument
    * and element.
@@ -28,7 +24,6 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
     super(argument, "contains already the given " + getNameOfElement(element));
   }
 
-  //static method
   /**
    * @param argument
    * @param element
@@ -39,7 +34,6 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
     return new ArgumentContainsElementException(argument, element);
   }
 
-  //static method
   /**
    * @param element
    * @return the name of the given element.

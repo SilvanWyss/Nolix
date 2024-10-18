@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentDoesNotBelongToParentException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument.
@@ -26,7 +23,6 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     super(argument, "does not belong to a parent");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument and parentType.
@@ -41,7 +37,6 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     super(argument, "does not belong to a " + getNameOfParentType(parentType));
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
@@ -51,7 +46,6 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     return new ArgumentDoesNotBelongToParentException(argument);
   }
 
-  //static method
   /**
    * @param argument
    * @param parentType
@@ -64,7 +58,6 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     return new ArgumentDoesNotBelongToParentException(argument, parentType);
   }
 
-  //static method
   /**
    * @param parentType
    * @return the name of the given parentType.

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.noderawdata.datareader;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -11,19 +9,14 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//class
 public final class DataReader implements IDataReader {
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //attribute
   private final InternalDataReader internalDataReader;
 
-  //multi-attribute
   private final IContainer<ITableInfo> tableInfos;
 
-  //constructor
   public DataReader(final IMutableNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
@@ -33,19 +26,16 @@ public final class DataReader implements IDataReader {
     this.tableInfos = tableInfos;
   }
 
-  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  //method
   @Override
   public ITime getSchemaTimestamp() {
     return internalDataReader.getSchemaTimestamp();
   }
 
-  //method
   @Override
   public IContainer<String> loadMultiBackReferenceEntries(
     final String tableName,
@@ -58,7 +48,6 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadMultiBackReferenceEntries(tableInfo, entityId, multiBackReferenceColumnInfo);
   }
 
-  //method
   @Override
   public IContainer<String> loadMultiReferenceEntries(
     final String tableName,
@@ -73,7 +62,6 @@ public final class DataReader implements IDataReader {
       tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
   }
 
-  //method
   @Override
   public IContainer<Object> loadMultiValueEntries(
     final String tableName,
@@ -88,25 +76,21 @@ public final class DataReader implements IDataReader {
       tableInfo.getColumnInfoByColumnName(multiValueColumnName));
   }
 
-  //method
   @Override
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
     return internalDataReader.loadEntitiesOfTable(getTableInfoByTableName(tableName));
   }
 
-  //method
   @Override
   public ILoadedEntityDto loadEntity(final String tableName, final String id) {
     return internalDataReader.loadEntity(getTableInfoByTableName(tableName), id);
   }
 
-  //method
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
-  //method
   @Override
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
@@ -121,7 +105,6 @@ public final class DataReader implements IDataReader {
       value);
   }
 
-  //method
   @Override
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
@@ -139,13 +122,11 @@ public final class DataReader implements IDataReader {
       entitiesToIgnoreIds);
   }
 
-  //method
   @Override
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  //method
   private ITableInfo getTableInfoByTableName(final String tableName) {
     return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
   }

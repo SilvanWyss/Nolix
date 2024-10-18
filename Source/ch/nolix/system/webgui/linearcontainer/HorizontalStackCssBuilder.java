@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
@@ -16,11 +14,9 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class HorizontalStackCssBuilder
 extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IHorizontalStack horizontalStack,
@@ -34,7 +30,6 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
             "left"))));
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IHorizontalStack horizontalStack,
@@ -49,7 +44,6 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
             horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IHorizontalStack control,
@@ -60,7 +54,6 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
       createCssPropertyForContentAlignmentOfControl(control));
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IHorizontalStack horizontalStack,
@@ -69,7 +62,6 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     //Does nothing.
   }
 
-  //method
   private CssProperty createCssPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case TOP ->
@@ -81,7 +73,6 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     };
   }
 
-  //method
   private CssProperty createCssPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
 
     final var contentAlignment = control.getContentAlignment();

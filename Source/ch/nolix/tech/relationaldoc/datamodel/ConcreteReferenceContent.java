@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.MultiReference;
@@ -11,27 +9,21 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 
-//class
 public final class ConcreteReferenceContent extends ReferenceContent implements IConcreteReferenceContent {
 
-  //constant
   private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = //
   new ConcreteReferenceContentValidator();
 
-  //attribute
   private final BackReference<AbstractableField> parentField = BackReference
     .forEntityAndBackReferencedFieldName(AbstractableField.class, "concreteReferenceContent");
 
-  //multi-attribute
   private final MultiReference<AbstractableObject> referencedObjects = MultiReference
     .forReferencedEntityType(AbstractableObject.class);
 
-  //constructor
   public ConcreteReferenceContent() {
     initialize();
   }
 
-  //method
   @Override
   public IConcreteReferenceContent addObject(final IAbstractableObject object) {
 
@@ -42,19 +34,16 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
     return this;
   }
 
-  //method
   @Override
   public IAbstractableField getStoredParentField() {
     return parentField.getStoredBackReferencedEntity();
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredReferencedObjects() {
     return referencedObjects.getAllStoredReferencedEntities();
   }
 
-  //method
   @Override
   public IAbstractableObject getStoredReferencedType() {
 
@@ -65,19 +54,16 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
     return abstractReferenceContent.getStoredReferencedType();
   }
 
-  //method
   @Override
   public boolean isAbstract() {
     return false;
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return referencedObjects.isEmpty();
   }
 
-  //method
   @Override
   public void removeObject(final IAbstractableObject object) {
 
@@ -86,7 +72,6 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
     referencedObjects.removeEntity(null);
   }
 
-  //method
   @Override
   public void removeObjects() {
 

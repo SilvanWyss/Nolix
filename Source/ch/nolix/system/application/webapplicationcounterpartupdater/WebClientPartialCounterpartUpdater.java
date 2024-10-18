@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -14,19 +11,14 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-//class
 public final class WebClientPartialCounterpartUpdater {
 
-  //constant
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
-  //attribute
   private final BooleanSupplier openStateRequestable;
 
-  //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
-  //constructor
   private WebClientPartialCounterpartUpdater(
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
@@ -38,14 +30,12 @@ public final class WebClientPartialCounterpartUpdater {
     this.counterpartRunner = counterpartRunner;
   }
 
-  //static method
   public static WebClientPartialCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
-  //method
   public void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
 
     final IContainer<IControl<?, ?>> controls = ImmutableList.withElement(control);
@@ -53,7 +43,6 @@ public final class WebClientPartialCounterpartUpdater {
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
-  //method
   public void updateControlsOnCounterpart(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
@@ -72,7 +61,6 @@ public final class WebClientPartialCounterpartUpdater {
     }
   }
 
-  //method
   private IContainer<IChainedNode> createUpdateCommandsForControls(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {

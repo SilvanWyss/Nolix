@@ -1,29 +1,21 @@
-//package declaration
 package ch.nolix.core.programcontrol.jobpool;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 final class JobWrapper implements Runnable {
 
-  //attribute
   private boolean finished;
 
-  //attribute
   private boolean running;
 
-  //attribute
   private final Runnable job;
 
-  //optional attribute
   private Throwable error;
 
-  //constructor
   public JobWrapper(final Runnable job) {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
@@ -31,12 +23,10 @@ final class JobWrapper implements Runnable {
     this.job = job;
   }
 
-  //method
   public boolean caughtError() {
     return (error != null);
   }
 
-  //method
   public Throwable getError() {
 
     if (!caughtError()) {
@@ -46,22 +36,18 @@ final class JobWrapper implements Runnable {
     return error;
   }
 
-  //method
   public boolean isFinished() {
     return finished;
   }
 
-  //method
   public boolean isFresh() {
     return (!isRunning() && !isFinished());
   }
 
-  //method
   public boolean isRunning() {
     return running;
   }
 
-  //method
   @Override
   public void run() {
 
@@ -79,12 +65,10 @@ final class JobWrapper implements Runnable {
     }
   }
 
-  //method
   public void waitUntilIsFinished() {
     GlobalSequencer.waitUntil(this::isFinished);
   }
 
-  //method
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
@@ -97,7 +81,6 @@ final class JobWrapper implements Runnable {
     }
   }
 
-  //method
   private void assertIsFresh() {
 
     if (isRunning()) {

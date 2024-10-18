@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -18,32 +15,24 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
-//class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
-  //constant
   private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
 
-  //constant
   private static final MultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 
-  //attribute
   private boolean loadedAllPersistedValues;
 
-  //multi-attribute
   private final LinkedList<MultiValueEntry<V>> localEntries = LinkedList.createEmpty();
 
-  //constructor
   private MultiValue(final Class<V> valueType) {
     super(valueType);
   }
 
-  //static method
   public static <V2> MultiValue<V2> withValueType(final Class<V2> valueType) {
     return new MultiValue<>(valueType);
   }
 
-  //method
   @Override
   public void addValue(final V value) {
 
@@ -54,7 +43,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   @Override
   public void clear() {
 
@@ -63,7 +51,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   @Override
   public IContainer<V> getAllStoredValues() {
 
@@ -72,44 +59,37 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     return getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries();
   }
 
-  //method
   @Override
   public IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
-  //method
   @Override
   public ContentType getType() {
     return ContentType.MULTI_VALUE;
   }
 
-  //method
   @Override
   public IContentFieldDto internalToContentField() {
     return new ContentFieldDto(getName());
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return localEntries.isEmpty()
     && isEmptyWhenDoesNotHaveLocalEntries();
   }
 
-  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  //method
   @Override
   public boolean loadedAllPersistedValues() {
     return loadedAllPersistedValues;
   }
 
-  //method
   @Override
   public void removeFirstValue(final Predicate<V> selector) {
 
@@ -118,7 +98,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     value.ifPresent(this::removeValue);
   }
 
-  //method
   @Override
   public void removeValue(final V value) {
 
@@ -129,18 +108,15 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     updateStateForRemoveValue(value);
   }
 
-  //method
   @Override
   void internalSetOrClearFromContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
-  //method
   private void assertCanAddValue(final V value) {
     MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
   }
 
-  //method
   private IContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {
 
     final ILinkedList<V> values = LinkedList.createEmpty();
@@ -154,12 +130,10 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     return values;
   }
 
-  //method
   private boolean isEmptyWhenDoesNotHaveLocalEntries() {
     return getAllStoredValues().isEmpty();
   }
 
-  //method
   @SuppressWarnings("unchecked")
   private IContainer<MultiValueEntry<V>> loadAllPersistedValues() {
     return internalGetStoredDataAndSchemaAdapter().loadMultiValueEntries(
@@ -169,7 +143,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
       .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
   }
 
-  //method
   private void updateStateForAddValue(final V value) {
 
     final var newEntry = MultiValueEntry.newEntryForMultiValueAndValue(this, value);
@@ -177,7 +150,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     localEntries.addAtEnd(newEntry);
   }
 
-  //method
   private void updateStateForLoadAllPersistedValues() {
 
     loadedAllPersistedValues = true;
@@ -185,14 +157,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     localEntries.addAtEnd(loadAllPersistedValues());
   }
 
-  //method
   private void updateStateForLoadAllPersistedValuesIfNotLoaded() {
     if (!loadedAllPersistedValues()) {
       updateStateForLoadAllPersistedValues();
     }
   }
 
-  //method
   private void updateStateForRemoveValue(final V value) {
 
     final var entry = localEntries.getStoredFirst(e -> e.getStoredValue() == value);

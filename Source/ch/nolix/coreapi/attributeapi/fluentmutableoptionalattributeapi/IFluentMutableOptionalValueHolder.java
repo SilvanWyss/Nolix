@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalValueHolder} is a {@link IOptionalValueHolder}
  * whose value can be set and removed programmatically and fluently.
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
 public interface IFluentMutableOptionalValueHolder<FMOVH extends IFluentMutableOptionalValueHolder<FMOVH, V>, V>
 extends IOptionalValueHolder<V> {
 
-  //method declaration
   /**
    * Removes the value of the current {@link IFluentMutableOptionalValueHolder}.
    * 
@@ -26,7 +22,6 @@ extends IOptionalValueHolder<V> {
    */
   FMOVH removeValue();
 
-  //method declaration
   /**
    * Sets the value of the current {@link IFluentMutableOptionalValueHolder}.
    * 

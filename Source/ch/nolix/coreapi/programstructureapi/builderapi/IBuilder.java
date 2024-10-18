@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programstructureapi.builderapi;
 
-//interface
 /**
  * A {@link IBuilder} can build {@link Object}s.
  * 
@@ -11,7 +9,6 @@ package ch.nolix.coreapi.programstructureapi.builderapi;
  */
 public interface IBuilder<O> {
 
-  //method declaration
   /**
    * @return a new {@link Object} from the current {@link IBuilder}.
    */

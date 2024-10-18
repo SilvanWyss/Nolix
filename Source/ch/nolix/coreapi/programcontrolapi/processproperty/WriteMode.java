@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.processproperty;
 
-//enum
 /**
  * A {@link WriteMode} defines the behavior when a target, that should be
  * created, exists already.

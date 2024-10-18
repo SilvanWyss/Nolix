@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.datamodelapi.fieldrequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link MandatorynessRequestable} can be asked if it is mandatory.
  * 
@@ -14,14 +11,12 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface MandatorynessRequestable {
 
-  //method declaration
   /**
    * @return true if the current {@link MandatorynessRequestable} is mandatory,
    *         false otherweise.
    */
   boolean isMandatory();
 
-  //method
   /**
    * @return true if the current {@link MandatorynessRequestable} is optional,
    *         false otherweise.

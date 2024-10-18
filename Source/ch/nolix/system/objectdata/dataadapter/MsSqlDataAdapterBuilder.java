@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
@@ -10,7 +9,6 @@ import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
-//class
 public final class MsSqlDataAdapterBuilder
 extends
 ToIpOrDomainCaptor< //
@@ -20,10 +18,8 @@ WithLoginNameCaptor< //
 AndLoginPasswordCaptor< //
 AndSchemaCaptor<ISchema, MsSqlDataAdapter>>>>>> {
 
-  //constant
   public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
 
-  //constructor
   private MsSqlDataAdapterBuilder() {
 
     super(
@@ -36,12 +32,10 @@ AndSchemaCaptor<ISchema, MsSqlDataAdapter>>>>>> {
     setBuilder(this::buildMsSqlDataAdapter);
   }
 
-  //static method
   public static MsSqlDataAdapterBuilder createMsSqlDataAdapter() {
     return new MsSqlDataAdapterBuilder();
   }
 
-  //method
   private MsSqlDataAdapter buildMsSqlDataAdapter() {
     return new MsSqlDataAdapter(
       getIpOrDomain(),

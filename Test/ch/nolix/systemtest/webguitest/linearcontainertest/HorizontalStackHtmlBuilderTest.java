@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.linearcontainertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
@@ -12,11 +9,9 @@ import ch.nolix.system.webgui.linearcontainer.HorizontalStackHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 
-//class
 final class HorizontalStackHtmlBuilderTest
 extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 
-  //method
   @Test
   void testCase_createHtmlElement_whenContainsChildControls() {
 
@@ -38,19 +33,16 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
     expect(childElements.getStoredAt1BasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
   }
 
-  //method
   @Override
   protected IHorizontalStack createControl() {
     return new HorizontalStack();
   }
 
-  //method
   @Override
   protected HorizontalStackHtmlBuilder createTestUnit() {
     return new HorizontalStackHtmlBuilder();
   }
 
-  //method
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div />";

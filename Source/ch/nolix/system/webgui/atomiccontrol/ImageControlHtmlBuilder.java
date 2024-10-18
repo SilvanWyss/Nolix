@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
@@ -13,10 +11,8 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
-//class
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
 
-  //method
   @Override
   public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
     return HtmlElement.withTypeAndAttributes(
@@ -24,7 +20,6 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
       createHtmlAttributesFromImageControl(imageControl));
   }
 
-  //method
   private IContainer<IHtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
 
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//Java imports
 import java.math.BigDecimal;
 
-//class
 /**
  * A {@link NegativeArgumentException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably negative.
@@ -15,10 +12,8 @@ import java.math.BigDecimal;
 @SuppressWarnings("serial")
 public final class NegativeArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is negative";
 
-  //constructor
   /**
    * Creates a new {@link NegativeArgumentException} for the given argumentName
    * and argument.
@@ -34,7 +29,6 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link NegativeArgumentException} for the given argumentName
    * and argument.
@@ -50,7 +44,6 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link NegativeArgumentException} for the given argumentName
    * and argument.
@@ -66,7 +59,6 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -81,7 +73,6 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     return new NegativeArgumentException(argumentName, argument);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -96,7 +87,6 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     return new NegativeArgumentException(argumentName, argument);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

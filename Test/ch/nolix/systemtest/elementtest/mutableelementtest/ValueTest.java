@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.mutableelementtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.property.Value;
 
-//class
 final class ValueTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forInt() {
 
@@ -25,7 +20,6 @@ final class ValueTest extends StandardTest {
     expect(result.isEmpty());
   }
 
-  //method
   @Test
   void testCase_getSpecification() {
 
@@ -40,7 +34,6 @@ final class ValueTest extends StandardTest {
     expect(result).hasStringRepresentation("amount(500)");
   }
 
-  //method
   @Test
   void testCase_setValue_whenTheGivenValueIsNull() {
 
@@ -60,7 +53,6 @@ final class ValueTest extends StandardTest {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_setValue_whenTheGivenValueIsValid() {
 

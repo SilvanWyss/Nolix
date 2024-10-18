@@ -1,27 +1,21 @@
-//package declaration
 package ch.nolix.core.environment.runningjar;
 
-//Java imports
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
-//class
 public final class RunningJar {
 
-  //constructor
   private RunningJar() {
   }
 
-  //static method
   public static String getResource(final String path) {
     final var stringBuilder = new StringBuilder();
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
@@ -38,7 +32,6 @@ public final class RunningJar {
     }
   }
 
-  //static method
   public static byte[] getResourceAsBytes(final String path) {
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
     try {
@@ -48,7 +41,6 @@ public final class RunningJar {
     }
   }
 
-  //static method
   public static IContainer<String> readLinesOfResource(final String path) {
 
     final ILinkedList<String> lines = LinkedList.createEmpty();

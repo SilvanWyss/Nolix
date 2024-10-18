@@ -1,28 +1,21 @@
-//package declaration
 package ch.nolix.tech.math.bigdecimalmath;
 
-//Java imports
 import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
 
-//class
 public final class ComplexSequenceDefinedBy1Predecessor
 extends Sequence<IComplexNumber>
 implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
 
-  //attribute
   private final IComplexNumber firstValue;
 
-  //attribute
   private final Function<IComplexNumber, IComplexNumber> nextValueFunction;
 
-  //constructor
   public ComplexSequenceDefinedBy1Predecessor(
     final IComplexNumber firstValue,
     final UnaryOperator<IComplexNumber> nextValueFunction) {
@@ -34,19 +27,16 @@ implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
     this.nextValueFunction = nextValueFunction;
   }
 
-  //method
   @Override
   public IComplexNumber getFirstValue() {
     return firstValue;
   }
 
-  //method
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
-  //method
   @Override
   protected IComplexNumber calculateValue(final int index) {
 

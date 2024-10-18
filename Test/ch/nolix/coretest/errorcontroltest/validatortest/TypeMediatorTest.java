@@ -1,25 +1,19 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
-//Java imports
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.TypeMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
-//class
 final class TypeMediatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
 
@@ -33,7 +27,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'class java.lang.String' is not abstract.");
   }
 
-  //method
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
 
@@ -44,7 +37,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(testUnit::isAbstract).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsNull() {
 
@@ -58,7 +50,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type is null.");
   }
 
-  //method
   @Test
   void testCase_isClass_whenTheGivenArgumentIsAClass() {
 
@@ -69,7 +60,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(testUnit::isClass).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
 
@@ -83,7 +73,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'interface java.lang.Iterable' is not a class.");
   }
 
-  //method
   @Test
   void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
 
@@ -98,7 +87,6 @@ final class TypeMediatorTest extends StandardTest {
         "The given type 'class ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode' is not a class.");
   }
 
-  //method
   @Test
   void testCase_isClass_whenTheGivenArgumentIsNull() {
 
@@ -112,7 +100,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type is null.");
   }
 
-  //method
   @Test
   void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
 
@@ -126,7 +113,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'class java.util.AbstractList' is not concrete.");
   }
 
-  //method
   @Test
   void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
 
@@ -137,7 +123,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(testUnit::isConcrete).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isConcrete_whenTheGivenArgumentIsNull() {
 
@@ -151,7 +136,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type is null.");
   }
 
-  //method
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsAClas() {
 
@@ -165,7 +149,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'class java.util.ArrayList' is not an enum.");
   }
 
-  //method
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
 
@@ -179,7 +162,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'interface java.lang.Iterable' is not an enum.");
   }
 
-  //method
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
 
@@ -190,7 +172,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(testUnit::isEnum).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsNull() {
 
@@ -204,7 +185,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type is null.");
   }
 
-  //method
   @Test
   void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
 
@@ -218,7 +198,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'class java.lang.String' does not implement java.lang.Iterable.");
   }
 
-  //method
   @Test
   void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
 
@@ -229,7 +208,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.isImplementing(Iterable.class)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isImplementing_whenTheGivenArgumentIsNull() {
 
@@ -243,7 +221,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type is null.");
   }
 
-  //method
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
 
@@ -254,7 +231,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(testUnit::isInterface).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsAClass() {
 
@@ -268,7 +244,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'class java.util.ArrayList' is not an interface.");
   }
 
-  //method
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
 
@@ -283,7 +258,6 @@ final class TypeMediatorTest extends StandardTest {
         "The given type 'class ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode' is not an interface.");
   }
 
-  //method
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsNull() {
 
@@ -297,7 +271,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type is null.");
   }
 
-  //method
   @Test
   void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
 
@@ -311,7 +284,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'interface java.util.List' is not a sub type of java.util.ArrayList.");
   }
 
-  //method
   @Test
   void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
 
@@ -322,7 +294,6 @@ final class TypeMediatorTest extends StandardTest {
     expectRunning(() -> testUnit.isSubTypeOf(Iterable.class)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
 
@@ -336,7 +307,6 @@ final class TypeMediatorTest extends StandardTest {
       .withMessage("The given type 'interface java.util.List' is not a super type of java.lang.Iterable.");
   }
 
-  //method
   @Test
   void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
 

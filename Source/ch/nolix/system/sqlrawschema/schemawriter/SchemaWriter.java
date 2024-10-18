@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.SqlCollector;
@@ -15,28 +13,20 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
-//class
 public final class SchemaWriter implements ISchemaWriter {
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //attribute
   private int saveCount;
 
-  //attribute
   private final SystemDataWriter systemDataWriter;
 
-  //attribute
   private final InternalSchemaWriter internalSchemaWriter;
 
-  //attribute
   private final SqlCollector sqlCollector = new SqlCollector();
 
-  //attribute
   private final ISqlConnection sqlConnection;
 
-  //constructor
   public SchemaWriter(
     final String databaseName,
     final ISqlConnection sqlConnection,
@@ -52,7 +42,6 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlConnection.executeStatement("USE " + databaseName);
   }
 
-  //static method
   public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
@@ -63,66 +52,56 @@ public final class SchemaWriter implements ISchemaWriter {
       schemaAdapter);
   }
 
-  //method
   @Override
   public void addColumn(final String tableName, final IColumnDto column) {
     systemDataWriter.addColumn(tableName, column);
     internalSchemaWriter.addColumn(tableName, column);
   }
 
-  //method
   @Override
   public void addTable(final ITableDto table) {
     systemDataWriter.addTable(table);
     internalSchemaWriter.addTable(table);
   }
 
-  //method
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
     systemDataWriter.deleteColumn(tableName, columnName);
     internalSchemaWriter.deleteColumn(tableName, columnName);
   }
 
-  //method
   @Override
   public void deleteTable(final String tableName) {
     systemDataWriter.deleteTable(tableName);
     internalSchemaWriter.deleteTable(tableName);
   }
 
-  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  //method
   @Override
   public int getSaveCount() {
     return saveCount;
   }
 
-  //method
   @Override
   public boolean hasChanges() {
     return (systemDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
   }
 
-  //method
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
-  //method
   @Override
   public void reset() {
     sqlCollector.clear();
     internalSchemaWriter.reset();
   }
 
-  //method
   @Override
   public void saveChanges() {
     try {
@@ -137,14 +116,12 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
-  //method
   @Override
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
     systemDataWriter.setColumnName(tableName, columnName, newColumnName);
     internalSchemaWriter.setColumnName(tableName, columnName, newColumnName);
   }
 
-  //method
   @Override
   public void setColumnParameterizedFieldType(
     final String columnId,
@@ -152,7 +129,6 @@ public final class SchemaWriter implements ISchemaWriter {
     systemDataWriter.setColumnParameterizedFieldType(columnId, parameterizedFieldType);
   }
 
-  //method
   @Override
   public void setTableName(final String tableName, final String newTableName) {
     systemDataWriter.setTableName(tableName, newTableName);

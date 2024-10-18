@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.core.container.sequencesearch;
 
-//Java imports
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-10-01
@@ -19,13 +15,10 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
  */
 public final class SequencePatternNextMediator<E> {
 
-  //attribute
   private final SequencePattern<E> sequencePattern;
 
-  //attribute
   private final int count;
 
-  //constructor
   /**
    * Creates a new {@link SequencePatternNextMediator} for the given
    * sequencePattern and with the given count.
@@ -49,7 +42,6 @@ public final class SequencePatternNextMediator<E> {
     this.count = count;
   }
 
-  //method
   /**
    * Adds a blank condition for the next elements of the sequences of the
    * {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
@@ -66,7 +58,6 @@ public final class SequencePatternNextMediator<E> {
     return sequencePattern;
   }
 
-  //method
   /**
    * Adds the given condition for the next elements of the sequences of the
    * {@link SequencePattern} of the current {@link SequencePatternNextMediator}.

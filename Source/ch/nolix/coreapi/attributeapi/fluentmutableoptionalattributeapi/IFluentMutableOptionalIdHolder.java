@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalIdHolder} is a {@link IOptionalIdHolder} whose
  * id can be set and removed programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
 public interface IFluentMutableOptionalIdHolder<FMOIH extends IFluentMutableOptionalIdHolder<FMOIH>>
 extends IOptionalIdHolder {
 
-  //method declaration
   /**
    * Removes the id of the current {@link IFluentMutableOptionalIdHolder}.
    * 
@@ -24,7 +20,6 @@ extends IOptionalIdHolder {
    */
   FMOIH removeId();
 
-  //method declaration
   /**
    * Sets the id of the current {@link IFluentMutableOptionalIdHolder}.
    * 

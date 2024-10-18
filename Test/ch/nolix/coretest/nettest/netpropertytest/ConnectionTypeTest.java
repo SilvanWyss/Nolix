@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.coretest.nettest.netpropertytest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.netproperty.BaseConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 
-//class
 final class ConnectionTypeTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getBaseType_whenIsLocal() {
 
@@ -25,7 +21,6 @@ final class ConnectionTypeTest extends StandardTest {
     expect(result).is(BaseConnectionType.LOCAL);
   }
 
-  //method
   @Test
   void testCase_getBaseType_whenIsSocket() {
 
@@ -39,7 +34,6 @@ final class ConnectionTypeTest extends StandardTest {
     expect(result).is(BaseConnectionType.NET);
   }
 
-  //method
   @Test
   void testCase_getBaseType_whenIsWebSocket() {
 

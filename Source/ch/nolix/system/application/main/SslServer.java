@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//own imports
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
@@ -10,29 +8,21 @@ import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
-//class
 public final class SslServer extends BaseServer<SslServer> {
 
-  //constant
   public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
 
-  //constant
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
-  //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();
 
-  //attribute
   private final ch.nolix.core.net.endpoint3.SslServer internalWebSocketServer;
 
-  //attribute
   private final String domain;
 
-  //attribute
   private final int port;
 
-  //constructor
   public SslServer(final int port, final String domain, final ISslCertificate paramSSLCertificate) {
 
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
@@ -46,7 +36,6 @@ public final class SslServer extends BaseServer<SslServer> {
     createCloseDependencyTo(internalWebSocketServer);
   }
 
-  //static method
   public static SslServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
 
     final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
@@ -57,7 +46,6 @@ public final class SslServer extends BaseServer<SslServer> {
     return new SslServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
   }
 
-  //static method
   public static SslServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final String domain) {
 
@@ -67,7 +55,6 @@ public final class SslServer extends BaseServer<SslServer> {
     return new SslServer(DEFAULT_PORT, domain, paramSSLCertificate);
   }
 
-  //static method
   public static SslServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String domain) {
@@ -78,7 +65,6 @@ public final class SslServer extends BaseServer<SslServer> {
     return new SslServer(port, domain, paramSSLCertificate);
   }
 
-  //method
   @Override
   public IServerTarget asTarget() {
     return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
@@ -87,7 +73,6 @@ public final class SslServer extends BaseServer<SslServer> {
       SECURITY_MODE_FOR_CONNECTIONS);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -96,7 +81,6 @@ public final class SslServer extends BaseServer<SslServer> {
     return internalWebSocketServer.getSecurityMode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -105,19 +89,16 @@ public final class SslServer extends BaseServer<SslServer> {
     return this;
   }
 
-  //method
   @Override
   protected void noteAddedApplication(final Application<?, ?> application) {
     internalWebSocketServer.addSlot(new ServerSlot(application.getUrlInstanceName(), this));
   }
 
-  //method
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
     internalWebSocketServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

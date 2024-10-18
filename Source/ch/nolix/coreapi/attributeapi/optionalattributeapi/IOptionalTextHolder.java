@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
-//interface
 /**
  * A {@link IOptionalTextHolder} can have a text.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface IOptionalTextHolder {
 
-  //method declaration
   /**
    * @return the text of the current {@link IOptionalTextHolder}.
    * @throws RuntimeException if the current {@link IOptionalTextHolder} does not
@@ -18,7 +15,6 @@ public interface IOptionalTextHolder {
    */
   String getText();
 
-  //method declaration
   /**
    * @return true if the current {@link IOptionalTextHolder} has a text.
    */

@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.mathtest.algebratest.vectortest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class GetValueAt1BasedIndexMethodTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "1, 2.0",
@@ -37,7 +32,6 @@ final class GetValueAt1BasedIndexMethodTest extends StandardTest {
     expect(result).isEqualTo(expectedValue);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({ "-1", "0", "7", "8"
   })

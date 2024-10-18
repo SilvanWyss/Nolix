@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.exceptiontest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class WrapperExceptionTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forError() {
 
@@ -25,7 +20,6 @@ final class WrapperExceptionTest extends StandardTest {
     expect(result.getCause()).is(exception);
   }
 
-  //method
   @Test
   void testCase_forErrorMessageAndError() {
 

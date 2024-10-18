@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 
-//class
 public final class BaseReferenceUpdater {
 
-  //constant
   private static final EntityTool ENTITY_TOOL = new EntityTool();
 
-  //method
   public <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
     final IBaseReference<E> baseReference,
     final E entity) {
@@ -25,7 +20,6 @@ public final class BaseReferenceUpdater {
     baseBackReference.ifPresent(bbr -> toBaseBackReferenceAddOrSetEntity(bbr, baseReference.getStoredParentEntity()));
   }
 
-  //method
   private void toBaseBackReferenceAddOrSetEntity(final IBaseBackReference<?> baseBackReference, final IEntity entity) {
 
     final var type = baseBackReference.getType();

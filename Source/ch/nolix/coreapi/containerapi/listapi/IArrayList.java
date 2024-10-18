@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.listapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programstructureapi.builderapi.Copyable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-//interface
 /**
  * A {@link IArrayList} is a {@link IContainer} that can add and remove
  * elements.
@@ -17,7 +14,6 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  */
 public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IContainer<E> {
 
-  //method declaration
   /**
    * Adds the given given elements at the end of the current {@link IArrayList}.
    * The elements will be added in the given order.
@@ -30,7 +26,6 @@ public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, ICont
    */
   void addAtEnd(E element, @SuppressWarnings("unchecked") E... elements);
 
-  //method declaration
   /**
    * Adds the given elements at the end of the current {@link IArrayList}. The
    * elements will be added in the given order.

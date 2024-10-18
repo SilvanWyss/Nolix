@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.coretest.webtest.csstest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 
-//class
 final class CssRuleTest extends StandardTest {
 
-  //method
   @Test
   void testCase_withPrefixedSelector() {
 

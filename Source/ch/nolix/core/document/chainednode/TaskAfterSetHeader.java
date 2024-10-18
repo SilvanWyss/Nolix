@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.document.chainednode;
 
-//enum
 enum TaskAfterSetHeader {
   DO_NOTHING,
   MAP_NEXT_NODE,

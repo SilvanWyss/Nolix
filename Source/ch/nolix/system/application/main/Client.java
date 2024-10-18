@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//Java imports
 import java.util.HashMap;
 
-//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -20,7 +17,6 @@ import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
-//class
 /**
  * A {@link Client} is an end point with comfortable functionalities.
  * 
@@ -30,16 +26,12 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
  */
 public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //optional attribute
   private IEndPoint endPoint;
 
-  //multi-attribute
   private final HashMap<String, String> sessionVariables = new HashMap<>();
 
-  //method
   /**
    * @param key
    * @return true if the current {@link Client} contains a session variable with
@@ -49,7 +41,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return sessionVariables.containsKey(key);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -58,7 +49,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return closeController;
   }
 
-  //method
   /**
    * @return the {@link SecurityMode} of the current {@link Client}.
    */
@@ -66,7 +56,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return endPoint.getSecurityMode();
   }
 
-  //method
   /**
    * @param key
    * @return the value of the session variable with the given key from the current
@@ -88,7 +77,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return value;
   }
 
-  //method
   /**
    * @return the name of the target {@link Application} of the current
    *         {@link Client}.
@@ -97,7 +85,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().getCustomTargetSlot();
   }
 
-  //method
   /**
    * @return true if the current {@link Client} has requested the connection.
    */
@@ -105,7 +92,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().isFrontendEndPoint();
   }
 
-  //method
   /**
    * @return true if the current {@link Client} has a target.
    */
@@ -113,13 +99,11 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().hasCustomTargetSlot();
   }
 
-  //method declaration
   /**
    * @return true if the current {@link Client} is a backend {@link Client}.
    */
   public abstract boolean isBackendClient();
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -132,13 +116,11 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return (isConnected() && getStoredEndPoint().isClosed());
   }
 
-  //method declaration
   /**
    * @return true if the current {@link Client} is a frontend {@link Client}.
    */
   public abstract boolean isFrontendClient();
 
-  //method
   /**
    * @return true if the current {@link Client} is a local {@link Client}.
    */
@@ -146,7 +128,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().isLocalEndPoint();
   }
 
-  //method
   /**
    * @return true if the current {@link Client} is a net {@link Client}.
    */
@@ -154,7 +135,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().isSocketEndPoint();
   }
 
-  //method
   /**
    * @return true if the current {@link Client} is a web {@link Client}.
    * @throws UnconnectedArgumentException if the current {@link Client} is not
@@ -164,7 +144,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().isWebSocketEndPoint();
   }
 
-  //method
   /**
    * Sets a session variable with the given key and value to the current
    * {@link Client}.
@@ -179,7 +158,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     sessionVariables.put(key, value);
   }
 
-  //method
   /**
    * @return the current {@link Client} as concrete {@link Client}.
    */
@@ -188,7 +166,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return (C) this;
   }
 
-  //method
   /**
    * @param request
    * @return the data the given request requests from the counterpart of the
@@ -200,14 +177,12 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return getStoredEndPoint().getDataForRequest(request);
   }
 
-  //method declaration
   /**
    * @param request
    * @return the data the given request requests from the current {@link Client}.
    */
   protected abstract INode<?> getDataFromHere(IChainedNode request);
 
-  //method
   /**
    * @return true if the current {@link Client} is connected.
    */
@@ -215,7 +190,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     return (endPoint != null);
   }
 
-  //method declaration
   /**
    * Lets the current {@link Client} run the given command.
    * 
@@ -223,7 +197,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
    */
   protected abstract void runHere(IChainedNode command);
 
-  //method
   /**
    * Runs the given command on the counterpart of the current {@link Client}.
    * 
@@ -235,7 +208,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     getStoredEndPoint().runCommand(command);
   }
 
-  //method
   /**
    * Runs the given commands on the counterpart of the current {@link Client}.
    * 
@@ -248,7 +220,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     getStoredEndPoint().runCommands(command, commands);
   }
 
-  //method
   /**
    * Runs the given commands on the counterpart of the current {@link Client}.
    * 
@@ -260,7 +231,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     getStoredEndPoint().runCommands(commands);
   }
 
-  //method
   /**
    * @throws ClosedArgumentException if the current {@link Client} is closed.
    */
@@ -270,7 +240,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     }
   }
 
-  //method
   /**
    * Sets the {@link EndPoint} of the current {@link Client}.
    * 
@@ -297,7 +266,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     endPoint.setReceivingDataProviderController(new ClientDataProviderController(this));
   }
 
-  //method
   /**
    * @throws UnconnectedArgumentException if the current {@link Client} is not
    *                                      connected.
@@ -308,7 +276,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
     }
   }
 
-  //method
   /**
    * @throws InvalidArgumentException if the current {@link Client} is already
    *                                  connected.

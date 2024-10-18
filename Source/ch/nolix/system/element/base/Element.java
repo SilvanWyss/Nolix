@@ -1,21 +1,16 @@
-//package declaration
 package ch.nolix.system.element.base;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2022-07-08
  */
 public abstract class Element implements IElement {
 
-  //constant
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -26,7 +21,6 @@ public abstract class Element implements IElement {
     && hasSameSpecificationAs((Element) object);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -35,7 +29,6 @@ public abstract class Element implements IElement {
     return SPECIFICATION_CREATOR.getSpecificationOfElement(this);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -44,7 +37,6 @@ public abstract class Element implements IElement {
     return getSpecification().hashCode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -53,7 +45,6 @@ public abstract class Element implements IElement {
     return getSpecification().toString();
   }
 
-  //method
   /**
    * @param element
    * @return true if the current {@link Element} has the same specification as the

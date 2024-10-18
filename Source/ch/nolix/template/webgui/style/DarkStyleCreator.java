@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.template.webgui.style;
 
-//own imports
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.atomiccontrol.Button;
@@ -23,10 +21,8 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
-//class
 final class DarkStyleCreator {
 
-  //method
   public IStyle createDarkStyle() {
     return //
     new Style()
@@ -50,7 +46,6 @@ final class DarkStyleCreator {
         createDialogContainerStyle());
   }
 
-  //method
   private ISelectingStyleWithSelectors createLayerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Layer.class)
@@ -63,14 +58,12 @@ final class DarkStyleCreator {
       .withAttachingAttribute("BaseTextColor(0xC0C0C0)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createLinearContainerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(LinearContainer.class)
       .withAttachingAttribute("BaseChildControlMargin(10)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createGridStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Grid.class)
@@ -79,7 +72,6 @@ final class DarkStyleCreator {
         "BaseGridThickness(0)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createLinkStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Link.class)
@@ -88,7 +80,6 @@ final class DarkStyleCreator {
         "HoverTextColor(DarkBlue)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createButtonStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Button.class)
@@ -103,7 +94,6 @@ final class DarkStyleCreator {
         "HoverTextColor(White)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createTextboxStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Textbox.class)
@@ -112,7 +102,6 @@ final class DarkStyleCreator {
         "BaseBackground(Color(Black))");
   }
 
-  //method
   private ISelectingStyleWithSelectors createDropdownMenuStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(DropdownMenu.class)
@@ -126,14 +115,12 @@ final class DarkStyleCreator {
         "HoverTextColor(White)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createValidationLabelStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(ValidationLabel.class)
       .withAttachingAttribute("BaseTextColor(Orange)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createOverallVerticalStackStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(VerticalStack.class)
@@ -145,7 +132,6 @@ final class DarkStyleCreator {
         "BaseChildControlMargin(20)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createHeaderHorizontalStackStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(HorizontalStack.class)
@@ -155,14 +141,12 @@ final class DarkStyleCreator {
         "BaseChildControlMargin(50)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createMainContentContainerStyle() {
     return new DeepSelectingStyle()
       .withSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
       .withAttachingAttribute("MinHeight(500)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createFooterHorizontalStackStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(HorizontalStack.class)
@@ -173,7 +157,6 @@ final class DarkStyleCreator {
         "BaseTextSize(15)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createTitleLabelStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Label.class)
@@ -181,7 +164,6 @@ final class DarkStyleCreator {
       .withAttachingAttribute("BaseTextSize(50)", "BaseTextColor(White)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createLevel1HeaderLabelStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Label.class)
@@ -189,7 +171,6 @@ final class DarkStyleCreator {
       .withAttachingAttribute("BaseTextSize(30)", "BaseTextColor(White)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createDialogLayerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Layer.class)
@@ -199,7 +180,6 @@ final class DarkStyleCreator {
         "ContentAlignment(CENTER)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createDialogContainerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Container.class)

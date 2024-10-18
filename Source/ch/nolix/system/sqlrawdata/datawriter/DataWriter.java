@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.datawriter;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
@@ -16,19 +14,14 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//class
 public final class DataWriter implements IDataWriter {
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //attribute
   private final InternalDataWriter internalDataWriter;
 
-  //multi-attribute
   private final IContainer<ITableInfo> tableInfos;
 
-  //constructor
   private DataWriter(
     final String databaseName,
     final ISqlConnection sqlConnection,
@@ -43,7 +36,6 @@ public final class DataWriter implements IDataWriter {
     createCloseDependencyTo(sqlConnection);
   }
 
-  //static method
   public static DataWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
@@ -53,13 +45,11 @@ public final class DataWriter implements IDataWriter {
       sqlSyntaxProvider);
   }
 
-  //method
   @Override
   public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
     internalDataWriter.deleteEntity(tableName, entity);
   }
 
-  //method
   @Override
   public void deleteMultiBackReferenceEntry(
     final String tableName,
@@ -69,7 +59,6 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.deleteMultiBackReferenceEntry(entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
-  //method
   @Override
   public void deleteMultiReferenceEntries(
     final String tableName,
@@ -80,7 +69,6 @@ public final class DataWriter implements IDataWriter {
       getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId());
   }
 
-  //method
   @Override
   public void deleteMultiReferenceEntry(
     final String tableName,
@@ -93,7 +81,6 @@ public final class DataWriter implements IDataWriter {
       referencedEntityId);
   }
 
-  //method
   @Override
   public void deleteMultiValueEntries(
     final String tableName,
@@ -104,7 +91,6 @@ public final class DataWriter implements IDataWriter {
       getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId());
   }
 
-  //method
   @Override
   public void deleteMultiValueEntry(
     final String tableName,
@@ -117,43 +103,36 @@ public final class DataWriter implements IDataWriter {
       entry);
   }
 
-  //method
   @Override
   public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
   }
 
-  //method
   @Override
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     internalDataWriter.expectTableContainsEntity(tableName, entityId);
   }
 
-  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  //method
   @Override
   public int getSaveCount() {
     return internalDataWriter.getSaveCount();
   }
 
-  //method
   @Override
   public boolean hasChanges() {
     return internalDataWriter.hasChanges();
   }
 
-  //method
   @Override
   public void insertEntity(final String tableName, final INewEntityDto newEntity) {
     internalDataWriter.insertEntity(tableName, newEntity);
   }
 
-  //method
   @Override
   public void insertMultiBackReferenceEntry(
     final String tableName,
@@ -163,7 +142,6 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.insertEntryIntoMultiBackReference(entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
-  //method
   @Override
   public void insertMultiReferenceEntry(
     final String tableName,
@@ -176,7 +154,6 @@ public final class DataWriter implements IDataWriter {
       referencedEntityId);
   }
 
-  //method
   @Override
   public void insertMultiValueEntry(
     final String tableName,
@@ -189,44 +166,37 @@ public final class DataWriter implements IDataWriter {
       entry);
   }
 
-  //method
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
-  //method
   @Override
   public void reset() {
     internalDataWriter.reset();
   }
 
-  //method
   @Override
   public void saveChanges() {
     internalDataWriter.saveChangesAndReset();
   }
 
-  //method
   @Override
   public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     internalDataWriter.setEntityAsUpdated(tableName, entity);
   }
 
-  //method
   @Override
   public void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
     internalDataWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  //method
   private IColumnInfo getColumnDefinitionByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
     return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
   }
 
-  //method
   private ITableInfo getTableDefinitionByTableName(final String tableName) {
     return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
   }

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link EnablingRequestable} can be asked if it is enabled or disabled.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface EnablingRequestable {
 
-  //method
   /**
    * @return true if the current {@link EnablingRequestable} is disabled.
    */
@@ -22,7 +18,6 @@ public interface EnablingRequestable {
     return !isEnabled();
   }
 
-  //method declaration
   /**
    * @return true if the current {@link EnablingRequestable} is enabled.
    */

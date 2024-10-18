@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.reflectiontest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -16,18 +13,14 @@ import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 
-//class
 final class FieldToolTest extends StandardTest {
 
-  //constant
   private static final class Lecture {
 
-    //attribute
     @SuppressWarnings("unused")
     public LinkedList<String> students;
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_1A() throws NoSuchFieldException {
 
@@ -42,7 +35,6 @@ final class FieldToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_1B() throws NoSuchFieldException {
 
@@ -57,7 +49,6 @@ final class FieldToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_2A() throws NoSuchFieldException {
 
@@ -72,7 +63,6 @@ final class FieldToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_2B() throws NoSuchFieldException {
 
@@ -87,7 +77,6 @@ final class FieldToolTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_3A() throws NoSuchFieldException {
 
@@ -102,7 +91,6 @@ final class FieldToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_3B() throws NoSuchFieldException {
 
@@ -117,7 +105,6 @@ final class FieldToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_4A() throws NoSuchFieldException {
 
@@ -132,7 +119,6 @@ final class FieldToolTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_hasGivenTypeOrSuperType_4B() throws NoSuchFieldException {
 

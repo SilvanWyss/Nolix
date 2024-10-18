@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.changesetsaver;
 
-//own imports
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -13,25 +11,18 @@ import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-//class
 public final class EntitySaver {
 
-  //constant
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
-  //constant
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
-  //constant
   private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
 
-  //constant
   private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
 
-  //constant
   private static final MultiBackReferenceSaver MULTI_BACK_REFERENCE_SAVER = new MultiBackReferenceSaver();
 
-  //method
   public void saveChangesOfEntity(
     final IEntity entity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -50,7 +41,6 @@ public final class EntitySaver {
     }
   }
 
-  //method
   private void saveNewEntity(
     final IEntity newEntity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -62,7 +52,6 @@ public final class EntitySaver {
     saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
   }
 
-  //method
   private void saveChangesOfEditedEntity(
     final IEntity editedEntity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -74,7 +63,6 @@ public final class EntitySaver {
     saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
   }
 
-  //method
   private void saveEntityDeletion(
     final IEntity deletedEntity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -83,7 +71,6 @@ public final class EntitySaver {
       ENTITY_TOOL.createEntityHeadDtoForEntity(deletedEntity));
   }
 
-  //method
   private void saveMultiPropertyChangesOfEntity(
     final IEntity entity,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -92,7 +79,6 @@ public final class EntitySaver {
     }
   }
 
-  //method
   private void saveChangesOfPotentialMultiProperty(
     final IField p,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -101,7 +87,6 @@ public final class EntitySaver {
     }
   }
 
-  //method
   private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(
     final IField field,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {

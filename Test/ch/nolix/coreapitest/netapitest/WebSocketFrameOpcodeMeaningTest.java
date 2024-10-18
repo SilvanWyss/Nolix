@@ -1,22 +1,17 @@
-//package declaration
 package ch.nolix.coreapitest.netapitest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 
-//class
 final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
 
-  //method
   @MethodSource
   private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsAndTheirNumbers() {
     return //
@@ -29,7 +24,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
       Arguments.of(WebSocketFrameOpcodeMeaning.PONG, 0xA));
   }
 
-  //method
   @MethodSource
   private static IContainer<Arguments> getNumbersAndTheirWebSocketFrameOpcodeMeanings() {
     return //
@@ -47,13 +41,11 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
       Arguments.of(0xF, WebSocketFrameOpcodeMeaning.RESERVED));
   }
 
-  //method
   @MethodSource
   private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber() {
     return ImmutableList.withElement(Arguments.of(WebSocketFrameOpcodeMeaning.RESERVED));
   }
 
-  //method
   @ParameterizedTest
   @MethodSource("getNumbersAndTheirWebSocketFrameOpcodeMeanings")
   void testCase_toNumber_fromNumber(
@@ -67,7 +59,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
     expect(result).isEqualTo(expectedWebSocketFrameOpcodeMeaning);
   }
 
-  //method
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsAndTheirNumbers")
   void testCase_toNumber_whenHaseANumber(final WebSocketFrameOpcodeMeaning testUnit, final int expectedNumber) {
@@ -79,7 +70,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
     expect(result).isEqualTo(expectedNumber);
   }
 
-  //method
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber")
   void testCase_toNumber_whenDoesNotHaveASingleNumber(final WebSocketFrameOpcodeMeaning testUnit) {

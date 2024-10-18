@@ -1,8 +1,7 @@
-//package declaration
 package ch.nolix.core.web.html;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -11,26 +10,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
-//class
 public final class HtmlElement implements IHtmlElement {
 
-  //constant
   private static final HtmlElementStringRepresentator HTML_ELEMENT_STRING_REPRESENTATOR = //
   new HtmlElementStringRepresentator();
 
-  //attribute
   private final String type;
 
-  //attribute
   private final String innerText;
 
-  //multi-attribute
   private final IContainer<HtmlAttribute> attributes;
 
-  //multi-attribute
   private final IContainer<HtmlElement> childElements;
 
-  //constructor
   private HtmlElement(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
@@ -46,7 +38,6 @@ public final class HtmlElement implements IHtmlElement {
     this.childElements = childElements.to(HtmlElement::fromHtmlElement);
   }
 
-  //static method
   public static HtmlElement fromHtmlElement(final IHtmlElement htmlElement) {
 
     if (htmlElement instanceof HtmlElement htmlAttribute) {
@@ -59,13 +50,11 @@ public final class HtmlElement implements IHtmlElement {
       htmlElement.getChildElements());
   }
 
-  //static method
   public static HtmlElement withType(final String type) {
     return //
     new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
-  //static method
   public static HtmlElement withTypeAndAttribute(
     final String type,
     final IHtmlAttribute attribute,
@@ -78,7 +67,6 @@ public final class HtmlElement implements IHtmlElement {
       ImmutableList.createEmpty());
   }
 
-  //static method
   public static HtmlElement withTypeAndAttributeAndChildElement(
     final String type,
     final IHtmlAttribute attribute,
@@ -90,14 +78,12 @@ public final class HtmlElement implements IHtmlElement {
       ImmutableList.withElement(childElement));
   }
 
-  //static method
   public static HtmlElement withTypeAndAttributes(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes) {
     return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
-  //static method
   public static HtmlElement withTypeAndAttributesAndChildElement(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
@@ -109,7 +95,6 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, allChildElements);
   }
 
-  //static method
   public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
@@ -117,7 +102,6 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
   }
 
-  //static method
   public static HtmlElement withTypeAndAttributesAndInnerText(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
@@ -125,7 +109,6 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, innerText, ImmutableList.createEmpty());
   }
 
-  //static method
   public static HtmlElement withTypeAndChildElement(
     final String type,
     final IHtmlElement childElement,
@@ -138,55 +121,46 @@ public final class HtmlElement implements IHtmlElement {
       ImmutableList.withElement(childElement, childElements));
   }
 
-  //static method
   public static HtmlElement withTypeAndChildElements(
     final String type,
     final IContainer<? extends IHtmlElement> childElements) {
     return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, childElements);
   }
 
-  //static method
   public static HtmlElement withTypeAndInnerText(final String type, final String innerText) {
     return new HtmlElement(type, ImmutableList.createEmpty(), innerText, ImmutableList.createEmpty());
   }
 
-  //method
   @Override
   public boolean containsAttributes() {
     return getAttributes().containsAny();
   }
 
-  //method
   @Override
   public boolean containsChildElements() {
     return getChildElements().containsAny();
   }
 
-  //method
   @Override
   public IContainer<? extends IHtmlAttribute> getAttributes() {
     return attributes;
   }
 
-  //method
   @Override
   public IContainer<? extends IHtmlElement> getChildElements() {
     return childElements;
   }
 
-  //method
   @Override
   public String getInnerText() {
     return innerText;
   }
 
-  //method
   @Override
   public String getType() {
     return type;
   }
 
-  //method
   @Override
   public boolean equals(final Object object) {
 
@@ -200,19 +174,16 @@ public final class HtmlElement implements IHtmlElement {
     return false;
   }
 
-  //method
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
-  //method
   @Override
   public String toString() {
     return HTML_ELEMENT_STRING_REPRESENTATOR.toString(this);
   }
 
-  //method
   @Override
   public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
 

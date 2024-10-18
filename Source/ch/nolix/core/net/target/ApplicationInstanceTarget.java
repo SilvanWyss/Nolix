@@ -1,21 +1,15 @@
-//package declaration
 package ch.nolix.core.net.target;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 
-//class
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 
-  //attribute
   private final String applicationInstanceName;
 
-  //attribute
   private final String applicationUrlInstanceName;
 
-  //constructor
   protected ApplicationInstanceTarget(
     final String ipOrDomain,
     final int port,
@@ -32,7 +26,6 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
     this.applicationUrlInstanceName = applicationUrlInstanceName;
   }
 
-  //static method
   public static ApplicationInstanceTarget//
   forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
     final String ipOrDomain,
@@ -48,19 +41,16 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
       securityModeForConnections);
   }
 
-  //method
   @Override
   public final String getApplicationInstanceName() {
     return applicationInstanceName;
   }
 
-  //method
   @Override
   public final String getApplicationUrlInstanceName() {
     return applicationUrlInstanceName;
   }
 
-  //method
   @Override
   public String toUrl() {
     return (super.toUrl() + "?app=" + getApplicationUrlInstanceName());

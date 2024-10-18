@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
-//class
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException} that is
  * supposed to be thrown when a given argument is not valid.
@@ -29,34 +26,24 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
 
-  //constant
   private static final int MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH = 200;
 
-  //constant
   private static final String DEFAULT_ARGUMENT_NAME = "argument";
 
-  //constant
   private static final String ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME = "instance of an anonymous class";
 
-  //constant
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
-  //constant
   private static final char DOT = '.';
 
-  //constant
   private static final char ELLIPSIS = 0x2026;
 
-  //attribute
   private final String argumentName;
 
-  //attribute
   private final transient Object argument;
 
-  //attribute
   private final String errorPredicate;
 
-  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argument.
    * 
@@ -68,7 +55,6 @@ public class InvalidArgumentException extends RuntimeException {
     this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argument and
    * errorPredicate.
@@ -85,7 +71,6 @@ public class InvalidArgumentException extends RuntimeException {
     this(getNameOfArgument(argument), argument, errorPredicate);
   }
 
-  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argument,
    * errorPredicate and cause.
@@ -104,7 +89,6 @@ public class InvalidArgumentException extends RuntimeException {
     this(getNameOfArgument(argument), argument, errorPredicate, cause);
   }
 
-  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argumentName,
    * argument and errorPredicate.
@@ -132,7 +116,6 @@ public class InvalidArgumentException extends RuntimeException {
     this.errorPredicate = errorPredicate;
   }
 
-  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argumentName,
    * argument, errorPredicate and cause.
@@ -167,7 +150,6 @@ public class InvalidArgumentException extends RuntimeException {
     this.errorPredicate = errorPredicate;
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link InvalidArgumentException} for the given argument.
@@ -176,7 +158,6 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argument);
   }
 
-  //static method
   /**
    * @param argument
    * @param errorPredicate
@@ -192,7 +173,6 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argument, errorPredicate);
   }
 
-  //static method
   /**
    * @param argument
    * @param errorPredicate
@@ -211,7 +191,6 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argument, errorPredicate, cause);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -226,7 +205,6 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argumentName, argument, DEFAULT_ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -246,7 +224,6 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
   }
 
-  //static method
   /**
    * @param argument
    * @return a argument name for the given argument.
@@ -262,7 +239,6 @@ public class InvalidArgumentException extends RuntimeException {
     return getNameOfArgumentThatIsInstanceOfClass(argument.getClass());
   }
 
-  //static method
   /**
    * @param anonymousClass
    * @return a name of an argument that is an instance of the given paramClass.
@@ -287,7 +263,6 @@ public class InvalidArgumentException extends RuntimeException {
     return getNameOfArgumentThatIsInstanceOfClass(superClass);
   }
 
-  //static method
   /**
    * @param paramClass
    * @return a name of an argument that is an instance of the given paramClass.
@@ -309,7 +284,6 @@ public class InvalidArgumentException extends RuntimeException {
     return getNameOfArgumentThatIsInstanceOfAnonymousClass(paramClass);
   }
 
-  //static method
   /**
    * @param argumentName
    * @return a valid argument name of the given argumentName.
@@ -331,7 +305,6 @@ public class InvalidArgumentException extends RuntimeException {
     return argumentName;
   }
 
-  //static method
   /**
    * @param cause
    * @return a valid cause of the given cause
@@ -348,7 +321,6 @@ public class InvalidArgumentException extends RuntimeException {
     return cause;
   }
 
-  //static method
   /**
    * @param errorPredicate
    * @return a valid error predicate of the given errorPredicate.
@@ -376,7 +348,6 @@ public class InvalidArgumentException extends RuntimeException {
     return errorPredicate;
   }
 
-  //static method
   /**
    * @param argument
    * @return a valid {@link String} representation of the given argument.
@@ -405,7 +376,6 @@ public class InvalidArgumentException extends RuntimeException {
     }
   }
 
-  //static method
   /**
    * @param argument
    * @return a valid {@link String} representation of the given argument with
@@ -432,7 +402,6 @@ public class InvalidArgumentException extends RuntimeException {
     return (" '" + stringRepresentation.substring(0, MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH) + ELLIPSIS + "' ");
   }
 
-  //method
   /**
    * @return the name of the argument of the current
    *         {@link InvalidArgumentException}.
@@ -441,7 +410,6 @@ public class InvalidArgumentException extends RuntimeException {
     return argumentName;
   }
 
-  //method
   /**
    * @return the error predicate of the current {@link InvalidArgumentException}.
    */
@@ -449,7 +417,6 @@ public class InvalidArgumentException extends RuntimeException {
     return errorPredicate;
   }
 
-  //method
   /**
    * @return the argument of the current {@link InvalidArgumentException}.
    */

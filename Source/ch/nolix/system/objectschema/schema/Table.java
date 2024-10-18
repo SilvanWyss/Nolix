@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -18,41 +16,30 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
-//class
 public final class Table extends SchemaObject implements ITable {
 
-  //constant
   private static final TableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
-  //constant
   private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
 
-  //constant
   private static final TableTool TABLE_TOOL = new TableTool();
 
-  //attribute
   private final String id;
 
-  //attribute
   private String name;
 
-  //attribute
   private boolean loadedColumnsFromDatabase;
 
-  //optional attribute
   private Database parentDatabase;
 
-  //multi-attribute
   private LinkedList<IColumn> columns = LinkedList.createEmpty();
 
-  //constructor
   public Table(final String name) {
     this(
       GlobalIdCreator.createIdOf10HexadecimalCharacters(),
       name);
   }
 
-  //constructor
   public Table(final String id, final String name) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
@@ -61,12 +48,10 @@ public final class Table extends SchemaObject implements ITable {
     setName(name);
   }
 
-  //static method
   public static Table fromFlatDto(final IFlatTableDto flatTableDto) {
     return new Table(flatTableDto.getId(), flatTableDto.getName());
   }
 
-  //method
   @Override
   public Table addColumn(final IColumn column) {
 
@@ -76,13 +61,11 @@ public final class Table extends SchemaObject implements ITable {
     return this;
   }
 
-  //method
   @Override
   public boolean belongsToDatabase() {
     return (parentDatabase != null);
   }
 
-  //method
   @Override
   public Table createColumnWithNameAndParameterizedFieldType(
     final String name,
@@ -90,32 +73,27 @@ public final class Table extends SchemaObject implements ITable {
     return addColumn(new Column(name, parameterizedFieldType));
   }
 
-  //method
   @Override
   public void delete() {
     MUTATION_VALIDATOR.assertCanDeleteTable(this);
     MUTATION_EXECUTOR.deleteTable(this);
   }
 
-  //method
   @Override
   public IFlatTableDto getFlatDto() {
     return new FlatTableDto(getId(), getName());
   }
 
-  //method
   @Override
   public String getId() {
     return id;
   }
 
-  //method
   @Override
   public String getName() {
     return name;
   }
 
-  //method
   @Override
   public Database getParentDatabase() {
 
@@ -124,7 +102,6 @@ public final class Table extends SchemaObject implements ITable {
     return parentDatabase;
   }
 
-  //method
   @Override
   public IContainer<IColumn> getStoredColumns() {
 
@@ -133,13 +110,11 @@ public final class Table extends SchemaObject implements ITable {
     return columns;
   }
 
-  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return (belongsToDatabase() && getParentDatabase().isLinkedWithRealDatabase());
   }
 
-  //method
   @Override
   public Table setName(final String name) {
 
@@ -149,13 +124,11 @@ public final class Table extends SchemaObject implements ITable {
     return this;
   }
 
-  //method
   @Override
   public TableDto toDto() {
     return new TableDto(getId(), getName(), createColumnDtos());
   }
 
-  //method
   @Override
   protected void noteClose() {
 
@@ -166,27 +139,22 @@ public final class Table extends SchemaObject implements ITable {
     }
   }
 
-  //method
   void addColumnAttribute(final IColumn column) {
     columns.addAtEnd(column);
   }
 
-  //method
   RawSchemaLinkerAdapter internalgetStoredRawSchemaAdapter() {
     return getParentDatabase().internalGetRefRawSchemaAdapter();
   }
 
-  //method
   void removeColumnAttribute(final Column column) {
     columns.removeStrictlyFirstOccurrenceOf(column);
   }
 
-  //method
   void setNameAttribute(final String name) {
     this.name = name;
   }
 
-  //method
   void setParentDatabase(final Database parentDatabase) {
 
     GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
@@ -195,24 +163,20 @@ public final class Table extends SchemaObject implements ITable {
     this.parentDatabase = parentDatabase;
   }
 
-  //method
   private void assertBelongsToDatabase() {
     if (!belongsToDatabase()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Database.class);
     }
   }
 
-  //method
   private IContainer<IColumnDto> createColumnDtos() {
     return getStoredColumns().to(IColumn::toDto);
   }
 
-  //method
   private boolean hasLoadedColumnsFromDatabase() {
     return loadedColumnsFromDatabase;
   }
 
-  //method
   private void loadColumnsFromDatabase() {
 
     loadedColumnsFromDatabase = true;
@@ -229,14 +193,12 @@ public final class Table extends SchemaObject implements ITable {
     }
   }
 
-  //method
   private void loadColumnsFromDatabaseIfNeeded() {
     if (needsToLoadColumnsFromDatabase()) {
       loadColumnsFromDatabase();
     }
   }
 
-  //method
   private boolean needsToLoadColumnsFromDatabase() {
     return (isLoaded() && !hasLoadedColumnsFromDatabase());
   }

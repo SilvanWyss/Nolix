@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//Java imports
 import java.util.Optional;
 import java.util.function.Consumer;
 
-//own imports
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelTool;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-//class
 public final class ValidationLabelTool implements IValidationLabelTool {
 
-  //method
   @Override
   public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
 
@@ -22,7 +17,6 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     validationLabel.ifPresent(IValidationLabel::clear);
   }
 
-  //method
   @Override
   public void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
     final IControl<?, ?> control,
@@ -35,7 +29,6 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     }
   }
 
-  //method
   @Override
   public <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
     C control,
@@ -48,7 +41,6 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     }
   }
 
-  //method
   @Override
   public Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(final IControl<?, ?> control) {
 
@@ -68,7 +60,6 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     return Optional.empty();
   }
 
-  //method
   @Override
   public void showErrorInNearestValidationLabelOfControlOrSwallowError(
     final IControl<?, ?> control,

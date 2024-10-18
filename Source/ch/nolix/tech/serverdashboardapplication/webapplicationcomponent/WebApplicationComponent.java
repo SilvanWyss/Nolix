@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.serverdashboardapplication.webapplicationcomponent;
 
-//own imports
 import ch.nolix.system.application.component.Component;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -15,38 +13,30 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
 import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
-//class
 public final class WebApplicationComponent //NOSONAR: A WebApplicationComponent is a Component.
 extends Component<WebApplicationController, IServerDashboardContext> {
 
-  //constant
   public static final int APPLICATION_LOGO_IMAGE_WIDTH = 250;
 
-  //constant
   public static final int APPLICATION_LOGO_IMAGE_HEIGHT = 200;
 
-  //constant
   private static final String DEFAULT_APPLICATION_LOGO_RESOURCE_PATH = "image/default_application_logo.jpg";
 
-  //constant
   public static final IImage DEFAULT_APPLICATION_LOGO = MutableImage
     .fromResource(DEFAULT_APPLICATION_LOGO_RESOURCE_PATH)
     .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
 
-  //constructor
   public WebApplicationComponent(
     final WebApplicationController webApplicationController,
     final WebClientSession<IServerDashboardContext> webClientSession) {
     super(webApplicationController, webClientSession);
   }
 
-  //method
   @Override
   public RefreshBehavior getRefreshBehavior() {
     return RefreshBehavior.REFRESH_SELF;
   }
 
-  //method
   @Override
   protected IControl<?, ?> createControl(final WebApplicationController controller) {
     return new VerticalStack()
@@ -64,7 +54,6 @@ extends Component<WebApplicationController, IServerDashboardContext> {
             controller.getWebApplicationSheet().getApplicationInstanceTarget().getApplicationInstanceName()));
   }
 
-  //method
   private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationSheet webApplicationSheet) {
 
     if (!webApplicationSheet.hasApplicationLogo()) {

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.fieldtool;
 
-//Java imports
 import java.lang.reflect.ParameterizedType;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
@@ -15,10 +12,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 
-//class
 public class FieldTool extends DatabaseObjectTool implements IFieldTool {
 
-  //method
   @Override
   public boolean belongsToEntity(final IField field) {
     return //
@@ -26,7 +21,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     && field.belongsToEntity();
   }
 
-  //method
   @Override
   public final boolean belongsToLoadedEntity(final IField field) {
     return //
@@ -34,7 +28,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     && field.getStoredParentEntity().isLoaded();
   }
 
-  //method
   @Override
   public final Class<?> getDataType(final IField field) {
     return switch (field.getType().getBaseType()) {
@@ -47,26 +40,22 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     };
   }
 
-  //method
   @Override
   public final boolean isForMultiContent(final IField field) {
     return (field.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
   }
 
-  //method
   @Override
   public final boolean isForSingleContent(final IField field) {
     return (field.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
   }
 
-  //method
   @Override
   public final boolean isMandatoryAndEmptyBoth(final IField field) {
     return field.isMandatory()
     && field.isEmpty();
   }
 
-  //method
   @Override
   public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IField field) {
     return !field.isMandatory()
@@ -74,7 +63,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     || field.containsAny();
   }
 
-  //method
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?> multiValue) {
 
     if (multiValue.isEmpty()) {
@@ -84,7 +72,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     return multiValue.getAllStoredValues().getStoredFirst().getClass();
   }
 
-  //method
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?> optionalValue) {
 
     if (optionalValue.isEmpty()) {
@@ -94,7 +81,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     return optionalValue.getStoredValue().getClass();
   }
 
-  //method
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?> value) {
 
     if (value.isEmpty()) {
@@ -104,7 +90,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     return value.getStoredValue().getClass();
   }
 
-  //method
   private Class<?> getDataTypeWhenIsBaseValue(final IField field) {
 
     if (!field.belongsToEntity()) {
@@ -114,7 +99,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     return getDataTypeWhenIsBaseValueAndBelongsToEntity(field);
   }
 
-  //method
   private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IField field) {
 
     final var fieldParentEntity = field.getStoredParentEntity();
@@ -128,7 +112,6 @@ public class FieldTool extends DatabaseObjectTool implements IFieldTool {
     return (Class<?>) typeArguments[typeArguments.length - 1];
   }
 
-  //method
   private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IField field) {
     return switch (field.getType()) {
       case VALUE ->

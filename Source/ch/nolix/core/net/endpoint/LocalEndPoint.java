@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -12,7 +10,6 @@ import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link LocalEndPoint} is an {@link EndPoint} that can send messages to
  * another {@link LocalEndPoint}.
@@ -22,13 +19,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class LocalEndPoint extends EndPoint {
 
-  //attribute
   private final PeerType peerType;
 
-  //attribute
   private final LocalEndPoint counterpart;
 
-  //constructor
   /**
    * Creates a new {@link LocalEndPoint} that will connect to the given slot on
    * the given server.
@@ -57,7 +51,6 @@ public final class LocalEndPoint extends EndPoint {
     server.internalTakeBackendEndPoint(getStoredCounterPart());
   }
 
-  //constructor
   /**
    * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
@@ -81,7 +74,6 @@ public final class LocalEndPoint extends EndPoint {
     slot.takeBackendEndPoint(getStoredCounterPart());
   }
 
-  //constructor
   /**
    * Creates a new {@link LocalEndPoint} with the given counterpart.
    * 
@@ -103,7 +95,6 @@ public final class LocalEndPoint extends EndPoint {
     this.counterpart = counterpart;
   }
 
-  //static method
   /**
    * @param slot
    * @return a new {@link LocalEndPoint} that will connect to the given slot.
@@ -113,7 +104,6 @@ public final class LocalEndPoint extends EndPoint {
     return new LocalEndPoint(slot);
   }
 
-  //static method
   /**
    * @param server
    * @param targetSlot
@@ -127,7 +117,6 @@ public final class LocalEndPoint extends EndPoint {
     return new LocalEndPoint(server, targetSlot);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -136,7 +125,6 @@ public final class LocalEndPoint extends EndPoint {
     return ConnectionType.LOCAL;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -145,7 +133,6 @@ public final class LocalEndPoint extends EndPoint {
     return peerType;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -154,7 +141,6 @@ public final class LocalEndPoint extends EndPoint {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -163,7 +149,6 @@ public final class LocalEndPoint extends EndPoint {
     //Does nothing.
   }
 
-  //method
   /**
    * Lets the current {@link LocalEndPoint} send the given message.
    * 
@@ -185,7 +170,6 @@ public final class LocalEndPoint extends EndPoint {
     counterpart.receiveMessage(message);
   }
 
-  //method
   /**
    * @return the counterpart of the current {@link LocalEndPoint}.
    */
@@ -193,7 +177,6 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart;
   }
 
-  //method
   /**
    * Lets the current {@link LocalEndPoint} receive the given message.
    * 

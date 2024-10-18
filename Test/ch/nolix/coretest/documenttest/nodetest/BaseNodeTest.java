@@ -1,22 +1,17 @@
-//package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
 
-  //method
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
 
@@ -27,7 +22,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
 
@@ -41,7 +35,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result).hasStringRepresentation("b");
   }
 
-  //method
   @Test
   void testCase_getStoredChildNodeAt1BasedIndex() {
 
@@ -70,7 +63,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
       .ofType(ArgumentIsOutOfRangeException.class);
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(strings = {
   "LoremXIpsum",
@@ -94,7 +86,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result).isEqualTo(header);
   }
 
-  //method
   @Test
   void testCase_getStoredSingleChildNode_1A() {
 
@@ -108,7 +99,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result.toString()).isEqualTo("b");
   }
 
-  //method
   @Test
   void testCase_getStoredSingleChildNode_1B() {
 
@@ -119,7 +109,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_toString_1() {
 
@@ -133,7 +122,6 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result).isEqualTo("a(b,c,d)");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'Lorem(', 'Lorem$O'",
@@ -152,12 +140,9 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method declaration
   protected abstract BN createBlankNode();
 
-  //method declaration
   protected abstract BN createNodeWithHeader(String header);
 
-  //method declaration
   protected abstract BN createNodeWithHeaderAndChildNodes(String header, String... childNodeHeaders);
 }

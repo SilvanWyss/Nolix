@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -9,10 +8,8 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButtonStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonStyle> {
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IButton button,
@@ -20,7 +17,6 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IButton button,
@@ -29,7 +25,6 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IButton control,
@@ -37,7 +32,6 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IButton button,

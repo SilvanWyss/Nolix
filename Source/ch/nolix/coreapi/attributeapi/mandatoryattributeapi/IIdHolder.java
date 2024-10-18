@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link IIdHolder} has an id.
  * 
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface IIdHolder {
 
-  //method declaration
   /**
    * @return the id of the current {@link IIdHolder}.
    */
   String getId();
 
-  //method
   /**
    * @return the id of the current {@link IIdHolder} in quotes.
    */
@@ -28,7 +23,6 @@ public interface IIdHolder {
     return ("'" + getId() + "'");
   }
 
-  //method
   /**
    * @param id
    * @return true if the current {@link IIdHolder} has the given id.

@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
-//class
 /**
  * A {@link ForMaxMillisecondsMediator} is not mutable.
  * 
@@ -19,10 +15,8 @@ import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
  */
 public final class ForMaxMillisecondsMediator {
 
-  //attribute
   private final int maxDurationInMilliseconds;
 
-  //constructor
   /**
    * Creates a new {@link ForMaxMillisecondsMediator} for the given
    * maxDurationInMilliseconds.
@@ -40,7 +34,6 @@ public final class ForMaxMillisecondsMediator {
     this.maxDurationInMilliseconds = maxDurationInMilliseconds;
   }
 
-  //static method
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -54,7 +47,6 @@ public final class ForMaxMillisecondsMediator {
     return new ForMaxMillisecondsMediator(maxDurationInMilliseconds);
   }
 
-  //static method
   /**
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -71,7 +63,6 @@ public final class ForMaxMillisecondsMediator {
     return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND);
   }
 
-  //method
   /**
    * Creates
    * 
@@ -92,7 +83,6 @@ public final class ForMaxMillisecondsMediator {
     return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getAsBoolean());
   }
 
-  //method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} for the maxDurationInMilliseconds of
@@ -106,7 +96,6 @@ public final class ForMaxMillisecondsMediator {
     return asLongAs(() -> !condition.getAsBoolean());
   }
 
-  //method
   /**
    * Waits until the maxDurationInMilliseconds of the current
    * {@link ForMaxMillisecondsMediator} is reached or as long as the given
@@ -123,7 +112,6 @@ public final class ForMaxMillisecondsMediator {
     GlobalSequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getAsBoolean());
   }
 
-  //method
   /**
    * Waits until the maxDurationInMilliseconds of the current
    * {@link ForMaxMillisecondsMediator} is reached or until the given condition is

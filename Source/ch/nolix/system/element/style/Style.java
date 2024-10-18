@@ -1,8 +1,7 @@
-//package declaration
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -16,14 +15,12 @@ import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-02-01
  */
 public final class Style extends BaseStyle<IStyle> implements IStyle {
 
-  //constructor
   /**
    * Creates a new empty {@link Style}.
    */
@@ -31,7 +28,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     super(ImmutableList.createEmpty(), ImmutableList.createEmpty());
   }
 
-  //constructor
   /**
    * Creates a new {@link Style}.
    * 
@@ -44,7 +40,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     super(attachingAttributes, subStyles);
   }
 
-  //static method
   /**
    * @param filePath
    * @return a new standard specification from the file with the given file path.
@@ -59,7 +54,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     return fromSpecification(specification);
   }
 
-  //static method
   /**
    * @param specification
    * @return a new {@link Style} from the given specification.
@@ -91,7 +85,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     return new Style(attachingAttributes, subStyles);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -102,7 +95,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
       getSubStyles().to(ISelectingStyle::getSpecification));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -112,7 +104,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     letSubStylesStyleChildElementsOfElement(element);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -132,7 +123,6 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     return new Style(allAttachingAttributes, getSubStyles());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

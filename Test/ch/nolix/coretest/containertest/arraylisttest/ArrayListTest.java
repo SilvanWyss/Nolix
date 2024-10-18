@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.containertest.arraylisttest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class ArrayListTest extends ContainerTest {
 
-  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -21,13 +16,11 @@ final class ArrayListTest extends ContainerTest {
     return ArrayList.withElement(element, elements);
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ArrayList.createEmpty();
   }
 
-  //method
   @Test
   void testCase_addAtEnd_whenHasAvailableCapacity() {
 
@@ -42,7 +35,6 @@ final class ArrayListTest extends ContainerTest {
     expect(testUnit).containsAll(elements);
   }
 
-  //method
   @Test
   void testCase_addAtEnd_whenDoesNotHaveAvailableCapacity() {
 
@@ -57,7 +49,6 @@ final class ArrayListTest extends ContainerTest {
     expect(testUnit).containsAll(elements);
   }
 
-  //method
   @Test
   void testCase_clear_whenIsEmpty() {
 
@@ -71,7 +62,6 @@ final class ArrayListTest extends ContainerTest {
     expect(testUnit).isEmpty();
   }
 
-  //method
   @Test
   void testCase_clear_whenContainsAny() {
 
@@ -85,7 +75,6 @@ final class ArrayListTest extends ContainerTest {
     expect(testUnit).isEmpty();
   }
 
-  //method
   @Test
   void testCase_getCopy() {
 
@@ -99,7 +88,6 @@ final class ArrayListTest extends ContainerTest {
     expect(result).containsExactlyInSameOrder(testUnit);
   }
 
-  //method
   @Test
   void testCase_isMaterialized() {
 
@@ -113,7 +101,6 @@ final class ArrayListTest extends ContainerTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_withElemens() {
 
@@ -127,7 +114,6 @@ final class ArrayListTest extends ContainerTest {
     expect(result).containsExactlyInSameOrder(elements);
   }
 
-  //method
   @Test
   void testCase_withInitialCapacity() {
 
@@ -138,7 +124,6 @@ final class ArrayListTest extends ContainerTest {
     expect(result).isEmpty();
   }
 
-  //method
   @Test
   void testCase_withInitialCapacity_whenTheGivenInitialCapacityIsNegative() {
 

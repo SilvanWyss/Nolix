@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.core.commontypetool.inputstreamtool;
 
-//Java imports
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
-//class
 public final class InputStreamTool implements IInputStreamTool {
 
-  //method
   /**
    * {@inheritDoc}
    */

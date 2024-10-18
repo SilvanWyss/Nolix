@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalTextHolder} is a {@link ITextHolder} whose
  * text can be set and removed programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
 public interface IFluentMutableOptionalTextHolder<FMOTH extends IFluentMutableOptionalTextHolder<FMOTH>>
 extends ITextHolder {
 
-  //method declaration
   /**
    * Removes the text of the current {@link IFluentMutableOptionalTextHolder}.
    * 
@@ -24,7 +20,6 @@ extends ITextHolder {
    */
   FMOTH removeText();
 
-  //method declaration
   /**
    * Sets the text of the current {@link IFluentMutableOptionalTextHolder}.
    * 

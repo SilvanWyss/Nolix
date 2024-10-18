@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.matrix;
 
-//Java imports
 import java.util.NoSuchElementException;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -12,7 +9,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-08-01
@@ -20,13 +16,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 final class MatrixIterator<E> implements CopyableIterator<E> {
 
-  //attribute
   private final Matrix<E> parentMatrix;
 
-  //attribute
   private int nextElement1BasedIndex;
 
-  //constructor
   /**
    * Creates a new {@link MatrixIterator} with the given parentMatrix.
    * 
@@ -41,7 +34,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     nextElement1BasedIndex = 1;
   }
 
-  //constructor
   /**
    * Creates a new {@link MatrixIterator} with the given parentMatrix and
    * param1BasedStartIndex.
@@ -66,7 +58,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     nextElement1BasedIndex = param1BasedStartIndex;
   }
 
-  //static method
   public static <E2> MatrixIterator<E2> forMatrix(final Matrix<E2> matrix) {
     return new MatrixIterator<>(matrix);
   }
@@ -78,7 +69,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     return new MatrixIterator<>(matrix, param1BasedStartIndex);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -87,7 +77,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     return forMatrixAnd1BasedStartIndex(parentMatrix, nextElement1BasedIndex);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -96,7 +85,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     return (nextElement1BasedIndex <= parentMatrix.getCount());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -108,7 +96,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  //method
   /**
    * @throws NoSuchElementException if the current {@link MatrixIterator} does not
    *                                have a next element.
@@ -121,7 +108,6 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  //method
   /**
    * @return the next element of the current {@link MatrixIterator} for the case
    *         when the current {@link MatrixIterator} has a next element.

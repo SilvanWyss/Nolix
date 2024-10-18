@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.argumentcaptortest.andargumentcaptortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class AndPasswordCaptorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_andPassword_whenHasNext() {
 
@@ -33,7 +28,6 @@ final class AndPasswordCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_andPassword_whenDoesNotHaveNext() {
 
@@ -44,7 +38,6 @@ final class AndPasswordCaptorTest extends StandardTest {
     expectRunning(() -> testUnit.andPassword("my_password")).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_getPassword_whenDoesNotHavePassword() {
 

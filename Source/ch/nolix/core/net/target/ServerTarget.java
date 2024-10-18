@@ -1,26 +1,19 @@
-//package declaration
 package ch.nolix.core.net.target;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public class ServerTarget implements IServerTarget {
 
-  //attribute
   private final String ipOrDomain;
 
-  //attribute
   private final int port;
 
-  //attribute
   private final SecurityMode securityModeForConnections;
 
-  //constructor
   protected ServerTarget(
     final String ipOrDomain,
     final int port,
@@ -39,7 +32,6 @@ public class ServerTarget implements IServerTarget {
     this.securityModeForConnections = securityModeForConnections;
   }
 
-  //static method
   public static ServerTarget forIpOrDomainAndPortAndSecurityModeForConnections(
     final String ipOrDomain,
     final int port,
@@ -47,25 +39,21 @@ public class ServerTarget implements IServerTarget {
     return new ServerTarget(ipOrDomain, port, securityModeForConnections);
   }
 
-  //method
   @Override
   public final String getIpOrDomain() {
     return ipOrDomain;
   }
 
-  //method
   @Override
   public final int getPort() {
     return port;
   }
 
-  //method
   @Override
   public final SecurityMode getSecurityModeForConnection() {
     return securityModeForConnections;
   }
 
-  //method
   @Override
   public String toUrl() {
     return switch (getSecurityModeForConnection()) {
@@ -76,7 +64,6 @@ public class ServerTarget implements IServerTarget {
     };
   }
 
-  //method
   private String toHttpsUrl() {
 
     if (getPort() == PortCatalogue.HTTPS) {
@@ -86,7 +73,6 @@ public class ServerTarget implements IServerTarget {
     return String.format("https://%s:%s", getIpOrDomain(), getPort());
   }
 
-  //method
   private String toHttpUrl() {
 
     if (getPort() == PortCatalogue.HTTP) {

@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.columntable;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-//class
 public final class ParameterizedFieldTypeSqlRecordMapper {
 
-  //constant
   private static final String NULL = "NULL";
 
-  //method
   public ParameterizedFieldTypeSqlRecord createParameterizedFieldTypeRecordFrom(
     final IParameterizedFieldTypeDto parameterizedFieldType) {
     return switch (parameterizedFieldType.getFieldType().getBaseType()) {
@@ -30,7 +25,6 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
     };
   }
 
-  //method
   private ParameterizedFieldTypeSqlRecord createBaseParameterizedBackReferenceRecord(
     final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return new ParameterizedFieldTypeSqlRecord(
@@ -40,7 +34,6 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
       "'" + baseParameterizedBackReferenceType.getBackReferencedColumnId() + "'");
   }
 
-  //method
   private ParameterizedFieldTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return new ParameterizedFieldTypeSqlRecord(
@@ -50,7 +43,6 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
       NULL);
   }
 
-  //method
   private ParameterizedFieldTypeSqlRecord createBaseParameterizedValueTypeRecord(
     final IBaseParameterizedValueTypeDto baseParameterizedFieldType) {
     return new ParameterizedFieldTypeSqlRecord(

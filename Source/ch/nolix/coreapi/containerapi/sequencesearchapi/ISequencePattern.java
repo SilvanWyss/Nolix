@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2023-02-13
@@ -13,7 +10,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface ISequencePattern<E> {
 
-  //method declaration
   /**
    * @param container
    * @return all sequences from the given container that match the current

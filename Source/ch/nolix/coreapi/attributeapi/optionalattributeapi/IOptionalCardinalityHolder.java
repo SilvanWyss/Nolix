@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
-//interface
 /**
  * A {@link IOptionalCardinalityHolder} can have a cardinality.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface IOptionalCardinalityHolder {
 
-  //method declaration
   /**
    * @return the cardinality of the current {@link IOptionalCardinalityHolder}.
    * @throws RuntimeException if the current {@link IOptionalCardinalityHolder}
@@ -18,7 +15,6 @@ public interface IOptionalCardinalityHolder {
    */
   String getCardinality();
 
-  //method declaration
   /**
    * @return true if the current {@link IOptionalCardinalityHolder} has a
    *         cardinality.

@@ -1,23 +1,18 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2020-08-15
  */
 public final class SequencerMediator {
 
-  //method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} with the given condition.
@@ -27,7 +22,6 @@ public final class SequencerMediator {
     return GlobalSequencer.asLongAs(condition);
   }
 
-  //method
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the given condition.
@@ -37,7 +31,6 @@ public final class SequencerMediator {
     return GlobalSequencer.asSoonAs(condition);
   }
 
-  //method
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the negation of the given
@@ -48,7 +41,6 @@ public final class SequencerMediator {
     return GlobalSequencer.asSoonAsNoMore(condition);
   }
 
-  //method
   /**
    * Enqueues the given job.
    * 
@@ -60,7 +52,6 @@ public final class SequencerMediator {
     return GlobalSequencer.enqueue(job);
   }
 
-  //method
   /**
    * @param maxRunCount
    * @return a new {@link ForCountMediator} with the given max run count.
@@ -70,7 +61,6 @@ public final class SequencerMediator {
     return GlobalSequencer.forCount(maxRunCount);
   }
 
-  //method
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -82,7 +72,6 @@ public final class SequencerMediator {
     return GlobalSequencer.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
-  //method
   /**
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -94,7 +83,6 @@ public final class SequencerMediator {
     return GlobalSequencer.forMaxSeconds(maxDurationInSeconds);
   }
 
-  //method
   /**
    * Runs the given job in background.
    * 
@@ -106,7 +94,6 @@ public final class SequencerMediator {
     return GlobalSequencer.runInBackground(job);
   }
 
-  //method
   /**
    * Runs the given result job in background. A result job is a job that returns a
    * result.
@@ -120,7 +107,6 @@ public final class SequencerMediator {
     return GlobalSequencer.runInBackground(resultJob);
   }
 
-  //method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} for the negation of the given
@@ -131,7 +117,6 @@ public final class SequencerMediator {
     return GlobalSequencer.until(condition);
   }
 
-  //method
   /**
    * Waits as long as the given condition is fulfilled.
    * 
@@ -142,7 +127,6 @@ public final class SequencerMediator {
     GlobalSequencer.waitAsLongAs(condition);
   }
 
-  //method
   /**
    * Waits for the given durationInMilliseconds.
    * 
@@ -154,7 +138,6 @@ public final class SequencerMediator {
     GlobalSequencer.waitForMilliseconds(durationInMilliseconds);
   }
 
-  //method
   /**
    * Waits for the given durationInSeconds.
    * 
@@ -165,7 +148,6 @@ public final class SequencerMediator {
     GlobalSequencer.waitForSeconds(durationInSeconds);
   }
 
-  //method
   /**
    * Waits until the given condition is fulfilled.
    * 

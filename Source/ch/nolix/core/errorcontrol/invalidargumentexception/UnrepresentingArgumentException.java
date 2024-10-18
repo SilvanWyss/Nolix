@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link UnrepresentingArgumentException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -13,13 +11,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String PRONOUN_A = "a";
 
-  //constant
   private static final String PRONOUN_AN = "an";
 
-  //constructor
   /**
    * Creates a new {@link UnrepresentingArgumentException} for the given argument
    * and type.
@@ -34,7 +29,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }
 
-  //constructor
   /**
    * Creates a new {@link UnrepresentingArgumentException} for the given
    * argumentName, argument and type.
@@ -52,7 +46,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }
 
-  //static method
   /**
    * @param argument
    * @param type
@@ -64,7 +57,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return new UnrepresentingArgumentException(argument, type);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -82,7 +74,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return new UnrepresentingArgumentException(argumentName, argument, type);
   }
 
-  //static method
   /**
    * @param type
    * @return the name of the given type.
@@ -98,7 +89,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return type.getSimpleName();
   }
 
-  //static method
   /**
    * @param noun
    * @return the pronoun for the given noun.
@@ -135,7 +125,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     };
   }
 
-  //static method
   /**
    * @param type
    * @return the type name with the pronoun for the given type.

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ReferencedArgumentException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably
@@ -13,10 +11,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ReferencedArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is referenced";
 
-  //constructor
   /**
    * Creates a new {@link ReferencedArgumentException} for the given argument.
    * 
@@ -28,7 +24,6 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
     super(argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ReferencedArgumentException} for the given argument.

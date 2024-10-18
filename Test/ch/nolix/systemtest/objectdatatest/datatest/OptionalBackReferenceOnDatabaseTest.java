@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
@@ -13,35 +10,27 @@ import ch.nolix.system.objectdata.data.OptionalReference;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Person extends Entity {
 
-    //attribute
     final OptionalReference<Pet> pet = OptionalReference.forEntity(Pet.class);
 
-    //constructor
     Person() {
       initialize();
     }
   }
 
-  //constant
   private static final class Pet extends Entity {
 
-    //attribute
     final OptionalBackReference<Person> owner = OptionalBackReference
       .forEntityAndBackReferencedFieldName(Person.class, "pet");
 
-    //constructor
     Pet() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_getStoredEntity_whenIsNewAndEmpty() {
 
@@ -59,7 +48,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 
@@ -80,7 +68,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     expect(result).is(john);
   }
 
-  //method
   @Test
   void testCase_getStoredEntity_whenIsLoaded() {
 
@@ -104,7 +91,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     expect(result.getId()).isEqualTo(john.getId());
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsEmpty() {
 
@@ -119,7 +105,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 
@@ -145,7 +130,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
 
@@ -175,7 +159,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_isChanged_whenIsLoaded() {
 

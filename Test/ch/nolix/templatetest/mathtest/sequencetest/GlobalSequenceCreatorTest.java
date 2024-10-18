@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.templatetest.mathtest.sequencetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.GlobalSequenceFactory;
 
-//class
 final class GlobalSequenceCreatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
 
@@ -26,7 +22,6 @@ final class GlobalSequenceCreatorTest extends StandardTest {
     expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
 
@@ -41,7 +36,6 @@ final class GlobalSequenceCreatorTest extends StandardTest {
     expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(26.0, 0.0));
   }
 
-  //method
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
 

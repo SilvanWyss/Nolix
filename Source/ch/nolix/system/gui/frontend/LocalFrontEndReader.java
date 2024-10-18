@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.gui.frontend;
 
-//Java imports
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -22,10 +20,8 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
-//class
 public final class LocalFrontEndReader implements IFrontEndReader {
 
-  //constant
   private static final JFileChooser FILE_CHOOSER;
 
   //static initializing
@@ -44,13 +40,11 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     FILE_CHOOSER = new JFileChooser();
   }
 
-  //method
   @Override
   public IContainer<byte[]> getFilesFromClipboard() {
     return getFilePathsFromClipboard().to(GlobalFileSystemAccessor::readFileToBytes);
   }
 
-  //method
   @Override
   public String getTextFromClipboard() {
     try {
@@ -60,7 +54,6 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     }
   }
 
-  //method
   @Override
   public Optional<byte[]> readFileToBytes() {
 
@@ -73,7 +66,6 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     return Optional.of(new FileAccessor(filePath).readFileToBytes());
   }
 
-  //method
   private IContainer<String> getFilePathsFromClipboard() {
     try {
 

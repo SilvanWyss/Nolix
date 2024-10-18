@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.systemtest.sqlrawdatatest.querycreatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 
-//class
 final class MultiValueQueryCreatorTest extends StandardTest {
 
   @Test

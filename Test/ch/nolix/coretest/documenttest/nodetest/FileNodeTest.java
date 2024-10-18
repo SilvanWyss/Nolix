@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
-//JUnit imports
 import org.junit.jupiter.api.AfterEach;
 
-//own imports
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 
-//class
 final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
-  //method
   @AfterEach
   void cleanup() {
 
@@ -23,13 +18,11 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
     }
   }
 
-  //method
   @Override
   protected FileNode createBlankNode() {
     return new FileNode(GlobalFileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
   }
 
-  //method
   @Override
   protected FileNode createNodeWithHeader(String header) {
 
@@ -40,7 +33,6 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
     return fileNode;
   }
 
-  //method
   @Override
   protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 

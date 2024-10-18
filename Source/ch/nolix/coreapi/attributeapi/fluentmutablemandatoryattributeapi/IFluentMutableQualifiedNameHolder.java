@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 
-//interface
 /**
  * A {@link IFluentMutableQualifiedNameHolder} is a {@link IQualifiedNameHolder}
  * whose name can be set programmatically and fluently.

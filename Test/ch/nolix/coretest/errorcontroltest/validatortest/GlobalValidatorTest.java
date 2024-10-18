@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.errorcontrol.validator.ExtendedIterableMediator;
@@ -15,10 +12,8 @@ import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class GlobalValidatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByte() {
 
@@ -32,7 +27,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(ByteMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
 
@@ -46,7 +40,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsADouble() {
 
@@ -60,7 +53,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(DoubleMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
 
@@ -74,7 +66,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
 
@@ -88,7 +79,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(LongMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
 
@@ -102,7 +92,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsALong() {
 
@@ -116,7 +105,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(LongMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
 
@@ -130,7 +118,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(ExtendedIterableMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
 
@@ -144,7 +131,6 @@ final class GlobalValidatorTest extends StandardTest {
     expect(result).isOfType(MethodMediator.class);
   }
 
-  //method
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAString() {
 

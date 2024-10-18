@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.styletest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -14,10 +11,8 @@ import ch.nolix.system.element.style.Style;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
 
-//class
 final class StyleTest extends StandardTest {
 
-  //method
   @Test
   void testCase_fromSpecification_whenIsEmpty() {
 
@@ -32,7 +27,6 @@ final class StyleTest extends StandardTest {
     expect(result.getSubStyles()).isEmpty();
   }
 
-  //method
   @Test
   void testCase_fromSpecification_whenContainsAttachingAttributesAndSubStyles() {
 
@@ -58,7 +52,6 @@ final class StyleTest extends StandardTest {
       new DeepSelectingStyle());
   }
 
-  //method
   @Test
   void testCase_styleElement() {
 
@@ -80,7 +73,6 @@ final class StyleTest extends StandardTest {
     expect(webGui.getBackgroundColor()).isEqualTo(Color.BLUE);
   }
 
-  //method
   @Test
   void testCase_withAttachingAttribute_whenIsEmpty() {
 
@@ -95,7 +87,6 @@ final class StyleTest extends StandardTest {
     expect(result.getSubStyles()).isEmpty();
   }
 
-  //method
   @Test
   void testCase_withSubStyle_whenIsEmpty() {
 
@@ -115,7 +106,6 @@ final class StyleTest extends StandardTest {
     expect(subStyles.getStoredAt1BasedIndex(2)).is(subStyle2);
   }
 
-  //method
   @Test
   void testCase_withAttachingAttribute_whenContainsAny() {
 
@@ -131,7 +121,6 @@ final class StyleTest extends StandardTest {
     expect(result.getSubStyles()).isEmpty();
   }
 
-  //method
   @Test
   void testCase_withSubStyle_whenContainsAny() {
 

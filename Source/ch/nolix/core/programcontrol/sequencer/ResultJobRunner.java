@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.Supplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -12,7 +9,6 @@ import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-09-29
@@ -21,15 +17,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 final class ResultJobRunner<R> extends Thread {
 
-  //attribute
   private final Supplier<R> resultJob;
   private R result;
   private boolean running = true;
 
-  //optional attribute
   private Throwable error;
 
-  //constructor
   /**
    * Creates a {@link ResultJobRunner} with the given resultJob. The
    * {@link ResultJobRunner} will start automatically.
@@ -49,7 +42,6 @@ final class ResultJobRunner<R> extends Thread {
     start();
   }
 
-  //method
   /**
    * @return true if the current {@link ResultJobRunner} has caught an error.
    */
@@ -57,7 +49,6 @@ final class ResultJobRunner<R> extends Thread {
     return (error != null);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @return the error of the current {@link ResultJobRunner}.
@@ -75,7 +66,6 @@ final class ResultJobRunner<R> extends Thread {
     return error;
   }
 
-  //method
   /**
    * @return the result of the current {@link ResultJobRunner}
    * @throws InvalidArgumentException if the current {@link ResultJobRunner} is
@@ -96,7 +86,6 @@ final class ResultJobRunner<R> extends Thread {
     return result;
   }
 
-  //method
   /**
    * @return true if the current {@link ResultJobRunner} is finished.
    */
@@ -104,7 +93,6 @@ final class ResultJobRunner<R> extends Thread {
     return !isRunning();
   }
 
-  //method
   /**
    * @return true if the current {@link ResultJobRunner} is finished successfully.
    */
@@ -112,7 +100,6 @@ final class ResultJobRunner<R> extends Thread {
     return (isFinished() && !caughtError());
   }
 
-  //method
   /**
    * @return true if the current {@link ResultJobRunner} is running.
    */
@@ -120,7 +107,6 @@ final class ResultJobRunner<R> extends Thread {
     return running;
   }
 
-  //method
   /**
    * Runs the current {@link ResultJobRunner}.
    */

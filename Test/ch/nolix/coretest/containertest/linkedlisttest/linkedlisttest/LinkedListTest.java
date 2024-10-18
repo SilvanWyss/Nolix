@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.containertest.linkedlisttest.linkedlisttest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -13,10 +10,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class LinkedListTest extends ContainerTest {
 
-  //method
   @Test
   void testCase_addAtBegin_whenIsEmpty() {
 
@@ -31,7 +26,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(elephant);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_whenContainsSeveralElements() {
 
@@ -49,7 +43,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_whenContainsSeveralElementsAndServeralElementsAreGiven() {
 
@@ -69,7 +62,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_whenTheGivenElementIsNull() {
 
@@ -84,7 +76,6 @@ final class LinkedListTest extends ContainerTest {
       .withMessage("The given element is null.");
   }
 
-  //method
   @Test
   void testCase_addAtBegin_forArray_whenTheGivenArrayIsNull() {
 
@@ -96,7 +87,6 @@ final class LinkedListTest extends ContainerTest {
     expectRunning(() -> testUnit.addAtBegin(array)).throwsException();
   }
 
-  //method
   @Test
   void testCase_addAtBegin_forArray_whenContainsSeveralElementsAndServeralElementsAreGiven() {
 
@@ -117,7 +107,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_forIterable() {
 
@@ -138,7 +127,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_forIterable_whenIsEmpty() {
 
@@ -155,7 +143,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(elephant, lion);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_forIterable_whenTheGivenListIsEmpty() {
 
@@ -172,7 +159,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactlyInSameOrder(rhino, zebra);
   }
 
-  //method
   @Test
   void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
 
@@ -187,7 +173,6 @@ final class LinkedListTest extends ContainerTest {
       .withMessage("The given elements is null.");
   }
 
-  //method
   @Test
   void testCase_addAtEnd_whenTheGivenElementIsNull() {
 
@@ -202,7 +187,6 @@ final class LinkedListTest extends ContainerTest {
       .withMessage("The given element is null.");
   }
 
-  //method
   @Test
   void testCase_clear_whenIsEmpty() {
 
@@ -216,7 +200,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_clear_whenContainsAny() {
 
@@ -230,7 +213,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_fromArray_whenTheGivenArrayIsNull() {
 
@@ -241,7 +223,6 @@ final class LinkedListTest extends ContainerTest {
       .withMessage("The given array is null.");
   }
 
-  //method
   @Test
   void testCase_fromArray_whenTheGivenArrayIsEmpty() {
 
@@ -255,7 +236,6 @@ final class LinkedListTest extends ContainerTest {
     expect(result.isEmpty());
   }
 
-  //method
   @Test
   void testCase_fromArray_whenTheGivenArrayContains1Element() {
 
@@ -270,7 +250,6 @@ final class LinkedListTest extends ContainerTest {
     expect(result).containsExactlyInSameOrder(elephant);
   }
 
-  //method
   @Test
   void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
 
@@ -290,7 +269,6 @@ final class LinkedListTest extends ContainerTest {
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 
-  //method
   @Test
   void testCase_fromArray_whenTheGivenArrayContainsANullElement() {
 
@@ -303,7 +281,6 @@ final class LinkedListTest extends ContainerTest {
       .ofType(ArgumentIsNullException.class);
   }
 
-  //method
   @Test
   void testCase_removeFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
@@ -322,7 +299,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactly(element1, element2, element3, element4);
   }
 
-  //method
   @Test
   void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
 
@@ -340,7 +316,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactly(element1, element2, element4);
   }
 
-  //method
   @Test
   void testCase_removeStrictlyFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
@@ -358,7 +333,6 @@ final class LinkedListTest extends ContainerTest {
       .ofType(ArgumentDoesNotContainElementException.class);
   }
 
-  //method
   @Test
   void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
 
@@ -376,7 +350,6 @@ final class LinkedListTest extends ContainerTest {
     expect(testUnit).containsExactly(element1, element2, element4);
   }
 
-  //method
   @Test
   void testCase_toString() {
 
@@ -390,7 +363,6 @@ final class LinkedListTest extends ContainerTest {
     expect(result).isEqualTo("elephant,jaguar,lion,python,shark,zebra");
   }
 
-  //method
   @Test
   void testCase_toString_whenIsEmpty() {
 
@@ -404,7 +376,6 @@ final class LinkedListTest extends ContainerTest {
     expect(result).isEqualTo("");
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -412,7 +383,6 @@ final class LinkedListTest extends ContainerTest {
     return LinkedList.withElement(element, elements);
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return LinkedList.createEmpty();

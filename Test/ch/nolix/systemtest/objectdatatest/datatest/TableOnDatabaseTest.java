@@ -1,29 +1,22 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class TableOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Thing extends Entity {
 
-    //constructor
     Thing() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
 
@@ -43,7 +36,6 @@ final class TableOnDatabaseTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
 

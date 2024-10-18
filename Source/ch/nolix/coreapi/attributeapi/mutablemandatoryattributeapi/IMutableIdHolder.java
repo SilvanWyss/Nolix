@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 
-//interface
 /**
  * A {@link IMutableIdHolder} is a {@link IIdHolder} whose id can be set
  * programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
  */
 public interface IMutableIdHolder extends IIdHolder {
 
-  //method declaration
   /**
    * Sets the id of the current {@link IMutableIdHolder}.
    * 

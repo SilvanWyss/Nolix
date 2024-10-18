@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
 
-//interface
 /**
  * A {@link IMutableOptionalIdHolder} is a {@link IOptionalIdHolder} whose id
  * can be set and removed programmatically.
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
  */
 public interface IMutableOptionalIdHolder extends IOptionalIdHolder {
 
-  //method declaration
   /**
    * Removes the id of the current {@link IMutableOptionalIdHolder}.
    */
   void removeId();
 
-  //method declaration
   /**
    * Sets the id of the current {@link IMutableOptionalIdHolder}.
    * 

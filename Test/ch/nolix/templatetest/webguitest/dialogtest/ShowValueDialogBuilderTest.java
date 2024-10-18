@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.templatetest.webguitest.dialogtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -17,10 +15,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
-//class
 final class ShowValueDialogBuilderTest extends StandardTest {
 
-  //method
   @Test
   void testCase_build() {
 
@@ -49,7 +45,6 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
   }
 
-  //method
   @Test
   void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
 
@@ -69,7 +64,6 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     expectNot(result.belongsToGui());
   }
 
-  //method
   private boolean isConfirmButton(final IControl<?, ?> control) {
 
     if (control instanceof IButton button) {

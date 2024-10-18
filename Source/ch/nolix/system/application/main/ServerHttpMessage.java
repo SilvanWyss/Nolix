@@ -1,21 +1,15 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//own imports
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 
-//class
 record ServerHttpMessage(String serverIP, int serverPort) {
 
-  //constant
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
 
-  //constant
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 
-  //constructor
   public ServerHttpMessage( //NOSONAR: This constructor does more than the default one.
     final String serverIP,
     final int serverPort) {
@@ -27,22 +21,18 @@ record ServerHttpMessage(String serverIP, int serverPort) {
     this.serverPort = serverPort;
   }
 
-  //method
   public String getServerIP() {
     return serverIP;
   }
 
-  //method
   public String getServerIpInQuotes() {
     return "'" + getServerIP() + "'";
   }
 
-  //method
   public int getServerPort() {
     return serverPort;
   }
 
-  //method
   @Override
   public String toString() {
     return "HTTP/1.1 200 OK\r\n"
@@ -71,7 +61,6 @@ record ServerHttpMessage(String serverIP, int serverPort) {
     + "</html>\r\n";
   }
 
-  //method
   private String getMainScript() {
     return "<script>\n"
     + "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"

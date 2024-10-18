@@ -1,24 +1,19 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-05-23
  */
 public final class Future extends BaseFuture {
 
-  //attribute
   private final JobRunner jobRunner;
 
-  //constructor
   /**
    * Creates a new {@link Future} with the given jobRunner.
    * 
@@ -34,7 +29,6 @@ public final class Future extends BaseFuture {
     this.jobRunner = jobRunner;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -43,7 +37,6 @@ public final class Future extends BaseFuture {
     return jobRunner.caughtError();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -52,7 +45,6 @@ public final class Future extends BaseFuture {
     return jobRunner.getError();
   }
 
-  //method
   /**
    * @return the number of finished jobs of the current {@link IFuture}.
    */
@@ -60,7 +52,6 @@ public final class Future extends BaseFuture {
     return jobRunner.getFinishedJobCount();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -69,7 +60,6 @@ public final class Future extends BaseFuture {
     return jobRunner.isFinished();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -78,7 +68,6 @@ public final class Future extends BaseFuture {
     GlobalSequencer.waitUntil(this::isFinished);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

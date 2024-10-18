@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.document.node;
 
-//Java imports
 import java.util.Optional;
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
@@ -19,7 +16,6 @@ import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-06-24
@@ -27,22 +23,16 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
  */
 public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
-  //constant
   public static final String COMMA_CODE = "$M";
 
-  //constant
   public static final String DOLLAR_SYMBOL_CODE = "$X";
 
-  //constant
   public static final String OPEN_BRACKET_CODE = "$O";
 
-  //constant
   public static final String CLOSED_BRACKET_CODE = "$C";
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //static method
   /**
    * @param string
    * @return an escape {@link String} for the given string.
@@ -73,7 +63,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return stringBuilder.toString();
   }
 
-  //static method
   /**
    * @param escapeString
    * @return the origin {@link String} from the given escapeString.
@@ -91,7 +80,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
       .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -100,7 +88,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().containsAny();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -109,7 +96,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().containsAny(selector::test);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -118,7 +104,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return containsChildNodeThat(a -> a.hasHeader(header));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -127,7 +112,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().containsOne();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -136,7 +120,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getCount();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -150,7 +133,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getOptionalStoredFirst(selector);
   }
 
-  //method declaration
   /**
    * {@inheritDoc}
    */
@@ -159,7 +141,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredAt1BasedIndex(index);
   }
 
-  //method declaration
   /**
    * {@inheritDoc}
    */
@@ -168,7 +149,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodesThat(a -> a.hasHeader(header));
   }
 
-  //method declaration
   /**
    * {@inheritDoc}
    */
@@ -177,7 +157,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -186,7 +165,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredFirst();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -195,7 +173,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredOne();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -204,7 +181,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -213,7 +189,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredFirstChildNodeThat(a -> a.hasHeader(header));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -222,7 +197,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().toBoolean();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -231,7 +205,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().toDouble();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -240,7 +213,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().toInt();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -249,7 +221,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().getHeader();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -258,7 +229,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return (!hasHeader() && !containsChildNodes());
   }
 
-  //method
   /**
    * Saves the current {@link BaseNode} to the file with the given file path.
    * 
@@ -274,7 +244,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
-  //method
   /**
    * Saves the current {@link BaseNode} to the file with the given path.
    * 
@@ -291,7 +260,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     GlobalFileSystemAccessor.createFile(path, writeMode, toFormattedString());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -300,7 +268,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return STRING_TOOL.toBoolean(toString());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -309,7 +276,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return STRING_TOOL.toDouble(toString());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -318,7 +284,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return toFormattedString(0);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -336,7 +301,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -361,7 +325,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return stringBuilder.toString();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -387,7 +350,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return xmlNode;
   }
 
-  //method
   /**
    * @param node
    * @return true if the current {@link BaseNode} equals the given node.
@@ -397,7 +359,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     && hasEqualChildNodeSettingLikeNode(node);
   }
 
-  //method
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
     final int leadingTabulators,
     final StringBuilder stringBuilder) {
@@ -440,7 +401,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     }
   }
 
-  //method
   /**
    * @return a reproducing {@link String} representation of the header of the
    *         current {@link BaseNode}.
@@ -449,7 +409,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getEscapeStringFor(getHeader());
   }
 
-  //method
   private boolean hasEqualHeaderSettingLikeNode(final INode<?> node) {
 
     if (!hasHeader()) {
@@ -459,7 +418,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return node.hasHeader(getHeader());
   }
 
-  //method
   private boolean hasEqualChildNodeSettingLikeNode(final INode<?> node) {
 
     if (getChildNodeCount() != node.getChildNodeCount()) {
@@ -476,7 +434,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return true;
   }
 
-  //method
   /**
    * @param leadingTabulators
    * @return a formated {@link String} representation of the current

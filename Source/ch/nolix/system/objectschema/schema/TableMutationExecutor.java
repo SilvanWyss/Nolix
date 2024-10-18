@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
-//class
 final class TableMutationExecutor {
 
-  //constant
   private static final ITableTool TABLE_TOOL = new TableTool();
 
-  //method
   public void addColumnToTable(final Table table, final Column column) {
 
     table.addColumnAttribute(column);
@@ -24,7 +19,6 @@ final class TableMutationExecutor {
     table.internalSetEdited();
   }
 
-  //method
   public void deleteTable(final Table table) {
 
     if (table.belongsToDatabase()) {
@@ -36,7 +30,6 @@ final class TableMutationExecutor {
     table.internalSetDeleted();
   }
 
-  //method
   public void setNameToTable(final Table table, final String name) {
 
     final var oldTableName = table.getName();

@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.systemapitest.webguiapitest.basecontainerapitest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -14,10 +11,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
-//class
 final class ContainerRoleTest extends StandardTest {
 
-  //method
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirContainerRole() {
     return //
@@ -31,7 +26,6 @@ final class ContainerRoleTest extends StandardTest {
       Arguments.of(Node.withChildNode("TITLE_CONTAINER"), ContainerRole.TITLE_CONTAINER));
   }
 
-  //method
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirContainerRole")
   void fromSpecification(final INode<?> specification, final ContainerRole expectedContainerRole) {

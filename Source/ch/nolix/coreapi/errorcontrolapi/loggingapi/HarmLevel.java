@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.coreapi.errorcontrolapi.loggingapi;
 
-//enum
 public enum HarmLevel {
   INFO,
   WARNING,
   ERROR,
   FATAL_ERROR;
 
-  //method
   public final boolean isHigherThan(final HarmLevel harmLevel) {
     return switch (this) {
       case INFO ->
@@ -22,7 +19,6 @@ public enum HarmLevel {
     };
   }
 
-  //method
   public final boolean isLowerThan(final HarmLevel harmLevel) {
     return harmLevel.isHigherThan(this);
   }

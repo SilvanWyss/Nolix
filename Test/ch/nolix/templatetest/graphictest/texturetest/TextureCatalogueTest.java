@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.templatetest.graphictest.texturetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.reflection.GlobalReflectionTool;
@@ -10,10 +8,8 @@ import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.graphic.texture.TextureCatalogue;
 
-//class
 final class TextureCatalogueTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constantsOfTextureCatalogue() {
 

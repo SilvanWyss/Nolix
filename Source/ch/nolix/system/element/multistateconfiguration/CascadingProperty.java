@@ -1,26 +1,19 @@
-//package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//Java imports
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 
-  //attribute
   private final V defaultValue;
 
-  //optional attribute
   private CascadingProperty<S, V> parentProperty;
 
-  //constructor
   public CascadingProperty(
     final String name,
     final Class<S> stateClass,
@@ -35,7 +28,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     this.defaultValue = defaultValue;
   }
 
-  //constructor
   public CascadingProperty(
     final String name,
     final Class<S> stateClass,
@@ -51,7 +43,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     this.defaultValue = defaultValue;
   }
 
-  //static method
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
@@ -64,7 +55,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
       defaultValue);
   }
 
-  //static method
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
   forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -80,7 +70,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
       defaultValue);
   }
 
-  //method
   @Override
   protected V getValueWhenHasState(final State<S> state) {
 
@@ -101,7 +90,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     return defaultValue;
   }
 
-  //method
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
 
@@ -118,7 +106,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
   }
 
-  //method
   @SuppressWarnings("unchecked")
   void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
 
@@ -127,7 +114,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     this.parentProperty = (CascadingProperty<S, V>) parentProperty;
   }
 
-  //method
   private boolean hasParentProperty() {
     return (parentProperty != null);
   }

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.container.containerview;
 
-//Java imports
 import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
@@ -16,7 +14,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-11-26
@@ -24,10 +21,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class ArrayView<E> extends Container<E> {
 
-  //attribute
   private final E[] array;
 
-  //constructor
   /**
    * Creates a new {@link ArrayView} for a new empty array.
    */
@@ -38,7 +33,6 @@ public final class ArrayView<E> extends Container<E> {
     this((E[]) new Object[0]);
   }
 
-  //constructor
   /**
    * Creates a new {@link ArrayView} for the given array.
    * 
@@ -57,7 +51,6 @@ public final class ArrayView<E> extends Container<E> {
     this.array = array; //NOSONAR: An ArrayView operates on the original instance.
   }
 
-  //static method
   /**
    * @param array
    * @param <E2>  is the type of the elements of the given array.
@@ -68,7 +61,6 @@ public final class ArrayView<E> extends Container<E> {
     return new ArrayView<>(array);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -77,7 +69,6 @@ public final class ArrayView<E> extends Container<E> {
     return array.length;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -94,7 +85,6 @@ public final class ArrayView<E> extends Container<E> {
     return array[param1BasedIndex - 1];
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -103,7 +93,6 @@ public final class ArrayView<E> extends Container<E> {
     return array[getCount() - 1];
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -112,7 +101,6 @@ public final class ArrayView<E> extends Container<E> {
     return false;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -121,7 +109,6 @@ public final class ArrayView<E> extends Container<E> {
     return ArrayIterator.forArray(array);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -130,7 +117,6 @@ public final class ArrayView<E> extends Container<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //method
   /**
    * The time complexity of this implementation is O(n). if the current
    * {@link ArrayView} contains n elements.
@@ -142,7 +128,6 @@ public final class ArrayView<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

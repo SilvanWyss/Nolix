@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.environment.localcomputer;
 
-//Java imports
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
@@ -14,14 +12,11 @@ import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class ShellProvider {
 
-  //constructor
   private ShellProvider() {
   }
 
-  //static method
   public static void run(final String[] command) {
 
     GlobalValidator.assertThat(command).thatIsNamed(LowerCaseVariableCatalogue.COMMAND).isNotNull();
@@ -31,12 +26,10 @@ public final class ShellProvider {
     runRuntimeCommand(runtimeCommand);
   }
 
-  //static method
   public static void startDefaultWebBrowserOpeningLoopBackAddress() {
     startDefaultWebBrowserOpeningUrl(IPv4Catalogue.LOOP_BACK_ADDRESS);
   }
 
-  //static method
   public static void startDefaultWebBrowserOpeningUrl(final String url) {
     try {
       Desktop.getDesktop().browse(new URI(getUrlWithHttpPrefix(url)));
@@ -45,17 +38,14 @@ public final class ShellProvider {
     }
   }
 
-  //static method
   public static void startFirefox() {
     run(new String[] { "start", "firefox" });
   }
 
-  //static method
   public static void startFirefox(final String url) {
     startFirefox(url, PortCatalogue.HTTP);
   }
 
-  //static method
   public static void startFirefox(final String url, final int port) {
 
     GlobalValidator
@@ -71,17 +61,14 @@ public final class ShellProvider {
     run(new String[] { "start", "firefox", "--url", url + ":" + port });
   }
 
-  //static method
   public static void startFirefoxOpeningLoopBackAddress() {
     startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP);
   }
 
-  //static method
   public static void startFirefoxOpeningLoopBackAddress(final int port) {
     startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
   }
 
-  //static method
   private static String[] createRuntimeCommandFromCommand(final String[] command) {
 
     final var preCommand = new String[] { "cmd.exe", "/c" };
@@ -89,7 +76,6 @@ public final class ShellProvider {
     return ContainerView.forArray(preCommand, command).toStringArray();
   }
 
-  //static method
   private static String getUrlWithHttpPrefix(final String url) {
 
     if (!url.startsWith("http://")) {
@@ -99,7 +85,6 @@ public final class ShellProvider {
     return url;
   }
 
-  //static method
   private static void runRuntimeCommand(final String[] runtimeCommand) {
     try {
       Runtime.getRuntime().exec(runtimeCommand);

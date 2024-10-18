@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.element.relativevalue;
 
-//Java imports
 import java.text.DecimalFormat;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 
-//class
 /**
  * A {@link AbsoluteOrRelativeInt} stores either an integer or a percentage. A
  * {@link AbsoluteOrRelativeInt} is not mutable.
@@ -28,16 +24,12 @@ import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
  */
 public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrRelativeInt {
 
-  //attribute
   private final boolean isAbsolute;
 
-  //attribute
   private final int absoluteValue;
 
-  //attribute
   private final double percentage;
 
-  //constructor
   /**
    * Creates a new {@link AbsoluteOrRelativeInt} with the given intValue.
    * 
@@ -49,7 +41,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     percentage = 0.0;
   }
 
-  //constructor
   /**
    * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
    * 
@@ -65,7 +56,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     this.percentage = percentage;
   }
 
-  //static method
   /**
    * @param specification
    * @return a new {@link AbsoluteOrRelativeInt} from the given specification.
@@ -82,7 +72,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return withIntValue(Integer.parseInt(attribute));
   }
 
-  //static method
   /**
    * @param intValue
    * @return a new {@link AbsoluteOrRelativeInt} with the given intValue.
@@ -91,7 +80,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return new AbsoluteOrRelativeInt(intValue);
   }
 
-  //static method
   /**
    * @param percentage
    * @return a new {@link AbsoluteOrRelativeInt} with the given percentage.
@@ -101,7 +89,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return new AbsoluteOrRelativeInt(percentage);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -121,8 +108,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return attributes;
   }
 
-  //method
-
   @Override
   public int getAbsoluteValue() {
 
@@ -130,8 +115,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 
     return absoluteValue;
   }
-
-  //method
 
   @Override
   public double getPercentage() {
@@ -141,7 +124,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return percentage;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -156,7 +138,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return (int) (percentage * hundredPercentValue);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -165,7 +146,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return isAbsolute;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -180,7 +160,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return (percentage > 0.0);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -189,7 +168,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return !isAbsolute();
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbsoluteOrRelativeInt}
@@ -201,7 +179,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     }
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbsoluteOrRelativeInt}

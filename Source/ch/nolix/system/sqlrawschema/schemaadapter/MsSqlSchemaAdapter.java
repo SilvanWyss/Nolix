@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.schemaadapter;
 
-//own imports
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 
-//class
 public final class MsSqlSchemaAdapter extends SchemaAdapter {
 
-  //constructor
   private MsSqlSchemaAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
     super(
       databaseName,
@@ -18,7 +14,6 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
           sqlConnectionPool));
   }
 
-  //static method
   public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool) {

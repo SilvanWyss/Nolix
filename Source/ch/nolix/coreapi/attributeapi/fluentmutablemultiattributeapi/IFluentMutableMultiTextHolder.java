@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
 
-//interface
 /**
  * A {@link IFluentMutableMultiTextHolder} is a {@link IMultiTextHolder} whose
  * texts can be added and removed programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
 public interface IFluentMutableMultiTextHolder<FMMTH extends IFluentMutableMultiTextHolder<FMMTH>>
 extends IMultiTextHolder {
 
-  //method declaration
   /**
    * Adds the given text to the current {@link IFluentMutableMultiTextHolder}.
    * 
@@ -26,7 +22,6 @@ extends IMultiTextHolder {
    */
   FMMTH addText(String text);
 
-  //method declaration
   /**
    * Removes the text that equals the given text from the current
    * {@link IFluentMutableMultiTextHolder} if the current
@@ -37,7 +32,6 @@ extends IMultiTextHolder {
    */
   FMMTH removeText(String text);
 
-  //method declaration
   /**
    * Removes all texts from the current {@link IFluentMutableMultiTextHolder}.
    * 

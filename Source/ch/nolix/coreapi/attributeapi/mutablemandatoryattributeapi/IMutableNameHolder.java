@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
-//interface
 /**
  * A {@link IMutableNameHolder} is a {@link INameHolder} whose name can be set
  * programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
  */
 public interface IMutableNameHolder extends INameHolder {
 
-  //method declaration
   /**
    * Sets the name of the current {@link IMutableNameHolder}.
    * 

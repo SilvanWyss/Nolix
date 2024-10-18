@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
@@ -12,31 +9,24 @@ import ch.nolix.system.objectdata.data.MultiReference;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class MultiReferenceOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Person extends Entity {
 
-    //attribute
     final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
 
-    //constructor
     Person() {
       initialize();
     }
   }
 
-  //constant
   private static final class Pet extends Entity {
 
-    //constructor
     Pet() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_whenIsLoadedAndEmpty() {
 
@@ -55,7 +45,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     expect(loadedJohn.pets.isEmpty());
   }
 
-  //method
   @Test
   void testCase_whenIsLoadedAndNotEmpty() {
 
@@ -82,7 +71,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     expect(loadedJohn.pets.getAllStoredReferencedEntities().containsAny(p -> p.hasId(odie.getId())));
   }
 
-  //method
   @Test
   void testCase_whenReferencedEntityIsLoadedAndDeleted() {
 
@@ -108,7 +96,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     expectRunning(loadedGarfield::delete).throwsException();
   }
 
-  //method
   @Test
   void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
 
@@ -142,7 +129,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
 
@@ -161,7 +147,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     expect(garfield.belongsToTable());
   }
 
-  //method
   @Test
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
 

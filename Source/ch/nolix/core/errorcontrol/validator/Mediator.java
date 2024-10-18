@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
-//class
 /**
  * A {@link Mediator} is not mutable.
  * 
@@ -14,13 +11,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 
-  //constant
   public static final String DEFAULT_ARGUMENT_NAME = "argument";
 
-  //attribute
   private final String argumentName;
 
-  //constructor
   /**
    * Creates a new {@link Mediator} with a default argument name.
    */
@@ -30,7 +24,6 @@ abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
     this(DEFAULT_ARGUMENT_NAME);
   }
 
-  //constructor
   /**
    * Creates a new argument {@link Mediator} with the given argumentName.
    * 
@@ -57,7 +50,6 @@ abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
     this.argumentName = argumentName;
   }
 
-  //method
   /**
    * @return the argument name of the current {@link Mediator}.
    */

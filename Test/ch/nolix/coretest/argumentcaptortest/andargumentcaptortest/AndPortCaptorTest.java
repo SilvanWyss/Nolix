@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.argumentcaptortest.andargumentcaptortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class AndPortCaptorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_andPort_whenHasNext() {
 
@@ -33,7 +28,6 @@ final class AndPortCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_andPort_whenDoesNotHaveNext() {
 
@@ -44,7 +38,6 @@ final class AndPortCaptorTest extends StandardTest {
     expectRunning(() -> testUnit.andPort(8000)).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_andHttpPort_whenHasNext() {
 
@@ -60,7 +53,6 @@ final class AndPortCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_andHttpsPort_whenHasNext() {
 
@@ -76,7 +68,6 @@ final class AndPortCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_andMsSqlPort_whenHasNext() {
 
@@ -92,7 +83,6 @@ final class AndPortCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_getPort_whenDoesNotHavePort() {
 

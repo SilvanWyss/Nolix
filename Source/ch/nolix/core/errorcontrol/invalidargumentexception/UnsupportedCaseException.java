@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link UnsupportedCaseException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument does support a certain case.
@@ -12,13 +10,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnsupportedCaseException extends InvalidArgumentException {
 
-  //constant
   private static final String ARGUMENT_NAME = "case";
 
-  //constant
   private static final String ERROR_PREDICATE = "is not supported";
 
-  //constructor
   /**
    * Creates a new {@link UnsupportedCaseException} for the given pCase.
    *
@@ -31,7 +26,6 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     super(ARGUMENT_NAME, getNameOfCase(pCase), ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link UnsupportedCaseException} for the given pCase.
    *
@@ -45,7 +39,6 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     super(ARGUMENT_NAME, getValidCaseOfCase(pCase), ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param pCase
    * @return a new {@link UnsupportedCaseException} for the given pCase.
@@ -55,7 +48,6 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return new UnsupportedCaseException(pCase);
   }
 
-  //static method
   /**
    * @param pCase
    * @return a new {@link UnsupportedCaseException} for the given pCase.
@@ -66,7 +58,6 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return new UnsupportedCaseException(pCase);
   }
 
-  //static method
   /**
    * @param pCase
    * @return the name of the given pCase.
@@ -82,7 +73,6 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return pCase.toString();
   }
 
-  //static method
   /**
    * @param pCase
    * @return a valid case of the given pCase.

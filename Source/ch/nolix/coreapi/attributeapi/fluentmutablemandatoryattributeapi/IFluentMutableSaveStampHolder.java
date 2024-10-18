@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
 
-//interface
 /**
  * A {@link IFluentMutableSaveStampHolder} is a {@link ISaveStampHolder} whose
  * save stamp can be set programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
 public interface IFluentMutableSaveStampHolder<FMSSH extends IFluentMutableSaveStampHolder<FMSSH>>
 extends ISaveStampHolder {
 
-  //method declaration
   /**
    * Sets the save stamp of the current {@link IFluentMutableSaveStampHolder}.
    * 

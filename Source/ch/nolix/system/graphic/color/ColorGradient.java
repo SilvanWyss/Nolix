@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.graphic.color;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -14,7 +12,6 @@ import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
-//class
 /**
  * A {@link ColorGradient} is not mutable.
  * 
@@ -23,33 +20,24 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
  */
 public final class ColorGradient extends Element implements IColorGradient {
 
-  //constant
   public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT = new ColorGradient(
     DirectionInCanvas.VERTICAL, Color.BLACK, Color.WHITE);
 
-  //constant
   public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT = new ColorGradient(DirectionInCanvas.VERTICAL,
     Color.RED, Color.WHITE);
 
-  //constant
   public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
 
-  //constant
   public static final Color DEFAULT_COLOR1 = Color.BLACK;
 
-  //constant
   public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
-  //attribute
   private final DirectionInCanvas direction;
 
-  //attribute
   private final Color color1;
 
-  //attribute
   private final Color color2;
 
-  //constructor
   /**
    * Creates a new {@link ColorGradient}.
    */
@@ -59,7 +47,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     this(DEFAULT_DIRECTION, DEFAULT_COLOR1, DEFAULT_COLOR2);
   }
 
-  //constructor
   /**
    * Creates a new {@link ColorGradient} with the given color1 and color2.
    * 
@@ -75,7 +62,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     this(DEFAULT_DIRECTION, color1, color2);
   }
 
-  //constructor
   /**
    * Creates a new {@link ColorGradient} with the given direction.
    * 
@@ -88,7 +74,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     this(direction, DEFAULT_COLOR1, DEFAULT_COLOR2);
   }
 
-  //constructor
   /**
    * Creates a new {@link ColorGradient} with the given direction, color 1 and
    * color 2.
@@ -116,7 +101,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     this.color2 = color2;
   }
 
-  //static method
   /**
    * @param specification
    * @return a new {@link ColorGradient} from the given specification.
@@ -137,7 +121,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     };
   }
 
-  //static method
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
@@ -153,7 +136,6 @@ public final class ColorGradient extends Element implements IColorGradient {
       Color.fromSpecification(color2Specification));
   }
 
-  //static method
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
@@ -171,7 +153,6 @@ public final class ColorGradient extends Element implements IColorGradient {
       Color.fromSpecification(color2Specification));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -183,7 +164,6 @@ public final class ColorGradient extends Element implements IColorGradient {
       Node.withHeader(getColor2().toHexadecimalString()));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -192,7 +172,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     return color1;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -201,7 +180,6 @@ public final class ColorGradient extends Element implements IColorGradient {
     return color2;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

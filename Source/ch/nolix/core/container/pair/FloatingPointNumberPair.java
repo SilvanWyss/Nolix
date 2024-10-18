@@ -1,9 +1,7 @@
-//package declaration
 package ch.nolix.core.container.pair;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 
-//class
 /**
  * A {@link FloatingPointNumberPair} contains two floating point numbers. FPN =
  * floating pointer number. A {@link FloatingPointNumberPair} is not mutable.
@@ -13,19 +11,14 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
  */
 public final class FloatingPointNumberPair {
 
-  //constant
   public static final double DEFAULT_VALUE = 0.0;
 
-  //constant
   private static final StringTool STRING_TOOL = new StringTool();
 
-  //attribute
   private final double value1;
 
-  //attribute
   private final double value2;
 
-  //constructor
   /**
    * Creates a new {@link FloatingPointNumberPair} with default values.
    */
@@ -35,7 +28,6 @@ public final class FloatingPointNumberPair {
     this(DEFAULT_VALUE, DEFAULT_VALUE);
   }
 
-  //constructor
   /**
    * Creates a new {@link FloatingPointNumberPair} with the given values.
    * 
@@ -49,7 +41,6 @@ public final class FloatingPointNumberPair {
     this.value2 = value2;
   }
 
-  //method
   /**
    * {@inheritDoc}}
    */
@@ -66,7 +57,6 @@ public final class FloatingPointNumberPair {
     return (getValue1() == lFPNPair.getValue1() && getValue2() == lFPNPair.getValue2());
   }
 
-  //method
   /**
    * @return value 1 of the current {@link FloatingPointNumberPair}.
    */
@@ -74,7 +64,6 @@ public final class FloatingPointNumberPair {
     return value1;
   }
 
-  //method
   /**
    * @return value 2 of the current {@link FloatingPointNumberPair}.
    */
@@ -82,7 +71,6 @@ public final class FloatingPointNumberPair {
     return value2;
   }
 
-  //method
   /**
    * {@inheritDoc}}
    */
@@ -91,7 +79,6 @@ public final class FloatingPointNumberPair {
     return toString().hashCode();
   }
 
-  //method
   /**
    * {@inheritDoc}}
    */

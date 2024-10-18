@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -18,7 +15,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2018-03-04
@@ -26,13 +22,10 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  */
 public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 
-  //attribute
   private final Consumer<V> adderMethod;
 
-  //multi-attribute
   private final LinkedList<V> values = LinkedList.createEmpty();
 
-  //constructor
   /**
    * Creates a new {@link MultiValue} with the given name, valueCreator,
    * adderMethod and specificationCreator.
@@ -63,7 +56,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     this.adderMethod = adderMethod;
   }
 
-  //static method
   /**
    * @param name
    * @param adderMethod
@@ -77,7 +69,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
   }
 
-  //static method
   /**
    * @param name
    * @param adderMethod
@@ -91,7 +82,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
   }
 
-  //method
   /**
    * Adds the given value to the current {@link MultiValue}.
    * 
@@ -102,7 +92,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     values.addAtEnd(value);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -111,7 +100,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     values.clear();
   }
 
-  //method
   /**
    * @return the values of the current {@link MultiValue}.
    */
@@ -119,7 +107,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return values;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -128,7 +115,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return values.isEmpty();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -137,7 +123,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return true;
   }
 
-  //method
   /**
    * Removes the given value of the current {@link MultiValue}.
    * 
@@ -150,7 +135,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     values.removeStrictlyFirstOccurrenceOf(value);
   }
 
-  //method
   /**
    * Removes and returns the last value of the current {@link MultiValue}.
    * 
@@ -161,7 +145,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return values.removeAndGetStoredLast();
   }
 
-  //method
   /**
    * Removes the last value of the current {@link MultiValue}.
    * 
@@ -175,7 +158,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -184,7 +166,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     adderMethod.accept(value);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

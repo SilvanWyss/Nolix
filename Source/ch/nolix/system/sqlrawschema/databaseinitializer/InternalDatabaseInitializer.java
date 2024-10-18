@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
-//own imports
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalogue;
@@ -13,14 +11,11 @@ import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
-//class
 final class InternalDatabaseInitializer {
 
-  //constant
   private static final DatabaseInitializerSqlStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
   new DatabaseInitializerSqlStatementCreator();
 
-  //method
   public void initializeDatabase(
     final String databaseName,
     final ISchemaAdapter schemaAdapter,
@@ -31,7 +26,6 @@ final class InternalDatabaseInitializer {
     createSchemaTimestampEntry(databaseName, sqlConnectionPool);
   }
 
-  //method
   private void createFixTables(final ISchemaAdapter schemaAdapter) {
 
     //Adds metadata tables.
@@ -53,7 +47,6 @@ final class InternalDatabaseInitializer {
     schemaAdapter.saveChanges();
   }
 
-  //method
   private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool sqlConnectionPool) {
 
     final var now = Time.ofNow();

@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.core.commontypetool.stringtool;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
-//class
 public final class CapitalSnakeCaseTransformer {
 
-  //method
   public String toCapitalSnakeCase(final String string) {
 
     if (string.isEmpty()) {
@@ -19,7 +15,6 @@ public final class CapitalSnakeCaseTransformer {
     return toCapitalSnakeCaseWhenStringNotEmpty(string);
   }
 
-  //method
   private String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
 
     final var stringBuilder = new StringBuilder();
@@ -62,7 +57,6 @@ public final class CapitalSnakeCaseTransformer {
     return stringBuilder.toString();
   }
 
-  //method
   private CharacterType appendFirstTargetCharacterAccordingToFirstCharacterAndGetFirstCharacterType(
     final char firstCharacter,
     final StringBuilder stringBuilder) {

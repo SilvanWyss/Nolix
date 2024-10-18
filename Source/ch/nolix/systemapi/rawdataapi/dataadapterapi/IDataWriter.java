@@ -1,21 +1,17 @@
-//package declaration
 package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
-//own imports
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2021-09-19
  */
 public interface IDataWriter extends IResettableChangeSaver {
 
-  //method declaration
   /**
    * Causes an error if the concerned entity was deleted or changed in the
    * meanwhile.
@@ -25,7 +21,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void deleteEntity(String tableName, IEntityHeadDto entity);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -41,7 +36,6 @@ public interface IDataWriter extends IResettableChangeSaver {
     String multiBackReferenceColumnId,
     String backReferencedEntityId);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -52,7 +46,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -68,7 +61,6 @@ public interface IDataWriter extends IResettableChangeSaver {
     String multiRefereceColumnName,
     String referencedEntityId);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -79,7 +71,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -95,7 +86,6 @@ public interface IDataWriter extends IResettableChangeSaver {
     String multiValueColumnName,
     String entry);
 
-  //method declaration
   /**
    * Will cause an error if the concerned table does not contain an entity with
    * the given entityId. This method can be used to prevent from referencing an
@@ -106,7 +96,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void expectTableContainsEntity(String tableName, String entityId);
 
-  //method declaration
   /**
    * Will cause an error if the database does not have the given schema timestamp.
    * 
@@ -114,7 +103,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void expectGivenSchemaTimestamp(ITime schemaTimestamp);
 
-  //method declaration
   /**
    * Inserts the given newEntity into the table with the given tableName.
    * 
@@ -123,7 +111,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void insertEntity(String tableName, INewEntityDto newEntity);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -139,7 +126,6 @@ public interface IDataWriter extends IResettableChangeSaver {
     String multiBackReferenceColumnId,
     String backReferencedEntityId);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -155,7 +141,6 @@ public interface IDataWriter extends IResettableChangeSaver {
     String multiReferenceColumnId,
     String referencedEntityId);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -167,7 +152,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 
-  //method declaration
   /**
    * Sets the concerned entity as updated. Will cause an error if the concerned
    * entity was deleted or changed in the meanwhile.
@@ -177,7 +161,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void setEntityAsUpdated(String tableName, IEntityHeadDto entity);
 
-  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.

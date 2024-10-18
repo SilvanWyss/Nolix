@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.sql.connectionpool;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
@@ -13,32 +11,23 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
-//class
 public final class SqlConnectionPool extends ResourcePool<WrapperSqlConnection, SqlConnection>
 implements ISqlDatabaseTarget {
 
-  //constant
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  //constant
   private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
 
-  //attribute
   private final String ipOrDomain;
 
-  //attribute
   private final int port;
 
-  //attribute
   private final String databaseName;
 
-  //attribute
   private final SqlDatabaseEngine sqlDatabaseEngine;
 
-  //attribute
   private final Credential credential;
 
-  //constructor
   SqlConnectionPool(
     final String ipOrDomain,
     final int port,
@@ -59,61 +48,51 @@ implements ISqlDatabaseTarget {
     credential = CredentialBuilder.createCredential().withLoginName(loginName).andPassword(loginPassword);
   }
 
-  //method
   @Override
   public String getDatabaseName() {
     return databaseName;
   }
 
-  //method
   @Override
   public String getIpOrDomain() {
     return ipOrDomain;
   }
 
-  //method
   @Override
   public String getLoginName() {
     return credential.getLoginName();
   }
 
-  //method
   @Override
   public String getLoginPassword() {
     return credential.getPassword();
   }
 
-  //method
   @Override
   public int getPort() {
     return port;
   }
 
-  //method
   @Override
   public SecurityMode getSecurityModeForConnection() {
     return SECURITY_MODE_FOR_CONNECTIONS;
   }
 
-  //method
   @Override
   public SqlDatabaseEngine getSqlDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
-  //method
   @Override
   public String toUrl() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "toUrl");
   }
 
-  //method
   @Override
   protected SqlConnection createResource() {
     return SQL_CONNECTION_FACTORY.createSqlConnectionForSqlConnectionPool(this);
   }
 
-  //method
   @Override
   protected WrapperSqlConnection createWrapperResourceWithResource(final SqlConnection resource) {
     return WrapperSqlConnection.forSqlConnection(resource);

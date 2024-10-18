@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.containertest.containerviewtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
-//class
 final class ContainerViewTest extends ContainerTest {
 
-  //method
   @Test
   void testCase_containsEqualing() {
 
@@ -39,7 +34,6 @@ final class ContainerViewTest extends ContainerTest {
     expectNot(testUnit.containsEqualing("uranus"));
   }
 
-  //method
   @Test
   void testCase_getStoredAt1BasedIndex() {
 
@@ -63,7 +57,6 @@ final class ContainerViewTest extends ContainerTest {
     expect(testUnit.getStoredAt1BasedIndex(9)).isEqualTo("palm");
   }
 
-  //method
   @Test
   void testCase_getStoredSelected() {
 
@@ -81,7 +74,6 @@ final class ContainerViewTest extends ContainerTest {
     expect(testUnit.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -89,7 +81,6 @@ final class ContainerViewTest extends ContainerTest {
     return ContainerView.forElementAndArray(element, elements);
   }
 
-  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ContainerView.forEmpty();

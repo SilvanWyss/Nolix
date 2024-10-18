@@ -1,26 +1,20 @@
-//package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
-//class
 final class StateExtractor<S extends Enum<S>> {
 
-  //method
   public IContainer<State<S>> createStatesFromStateClass(final Class<S> stateClass) {
     return createStatesFromStateEnumValues(stateClass.getEnumConstants());
   }
 
-  //method
   @SuppressWarnings("unchecked")
   public IContainer<State<S>> createtStatesFromState(final S state) {
     return createStatesFromStateClass((Class<S>) state.getClass());
   }
 
-  //method
   private IContainer<State<S>> createStatesFromStateEnumValues(final S[] stateEnumValues) {
 
     final ILinkedList<State<S>> states = LinkedList.createEmpty();

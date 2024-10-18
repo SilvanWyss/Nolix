@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
 
-//interface
 /**
  * A {@link IFluentMutableLabelHolder} is a {@link ILabelHolder} whose label can
  * be set programmatically and fluently.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
  */
 public interface IFluentMutableLabelHolder<FMLH extends IFluentMutableLabelHolder<FMLH>> extends ILabelHolder {
 
-  //method declaration
   /**
    * Sets the label of the current {@link IFluentMutableLabelHolder}.
    * 

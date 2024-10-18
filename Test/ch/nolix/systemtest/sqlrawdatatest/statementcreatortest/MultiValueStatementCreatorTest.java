@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.systemtest.sqlrawdatatest.statementcreatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlrawdata.statementcreator.MultiValueStatementCreator;
 
-//class
 final class MultiValueStatementCreatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_createStatementToDeleteMultiValueEntries() {
 
@@ -32,7 +27,6 @@ final class MultiValueStatementCreatorTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createStatementToDeleteMultiValueEntry() {
 
@@ -54,7 +48,6 @@ final class MultiValueStatementCreatorTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createStatementToInsertMultiValueEntry() {
 

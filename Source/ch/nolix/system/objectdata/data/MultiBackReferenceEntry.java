@@ -1,26 +1,19 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
 
-//class
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
 
-  //attribute
   private final IMultiBackReference<E> parentMultiBackReference;
 
-  //attribute
   private DatabaseObjectState state;
 
-  //attribute
   private final String backReferencedEntityId;
 
-  //constructor
   private MultiBackReferenceEntry(
     final IMultiBackReference<E> parentMultiBackReference,
     final DatabaseObjectState initialState,
@@ -35,27 +28,23 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     this.backReferencedEntityId = backReferencedEntityId;
   }
 
-  //static method
   public static <E2 extends IEntity> MultiBackReferenceEntry<E2> loadedEntryForMultiBackReferenceAndReferencedEntityId(
     final IMultiBackReference<E2> multiBackReference,
     final String backReferencedEntityId) {
     return new MultiBackReferenceEntry<>(multiBackReference, DatabaseObjectState.LOADED, backReferencedEntityId);
   }
 
-  //static method
   public static <E2 extends IEntity> MultiBackReferenceEntry<E2> newEntryForMultiBackReferenceAndReferencedEntityId(
     final IMultiBackReference<E2> multiBackReference,
     final String backReferencedEntityId) {
     return new MultiBackReferenceEntry<>(multiBackReference, DatabaseObjectState.NEW, backReferencedEntityId);
   }
 
-  //method
   @Override
   public String getBackReferencedEntityId() {
     return backReferencedEntityId;
   }
 
-  //method
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiBackReference().getState()) {
@@ -70,7 +59,6 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     };
   }
 
-  //method
   @Override
   public E getStoredBackReferencedEntity() {
     return getStoredParentMultiBackReference()
@@ -78,49 +66,41 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
       .getStoredEntityById(getBackReferencedEntityId());
   }
 
-  //method
   @Override
   public IMultiBackReference<E> getStoredParentMultiBackReference() {
     return parentMultiBackReference;
   }
 
-  //method
   @Override
   public boolean isClosed() {
     return getStoredParentMultiBackReference().isClosed();
   }
 
-  //method
   @Override
   public boolean isDeleted() {
     return getStoredParentMultiBackReference().isDeleted();
   }
 
-  //method
   @Override
   public boolean isEdited() {
     return false;
   }
 
-  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return getStoredParentMultiBackReference().isLinkedWithRealDatabase();
   }
 
-  //method
   @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.LOADED);
   }
 
-  //method
   @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }
 
-  //method
   void internalDelete() {
     state = DatabaseObjectState.DELETED;
   }

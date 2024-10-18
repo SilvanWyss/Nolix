@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.guiapi.fontapi;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 /**
  * A {@link Font} is not mutable.
  * 
@@ -21,10 +18,8 @@ public enum Font {
   TAHOMA(FontCodeCatalogue.TAHOMA),
   VERDANA(FontCodeCatalogue.VERDANA);
 
-  //attribute
   private final String code;
 
-  //constructor
   /**
    * Creates a new {@link Font} with the given code.
    * 
@@ -34,7 +29,6 @@ public enum Font {
     this.code = code;
   }
 
-  //static method
   /**
    * @param specification
    * @return a new {@link Font} from the given specification.
@@ -45,7 +39,6 @@ public enum Font {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 
-  //method
   /**
    * @return the code of the current {@link Font}.
    */

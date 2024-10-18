@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.programcontrol.closepool;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
@@ -9,17 +7,14 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2020-07-05
  */
 public final class CloseController implements ICloseController {
 
-  //attribute
   private IClosePool parentClosePool;
 
-  //constructor
   /**
    * Creates a new {@link CloseController} for the given element.
    * 
@@ -30,7 +25,6 @@ public final class CloseController implements ICloseController {
     parentClosePool = new ClosePool(element);
   }
 
-  //static method
   /**
    * @param element
    * @return a new {@link CloseController} for the given element.
@@ -40,7 +34,6 @@ public final class CloseController implements ICloseController {
     return new CloseController(element);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -49,7 +42,6 @@ public final class CloseController implements ICloseController {
     parentClosePool.closeElementsIfStateIsOpen();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -65,7 +57,6 @@ public final class CloseController implements ICloseController {
     parentClosePool.addElements(elementsToAdd);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -74,7 +65,6 @@ public final class CloseController implements ICloseController {
     return parentClosePool;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -83,7 +73,6 @@ public final class CloseController implements ICloseController {
     return (parentClosePool.getState() == CloseState.CLOSED);
   }
 
-  //method.
   /**
    * {@inheritDoc}
    */

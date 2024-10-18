@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.systemapi.elementapi.mutableelementapi;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.coreapi.stateapi.statemutationapi.Resettable;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
-//interface
 /**
  * A {@link IMutableElement} is a {@link IElement}. The attributes of a
  * {@link IMutableElement} can be mutated separately. The attributes of a
@@ -19,7 +16,6 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
 @AllowDefaultMethodsAsDesignPattern
 public interface IMutableElement extends Resettable, IElement {
 
-  //method declaration
   /**
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
@@ -27,7 +23,6 @@ public interface IMutableElement extends Resettable, IElement {
    */
   void addOrChangeAttribute(INode<?> attribute);
 
-  //method
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
@@ -48,7 +43,6 @@ public interface IMutableElement extends Resettable, IElement {
     }
   }
 
-  //method
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
@@ -58,7 +52,6 @@ public interface IMutableElement extends Resettable, IElement {
    */
   void addOrChangeAttribute(String attribute, String... attributes);
 
-  //method
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
@@ -73,7 +66,6 @@ public interface IMutableElement extends Resettable, IElement {
     }
   }
 
-  //method
   /**
    * Resets the current {@link IMutableElement} from the given attributes.
    * 
@@ -87,7 +79,6 @@ public interface IMutableElement extends Resettable, IElement {
     addOrChangeAttributes(attributes);
   }
 
-  //method
   /**
    * Resets the current {@link IMutableElement} from the given specification.
    * 

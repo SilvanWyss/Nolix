@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint2;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -12,7 +10,6 @@ import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 /**
  * A local end point can send messages to an other local end point.
  * 
@@ -21,16 +18,12 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  */
 public final class LocalEndPoint extends EndPoint {
 
-  //attribute
   private final PeerType peerType;
 
-  //attribute
   private final LocalEndPoint counterpart;
 
-  //optional attribute
   private final String target;
 
-  //constructor
   /**
    * Creates a new local end point that will connect to an other new local end
    * point.
@@ -46,7 +39,6 @@ public final class LocalEndPoint extends EndPoint {
     target = null;
   }
 
-  //constructor
   /**
    * Creates a new local end point that will connect to the given target
    * 
@@ -66,7 +58,6 @@ public final class LocalEndPoint extends EndPoint {
     target.takeBackendEndPoint(getStoredCounterpart());
   }
 
-  //constructor
   /**
    * Creates a new local end point that will connect to the given target on the
    * given server.
@@ -87,7 +78,6 @@ public final class LocalEndPoint extends EndPoint {
     baseServer.internalTakeBackendEndPoint(getStoredCounterpart());
   }
 
-  //constructor
   /**
    * Creates a new local end point with the given counterpart.
    * 
@@ -108,7 +98,6 @@ public final class LocalEndPoint extends EndPoint {
     target = null;
   }
 
-  //constructor
   /**
    * Creates a new local end point with the given counterpart and target.
    * 
@@ -135,7 +124,6 @@ public final class LocalEndPoint extends EndPoint {
     this.target = target;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -144,7 +132,6 @@ public final class LocalEndPoint extends EndPoint {
     return ConnectionType.LOCAL;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -153,7 +140,6 @@ public final class LocalEndPoint extends EndPoint {
     return peerType;
   }
 
-  //method
   /**
    * Lets this local end point send the given message.
    * 
@@ -169,7 +155,6 @@ public final class LocalEndPoint extends EndPoint {
     return getStoredCounterpart().receiveAndGetReply(message);
   }
 
-  //method
   /**
    * @return the counterpart of this local end point.
    */
@@ -177,7 +162,6 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart;
   }
 
-  //method
   /**
    * @return the target of this local end point.
    * @throws ArgumentDoesNotHaveAttributeException if this local end point does
@@ -194,7 +178,6 @@ public final class LocalEndPoint extends EndPoint {
     return target;
   }
 
-  //method
   /**
    * Lets this local end point send the given message.
    * 
@@ -206,7 +189,6 @@ public final class LocalEndPoint extends EndPoint {
     return getStoredCounterpart().receiveAndGetReply(message);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -215,7 +197,6 @@ public final class LocalEndPoint extends EndPoint {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -224,7 +205,6 @@ public final class LocalEndPoint extends EndPoint {
     return (target != null);
   }
 
-  //method
   /**
    * Lets this local end point receive the given message.
    * 

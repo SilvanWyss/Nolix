@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.documenttest.xmltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class MutableXmlNodeTest extends StandardTest {
 
-  //method
   @Test
   void test_toString() {
 
@@ -25,7 +20,6 @@ final class MutableXmlNodeTest extends StandardTest {
     expect(result).isEqualTo("<Node></Node>");
   }
 
-  //method
   @Test
   void test_toString_whenHas1Attribute() {
 
@@ -39,7 +33,6 @@ final class MutableXmlNodeTest extends StandardTest {
     expect(result).isEqualTo("<Node key='value'></Node>");
   }
 
-  //method
   @Test
   void test_toString_whenHas1ChildNode() {
 
@@ -53,7 +46,6 @@ final class MutableXmlNodeTest extends StandardTest {
     expect(result).isEqualTo("<Node><ChildNode></ChildNode></Node>");
   }
 
-  //method
   @Test
   void test_toString_whenHas2Attributes() {
 
@@ -70,7 +62,6 @@ final class MutableXmlNodeTest extends StandardTest {
     expect(result).isEqualTo("<Node key1='value1' key2='value2'></Node>");
   }
 
-  //method
   @Test
   void test_toString_whenHas2ChildNodes() {
 

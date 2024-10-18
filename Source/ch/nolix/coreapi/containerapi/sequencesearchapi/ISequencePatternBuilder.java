@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
-//Java imports
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2023-02-13
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
  */
 public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuilder<ISequencePattern<E>> {
 
-  //method declaration
   /**
    * Adds a blank condition for the next element of the searched-for sequences to
    * the current {@link ISequencePatternBuilder}.
@@ -25,7 +21,6 @@ public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuild
    */
   ISequencePatternBuilder<E> addBlankForNext();
 
-  //method declaration
   /**
    * Adds the given condition for the next element of the searched-for sequences
    * to the current {@link ISequencePatternBuilder}.
@@ -36,7 +31,6 @@ public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuild
    */
   ISequencePatternBuilder<E> addConditionForNext(Predicate<E> condition);
 
-  //method declaration
   /**
    * @param count
    * @return a new {@link INextMediator} for the current

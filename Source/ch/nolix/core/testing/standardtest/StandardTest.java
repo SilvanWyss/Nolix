@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.testing.standardtest;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
@@ -12,7 +10,6 @@ import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 
-//class
 /**
  * A test is a test that provides the fluent pattern for writing expectations.
  * 
@@ -21,7 +18,6 @@ import ch.nolix.core.errorcontrol.validator.StringMediator;
  */
 public abstract class StandardTest { //NOSONAR: StandardTest does not have abstract methods.
 
-  //method
   /**
    * Generates an error if the given value is false.
    * 
@@ -35,7 +31,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     }
   }
 
-  //method
   /**
    * Generates an error for all of the given values that are false.
    * 
@@ -67,7 +62,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     }
   }
 
-  //method
   /**
    * @param value
    * @return a new {@link ByteMediator} for the given value.
@@ -76,7 +70,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return new ByteMediator(value);
   }
 
-  //method
   /**
    * @param value
    * @return a new double mediator that belongs to this test and is for the given
@@ -86,7 +79,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return DoubleMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param value
    * @return a new double mediator that belongs to this test and is for the given
@@ -96,7 +88,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return DoubleMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -106,7 +97,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return LongMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -116,7 +106,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return LongMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param container
    * @param <E>       is the type of the elements of the given container.
@@ -127,7 +116,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return new IterableMediator<>(container);
   }
 
-  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -137,7 +125,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return LongMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -147,7 +134,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return LongMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param value
    * @param <V>   is the type of the given value.
@@ -158,7 +144,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return ArgumentMediator.forArgument(value);
   }
 
-  //method
   /**
    * @param value
    * @return a new string mediator that belongs to this nolix test and has the
@@ -168,7 +153,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return StringMediator.forArgument(value);
   }
 
-  //method
   /**
    * Generates an error if the given value is true.
    * 
@@ -182,7 +166,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     }
   }
 
-  //method
   /**
    * Generates an error for all of the given values that are true.
    * 
@@ -215,7 +198,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     }
   }
 
-  //method
   /**
    * @param closure
    * @return a new closure mediator that belongs for the given closure.
@@ -224,7 +206,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return new ClosureMediator(closure);
   }
 
-  //method
   /**
    * @param values
    * @return a new multi double mediator that belongs to this test and is for the
@@ -234,7 +215,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return new MultiDoubleMediator(values);
   }
 
-  //method
   /**
    * @param values
    * @return a new multi double mediator that belongs to this test and is for the
@@ -244,7 +224,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return new MultiDoubleMediator(values);
   }
 
-  //method
   /**
    * @param value
    * @param values
@@ -255,7 +234,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return MultiLongMediator.forValue(value, values);
   }
 
-  //method
   /**
    * @param values
    * @return a new long container mediator that belongs to this test and has the
@@ -265,7 +243,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
     return new MultiLongMediator(values);
   }
 
-  //method
   /**
    * @param value
    * @param values

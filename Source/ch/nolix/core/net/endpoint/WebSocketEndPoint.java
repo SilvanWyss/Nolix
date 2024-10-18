@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -20,25 +17,18 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
-//class
 final class WebSocketEndPoint extends NetEndPoint {
 
-  //constant
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  //attribute
   private final PeerType peerType;
 
-  //attribute
   private final Socket socket;
 
-  //attribute
   private final InputStream socketInputStream;
 
-  //attribute
   private final OutputStream socketOutputStream;
 
-  //constructor
   public WebSocketEndPoint(
     final Socket socket,
     final InputStream socketInputStream,
@@ -58,25 +48,21 @@ final class WebSocketEndPoint extends NetEndPoint {
     createMessageListenerAndWaitToTargetInfo();
   }
 
-  //method
   @Override
   public PeerType getPeerType() {
     return peerType;
   }
 
-  //method
   @Override
   public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
   }
 
-  //method
   @Override
   public ConnectionType getConnectionType() {
     return ConnectionType.WEB_SOCKET;
   }
 
-  //method
   @Override
   public void noteClose() {
 
@@ -91,18 +77,15 @@ final class WebSocketEndPoint extends NetEndPoint {
     }
   }
 
-  //method
   @Override
   protected void sendRawMessage(final String rawMessage) {
     sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));
   }
 
-  //method
   InputStream getStoredInputStream() {
     return socketInputStream;
   }
 
-  //method
   void receiveControlFrame(final WebSocketFrame controlFrame) {
     switch (controlFrame.getOpcodeMeaning()) {
       case PING:
@@ -116,12 +99,10 @@ final class WebSocketEndPoint extends NetEndPoint {
     }
   }
 
-  //method
   private boolean canWork() {
     return !socket.isClosed();
   }
 
-  //method
   private void createMessageListenerAndWaitToTargetInfo() {
 
     WebEndPointMessageListener.forWebEndPoint(this);
@@ -129,7 +110,6 @@ final class WebSocketEndPoint extends NetEndPoint {
     waitToTargetInfo();
   }
 
-  //method
   private void sendBytes(final byte[] bytes) {
 
     assertIsOpen();
@@ -142,17 +122,14 @@ final class WebSocketEndPoint extends NetEndPoint {
     }
   }
 
-  //method
   private void sendFrame(final WebSocketFrame frame) {
     sendBytes(frame.toBytes());
   }
 
-  //method
   private void sendPongFrameForPingFrame(final WebSocketFrame pingFrame) {
     sendFrame(pingFrame.createPongFrame());
   }
 
-  //method
   private void waitToTargetInfo() {
 
     GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasTargetInfo);

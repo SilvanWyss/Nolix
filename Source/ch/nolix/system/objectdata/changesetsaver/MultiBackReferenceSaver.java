@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.objectdata.changesetsaver;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-//class
 public final class MultiBackReferenceSaver {
 
-  //method
   public void saveMultiBackReference(
     final IMultiBackReference<? extends IEntity> multiBackReference,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -20,7 +16,6 @@ public final class MultiBackReferenceSaver {
     }
   }
 
-  //method
   private void saveMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -43,7 +38,6 @@ public final class MultiBackReferenceSaver {
     }
   }
 
-  //method
   private void insertMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
@@ -59,7 +53,6 @@ public final class MultiBackReferenceSaver {
       multiBackReferenceEntry.getBackReferencedEntityId());
   }
 
-  //method
   private void deleteMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
-//interface
 /**
  * A {@link IOptionalSaveStampHolder} can have a save stamp.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface IOptionalSaveStampHolder {
 
-  //method declaration
   /**
    * @return the save stamp of the current {@link IOptionalSaveStampHolder}.
    * @throws RuntimeException if the current {@link IOptionalSaveStampHolder} does
@@ -18,7 +15,6 @@ public interface IOptionalSaveStampHolder {
    */
   String getSaveStamp();
 
-  //method declaration
   /**
    * @return true if the current {@link IOptionalSaveStampHolder} has a save
    *         stamp.

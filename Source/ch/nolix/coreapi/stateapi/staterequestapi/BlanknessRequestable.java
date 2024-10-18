@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//interface
 /**
  * A {@link BlanknessRequestable} can be asked if it is blank.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.stateapi.staterequestapi;
  */
 public interface BlanknessRequestable {
 
-  //method declaration
   /**
    * @return true if {@link BlanknessRequestable} is blank.
    */

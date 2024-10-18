@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
@@ -18,17 +16,13 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//class
 public final class SystemDataWriterSqlStatementCreator implements ISystemDataWriterSqlStatementCreator {
 
-  //constant
   private static final ParameterizedFieldTypeSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
   new ParameterizedFieldTypeSqlRecordMapper();
 
-  //constant
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
 
-  //method
   @Override
   public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 
@@ -75,7 +69,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  //method
   @Override
   public ILinkedList<String> createStatementsToAddTable(final ITableDto table) {
 
@@ -90,7 +83,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return statements;
   }
 
-  //method
   @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return "DELETE FROM "
@@ -106,7 +98,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  //method
   @Override
   public String createStatementToDeleteTable(final String tableName) {
     return "DELETE FROM "
@@ -118,7 +109,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  //method
   @Override
   public String createStatementToSetColumnName(final String tableName, final String columnName,
     final String newColumnName) {
@@ -139,7 +129,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  //method
   @Override
   public String createStatementToSetColumnParameterizedFieldType(
     final String columnID,
@@ -169,7 +158,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  //method
   @Override
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return "UPDATE "
@@ -184,7 +172,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }
 
-  //method
   @Override
   public String createStatementToSetTableName(final String tableName, final String newTableName) {
     return "UPDATE "
@@ -200,7 +187,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  //method
   private String createStatementToAddTableIgnoringColumns(final ITableDto table) {
 
     final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.license;
 
-//own imports
 import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
 
-//class
 /**
  * The {@link LicenseEnvironment} provides information about the Nolix license
  * environment on the local computer. Of the {@link LicenseEnvironment} an
@@ -15,17 +12,14 @@ import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFile
  */
 public final class LicenseEnvironment {
 
-  //constant
   public static final String LICENCSE_FILE_EXTENSION = "license";
 
-  //constructor
   /**
    * Prevents that an instance of the {@link LicenseEnvironment} can be created.
    */
   private LicenseEnvironment() {
   }
 
-  //static method
   /**
    * @return the path of the license folder on the local computer.
    */

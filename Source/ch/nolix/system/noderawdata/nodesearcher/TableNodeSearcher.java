@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.system.noderawdata.nodesearcher;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 
-//class
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
-  //method
   @Override
   public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     final IMutableNode<?> tableNode,
@@ -24,7 +19,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
-  //method
   @Override
   public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
     return tableNode.getStoredFirstChildNodeThat(
@@ -32,13 +26,11 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
-  //method
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.ENTITY);
   }
 
-  //method
   @Override
   public IMutableNode<?> removeAndGetRefEntityNodeFromTableNode(IMutableNode<?> tableNode, String id) {
     return tableNode.removeAndGetStoredFirstChildNodeThat(
@@ -46,13 +38,11 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
-  //method
   @Override
   public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
     return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
   }
 
-  //method
   @Override
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
     final IMutableNode<?> tableNode,
@@ -70,7 +60,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
       });
   }
 
-  //method
   @Override
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(
     final IMutableNode<?> tableNode,
@@ -82,7 +71,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
       && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
   }
 
-  //method
   @Override
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
     final IMutableNode<?> tableNode,

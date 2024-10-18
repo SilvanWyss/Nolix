@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
 import java.util.function.Supplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
@@ -17,34 +14,24 @@ import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-//class
 public abstract class DataAdapter implements IDataAdapter {
 
-  //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
-  //constant
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
-  //constant
   private static final ChangeSetSaver DATA_SAVER = new ChangeSetSaver();
 
-  //attribute
   private final String databaseName;
 
-  //attribute
   private final ISchema schema;
 
-  //attribute
   private final Database database;
 
-  //attribute
   private int saveCount;
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //constructor
   protected DataAdapter(
     final String databaseName,
     final ISchemaAdapter schemaAdapter,
@@ -66,32 +53,27 @@ public abstract class DataAdapter implements IDataAdapter {
     getStoredCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
   }
 
-  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  //method
   @Override
   public final <E extends IEntity> ITable<E> getStoredTableByEntityType(
     final Class<E> entityType) {
     return database.getStoredTableByEntityType(entityType);
   }
 
-  //method
   @Override
   public final int getSaveCount() {
     return saveCount;
   }
 
-  //method
   @Override
   public final boolean hasChanges() {
     return DATABASE_TOOL.hasChanges(database);
   }
 
-  //method
   @Override
   public final <E extends IEntity> DataAdapter insertEntity(
     final E entity,
@@ -106,19 +88,16 @@ public abstract class DataAdapter implements IDataAdapter {
     return this;
   }
 
-  //method
   @Override
   public final void noteClose() {
     database.internalClose();
   }
 
-  //method
   @Override
   public final synchronized void reset() {
     database.internalReset();
   }
 
-  //method
   @Override
   public final synchronized void saveChanges() {
     try {
@@ -128,17 +107,14 @@ public abstract class DataAdapter implements IDataAdapter {
     }
   }
 
-  //method
   protected final String getDatabaseName() {
     return databaseName;
   }
 
-  //method
   protected final ISchema getSchema() {
     return schema;
   }
 
-  //method
   private synchronized void saveChangesAndIncrementSaveCount() {
 
     DATA_SAVER.saveChangesOfDatabaseSynchronously(database, database.internalGetStoredDataAndSchemaAdapter());

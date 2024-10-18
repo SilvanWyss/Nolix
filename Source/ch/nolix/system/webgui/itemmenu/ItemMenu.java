@@ -1,11 +1,9 @@
-//package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-//Java imports
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -20,30 +18,24 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-//class
 public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
 extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 
-  //constant
   private static final String ITEM_HEADER = PascalCaseVariableCatalogue.ITEM;
 
-  //attribute
   private final MultiValue<IItemMenuItem<?>> items = new MultiValue<>(
     ITEM_HEADER,
     this::addItem,
     ItemMenuItem::fromSpecification,
     IItemMenuItem::getSpecification);
 
-  //optional attribute
   private Consumer<IItemMenuItem<?>> selectAction;
 
-  //method
   @Override
   public final IM addBlankItem() {
     return addItem(ItemMenuItem.createBlankItem());
   }
 
-  //method
   @Override
   public final IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
 
@@ -60,19 +52,16 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM addItemWithIdAndText(final String id, final String text) {
     return addItem(ItemMenuItem.withIdAndText(id, text));
   }
 
-  //method
   @Override
   public final IM addItemWithIdAndTextAndSelectAction(final String id, String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
-  //method
   @Override
   public final IM addItemWithIdAndTextAndSelectAction(
     final String id,
@@ -81,7 +70,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
-  //method
   @Override
   public final IM addItemWithText(final String text, final String... texts) {
 
@@ -94,13 +82,11 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM addItemWithTextAndSelectAction(final String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
-  //method
   @Override
   public final IM addItemWithTextAndSelectAction(
     final String text,
@@ -108,73 +94,61 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
-  //method
   @Override
   public final boolean blankItemIsSelected() {
     return (containsBlankItem() && getStoredBlankItem().isSelected());
   }
 
-  //method
   @Override
   public final void clear() {
     items.clear();
   }
 
-  //method
   @Override
   public final boolean containsBlankItem() {
     return getStoredItems().containsAny(IItemMenuItem::isBlank);
   }
 
-  //method
   @Override
   public final boolean containsItemWithId(final String id) {
     return getStoredItems().containsAny(i -> i.hasId(id));
   }
 
-  //method
   @Override
   public final boolean containsItemWithText(final String text) {
     return getStoredItems().containsAny(i -> i.getText().equals(text));
   }
 
-  //method
   @Override
   public boolean containsSelectedItem() {
     return getStoredItems().containsAny(IItemMenuItem::isSelected);
   }
 
-  //method
   @Override
   public final String getIdByItemText(final String itemText) {
     return getStoredItemByText(itemText).getId();
   }
 
-  //method
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
-  //method
   @Override
   public final IContainer<IItemMenuItem<?>> getStoredItems() {
     return items.getStoredValues();
   }
 
-  //method
   @Override
   public final IItemMenuItem<?> getStoredSelectedItem() {
     return getStoredItems().getStoredFirst(IItemMenuItem::isSelected);
   }
 
-  //method
   @Override
   public final String getTextByItemId(final String itemId) {
     return getStoredItemById(itemId).getText();
   }
 
-  //method
   @Override
   public final String getUserInput() {
 
@@ -185,31 +159,26 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return getStoredItems().getStoredFirst(IItemMenuItem::isSelected).getText();
   }
 
-  //method
   @Override
   public final boolean hasRole(final String role) {
     return false;
   }
 
-  //method
   @Override
   public final boolean isEmpty() {
     return getStoredItems().isEmpty();
   }
 
-  //method
   @Override
   public final void removeSelectAction() {
     selectAction = null;
   }
 
-  //method
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onchange");
   }
 
-  //method
   @Override
   public final IM selectBlankItem() {
 
@@ -218,7 +187,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM selectFirstItem() {
 
@@ -227,7 +195,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM selectItemById(final String id) {
 
@@ -236,7 +203,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM selectItemByText(final String text) {
 
@@ -245,7 +211,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM setSelectAction(final Runnable selectAction) {
 
@@ -254,7 +219,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return setSelectAction(i -> selectAction.run());
   }
 
-  //method
   @Override
   public final IM setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
 
@@ -265,7 +229,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final IM setUserInput(final String userInput) {
 
@@ -278,7 +241,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final void internalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
     if (hasSelectAction()) {
@@ -286,7 +248,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     }
   }
 
-  //method
   @Override
   protected final void resetControl() {
 
@@ -296,13 +257,11 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     setCursorIcon(CursorIcon.HAND);
   }
 
-  //method
   private void assertCanAddItem(final IItemMenuItem<?> item) {
     assertDoesNotContainItemWithId(item.getId());
     assertDoesNotContainItemWithText(item.getText());
   }
 
-  //method
   private void assertDoesNotContainItemWithId(final String id) {
     if (containsItemWithId(id)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -311,7 +270,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     }
   }
 
-  //method
   private void assertDoesNotContainItemWithText(final String text) {
     if (containsItemWithText(text)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -320,27 +278,22 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
     }
   }
 
-  //method
   private IItemMenuItem<?> getStoredBlankItem() {
     return getStoredItems().getStoredFirst(IItemMenuItem::isBlank);
   }
 
-  //method
   private IItemMenuItem<?> getStoredFirstItem() {
     return getStoredItems().getStoredFirst();
   }
 
-  //method
   private IItemMenuItem<?> getStoredItemById(final String itemId) {
     return getStoredItems().getStoredFirst(i -> i.hasId(itemId));
   }
 
-  //method
   private IItemMenuItem<?> getStoredItemByText(final String itemText) {
     return getStoredItems().getStoredFirst(i -> i.getText().equals(itemText));
   }
 
-  //method
   private boolean hasSelectAction() {
     return (selectAction != null);
   }

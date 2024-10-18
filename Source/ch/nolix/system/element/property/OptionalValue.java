@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2018-03-01
@@ -19,7 +15,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class OptionalValue<V> extends SingleValue<V> {
 
-  //constructor
   /**
    * Creates a new {@link OptionalValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
@@ -43,7 +38,6 @@ public final class OptionalValue<V> extends SingleValue<V> {
     super(name, setterMethod, valueCreator, specificationCreator);
   }
 
-  //static method
   /**
    * @param name
    * @param setterMethod
@@ -57,7 +51,6 @@ public final class OptionalValue<V> extends SingleValue<V> {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
-  //static method
   /**
    * @param name
    * @param setterMethod
@@ -71,7 +64,6 @@ public final class OptionalValue<V> extends SingleValue<V> {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
-  //static method
   /**
    * @param name
    * @param setterMethod
@@ -85,7 +77,6 @@ public final class OptionalValue<V> extends SingleValue<V> {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  //static method
   /**
    * @param name
    * @param setterMethod
@@ -110,7 +101,6 @@ public final class OptionalValue<V> extends SingleValue<V> {
       });
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

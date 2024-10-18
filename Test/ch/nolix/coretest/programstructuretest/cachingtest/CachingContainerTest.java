@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coretest.programstructuretest.cachingtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programstructure.caching.CachingContainer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class CachingContainerTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor() {
 
@@ -23,7 +18,6 @@ final class CachingContainerTest extends StandardTest {
     expect(result.isEmpty());
   }
 
-  //method
   @Test
   void testCase_getStoredById() {
 
@@ -39,7 +33,6 @@ final class CachingContainerTest extends StandardTest {
     expect(result).is(garfield);
   }
 
-  //method
   @Test
   void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
 
@@ -50,7 +43,6 @@ final class CachingContainerTest extends StandardTest {
     expectRunning(() -> testUnit.getStoredById("G")).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_registerAndGetId() {
 
@@ -67,7 +59,6 @@ final class CachingContainerTest extends StandardTest {
     expect(testUnit.contains(garfield));
   }
 
-  //method
   @Test
   void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
@@ -80,7 +71,6 @@ final class CachingContainerTest extends StandardTest {
     expectRunning(() -> testUnit.registerAndGetId(garfield)).throwsException();
   }
 
-  //method
   @Test
   void testCase_registerAt() {
 
@@ -98,7 +88,6 @@ final class CachingContainerTest extends StandardTest {
     expect(testUnit.contains(garfield));
   }
 
-  //method
   @Test
   void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
 
@@ -112,7 +101,6 @@ final class CachingContainerTest extends StandardTest {
     expectRunning(() -> testUnit.registerAtId(garfieldId, garfield)).throwsException();
   }
 
-  //method
   @Test
   void testCase_registerIfNotRegisterAndGetId() {
 
@@ -129,7 +117,6 @@ final class CachingContainerTest extends StandardTest {
     expect(testUnit.contains(garfield));
   }
 
-  //method
   @Test
   void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 

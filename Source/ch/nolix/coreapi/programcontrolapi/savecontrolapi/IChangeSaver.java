@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.savecontrolapi;
 
-//own imports
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
 
-//interface
 /**
  * A {@link IChangeSaver} can save its changes.
  * 
@@ -13,7 +10,6 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
  */
 public interface IChangeSaver extends Closeable, ChangeRequestable {
 
-  //method declaration
   /**
    * Saves the changes of the current {@link IChangeSaver}.
    */

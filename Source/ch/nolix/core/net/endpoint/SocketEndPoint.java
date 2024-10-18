@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -23,26 +20,20 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-05-06
  */
 public final class SocketEndPoint extends NetEndPoint {
 
-  //attribute
   private final PeerType peerType;
 
-  //attribute
   private final Socket socket;
 
-  //attribute
   private final InputStream socketInputStream;
 
-  //attribute
   private final OutputStream socketOutputStream;
 
-  //constructor
   /**
    * Creates a new {@link SocketEndPoint} that will connect to the main target on
    * the given port on the local machine.
@@ -54,7 +45,6 @@ public final class SocketEndPoint extends NetEndPoint {
     this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
   }
 
-  //constructor
   /**
    * Creates a new {@link SocketEndPoint} that will connect to the given target on
    * the given port on the local machine.
@@ -69,7 +59,6 @@ public final class SocketEndPoint extends NetEndPoint {
     this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
   }
 
-  //constructor
   /**
    * Creates a new {@link SocketEndPoint} that will connect to the main target on
    * the HTTP port (80) on the machine with the given ip.
@@ -80,7 +69,6 @@ public final class SocketEndPoint extends NetEndPoint {
     this(ip, PortCatalogue.HTTP);
   }
 
-  //constructor
   /**
    * Creates a new {@link SocketEndPoint} that will connect to the main target on
    * the given port on the machine with the given ip.
@@ -112,7 +100,6 @@ public final class SocketEndPoint extends NetEndPoint {
     new SocketEndPointMessageListener(this);
   }
 
-  //constructor
   /**
    * Creates a new {@link SocketEndPoint} that will connect to the given target on
    * the given port on the machine with the given ip.
@@ -147,7 +134,6 @@ public final class SocketEndPoint extends NetEndPoint {
     new SocketEndPointMessageListener(this);
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given socket. The given
    * socketInputStream and the given socketOutputStream belong to the given
@@ -179,7 +165,6 @@ public final class SocketEndPoint extends NetEndPoint {
     new SocketEndPointMessageListener(this);
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given socket and target. The given
    * socketInputStream and the given socketOutputStream belong to the given
@@ -215,13 +200,11 @@ public final class SocketEndPoint extends NetEndPoint {
     new SocketEndPointMessageListener(this);
   }
 
-  //method
   @Override
   public PeerType getPeerType() {
     return peerType;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -230,7 +213,6 @@ public final class SocketEndPoint extends NetEndPoint {
     return ConnectionType.SOCKET;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -239,7 +221,6 @@ public final class SocketEndPoint extends NetEndPoint {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -255,7 +236,6 @@ public final class SocketEndPoint extends NetEndPoint {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -272,12 +252,10 @@ public final class SocketEndPoint extends NetEndPoint {
     }
   }
 
-  //method
   InputStream getStoredInputStream() {
     return socketInputStream;
   }
 
-  //method
   private boolean canWork() {
     return !socket.isClosed();
   }

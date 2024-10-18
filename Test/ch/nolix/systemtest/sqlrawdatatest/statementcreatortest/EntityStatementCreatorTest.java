@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.sqlrawdatatest.statementcreatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
@@ -13,10 +10,8 @@ import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
 
-//class
 final class EntityStatementCreatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_createStatementToDeleteEntity() {
 
@@ -33,7 +28,6 @@ final class EntityStatementCreatorTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createStatementToDeleteEntityHead() {
 
@@ -48,7 +42,6 @@ final class EntityStatementCreatorTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createStatementToExpectTableContainsEntity() {
 
@@ -67,7 +60,6 @@ final class EntityStatementCreatorTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createStatementToInsertNewEntity() {
 
@@ -89,7 +81,6 @@ final class EntityStatementCreatorTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_createStatementToUpdateEntityOnTable() {
 

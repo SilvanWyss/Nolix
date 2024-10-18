@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.databaseobject.databaseobjectvalidator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi.IDatabaseObjectValidator;
 
-//class
 public class DatabaseObjectValidator implements IDatabaseObjectValidator {
 
-  //method
   @Override
   public final void assertIsLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (!databaseObject.isLinkedWithRealDatabase()) {
@@ -19,7 +15,6 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
     }
   }
 
-  //method
   @Override
   public final void assertIsLoaded(final IDatabaseObject databaseObject) {
     if (!databaseObject.isLoaded()) {
@@ -27,7 +22,6 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
     }
   }
 
-  //method
   @Override
   public final void assertIsNew(final IDatabaseObject databaseObject) {
     if (!databaseObject.isNew()) {
@@ -35,7 +29,6 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
     }
   }
 
-  //method
   @Override
   public final void assertIsNotDeleted(final IDatabaseObject databaseObject) {
     if (databaseObject.isDeleted()) {
@@ -43,7 +36,6 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
     }
   }
 
-  //method
   @Override
   public final void assertIsNotLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (databaseObject.isLinkedWithRealDatabase()) {
@@ -51,7 +43,6 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
     }
   }
 
-  //method
   @Override
   public final void assertIsNotNew(final IDatabaseObject databaseObject) {
     if (databaseObject.isNew()) {
@@ -59,7 +50,6 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
     }
   }
 
-  //method
   @Override
   public final void assertIsOpen(final IDatabaseObject databaseObject) {
     if (databaseObject.isClosed()) {

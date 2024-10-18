@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
@@ -17,33 +15,25 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
-//class
 final class ColumnMutationValidator {
 
-  //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
-  //constant
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  //constant
   private static final ITableTool TABLE_TOOL = new TableTool();
 
-  //constant
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
-  //constant
   private static final IParameterizedFieldTypeTool PARAMETERIZED_FIELD_TYPE_TOOL = //
   new ParameterizedFieldTypeTool();
 
-  //method
   public void assertCanDeleteColumn(final Column column) {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(column);
     column.assertIsNotBackReferenced();
   }
 
-  //method
   public void assertCanSetNameToColumn(final Column column, final String name) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
@@ -55,7 +45,6 @@ final class ColumnMutationValidator {
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
   }
 
-  //method
   public void assertCanSetParameterizedFieldTypeToColumn(
     final Column column,
     final IParameterizedFieldType parameterizedFieldType) {
@@ -88,7 +77,6 @@ final class ColumnMutationValidator {
     }
   }
 
-  //method
   public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);

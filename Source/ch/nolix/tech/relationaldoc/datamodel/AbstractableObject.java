@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
 import ch.nolix.core.container.containerview.ContainerView;
@@ -14,48 +13,35 @@ import ch.nolix.tech.relationaldoc.datavalidator.AbstractableObjectValidator;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 
-//class
 public final class AbstractableObject extends Entity implements IAbstractableObject {
 
-  //constant
   public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalogue.FIELD;
 
-  //constant
   public static final boolean DEFAULT_ABSTRACT_FLAG = false;
 
-  //constant
   private static final AbstractableObjectTool ABSTRACTABLE_OBJECT_TOOL = new AbstractableObjectTool();
 
-  //constant
   private static final AbstractableObjectValidator ABSTRACTABLE_OBJECT_VALIDATOR = new AbstractableObjectValidator();
 
-  //constant
   private static final AbstractableFieldValidator ABSTRACTABLE_FIELD_VALIDATOR = new AbstractableFieldValidator();
 
-  //attribute
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 
-  //attribute
   private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
 
-  //multi-attribute
   private final MultiReference<AbstractableObject> directBaseTypes = //
   MultiReference.forReferencedEntityType(AbstractableObject.class);
 
-  //multi-attribute
   private final MultiBackReference<AbstractableObject> directSubTypes = //
   MultiBackReference.forBackReferencedEntityTypeAndBaseReference(AbstractableObject.class, "directBaseTypes");
 
-  //multi-attribute
   private final MultiReference<AbstractableField> declaredFields = //
   MultiReference.forReferencedEntityType(AbstractableField.class);
 
-  //constructor
   public AbstractableObject() {
     initialize();
   }
 
-  //method
   @Override
   public IAbstractableObject addBaseType(final IAbstractableObject baseType) {
 
@@ -66,7 +52,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  //method
   @Override
   public IAbstractableObject addField(final IAbstractableField field) {
 
@@ -79,13 +64,11 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  //method
   @Override
   public String getName() {
     return name.getStoredValue();
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredBaseTypes() {
     return ContainerView
@@ -94,31 +77,26 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
         getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredBaseTypes));
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredConcreteSubTypes() {
     return getStoredSubTypes().getStoredSelected(IAbstractableObject::isConcrete);
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredDeclaredFields() {
     return declaredFields.getAllStoredReferencedEntities();
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes() {
     return directBaseTypes.getAllStoredReferencedEntities();
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectSubTypes() {
     return directSubTypes.getAllStoredBackReferencedEntities();
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredFields() {
     return ContainerView.forIterable(
@@ -126,32 +104,27 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
       getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredSubTypes() {
     return ABSTRACTABLE_OBJECT_TOOL.getStoredSubTypesUsingSimplerMethods(this);
   }
 
-  //method
   @Override
   public boolean isAbstract() {
     return abstractFlag.getStoredValue();
   }
 
-  //method
   @Override
   public boolean isSubTypeOfObject(final IAbstractableObject object) {
     return object != null
     && isSubTypeOfObjectWhenObjectIsNotNull(object);
   }
 
-  //method
   @Override
   public void removeDirectBaseType(final IAbstractableObject directBaseType) {
     directBaseTypes.removeEntity(directBaseType);
   }
 
-  //method
   @Override
   public void removeNonInheritedField(final IAbstractableField nonInheritedField) {
 
@@ -166,7 +139,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     }
   }
 
-  //method
   @Override
   public IAbstractableObject setAsAbstract() {
 
@@ -175,7 +147,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  //method
   @Override
   public IAbstractableObject setAsConcrete() {
 
@@ -186,7 +157,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  //method
   @Override
   public IAbstractableObject setName(final String name) {
 
@@ -197,14 +167,12 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  //method
   private void addRealisationOfFieldToAllConcreteSubTypesIfFieldIsAbstract(final IAbstractableField field) {
     if (field.isAbstract()) {
       addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(field);
     }
   }
 
-  //method
   private void addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(final IAbstractableField field) {
     for (final var cst : getStoredConcreteSubTypes()) {
 
@@ -223,7 +191,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     }
   }
 
-  //method
   private boolean isSubTypeOfObjectWhenObjectIsNotNull(final IAbstractableObject object) {
 
     for (final var dbt : getStoredDirectBaseTypes()) {
@@ -235,7 +202,6 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return false;
   }
 
-  //method
   private void removeFieldByName(final String name) {
     declaredFields.removeFirstEntity(f -> f.hasName(name));
   }

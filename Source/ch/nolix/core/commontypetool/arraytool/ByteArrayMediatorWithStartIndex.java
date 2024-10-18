@@ -1,22 +1,16 @@
-//package declaration
 package ch.nolix.core.commontypetool.arraytool;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediatorWithStartIndex;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
 
-  //attribute
   private final byte[] byteArray;
 
-  //attribute
   private int index;
 
-  //constructor
   private ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
 
     GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
@@ -30,13 +24,11 @@ public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediator
     index = startIndex;
   }
 
-  //static method
   public static ByteArrayMediatorWithStartIndex forByteArrayAndStartIndex(final byte[] byteArray,
     final int startIndex) {
     return new ByteArrayMediatorWithStartIndex(byteArray, startIndex);
   }
 
-  //method
   @Override
   public INextIndexMediator write(final byte[] bytes) {
 

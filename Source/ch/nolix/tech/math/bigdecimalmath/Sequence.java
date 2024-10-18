@@ -1,21 +1,15 @@
-//package declaration
 package ch.nolix.tech.math.bigdecimalmath;
 
-//Java imports
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-//own imports
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
 
-//class
 abstract class Sequence<V> implements ISequence<V> {
 
-  //multi-attribute
   private final ArrayList<Pair<V, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
 
-  //method
   @Override
   public int getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
     final BigDecimal limit,
@@ -30,7 +24,6 @@ abstract class Sequence<V> implements ISequence<V> {
     return -1;
   }
 
-  //method
   @Override
   public BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(final int param1BasedIndex) {
 
@@ -39,7 +32,6 @@ abstract class Sequence<V> implements ISequence<V> {
     return valuesAndSquaredMagnitudes.get(param1BasedIndex - 1).getStoredElement2();
   }
 
-  //method
   @Override
   public V getValueAt1BasedIndex(final int param1BasedIndex) {
 
@@ -48,18 +40,14 @@ abstract class Sequence<V> implements ISequence<V> {
     return valuesAndSquaredMagnitudes.get(param1BasedIndex - 1).getStoredElement1();
   }
 
-  //method declaration
   protected abstract BigDecimal calculateSquaredMagnitudeForValue(V value);
 
-  //method declaration
   protected abstract V calculateValue(int index);
 
-  //method
   protected V getValueAtIndexWhenCalculated(final int index) {
     return valuesAndSquaredMagnitudes.get(index - 1).getStoredElement1();
   }
 
-  //method
   private void calculateValuesAndSquaredMagnitudesToIndex(final int index) {
     for (var i = valuesAndSquaredMagnitudes.size() + 1; i <= index; i++) {
 

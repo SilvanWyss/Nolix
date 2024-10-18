@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalCardinalityHolder;
 
-//interface
 /**
  * A {@link IMutableOptionalCardinalityHolder} is a
  * {@link IOptionalCardinalityHolder} whose cardinality can be set and removed
@@ -15,14 +12,12 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalCardinalityHo
  */
 public interface IMutableOptionalCardinalityHolder extends IOptionalCardinalityHolder {
 
-  //method declaration
   /**
    * Removes the cardinality of the current
    * {@link IMutableOptionalCardinalityHolder}.
    */
   void removeCardinality();
 
-  //method declaration
   /**
    * Sets the cardinality of the current
    * {@link IMutableOptionalCardinalityHolder}.

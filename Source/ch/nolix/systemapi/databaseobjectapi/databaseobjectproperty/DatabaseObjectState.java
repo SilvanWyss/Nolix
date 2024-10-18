@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty;
 
-//enum
 public enum DatabaseObjectState {
 
   //not yet persisted in database

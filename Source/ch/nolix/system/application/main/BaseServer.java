@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -15,7 +13,6 @@ import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
-//class
 /**
  * A {@link BaseServer} can contain {@link Application}s. A {@link BaseServer}
  * is closable.
@@ -26,16 +23,12 @@ import ch.nolix.systemapi.applicationapi.mainapi.IServer;
  */
 public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
-  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  //optional attribute
   private Application<?, ?> defaultApplication;
 
-  //multi-attribute
   private final LinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
 
-  //method
   /**
    * Adds the given application to the current {@link BaseServer}.
    * 
@@ -58,7 +51,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return asConcrete();
   }
 
-  //method
   /**
    * Adds the given application with the given instanceName to the current
    * {@link BaseServer}.
@@ -87,7 +79,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return asConcrete();
   }
 
-  //method
   /**
    * Adds a new {@link Application} with the given instanceName,
    * initialSessionClass and applicationContext to the current {@link BaseServer}.
@@ -123,7 +114,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return addApplication(application);
   }
 
-  //method
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
    * void context to the current {@link BaseServer}.
@@ -156,7 +146,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return addApplication(application);
   }
 
-  //method
   /**
    * Adds the given defaultApplication to the current {@link BaseServer}. A
    * default {@link Application} takes all {@link Client}s that do not have a
@@ -220,7 +209,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return addDefaultApplication(localDefaultApplication);
   }
 
-  //method
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
    * void context as default {@link Application} the current {@link BaseServer}.
@@ -253,13 +241,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return addDefaultApplication(localDefaultApplication);
   }
 
-  //method
   @Override
   public final void clear() {
     getStoredApplications().forEach(this::removeApplication);
   }
 
-  //method
   /**
    * @return true if the current {@link BaseServer} contains a default
    *         {@link Application}.
@@ -268,7 +254,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return (defaultApplication != null);
   }
 
-  //method
   /**
    * @param name
    * @return true if the current {@link BaseServer} contains a {@link Application}
@@ -278,7 +263,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return applications.containsAny(a -> a.getInstanceName().equals(name));
   }
 
-  //method
   /**
    * @param instanceName
    * @return the {@link Application} with the given instanceName from the current
@@ -292,7 +276,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return applications.getStoredFirst(a -> a.getInstanceName().equals(instanceName));
   }
 
-  //method
   /**
    * @param urlInstanceName
    * @return the {@link Application} with the given urlInstanceName from the
@@ -306,7 +289,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return applications.getStoredFirst(a -> a.getUrlInstanceName().equals(urlInstanceName));
   }
 
-  //method
   /**
    * @return the {@link Application}s of the current {@link BaseServer}.
    */
@@ -314,7 +296,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return applications;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -323,7 +304,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return closeController;
   }
 
-  //method
   /**
    * @return the default {@link Application} of the current {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -339,7 +319,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return defaultApplication;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -348,7 +327,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return getStoredApplications().isEmpty();
   }
 
-  //method
   /**
    * @return true if the current {@link BaseServer} has a {@link Client}
    *         connected.
@@ -357,7 +335,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     return applications.containsAny(Application::hasClientConnected);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -365,7 +342,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
   public final void noteClose() {
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -377,7 +353,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     removeApplication(application);
   }
 
-  //method
   /**
    * Lets the current {@link BaseServer} take the given client.
    * 
@@ -406,13 +381,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     }
   }
 
-  //method declaration
   /**
    * @return the current {@link BaseServer}.
    */
   protected abstract SR asConcrete();
 
-  //method declaration
   /**
    * Notes that the given application has been added to the current
    * {@link BaseServer}.
@@ -421,7 +394,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    */
   protected abstract void noteAddedApplication(Application<?, ?> application);
 
-  //method declaration
   /**
    * Notes that the given defaultApplication has been added to the current
    * {@link BaseServer}.
@@ -430,7 +402,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    */
   protected abstract void noteAddedDefaultApplication(Application<?, ?> defaultApplication);
 
-  //method declaration
   /**
    * Notes that the given application has been removed fromt the current
    * {@link BaseServer}.
@@ -439,7 +410,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    */
   protected abstract void noteRemovedApplication(IApplication<?> application);
 
-  //method
   /**
    * Lets the current {@link Server} take the given endPoint.
    * 
@@ -457,7 +427,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     }
   }
 
-  //method
   /**
    * Adds the given application to the list of {@link Application}s of the current
    * {@link BaseServer}.
@@ -478,7 +447,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     applications.addAtEnd(application);
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
@@ -491,7 +459,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     }
   }
 
-  //method
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
@@ -506,7 +473,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     }
   }
 
-  //method
   /**
    * Removes the given application from the current {@link BaseServer}
    * 

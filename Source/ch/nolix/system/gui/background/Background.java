@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.gui.background;
 
-//Java imports
 import java.util.Locale;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -30,40 +27,28 @@ import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
-//class
 public final class Background extends Element implements IBackground {
 
-  //constant
   public static final Background TRANSPARENT_BACKGROUND = new Background();
 
-  //constant
   public static final ImageApplication DEFAULT_IMAGE_APPLICATION = ImageApplication.SCALE_TO_FRAME;
 
-  //constant
   private static final String COLOR_HEADER = "Color";
 
-  //constant
   private static final String COLOR_GRADIENT_HEADER = "ColorGradient";
 
-  //constant
   private static final String IMAGE_HEADER = "Image";
 
-  //constant
   private static final String TRANSPARENCY_HEADER = "Transparency";
 
-  //attribute
   private final IColor color;
 
-  //attribute
   private final IColorGradient colorGradient;
 
-  //attribute
   private final IImage image;
 
-  //attribute
   private final ImageApplication imageApplication;
 
-  //constructor
   private Background() {
     color = null;
     colorGradient = null;
@@ -71,7 +56,6 @@ public final class Background extends Element implements IBackground {
     imageApplication = null;
   }
 
-  //constructor
   private Background(final IColor color) {
 
     GlobalValidator.assertThat(color).thatIsNamed(IColor.class).isNotNull();
@@ -82,7 +66,6 @@ public final class Background extends Element implements IBackground {
     imageApplication = null;
   }
 
-  //constructor
   private Background(final IColorGradient colorGradient) {
 
     GlobalValidator.assertThat(colorGradient).thatIsNamed(IColorGradient.class).isNotNull();
@@ -93,7 +76,6 @@ public final class Background extends Element implements IBackground {
     imageApplication = null;
   }
 
-  //constructor
   private Background(final IImage image, final ImageApplication imageApplication) {
 
     GlobalValidator.assertThat(image).thatIsNamed(IImage.class).isNotNull();
@@ -105,7 +87,6 @@ public final class Background extends Element implements IBackground {
     this.imageApplication = imageApplication;
   }
 
-  //static method
   public static Background fromSpecification(final INode<?> specification) {
 
     final var childNode = specification.getStoredFirstChildNode();
@@ -126,29 +107,24 @@ public final class Background extends Element implements IBackground {
     };
   }
 
-  //static method
   public static Background withColor(final IColor color) {
     return new Background(color);
   }
 
-  //static method
   public static Background withColorGradient(final IColorGradient colorGradient) {
     return new Background(colorGradient);
   }
 
-  //static method
   public static Background withImage(final IImage image) {
     return withImageAndImageApplication(image, DEFAULT_IMAGE_APPLICATION);
   }
 
-  //static method
   public static Background withImageAndImageApplication(
     final IImage image,
     final ImageApplication imageApplication) {
     return new Background(image, imageApplication);
   }
 
-  //method
   private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
     final INode<?> specification) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
@@ -157,7 +133,6 @@ public final class Background extends Element implements IBackground {
       Background.class);
   }
 
-  //method
   @Override
   public IContainer<INode<?>> getAttributes() {
     return switch (getType()) {
@@ -174,7 +149,6 @@ public final class Background extends Element implements IBackground {
     };
   }
 
-  //method
   @Override
   public IColor getColor() {
 
@@ -183,7 +157,6 @@ public final class Background extends Element implements IBackground {
     return color;
   }
 
-  //method
   @Override
   public IColorGradient getColorGradient() {
 
@@ -192,7 +165,6 @@ public final class Background extends Element implements IBackground {
     return colorGradient;
   }
 
-  //method
   @Override
   public IImage getImage() {
 
@@ -201,7 +173,6 @@ public final class Background extends Element implements IBackground {
     return image;
   }
 
-  //method
   @Override
   public ImageApplication getImageApplication() {
 
@@ -210,10 +181,8 @@ public final class Background extends Element implements IBackground {
     return imageApplication;
   }
 
-  //method
   @Override
-  public BackgroundType getType() { //NOSONAR: The type of a Background is determined by all of its other
-                                    //attributes.
+  public BackgroundType getType() { //NOSONAR: The type of a Background is determined by all of its other attributes.
 
     if (isColor()) {
       return BackgroundType.COLOR;
@@ -230,27 +199,22 @@ public final class Background extends Element implements IBackground {
     return BackgroundType.TRANSPARENCY;
   }
 
-  //method
   public boolean isColor() {
     return (color != null);
   }
 
-  //method
   public boolean isColorGradient() {
     return (colorGradient != null);
   }
 
-  //method
   public boolean isImage() {
     return (image != null);
   }
 
-  //method
   public boolean isTransparent() {
     return !isColor() && !isColorGradient() && !isImage();
   }
 
-  //method
   @Override
   public IContainer<ICssProperty> toCssProperties() {
     return switch (getType()) {
@@ -267,28 +231,24 @@ public final class Background extends Element implements IBackground {
     };
   }
 
-  //method
   private void assertIsColor() {
     if (!isColor()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IColor.class);
     }
   }
 
-  //method
   private void assertIsColorGradient() {
     if (!isColorGradient()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IColorGradient.class);
     }
   }
 
-  //method
   private void assertIsImage() {
     if (!isImage()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IImage.class);
     }
   }
 
-  //method
   private String getColorCodeOfColor(final IColor color) {
 
     if (color.hasFullAlphaValue()) {
@@ -304,17 +264,14 @@ public final class Background extends Element implements IBackground {
       color.getAlphaPercentage());
   }
 
-  //method
   private Object getDegreeCodeOfColorGradient(final IColorGradient pColorGradient) {
     return (getDegreeOfColorGradient(pColorGradient) + "deg");
   }
 
-  //method
   private int getDegreeOfColorGradient(final IColorGradient pColorGradient) {
     return getDegreeOfDirection(pColorGradient.getDirection());
   }
 
-  //method
   private int getDegreeOfDirection(final DirectionInCanvas direction) {
     return switch (direction) {
       case VERTICAL ->
@@ -330,14 +287,12 @@ public final class Background extends Element implements IBackground {
     };
   }
 
-  //method
   private IContainer<ICssProperty> toCssPropertiesWhenIsColor() {
     final var colorCode = getColorCodeOfColor(color);
 
     return ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, colorCode));
   }
 
-  //method
   private IContainer<ICssProperty> toCssPropertiesWhenIsColorGradient() {
     final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
     final var color1Code = getColorCodeOfColor(colorGradient.getColor1());
@@ -348,7 +303,6 @@ public final class Background extends Element implements IBackground {
       CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode));
   }
 
-  //method
   private IContainer<ICssProperty> toCssPropertiesWhenIsImage() {
     final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
 
@@ -359,7 +313,6 @@ public final class Background extends Element implements IBackground {
       CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%"));
   }
 
-  //method
   private IContainer<ICssProperty> toCssPropertiesWhenIsTransparent() {
     return ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, "none"));
   }

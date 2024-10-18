@@ -1,31 +1,22 @@
-//package declaration
 package ch.nolix.core.net.websocket;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
 
-//class
 final class WebSocketFrameFirstNibble {
 
-  //attribute
   private final boolean mFINBit;
 
-  //attribute
   private final int opcode;
 
-  //attribute
   private final boolean maskBit;
 
-  //attribute
   private final WebSocketFramePayloadLengthType payloadLengthSpecification;
 
-  //attribute
   private final int m7BitPayloadLength;
 
-  //constructor
   public WebSocketFrameFirstNibble(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
@@ -46,7 +37,6 @@ final class WebSocketFrameFirstNibble {
     }
   }
 
-  //constructor
   public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
 
     final var wrapperByte1 = new UnsignedByte(byte1);
@@ -67,7 +57,6 @@ final class WebSocketFrameFirstNibble {
     m7BitPayloadLength = byte2 & 0x7F;
   }
 
-  //static method
   public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
 
     GlobalValidator.assertThat(nibble).hasElementCount(2);
@@ -75,12 +64,10 @@ final class WebSocketFrameFirstNibble {
     return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
   }
 
-  //method
   public int get7BitsPayloadLength() {
     return m7BitPayloadLength;
   }
 
-  //method
   public byte getByte1() {
 
     var byte1 = 0;
@@ -94,7 +81,6 @@ final class WebSocketFrameFirstNibble {
     return (byte) byte1;
   }
 
-  //method
   public byte getByte2() {
 
     var byte2 = 0;
@@ -118,32 +104,26 @@ final class WebSocketFrameFirstNibble {
     return (byte) byte2;
   }
 
-  //method
   public boolean getFINBit() { //NOSONAR: This method returns a bit as a boolean.
     return mFINBit;
   }
 
-  //method
   public boolean getMaskBit() { //NOSONAR: This method returns a bit as a boolean.
     return maskBit;
   }
 
-  //method
   public int getOpcode() {
     return opcode;
   }
 
-  //method
   public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
     return WebSocketFrameOpcodeMeaning.fromNumber(opcode);
   }
 
-  //method
   public WebSocketFramePayloadLengthType getPayloadLengthType() {
     return payloadLengthSpecification;
   }
 
-  //method
   public byte[] toBytes() {
     return new byte[] { getByte1(), getByte2() };
   }

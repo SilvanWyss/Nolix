@@ -1,8 +1,7 @@
-//package declaration
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,7 +12,6 @@ import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
@@ -21,16 +19,12 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  */
 abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBaseStyle<S> {
 
-  //constant
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
-  //multi-attribute
   private final ImmutableList<Node> attachingAttributes;
 
-  //multi-attribute
   private final ImmutableList<BaseSelectingStyle> subStyles;
 
-  //constructor
   /**
    * Creates a new {@link BaseStyle}.
    * 
@@ -46,7 +40,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     this.subStyles = ImmutableList.forIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -55,7 +48,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     return attachingAttributes;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -64,7 +56,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     return subStyles;
   }
 
-  //method
   /**
    * @return true if the current {@link BaseStyle} has attaching attributes.
    */
@@ -72,7 +63,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     return attachingAttributes.containsAny();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -84,7 +74,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     return withAttachingAttributes(allAttachingAttributes);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -98,7 +87,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     return withSubStyles(allSubStyles);
   }
 
-  //method
   /**
    * Sets the attaching attributes of the current {@link BaseStyle} to the given
    * element.
@@ -126,7 +114,6 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     }
   }
 
-  //method
   /**
    * Lets the sub styles of the current {@link BaseStyle} style the child element
    * of the given element.

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.application.basewebapplication;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -15,23 +12,18 @@ import ch.nolix.coreapi.webapi.cookieapi.ICookieManager;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
-//class
 public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
 extends BackendClient<BBWC, AC>
 implements ICookieManager {
 
-  //constant
   private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
   new BaseWebClientCommandCreator();
 
-  //constant
   private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
   new BaseWebClientRequestCreator();
 
-  //attribute
   private final BaseWebClientFileReader fileReader = BaseWebClientFileReader.forBackendWebClient(this);
 
-  //method
   @Override
   public final void deleteCookieByName(final String name) {
 
@@ -40,7 +32,6 @@ implements ICookieManager {
     runOnCounterpart(deleteCookieCommand);
   }
 
-  //method
   @Override
   public final Optional<String> getOptionalCookieValueByCookieName(final String cookieName) {
 
@@ -50,7 +41,6 @@ implements ICookieManager {
     return getOptionalCookieValueByCookieNameFromData(getDataFromCounterpart(getCookieValueRequest));
   }
 
-  //method
   public final Optional<String> getOptionalUrlParameterValueByUrlParameterName(final String urlParameterName) {
 
     final var getUrlParameterValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
@@ -61,7 +51,6 @@ implements ICookieManager {
     return urlParameterValueReply.getOptionalHeader();
   }
 
-  //method
   @Override
   public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
 
@@ -71,7 +60,6 @@ implements ICookieManager {
     runOnCounterpart(setOrAddCookieCommand);
   }
 
-  //method
   @Override
   protected final void runHere(final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
@@ -83,15 +71,12 @@ implements ICookieManager {
     }
   }
 
-  //method declaration
   protected abstract void runHereOnBaseBackendWebClient(IChainedNode command);
 
-  //method
   final IContainer<byte[]> internalGetFilesFromClipboardOfCounterpart() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "getFilesFromClipboard");
   }
 
-  //method
   final String internalGetTextFromClipboardOfCounterpart() {
 
     final var getTextFromClipBoardCommand = BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetTextFromClipboardRequest();
@@ -99,7 +84,6 @@ implements ICookieManager {
     return getDataFromCounterpart(getTextFromClipBoardCommand).getHeader();
   }
 
-  //method
   final void internalOpenNewTabOnCounterpartWithUrl(final String url) {
 
     final var openNewTabCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createOpenNewTabCommand(url);
@@ -107,12 +91,10 @@ implements ICookieManager {
     runOnCounterpart(openNewTabCommand);
   }
 
-  //method
   final Optional<byte[]> internalReadOptionalFileFromCounterpart() {
     return fileReader.readOptionalFileFromCounterpart();
   }
 
-  //method
   final void internalRedirectCounterpartTo(final IApplicationInstanceTarget applicationInstanceTarget) {
 
     final var redirectCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationInstanceTarget);
@@ -120,7 +102,6 @@ implements ICookieManager {
     runOnCounterpart(redirectCommand);
   }
 
-  //method
   final void internalRedirectCounterpartToUrl(final String url) {
 
     final var redirectToUrlCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectToUrlCommand(url);
@@ -128,12 +109,10 @@ implements ICookieManager {
     runOnCounterpart(redirectToUrlCommand);
   }
 
-  //method
   final void internalRunOnCounterpart(final ChainedNode command) {
     runOnCounterpart(command);
   }
 
-  //method
   final void internalSaveFileOnCounterpart(final byte[] bytes) {
 
     final var saveFileCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createSaveFileCommand(bytes);
@@ -141,7 +120,6 @@ implements ICookieManager {
     runOnCounterpart(saveFileCommand);
   }
 
-  //method
   final void internalWriteTextToClipboardOfCounterpart(final String text) {
 
     final var writeTextToClipboardCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createWriteTextToClipBoardCommand(text);
@@ -149,12 +127,10 @@ implements ICookieManager {
     runOnCounterpart(writeTextToClipboardCommand);
   }
 
-  //method
   private Optional<String> getOptionalCookieValueByCookieNameFromData(final INode<?> data) {
     return data.getOptionalHeader();
   }
 
-  //method
   private void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
     fileReader.receiveOptionalFileFromCounterpart(receiveOptionalFileCommand);
   }

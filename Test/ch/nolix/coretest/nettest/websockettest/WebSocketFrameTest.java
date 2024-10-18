@@ -1,23 +1,17 @@
-//package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
-//Java imports
 import java.io.IOException;
 import java.io.InputStream;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 
-//class
 final class WebSocketFrameTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
@@ -62,7 +56,6 @@ final class WebSocketFrameTest extends StandardTest {
     expect(new UnsignedByte(resultPayload[1]).toBitString()).isEqualTo("00100000");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
@@ -78,7 +71,6 @@ final class WebSocketFrameTest extends StandardTest {
     expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("00000000");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
@@ -94,7 +86,6 @@ final class WebSocketFrameTest extends StandardTest {
     expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("00000000");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
@@ -117,7 +108,6 @@ final class WebSocketFrameTest extends StandardTest {
     expect(new UnsignedByte(result[5]).toBitString()).isEqualTo("00000100");
   }
 
-  //method
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
 
@@ -145,7 +135,6 @@ final class WebSocketFrameTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
 
@@ -179,7 +168,6 @@ final class WebSocketFrameTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
 

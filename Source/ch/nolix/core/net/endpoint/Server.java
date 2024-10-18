@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.io.IOException;
 import java.net.ServerSocket;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -15,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 /**
  * A {@link Server} is a {@link BaseServer} that listens to {@link NetEndPoint}
  * on a specific port.
@@ -28,7 +24,6 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  */
 public final class Server extends BaseServer {
 
-  //constant
   public static final String DEFAULT_INITIAL_HTTP_MESSAGE = //
   """
   HTTP/1.1 200 OK
@@ -47,16 +42,12 @@ public final class Server extends BaseServer {
   </html>
   """;
 
-  //attribute
   private final int port;
 
-  //attribute
   private final String initialHttpMessage;
 
-  //attribute
   private final ServerSocket serverSocket;
 
-  //constructor
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
    * given port.
@@ -102,7 +93,6 @@ public final class Server extends BaseServer {
     createServerListener();
   }
 
-  //static method
   /**
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
    *         HTTP port (80).
@@ -111,7 +101,6 @@ public final class Server extends BaseServer {
     return forPort(PortCatalogue.HTTP);
   }
 
-  //static method
   /**
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
@@ -122,7 +111,6 @@ public final class Server extends BaseServer {
     return new Server(port, DEFAULT_INITIAL_HTTP_MESSAGE);
   }
 
-  //static method
   /**
    * @param port
    * @param initialHttpMessage
@@ -140,7 +128,6 @@ public final class Server extends BaseServer {
     return new Server(port, initialHttpMessage);
   }
 
-  //method
   /**
    * The HTTP message of a {@link Server} is the message a {@link Server} sends to
    * web browsers.
@@ -152,7 +139,6 @@ public final class Server extends BaseServer {
     return initialHttpMessage;
   }
 
-  //method
   /**
    * @return the port of the current {@link Server}.
    */
@@ -160,7 +146,6 @@ public final class Server extends BaseServer {
     return port;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -169,7 +154,6 @@ public final class Server extends BaseServer {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -182,7 +166,6 @@ public final class Server extends BaseServer {
     }
   }
 
-  //method
   /**
    * @return the {@link ServerSocket} of the current {@link Server}.
    */
@@ -190,7 +173,6 @@ public final class Server extends BaseServer {
     return serverSocket;
   }
 
-  //method
   /**
    * Creates a {@link ServerListener} for the current {@link Server}.
    */

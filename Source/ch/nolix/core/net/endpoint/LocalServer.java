@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2021-06-17
  */
 public final class LocalServer extends BaseServer {
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -20,7 +16,6 @@ public final class LocalServer extends BaseServer {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

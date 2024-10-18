@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.processproperty;
 
-//enum
 /**
  * A {@link ProcessingMode} defines if a process should be run single-threaded
  * or multi-threaded.

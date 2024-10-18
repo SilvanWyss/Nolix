@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -11,10 +10,8 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-//class
 public final class WebGuiHtmlBuilder {
 
-  //method
   public IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
     return //
     HtmlElement.withTypeAndAttributesAndChildElements(
@@ -23,7 +20,6 @@ public final class WebGuiHtmlBuilder {
       createLayerHtmlElementsForWebGui(webGui));
   }
 
-  //method
   private IContainer<? extends IHtmlElement> createLayerHtmlElementsForWebGui(final IWebGui<?> webGui) {
     return webGui.getStoredLayers().to(ILayer::getHtml);
   }

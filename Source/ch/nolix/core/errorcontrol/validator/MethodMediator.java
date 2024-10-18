@@ -1,29 +1,22 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//Java imports
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public class MethodMediator extends ArgumentMediator<Method> {
 
-  //constructor
   MethodMediator(final Method argument) {
     super(LowerCaseVariableCatalogue.METHOD, argument);
   }
 
-  //constructor
   MethodMediator(final String argumentName, final Method argument) {
     super(argumentName, argument);
   }
 
-  //method
   public final MethodMediator doesNotHaveAnnotations() {
 
     isNotNull();
@@ -38,7 +31,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  //method
   public final MethodMediator doesNotReturnAnything() {
 
     isNotNull();
@@ -53,7 +45,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  //method
   public final <A extends Annotation> MethodMediator hasAnnotation(final Class<A> annotationType) {
 
     if (annotationType == null) {
@@ -72,7 +63,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  //method
   public final MethodMediator hasParametersOfTypeOnly(final Class<String> type) {
 
     if (type == null) {
@@ -93,7 +83,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  //method
   public final MethodMediator hasReturnType(final Class<?> returnType) {
 
     if (returnType == null) {

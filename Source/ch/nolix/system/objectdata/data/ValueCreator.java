@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programstructure.data.BinaryObject;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 
-//class
 public final class ValueCreator {
 
-  //method
   public Object createValueOfDataTypeFromString(final DataType dataType, final String string) {
     return switch (dataType) {
       case INTEGER_1BYTE ->

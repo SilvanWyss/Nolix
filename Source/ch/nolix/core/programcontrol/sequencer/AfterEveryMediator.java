@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link AfterEveryMediator} is not mutable.
  * 
@@ -20,16 +16,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class AfterEveryMediator {
 
-  //attribute
   private final int timeIntervalInMilliseconds;
 
-  //optional attribute
   private final Integer maxRunCount;
 
-  //optional attribute
   private final BooleanSupplier condition;
 
-  //constructor
   /**
    * Creates a new {@link AfterEveryMediator} with the given condition and time
    * interval in milliseconds.
@@ -50,7 +42,6 @@ public final class AfterEveryMediator {
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
   }
 
-  //constructor
   /**
    * Creates a new {@link AfterEveryMediator} with the given maxRunCount,
    * condition and time interval in milliseconds.
@@ -77,7 +68,6 @@ public final class AfterEveryMediator {
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
   }
 
-  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job.
    * 
@@ -96,7 +86,6 @@ public final class AfterEveryMediator {
     }
   }
 
-  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job in background.
    * 
@@ -115,7 +104,6 @@ public final class AfterEveryMediator {
     return runInBackgroundWhenHasMaxRunConunt(job);
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AfterEveryMediator} does
@@ -128,7 +116,6 @@ public final class AfterEveryMediator {
     }
   }
 
-  //method
   /**
    * @return true if the current {@link AfterEveryMediator} has a condition.
    */
@@ -136,7 +123,6 @@ public final class AfterEveryMediator {
     return (condition != null);
   }
 
-  //method
   /**
    * @return true if the current {@link AfterEveryMediator} has a max run count.
    */
@@ -144,7 +130,6 @@ public final class AfterEveryMediator {
     return (maxRunCount != null);
   }
 
-  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job in background
    * for the case when the current {@link AfterEveryMediator} does not have a max
@@ -165,7 +150,6 @@ public final class AfterEveryMediator {
     return new Future(new JobRunner(job, condition, timeIntervalInMilliseconds));
   }
 
-  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job in background
    * for the case when the current {@link AfterEveryMediator} has a max run count.
@@ -185,7 +169,6 @@ public final class AfterEveryMediator {
     return new Future(new JobRunner(job, maxRunCount, condition, timeIntervalInMilliseconds));
   }
 
-  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job for the case
    * when the current {@link AfterEveryMediator} does not have a max run count.
@@ -205,7 +188,6 @@ public final class AfterEveryMediator {
     }
   }
 
-  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job for the case
    * when the current {@link AfterEveryMediator} has a max run count.

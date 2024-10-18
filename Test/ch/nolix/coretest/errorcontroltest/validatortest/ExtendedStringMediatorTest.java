@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.ExtendedStringMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ExtendedStringMediatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_thatIsNamed() {
 

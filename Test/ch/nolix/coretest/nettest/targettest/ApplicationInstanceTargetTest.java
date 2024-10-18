@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.coretest.nettest.targettest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 final class ApplicationInstanceTargetTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {
 
@@ -34,7 +29,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     expect(result.getSecurityModeForConnection()).isEqualTo(SecurityMode.SSL);
   }
 
-  //method
   @Test
   void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
 
@@ -54,7 +48,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     expect(result).isEqualTo("http://nolix.tech?app=demo_application");
   }
 
-  //method
   @Test
   void testCase_toUrl_forHttpsPortAndSSLSecurityMode() {
 
@@ -74,7 +67,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     expect(result).isEqualTo("https://nolix.tech?app=demo_application");
   }
 
-  //method
   @Test
   void testCase_toUrl_forCustomPortAndNoneSecurityMode() {
 
@@ -94,7 +86,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     expect(result).isEqualTo("http://nolix.tech:50000?app=demo_application");
   }
 
-  //method
   @Test
   void testCase_toUrl_forCustomPortAndSslSecurityMode() {
 

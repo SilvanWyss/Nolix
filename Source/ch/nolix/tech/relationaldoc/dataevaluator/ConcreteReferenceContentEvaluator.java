@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.tech.relationaldoc.dataevaluator;
 
-//own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractReferenceContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 
-//class
 public final class ConcreteReferenceContentEvaluator {
 
-  //method
   public boolean canAddObject(
     final IConcreteReferenceContent concreteReferenceContent,
     final IAbstractableObject object) {
@@ -20,17 +16,14 @@ public final class ConcreteReferenceContentEvaluator {
     && canAddObjectBecauseOfReferencedType(concreteReferenceContent, object);
   }
 
-  //method
   public boolean canRemoveObjects(final IConcreteReferenceContent concreteReferenceContent) {
     return canRemoveObjectsBecauseOfCardinality(concreteReferenceContent);
   }
 
-  //method
   public boolean canRemoveOneObject(final IConcreteReferenceContent concreteReferenceContent) {
     return canRemoveOneObjectBecauseOfCardinality(concreteReferenceContent);
   }
 
-  //method
   private boolean canAddObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
     && (concreteReferenceContent.getStoredParentField().getCardinality() == Cardinality.TO_MANY
@@ -66,7 +59,6 @@ public final class ConcreteReferenceContentEvaluator {
     && concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE;
   }
 
-  //method
   private boolean canRemoveOneObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
     && (concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE

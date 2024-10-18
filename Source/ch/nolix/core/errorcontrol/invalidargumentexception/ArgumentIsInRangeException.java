@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentIsInRangeException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given value is undesirably in a certain
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsInRangeException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argument and
    * range defined by the given min and max.
@@ -28,7 +25,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     super(argument, "is in [" + min + ", " + max + "]");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argument and
    * range defined by the given min and max.
@@ -43,7 +39,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     super(argument, "is in [" + min + ", " + max + "]");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argumentName,
    * argument and range defined by the given min and max.
@@ -65,7 +60,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     super(argumentName, argument, "is in [" + min + ", " + max + "]");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argumentName,
    * argument and range defined by the given min and max.
@@ -87,7 +81,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     super(argumentName, argument, "is in [" + min + ", " + max + "]");
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsInRangeException} for the given argument and
@@ -102,7 +95,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argument, min, max);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsInRangeException} for the given argument and
@@ -117,7 +109,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argument, min, max);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -136,7 +127,6 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argumentName, argument, min, max);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

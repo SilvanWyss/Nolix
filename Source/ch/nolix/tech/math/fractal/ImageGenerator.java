@@ -1,10 +1,8 @@
-//package declaration
 package ch.nolix.tech.math.fractal;
 
 //Java import
 import java.math.BigDecimal;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -26,28 +24,20 @@ import ch.nolix.techapi.mathapi.fractalapi.IFractal;
 import ch.nolix.techapi.mathapi.fractalapi.IFractalTool;
 import ch.nolix.techapi.mathapi.fractalapi.IImageGenerator;
 
-//class
 public final class ImageGenerator extends BaseFuture implements IImageGenerator {
 
-  //constant
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 
-  //constant
   private static final IFractalTool FRACTAL_TOOL = new FractalTool();
 
-  //attribute
   private final IFractal fractal;
 
-  //attribute
   private final BigDecimal squaredMinMagnitudeForDivergence;
 
-  //attribute
   private final MutableImage image;
 
-  //multi-attribute
   private final IContainer<IFuture> futures;
 
-  //constructor
   private ImageGenerator(final IFractal fractal) {
 
     GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
@@ -61,18 +51,15 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     futures = startFillImageAndGetFutures();
   }
 
-  //static method
   public static ImageGenerator forFractal(final IFractal fractal) {
     return new ImageGenerator(fractal);
   }
 
-  //method
   @Override
   public boolean caughtError() {
     return futures.containsAny(IFuture::caughtError);
   }
 
-  //method
   @Override
   public Throwable getError() {
 
@@ -85,25 +72,21 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     return futureWithError.get().getError();
   }
 
-  //method
   @Override
   public MutableImage getStoredImage() {
     return image;
   }
 
-  //method
   @Override
   public boolean isFinished() {
     return futures.containsOnly(IFuture::isFinished);
   }
 
-  //method
   @Override
   public void waitUntilIsFinished() {
     futures.forEach(IFuture::waitUntilIsFinished);
   }
 
-  //method
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
 
@@ -118,21 +101,18 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     }
   }
 
-  //method
   private void fillImageRow(final int y) {
     for (var x = 1; x <= image.getWidth(); x++) {
       fillImagePixel(x, y);
     }
   }
 
-  //method
   private void fillImageRows(final int startImageRow, final int endImageRow) {
     for (var y = startImageRow; y <= endImageRow; y++) {
       fillImageRow(y);
     }
   }
 
-  //method
   private void fillImagePixel(final int x, final int y) {
 
     final var color = Color.createAverageFrom(
@@ -144,7 +124,6 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     image.setPixel(x, y, color);
   }
 
-  //method
   private IColor getColorOfPixel(final double x, final double y) {
 
     final var z = getComplexNumberOfPixel(x, y);
@@ -154,14 +133,12 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     return fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(iterationCount);
   }
 
-  //method
   private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
     return new ComplexNumber(
       FRACTAL_TOOL.getMinX(fractal).add(FRACTAL_TOOL.getUnitsForHorizontalPixelCount(fractal, x)),
       FRACTAL_TOOL.getMinY(fractal).add(FRACTAL_TOOL.getUnitsForVerticalPixelCount(fractal, y)));
   }
 
-  //method
   private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
     final IComplexNumber complexNumber) {
     return FRACTAL_TOOL.getIterationCountForStartNumberWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
@@ -170,7 +147,6 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
       squaredMinMagnitudeForDivergence);
   }
 
-  //method
   private ILinkedList<IFuture> startFillImageAndGetFutures() {
 
     final ILinkedList<IFuture> lFutures = LinkedList.createEmpty();

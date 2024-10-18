@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programatomapi.stringcatalogueapi;
 
-//class
 /**
  * Of the {@link RegularExpressionStringPatternCatalogue} an instance cannot be
  * created.
@@ -11,13 +9,10 @@ package ch.nolix.coreapi.programatomapi.stringcatalogueapi;
  */
 public final class RegularExpressionStringPatternCatalogue {
 
-  //constant
   public static final String DOT_PATTERN = ".";
 
-  //constant
   public static final String DOUBLE_PATTERN = "[-]?\\d+.\\d+";
 
-  //constructor
   /**
    * Prevents that an instance of the
    * {@link RegularExpressionStringPatternCatalogue} can be created.

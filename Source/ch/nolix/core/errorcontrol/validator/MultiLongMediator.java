@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.independent.containertool.ArrayTool;
 
-//class
 /**
  * A long container mediator is not mutable.
  * 
@@ -16,10 +13,8 @@ import ch.nolix.core.independent.containertool.ArrayTool;
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
-  //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //constructor
   /**
    * Creates a new long container mediator with the given arguments.
    * 
@@ -38,7 +33,6 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
     super(ARRAY_TOOL.createIterable(arguments));
   }
 
-  //static method
   public static MultiLongMediator forValue(final int value, final int[] values) {
 
     final var allValues = new List<Long>();
@@ -50,7 +44,6 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
     return new MultiLongMediator(allValues);
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException      if one of the arguments of this long
    *                                      container mediator is null.

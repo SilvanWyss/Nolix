@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programcontrolapi.processapi;
 
-//interface
 /**
  * A {@link Runnable} can be run.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.programcontrolapi.processapi;
  */
 public interface Runnable {
 
-  //method declaration
   /**
    * Lets the current {@link Runnable} run.
    */

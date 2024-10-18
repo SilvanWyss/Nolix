@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.core.reflection;
 
-//Java imports
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class FieldTool {
 
-  //method
   @SuppressWarnings("unchecked")
   public <V> V getValueFromStaticField(final Field paramField) {
 
@@ -30,12 +25,10 @@ public final class FieldTool {
     }
   }
 
-  //method
   public boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
     return type.isAssignableFrom(field.getType());
   }
 
-  //method
   public boolean isStatic(final Field field) {
 
     if (field == null) {
@@ -45,7 +38,6 @@ public final class FieldTool {
     return Modifier.isStatic(field.getModifiers());
   }
 
-  //method
   public boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {

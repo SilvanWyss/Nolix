@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.core.testing.standardtest;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link ThrownExceptionMediator} is not mutable.
  * 
@@ -21,10 +18,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public class ThrownExceptionMediator {
 
-  //optional attribute
   private final Throwable exception;
 
-  //constructor
   /**
    * Creates a new {@link ThrownExceptionMediator}.
    */
@@ -34,7 +29,6 @@ public class ThrownExceptionMediator {
     exception = null;
   }
 
-  //constructor
   /**
    * Creates a new {@link ThrownExceptionMediator} for the given exception.
    * 
@@ -52,7 +46,6 @@ public class ThrownExceptionMediator {
     this.exception = exception;
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Generates an error if the exception of the current
@@ -69,7 +62,6 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Generates an error if the exception of the current
@@ -112,7 +104,6 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //method
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have a message that matches the
@@ -148,7 +139,6 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Generates an error if the exception of the current
@@ -166,7 +156,6 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @return the exception of the current {@link ThrownExceptionMediator}.
@@ -183,7 +172,6 @@ public class ThrownExceptionMediator {
     return exception;
   }
 
-  //method
   /**
    * @return true if the current {@link ThrownExceptionMediator} has an exception.
    */

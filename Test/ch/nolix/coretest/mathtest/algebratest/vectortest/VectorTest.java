@@ -1,21 +1,16 @@
-//package declaration
 package ch.nolix.coretest.mathtest.algebratest.vectortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class VectorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_equals_whenEquals() {
 
@@ -30,7 +25,6 @@ final class VectorTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenDoesNotEqual() {
 
@@ -45,7 +39,6 @@ final class VectorTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenIsEmptyAndEquals() {
 
@@ -60,7 +53,6 @@ final class VectorTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenIsEmptyAndDoesNotEqual() {
 
@@ -75,7 +67,6 @@ final class VectorTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_getEuclidNorm() {
 
@@ -89,7 +80,6 @@ final class VectorTest extends StandardTest {
     expect(result).isEqualTo(10.0);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'0.0; 0.0', 0.0",
@@ -113,7 +103,6 @@ final class VectorTest extends StandardTest {
     expect(result).isEqualTo(expectedManhattanNorm);
   }
 
-  //method
   @Test
   void testCase_getProduct() {
 
@@ -127,7 +116,6 @@ final class VectorTest extends StandardTest {
     expect(result).hasStringRepresentation("(5.0,12.5,25.0,-7.5,-20.0,0.0)");
   }
 
-  //method
   @Test
   void testCase_getProduct_whenIsEmpty() {
 
@@ -141,7 +129,6 @@ final class VectorTest extends StandardTest {
     expect(result).hasStringRepresentation("()");
   }
 
-  //method
   @Test
   void testCase_getSize() {
 
@@ -155,7 +142,6 @@ final class VectorTest extends StandardTest {
     expect(result).isEqualTo(6);
   }
 
-  //method
   @Test
   void testCase_getSize_whenIsEmpty() {
 
@@ -169,7 +155,6 @@ final class VectorTest extends StandardTest {
     expect(result).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_getSum_1A() {
 
@@ -184,7 +169,6 @@ final class VectorTest extends StandardTest {
     expect(result).hasStringRepresentation("(2.0,5.0,10.0,-3.0,-8.0,0.0)");
   }
 
-  //method
   @Test
   void testCase_getSum_1B() {
 
@@ -199,7 +183,6 @@ final class VectorTest extends StandardTest {
     expect(result).hasStringRepresentation("(3.0,6.0,11.0,-2.0,-7.0,1.0)");
   }
 
-  //method
   @Test
   void testCase_getSum_whenGivenAddendHasNotSameSize() {
 
@@ -216,7 +199,6 @@ final class VectorTest extends StandardTest {
         + "the current Vector (which has the size 6).");
   }
 
-  //method
   @Test
   void testCase_getSum_whenIsEmpty() {
 
@@ -231,7 +213,6 @@ final class VectorTest extends StandardTest {
     expect(result).hasStringRepresentation("()");
   }
 
-  //method
   @Test
   void testCase_toArray() {
 
@@ -251,7 +232,6 @@ final class VectorTest extends StandardTest {
     expect(result[5]).isEqualTo(0.0);
   }
 
-  //method
   @Test
   void testCase_toArray_whenIsEmpty() {
 
@@ -265,7 +245,6 @@ final class VectorTest extends StandardTest {
     expect(result.length).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_toString() {
 
@@ -279,7 +258,6 @@ final class VectorTest extends StandardTest {
     expect(result).isEqualTo("(2.0,5.0,10.0,-3.0,-8.0,0.0)");
   }
 
-  //method
   @Test
   void testCase_toString_whenIsEmpty() {
 

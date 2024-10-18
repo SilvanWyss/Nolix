@@ -1,22 +1,17 @@
-//package declaration
 package ch.nolix.systemapitest.fieldapitest.mainapitest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-//class
 final class FieldTypeTest extends StandardTest {
 
-  //method
   @MethodSource
   private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {
     return //
@@ -32,7 +27,6 @@ final class FieldTypeTest extends StandardTest {
       Arguments.of(ContentType.MULTI_BACK_REFERENCE, Cardinality.TO_MANY));
   }
 
-  //method
   @ParameterizedTest
   @MethodSource("getFieldTypesAndTheirCardinality")
   void testCase(final ContentType testUnit, final Cardinality expectedCardinality) {

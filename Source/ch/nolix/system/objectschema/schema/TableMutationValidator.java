@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
@@ -14,22 +12,16 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
-//class
 final class TableMutationValidator {
 
-  //constant
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
-  //constant
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  //constant
   private static final ITableTool TABLE_TOOL = new TableTool();
 
-  //constant
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
-  //method
   public void assertCanAddColumnToTable(final Table table, final Column column) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
@@ -57,7 +49,6 @@ final class TableMutationValidator {
     }
   }
 
-  //method
   public void assertCanDeleteTable(final Table table) {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
     DATABASE_OBJECT_VALIDATOR.assertIsNotNew(table);
@@ -65,7 +56,6 @@ final class TableMutationValidator {
     TABLE_TOOL.assertIsNotReferenced(table);
   }
 
-  //method
   public void assertCanSetNameToTable(final Table table, final String name) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);

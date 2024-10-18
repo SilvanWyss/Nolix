@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
-//class
 final class TableMapper {
 
-  //constant
   private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
-  //method
   @SuppressWarnings("unchecked")
   public Table<IEntity> createEmptyTableFromTableDtoForDatabase(
     final ITableDto tableDto,
@@ -25,7 +20,6 @@ final class TableMapper {
       (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.getName()));
   }
 
-  //method
   public ITable<IEntity> createTableFromTableDtoForDatabaseUsingGivenReferencableTables(
     final ITableDto tableDto,
     final Database database,

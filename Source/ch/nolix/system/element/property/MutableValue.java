@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2018-03-01
@@ -19,7 +15,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class MutableValue<V> extends SingleValue<V> {
 
-  //constructor
   /**
    * Creates a new {@link MutableValue} with the given name, defaultValue,
    * setterMethod, valueCreator and specificationCreator.
@@ -49,7 +44,6 @@ public final class MutableValue<V> extends SingleValue<V> {
     setValue(defaultValue);
   }
 
-  //static method
   /**
    * @param name
    * @param defaultValue
@@ -68,7 +62,6 @@ public final class MutableValue<V> extends SingleValue<V> {
       Node::withChildNode);
   }
 
-  //static method
   /**
    * @param name
    * @param defaultValue
@@ -86,7 +79,6 @@ public final class MutableValue<V> extends SingleValue<V> {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
-  //static method
   /**
    * @param name
    * @param defaultValue
@@ -104,7 +96,6 @@ public final class MutableValue<V> extends SingleValue<V> {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  //static method
   /**
    * @param name
    * @param defaultValue
@@ -134,7 +125,6 @@ public final class MutableValue<V> extends SingleValue<V> {
       });
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

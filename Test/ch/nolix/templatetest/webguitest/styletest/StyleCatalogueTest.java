@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.templatetest.webguitest.styletest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -20,10 +18,8 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.template.webgui.style.StyleCatalogue;
 
-//class
 final class StyleCatalogueTest extends StandardTest {
 
-  //method
   @Test
   void testCase_DarkStyle() {
 
@@ -35,7 +31,6 @@ final class StyleCatalogueTest extends StandardTest {
     expectRunning(() -> testUnit.applyToElement(webGuiWithVariousContent)).doesNotThrowException();
   }
 
-  //method
   private WebGui createWebGuiWithVariousContent() {
     return new WebGui()
       .pushLayer(

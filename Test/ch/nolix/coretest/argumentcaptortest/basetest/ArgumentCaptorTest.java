@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.coretest.argumentcaptortest.basetest;
 
-//Java imports
 import java.util.function.Supplier;
 
 //JUnit import
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
@@ -16,10 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ArgumentCaptorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
 
@@ -30,7 +25,6 @@ final class ArgumentCaptorTest extends StandardTest {
       .ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNotValid() {
 
@@ -41,7 +35,6 @@ final class ArgumentCaptorTest extends StandardTest {
       .ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_defaultConstructor() {
 
@@ -51,7 +44,6 @@ final class ArgumentCaptorTest extends StandardTest {
       .doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_nxtArgCpt_whenDoesNotHaveNextArgumentCaptor() {
 
@@ -65,14 +57,12 @@ final class ArgumentCaptorTest extends StandardTest {
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
-  //method
   @Test
   void testCase_setBuilder_whenTheGivenBuilderIsNull() {
 
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {
 
-      //method
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }
@@ -85,14 +75,12 @@ final class ArgumentCaptorTest extends StandardTest {
       .withMessage("The given builder is null.");
   }
 
-  //method
   @Test
   void testCase_setBuilder_whenHasAlreadyBuilder() {
 
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {
 
-      //method
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }

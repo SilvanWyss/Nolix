@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.serverdashboardapplication.view;
 
-//own imports
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
@@ -14,10 +12,8 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
-//class
 final class ServerDashboardStyleCreator {
 
-  //method
   public IStyle createServerDashboardStyle() {
     return //
     new Style()
@@ -30,14 +26,12 @@ final class ServerDashboardStyleCreator {
         createLevel1HeaderLabelStyle());
   }
 
-  //method
   private ISelectingStyleWithSelectors createLayerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Layer.class)
       .withAttachingAttribute("ContentAlignment(TOP)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createImageControlStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(ImageControl.class)
@@ -49,7 +43,6 @@ final class ServerDashboardStyleCreator {
         "HoverOpacity(90%)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createOverallVerticalStackContainerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(VerticalStack.class)
@@ -60,7 +53,6 @@ final class ServerDashboardStyleCreator {
         "BaseTextColor(0x202020)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createMainContentFloatContainerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(FloatContainer.class)
@@ -72,7 +64,6 @@ final class ServerDashboardStyleCreator {
           .withAttachingAttribute("BaseChildControlMargin(10)"));
   }
 
-  //method
   private ISelectingStyleWithSelectors createTitleLabelStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Label.class)
@@ -80,7 +71,6 @@ final class ServerDashboardStyleCreator {
       .withAttachingAttribute("BaseTextSize(50)");
   }
 
-  //method
   private ISelectingStyleWithSelectors createLevel1HeaderLabelStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Label.class)

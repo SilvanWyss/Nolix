@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalQualifiedNameHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalQualifiedNameHolder} is a
  * {@link IOptionalQualifiedNameHolder} whose name can be set and removed

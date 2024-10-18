@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.system.objectdata.fieldvalidator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldtool.MultiValueTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IMultiValueValidator;
 
-//class
 public final class MultiValueValidator extends FieldValidator implements IMultiValueValidator {
 
-  //constant
   private static final IMultiValueTool MULTI_VALUE_TOOL = new MultiValueTool();
 
-  //method
   @Override
   public void assertCanAddGivenValue(final IMultiValue<?> multiValue, final Object value) {
     if (!MULTI_VALUE_TOOL.canAddGivenValue(multiValue, value)) {
@@ -22,7 +17,6 @@ public final class MultiValueValidator extends FieldValidator implements IMultiV
     }
   }
 
-  //method
   @Override
   public void assertCanClear(final IMultiValue<?> multiValue) {
     if (!MULTI_VALUE_TOOL.canClear(multiValue)) {
@@ -30,7 +24,6 @@ public final class MultiValueValidator extends FieldValidator implements IMultiV
     }
   }
 
-  //method
   @Override
   public <V> void assertCanRemoveValue(final IMultiValue<V> multiValue, final V value) {
     if (!MULTI_VALUE_TOOL.canRemoveValue(multiValue, value)) {

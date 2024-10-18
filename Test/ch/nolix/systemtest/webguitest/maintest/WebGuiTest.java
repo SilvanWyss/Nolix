@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -10,10 +8,8 @@ import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 
-//class
 final class WebGuiTest extends StandardTest {
 
-  //method
   @Test
   void testCase_constructor() {
 
@@ -28,7 +24,6 @@ final class WebGuiTest extends StandardTest {
     expect(result.getTokens()).isEmpty();
   }
 
-  //method
   @Test
   void testCase_reset() {
 

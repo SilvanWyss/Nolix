@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.document.node;
 
-//Java imports
 import java.util.function.Predicate;
 
 import ch.nolix.core.container.containerview.ContainerView;
@@ -12,7 +10,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//class
 /**
  * A {@link FileNode} is a specification that is stored in a file.
  * 
@@ -21,16 +18,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class FileNode extends BaseMutableNode<FileNode> {
 
-  //attribute
   private final IMutableNode<?> internalSpecification;
 
-  //optional attribute
   private final FileAccessor fileAccessor;
 
-  //optional attribute
   private final FileNode parentFileNode;
 
-  //constructor
   /**
    * Creates a new {@link FileNode} with the given file path. Creates a new file
    * if there does not exist a file with the given file path. Access and changes
@@ -60,7 +53,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     parentFileNode = null;
   }
 
-  //constructor
   /**
    * Creates a new {@link FileNode} that: -Belongs to the given parentFileNode.
    * -Has the given internal specification.
@@ -89,7 +81,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     fileAccessor = null;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -102,7 +93,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -115,7 +105,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -128,7 +117,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -141,7 +129,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -150,7 +137,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return Node.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -164,7 +150,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return equalsNode((FileNode) object);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -173,7 +158,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return internalSpecification.getHeader();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -184,7 +168,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
         a -> new FileNode(getStoredRootFileNode(), a)));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -193,7 +176,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return toString().hashCode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -202,7 +184,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return internalSpecification.hasHeader();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -215,7 +196,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return new FileNode(this, attribute);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -225,7 +205,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     save();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -234,7 +213,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     internalSpecification.removeFirstChildNodeWithHeader(header);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -244,7 +222,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     save();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -258,7 +235,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -268,7 +244,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     save();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -278,7 +253,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     removeChildNodes();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -291,7 +265,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -300,7 +273,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * @return the root {@link FileNode} of the current {@link FileNode}.
    */
@@ -313,7 +285,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return this;
   }
 
-  //method
   /**
    * @return true if the current {@link FileNode} is a root {@link FileNode}.
    */
@@ -321,7 +292,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
     return (fileAccessor != null);
   }
 
-  //method
   /**
    * Saves this {@link FileNode}.
    * 

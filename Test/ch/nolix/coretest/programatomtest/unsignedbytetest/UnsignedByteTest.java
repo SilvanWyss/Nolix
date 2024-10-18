@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.programatomtest.unsignedbytetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class UnsignedByteTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getBitAtAsInt_1A() {
 
@@ -39,7 +34,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(resultBit8).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_getBitAtAsInt_1B() {
 
@@ -67,7 +61,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(resultBit8).isEqualTo(1);
   }
 
-  //method
   @Test
   void testCase_getBitAtAsInt_1C() {
 
@@ -95,7 +88,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(resultBit8).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_getBitAtAsInt_1D() {
 
@@ -123,7 +115,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(resultBit8).isEqualTo(1);
   }
 
-  //method
   @Test
   void testCase_toBitString_1A() {
 
@@ -137,7 +128,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo("00000000");
   }
 
-  //method
   @Test
   void testCase_toBitString_1B() {
 
@@ -151,7 +141,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo("00000111");
   }
 
-  //method
   @Test
   void testCase_toBitString_1C() {
 
@@ -165,7 +154,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo("11100000");
   }
 
-  //method
   @Test
   void testCase_toBitString_1D() {
 
@@ -179,7 +167,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo("11111111");
   }
 
-  //method
   @Test
   void testCase_toByte() {
     for (var i = 0; i <= 255; i++) {
@@ -195,7 +182,6 @@ final class UnsignedByteTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_toInt_1A() {
 
@@ -209,7 +195,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_toInt_1B() {
 
@@ -223,7 +208,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo(7);
   }
 
-  //method
   @Test
   void testCase_toInt_1C() {
 
@@ -237,7 +221,6 @@ final class UnsignedByteTest extends StandardTest {
     expect(result).isEqualTo(224);
   }
 
-  //method
   @Test
   void testCase_toInt_1D() {
 

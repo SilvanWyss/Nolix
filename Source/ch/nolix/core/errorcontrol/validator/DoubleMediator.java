@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -13,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
-//class
 /**
  * A double mediator is a mediator for a double. A double mediator is not
  * mutable.
@@ -23,10 +20,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  */
 public class DoubleMediator extends Mediator {
 
-  //attribute
   private final double argument;
 
-  //constructor
   /**
    * Creates a new {@link DoubleMediator} for the given argument.
    * 
@@ -38,7 +33,6 @@ public class DoubleMediator extends Mediator {
     this.argument = argument;
   }
 
-  //constructor
   /**
    * Creates a new {@link DoubleMediator} for the given argument, which has has
    * the given argumentName.
@@ -57,7 +51,6 @@ public class DoubleMediator extends Mediator {
     this.argument = argument;
   }
 
-  //constructor
   /**
    * @param argument
    * @return a new {@link DoubleMediator} for the given argument.
@@ -66,7 +59,6 @@ public class DoubleMediator extends Mediator {
     return new DoubleMediator(argument);
   }
 
-  //method
   /**
    * @param min
    * @param max
@@ -86,7 +78,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws InvalidArgumentException if the argument of this double mediator is
@@ -104,7 +95,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws UnequalArgumentException if the argument of this double mediator does
@@ -118,7 +108,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @throws NonNegativeArgumentException if the argument of this double mediator
    *                                      is not negative.
@@ -131,7 +120,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws BiggerArgumentException if the argument of this double mediator is
@@ -146,7 +134,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws EqualArgumentException if the argument of this double mediator equals
@@ -161,7 +148,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @throws NegativeArgumentException if the argument of this double mediator is
    *                                   negative.
@@ -174,7 +160,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @throws NonPositiveArgumentException if the argument of this double mediator
    *                                      is positive.
@@ -187,7 +172,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws SmallerArgumentException if the argument of this double mediator is
@@ -202,7 +186,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @throws NonPositiveArgumentException if the argument of this double mediator
    *                                      is not positive.
@@ -215,7 +198,6 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws InvalidArgumentException if the argument of this double mediator is
@@ -233,12 +215,10 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  //method
   public DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
     return new DoubleDeviationMediator(getArgumentName(), getArgument(), maxDeviation);
   }
 
-  //method
   /**
    * @return the argument of htis double mediator.
    */

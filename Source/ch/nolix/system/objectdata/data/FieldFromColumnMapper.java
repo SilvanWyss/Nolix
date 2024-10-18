@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 
-//class
 public final class FieldFromColumnMapper {
 
-  //method
   public Field createFieldFromColumn(final IColumn column) {
 
     final var field = createEmptyFieldFromColumn(column);
@@ -16,7 +12,6 @@ public final class FieldFromColumnMapper {
     return field;
   }
 
-  //method
   private Field createEmptyFieldFromColumn(final IColumn column) {
     return switch (column.getParameterizedFieldType().getFieldType()) {
       case VALUE ->
@@ -41,7 +36,6 @@ public final class FieldFromColumnMapper {
     };
   }
 
-  //method
   private Field createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
 
     final var referencedtableName = referenceColumn
@@ -53,7 +47,6 @@ public final class FieldFromColumnMapper {
     return Reference.forEntityWithTableName(referencedtableName);
   }
 
-  //method
   private Field createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
@@ -65,7 +58,6 @@ public final class FieldFromColumnMapper {
     return OptionalReference.forEntityWithTableName(referencedtableName);
   }
 
-  //method
   private Field createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
 
     final var referencedtableName = multiReferenceColumn
@@ -77,7 +69,6 @@ public final class FieldFromColumnMapper {
     return MultiReference.forReferencedTable(referencedtableName);
   }
 
-  //method
   private Field createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
 
     final var backReferencedColumn = backReferenceColumn
@@ -93,7 +84,6 @@ public final class FieldFromColumnMapper {
       backReferencedFieldName);
   }
 
-  //method
   private Field createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
     final IColumn optionalBackReferenceColumn) {
 
@@ -110,7 +100,6 @@ public final class FieldFromColumnMapper {
       backReferencedFieldName);
   }
 
-  //method
   private Field createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
     final IColumn multiBackReferenceColumn) {
 

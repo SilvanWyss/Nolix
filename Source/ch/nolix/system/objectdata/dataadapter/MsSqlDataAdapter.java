@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-//own imports
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
@@ -10,13 +8,10 @@ import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataandschemaadapter.MsSqlDataAndSchemaAdapter;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 
-//class
 public final class MsSqlDataAdapter extends DataAdapter {
 
-  //attribute
   private final SqlConnectionPool sqlConnectionPool;
 
-  //constructor
   MsSqlDataAdapter(
     final String ipOrDomain,
     final int port,
@@ -37,7 +32,6 @@ public final class MsSqlDataAdapter extends DataAdapter {
         .andLoginPassword(loginPassword));
   }
 
-  //constructor
   private MsSqlDataAdapter(
     final String databaseName,
     final ISchema schema,
@@ -54,7 +48,6 @@ public final class MsSqlDataAdapter extends DataAdapter {
     this.sqlConnectionPool = sqlConnectionPool;
   }
 
-  //method
   @Override
   public DataAdapter getEmptyCopy() {
     return new MsSqlDataAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.main;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.css.CssProperty;
@@ -13,20 +11,16 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
-//class
 public final class LayerCssBuilder {
 
-  //method
   public CssRule getCssRuleForLayer(final ILayer<?> layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }
 
-  //method
   private String getCssSelectorForLayer(final ILayer<?> layer) {
     return ("#" + layer.getInternalId());
   }
 
-  //method
   private IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
 
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
@@ -56,12 +50,10 @@ public final class LayerCssBuilder {
     return cssProperties;
   }
 
-  //method
   private CssProperty getZIndexCssPropertyForLayer(final ILayer<?> layer) {
     return CssProperty.withNameAndValue(CssPropertyNameCatalogue.Z_INDEX, getCssZIndexForLayer(layer));
   }
 
-  //method
   private int getCssZIndexForLayer(final ILayer<?> layer) {
 
     if (!layer.belongsToGui()) {
@@ -71,12 +63,10 @@ public final class LayerCssBuilder {
     return layer.getStoredParentGui().getStoredLayers().get1BasedIndexOfFirstOccuranceOf(layer);
   }
 
-  //method
   private CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
     return getJustifyContentCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
-  //method
   private CssProperty getJustifyContentCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case TOP_LEFT, LEFT, BOTTOM_LEFT ->
@@ -90,12 +80,10 @@ public final class LayerCssBuilder {
     };
   }
 
-  //method
   private CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
     return getAlignItemsCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
-  //method
   private CssProperty getAlignItemsCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT ->

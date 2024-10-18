@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.schemamapper;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -11,17 +9,13 @@ import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedFieldTypeM
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-//class
 public final class ColumnMapper implements IColumnMapper {
 
-  //constant
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  //constant
   private static final IParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ParameterizedFieldTypeMapper();
 
-  //method
   @Override
   public IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
     final IField field,
@@ -33,7 +27,6 @@ public final class ColumnMapper implements IColumnMapper {
         referencableTables));
   }
 
-  //method
   @Override
   public <E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
     final Class<E> entityType,
@@ -43,7 +36,6 @@ public final class ColumnMapper implements IColumnMapper {
       referencableTables);
   }
 
-  //method
   @Override
   public IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
     final IEntity entity,

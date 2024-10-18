@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.template.graphic.texture;
 
-//own imports
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
-//class
 final class TextureCreator {
 
-  //method
   public IImage createConcreteTexture() {
 
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
@@ -33,7 +29,6 @@ final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  //method
   public IImage createFirWoodTexture() {
 
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
@@ -57,7 +52,6 @@ final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  //method
   public IImage createJuteTexture() {
 
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
@@ -81,7 +75,6 @@ final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  //method
   public IImage createParchmentTexture() {
 
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
@@ -105,7 +98,6 @@ final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  //method
   public IImage createWhiteMarbleTexture() {
 
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);

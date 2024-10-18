@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.systemapitest.guiapitest.fontapitest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -14,10 +11,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
 
-//class
 final class FontTest extends StandardTest {
 
-  //method
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirFonts() {
     return //
@@ -32,7 +27,6 @@ final class FontTest extends StandardTest {
       Arguments.of(Node.withChildNode("VERDANA"), Font.VERDANA));
   }
 
-  //method
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirFonts")
   void fromSpecification(final INode<?> specification, final Font expectedFont) {

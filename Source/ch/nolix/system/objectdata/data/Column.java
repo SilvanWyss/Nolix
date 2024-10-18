@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -11,22 +9,16 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-//class
 public final class Column extends ImmutableDatabaseObject implements IColumn {
 
-  //attribute
   private final String name;
 
-  //attribute
   private final String id;
 
-  //attribute
   private final IParameterizedFieldType parameterizedFieldType;
 
-  //attribute
   private final Table<IEntity> parentTable;
 
-  //constructor
   private Column(
     final String name,
     final String id,
@@ -44,7 +36,6 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     this.parentTable = parentTable;
   }
 
-  //static method
   static Column withNameAndIdAndParameterizedFieldTypeAndParentTable(
     final String name,
     final String id,
@@ -53,31 +44,26 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     return new Column(name, id, parameterizedFieldType, parentTable);
   }
 
-  //method
   @Override
   public String getId() {
     return id;
   }
 
-  //method
   @Override
   public String getName() {
     return name;
   }
 
-  //method
   @Override
   public IParameterizedFieldType getParameterizedFieldType() {
     return parameterizedFieldType;
   }
 
-  //method
   @Override
   public ITable<IEntity> getStoredParentTable() {
     return parentTable;
   }
 
-  //method
   @Override
   public boolean internalContainsGivenValueInPersistedData(final String value) {
     return //
@@ -87,7 +73,6 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
       value);
   }
 
-  //method
   @Override
   public boolean internalContainsGivenValueInPersistedDataIgnoringGivenEntities(
     final String value,
@@ -100,7 +85,6 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
       entitiesToIgnoreIds);
   }
 
-  //method
   private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
     return parentTable.internalGetStoredDataAndSchemaAdapter();
   }

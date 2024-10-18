@@ -1,26 +1,19 @@
-//package declaration
 package ch.nolix.coretest.containertest.basetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
-//class
 public abstract class CopyableIteratorTest extends StandardTest {
 
-  //method declaration
   protected abstract <E> CopyableIterator<E> createIteratorForEmptyContainerForType(Class<E> type);
 
-  //method declaration
   protected abstract <E> CopyableIterator<E> createIteratorForContainerWithElements(
     E element,
     @SuppressWarnings("unchecked") final E... elements);
 
-  //method
   @Test
   void testCase_getCopy() {
 

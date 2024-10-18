@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -9,10 +7,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 
-//class
 final class NodeTest extends BaseNodeTest<Node> {
 
-  //method
   @Test
   void testCase_asWithHeader_1A() {
 
@@ -26,7 +22,6 @@ final class NodeTest extends BaseNodeTest<Node> {
     expect(result).hasStringRepresentation("b(x,y)");
   }
 
-  //method
   @Test
   void testCase_asWithHeader_1B() {
 
@@ -40,7 +35,6 @@ final class NodeTest extends BaseNodeTest<Node> {
     expect(result).hasStringRepresentation("a(x,y)");
   }
 
-  //method
   @Test
   void testCase_asWithHeader_1C() {
 
@@ -54,7 +48,6 @@ final class NodeTest extends BaseNodeTest<Node> {
     expect(result).hasStringRepresentation("b");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "a, <a></a>",
@@ -73,19 +66,16 @@ final class NodeTest extends BaseNodeTest<Node> {
     expect(result).hasStringRepresentation(expectedXmlStringRepresentation);
   }
 
-  //method
   @Override
   protected Node createBlankNode() {
     return Node.EMPTY_NODE;
   }
 
-  //method
   @Override
   protected Node createNodeWithHeader(final String header) {
     return Node.withHeader(header);
   }
 
-  //method
   @Override
   protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
     return Node.withHeaderAndChildNodes(header, ContainerView.forArray(childNodeHeaders).to(Node::withHeader));

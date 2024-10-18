@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.datareader;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -11,13 +9,10 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
-//class
 final class LoadedEntityDtoMapper {
 
-  //constant
   private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 
-  //method
   public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
     final IContainer<String> sqlRecordValues,
     final ITableInfo tableInfo) {
@@ -27,14 +22,12 @@ final class LoadedEntityDtoMapper {
       getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo));
   }
 
-  //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
     final IContainer<String> sqlRecordValues,
     final ITableInfo tableInfo) {
     return getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
   }
 
-  //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
     final IContainer<String> sqlRecordValues,
     final IContainer<IColumnInfo> contentColumnDefinitions) {

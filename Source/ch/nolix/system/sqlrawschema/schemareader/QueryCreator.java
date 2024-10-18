@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawschema.schemareader;
 
-//own imports
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
@@ -9,10 +7,8 @@ import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 
-//class
 final class QueryCreator {
 
-  //method
   public String createQueryToGetTableCount() {
     return "SELECT COUNT("
     + TableTableColumn.ID.getName()
@@ -21,7 +17,6 @@ final class QueryCreator {
     + ";";
   }
 
-  //method
   public String createQueryToLoadCoumnsByTableId(final String tableId) {
     return "SELECT "
     + ColumnTableColumn.ID.getName()
@@ -46,7 +41,6 @@ final class QueryCreator {
     + "'";
   }
 
-  //method
   public String createQueryToLoadCoumnsByTableName(final String tableName) {
     return "SELECT "
     + ColumnTableColumn.ID.getName()
@@ -71,7 +65,6 @@ final class QueryCreator {
     + "'";
   }
 
-  //method
   public String createQueryToLoadFlatTableById(final String id) {
     return "SELECT "
     + TableTableColumn.ID.getName()
@@ -86,7 +79,6 @@ final class QueryCreator {
     + "'";
   }
 
-  //method
   public String createQueryToLoadFlatTableByName(final String name) {
     return "SELECT "
     + TableTableColumn.ID.getName()
@@ -101,7 +93,6 @@ final class QueryCreator {
     + "'";
   }
 
-  //method
   public String createQueryToLoadFlatTables() {
     return "SELECT "
     + TableTableColumn.ID.getName()
@@ -111,7 +102,6 @@ final class QueryCreator {
     + SchemaTableType.TABLE.getQualifiedName();
   }
 
-  //method
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
     + DatabasePropertyTableColumn.VALUE.getLabel()

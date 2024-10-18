@@ -1,31 +1,22 @@
-//package declaration
 package ch.nolix.core.programcontrol.stopwatch;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
-//class
 public final class StopWatch {
 
-  //attribute
   private long totalRunningTimeInMilliseconds;
 
-  //attribute
   private boolean running;
 
-  //attribute
   private long latestStartInMilliseconds;
 
-  //constructor
   private StopWatch() {
   }
 
-  //static method
   public static StopWatch createStandingStopWatch() {
     return new StopWatch();
   }
 
-  //static method
   public static StopWatch createStartedStopWatch() {
 
     final var stopWatch = new StopWatch();
@@ -35,7 +26,6 @@ public final class StopWatch {
     return stopWatch;
   }
 
-  //method
   public synchronized long getTotalRunningTimeInMilliseconds() {
 
     if (isRunning()) {
@@ -48,12 +38,10 @@ public final class StopWatch {
     return totalRunningTimeInMilliseconds;
   }
 
-  //method
   public synchronized boolean isRunning() {
     return running;
   }
 
-  //method
   public synchronized void stop() {
 
     assertIsRunning();
@@ -63,7 +51,6 @@ public final class StopWatch {
     running = false;
   }
 
-  //method
   public synchronized long stopAndGetMillisecondsSinceLatestStart() {
 
     assertIsRunning();
@@ -75,7 +62,6 @@ public final class StopWatch {
     return durationInMilliseconds;
   }
 
-  //method
   public synchronized long stopAndGetTotalRunningTimeInMilliseconds() {
 
     assertIsRunning();
@@ -87,7 +73,6 @@ public final class StopWatch {
     return totalRunningTimeInMilliseconds;
   }
 
-  //method
   public synchronized void start() {
 
     assertIsNotRunning();
@@ -96,14 +81,12 @@ public final class StopWatch {
     running = true;
   }
 
-  //method
   private void assertIsNotRunning() {
     if (isRunning()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is started");
     }
   }
 
-  //method
   private void assertIsRunning() {
     if (!isRunning()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not started");

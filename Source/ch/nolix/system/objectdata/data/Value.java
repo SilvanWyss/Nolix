@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
@@ -12,27 +10,20 @@ import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
-//class
 public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
-  //constant
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 
-  //constant
   private static final IValueTool VALUE_TOOL = new ValueTool();
 
-  //constant
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
 
-  //optional attribute
   private V internalValue;
 
-  //constructor
   private Value(final Class<V> valueType) {
     super(valueType);
   }
 
-  //static method
   public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
 
     @SuppressWarnings("unchecked")
@@ -43,12 +34,10 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     return value;
   }
 
-  //static method
   public static <V2> Value<V2> withValueType(final Class<V2> valueType) {
     return new Value<>(valueType);
   }
 
-  //method
   @Override
   public V getStoredValue() {
 
@@ -57,25 +46,21 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     return internalValue;
   }
 
-  //method
   @Override
   public ContentType getType() {
     return ContentType.VALUE;
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return (internalValue == null);
   }
 
-  //method
   @Override
   public boolean isMandatory() {
     return true;
   }
 
-  //method
   @Override
   public void setValue(final V value) {
 
@@ -86,7 +71,6 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   @Override
   public void setValueFromString(final String string) {
 
@@ -98,20 +82,17 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     setValue(value);
   }
 
-  //method
   @Override
   public IContentFieldDto internalToContentField() {
     return new ContentFieldDto(getName(), getStoredValue().toString());
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   void internalSetOrClearFromContent(final Object content) {
     internalValue = (V) content;
   }
 
-  //method
   private void updateStateForSetValue(final V value) {
     internalValue = value;
   }

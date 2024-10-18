@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.noderawschematest.schemaadaptertest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -15,10 +12,8 @@ import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-//class
 final class SchemaAdapterTest extends StandardTest {
 
-  //method
   @Test
   void testCase_addColumn() {
 
@@ -52,7 +47,6 @@ final class SchemaAdapterTest extends StandardTest {
     expect(testUnit.loadColumnsByTableName(tableName)).contains(t -> t.getName().equals(columnName));
   }
 
-  //method
   @Test
   void testCase_addTable() {
 
@@ -80,7 +74,6 @@ final class SchemaAdapterTest extends StandardTest {
     expect(testUnit.loadTables()).contains(t -> t.getName().equals(tableName));
   }
 
-  //method
   @Test
   void testCase_deleteColumn() {
 
@@ -116,7 +109,6 @@ final class SchemaAdapterTest extends StandardTest {
     expect(testUnit.loadColumnsByTableName(tableName)).isEmpty();
   }
 
-  //method
   @Test
   void testCase_deleteTable() {
 

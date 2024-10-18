@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalSaveStampHolder;
 
-//interface
 /**
  * A {@link IMutableOptionalSaveStampHolder} is a
  * {@link IOptionalSaveStampHolder} whose save stamp can be set and removed
@@ -15,14 +12,12 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalSaveStampHold
  */
 public interface IMutableOptionalSaveStampHolder extends IOptionalSaveStampHolder {
 
-  //method declaration
   /**
    * Removes the save stamp of the current
    * {@link IMutableOptionalSaveStampHolder}.
    */
   void removeSaveStamp();
 
-  //method declaration
   /**
    * Sets the save stamp of the current {@link IMutableOptionalSaveStampHolder}.
    * 

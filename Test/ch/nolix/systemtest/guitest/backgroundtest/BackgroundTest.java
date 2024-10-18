@@ -1,22 +1,17 @@
-//package declaration
 package ch.nolix.systemtest.guitest.backgroundtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 
-//class
 final class BackgroundTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @ValueSource(strings = {
   "Background(Color(0x010203))",
@@ -35,7 +30,6 @@ final class BackgroundTest extends StandardTest {
     expect(result.getSpecification()).isEqualTo(backgroundSpecification);
   }
 
-  //method
   @Test
   void testCase_withColor() {
 

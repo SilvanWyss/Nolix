@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.documenttest.chainednodetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ChainedNodeTest extends StandardTest {
 
-  //method
   @Test
   void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
 
@@ -28,7 +23,6 @@ final class ChainedNodeTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
 
@@ -42,7 +36,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
 
@@ -58,7 +51,6 @@ final class ChainedNodeTest extends StandardTest {
       .ofType(EmptyArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
 
@@ -74,7 +66,6 @@ final class ChainedNodeTest extends StandardTest {
       .ofType(UnrepresentingArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
 
@@ -91,7 +82,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result).isEqualTo(10);
   }
 
-  //method
   @Test
   void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
 
@@ -107,7 +97,6 @@ final class ChainedNodeTest extends StandardTest {
       .ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_isBlank_whenIsBlank() {
 
@@ -121,7 +110,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isBlank_whenHasHeaderOnly() {
 
@@ -135,7 +123,6 @@ final class ChainedNodeTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A1() {
 
@@ -149,7 +136,6 @@ final class ChainedNodeTest extends StandardTest {
       .withMessage("The given ChainedNode does not represent an Integer.");
   }
 
-  //method
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A2() {
 
@@ -163,7 +149,6 @@ final class ChainedNodeTest extends StandardTest {
       .withMessage("The given ChainedNode '100(x)' does not represent an Integer.");
   }
 
-  //method
   @Test
   void testCase_toInt_whenRepresentsNegativeInt() {
 
@@ -177,7 +162,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result).isEqualTo(-100);
   }
 
-  //method
   @Test
   void testCase_toInt_whenRepresentsPositiveInt() {
 
@@ -191,7 +175,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result).isEqualTo(100);
   }
 
-  //method
   @Test
   void testCase_toInt_whenRepresentsZeroInt() {
 
@@ -205,7 +188,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_toNode_whenIsBlank() {
 
@@ -219,7 +201,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result).hasStringRepresentation("");
   }
 
-  //method
   @Test
   void testCase_toNode_whenHasHeaderOnly() {
 
@@ -233,7 +214,6 @@ final class ChainedNodeTest extends StandardTest {
     expect(result).hasStringRepresentation("a");
   }
 
-  //method
   @Test
   void testCase_toNode_whenHasNextNode() {
 

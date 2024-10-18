@@ -1,21 +1,16 @@
-//package declaration
 package ch.nolix.core.reflection;
 
-//Java imports
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Field;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class ObjectTool {
 
-  //method
   public Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
 
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
@@ -36,7 +31,6 @@ public final class ObjectTool {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, value.getClass());
   }
 
-  //method
   public String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
 
     final var field = getFirstFieldOfObjectThatStoresValue(object, value);
@@ -44,7 +38,6 @@ public final class ObjectTool {
     return field.getName();
   }
 
-  //method
   public Object getValueOfFieldOfObject(final Object object, final Field field) {
 
     field.setAccessible(true);
@@ -56,7 +49,6 @@ public final class ObjectTool {
     }
   }
 
-  //method
   /**
    * @param object
    * @param annotationType

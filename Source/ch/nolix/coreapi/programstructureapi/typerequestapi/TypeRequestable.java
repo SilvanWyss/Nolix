@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.programstructureapi.typerequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link TypeRequestable} is of a certain type.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface TypeRequestable {
 
-  //method
   /**
    * @return the type of the current {@link TypeRequestable}.
    */
@@ -22,7 +18,6 @@ public interface TypeRequestable {
     return getClass().getSimpleName();
   }
 
-  //method
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
@@ -32,7 +27,6 @@ public interface TypeRequestable {
     return (getClass() == concreteType);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @param concreteType
@@ -43,7 +37,6 @@ public interface TypeRequestable {
     return getClass().getSimpleName().equals(concreteType);
   }
 
-  //method
   /**
    * @param type
    * @return true if the current {@link TypeRequestable} is of the given type.
@@ -52,7 +45,6 @@ public interface TypeRequestable {
     return type.isAssignableFrom(getClass());
   }
 
-  //method
   /**
    * @param type
    * @return true if the current {@link TypeRequestable} is of the given type.

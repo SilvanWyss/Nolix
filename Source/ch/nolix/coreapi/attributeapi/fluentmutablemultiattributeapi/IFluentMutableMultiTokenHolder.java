@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
 
-//interface
 /**
  * A {@link IFluentMutableMultiTokenHolder} is a {@link IMultiTokenHolder} whose
  * tokens can be added and removed programmatically and fluently.
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
 public interface IFluentMutableMultiTokenHolder<FMMTH extends IFluentMutableMultiTokenHolder<FMMTH>>
 extends IMultiTokenHolder {
 
-  //method declaration
   /**
    * Adds the given token to the current {@link IFluentMutableMultiTokenHolder}.
    * 
@@ -26,7 +22,6 @@ extends IMultiTokenHolder {
    */
   FMMTH addToken(String token);
 
-  //method declaration
   /**
    * Removes the token that equals the given token from the current
    * {@link IFluentMutableMultiTokenHolder} if the current
@@ -37,7 +32,6 @@ extends IMultiTokenHolder {
    */
   FMMTH removeToken(String token);
 
-  //method declaration
   /**
    * Removes all tokens from the current {@link IFluentMutableMultiTokenHolder}.
    * 

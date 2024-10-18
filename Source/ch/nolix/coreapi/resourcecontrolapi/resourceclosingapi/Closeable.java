@@ -1,9 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-//interface
 /**
  * A {@link Clearable} is a {@link AutoCloseable} whose close method does not
  * declare a {@link Exception}.
@@ -13,7 +11,6 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  */
 public interface Closeable extends AutoCloseable, CloseStateRequestable {
 
-  //method declaration
   /**
    * Closes the current {@link Closeable}.
    */

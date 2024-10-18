@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 
-//interface
 /**
  * A {@link IFluentMutableOptionalHeaderHolder} is a
  * {@link IOptionalHeaderHolder} whose header can be set and removed
@@ -17,7 +14,6 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 public interface IFluentMutableOptionalHeaderHolder<FMOHH extends IFluentMutableOptionalHeaderHolder<FMOHH>>
 extends IOptionalHeaderHolder {
 
-  //method declaration
   /**
    * Removes the header of current {@link IFluentMutableOptionalHeaderHolder}.
    * 
@@ -25,7 +21,6 @@ extends IOptionalHeaderHolder {
    */
   FMOHH removeHeader();
 
-  //method declaration
   /**
    * Sets the header of the current {@link IFluentMutableOptionalHeaderHolder}.
    * 

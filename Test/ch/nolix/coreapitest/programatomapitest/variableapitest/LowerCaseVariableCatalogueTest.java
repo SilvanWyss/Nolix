@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapitest.programatomapitest.variableapitest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.GlobalReflectionTool;
@@ -12,13 +9,10 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 final class LowerCaseVariableCatalogueTest extends StandardTest {
 
-  //constant
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  //method
   @Test
   void testCase_constants() {
 

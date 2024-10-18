@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link VoidnessRequestable} can be asked if it is void.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface VoidnessRequestable {
 
-  //method
   /**
    * @return true if the current {@link VoidnessRequestable} is not void.
    */
@@ -22,7 +18,6 @@ public interface VoidnessRequestable {
     return !isVoid();
   }
 
-  //method declaration
   /**
    * @return true if the current {@link VoidnessRequestable} is void.
    */

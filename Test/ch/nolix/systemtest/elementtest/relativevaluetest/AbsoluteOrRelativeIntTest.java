@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.systemtest.elementtest.relativevaluetest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
-//class
 final class AbsoluteOrRelativeIntTest extends StandardTest {
 
-  //method
   @Test
   void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
 
@@ -29,7 +24,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
-  //method
   @Test
   void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
 
@@ -44,7 +38,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 
-  //method
   @Test
   void testCase_getAbsoluteValue_whenIsRelative() {
 
@@ -58,7 +51,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
       .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(20%)' does not have a absolute value.");
   }
 
-  //method
   @Test
   void testCase_getPercentage_whenIsAbsolute() {
 
@@ -72,7 +64,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
       .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(500)' does not have a percentage.");
   }
 
-  //method
   @Test
   void testCase_getValueRelativeToHundredPercentValue_whenIsAbsolute() {
 
@@ -86,7 +77,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result).isEqualTo(500);
   }
 
-  //method
   @Test
   void testCase_getValueRelativeToHundredPercentValue_whenIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
 
@@ -100,7 +90,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result).isEqualTo(500);
   }
 
-  //method
   @Test
   void testCase_getValueRelativeToHundredPercentValue_whenIsRelative() {
 
@@ -114,7 +103,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result).isEqualTo(40);
   }
 
-  //method
   @Test
   void testCase_getValueRelativeToHundredPercentValue_whenIsRelativeAndTheGivenHundredPercentValueIsZero() {
 
@@ -128,7 +116,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_withIntValue() {
 
@@ -140,7 +127,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
-  //method
   @Test
   void testCase_withPercentage() {
 
@@ -152,7 +138,6 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 
-  //method
   @Test
   void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
 

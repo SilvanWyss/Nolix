@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.techtest.relationaldoctest.datamodeltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
@@ -12,10 +9,8 @@ import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
 import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
 
-//class
 final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getStoredBaseTypes_whenDoesNotHaveBaseTypes() {
 
@@ -39,7 +34,6 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
     expect(result).isEmpty();
   }
 
-  //method
   @Test
   void testCase_getStoredBaseTypes_whenHasSeveralBaseTypes() {
 
@@ -78,7 +72,6 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
     expect(result).containsExactly(baseType1, baseType2);
   }
 
-  //method
   @Test
   void testCase_getStoredBaseTypes_whenHasBaseTypeWithBaseType() {
 
@@ -117,7 +110,6 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
     expect(result).containsExactly(level1Oject, level2Oject);
   }
 
-  //method
   @Test
   void testCase_getStoredConcreteSubTypes_whenHasSeveralConcreteSubTypes() {
 
@@ -154,7 +146,6 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
     expect(result).containsExactly(subType1, subType2);
   }
 
-  //method
   @Test
   void testCase_getStoredSubTypes_whenDoesNotHaveSubTypes() {
 
@@ -178,7 +169,6 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
     expect(result).isEmpty();
   }
 
-  //method
   @Test
   void testCase_getStoredSubTypes_whenHasSeveralSubTypes() {
 
@@ -216,7 +206,6 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
     expect(result).containsExactly(subType1, subType2);
   }
 
-  //method
   @Test
   void testCase_isSaved_whenNewFieldWasAdded() {
 

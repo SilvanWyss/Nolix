@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.BackReference;
@@ -13,35 +10,27 @@ import ch.nolix.system.objectdata.data.Reference;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class BackReferenceOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Person extends Entity {
 
-    //attribute
     final Reference<Pet> pet = Reference.forEntity(Pet.class);
 
-    //constructor
     Person() {
       initialize();
     }
   }
 
-  //constant
   private static final class Pet extends Entity {
 
-    //attribute
     final BackReference<Person> owner = BackReference.forEntityAndBackReferencedFieldName(Person.class,
       "pet");
 
-    //constructor
     Pet() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_getStoredEntity_whenIsNewAndEmpty() {
 
@@ -56,7 +45,6 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(garfield.owner::getStoredBackReferencedEntity).throwsException();
   }
 
-  //method
   @Test
   void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 
@@ -77,7 +65,6 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     expect(result).is(john);
   }
 
-  //method
   @Test
   void testCase_getStoredEntity_whenIsLoaded() {
 
@@ -101,7 +88,6 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     expect(result.getId()).isEqualTo(john.getId());
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsEmpty() {
 
@@ -116,7 +102,6 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
-  //method
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
 
@@ -139,7 +124,6 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
-  //method
   @Test
   void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
 

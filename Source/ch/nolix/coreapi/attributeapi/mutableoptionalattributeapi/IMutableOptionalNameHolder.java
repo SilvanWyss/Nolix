@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
 
-//interface
 /**
  * A {@link IMutableOptionalNameHolder} is a {@link IOptionalNameHolder} whose
  * name can be set and removed programmatically.
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
  */
 public interface IMutableOptionalNameHolder extends IOptionalNameHolder {
 
-  //method declaration
   /**
    * Removes the name of the current {@link IMutableOptionalNameHolder}.
    */
   void removeName();
 
-  //method declaration
   /**
    * Sets the name of the current {@link IMutableOptionalNameHolder}.
    * 

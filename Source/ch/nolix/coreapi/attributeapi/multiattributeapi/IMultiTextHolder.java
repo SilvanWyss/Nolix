@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.multiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-//interface
 /**
  * A {@link IMultiTextHolder} can contain several texts.
  * 
@@ -13,7 +10,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface IMultiTextHolder {
 
-  //method declaration
   /**
    * @return the texts of the current {@link IMultiTextHolder}.
    */

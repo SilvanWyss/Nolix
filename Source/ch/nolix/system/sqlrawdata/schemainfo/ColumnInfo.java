@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.schemainfo;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
@@ -9,7 +7,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
-//class
 public record ColumnInfo(
 String columnId,
 String columnName,
@@ -18,7 +15,6 @@ DataType columnDataType,
 int columnIndexOnEntityNode)
 implements IColumnInfo {
 
-  //constructor
   //For a better performance, this implementation does not use all comfortable methods.
   public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
     final String columnId,
@@ -56,19 +52,16 @@ implements IColumnInfo {
     this.columnIndexOnEntityNode = columnIndexOnEntityNode;
   }
 
-  //method
   @Override
   public DataType getColumnDataType() {
     return columnDataType;
   }
 
-  //method
   @Override
   public ContentType getColumnFieldType() {
     return columnFieldType;
   }
 
-  //method
   @Override
   public String getColumnId() {
     return columnId;
@@ -79,7 +72,6 @@ implements IColumnInfo {
     return columnIndexOnEntityNode;
   }
 
-  //method
   @Override
   public String getColumnName() {
     return columnName;

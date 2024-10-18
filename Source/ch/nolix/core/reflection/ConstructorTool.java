@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.core.reflection;
 
-//Java imports
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 
-//class
 public final class ConstructorTool {
 
-  //method
   public <T> T createInstanceFromDefaultConstructor(final Constructor<T> defaultConstructor) {
     try {
       return defaultConstructor.newInstance();

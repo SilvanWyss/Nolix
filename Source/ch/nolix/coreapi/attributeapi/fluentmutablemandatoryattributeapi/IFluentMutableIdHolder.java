@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 
-//interface
 /**
  * A {@link IFluentMutableIdHolder} is a {@link IIdHolder} whose id can be set
  * programmatically and fluently.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
  */
 public interface IFluentMutableIdHolder<FMIH> extends IIdHolder {
 
-  //method declaration
   /**
    * Sets the id of the current {@link IFluentMutableIdHolder}.
    * 

@@ -1,21 +1,16 @@
-//own imports
 package ch.nolix.core.errorcontrol.exception;
 
-//class
 @SuppressWarnings("serial")
 public final class GeneralException extends RuntimeException {
 
-  //constructor
   private GeneralException(final String errorMessage) {
     super(getValidErroMessageOfErrorMessage(errorMessage));
   }
 
-  //static method
   public static GeneralException withErrorMessage(final String errorMessage) {
     return new GeneralException(errorMessage);
   }
 
-  //static method
   private static String getValidErroMessageOfErrorMessage(final String errorMessage) {
 
     if (errorMessage == null) {
@@ -29,7 +24,6 @@ public final class GeneralException extends RuntimeException {
     return errorMessage;
   }
 
-  //method
   @Override
   public boolean equals(final Object object) {
 
@@ -40,7 +34,6 @@ public final class GeneralException extends RuntimeException {
     return false;
   }
 
-  //method
   @Override
   public int hashCode() {
     return getMessage().hashCode();

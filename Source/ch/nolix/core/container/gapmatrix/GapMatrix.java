@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.container.gapmatrix;
 
-//Java imports
 import java.util.Arrays;
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -19,23 +16,17 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-//class
 public final class GapMatrix<E> extends Container<E> implements Clearable {
 
-  //attribute
   private int columnCount;
 
-  //attribute
   private int elementCount;
 
-  //multi-attribute
   private Object[][] rows = new Object[0][0];
 
-  //constructor
   public GapMatrix() {
   }
 
-  //constructor
   public GapMatrix(final int rowCount, final int columnCount) {
 
     GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalogue.ROW_COUNT).isNotNegative();
@@ -45,7 +36,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     this.columnCount = columnCount;
   }
 
-  //method
   public void addColumn() {
 
     final var rowCount = getRowCount();
@@ -57,7 +47,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     columnCount++;
   }
 
-  //method
   public void addRow() {
 
     final var newRowCount = getRowCount() + 1;
@@ -66,7 +55,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     rows[newRowCount - 1] = new Object[getColumnCount()];
   }
 
-  //method
   @Override
   public void clear() {
     rows = new Object[0][];
@@ -74,14 +62,12 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     elementCount = 0;
   }
 
-  //method
   public boolean containsAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex,
     final int param1BasedColumnIndex) {
     return containsCellAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex)
     && rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] != null;
   }
 
-  //method
   public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex,
     final int param1BasedColumnIndex) {
     return param1BasedRowIndex > 0
@@ -90,30 +76,25 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     && param1BasedColumnIndex <= getColumnCount();
   }
 
-  //method
   public int getColumnCount() {
     return columnCount;
   }
 
-  //method
   public int getColumnIndexOf(final int index) {
 
     return ((index - 1) % getColumnCount() + 1);
   }
 
-  //method
   @Override
   public int getCount() {
     return elementCount;
   }
 
-  //method
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
     return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(param1BasedIndex), getColumnIndexOf(param1BasedIndex));
   }
 
-  //method
   @SuppressWarnings("unchecked")
   public E getStoredAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
 
@@ -122,7 +103,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     return (E) rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1];
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -144,7 +124,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     throw EmptyArgumentException.forArgument(this);
   }
 
-  //method
   public int getRowCount() {
     return rows.length;
   }
@@ -154,12 +133,10 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     return ((index - 1) / getColumnCount() + 1);
   }
 
-  //method
   public int getSize() {
     return (getRowCount() * getColumnCount());
   }
 
-  //method
   public void setAt1BasedRowIndexAndColumnIndex(
     final int param1BasedRowIndex,
     final int param1BasedColumnIndex,
@@ -176,37 +153,31 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
     rows[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] = element;
   }
 
-  //method
   @Override
   public boolean isMaterialized() {
     return true;
   }
 
-  //method
   @Override
   public CopyableIterator<E> iterator() {
     return GapMatrixIterator.forGapMatrix(this);
   }
 
-  //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //method
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return LinkedList.createEmpty();
   }
 
-  //method
   private void assertCanContainElementAt(final int rowIndex, final int columnIndex) {
 
     GlobalValidator
@@ -230,7 +201,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
       .isNotBiggerThan(getColumnCount());
   }
 
-  //method
   private void assertContainsAt(final int rowIndex, final int columnIndex) {
 
     assertCanContainElementAt(rowIndex, columnIndex);

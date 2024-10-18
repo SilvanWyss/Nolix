@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.system.webgui.atomiccontrol.Button;
@@ -13,10 +10,8 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
-//class
 final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
-  //method
   @Test
   void testCase_letsClear() {
 
@@ -37,7 +32,6 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_letsShowError() {
 
@@ -57,13 +51,11 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogueThrowExceptionMethod());
   }
 
-  //method
   @Override
   protected IValidationLabel createTestUnit() {
     return new ValidationLabel();
   }
 
-  //method
   private Exception getExceptionOfFunctionsCatalogueThrowExceptionMethod() {
 
     try {

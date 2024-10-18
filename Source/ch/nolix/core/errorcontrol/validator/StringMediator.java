@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -9,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link StringMediator} is a {@link Mediator} for an argument that is a
  * {@link String}. A {@link StringMediator} is not mutable.
@@ -19,7 +16,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public class StringMediator extends ArgumentMediator<String> {
 
-  //constructor
   /**
    * Creates a new {@link StringMediator} for the given argument.
    * 
@@ -31,7 +27,6 @@ public class StringMediator extends ArgumentMediator<String> {
     super(argument);
   }
 
-  //constructor
   /**
    * Creates a new {@link StringMediator} for the given argument, which has the
    * given argumentName.
@@ -47,7 +42,6 @@ public class StringMediator extends ArgumentMediator<String> {
     super(argumentName, argument);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link StringMediator} for the given argument.
@@ -56,7 +50,6 @@ public class StringMediator extends ArgumentMediator<String> {
     return new StringMediator(argument);
   }
 
-  //method
   /**
    * @param length
    * @throws NegativeArgumentException if the given length is negative.
@@ -86,7 +79,6 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException   if the argument of the current
    *                                   {@link StringMediator} is null.
@@ -104,7 +96,6 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException if the argument of the current
    *                                 {@link StringMediator} is null.
@@ -122,7 +113,6 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException  if the argument of the current
    *                                  {@link StringMediator} is null.
@@ -143,7 +133,6 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @param maxLength
    * @throws ArgumentIsNullException  if the argument of the current
@@ -167,7 +156,6 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @param minLength
    * @throws ArgumentIsNullException  if the argument of the current
@@ -213,7 +201,6 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  //method
   /**
    * @param prefix
    * @throws ArgumentIsNullException  if the given prefix is null.

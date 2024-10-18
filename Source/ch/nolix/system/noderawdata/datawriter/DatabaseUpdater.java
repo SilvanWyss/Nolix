@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.noderawdata.datawriter;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
@@ -20,29 +18,21 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//class
 final class DatabaseUpdater {
 
-  //constant
   private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  //constant
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  //constant
   private static final EntityHeadNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityHeadNodeMapper();
 
-  //constant
   private static final EntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
-  //method
   public void deleteEntriesFromMultiReference(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -61,7 +51,6 @@ final class DatabaseUpdater {
     multiReferenceColumnNode.removeChildNodes();
   }
 
-  //method
   public void deleteEntriesFromMultiValue(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -80,7 +69,6 @@ final class DatabaseUpdater {
     multiValueColumnNode.removeChildNodes();
   }
 
-  //method
   public void deleteEntryFromMultiReference(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -100,7 +88,6 @@ final class DatabaseUpdater {
     multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
   }
 
-  //method
   public void deleteEntryFromMultiValue(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -120,7 +107,6 @@ final class DatabaseUpdater {
     multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
   }
 
-  //method
   public void deleteEntityFromTable(
     final IMutableNode<?> database,
     final String tableName,
@@ -139,7 +125,6 @@ final class DatabaseUpdater {
     }
   }
 
-  //method
   public void deleteMultiBackReferenceEntry(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -159,7 +144,6 @@ final class DatabaseUpdater {
     multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }
 
-  //method
   public void expectGivenSchemaTimestamp(final IMutableNode<?> databaseNode, final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
@@ -173,7 +157,6 @@ final class DatabaseUpdater {
     }
   }
 
-  //method
   public void expectTableContainsEntity(
     final IMutableNode<?> databaseNode,
     final String tableName,
@@ -194,7 +177,6 @@ final class DatabaseUpdater {
     }
   }
 
-  //method
   public void insertEntityIntoTable(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -216,7 +198,6 @@ final class DatabaseUpdater {
     tableNode.addChildNode(entityNode);
   }
 
-  //method
   public void insertEntryIntoMultiBackReference(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -236,7 +217,6 @@ final class DatabaseUpdater {
     multiBackReferenceNode.addChildNode(Node.withHeader(backReferencedEntityId));
   }
 
-  //method
   public void insertEntryIntoMultiReference(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -256,7 +236,6 @@ final class DatabaseUpdater {
     multiReferenceNode.addChildNode(Node.withHeader(referencedEntityId));
   }
 
-  //method
   public void insertEntryIntoMultiValue(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -276,7 +255,6 @@ final class DatabaseUpdater {
     multiValueNode.addChildNode(Node.withHeader(entry));
   }
 
-  //method
   public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDto entity) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database, tableName);
@@ -298,7 +276,6 @@ final class DatabaseUpdater {
     saveStampNode.setHeader(newSaveStamp);
   }
 
-  //method
   public void updateEntityOnTable(
     final IMutableNode<?> database,
     final ITableInfo tableInfo,
@@ -327,7 +304,6 @@ final class DatabaseUpdater {
     updateEntityNode(entityNode.get(), tableInfo, entityUpdate);
   }
 
-  //method
   private void deleteEntityHeadFromDatabase(final IMutableNode<?> databaseNode, final IEntityHeadDto entity) {
 
     final var entityId = entity.getId();
@@ -336,7 +312,6 @@ final class DatabaseUpdater {
     entityHeadsNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));
   }
 
-  //method
   private void insertEntityHeadIntoDatabase(
     final IMutableNode<?> databaseNode,
     final ITableInfo tableInfo,
@@ -349,7 +324,6 @@ final class DatabaseUpdater {
     entityHeadsNode.addChildNode(entityHeadNode);
   }
 
-  //method
   private void updateEntityNode(
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo,

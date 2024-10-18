@@ -1,31 +1,24 @@
-//package declaration
 package ch.nolix.core.net.endpoint2;
 
-//Java imports
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-05-21
  */
 public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
-  //constant
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 
-  //optional attribute
   private Function<String, String> replier;
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -34,7 +27,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return (replier != null);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -42,7 +34,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   public final void noteClose() {
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -56,7 +47,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     this.replier = replier;
   }
 
-  //method
   /**
    * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
    */
@@ -66,7 +56,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     }
   }
 
-  //method
   /**
    * @return the replier of this end point.
    * @throws ArgumentDoesNotHaveAttributeException if this end point does not have

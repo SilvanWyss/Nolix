@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.elementapi.styleapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link ISelectingStyle} is a {@link IBaseStyle} that can select or skip a
  * {@link IStylableElement} that is given to be styled.
@@ -16,14 +13,12 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface ISelectingStyle<SS extends ISelectingStyle<SS>> extends IBaseStyle<SS> {
 
-  //method declaration
   /**
    * @return true if the current {@link ISelectingStyle} would select the child
    *         elements of a given {@link IStylableElement} to style.
    */
   boolean selectsChildElements();
 
-  //method declaration
   /**
    * @param element
    * @return true if the current {@link ISelectingStyle} would select the given
@@ -31,7 +26,6 @@ public interface ISelectingStyle<SS extends ISelectingStyle<SS>> extends IBaseSt
    */
   boolean selectsElement(IStylableElement<?> element);
 
-  //method
   /**
    * @return true if the current {@link ISelectingStyle} would not (!) select the
    *         child elements of a given {@link IStylableElement} to style.
@@ -40,7 +34,6 @@ public interface ISelectingStyle<SS extends ISelectingStyle<SS>> extends IBaseSt
     return !selectsChildElements();
   }
 
-  //method
   /**
    * @param element
    * @return true if the current {@link ISelectingStyle} would not (!) select the

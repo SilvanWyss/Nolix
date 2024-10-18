@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.matrix;
 
-//Java imports
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -15,16 +12,12 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class MatrixRow<E> extends Container<E> {
 
-  //attribute
   private final Matrix<E> parentMatrix;
 
-  //attribute
   private final int rowIndex;
 
-  //constructor
   MatrixRow(final Matrix<E> parentMatrix, final int rowIndex) {
 
     GlobalValidator
@@ -41,54 +34,45 @@ public final class MatrixRow<E> extends Container<E> {
     this.rowIndex = rowIndex;
   }
 
-  //method
   @Override
   public int getCount() {
     return parentMatrix.getColumnCount();
   }
 
-  //method
   public int getRowIndex() {
     return rowIndex;
   }
 
-  //method
   @Override
   public E getStoredAt1BasedIndex(final int columnIndex) {
     return parentMatrix.getStoredAt1BasedRowIndexAndColumnIndex(getRowIndex(), columnIndex);
   }
 
-  //method
   @Override
   public E getStoredLast() {
     return parentMatrix.getStoredAt1BasedRowIndexAndColumnIndex(getRowIndex(), parentMatrix.getColumnCount());
   }
 
-  //method
   @Override
   public boolean isMaterialized() {
     return false;
   }
 
-  //method
   @Override
   public CopyableIterator<E> iterator() {
     return MatrixRowIterator.forMatrixRow(this);
   }
 
-  //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //method
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return LinkedList.createEmpty();

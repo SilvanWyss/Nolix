@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.html.HtmlAttribute;
@@ -16,10 +14,8 @@ import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
-//class
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
 
-  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
@@ -28,7 +24,6 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
       control.getDisplayText());
   }
 
-  //method
   private IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
 
     final ILinkedList<IHtmlAttribute> htmlAttribtues = LinkedList.createEmpty();
@@ -42,7 +37,6 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
     return htmlAttribtues;
   }
 
-  //method
   private HtmlAttribute createTargetHtmlAttributeForControl(final ILink control) {
 
     final var target = control.getTarget();
@@ -50,7 +44,6 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
     return createTargetHtmlAttributeForTarget(target);
   }
 
-  //method
   private HtmlAttribute createTargetHtmlAttributeForTarget(final LinkTarget target) {
     return switch (target) {
       case CURRENT_TAB ->

@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.objectdata.fieldtool;
 
-//own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
-//class
 public final class ValueTool extends FieldTool implements IValueTool {
 
-  //method
   @Override
   public boolean canSetValue(final IValue<?> value, final Object valueToSet) {
     return //
@@ -19,7 +15,6 @@ public final class ValueTool extends FieldTool implements IValueTool {
     && valueToSet != null;
   }
 
-  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetValue(final IValue<?> value, final Object setValue) {
 
@@ -32,7 +27,6 @@ public final class ValueTool extends FieldTool implements IValueTool {
       new ContentFieldDto(value.getName(), setValue.toString()));
   }
 
-  //method
   private boolean canSetValue(final IValue<?> value) {
     return //
     value != null

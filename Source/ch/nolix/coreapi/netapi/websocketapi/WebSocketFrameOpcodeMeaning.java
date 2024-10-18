@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.coreapi.netapi.websocketapi;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//enum
 public enum WebSocketFrameOpcodeMeaning {
   CONTINUATION_FRAME,
   TEXT_FRAME,
@@ -16,7 +13,6 @@ public enum WebSocketFrameOpcodeMeaning {
   PONG,
   RESERVED;
 
-  //static method
   public static WebSocketFrameOpcodeMeaning fromNumber(final int number) {
     return switch (number) {
       case 0x0 ->
@@ -44,7 +40,6 @@ public enum WebSocketFrameOpcodeMeaning {
     };
   }
 
-  //method
   public int toNumber() {
     return switch (this) {
       case CONTINUATION_FRAME ->

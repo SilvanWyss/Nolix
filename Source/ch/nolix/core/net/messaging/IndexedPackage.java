@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.net.messaging;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link IndexedPackage} bundles an index and a content.
  * 
@@ -16,13 +13,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public class IndexedPackage<C> {
 
-  //attribute
   private final int index;
 
-  //attribute
   private final C content;
 
-  //constructor
   /**
    * Creates a new {@link IndexedPackage} with the given index and content.
    * 
@@ -42,7 +36,6 @@ public class IndexedPackage<C> {
     this.content = content;
   }
 
-  //static method
   /**
    * @param index
    * @param content
@@ -54,7 +47,6 @@ public class IndexedPackage<C> {
     return new IndexedPackage<>(index, content);
   }
 
-  //method
   /**
    * @return the content of the current {@link IndexedPackage}.
    */
@@ -62,7 +54,6 @@ public class IndexedPackage<C> {
     return content;
   }
 
-  //method
   /**
    * @return the index of the current {@link IndexedPackage}.
    */
@@ -70,7 +61,6 @@ public class IndexedPackage<C> {
     return index;
   }
 
-  //method
   /**
    * @param index
    * @return true if the current {@link IndexedPackage} has the given index.

@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.IntConsumer;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
-//class
 /**
  * A {@link ForCountMediator} is not mutable.
  * 
@@ -20,10 +16,8 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  */
 public final class ForCountMediator {
 
-  //attribute
   private final int maxRunCount;
 
-  //constructor
   /**
    * Creates a new {@link ForCountMediator} with the given maxRunCount.
    * 
@@ -37,7 +31,6 @@ public final class ForCountMediator {
     this.maxRunCount = maxRunCount;
   }
 
-  //static method
   /**
    * @param maxRunCount
    * @return a new {@link ForCountMediator} with the given maxRunCount.
@@ -47,7 +40,6 @@ public final class ForCountMediator {
     return new ForCountMediator(maxRunCount);
   }
 
-  //method
   /**
    * Lets the current {@link ForCountMediator} run the given job.
    * 
@@ -63,7 +55,6 @@ public final class ForCountMediator {
     }
   }
 
-  //method
   /**
    * Lets the current {@link ForCountMediator} run the given job.
    * 
@@ -79,7 +70,6 @@ public final class ForCountMediator {
     }
   }
 
-  //method
   /**
    * Lets the current {@link ForCountMediator} run the given job in background.
    * 

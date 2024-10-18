@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.multiattributeapi;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-//interface
 /**
  * A {@link IMultiTokenHolder} can have several tokens.
  * 
@@ -13,7 +10,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface IMultiTokenHolder {
 
-  //method declaration
   /**
    * @return the tokens of the current {@link IMultiTokenHolder}.
    */

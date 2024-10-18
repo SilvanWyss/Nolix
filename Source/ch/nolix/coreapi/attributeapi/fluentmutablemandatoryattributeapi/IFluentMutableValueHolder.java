@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
 
-//interface
 /**
  * A {@link IFluentMutableValueHolder} is a {@link IValueHolder} whose value can
  * be set programmatically and fluently.
@@ -17,7 +14,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
 public interface IFluentMutableValueHolder<FVH extends IFluentMutableValueHolder<FVH, V>, V>
 extends IValueHolder<V> {
 
-  //method declaration
   /**
    * Sets the value of the current {@link IFluentMutableValueHolder}.
    * 

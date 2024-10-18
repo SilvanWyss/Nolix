@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 
-//class
 /**
  * An extended double mediator is not mutable.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  */
 public class ExtendedDoubleMediator extends DoubleMediator {
 
-  //constructor
   /**
    * Creates a new extended double mediator for the given argument.
    * 
@@ -26,7 +22,6 @@ public class ExtendedDoubleMediator extends DoubleMediator {
     super(argument);
   }
 
-  //method
   /**
    * @param argumentName
    * @return a new double mediator with the given argument name for the argument

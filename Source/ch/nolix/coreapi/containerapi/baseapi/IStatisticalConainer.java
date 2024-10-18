@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
-//Java imports
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 
-//interface
 /**
  * @author Silvan Wyss
  * @version 2023-10-30
@@ -16,7 +13,6 @@ import java.util.function.ToIntFunction;
  */
 public interface IStatisticalConainer<E> {
 
-  //method declaration
   /**
    * @param norm
    * @return the average of the values the given norm returns from the elements of
@@ -26,7 +22,6 @@ public interface IStatisticalConainer<E> {
    */
   double getAverage(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the average of the values the given norm returns from the elements of
@@ -35,13 +30,11 @@ public interface IStatisticalConainer<E> {
    */
   double getAverageOrZero(Function<E, Number> norm);
 
-  //method declaration declaration
   /**
    * @return the number of elements of the current {@link IStatisticalConainer}.
    */
   int getCount();
 
-  //method declaration
   /**
    * @param selector
    * @return the number of elements the given selector selects from the current
@@ -49,7 +42,6 @@ public interface IStatisticalConainer<E> {
    */
   int getCount(Predicate<E> selector);
 
-  //method declaration
   /**
    * @param element
    * @return the number how many times the current {@link IStatisticalConainer}
@@ -57,7 +49,6 @@ public interface IStatisticalConainer<E> {
    */
   int getCount(Object element);
 
-  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -68,7 +59,6 @@ public interface IStatisticalConainer<E> {
    */
   <C extends Comparable<C>> C getMax(Function<E, C> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the biggest value the given norm returns from the elements of the
@@ -77,7 +67,6 @@ public interface IStatisticalConainer<E> {
    */
   double getMaxOrZero(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the median of the values the given norm returns from the elements of
@@ -87,7 +76,6 @@ public interface IStatisticalConainer<E> {
    */
   double getMedian(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the median of the values the given norm returns from the elements of
@@ -96,7 +84,6 @@ public interface IStatisticalConainer<E> {
    */
   double getMedianOrZero(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -107,7 +94,6 @@ public interface IStatisticalConainer<E> {
    */
   <C extends Comparable<C>> C getMin(Function<E, C> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the smallest value the given norm returns from the elements of the
@@ -116,7 +102,6 @@ public interface IStatisticalConainer<E> {
    */
   double getMinOrZero(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the standard deviation of the values the given norm returns from the
@@ -126,7 +111,6 @@ public interface IStatisticalConainer<E> {
    */
   double getStandardDeviation(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the sum of the values the given norm returns from the elements of the
@@ -134,7 +118,6 @@ public interface IStatisticalConainer<E> {
    */
   BigDecimal getSum(Function<E, Number> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the sum of the integers the given norm returns from the elements of
@@ -142,7 +125,6 @@ public interface IStatisticalConainer<E> {
    */
   BigInteger getSumOfIntegers(ToIntFunction<E> norm);
 
-  //method declaration
   /**
    * @param norm
    * @return the variance of the values the given norm returns from the elements

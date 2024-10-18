@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 /**
  * A {@link TabExpansionBehavior} is not mutable.
  * 
@@ -17,7 +14,6 @@ public enum TabExpansionBehavior {
   OPEN_SEVERAL_TABS_OR_NONE,
   OPEN_SEVERAL_TABS;
 
-  //static method
   /**
    * @param specification
    * @return a new {@link TabExpansionBehavior} from the given specification.

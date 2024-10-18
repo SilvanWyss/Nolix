@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link EqualArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument equals undesirably a certain
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class EqualArgumentException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link EqualArgumentException} for the given argument and
    * equalValue.
@@ -27,7 +24,6 @@ public final class EqualArgumentException extends InvalidArgumentException {
     super(argument, "equals " + equalValue);
   }
 
-  //constructor
   /**
    * Creates a new {@link EqualArgumentException} for the given argumentName,
    * argument and equalValue.
@@ -44,7 +40,6 @@ public final class EqualArgumentException extends InvalidArgumentException {
     super(argumentName, argument, "equals " + equalValue);
   }
 
-  //constructor
   /**
    * Creates a new {@link EqualArgumentException} for the given argumentName,
    * argument and equalValue.
@@ -61,7 +56,6 @@ public final class EqualArgumentException extends InvalidArgumentException {
     super(argumentName, argument, "equals " + equalValue);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -80,7 +74,6 @@ public final class EqualArgumentException extends InvalidArgumentException {
     return new EqualArgumentException(argumentName, argument, equalValue);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -99,7 +92,6 @@ public final class EqualArgumentException extends InvalidArgumentException {
     return new EqualArgumentException(argumentName, argument, equalValue);
   }
 
-  //static method
   /**
    * @param argument
    * @param equalValue

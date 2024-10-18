@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link NonNegativeArgumentException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably not (!)
@@ -13,10 +11,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class NonNegativeArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is not negative";
 
-  //constructor
   /**
    * Creates a new {@link NonNegativeArgumentException} for the given argumentName
    * and argument.
@@ -32,7 +28,6 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link NonNegativeArgumentException} for the given argumentName
    * and argument.
@@ -48,7 +43,6 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -63,7 +57,6 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
     return new NonNegativeArgumentException(argumentName, argument);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

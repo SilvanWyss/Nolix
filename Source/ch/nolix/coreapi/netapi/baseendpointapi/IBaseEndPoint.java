@@ -1,48 +1,33 @@
-//package declaration
 package ch.nolix.coreapi.netapi.baseendpointapi;
 
-//own imports
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
-//interface
 public interface IBaseEndPoint extends GroupCloseable {
 
-  //method declaration
   ConnectionType getConnectionType();
 
-  //method declaration
   String getCustomTargetSlot();
 
-  //method declaration
   PeerType getPeerType();
 
-  //method declaration
   SecurityMode getSecurityMode();
 
-  //method declaration
   TargetSlotDefinition getTargetSlotDefinition();
 
-  //method declaration
   boolean hasCustomTargetSlot();
 
-  //method declaration
   boolean hasDefaultTargetSlot();
 
-  //method declaration
   boolean isBackendEndPoint();
 
-  //method declaration
   boolean isFrontendEndPoint();
 
-  //method declaration
   boolean isLocalEndPoint();
 
-  //method declaration
   boolean isSocketEndPoint();
 
-  //method declaration
   boolean isWebSocketEndPoint();
 }

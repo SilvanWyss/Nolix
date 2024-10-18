@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentDoesNotContainElementException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -13,10 +11,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotContainElementException extends InvalidArgumentException {
 
-  //constant
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument.
@@ -27,7 +23,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     super(argument, "does not contain such an element");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument and element.
@@ -39,7 +34,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     super(argument, "does not contain the given " + getNameForElement(element));
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argumentName, argument and element.
@@ -55,7 +49,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     super(argumentName, argument, "does not contain the given " + getNameForElement(element));
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
@@ -65,7 +58,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     return new ArgumentDoesNotContainElementException(argument);
   }
 
-  //static method
   /**
    * @param argument
    * @param element
@@ -78,7 +70,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     return new ArgumentDoesNotContainElementException(argument, element);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -93,7 +84,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     return new ArgumentDoesNotContainElementException(argumentName, argument, element);
   }
 
-  //static method
   /**
    * @param element
    * @return the name of the given element.

@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.system.element.property;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
@@ -15,22 +12,16 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-//class
 public final class MutableOptionalSpecificationValueExtractor implements IProperty, INameHolder {
 
-  //attribute
   private final String name;
 
-  //attribute
   private final Consumer<INode<?>> setter;
 
-  //attribute
   private final BooleanSupplier valuePresenceChecker;
 
-  //attribute
   private final Supplier<Node> getter;
 
-  //constructor
   public MutableOptionalSpecificationValueExtractor(
     final String name,
     final Consumer<INode<?>> setter,
@@ -48,13 +39,11 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     this.getter = getter;
   }
 
-  //method
   @Override
   public String getName() {
     return name;
   }
 
-  //method
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -66,7 +55,6 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     return false;
   }
 
-  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     if (valuePresenceChecker.getAsBoolean()) {

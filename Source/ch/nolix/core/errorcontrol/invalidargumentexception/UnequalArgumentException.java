@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link UnequalArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument does undesirably not equal a
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link UnequalArgumentException} for the given argument and
    * value.
@@ -27,7 +24,6 @@ public final class UnequalArgumentException extends InvalidArgumentException {
     super(argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }
 
-  //constructor
   /**
    * Creates a new {@link UnequalArgumentException} for the given argument and
    * value.
@@ -44,7 +40,6 @@ public final class UnequalArgumentException extends InvalidArgumentException {
     super(argumentName, argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }
 
-  //static method
   /**
    * @param argument
    * @param value
@@ -55,7 +50,6 @@ public final class UnequalArgumentException extends InvalidArgumentException {
     return new UnequalArgumentException(argument, value);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -72,7 +66,6 @@ public final class UnequalArgumentException extends InvalidArgumentException {
     return new UnequalArgumentException(argumentName, argument, value);
   }
 
-  //static method
   /**
    * @param value
    * @return a name for the given value.

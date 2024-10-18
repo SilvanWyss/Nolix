@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.programstructureapi.markerapi;
 
-//Java imports
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link IOptionalHeaderHolder} can have a header.
  * 
@@ -17,7 +13,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface IOptionalHeaderHolder {
 
-  //method declaration
   /**
    * @return the header of the current {@link IOptionalHeaderHolder}.
    * @throws RuntimeException if the current {@link IOptionalHeaderHolder} does
@@ -25,7 +20,6 @@ public interface IOptionalHeaderHolder {
    */
   String getHeader();
 
-  //method
   /**
    * @return the header of the current {@link IOptionalHeaderHolder} if it has a
    *         header, otherwise an empty {@link String}.
@@ -39,7 +33,6 @@ public interface IOptionalHeaderHolder {
     return getHeader();
   }
 
-  //method
   /**
    * @return a new {@link Optional} with the header of the current
    *         {@link IOptionalHeaderHolder} if it has a header, otherwise an empty
@@ -54,13 +47,11 @@ public interface IOptionalHeaderHolder {
     return Optional.empty();
   }
 
-  //method declaration
   /**
    * @return true if the current {@link IOptionalHeaderHolder} has a header.
    */
   boolean hasHeader();
 
-  //method
   /**
    * @param header
    * @return true if the current {@link IOptionalHeaderHolder} has the given

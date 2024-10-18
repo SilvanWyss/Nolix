@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
@@ -9,7 +8,6 @@ import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
-//class
 public final class MsSqlSchemaAdapterBuilder
 extends
 ToIpOrDomainCaptor< //
@@ -19,7 +17,6 @@ WithLoginNameCaptor< //
 AndLoginPasswordCaptor< //
 MsSqlSchemaAdapter>>>>> {
 
-  //constructor
   private MsSqlSchemaAdapterBuilder() {
 
     super(
@@ -31,12 +28,10 @@ MsSqlSchemaAdapter>>>>> {
     setBuilder(this::buildMsSqlSchemaAdapter);
   }
 
-  //static method
   public static MsSqlSchemaAdapterBuilder createMsSqlSchemaAdapter() {
     return new MsSqlSchemaAdapterBuilder();
   }
 
-  //method
   private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
 
     final var databaseName = nxtArgCpt().nxtArgCpt().getDatabaseName();

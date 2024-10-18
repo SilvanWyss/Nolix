@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.reflection.GlobalReflectionTool;
@@ -16,34 +14,25 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-//class
 public abstract class Field implements IField {
 
-  //constant
   private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
 
-  //constant
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
-  //attribute
   private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
 
-  //attribute
   private boolean edited;
 
-  //optional attribute
   private IEntity parentEntity;
 
-  //optional attribute
   private IColumn parentColumn;
 
-  //method
   @Override
   public final boolean belongsToEntity() {
     return (parentEntity != null);
   }
 
-  //method
   @Override
   public final String getName() {
 
@@ -58,7 +47,6 @@ public abstract class Field implements IField {
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");
   }
 
-  //method
   @Override
   public IColumn getStoredParentColumn() {
 
@@ -67,7 +55,6 @@ public abstract class Field implements IField {
     return parentColumn;
   }
 
-  //method
   @Override
   public final IEntity getStoredParentEntity() {
 
@@ -76,7 +63,6 @@ public abstract class Field implements IField {
     return parentEntity;
   }
 
-  //method
   @Override
   public final DatabaseObjectState getState() {
 
@@ -87,7 +73,6 @@ public abstract class Field implements IField {
     return getStateWhenBelongsToEntity();
   }
 
-  //method
   @Override
   public final boolean isClosed() {
     return //
@@ -95,7 +80,6 @@ public abstract class Field implements IField {
     && getStoredParentEntity().isClosed();
   }
 
-  //method
   @Override
   public final boolean isDeleted() {
 
@@ -106,25 +90,21 @@ public abstract class Field implements IField {
     return getStoredParentEntity().isDeleted();
   }
 
-  //method
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
-  //method
   @Override
   public final boolean isLinkedWithRealDatabase() {
     return (belongsToEntity() && getStoredParentEntity().isLinkedWithRealDatabase());
   }
 
-  //method
   @Override
   public final boolean isLoaded() {
     return (getState() == DatabaseObjectState.LOADED);
   }
 
-  //method
   @Override
   public final boolean isNew() {
 
@@ -135,13 +115,11 @@ public abstract class Field implements IField {
     return getStoredParentEntity().isNew();
   }
 
-  //method
   @Override
   public final boolean knowsParentColumn() {
     return (parentColumn != null);
   }
 
-  //method
   @Override
   public final void setUpdateAction(final Runnable updateAction) {
 
@@ -150,7 +128,6 @@ public abstract class Field implements IField {
     fieldFlyWeight.setUpdateAction(updateAction);
   }
 
-  //method
   protected final void setAsEditedAndRunPotentialUpdateAction() {
 
     if (belongsToEntity()) {
@@ -162,15 +139,12 @@ public abstract class Field implements IField {
     fieldFlyWeight.noteUpdate();
   }
 
-  //method
   final IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
     return ((BaseEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
   }
 
-  //method declaration
   abstract void internalSetOrClearFromContent(Object content);
 
-  //method
   final void internalSetParentColumn(final IColumn parentColumn) {
 
     GlobalValidator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
@@ -178,14 +152,12 @@ public abstract class Field implements IField {
     this.parentColumn = parentColumn;
   }
 
-  //method
   final void internalSetParentColumnFromParentTable() {
     final var name = getName();
     parentColumn = getStoredParentEntity().getStoredParentTable().getStoredColumns()
       .getStoredFirst(c -> c.hasName(name));
   }
 
-  //method
   final void internalSetParentEntity(final BaseEntity parentEntity) {
 
     GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
@@ -195,10 +167,8 @@ public abstract class Field implements IField {
     setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
   }
 
-  //method declaration
   abstract void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase();
 
-  //method
   private DatabaseObjectState getStateWhenBelongsToEntity() {
 
     final var parentEntityState = getStoredParentEntity().getState();
@@ -221,7 +191,6 @@ public abstract class Field implements IField {
     };
   }
 
-  //method
   private DatabaseObjectState getStateWhenParentFieldIsEdited() {
 
     if (!edited) {
@@ -231,19 +200,16 @@ public abstract class Field implements IField {
     return DatabaseObjectState.EDITED;
   }
 
-  //method
   private void setEffectiveFieldFlyWeightIfFieldFlyWeightIsVoid() {
     if (fieldFlyWeight.isVoid()) {
       setEffectiveFieldFlyWeightWhenFieldFlyWeightIsVoid();
     }
   }
 
-  //method
   private void setEffectiveFieldFlyWeightWhenFieldFlyWeightIsVoid() {
     fieldFlyWeight = new FieldFlyWeight();
   }
 
-  //method
   private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final BaseEntity parentEntity) {
     if (parentEntity.belongsToTable()) {
       internalSetParentColumnFromParentTable();

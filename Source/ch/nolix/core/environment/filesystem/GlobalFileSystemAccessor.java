@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.environment.filesystem;
 
-//Java imports
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -9,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -21,7 +19,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
-//class
 /**
  * The {@link GlobalFileSystemAccessor} can access the file system on the local
  * machine.
@@ -31,7 +28,6 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
  */
 public final class GlobalFileSystemAccessor {
 
-  //constructor
   /**
    * Prevents that an instance of the {@link GlobalFileSystemAccessor} can be
    * created.
@@ -39,7 +35,6 @@ public final class GlobalFileSystemAccessor {
   private GlobalFileSystemAccessor() {
   }
 
-  //static method
   /**
    * @return a new {@link FolderAccessor} to the folder of the running jar file.
    */
@@ -47,7 +42,6 @@ public final class GlobalFileSystemAccessor {
     return new FolderAccessor(getFolderPathOfRunningJarFile());
   }
 
-  //static method
   /**
    * @return the path of the folder of the running jar file.
    */
@@ -59,7 +53,6 @@ public final class GlobalFileSystemAccessor {
     }
   }
 
-  //static method
   /**
    * Opens the folder with the given path in a new file explorer.
    * 
@@ -73,7 +66,6 @@ public final class GlobalFileSystemAccessor {
     }
   }
 
-  //static method
   /**
    * Opens the folder of the running jar file in a new file explorer.
    */
@@ -81,7 +73,6 @@ public final class GlobalFileSystemAccessor {
     openInFileExplorer(getFolderPathOfRunningJarFile());
   }
 
-  //static method
   /**
    * Creates a new empty file with the given path.
    * 
@@ -98,7 +89,6 @@ public final class GlobalFileSystemAccessor {
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
-  //static method
   /**
    * Creates a new empty file with the given path.
    * 
@@ -141,7 +131,6 @@ public final class GlobalFileSystemAccessor {
     }
   }
 
-  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -166,7 +155,6 @@ public final class GlobalFileSystemAccessor {
     return fileAccessor;
   }
 
-  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -191,7 +179,6 @@ public final class GlobalFileSystemAccessor {
     return fileAccessor;
   }
 
-  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -212,7 +199,6 @@ public final class GlobalFileSystemAccessor {
     return fileAccessor;
   }
 
-  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -230,7 +216,6 @@ public final class GlobalFileSystemAccessor {
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY, content);
   }
 
-  //static method
   /**
    * Creates a new empty folder with the given path.
    * 
@@ -257,7 +242,6 @@ public final class GlobalFileSystemAccessor {
     return new FolderAccessor(path);
   }
 
-  //static method
   /**
    * Deletes the file system item with the given path if it exists.
    * 
@@ -271,7 +255,6 @@ public final class GlobalFileSystemAccessor {
     }
   }
 
-  //static method
   /**
    * @param path
    * @return true if there exists a file system item with given path.
@@ -280,7 +263,6 @@ public final class GlobalFileSystemAccessor {
     return new File(path).exists();
   }
 
-  //static method
   /**
    * @param path
    * @return new {@link FileAccessor}s for the files in the folder with the given
@@ -292,7 +274,6 @@ public final class GlobalFileSystemAccessor {
       .to(f -> new FileAccessor(f.getAbsolutePath()));
   }
 
-  //static method
   /**
    * @param path
    * @param extension
@@ -303,7 +284,6 @@ public final class GlobalFileSystemAccessor {
     return getFileAccessors(path).getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
-  //static method
   /**
    * @param path
    * @return new {@link FileAccessor}s for the files in the folder with the given
@@ -326,7 +306,6 @@ public final class GlobalFileSystemAccessor {
     return fileAccessors;
   }
 
-  //static method
   /**
    * @param path
    * @return new {@link FileSystemItemAccessor}s for the file system items in the
@@ -337,7 +316,6 @@ public final class GlobalFileSystemAccessor {
       .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }
 
-  //static method
   /**
    * @param path
    * @return true if there exists a file with the given path.
@@ -346,7 +324,6 @@ public final class GlobalFileSystemAccessor {
     return new File(path).isFile();
   }
 
-  //static method
   /**
    * @param path
    * @return true if there exists a folder with the given path.
@@ -355,7 +332,6 @@ public final class GlobalFileSystemAccessor {
     return new File(path).isDirectory();
   }
 
-  //static method
   public static void overwriteFile(final String path, final byte[] content) {
 
     //Asserts that there does not exist a folder with the given path.
@@ -371,7 +347,6 @@ public final class GlobalFileSystemAccessor {
     new FileAccessor(path).overwriteFile(content);
   }
 
-  //static method
   /**
    * Overwrites the file with the given path. Creates a new file with the given
    * path if it does not exists. The file will get the given content.
@@ -396,7 +371,6 @@ public final class GlobalFileSystemAccessor {
     new FileAccessor(path).overwriteFile(content);
   }
 
-  //static method
   /**
    * Reads the content of the file with the given filePath to bytes.
    * 
@@ -410,7 +384,6 @@ public final class GlobalFileSystemAccessor {
     return new FileAccessor(filePath).readFileToBytes();
   }
 
-  //static method
   /**
    * Reads the content of the file with the given path to lines.
    * 

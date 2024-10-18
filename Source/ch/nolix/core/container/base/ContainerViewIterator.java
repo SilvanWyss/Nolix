@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.base;
 
-//Java imports
 import java.util.Iterator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -13,7 +10,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-08-27
@@ -21,19 +17,14 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 final class ContainerViewIterator<E> implements CopyableIterator<E> {
 
-  //attribute
   private final IContainer<E> parentContainer;
 
-  //attribute
   private final int endIndex;
 
-  //attribute
   private final Iterator<E> iterator;
 
-  //attribute
   private int currentIndex;
 
-  //constructor
   /**
    * Creates a new {@link ContainerViewIterator} for the given parentContainer,
    * startIndex and endIndex.
@@ -68,7 +59,6 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -77,7 +67,6 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
     return new ContainerViewIterator<>(parentContainer, currentIndex, endIndex);
   }
 
-  //method
   /**
    * @return true if the current {@link ContainerViewIterator} has a next element.
    */
@@ -86,7 +75,6 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
     return (currentIndex <= endIndex);
   }
 
-  //method
   /**
    * @return the next element of the current {@link ContainerViewIterator}.
    * @throws ArgumentDoesNotHaveAttributeException if the current

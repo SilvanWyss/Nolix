@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -13,38 +10,28 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-06-04
  */
 final class JobRunner extends Thread {
 
-  //constant
   private static final JobMerger JOB_MERGER = new JobMerger();
 
-  //attribute
   private final Runnable job;
 
-  //attribute
   private int finishedJobCount;
 
-  //attribute
   private boolean running = true;
 
-  //optional attribute
   private final Integer maxRunCount;
 
-  //optional attribute
   private final BooleanSupplier condition;
 
-  //optional attribute
   private final Integer timeIntervalInMilliseconds;
 
-  //optional attribute
   private Throwable error;
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job. The {@link JobRunner}
    * will start automatically.
@@ -65,7 +52,6 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job and condition. The
    * {@link JobRunner} will start automatically.
@@ -91,7 +77,6 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, condition and
    * timeIntervalInMilliseconds. The {@link JobRunner} will start automatically.
@@ -126,7 +111,6 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job and maxRunCount. The
    * {@link JobRunner} will start automatically.
@@ -154,7 +138,6 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, maxRunCount and
    * condition. The {@link JobRunner} will start automatically.
@@ -188,7 +171,6 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, maxRunCount, condition
    * and timeIntervalInMilliseconds. The {@link JobRunner} will start
@@ -229,7 +211,6 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, maxRunCount and
    * timeIntervalInMilliseconds. The {@link JobRunner} will start automatically.
@@ -264,12 +245,10 @@ final class JobRunner extends Thread {
     start();
   }
 
-  //static method
   public static JobRunner forJobs(final IContainer<Runnable> jobs) {
     return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} has caught an error.
    */
@@ -277,7 +256,6 @@ final class JobRunner extends Thread {
     return (error != null);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * @return the error of the current {@link JobRunner}.
@@ -295,7 +273,6 @@ final class JobRunner extends Thread {
     return error;
   }
 
-  //method
   /**
    * @return the number of finished jobs of the current {@link JobRunner}.
    */
@@ -303,7 +280,6 @@ final class JobRunner extends Thread {
     return finishedJobCount;
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} has a condition.
    */
@@ -311,7 +287,6 @@ final class JobRunner extends Thread {
     return (condition != null);
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} has a max run count.
    */
@@ -319,7 +294,6 @@ final class JobRunner extends Thread {
     return (maxRunCount != null);
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} has a time interval.
    */
@@ -327,7 +301,6 @@ final class JobRunner extends Thread {
     return (timeIntervalInMilliseconds != null);
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} is finished.
    */
@@ -335,7 +308,6 @@ final class JobRunner extends Thread {
     return !isRunning();
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} is finished successfully.
    */
@@ -343,7 +315,6 @@ final class JobRunner extends Thread {
     return (isFinished() && !caughtError());
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} is running.
    */
@@ -351,7 +322,6 @@ final class JobRunner extends Thread {
     return running;
   }
 
-  //method
   /**
    * Lets the current {@link JobRunner} run.
    */
@@ -368,7 +338,6 @@ final class JobRunner extends Thread {
     running = false;
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} has a max run count and has
    *         reached it.
@@ -377,7 +346,6 @@ final class JobRunner extends Thread {
     return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
   }
 
-  //method
   private boolean runProbableNextStepAndSayIfRunningMustContinue() {
     try {
 
@@ -404,7 +372,6 @@ final class JobRunner extends Thread {
     }
   }
 
-  //method
   /**
    * @return true if the current {@link JobRunner} has a condition and violates
    *         it.
@@ -413,7 +380,6 @@ final class JobRunner extends Thread {
     return (hasCondition() && !condition.getAsBoolean());
   }
 
-  //method
   /**
    * Waits for the time interval of the current {@link JobRunner} if the current
    * {@link JobRunner} has a time interval.

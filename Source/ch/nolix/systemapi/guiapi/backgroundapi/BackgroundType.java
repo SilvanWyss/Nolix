@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemapi.guiapi.backgroundapi;
 
-//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-//enum
 /**
  * @author Silvan Wyss
  * @version 2022-07-15
@@ -15,7 +12,6 @@ public enum BackgroundType {
   IMAGE,
   TRANSPARENCY;
 
-  //static method
   /**
    * @param specification
    * @return a new {@link BackgroundType} from the given specification.

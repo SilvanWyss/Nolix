@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.commontypetooltest.stringtooltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class GetInParenthesesMethodTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getInParantheses_whenGivenObjectIsNull() {
 
@@ -28,7 +23,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
       .withMessage("The given 1th object is null.");
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "'', '()'", //
@@ -47,7 +41,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getInParantheses_when3StringsAreGiven() {
 
@@ -61,7 +54,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
     expect(result).isEqualTo("(antelope,baboon,elephant)");
   }
 
-  //method
   @Test
   void testCase_getInParantheses_whenOneOfGivenStringsIsNull() {
 
@@ -75,7 +67,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
       .withMessage("The given 2th object is null.");
   }
 
-  //method
   @Test
   void testCase_getInParantheses_whenGivenVarargsIsNull() {
 

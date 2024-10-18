@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.container;
 
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -9,11 +8,9 @@ import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class SingleContainerCssBuilder
 extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ISingleContainer control,
@@ -21,7 +18,6 @@ extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ISingleContainer control,
@@ -30,7 +26,6 @@ extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ISingleContainer control,
@@ -38,7 +33,6 @@ extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final ISingleContainer control,

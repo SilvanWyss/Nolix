@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.independent.containertool.ArrayTool;
 
-//class
 /**
  * A multi double mediator is not mutable.
  * 
@@ -17,10 +14,8 @@ import ch.nolix.core.independent.containertool.ArrayTool;
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
-  //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //constructor
   /**
    * Creates a new multi double mediator for the given arguments.
    * 
@@ -33,7 +28,6 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
     super(arguments);
   }
 
-  //constructor
   /**
    * Creates a new multi double mediator for the given arguments.
    * 
@@ -46,7 +40,6 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
     super(ARRAY_TOOL.createIterable(arguments));
   }
 
-  //method
   /**
    * @param value
    * @throws ArgumentIsNullException  if one of the arguments of this multi double
@@ -76,7 +69,6 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException      if one of the arguments of this multi
    *                                      double mediator is null.
@@ -102,7 +94,6 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException      if one of the arguments of this multi
    *                                      double mediator is null.
@@ -128,7 +119,6 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
     }
   }
 
-  //method
   /**
    * @param value
    * @throws ArgumentIsNullException  if one of the arguments of this multi double

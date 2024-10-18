@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.core.commontypetool.stringtool;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
-//class
 public final class PascalCaseTransformer {
 
-  //method
   public String toPascalCase(final String string) {
 
     if (string.isEmpty()) {
@@ -19,7 +15,6 @@ public final class PascalCaseTransformer {
     return toPascalCaseWhenStringIsNotEmpty(string);
   }
 
-  //method
   private String toPascalCaseWhenStringIsNotEmpty(final String string) {
 
     final var stringBuilder = new StringBuilder();
@@ -69,7 +64,6 @@ public final class PascalCaseTransformer {
     return stringBuilder.toString();
   }
 
-  //method
   private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(
     final char sourceCharacter,
     final char previousCharacter,
@@ -84,7 +78,6 @@ public final class PascalCaseTransformer {
     return sourceCharacter;
   }
 
-  //method
   private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndUpperCaseLetter(
     final char sourceCharacter,
     final char previousCharacter,

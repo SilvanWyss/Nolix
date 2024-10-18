@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link PositiveArgumentException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably positive.
@@ -12,10 +10,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class PositiveArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is positive";
 
-  //constructor
   /**
    * Creates a new {@link PositiveArgumentException} for the given argumentName
    * and argument.
@@ -31,7 +27,6 @@ public final class PositiveArgumentException extends InvalidArgumentException {
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

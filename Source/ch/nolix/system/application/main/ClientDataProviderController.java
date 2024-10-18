@@ -1,8 +1,7 @@
-//package declaration
 package ch.nolix.system.application.main;
 
 import ch.nolix.core.container.containerview.ContainerView;
-//own imports
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -12,7 +11,6 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 
-//class
 /**
  * A {@link ClientDataProviderController} is a {@link IDataProviderController}
  * for the {@link EndPoint} of a {@link Client}.
@@ -22,10 +20,8 @@ import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
  */
 final class ClientDataProviderController implements IDataProviderController {
 
-  //attribute
   private final Client<?> parentClient;
 
-  //constructor
   /**
    * Creates a new {@link ClientDataProviderController} with the given
    * parentClient.
@@ -40,7 +36,6 @@ final class ClientDataProviderController implements IDataProviderController {
     this.parentClient = parentClient;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -49,7 +44,6 @@ final class ClientDataProviderController implements IDataProviderController {
     return parentClient.getDataFromHere(request);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -63,7 +57,6 @@ final class ClientDataProviderController implements IDataProviderController {
     return getDataForRequests(concatenatedRequests);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -72,7 +65,6 @@ final class ClientDataProviderController implements IDataProviderController {
     return ContainerView.forIterable(requests).to(parentClient::getDataFromHere);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -81,7 +73,6 @@ final class ClientDataProviderController implements IDataProviderController {
     parentClient.runHere(command);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -95,7 +86,6 @@ final class ClientDataProviderController implements IDataProviderController {
     runCommands(concatenatedCommands);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

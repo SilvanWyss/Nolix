@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.techtest.serverdashboardtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.LocalServer;
 import ch.nolix.tech.serverdashboard.WebApplicationExtractor;
 
-//class
 final class WebApplicationExtractorTest extends StandardTest {
 
   @Test

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.parameterizedfieldtypemapper2;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
@@ -12,13 +10,10 @@ import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParame
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-//class
 public final class ParameterizedOptionalValueTypeMapper implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
 
-  //constant
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
-  //method
   @Override
   public IParameterizedFieldType createParameterizedFieldTypeFromField(
     final IOptionalValue<?> field,

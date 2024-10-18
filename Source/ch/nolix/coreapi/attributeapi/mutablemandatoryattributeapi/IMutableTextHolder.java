@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
 
-//interface
 /**
  * A {@link IMutableTextHolder} is a {@link ITextHolder} whose text can be set
  * programmatically.
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  */
 public interface IMutableTextHolder extends ITextHolder {
 
-  //method declaration
   /**
    * Sets the text of the current {@link IMutableTextHolder}.
    * 

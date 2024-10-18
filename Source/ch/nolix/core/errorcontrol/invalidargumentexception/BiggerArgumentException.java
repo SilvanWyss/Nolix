@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link BiggerArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument is undesirably bigger than a
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class BiggerArgumentException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link BiggerArgumentException} for the given argumentName,
    * argument and max.
@@ -30,7 +27,6 @@ public final class BiggerArgumentException extends InvalidArgumentException {
     super(argumentName, argument, "is bigger than " + max);
   }
 
-  //constructor
   /**
    * Creates a new {@link BiggerArgumentException} for the given argumentName,
    * argument and max.
@@ -47,7 +43,6 @@ public final class BiggerArgumentException extends InvalidArgumentException {
     super(argumentName, argument, "is bigger than " + max);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -64,7 +59,6 @@ public final class BiggerArgumentException extends InvalidArgumentException {
     return new BiggerArgumentException(argumentName, argument, max);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

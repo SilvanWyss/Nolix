@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
@@ -26,35 +23,26 @@ import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-//class
 public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
 
-  //constant
   public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 
-  //constant
   private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
 
-  //constant
   private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
 
-  //constant
   private static final LabelHtmlBuilder HTML_BUILDER = new LabelHtmlBuilder();
 
-  //constant
   private static final LabelCssBuilder CSS_BUILDER = new LabelCssBuilder();
 
-  //attribute
   private final MutableOptionalValue<LabelRole> role = new MutableOptionalValue<>(
     ROLE_HEADER,
     this::setRole,
     LabelRole::fromSpecification,
     Node::fromEnum);
 
-  //attribute
   private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
-  //constructor
   public Label() {
 
     //Info: Reset is technically optional, but required to achieve a well-defined
@@ -62,67 +50,56 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     reset();
   }
 
-  //method
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
-  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
-  //method
   @Override
   public LabelRole getRole() {
     return role.getValue();
   }
 
-  //method
   @Override
   public String getText() {
     return text.getValue();
   }
 
-  //method
   @Override
   public String getUserInput() {
     return StringCatalogue.EMPTY_STRING;
   }
 
-  //method
   @Override
   public boolean hasRole() {
     return role.containsAny();
   }
 
-  //method
   @Override
   public boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
-  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
-  //method
   @Override
   public void removeRole() {
     role.clear();
   }
 
-  //method
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
-  //method
   @Override
   public ILabel setRole(final LabelRole role) {
 
@@ -131,7 +108,6 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     return this;
   }
 
-  //method
   @Override
   public ILabel setText(final String text) {
 
@@ -142,31 +118,26 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     return this;
   }
 
-  //method
   @Override
   public ILabel setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
-  //method
   @Override
   protected LabelStyle createStyle() {
     return new LabelStyle();
   }
 
-  //method
   @Override
   protected IControlCssBuilder<ILabel, ILabelStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  //method
   @Override
   protected IControlHtmlBuilder<ILabel> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  //method
   @Override
   protected void resetControl() {
 

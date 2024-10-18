@@ -1,25 +1,19 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-//Netty imports
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 
-//class
 final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 
-  //attribute
   private final SslServer parentWebSocketServer;
 
-  //optional attribute
   private SslServerEndPoint parentWebSocketServerEndPoint;
 
-  //constructor
   public SslServerChannelInboundHandler(final SslServer parentWebSocketServer) {
 
     GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
@@ -27,7 +21,6 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     this.parentWebSocketServer = parentWebSocketServer;
   }
 
-  //method
   /**
    * Is triggered when the communication is stopped. For example when the client
    * closes the connections. Closes the parent {@link SslServerEndPoint} of the
@@ -38,7 +31,6 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     parentWebSocketServerEndPoint.close();
   }
 
-  //method
   @Override
   protected void channelRead0(
     final ChannelHandlerContext channelHandlerContext,

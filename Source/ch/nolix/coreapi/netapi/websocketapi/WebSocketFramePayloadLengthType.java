@@ -1,18 +1,14 @@
-//package declaration
 package ch.nolix.coreapi.netapi.websocketapi;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//enum
 public enum WebSocketFramePayloadLengthType {
   BITS_7,
   BITS_16,
   BITS_64;
 
-  //static method
   public static WebSocketFramePayloadLengthType fromCode(final int code) {
 
     GlobalValidator.assertThat(code).thatIsNamed(LowerCaseVariableCatalogue.CODE).isNotNegative();
@@ -32,7 +28,6 @@ public enum WebSocketFramePayloadLengthType {
     throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.CODE, code);
   }
 
-  //static method
   public static WebSocketFramePayloadLengthType fromPayloadLength(final long payloadLength) {
 
     GlobalValidator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();

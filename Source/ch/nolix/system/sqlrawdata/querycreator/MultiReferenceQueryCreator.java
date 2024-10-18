@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.querycreator;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 
-//class
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {
 
-  //method
   @Override
   public String createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
     final String columnId,
@@ -34,7 +30,6 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     + ");";
   }
 
-  //method
   @Override
   public String createQueryToLoadMultiReferenceEntries(
     final String entityId,
@@ -54,7 +49,6 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     + "';";
   }
 
-  //method
   @Override
   public String createQueryToLoadOptionalFirstMultiReferenceEntry(
     final String multiReferenceColumnId,

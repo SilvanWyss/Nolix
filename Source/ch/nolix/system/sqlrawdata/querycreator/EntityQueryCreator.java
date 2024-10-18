@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.querycreator;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
@@ -11,10 +9,8 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 
-//class
 public final class EntityQueryCreator implements IEntityQueryCreator {
 
-  //method
   @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
     return "SELECT COUNT(Id) FROM "
@@ -25,7 +21,6 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + "';";
   }
 
-  //method
   @Override
   public String createQueryToCountEntitiesWithGivenValueAtGivenColumn(
     final String tableName,
@@ -44,7 +39,6 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + "';";
   }
 
-  //method
   @Override
   public String createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
@@ -66,7 +60,6 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ");";
   }
 
-  //method
   @Override
   public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
@@ -76,7 +69,6 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ";";
   }
 
-  //method
   @Override
   public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
@@ -88,7 +80,6 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + "';";
   }
 
-  //method
   @Override
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "

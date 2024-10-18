@@ -1,24 +1,17 @@
-//package declaration
 package ch.nolix.core.language;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public final class EnglishNounTool {
 
-  //constant
   private static final String ARTICLE_A = "a";
 
-  //constant
   private static final String ARTICLE_AN = "an";
 
-  //constant
   private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
 
-  //method
   public String getArticleOfNoun(final String noun) {
 
     final var firstLetter = noun.charAt(0);
@@ -26,7 +19,6 @@ public final class EnglishNounTool {
     return getArticleOfNounWithFirstLetter(firstLetter);
   }
 
-  //method
   public String getPluralOfNoun(final String noun) {
 
     GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalogue.NOUN).isNotBlank();
@@ -47,7 +39,6 @@ public final class EnglishNounTool {
     };
   }
 
-  //method
   private String getArticleOfNounWithFirstLetter(final char firstLetter) {
 
     //Asserts that the given letter is valid.
@@ -76,7 +67,6 @@ public final class EnglishNounTool {
     };
   }
 
-  //method
   private String getPluralOfNounDependingOnEnding(final String noun) {
 
     if (noun.endsWith("man")) {
@@ -110,7 +100,6 @@ public final class EnglishNounTool {
     return (noun + "s");
   }
 
-  //method
   private boolean pluralOfNounEndsWithEs(final String noun) {
     return //
     noun.endsWith("sh")

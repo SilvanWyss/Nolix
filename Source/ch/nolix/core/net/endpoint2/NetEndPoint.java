@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.net.endpoint2;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -16,7 +14,6 @@ import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link NetEndPoint} is a {@link EndPoint} that can send messages to an
  * other {@link NetEndPoint}.
@@ -26,16 +23,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class NetEndPoint extends EndPoint {
 
-  //constant
   private int nextSentPackageIndex = 1;
 
-  //attribute
   private final IEndPoint internalEndPoint;
 
-  //multi-attribute
   private final LinkedList<Package> receivedPackages = LinkedList.createEmpty();
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the given port on the local machine.
@@ -49,7 +42,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(port));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given target on
    * the given port on the local machine.
@@ -66,7 +58,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(port, target));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the HTTP port (80) on the machine with the given ip.
@@ -79,7 +70,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the given port on the machine with the given ip.
@@ -94,7 +84,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given target on
    * the given port on the machine with the given ip.
@@ -112,7 +101,6 @@ public final class NetEndPoint extends EndPoint {
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port, target));
   }
 
-  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
@@ -128,7 +116,6 @@ public final class NetEndPoint extends EndPoint {
     internalEndPoint.setReceiver(this::receive);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -137,7 +124,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getConnectionType();
   }
 
-  //method
   /**
    * @return the target of the current {@link NetEndPoint}.
    * @throws ArgumentDoesNotHaveAttributeException if this net end point does not
@@ -148,7 +134,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getCustomTargetSlot();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -157,7 +142,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getPeerType();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -166,7 +150,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getSecurityMode();
   }
 
-  //method
   /**
    * @return true if the current {@link NetEndPoint} is a net end point.
    */
@@ -174,7 +157,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.isSocketEndPoint();
   }
 
-  //method
   /**
    * Sends the given message and returns the reply.
    * 
@@ -187,7 +169,6 @@ public final class NetEndPoint extends EndPoint {
     return sendAndWaitToReply(message);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -196,7 +177,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.hasCustomTargetSlot();
   }
 
-  //method
   /**
    * @return the internal end point of the current {@link NetEndPoint}.
    */
@@ -204,7 +184,6 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint;
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message.
    * 
@@ -218,7 +197,6 @@ public final class NetEndPoint extends EndPoint {
     return receivedPackages;
   }
 
-  //method
   /**
    * @return the index of the next sent package. of the current
    *         {@link NetEndPoint}
@@ -235,7 +213,6 @@ public final class NetEndPoint extends EndPoint {
     return nextSentPackageIndex++;
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given package.
    * 
@@ -253,7 +230,6 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} return and remove the received package
    * with the given index.
@@ -267,7 +243,6 @@ public final class NetEndPoint extends EndPoint {
     return getStoredReceivedPackages().removeAndGetStoredFirst(rp -> rp.hasIndex(index));
   }
 
-  //method
   /**
    * @param index
    * @return true if the current {@link NetEndPoint} has received a package with
@@ -277,7 +252,6 @@ public final class NetEndPoint extends EndPoint {
     return getStoredReceivedPackages().containsAny(rp -> rp.hasIndex(index));
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} receive a response expecting message
    * which is in the given package.
@@ -296,7 +270,6 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} send the given package.
    * 
@@ -306,7 +279,6 @@ public final class NetEndPoint extends EndPoint {
     internalEndPoint.sendMessage(paramPackage.toString());
   }
 
-  //method
   /**
    * Sends the given message and waits to the reply.
    * 
@@ -336,7 +308,6 @@ public final class NetEndPoint extends EndPoint {
     };
   }
 
-  //method
   /**
    * Lets the current {@link NetEndPoint} wait to and return and remove the
    * received package with the given index.

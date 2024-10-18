@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
 
-//class
 final class ColumnMutationExecutor {
 
-  //method
   public void deleteColumn(final Column column) {
 
     if (column.belongsToTable()) {
@@ -19,7 +15,6 @@ final class ColumnMutationExecutor {
     column.internalSetDeleted();
   }
 
-  //method
   public void setHeaderToColumn(final Column column, final String name) {
 
     final var oldName = column.getName();
@@ -38,7 +33,6 @@ final class ColumnMutationExecutor {
     column.internalSetEdited();
   }
 
-  //method
   public void setParameterizedFieldTypeToColumn(
     final Column column,
     final IParameterizedFieldType parameterizedFieldType) {

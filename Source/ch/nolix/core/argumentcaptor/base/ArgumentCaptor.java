@@ -1,35 +1,25 @@
-//package declaration
 package ch.nolix.core.argumentcaptor.base;
 
-//Java imports
 import java.util.function.Supplier;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not have abstract methods.
 
-  //attribute
   private boolean hasArgument;
 
-  //optional attribute
   private A argument;
 
-  //optional attribute
   private final ArgumentCaptor<?, ?> nextArgumentCaptor;
 
-  //optional attribute
   private final N nextArgumentCaptorAsNext;
 
-  //optional attribute
   private Supplier<N> builder;
 
-  //constructor
   protected ArgumentCaptor() {
 
     nextArgumentCaptor = null;
@@ -37,7 +27,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     nextArgumentCaptorAsNext = null;
   }
 
-  //constructor
   protected ArgumentCaptor(final N nextArgumentCaptor) {
     if (nextArgumentCaptor instanceof ArgumentCaptor<?, ?> localArgumentCaptor) {
 
@@ -49,7 +38,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     }
   }
 
-  //method
   public final N nxtArgCpt() {
 
     assertHasNextArgumentCaptor();
@@ -57,7 +45,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     return nextArgumentCaptorAsNext;
   }
 
-  //method
   protected final A getStoredArgument() {
 
     assertHasArgument();
@@ -65,7 +52,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     return argument;
   }
 
-  //method
   protected final N setArgumentAndGetNext(final A argument) {
 
     setArgument(argument);
@@ -73,7 +59,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     return getNext();
   }
 
-  //method
   @SuppressWarnings("unchecked")
   protected final void setBuilder(final Supplier<?> builder) {
     if (hasNextArgumentCaptor()) {
@@ -88,14 +73,12 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     }
   }
 
-  //method
   private void assertDoesNotHaveBuilder() {
     if (hasBuilder()) {
       throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.BUILDER);
     }
   }
 
-  //method
   private void assertHasArgument() {
     if (!hasArgument()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this,
@@ -103,26 +86,22 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     }
   }
 
-  //method
   private void assertHasBuilder() {
     if (!hasBuilder()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.BUILDER);
     }
   }
 
-  //method
   private void assertHasNextArgumentCaptor() {
     if (!hasNextArgumentCaptor()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next argument captor");
     }
   }
 
-  //method
   private N build() {
     return getStoredBuilder().get();
   }
 
-  //method
   private N getNext() {
 
     if (hasNextArgumentCaptor()) {
@@ -132,7 +111,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     return build();
   }
 
-  //method
   private Supplier<N> getStoredBuilder() {
 
     assertHasBuilder();
@@ -140,22 +118,18 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     return builder;
   }
 
-  //method
   private boolean hasArgument() {
     return hasArgument;
   }
 
-  //method
   private boolean hasBuilder() {
     return (builder != null);
   }
 
-  //method
   private boolean hasNextArgumentCaptor() {
     return (nextArgumentCaptor != null);
   }
 
-  //method
   private void setArgument(final A argument) {
 
     hasArgument = true;

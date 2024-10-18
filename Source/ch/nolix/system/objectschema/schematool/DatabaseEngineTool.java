@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.system.objectschema.schematool;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseEngineTool;
 
-//class
 public final class DatabaseEngineTool extends DatabaseObjectTool implements IDatabaseEngineTool {
 
-  //method
   @Override
   public void assertDoesNotContainDatabaseWithGivenName(
     final IDatabaseEngine databaseEngine,
@@ -23,7 +19,6 @@ public final class DatabaseEngineTool extends DatabaseObjectTool implements IDat
     }
   }
 
-  //method
   @Override
   public boolean containsDatabaseWithGivenName(
     final IDatabaseEngine databaseEngine,
@@ -31,13 +26,11 @@ public final class DatabaseEngineTool extends DatabaseObjectTool implements IDat
     return databaseEngine.getStoredDatabases().containsAny(db -> db.hasName(name));
   }
 
-  //method
   @Override
   public int getDatabaseCount(final IDatabaseEngine databaseEngine) {
     return databaseEngine.getStoredDatabases().getCount();
   }
 
-  //method
   @Override
   public IDatabase getStoredDatabaseWithGivenName(
     final IDatabaseEngine databaseEngine,

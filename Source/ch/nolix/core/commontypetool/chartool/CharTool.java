@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.core.commontypetool.chartool;
 
-//own imports
 import ch.nolix.coreapi.commontypetoolapi.chartoolapi.ICharTool;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
  */
 public final class CharTool implements ICharTool {
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -20,7 +16,6 @@ public final class CharTool implements ICharTool {
     return (character >= 48 && character <= 57);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

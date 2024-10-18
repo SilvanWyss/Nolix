@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
 
-//interface
 /**
  * A {@link IMutableValueHolder} is a {@link IValueHolder} whose value can be
  * set and removed programmatically.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
  */
 public interface IMutableValueHolder<V> extends IValueHolder<V> {
 
-  //method declaration
   /**
    * Sets the value of the current {@link IMutableValueHolder}.
    * 

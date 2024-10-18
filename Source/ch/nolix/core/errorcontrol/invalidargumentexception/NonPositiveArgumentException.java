@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//Java imports
 import java.math.BigDecimal;
 
-//class
 /**
  * A {@link NonPositiveArgumentException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably not (!)
@@ -16,10 +13,8 @@ import java.math.BigDecimal;
 @SuppressWarnings("serial")
 public final class NonPositiveArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is not positive";
 
-  //constructor
   /**
    * Creates a new {@link NonPositiveArgumentException} for the given argumentName
    * and argument.
@@ -35,7 +30,6 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link NonPositiveArgumentException} for the given argumentName
    * and argument.
@@ -51,7 +45,6 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link NonPositiveArgumentException} for the given argumentName
    * and argument.
@@ -67,7 +60,6 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -82,7 +74,6 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -97,7 +88,6 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link EmptinessRequestable} can be asked if it is empty or contains
  * elements.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {
 
-  //method
   /**
    * @return true if the current {@link EmptinessRequestable} contains one or
    *         several elements.
@@ -24,7 +20,6 @@ public interface EmptinessRequestable {
     return !isEmpty();
   }
 
-  //method declaration
   /**
    * @return true if {@link EmptinessRequestable} does not contain an element.
    */

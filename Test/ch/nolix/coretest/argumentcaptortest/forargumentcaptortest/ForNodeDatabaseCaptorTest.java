@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.argumentcaptortest.forargumentcaptortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
 import ch.nolix.core.document.node.MutableNode;
@@ -13,10 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
-//class
 final class ForNodeDatabaseCaptorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_forNodeDatabase_whenDoesNotHaveNext() {
 
@@ -28,7 +23,6 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     expectRunning(() -> testUnit.forNodeDatabase(database)).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  //method
   @Test
   void testCase_forNodeDatabase_whenHasNext() {
 
@@ -45,7 +39,6 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_forTemporaryInMemoryNodeDatabase_whenHasNext() {
 
@@ -61,7 +54,6 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     expect(result).is(andNameCaptor);
   }
 
-  //method
   @Test
   void testCase_getStoredNodeDatabase_whenDoesNotHaveNodeDatabase() {
 

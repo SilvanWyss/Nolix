@@ -1,11 +1,8 @@
-//package declaration
 package ch.nolix.system.application.webapplicationrefreshqueue;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
@@ -17,22 +14,16 @@ import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPar
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-//class
 public final class WebClientRefreshQueue {
 
-  //attribute
   private final BooleanSupplier openStateRequestable;
 
-  //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
-  //attribute
   private boolean updatingCounterpart;
 
-  //optional attribute
   private UpdateTicket updateTicket;
 
-  //constructor
   private WebClientRefreshQueue(
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
@@ -44,14 +35,12 @@ public final class WebClientRefreshQueue {
     this.counterpartRunner = counterpartRunner;
   }
 
-  //static method
   public static WebClientRefreshQueue forCounterpartRunnerAndOpenStateRequestable(
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientRefreshQueue(counterpartRunner, openStateRequester);
   }
 
-  //method
   public void updateControlOnCounterpart(
     final IControl<?, ?> control,
     final boolean updateConstellationOrStyle) {
@@ -61,7 +50,6 @@ public final class WebClientRefreshQueue {
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
-  //method
   public void updateControlsOnCounterpart(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
@@ -73,7 +61,6 @@ public final class WebClientRefreshQueue {
     }
   }
 
-  //method
   public void updateWebGuiOfCounterpart(
     final IWebGui<?> webGui,
     final boolean updateConstellationOrStyle) {
@@ -85,14 +72,12 @@ public final class WebClientRefreshQueue {
     }
   }
 
-  //method
   private void assertUpdatingCounterpartIsRequired() {
     if (!updatingCounterpartIsRequired()) {
       throw GeneralException.withErrorMessage("Updating counterpart is not required.");
     }
   }
 
-  //method
   private synchronized UpdateTicket getNextUpdateTicket() {
 
     assertUpdatingCounterpartIsRequired();
@@ -106,7 +91,6 @@ public final class WebClientRefreshQueue {
     return localUpdateTicket;
   }
 
-  //method
   private LinkedList<IControl<?, ?>> getStoredAllControlsFromUpdateTicketAndGivenControls(
     final IContainer<IControl<?, ?>> controls) {
 
@@ -121,17 +105,14 @@ public final class WebClientRefreshQueue {
     return allControls;
   }
 
-  //method
   private synchronized boolean isUpdatingCounterpart() {
     return updatingCounterpart;
   }
 
-  //method
   private synchronized void setFinishedUpdateCounterpart() {
     updatingCounterpart = false;
   }
 
-  //method
   private synchronized void setUpdatingControlsOnCounterpartAsRequired(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
@@ -147,7 +128,6 @@ public final class WebClientRefreshQueue {
     }
   }
 
-  //method
   private synchronized void setUpdatingWebGuiOfCounterpartAsRequired(
     final IWebGui<?> webGui,
     final boolean updateConstellationOrStyle) {
@@ -156,7 +136,6 @@ public final class WebClientRefreshQueue {
     }
   }
 
-  //method
   private void updateCounterpart() {
 
     final var nextUpdateTicket = getNextUpdateTicket();
@@ -166,7 +145,6 @@ public final class WebClientRefreshQueue {
     setFinishedUpdateCounterpart();
   }
 
-  //method
   private void updateCounterpart(final UpdateTicket updateTicket) {
     if (updateTicket.isForWholeWebGui()) {
       WebClientCounterpartUpdater
@@ -179,19 +157,16 @@ public final class WebClientRefreshQueue {
     }
   }
 
-  //method
   private void updateCounterpartAsLongAsRequired() {
     while (updatingCounterpartIsRequiredSynchronized()) {
       updateCounterpart();
     }
   }
 
-  //method
   private boolean updatingCounterpartIsRequired() {
     return (updateTicket != null);
   }
 
-  //method
   private synchronized boolean updatingCounterpartIsRequiredSynchronized() {
     return updatingCounterpartIsRequired();
   }

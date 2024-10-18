@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentHasAttributeException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument has undesirably a certain
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentHasAttributeException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link ArgumentHasAttributeException} for the given argument
    * and attributeName.
@@ -29,7 +26,6 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
     super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));
   }
 
-  //static method
   /**
    * @param argument
    * @param attributeName
@@ -44,7 +40,6 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
     return new ArgumentHasAttributeException(argument, attributeName);
   }
 
-  //static method
   /**
    * @param attributeName
    * @return a valid attribute name of the given attribtueName.

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.serverdashboard;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.main.Application;
@@ -10,16 +8,12 @@ import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContex
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
-//class
 public final class WebApplicationSheet implements IWebApplicationSheet {
 
-  //attribute
   private final IApplicationInstanceTarget applicationInstanceTarget;
 
-  //optional attribute
   private final IImage applicationLogo;
 
-  //constructor
   private <AC> WebApplicationSheet(final Application<WebClient<AC>, AC> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
@@ -33,18 +27,15 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
     }
   }
 
-  //static method
   public static <AC> WebApplicationSheet forWebApplication(final Application<WebClient<AC>, AC> webApplication) {
     return new WebApplicationSheet(webApplication);
   }
 
-  //method
   @Override
   public IApplicationInstanceTarget getApplicationInstanceTarget() {
     return applicationInstanceTarget;
   }
 
-  //method
   @Override
   public IImage getApplicationLogo() {
 
@@ -53,13 +44,11 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
     return applicationLogo;
   }
 
-  //method
   @Override
   public boolean hasApplicationLogo() {
     return (applicationLogo != null);
   }
 
-  //method
   private void assertHasApplicationLogo() {
     if (!hasApplicationLogo()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application logo");

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.noderawschema.schemawriter;
 
-//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
@@ -10,10 +8,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceT
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-//class
 public final class ParameterizedFieldTypeNodeMapper {
 
-  //method
   public Node createParameterizedFieldTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedFieldType) {
     return switch (parameterizedFieldType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
@@ -27,7 +23,6 @@ public final class ParameterizedFieldTypeNodeMapper {
     };
   }
 
-  //method
   private Node createParameterizedFieldTypeNodeFrom(
     IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
@@ -43,7 +38,6 @@ public final class ParameterizedFieldTypeNodeMapper {
         baseParameterizedBackReferenceType.getBackReferencedColumnId()));
   }
 
-  //method
   private Node createParameterizedFieldTypeNodeFrom(
     final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
@@ -59,7 +53,6 @@ public final class ParameterizedFieldTypeNodeMapper {
         baseParameterizedReferenceType.getReferencedTableId()));
   }
 
-  //method
   private Node createParameterizedFieldTypeNodeFrom(
     final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(

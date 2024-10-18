@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
-//own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
@@ -14,60 +12,50 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 
-//class
 public final class AbstractableField extends Entity implements IAbstractableField {
 
-  //constant
   public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalogue.FIELD;
 
-  //constant
   public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
 
-  //constant
   private static final AbstractableFieldValidator ABSTRACTABLE_FIELD_VALIDATOR = new AbstractableFieldValidator();
 
-  //attribute
   private final BackReference<AbstractableObject> parentObject = BackReference
     .forEntityAndBackReferencedFieldName(AbstractableObject.class, "declaredFields");
 
-  //attribute
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 
-  //attribute
   private final Value<String> cardinality = Value.withInitialValue(DEFAULT_CARDINALITY.toString());
 
   //TODO: Enable BaseReference to reference base types.
-  //attribute
+
   private final OptionalReference<AbstractValueContent> abstractValueContent = OptionalReference
     .forEntity(AbstractValueContent.class);
 
   //TODO: Enable BaseReference to reference base types.
-  //attribute
+
   private final OptionalReference<AbstractReferenceContent> abstractReferenceContent = OptionalReference
     .forEntity(AbstractReferenceContent.class);
 
   //TODO: Enable BaseReference to reference base types.
-  //attribute
+
   private final OptionalReference<ConcreteValueContent> concreteValueContent = OptionalReference
     .forEntity(ConcreteValueContent.class);
 
   //TODO: Enable BaseReference to reference base types.
-  //attribute
+
   private final OptionalReference<ConcreteReferenceContent> concreteReferenceContent = OptionalReference
     .forEntity(ConcreteReferenceContent.class);
 
-  //constructor
   public AbstractableField() {
     initialize();
   }
 
-  //method
   @Override
   public ContentType getContentType() {
     return getStoredContent().getContentType();
   }
 
-  //method
   @Override
   public Cardinality getCardinality() {
 
@@ -78,7 +66,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return Cardinality.valueOf(cardinality.getStoredValue());
   }
 
-  //method
   @Override
   public String getName() {
 
@@ -89,7 +76,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return name.getStoredValue();
   }
 
-  //method
   @Override
   public IAbstractableField getStoredBaseField() {
     return getStoredParentObject()
@@ -98,7 +84,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
       .getStoredFirst(f -> f.hasSameNameAs(this));
   }
 
-  //method
   @Override
   public IContent getStoredContent() {
 
@@ -125,13 +110,11 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return concreteValueContent.getReferencedEntity();
   }
 
-  //method
   @Override
   public IAbstractableObject getStoredParentObject() {
     return parentObject.getStoredBackReferencedEntity();
   }
 
-  //method
   @Override
   public boolean inheritsFromBaseField() {
     return getStoredParentObject()
@@ -139,31 +122,26 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
       .containsAny(bt -> bt.getStoredFields().containsAny(f -> f.hasSameNameAs(this)));
   }
 
-  //method
   @Override
   public boolean isAbstract() {
     return getStoredContent().isAbstract();
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return getStoredContent().isEmpty();
   }
 
-  //method
   @Override
   public boolean isForValues() {
     return getStoredContent().isForValues();
   }
 
-  //method
   @Override
   public boolean isMandatory() {
     return (getCardinality() == Cardinality.TO_ONE);
   }
 
-  //method
   @Override
   public IAbstractableField setAsAbstract() {
 
@@ -174,7 +152,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return this;
   }
 
-  //method
   @Override
   public IAbstractableField setAsConcrete() {
 
@@ -185,7 +162,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return this;
   }
 
-  //method
   @Override
   public IAbstractableField setCardinality(final Cardinality cardinality) {
 
@@ -196,7 +172,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return this;
   }
 
-  //method
   @Override
   public IAbstractableField setForReferences() {
 
@@ -207,7 +182,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return this;
   }
 
-  //method
   @Override
   public IAbstractableField setForValues() {
 
@@ -218,7 +192,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return this;
   }
 
-  //method
   @Override
   public IAbstractableField setName(final String name) {
 
@@ -234,7 +207,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     return this;
   }
 
-  //method
   private void removeContent() {
     abstractValueContent.clear();
     abstractReferenceContent.clear();
@@ -242,14 +214,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     concreteReferenceContent.clear();
   }
 
-  //method
   private void setAsAbstractIfIsConcreteAndWhenAllowed() {
     if (isConcrete()) {
       setAsAbstractWhenIsConcreteAndAllowed();
     }
   }
 
-  //method
   private void setAsAbstractWhenIsConcreteAndForReferencesAndAllowed() {
 
     removeContent();
@@ -259,14 +229,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     abstractReferenceContent.setEntity(newAbstractReferenceContent);
   }
 
-  //method
   private void setAsConcreteIfItIsAbstractAndWhenAllowed() {
     if (isAbstract()) {
       setAsConcreteWhenIsAbstractAndAllowed();
     }
   }
 
-  //method
   private void setAsAbstractWhenIsConcreteAndForValuesAndAllowed() {
 
     removeContent();
@@ -285,7 +253,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     }
   }
 
-  //method
   private void setAsConcreteWhenIsAbstractAndAllowed() {
     if (isForValues()) {
       setAsConcreteWhenIsAbstractAndForValuesAndAllowed();
@@ -294,7 +261,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     }
   }
 
-  //method
   private void setAsConcreteWhenIsAbstractAndForReferencesAndAllowed() {
 
     removeContent();
@@ -304,7 +270,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     concreteReferenceContent.setEntity(newConcreteReferenceContent);
   }
 
-  //method
   private void setAsConcreteWhenIsAbstractAndForValuesAndAllowed() {
 
     removeContent();
@@ -314,7 +279,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     concreteValueContent.setEntity(newConcreteValueContent);
   }
 
-  //method
   private void setForReferencesIfIsForRerencesAndWhenAllowed() {
     if (isAbstract()) {
       setForReferencesWhenIsAbstractAndForValuesAndAllowed();
@@ -323,14 +287,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     }
   }
 
-  //method
   private void setForReferencesWhenAllowed() {
     if (isForValues()) {
       setForReferencesIfIsForRerencesAndWhenAllowed();
     }
   }
 
-  //method
   private void setForReferencesWhenIsAbstractAndForValuesAndAllowed() {
 
     removeContent();
@@ -340,7 +302,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     abstractReferenceContent.setEntity(newAbstractReferenceContent);
   }
 
-  //method
   private void setForReferencesWhenIsConcreteAndForValuesAndAllowed() {
 
     removeContent();
@@ -350,14 +311,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     concreteReferenceContent.setEntity(newConcreteReferenceContent);
   }
 
-  //method
   private void setForValuesWhenAllowed() {
     if (isForReferences()) {
       setForValuesWhenIsForReferencesAndAllowed();
     }
   }
 
-  //method
   private void setForValuesWhenIsAbstractAndForReferencesAndAllowed() {
 
     removeContent();
@@ -367,7 +326,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     abstractValueContent.setEntity(newAbstractValueContent);
   }
 
-  //method
   private void setForValuesWhenIsConcreteAndForReferencesAndAllowed() {
 
     removeContent();
@@ -377,7 +335,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
     concreteValueContent.setEntity(newConcreteValueContent);
   }
 
-  //method
   private void setForValuesWhenIsForReferencesAndAllowed() {
     if (isAbstract()) {
       setForValuesWhenIsAbstractAndForReferencesAndAllowed();

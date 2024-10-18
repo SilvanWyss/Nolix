@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.mainvalidatortest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -12,10 +9,8 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 
-//class
 final class LayerValidatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_assertBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {
 
@@ -32,7 +27,6 @@ final class LayerValidatorTest extends StandardTest {
       .ofType(ArgumentDoesNotBelongToParentException.class);
   }
 
-  //method
   @Test
   void testCase_assertBelongsToGui_whenTheGivenLayerBelongsToAGui() {
 
@@ -48,7 +42,6 @@ final class LayerValidatorTest extends StandardTest {
     expectRunning(() -> testUnit.assertBelongsToGui(layer)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_assertDoesNotBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {
 
@@ -63,7 +56,6 @@ final class LayerValidatorTest extends StandardTest {
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer)).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_assertDoesNotBelongToGui_whenTheGivenLayerBelongsToAGui() {
 

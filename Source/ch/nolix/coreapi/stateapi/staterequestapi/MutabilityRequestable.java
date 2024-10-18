@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link MutabilityRequestable} can be asked if it is mutable.
  * 
@@ -14,7 +11,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface MutabilityRequestable {
 
-  //method
   /**
    * @return true if the current {@link MutabilityRequestable} is not mutable.
    */
@@ -22,7 +18,6 @@ public interface MutabilityRequestable {
     return !isMutable();
   }
 
-  //method declaration
   /**
    * @return true if the current {@link MutabilityRequestable} is mutable.
    */

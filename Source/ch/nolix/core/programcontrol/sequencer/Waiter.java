@@ -1,13 +1,10 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
 
-//class
 /**
  * The {@link Waiter} provides methods to wait for specific durations. Of the
  * {@link Waiter} an instance cannot be created.
@@ -17,14 +14,12 @@ import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
  */
 final class Waiter {
 
-  //constructor
   /**
    * Prevents that an instance of the {@link Waiter} can be created.
    */
   private Waiter() {
   }
 
-  //static method
   /**
    * Waits for the given duractionInSeconds.
    * 
@@ -40,7 +35,6 @@ final class Waiter {
     waitForMilliseconds(TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
   }
 
-  //static method
   /**
    * Waits for the given durationInMilliseconds.
    * 

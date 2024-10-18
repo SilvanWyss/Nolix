@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.techapitest.relationaldocapitest.baseapitest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
-//class
 final class DataTypeTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getDataTypeClass_whenIsInteger8Byte() {
 
@@ -25,7 +21,6 @@ final class DataTypeTest extends StandardTest {
     expect(result).is(Long.class);
   }
 
-  //method
   @Test
   void testCase_getDataTypeClass_whenIsFloatingPointNumber8Byte() {
 
@@ -39,7 +34,6 @@ final class DataTypeTest extends StandardTest {
     expect(result).is(Double.class);
   }
 
-  //method
   @Test
   void testCase_getDataTypeClass_whenIsBoolean() {
 
@@ -53,7 +47,6 @@ final class DataTypeTest extends StandardTest {
     expect(result).is(Boolean.class);
   }
 
-  //method
   @Test
   void testCase_getDataTypeClass_whenIsText() {
 
@@ -67,7 +60,6 @@ final class DataTypeTest extends StandardTest {
     expect(result).is(String.class);
   }
 
-  //method
   @Test
   void testCase_getDataTypeClass_whenIsImage() {
 

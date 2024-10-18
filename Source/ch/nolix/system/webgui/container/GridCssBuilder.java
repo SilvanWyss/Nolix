@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.webgui.container;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
@@ -15,13 +13,10 @@ import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 
-  //constant
   private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IGrid control,
@@ -29,7 +24,6 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IGrid control,
@@ -38,7 +32,6 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IGrid control,
@@ -66,7 +59,6 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
           CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IGrid control,

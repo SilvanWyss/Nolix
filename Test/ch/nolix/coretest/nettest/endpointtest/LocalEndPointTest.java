@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -15,10 +12,8 @@ import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 final class LocalEndPointTest extends StandardTest {
 
-  //method
   @Test
   void testCase_sendMessage_whenSends1Message() {
 
@@ -33,7 +28,6 @@ final class LocalEndPointTest extends StandardTest {
     expect(slot.getLatestReceivedMessage()).is("my_message");
   }
 
-  //method
   @Test
   void testCase_sendMessage_whenSends3Messages() {
 
@@ -50,7 +44,6 @@ final class LocalEndPointTest extends StandardTest {
     expect(slot.getLatestReceivedMessage()).is("my_message3");
   }
 
-  //method
   @Test
   void testCase_sendMessage_whenTheGivenMessageIsNull() {
 
@@ -69,7 +62,6 @@ final class LocalEndPointTest extends StandardTest {
     expect(slot.getLatestReceivedMessage()).isNull();
   }
 
-  //method
   @Test
   void testCase_sendMessage_whenIsClosed() {
 
@@ -96,7 +88,6 @@ final class LocalEndPointTest extends StandardTest {
     expect(slot.getLatestReceivedMessage()).isNull();
   }
 
-  //method
   @Test
   void testCase_toSlot() {
 
@@ -112,7 +103,6 @@ final class LocalEndPointTest extends StandardTest {
     expect(result.getSecurityMode()).is(SecurityMode.NONE);
   }
 
-  //method
   @Test
   void testCase_toSlot_whenTheGivenSlotIsNull() {
 
@@ -123,7 +113,6 @@ final class LocalEndPointTest extends StandardTest {
       .withMessage("The given ISlot is null.");
   }
 
-  //method
   @Test
   void testCase_toTargetSlotOnServer() {
     try (final var server = new LocalServer()) {
@@ -146,7 +135,6 @@ final class LocalEndPointTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
     try (final var server = new LocalServer()) {

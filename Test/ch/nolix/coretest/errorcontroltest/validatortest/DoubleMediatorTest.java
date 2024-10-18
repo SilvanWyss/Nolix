@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class DoubleMediatorTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @ValueSource(doubles = { 0.0, 0.0001, 0.5, 1.0, 1.5, 1000.0 })
   void testCase_isNotNegative_whenGivenArgumentIsNotNegative(final double argument) {
@@ -26,7 +21,6 @@ final class DoubleMediatorTest extends StandardTest {
     expectRunning(testUnit::isNotNegative).doesNotThrowException();
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(doubles = { -0.0001, -0.5, -1.0, -1.5, -1000.0 })
   void testCase_isNotNegative_whenGivenArgumentIsNegative(final double argument) {
@@ -41,7 +35,6 @@ final class DoubleMediatorTest extends StandardTest {
       .withMessage("The given argument '" + argument + "' is negative.");
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(doubles = { 0.0001, 0.5, 1.0, 1.5, 1000.0 })
   void testCase_isPositive_whenGivenArgumentIsPositive(final double argument) {
@@ -53,7 +46,6 @@ final class DoubleMediatorTest extends StandardTest {
     expectRunning(testUnit::isPositive).doesNotThrowException();
   }
 
-  //method
   @ParameterizedTest
   @ValueSource(doubles = { 0.0, -0.0001, -0.5, -1.0, -1.5, -1000.0 })
   void testCase_isPositive_whenGivenArgumentIsNotPositive(final double argument) {

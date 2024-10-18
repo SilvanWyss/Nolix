@@ -1,13 +1,9 @@
-//package declaration
 package ch.nolix.coretest.licensetest;
 
-//Java imports
 import java.util.Objects;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.license.Feature;
 import ch.nolix.core.license.GlobalLicenseManager;
@@ -15,10 +11,8 @@ import ch.nolix.core.license.License;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-//class
 final class GlobalLicenseManagerTest extends StandardTest {
 
-  //constant
   private static final class TestLicense extends License {
 
     @Override
@@ -27,7 +21,6 @@ final class GlobalLicenseManagerTest extends StandardTest {
     }
   }
 
-  //constant
   //This class must be public that it can be processed by reflection.
   public static final class TestFeature extends Feature {
 
@@ -37,7 +30,6 @@ final class GlobalLicenseManagerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_requireFeature_whenLicenseIsNotThere() {
 
@@ -45,7 +37,6 @@ final class GlobalLicenseManagerTest extends StandardTest {
     expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).throwsException();
   }
 
-  //method
   @Test
   void testCase_requireFeature_whenLicenseIsThere() {
 

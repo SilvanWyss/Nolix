@@ -1,16 +1,12 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.querycreator;
 
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
 
-//class
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 
-  //method
   @Override
   public String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
     final String columnId,
@@ -30,7 +26,6 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     + ");";
   }
 
-  //method
   @Override
   public String createQueryToLoadMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
@@ -49,7 +44,6 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     + "';";
   }
 
-  //method
   @Override
   public String createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
     final String columnId,

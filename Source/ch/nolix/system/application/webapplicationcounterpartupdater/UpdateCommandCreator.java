@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
@@ -18,28 +16,23 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-//class
 public final class UpdateCommandCreator implements IUpdateCommandCreator {
 
-  //method
   @Override
   public IChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetCssCommandFromCss(webGui.getCss());
   }
 
-  //method
   @Override
   public IChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGui.getHtmlElementEventRegistrations());
   }
 
-  //method
   @Override
   public IChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetIconCommandForIcon(webGui.getIcon());
   }
 
-  //method
   @Override
   public IChainedNode createSetIconCommandForIcon(final IImage icon) {
     return ChainedNode.withHeaderAndNextNode(
@@ -47,25 +40,21 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
       ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
-  //method
   @Override
   public IChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
     return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.getHtml());
   }
 
-  //method
   @Override
   public IChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetRootHtmlElementCommandFromHtmlElement(webGui.getHtml());
   }
 
-  //method
   @Override
   public IChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
-  //method
   @Override
   public IChainedNode createSetTitleCommandForTitle(final String title) {
     return ChainedNode.withHeaderAndNextNode(
@@ -75,18 +64,15 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         Node.withHeader(title)));
   }
 
-  //method
   @Override
   public IChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
   }
 
-  //method
   private ChainedNode createSetCssCommandFromCss(final ICss css) {
     return createSetCssCommandFromCss(css.toStringWithoutEnclosingBrackets());
   }
 
-  //method
   private ChainedNode createSetCssCommandFromCss(final String css) {
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -95,7 +81,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         ChainedNode.withHeader(css)));
   }
 
-  //method
   private ChainedNode createSetHtmlElementCommandFromHtmlElement(
     final String htmlElementId,
     final IHtmlElement htmlElement) {
@@ -107,7 +92,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  //method
   private ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
     final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
 
@@ -121,7 +105,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         eventFunctions));
   }
 
-  //method
   private ChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement htmlElement) {
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -130,7 +113,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  //method
   private ChainedNode createSetUserInputFunctionsCommandForControls(final IContainer<IControl<?, ?>> controls) {
 
     final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
@@ -150,7 +132,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         userInputFunctions));
   }
 
-  //method
   private ChainedNode createUserInputFunctionFromControlAndString(final IControl<?, ?> control, final String string) {
     return ChainedNode.withChildNodesFromNodes(Node.withHeader(control.getInternalId()), Node.withHeader(string));
   }

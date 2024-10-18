@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//Java imports
 import java.util.Locale;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -24,7 +21,6 @@ import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
@@ -34,22 +30,16 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  */
 public abstract class Application<BC extends BackendClient<BC, AC>, AC> implements IApplication<AC> {
 
-  //constant
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
-  //attribute
   private final AC applicationContext;
 
-  //optional attribute
   private String nameAddendum;
 
-  //optional attribute
   private BaseServer<?> parentServer;
 
-  //multi-attribute
   private final LinkedList<BC> clients = LinkedList.createEmpty();
 
-  //constructor
   /**
    * Creates a new {@link Application} with the given applicationContext.
    * 
@@ -63,7 +53,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     this.applicationContext = applicationContext;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -75,7 +64,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return asTargetWithServerTarget(serverTarget);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -84,7 +72,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return (parentServer != null);
   }
 
-  //method
   /**
    * @return the class of the {@link Client}s of the current {@link Application}.
    */
@@ -93,7 +80,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return (Class<BC>) (createInitialSession().getClientClass());
   }
 
-  //method
   /**
    * @return the instance name of the current {@link Application}.
    */
@@ -107,7 +93,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return String.format("%s %s", getApplicationName(), getNameAddendum());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -119,7 +104,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return nameAddendum;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -128,7 +112,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return applicationContext;
   }
 
-  //method
   /**
    * @return the {@link Client}s of the current {@link Application}.
    */
@@ -139,7 +122,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return clients;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -148,7 +130,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return getInstanceName().replace(StringCatalogue.SPACE, StringCatalogue.UNDERSCORE).toLowerCase(Locale.ENGLISH);
   }
 
-  //method
   /**
    * @return true if the current {@link Application} has a {@link Client}
    *         connected.
@@ -157,7 +138,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return getStoredClients().containsAny();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -166,7 +146,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return (nameAddendum != null);
   }
 
-  //method
   /**
    * Lets the current {@link Application} take the given client.
    * 
@@ -180,7 +159,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     GlobalSequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
   }
 
-  //method
   /**
    * Lets the current {@link Application} take the given endPoint.
    * 
@@ -190,7 +168,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     takeClient(createBackendClientWithEndPoint(endPoint));
   }
 
-  //method
   /**
    * @return a new initial {@link Session} for a {@link Client} of the current
    *         {@link Application}.
@@ -200,13 +177,11 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return (Session<BC, AC>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
   }
 
-  //method
   /**
    * @return the initial {@link Session} class of the current {@link Application}.
    */
   protected abstract Class<?> getInitialSessionClass();
 
-  //method
   /**
    * Sets the given nameAddendum to the current {@link Application}.
    * 
@@ -225,7 +200,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     this.nameAddendum = nameAddendum;
   }
 
-  //method
   /**
    * Sets the parent {@link BaseServer} of the current {@link Application}.
    * 
@@ -242,7 +216,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     this.parentServer = parentServer;
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotBelongToParentException if the current
    *                                                {@link Application} does not
@@ -255,7 +228,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     }
   }
 
-  //method
   /**
    * @throws ArgumentBelongsToParentException if the current {@link Application}
    *                                          belongs already to a
@@ -268,7 +240,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     }
   }
 
-  //method
   /**
    * @throws ArgumentHasAttributeException if the current {@link Application} has
    *                                       already an instance name.
@@ -279,7 +250,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     }
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link Application} does not
@@ -291,7 +261,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     }
   }
 
-  //method
   /**
    * @param serverTarget
    * @return the current {@link Application} as target using the given
@@ -307,7 +276,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
         serverTarget.getSecurityModeForConnection());
   }
 
-  //method
   /**
    * @param endPoint
    * @return a new {@link BackendClient} with the given endPoint
@@ -320,7 +288,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return backendClient;
   }
 
-  //method
   /**
    * @return the parent {@link BaseServer} of the current {@link Application}.
    * @throws ArgumentDoesNotBelongToParentException if the current
@@ -335,7 +302,6 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
     return parentServer;
   }
 
-  //method
   /**
    * Removes the closed {@link Client}s of the current {@link Application}.
    */

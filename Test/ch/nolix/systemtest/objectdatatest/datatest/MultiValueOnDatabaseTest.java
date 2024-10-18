@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.data.Entity;
@@ -12,22 +9,17 @@ import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
 
-//class
 final class MultiValueOnDatabaseTest extends StandardTest {
 
-  //constant
   private static final class Round extends Entity {
 
-    //attribute
     final MultiValue<Integer> amounts = MultiValue.withValueType(Integer.class);
 
-    //constructor
     Round() {
       initialize();
     }
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsNewAndEmpty() {
 
@@ -46,7 +38,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     expect(loadedRound.amounts.getAllStoredValues().isEmpty());
   }
 
-  //method
   @Test
   void testCase_isSaved_whenIsNewAndContainsValue() {
 
@@ -71,7 +62,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     expect(loadedValues.containsAll(10, 20, 30, 40));
   }
 
-  //method
   @Test
   void testCase_removeValue_whenIsLoadedAndContainsValue() {
 

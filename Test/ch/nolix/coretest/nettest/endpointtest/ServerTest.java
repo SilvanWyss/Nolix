@@ -1,21 +1,16 @@
-//package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-//own imports
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 final class ServerTest extends StandardTest {
 
-  //method
   @Test
   void testCase_addDefaultSlot() {
 
@@ -36,7 +31,6 @@ final class ServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_clear_whenIsEmpty() {
 
@@ -56,7 +50,6 @@ final class ServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_clear_whenContainsAny() {
 
@@ -79,7 +72,6 @@ final class ServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_close() {
 
@@ -97,7 +89,6 @@ final class ServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_forHttpPort() {
     try (final var result = Server.forHttpPort()) {
@@ -112,7 +103,6 @@ final class ServerTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_forPort() {
 

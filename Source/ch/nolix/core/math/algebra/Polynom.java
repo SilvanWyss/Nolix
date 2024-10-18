@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.core.math.algebra;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
@@ -13,7 +12,6 @@ import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link Polynom} is not mutable.
  * 
@@ -25,25 +23,18 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class Polynom {
 
-  //constant
   public static final Polynom EMPTY_POLYNOM = new Polynom();
 
-  //constant
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
 
-  //constant
   private static final IArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //constant
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
-  //optional attribute
   private Polynom derivedPolynom;
 
-  //multi-attribute
   private final double[] coefficients;
 
-  //constructor
   /**
    * Creates a new empty {@link Polynom}.
    */
@@ -51,7 +42,6 @@ public final class Polynom {
     coefficients = new double[0];
   }
 
-  //constructor
   /**
    * Creates a new {@link Polynom} with the given coefficientArray.
    * 
@@ -76,17 +66,14 @@ public final class Polynom {
     coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
   }
 
-  //static method
   public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
     return new Polynom(ARRAY_TOOL.createArrayWithValue(coefficient, coefficients));
   }
 
-  //static method
   public static Polynom withCoefficients(final double[] coefficients) {
     return new Polynom(coefficients);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -95,7 +82,6 @@ public final class Polynom {
     return (object instanceof Polynom polynom && equals(polynom));
   }
 
-  //method
   /**
    * @param degree
    * @return the coefficient for the given degree from the current
@@ -113,7 +99,6 @@ public final class Polynom {
     return coefficients[coefficients.length - degree - 1];
   }
 
-  //method
   /**
    * @return a new {@link Polynom} that is derived from the current
    *         {@link Polynom}.
@@ -122,7 +107,6 @@ public final class Polynom {
     return getDerived(1);
   }
 
-  //method
   /**
    * @param deriveCount
    * @return a new {@link Polynom} that is derived from the current
@@ -143,7 +127,6 @@ public final class Polynom {
     return calculateDerived(deriveCount);
   }
 
-  //method
   /**
    * @return the degree of the current {@link Polynom}.
    */
@@ -151,7 +134,6 @@ public final class Polynom {
     return (coefficients.length - 1);
   }
 
-  //method
   /**
    * @return a new {@link Polynom} that is the integration of the current
    *         {@link Polynom}.
@@ -160,7 +142,6 @@ public final class Polynom {
     return getIntegrated(1);
   }
 
-  //method
   /**
    * @param integrationCount
    * @return a new {@link Polynom} that is the integration from the current
@@ -193,7 +174,6 @@ public final class Polynom {
     return new Polynom(integratedCoefficients);
   }
 
-  //method
   /**
    * @param x
    * @return the slope of the current {@link Polynom} at the given x.
@@ -202,7 +182,6 @@ public final class Polynom {
     return getDerived().getValueAt(x);
   }
 
-  //method
   /**
    * This method implements the Horner scheme to calculate the value.
    * 
@@ -218,13 +197,11 @@ public final class Polynom {
     return getValueAtWhenIsNotZeroPolynom(x);
   }
 
-  //method
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
-  //method
   /**
    * @param polynom
    * @return true if the current {@link Polynom} has the same degree as the given
@@ -234,7 +211,6 @@ public final class Polynom {
     return (polynom != null && getDegree() == polynom.getDegree());
   }
 
-  //method
   /**
    * A {@link Polynom} is a zero {@link Polynom} if all its coefficients are 0.0.
    * 
@@ -244,7 +220,6 @@ public final class Polynom {
     return (coefficients.length == 0);
   }
 
-  //method
   /**
    * @return a new array with the coefficients of the current {@link Polynom}.
    */
@@ -252,7 +227,6 @@ public final class Polynom {
     return coefficients.clone();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -261,7 +235,6 @@ public final class Polynom {
     return toString(DEFAULT_PARAMTER_SYMBOL);
   }
 
-  //method
   /**
    * @param parameterSymbol
    * @return a {@link String} representation of the current {@link Polynom} with
@@ -279,7 +252,6 @@ public final class Polynom {
     return toStringWhenIsNotZeroPolynom(parameterSymbol);
   }
 
-  //method
   /**
    * @return a new {@link Vector} with the coefficients of the current
    *         {@link Polynom}.
@@ -288,7 +260,6 @@ public final class Polynom {
     return Vector.withValues(coefficients);
   }
 
-  //method
   private Polynom calculateDerived(final int deriveCount) {
 
     GlobalValidator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
@@ -315,7 +286,6 @@ public final class Polynom {
     return new Polynom(derivedCoefficients);
   }
 
-  //method
   private boolean equals(final Polynom polynom) {
 
     if (!hasSameDegreeAs(polynom)) {
@@ -331,7 +301,6 @@ public final class Polynom {
     return true;
   }
 
-  //method
   private double getValueAtWhenIsNotZeroPolynom(final double x) {
 
     var value = coefficients[0];
@@ -345,7 +314,6 @@ public final class Polynom {
     return value;
   }
 
-  //method
   private String toStringWhenIsZeroPolynom(final String parameterSymbol) {
 
     GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
@@ -353,7 +321,6 @@ public final class Polynom {
     return (parameterSymbol + "->0.0");
   }
 
-  //method
   private String toStringWhenIsNotZeroPolynom(final String parameterSymbol) {
 
     GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
@@ -368,7 +335,6 @@ public final class Polynom {
     return stringBuilder.toString();
   }
 
-  //method
   private void appendConstantTo(final StringBuilder stringBuilder) {
     if (coefficients.length > 0) {
 
@@ -385,7 +351,6 @@ public final class Polynom {
     }
   }
 
-  //method
   private void appendHigherCoefficientsTo(final StringBuilder stringBuilder, final String parameterSymbol) {
 
     final var degree = getDegree();
@@ -410,7 +375,6 @@ public final class Polynom {
     }
   }
 
-  //method
   private void appendLinearCoefficientTo(final StringBuilder stringBuilder, final String parameterSymbol) {
     if (coefficients.length > 1) {
 

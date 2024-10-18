@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.container.base;
 
-//Java imports
 import java.util.function.Function;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -16,7 +13,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * A {@link ContainerView} can iterate over a part of another container.
  * 
@@ -31,16 +27,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class ContainerView<E> extends Container<E> {
 
-  //attribute
   private final Container<E> container;
 
-  //attribute
   private final int startIndex;
 
-  //attribute
   private final int endIndex;
 
-  //static method
   /**
    * @param container
    * @param startIndex
@@ -65,7 +57,6 @@ public final class ContainerView<E> extends Container<E> {
     return new ContainerView<E2>(container, startIndex, endIndex);
   }
 
-  //constructor
   /**
    * Creates a new {@link ContainerView} with the given container, startIndex and
    * endIndex.
@@ -103,7 +94,6 @@ public final class ContainerView<E> extends Container<E> {
     this.endIndex = endIndex;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -112,7 +102,6 @@ public final class ContainerView<E> extends Container<E> {
     return (endIndex - startIndex + 1);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -129,7 +118,6 @@ public final class ContainerView<E> extends Container<E> {
     return container.getStoredAt1BasedIndex(startIndex + param1BasedIndex - 1);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -138,7 +126,6 @@ public final class ContainerView<E> extends Container<E> {
     return getStoredAt1BasedIndex(getCount());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -147,7 +134,6 @@ public final class ContainerView<E> extends Container<E> {
     return false;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -159,7 +145,6 @@ public final class ContainerView<E> extends Container<E> {
       endIndex);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -168,7 +153,6 @@ public final class ContainerView<E> extends Container<E> {
     return container.createEmptyMutableList(new Marker<E>()).toOrderedList(norm);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -177,7 +161,6 @@ public final class ContainerView<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

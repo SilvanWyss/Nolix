@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
@@ -12,13 +9,10 @@ import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-//class
 public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
 
-  //method declaration
   protected abstract C createTestUnit();
 
-  //method
   @Test
   final void testCase_editStyle() {
 
@@ -33,7 +27,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     expect(actualBaseTextColor).isEqualTo(Color.DARK_CYAN);
   }
 
-  //method
   @Test
   final void testCase_getInternalId() {
 
@@ -48,7 +41,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     expect(result).hasLength(11);
   }
 
-  //method
   @Test
   final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
 
@@ -66,7 +58,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     }
   }
 
-  //method
   @Test
   final void testCase_getStoredChildControls() {
 
@@ -80,7 +71,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     expect(result).isEmpty();
   }
 
-  //method
   @Test
   final void testCase_linkTo() {
 
@@ -98,7 +88,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     expect(testUnit.getStoredLinkedObjects()).containsExactly(voidObject);
   }
 
-  //method
   @Test
   final void testCase_reset() {
 
@@ -122,7 +111,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     expectNot(testUnit.hasMaxHeight());
   }
 
-  //method
   @Test
   final void testCase_setCursorIcon() {
 

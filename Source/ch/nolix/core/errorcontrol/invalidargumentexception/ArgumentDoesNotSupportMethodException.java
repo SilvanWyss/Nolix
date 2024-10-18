@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentDoesNotSupportMethodException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
    * argument and methodName.
@@ -29,7 +26,6 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
     super(argument, "does not support the " + getValidMethodNameOfMethodName(methodName) + " method");
   }
 
-  //static method
   /**
    * @param argument
    * @param methodName
@@ -44,7 +40,6 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
     return new ArgumentDoesNotSupportMethodException(argument, methodName);
   }
 
-  //static method
   /**
    * @param methodName
    * @return a valid method name of the given methodName.

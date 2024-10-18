@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalLabelHolder;
 
-//interface
 /**
  * A {@link IMutableOptionalLabelHolder} is a {@link IOptionalLabelHolder} whose
  * label can be set and removed programmatically.
@@ -14,13 +11,11 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalLabelHolder;
  */
 public interface IMutableOptionalLabelHolder extends IOptionalLabelHolder {
 
-  //method declaration
   /**
    * Removes the label of the current {@link IMutableOptionalLabelHolder}.
    */
   void removeLabel();
 
-  //method declaration
   /**
    * Sets the label of the current {@link IMutableOptionalLabelHolder}.
    * 

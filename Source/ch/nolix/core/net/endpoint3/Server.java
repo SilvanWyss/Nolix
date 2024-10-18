@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.core.net.endpoint3;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
-//class
 /**
  * A {@link Server} is a {@link BaseServer} that listens to {@link NetEndPoint}
  * on a specific port.
@@ -18,10 +15,8 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  */
 public final class Server extends BaseServer {
 
-  //attribute
   private final ch.nolix.core.net.endpoint2.Server internalServer;
 
-  //constructor
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
    * given port.
@@ -39,7 +34,6 @@ public final class Server extends BaseServer {
     createCloseDependencyTo(internalServer);
   }
 
-  //constructor
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
    * given port.
@@ -63,7 +57,6 @@ public final class Server extends BaseServer {
     createCloseDependencyTo(internalServer);
   }
 
-  //static method
   /**
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
@@ -74,7 +67,6 @@ public final class Server extends BaseServer {
     return new Server(port);
   }
 
-  //static method
   /**
    * @param port
    * @param httpMessage
@@ -90,7 +82,6 @@ public final class Server extends BaseServer {
     return new Server(port, httpMessage);
   }
 
-  //method
   /**
    * @return the port of the current {@link Server}.
    */
@@ -98,7 +89,6 @@ public final class Server extends BaseServer {
     return internalServer.getPort();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -107,7 +97,6 @@ public final class Server extends BaseServer {
     return SecurityMode.NONE;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -116,7 +105,6 @@ public final class Server extends BaseServer {
     internalServer.addDefaultSlot(new ServerSlot(defaultSlot.getName(), this));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -125,7 +113,6 @@ public final class Server extends BaseServer {
     internalServer.addSlot(new ServerSlot(slot.getName(), this));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

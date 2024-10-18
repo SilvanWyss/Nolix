@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -9,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 
-//class
 /**
  * A {@link Session} manages user run methods and user data methods.
  * 
@@ -22,13 +19,10 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 public abstract class Session<BC extends BackendClient<BC, AC>, AC>
 implements IRefreshableSubscriber {
 
-  //attribute
   private BC parentClient;
 
-  //optional attribute
   private Object result;
 
-  //method
   /**
    * @return true if the current {@link Session} belongs to a {@link Client}.
    */
@@ -36,7 +30,6 @@ implements IRefreshableSubscriber {
     return (parentClient != null);
   }
 
-  //method
   /**
    * @return the name of the parent {@link Application} of the parent
    *         {@link Client} of the current {@link Session}.
@@ -45,7 +38,6 @@ implements IRefreshableSubscriber {
     return getStoredParentClient().getApplicationName();
   }
 
-  //method
   /**
    * @return the context of the parent {@link Application} of the parent
    *         {@link Client} of the current {@link Session}.
@@ -54,7 +46,6 @@ implements IRefreshableSubscriber {
     return getStoredParentApplication().getStoredApplicationContext();
   }
 
-  //method
   /**
    * @return the parent client of the current {@link Session}.
    * @throws InvalidArgumentException if the current {@link Session} does not
@@ -68,12 +59,10 @@ implements IRefreshableSubscriber {
     return parentClient;
   }
 
-  //method
   public final boolean hasParentSession() {
     return (getStoredParentClient().internalGetSessionStackSize() > 1);
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -84,7 +73,6 @@ implements IRefreshableSubscriber {
     && parentClient.isOpen();
   }
 
-  //method
   /**
    * Pops the current {@link Session} from its parent {@link Client}.
    */
@@ -92,7 +80,6 @@ implements IRefreshableSubscriber {
     getStoredParentClient().internalPopCurrentSession();
   }
 
-  //method
   /**
    * Pops the current {@link Session} from its parent {@link Client} with the
    * given result.
@@ -104,7 +91,6 @@ implements IRefreshableSubscriber {
     getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
   }
 
-  //method
   /**
    * Pushes the given session to the parent {@link Client} of the current
    * {@link Session}.
@@ -116,7 +102,6 @@ implements IRefreshableSubscriber {
     getStoredParentClient().internalPush(session);
   }
 
-  //method
   /**
    * Pushes the given session to the parent {@link Client} of the current
    * {@link Session}.
@@ -130,7 +115,6 @@ implements IRefreshableSubscriber {
     return getStoredParentClient().internalPushAndGetResult(session);
   }
 
-  //method
   /**
    * Sets the next session of the parent {@link Client} of the current
    * {@link Session}. That means the current {@link Session} will be popped from
@@ -144,19 +128,16 @@ implements IRefreshableSubscriber {
     getStoredParentClient().internalSetCurrentSession(session);
   }
 
-  //method declaration
   /**
    * Initializes the current {@link Session}.
    */
   protected abstract void fullInitialize();
 
-  //method
   /**
    * @return the {@link Client} class of the current {@link Session}.
    */
   protected abstract Class<?> getClientClass();
 
-  //method
   final Object internalGetStoredResult() {
 
     if (result == null) {
@@ -166,7 +147,6 @@ implements IRefreshableSubscriber {
     return result;
   }
 
-  //method
   /**
    * Removes the parent client of the current {@link Session}.
    */
@@ -174,7 +154,6 @@ implements IRefreshableSubscriber {
     parentClient = null;
   }
 
-  //method
   /**
    * Sets the parent client of the current {@link Session}.
    * 
@@ -195,7 +174,6 @@ implements IRefreshableSubscriber {
     this.parentClient = parentClient;
   }
 
-  //method
   final void internalSetResult(final Object result) {
 
     GlobalValidator.assertThat(result).thatIsNamed(LowerCaseVariableCatalogue.RESULT).isNotNull();
@@ -203,7 +181,6 @@ implements IRefreshableSubscriber {
     this.result = result;
   }
 
-  //method
   /**
    * @throws InvalidArgumentException if the current {@link Session} does not
    *                                  belong to a client.
@@ -216,7 +193,6 @@ implements IRefreshableSubscriber {
     }
   }
 
-  //method
   /**
    * @throws InvalidArgumentException if the current {@link Session} belongs to a
    *                                  client.
@@ -229,7 +205,6 @@ implements IRefreshableSubscriber {
     }
   }
 
-  //method
   /**
    * @return the parent {@link Application} of the parent {@link Client} of the
    *         current {@link Session}.

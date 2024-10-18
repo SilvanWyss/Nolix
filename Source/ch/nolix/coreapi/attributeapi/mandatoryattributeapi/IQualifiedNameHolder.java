@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
-//interface
 /**
  * A {@link IQualifiedNameHolder} has a qualified name. The qualified name of a
  * {@link IQualifiedNameHolder} is its name headed by its qualifying prefix.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface IQualifiedNameHolder extends INameHolder {
 
-  //method
   /**
    * @return the qualified name of the current {@link IQualifiedNameHolder}.
    */
@@ -23,7 +19,6 @@ public interface IQualifiedNameHolder extends INameHolder {
     return (getQualifyingPrefix() + getName());
   }
 
-  //method declaration
   /**
    * @return the qualifying prefix of the current {@link IQualifiedNameHolder}.
    */

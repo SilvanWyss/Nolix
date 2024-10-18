@@ -1,17 +1,13 @@
-//package declaration
 package ch.nolix.systemtest.timetest.momenttest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
-//class
 final class TimeTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getDay() {
 
@@ -39,7 +35,6 @@ final class TimeTest extends StandardTest {
     expect(result.getMillisecondOfSecond()).isEqualTo(0);
   }
 
-  //method
   @Test
   void testCase_getWeekday_whenIs2020_01_01() {
 
@@ -53,7 +48,6 @@ final class TimeTest extends StandardTest {
     expect(result).isEqualTo(Weekday.WEDNESDAY);
   }
 
-  //method
   @Test
   void testCase_getWeekday_whenIs2020_01_02() {
 
@@ -67,7 +61,6 @@ final class TimeTest extends StandardTest {
     expect(result).isEqualTo(Weekday.THURSDAY);
   }
 
-  //method
   @Test
   void testCase_getWeekday_whenIs2020_01_03() {
 
@@ -81,7 +74,6 @@ final class TimeTest extends StandardTest {
     expect(result).isEqualTo(Weekday.FRIDAY);
   }
 
-  //method
   @Test
   void testCase_isAfter_whenTheGivenTimeIsBefore() {
 
@@ -112,7 +104,6 @@ final class TimeTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_isAfter_whenTheGivenTimeEquals() {
 
@@ -143,7 +134,6 @@ final class TimeTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isAfter_whenTheGivenTimeIsAfter() {
 
@@ -174,7 +164,6 @@ final class TimeTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isBefore_whenTheGivenTimeIsBefore() {
 
@@ -205,7 +194,6 @@ final class TimeTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isBefore_whenTheGivenTimeEquals() {
 
@@ -236,7 +224,6 @@ final class TimeTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_isBefore_whenTheGivenTimeIsAfter() {
 
@@ -267,7 +254,6 @@ final class TimeTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_withYearAndMonthOfYearAndDayOfMonth() {
     for (var y = 1600; y <= 3000; y++) {
@@ -294,7 +280,6 @@ final class TimeTest extends StandardTest {
     }
   }
 
-  //method
   @Test
   void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour() {
 

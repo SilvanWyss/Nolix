@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.fieldtool;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
@@ -14,10 +11,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
-//class
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
 
-  //method
   @Override
   public IEntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(
     final IReference<?> reference,
@@ -32,7 +27,6 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
       new ContentFieldDto(reference.getName(), entity.getId()));
   }
 
-  //method
   @Override
   public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
     final IReference<IEntity> reference) {
@@ -44,7 +38,6 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
     return getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(reference);
   }
 
-  //method
   @Override
   public boolean toReferenceCanSetEntity(final IReference<?> reference, final IEntity entity) {
     return //
@@ -54,14 +47,12 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
     && !reference.referencesEntity(entity); //Important: When a Reference is set new data records could be created.
   }
 
-  //method
   private boolean canSetEntity(final IReference<?> reference) {
     return //
     isOpen(reference)
     && reference.belongsToEntity();
   }
 
-  //method
   @SuppressWarnings("unchecked")
   private Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(
     final IReference<IEntity> reference) {
@@ -74,7 +65,6 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
     return backReference.map(br -> (IBaseBackReference<IEntity>) br);
   }
 
-  //method
   private boolean isOpen(final IDatabaseObject databaseObject) {
     return //
     databaseObject != null

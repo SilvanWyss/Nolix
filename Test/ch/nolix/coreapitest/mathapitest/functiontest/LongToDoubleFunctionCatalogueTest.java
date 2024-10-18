@@ -1,18 +1,13 @@
-//package declaration
 package ch.nolix.coreapitest.mathapitest.functiontest;
 
-//JUnit imports
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-//own imports
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.mathapi.function.LongToDoubleFunctionCatalogue;
 
-//class
 final class LongToDoubleFunctionCatalogueTest extends StandardTest {
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "-300, 1.0", //
@@ -44,7 +39,6 @@ final class LongToDoubleFunctionCatalogueTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "-300, -300.0", //
@@ -76,7 +70,6 @@ final class LongToDoubleFunctionCatalogueTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @ParameterizedTest
   @CsvSource({
   "-300, 90000.0", //

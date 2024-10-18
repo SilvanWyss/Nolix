@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
 import ch.nolix.core.web.css.CssProperty;
@@ -10,10 +9,8 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextboxStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-//class
 public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextboxStyle> {
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ITextbox textbox,
@@ -22,7 +19,6 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ITextbox textbox,
@@ -30,7 +26,6 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
     //Does nothing.
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ITextbox control,
@@ -38,7 +33,6 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
     list.addAtEnd(CssProperty.withNameAndValue("outline", "none"));
   }
 
-  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final ITextbox textbox,

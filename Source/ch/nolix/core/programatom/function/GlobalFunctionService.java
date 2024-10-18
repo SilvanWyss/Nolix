@@ -1,14 +1,10 @@
-//package declaration
 package ch.nolix.core.programatom.function;
 
-//Java imports
 import java.util.Objects;
 
-//own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 
-//class
 /**
  * Of the {@link GlobalFunctionService} an instance cannot be created.
  * 
@@ -17,19 +13,14 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
  */
 public final class GlobalFunctionService {
 
-  //constant
   private static final double ZERO = 0.0;
 
-  //constant
   private static final double ONE = 1.0;
 
-  //constant
   private static final boolean FALSE = false;
 
-  //constant
   private static final boolean TRUE = true;
 
-  //constructor
   /**
    * Prevents that an instance of the {@link GlobalFunctionService} can be
    * created.
@@ -37,7 +28,6 @@ public final class GlobalFunctionService {
   private GlobalFunctionService() {
   }
 
-  //static method
   /**
    * @param object1
    * @param object2
@@ -47,7 +37,6 @@ public final class GlobalFunctionService {
     return Objects.equals(object1, object2);
   }
 
-  //static method
   /**
    * Does nothing.
    */
@@ -55,7 +44,6 @@ public final class GlobalFunctionService {
     //Does nothing.
   }
 
-  //static method
   /**
    * @return false.
    */
@@ -63,7 +51,6 @@ public final class GlobalFunctionService {
     return FALSE;
   }
 
-  //static method
   /**
    * @param object
    * @return the hash code of the given object.
@@ -77,7 +64,6 @@ public final class GlobalFunctionService {
     return object.hashCode();
   }
 
-  //static method
   /**
    * @return null.
    */
@@ -85,7 +71,6 @@ public final class GlobalFunctionService {
     return null;
   }
 
-  //static method
   /**
    * @return 1.0.
    */
@@ -93,7 +78,6 @@ public final class GlobalFunctionService {
     return ONE;
   }
 
-  //static method
   /**
    * @param object
    * @param <O>    is the type of the given object.
@@ -103,7 +87,6 @@ public final class GlobalFunctionService {
     return object;
   }
 
-  //static method
   /**
    * @param object
    * @return the {@link String} representation of the given object.
@@ -117,7 +100,6 @@ public final class GlobalFunctionService {
     return object.toString();
   }
 
-  //static method
   /**
    * @return true.
    */
@@ -125,7 +107,6 @@ public final class GlobalFunctionService {
     return TRUE;
   }
 
-  //static method
   /**
    * @param object
    * @return the type of the given object.
@@ -134,7 +115,6 @@ public final class GlobalFunctionService {
     return object.getClass();
   }
 
-  //static method
   /**
    * @return 0.0.
    */
@@ -142,7 +122,6 @@ public final class GlobalFunctionService {
     return ZERO;
   }
 
-  //static method
   /**
    * Does nothing.
    * 
@@ -152,7 +131,6 @@ public final class GlobalFunctionService {
     //Does nothing.
   }
 
-  //static method
   /**
    * @throws GeneralException
    */

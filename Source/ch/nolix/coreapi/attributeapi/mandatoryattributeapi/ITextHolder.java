@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-//interface
 /**
  * A {@link ITextHolder} has a text.
  * 
@@ -10,7 +8,6 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  */
 public interface ITextHolder {
 
-  //method declaration
   /**
    * @return the text of the current {@link ITextHolder}.
    */

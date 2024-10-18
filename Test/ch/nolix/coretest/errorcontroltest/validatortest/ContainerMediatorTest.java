@@ -1,23 +1,17 @@
-//package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
-//Java imports
 import java.util.function.Predicate;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.IterableMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class ContainerMediatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_contains_whenTheGivenConditionIsNull() {
 
@@ -33,7 +27,6 @@ final class ContainerMediatorTest extends StandardTest {
       .withMessage("The given condition is null.");
   }
 
-  //method
   @Test
   void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
 
@@ -50,7 +43,6 @@ final class ContainerMediatorTest extends StandardTest {
         + "an element that fulfils the given condition.");
   }
 
-  //method
   @Test
   void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
 

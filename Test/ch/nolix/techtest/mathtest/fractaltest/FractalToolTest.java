@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.techtest.mathtest.fractaltest;
 
-//Java imports
 import java.math.BigDecimal;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.FractalTool;
 
-//class
 final class FractalToolTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getMaxX() {
 
@@ -31,7 +26,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getMaxY() {
 
@@ -48,7 +42,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getMinX() {
 
@@ -65,7 +58,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getMinY() {
 
@@ -82,7 +74,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getPixelCountPerHorizontalUnit() {
 
@@ -100,7 +91,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getPixelCountPerVerticalUnit() {
 
@@ -118,7 +108,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getSquaredMinMagnitudeForDivergence_1() {
 
@@ -135,7 +124,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getSquaredMinMagnitudeForDivergence_2() {
 
@@ -152,7 +140,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getUnitsPerHorizontalPixel() {
 
@@ -170,7 +157,6 @@ final class FractalToolTest extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  //method
   @Test
   void testCase_getUnitsPerVerticalPixel() {
 

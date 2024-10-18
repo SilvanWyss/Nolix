@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.mathtest.algebratest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class PolynomTest extends StandardTest {
 
-  //method
   @Test
   void testCase_equals_whenTheGivenObjectIsNull() {
 
@@ -25,7 +20,6 @@ final class PolynomTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenTheGivenObjectDoesNotEqual_1A() {
 
@@ -40,7 +34,6 @@ final class PolynomTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenTheGivenObjectDoesNotEqual_1B() {
 
@@ -55,7 +48,6 @@ final class PolynomTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_equals_whenTheGivenObjectEquals() {
 
@@ -70,7 +62,6 @@ final class PolynomTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_getDerived_1A() {
 
@@ -87,7 +78,6 @@ final class PolynomTest extends StandardTest {
     expect(result).hasStringRepresentation("x->6x");
   }
 
-  //method
   @Test
   void testCase_getDerived_1B() {
 
@@ -104,7 +94,6 @@ final class PolynomTest extends StandardTest {
     expect(result).hasStringRepresentation("x->6x+3");
   }
 
-  //method
   @Test
   void testCase_getDerived_1C() {
 
@@ -121,7 +110,6 @@ final class PolynomTest extends StandardTest {
     expect(result).hasStringRepresentation("x->6x+2");
   }
 
-  //method
   @Test
   void testCase_getIntegrated_1A() {
 
@@ -138,7 +126,6 @@ final class PolynomTest extends StandardTest {
     expect(result).hasStringRepresentation("x->x^3");
   }
 
-  //method
   @Test
   void testCase_getIntegrated_1B() {
 
@@ -155,7 +142,6 @@ final class PolynomTest extends StandardTest {
     expect(result).hasStringRepresentation("x->x^3+x^2+1x");
   }
 
-  //method
   @Test
   void testCase_toString_whenIsEmpty() {
 
@@ -169,7 +155,6 @@ final class PolynomTest extends StandardTest {
     expect(result).isEqualTo("x->0.0");
   }
 
-  //method
   @Test
   void testCase_toString_whenThereIsGiven1Coefficient() {
 
@@ -183,7 +168,6 @@ final class PolynomTest extends StandardTest {
     expect(result).isEqualTo("x->1");
   }
 
-  //method
   @Test
   void testCase_toString_whenThereAreGiven2Coefficients() {
 
@@ -197,7 +181,6 @@ final class PolynomTest extends StandardTest {
     expect(result).isEqualTo("x->2x+1");
   }
 
-  //method
   @Test
   void testCase_toString_whenThereAreGiven3Coefficients() {
 
@@ -211,7 +194,6 @@ final class PolynomTest extends StandardTest {
     expect(result).isEqualTo("x->3x^2+2x+1");
   }
 
-  //method
   @Test
   void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
 
@@ -223,7 +205,6 @@ final class PolynomTest extends StandardTest {
     expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
   }
 
-  //method
   @Test
   void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
 
@@ -236,7 +217,6 @@ final class PolynomTest extends StandardTest {
     expect(result.getCoefficientForDegree(1)).isEqualTo(2.0);
   }
 
-  //method
   @Test
   void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
 

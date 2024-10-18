@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -12,10 +10,8 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
-//class
 final class LayerTest extends StandardTest {
 
-  //method
   @Test
   void testCase_clear_whenIsEmpty() {
 
@@ -32,7 +28,6 @@ final class LayerTest extends StandardTest {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_clear_whenContainsAny() {
 
@@ -50,7 +45,6 @@ final class LayerTest extends StandardTest {
     expect(testUnit.isEmpty());
   }
 
-  //method
   @Test
   void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
 
@@ -64,7 +58,6 @@ final class LayerTest extends StandardTest {
     expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
   }
 
-  //method
   @Test
   void testCase_removeSelfFromGui_whenBelongsToGui() {
 
@@ -85,7 +78,6 @@ final class LayerTest extends StandardTest {
     expectNot(testUnit.belongsToGui());
   }
 
-  //method
   @Test
   void testCase_reset() {
 

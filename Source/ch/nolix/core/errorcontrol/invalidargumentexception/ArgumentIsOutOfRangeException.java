@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentIsOutOfRangeException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably not in a
@@ -13,7 +11,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsOutOfRangeException extends InvalidArgumentException {
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.
@@ -28,7 +25,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     super(argument, "is not in [" + min + ", " + max + "]");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.
@@ -43,7 +39,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     super(argument, "is not in [" + min + ", " + max + "]");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given
    * argumentName, argument and range defined by the given min and max.
@@ -64,7 +59,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     super(argumentName, argument, "is not in [" + min + ", " + max + "]");
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given
    * argumentName, argument and range defined by the given min and max.
@@ -86,7 +80,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     super(argumentName, argument, "is not in [" + min + ", " + max + "]");
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsOutOfRangeException} for the given argument
@@ -101,7 +94,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     return new ArgumentIsOutOfRangeException(argument, min, max);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsOutOfRangeException} for the given argument
@@ -116,7 +108,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     return new ArgumentIsOutOfRangeException(argument, min, max);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument
@@ -135,7 +126,6 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     return new ArgumentIsOutOfRangeException(argumentName, argument, min, max);
   }
 
-  //static method
   /**
    * @param argumentName
    * @param argument

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedBackReferenceType;
@@ -19,10 +17,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackRefere
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-//class
 public final class ParameterizedFieldTypeMapper {
 
-  //method
   public ParameterizedFieldType createParameterizedFieldTypeFromDto(
     final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
@@ -56,7 +52,6 @@ public final class ParameterizedFieldTypeMapper {
     };
   }
 
-  //method
   private Column getStoredBackReferencedColumnFromParameterizedFieldType(
     final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
@@ -67,7 +62,6 @@ public final class ParameterizedFieldTypeMapper {
     return (Column) tables.toFromGroups(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
   }
 
-  //method
   private ITable getStoredReferencedTableFromParameterizedFieldType(
     final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {

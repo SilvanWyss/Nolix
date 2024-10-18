@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.programcontrol.closepool;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -11,20 +9,16 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2020-07-06
  */
 final class ClosePool implements IClosePool {
 
-  //attribute
   private CloseState state = CloseState.OPEN;
 
-  //multi-attribute
   private final LinkedList<GroupCloseable> elements = LinkedList.createEmpty();
 
-  //constructor
   /**
    * Creates a new {@link ClosePool} with the given element.
    * 
@@ -35,7 +29,6 @@ final class ClosePool implements IClosePool {
     addElement(element);
   }
 
-  //static method
   /**
    * @param element
    * @return a new {@link ClosePool} with the given element.
@@ -45,7 +38,6 @@ final class ClosePool implements IClosePool {
     return new ClosePool(element);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +46,6 @@ final class ClosePool implements IClosePool {
     elements.forEach(this::addElement);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -65,7 +56,6 @@ final class ClosePool implements IClosePool {
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -74,7 +64,6 @@ final class ClosePool implements IClosePool {
     return elements;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -83,7 +72,6 @@ final class ClosePool implements IClosePool {
     return state;
   }
 
-  //method
   /**
    * Adds the given element to the current {@link ClosePool}.
    * 
@@ -99,7 +87,6 @@ final class ClosePool implements IClosePool {
     elements.addAtEnd(element);
   }
 
-  //method
   /**
    * @param element
    * @throws ArgumentContainsElementException if the current {@link ClosePool}
@@ -111,7 +98,6 @@ final class ClosePool implements IClosePool {
     }
   }
 
-  //method
   /**
    * Closes the elements of the current {@link IClosePool} for the case that the
    * state of the current {@link IClosePool} is {@link CloseState#OPEN}.
@@ -125,7 +111,6 @@ final class ClosePool implements IClosePool {
     state = CloseState.CLOSED;
   }
 
-  //method
   /**
    * @param element
    * @return true if the current {@link ClosePool} contains the given element.
@@ -134,7 +119,6 @@ final class ClosePool implements IClosePool {
     return elements.contains(element);
   }
 
-  //method
   /**
    * Lets the given element note a close.
    * 

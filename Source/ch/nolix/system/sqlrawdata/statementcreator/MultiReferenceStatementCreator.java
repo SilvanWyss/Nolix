@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.system.sqlrawdata.statementcreator;
 
-//own imports
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
 
-//class
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {
 
-  //method
   @Override
   public String createStatementToDeleteMultiReferenceEntries(
     final String entityId,
@@ -27,7 +23,6 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + "';";
   }
 
-  //method
   @Override
   public String createStatementToDeleteMultiReferenceEntry(
     final String entityId,
@@ -50,7 +45,6 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + "';";
   }
 
-  //method
   @Override
   public String createStatementToInsertMultiReferenceEntry(
     final String entityId,

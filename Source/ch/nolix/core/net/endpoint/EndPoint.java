@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.net.endpoint;
 
-//Java imports
 import java.util.function.Consumer;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -15,23 +12,18 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-05-06
  */
 public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
-  //constant
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  //optional attribute
   private String customTargetSlot;
 
-  //optional attribute
   private Consumer<String> receiver;
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -43,7 +35,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return customTargetSlot;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -52,7 +43,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return (customTargetSlot != null);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -61,7 +51,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return (receiver != null);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -78,7 +67,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     this.receiver = receiver;
   }
 
-  //method
   /**
    * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
    */
@@ -88,7 +76,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     }
   }
 
-  //method
   /**
    * @return the receiver of the current {@link EndPoint}.
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
@@ -107,7 +94,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return receiver;
   }
 
-  //method
   /**
    * Sets the custom target slot of the current {@link EndPoint}.
    * 
@@ -139,7 +125,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     }
   }
 
-  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
    *                                               does not have a receiver.

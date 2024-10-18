@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.tech.relationaldoc.dataadapter;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -13,16 +11,12 @@ import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
 import ch.nolix.techapi.relationaldocapi.dataaapterapi.IDataAdapter;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 
-//class
 public final class DataAdapter implements IDataAdapter {
 
-  //constant
   private static final AbstractableObjectEvaluator ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectEvaluator();
 
-  //attribute
   private final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter;
 
-  //constructor
   private DataAdapter(final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter) {
 
     GlobalValidator
@@ -33,7 +27,6 @@ public final class DataAdapter implements IDataAdapter {
     this.internalDataAdapter = internalDataAdapter;
   }
 
-  //static method
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
 
     final var nodeDataAdapter = NodeDataAdapter
@@ -44,13 +37,11 @@ public final class DataAdapter implements IDataAdapter {
     return new DataAdapter(nodeDataAdapter);
   }
 
-  //method
   @Override
   public void close() {
     internalDataAdapter.close();
   }
 
-  //method
   @Override
   public IAbstractableObject createObject() {
 
@@ -61,19 +52,16 @@ public final class DataAdapter implements IDataAdapter {
     return object;
   }
 
-  //method
   @Override
   public void deleteObject(IAbstractableObject object) {
     ((AbstractableObject) object).delete();
   }
 
-  //method
   @Override
   public IDataAdapter getEmptyCopy() {
     return new DataAdapter(internalDataAdapter.getEmptyCopy());
   }
 
-  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredTopLevelObjects() {
 
@@ -84,19 +72,16 @@ public final class DataAdapter implements IDataAdapter {
     return objects.getStoredOthers(ABSTRACTABLE_OBJECT_EVALUATOR::hasBaseTypes);
   }
 
-  //method
   @Override
   public boolean hasChanges() {
     return internalDataAdapter.hasChanges();
   }
 
-  //method
   @Override
   public boolean isClosed() {
     return internalDataAdapter.isClosed();
   }
 
-  //method
   @Override
   public void saveChanges() {
     internalDataAdapter.saveChanges();

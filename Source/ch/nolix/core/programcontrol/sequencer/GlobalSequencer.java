@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
@@ -13,7 +11,6 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
-//class
 /**
  * The {@link GlobalSequencer} provides methods for flow control. Of the
  * {@link GlobalSequencer} an instance cannot be created.
@@ -23,20 +20,16 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  */
 public final class GlobalSequencer {
 
-  //constant
   private static final JobPool JOB_POOL = new JobPool();
 
-  //constant
   private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
 
-  //constructor
   /**
    * Prevents that an instance of the {@link GlobalSequencer} can be created.
    */
   private GlobalSequencer() {
   }
 
-  //static method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} with the given condition.
@@ -46,7 +39,6 @@ public final class GlobalSequencer {
     return new AsLongAsMediator(condition);
   }
 
-  //static method
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the given condition.
@@ -56,7 +48,6 @@ public final class GlobalSequencer {
     return new AsSoonAsMediator(condition);
   }
 
-  //static method
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the negation of the given
@@ -67,7 +58,6 @@ public final class GlobalSequencer {
     return new AsSoonAsMediator(() -> !condition.getAsBoolean());
   }
 
-  //static method
   /**
    * Enqueues the given job.
    * 
@@ -79,7 +69,6 @@ public final class GlobalSequencer {
     return JOB_POOL.enqueue(job);
   }
 
-  //static method
   /**
    * @param maxRunCount
    * @return a new {@link ForCountMediator} with the given max run count.
@@ -89,7 +78,6 @@ public final class GlobalSequencer {
     return ForCountMediator.forMaxRunCount(maxRunCount);
   }
 
-  //static method
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -101,7 +89,6 @@ public final class GlobalSequencer {
     return ForMaxMillisecondsMediator.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
-  //static method
   /**
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -113,7 +100,6 @@ public final class GlobalSequencer {
     return ForMaxMillisecondsMediator.forMaxSeconds(maxDurationInSeconds);
   }
 
-  //static method
   /**
    * Runs the given job in background.
    * 
@@ -125,7 +111,6 @@ public final class GlobalSequencer {
     return new Future(new JobRunner(job, 1));
   }
 
-  //static method
   /**
    * Runs the given jobs in background in the given order.
    * 
@@ -140,7 +125,6 @@ public final class GlobalSequencer {
     return new Future(JobRunner.forJobs(allJobes));
   }
 
-  //static method
   /**
    * Runs the given result job in background. A result job is a job that returns a
    * result.
@@ -154,7 +138,6 @@ public final class GlobalSequencer {
     return new ResultFuture<>(new ResultJobRunner<>(resultJob));
   }
 
-  //static method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} for the negation of the given
@@ -165,7 +148,6 @@ public final class GlobalSequencer {
     return new AsLongAsMediator(() -> !condition.getAsBoolean());
   }
 
-  //static method
   /**
    * Waits as long as the given condition is fulfilled.
    * 
@@ -192,7 +174,6 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  //static method
   /**
    * Waits for the given durationInMilliseconds.
    * 
@@ -208,7 +189,6 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  //static method
   /**
    * Waits for the given durationInSeconds.
    * 
@@ -223,7 +203,6 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  //static method
   /**
    * Waits until the given condition is fulfilled.
    * 

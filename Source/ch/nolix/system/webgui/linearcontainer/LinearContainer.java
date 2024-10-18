@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.core.container.containerview.ContainerView;
@@ -12,22 +11,18 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-//class
 public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS extends ILinearContainerStyle<LCS>>
 extends Container<LC, LCS>
 implements ILinearContainer<LC, LCS> {
 
-  //constant
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
-  //attribute
   private final MultiValue<IControl<?, ?>> childControls = new MultiValue<>(
     CHILD_CONTROL_HEADER,
     this::addControl,
     GlobalControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
-  //method
   @Override
   public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 
@@ -36,7 +31,6 @@ implements ILinearContainer<LC, LCS> {
     return addControls(allControls);
   }
 
-  //method
   @Override
   public final LC addControls(final IContainer<? extends IControl<?, ?>> controls) {
 
@@ -45,37 +39,31 @@ implements ILinearContainer<LC, LCS> {
     return asConcrete();
   }
 
-  //method
   @Override
   public final void clear() {
     childControls.clear();
   }
 
-  //method
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     return childControls.getStoredValues();
   }
 
-  //method
   @Override
   public final boolean isEmpty() {
     return childControls.isEmpty();
   }
 
-  //method
   @Override
   public final void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
-  //method
   @Override
   public final void removeControl(final IControl<?, ?> control) {
     childControls.remove(control);
   }
 
-  //method
   private void addControl(final IControl<?, ?> control) {
 
     control.internalSetParentControl(this);

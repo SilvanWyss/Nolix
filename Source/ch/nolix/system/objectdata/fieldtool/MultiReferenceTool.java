@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.objectdata.fieldtool;
 
-//own imports
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -9,7 +7,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
-//class
 public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
 
   @Override
@@ -20,7 +17,6 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
     && multiReference.getReferencedTableName().equals(entity.getParentTableName());
   }
 
-  //method
   @Override
   public boolean canClear(IMultiReference<?> multiReference) {
     return multiReference != null
@@ -28,7 +24,6 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
     && multiReference.getStoredParentEntity().isOpen();
   }
 
-  //method
   @Override
   public <E extends IEntity> boolean canRemoveEntity(
     final IMultiReference<E> multiReference,
@@ -37,7 +32,6 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
     && entity.isOpen();
   }
 
-  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForAddEntity(
     final IMultiReference<?> multiReference,
@@ -51,7 +45,6 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
       new ContentFieldDto(multiReference.getName()));
   }
 
-  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiReference<?> multiReference) {
 
@@ -63,14 +56,12 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
       new ContentFieldDto(multiReference.getName()));
   }
 
-  //method
   private boolean canAddEntity(final IMultiReference<?> multiReference) {
     return multiReference != null
     && multiReference.belongsToEntity()
     && multiReference.getStoredParentEntity().isOpen();
   }
 
-  //method
   private boolean canRemoveEntity(IMultiReference<?> multiReference) {
     return multiReference != null
     && multiReference.isOpen();

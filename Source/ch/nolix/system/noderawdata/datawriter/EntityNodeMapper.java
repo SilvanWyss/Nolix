@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.system.noderawdata.datawriter;
 
 import ch.nolix.core.container.containerview.ContainerView;
@@ -8,10 +7,8 @@ import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
-//class
 final class EntityNodeMapper {
 
-  //method
   public Node createNodeFromEntityWithSaveStamp(
     final ITableInfo tableInfo,
     final INewEntityDto newEntity,
@@ -21,7 +18,6 @@ final class EntityNodeMapper {
       createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo));
   }
 
-  //method
   private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
     final INewEntityDto newEntity,
     final long saveStamp,
@@ -48,12 +44,10 @@ final class EntityNodeMapper {
     return ContainerView.forArray(attributes);
   }
 
-  //method
   private Node createIdAttributeFrom(final INewEntityDto newEntity) {
     return Node.withHeader(newEntity.getId());
   }
 
-  //method
   private Node createSaveStampAttribute(final long saveStamp) {
     return Node.withHeader(saveStamp);
   }

@@ -1,17 +1,12 @@
-//package declaration
 package ch.nolix.coretest.programatomtest.functiontest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-//class
 final class FunctionCatalogueTest extends StandardTest {
 
-  //method
   @Test
   void testCase_getFalse() {
 
@@ -22,7 +17,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expectNot(result);
   }
 
-  //method
   @Test
   void testCase_getNull() {
 
@@ -33,7 +27,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).isNull();
   }
 
-  //method
   @Test
   void testCase_getOne() {
 
@@ -44,7 +37,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).isEqualTo(1);
   }
 
-  //method
   @Test
   void testCase_getStringRepresentationOf_whenNullIsGiven() {
 
@@ -55,7 +47,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).isEqualTo("null");
   }
 
-  //method
   @Test
   void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
 
@@ -66,7 +57,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).isEqualTo("2500");
   }
 
-  //method
   @Test
   void testCase_getStringRepresentationOf_whenAStringIsGiven() {
 
@@ -77,7 +67,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).isEqualTo("Lorem ipsum");
   }
 
-  //method
   @Test
   void testCase_getTrue() {
 
@@ -88,7 +77,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result);
   }
 
-  //method
   @Test
   void testCase_getTypeOf_whenIntIsGiven() {
 
@@ -99,7 +87,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).is(Integer.class);
   }
 
-  //method
   @Test
   void testCase_getTypeOf_whenStringIsGiven() {
 
@@ -110,7 +97,6 @@ final class FunctionCatalogueTest extends StandardTest {
     expect(result).is(String.class);
   }
 
-  //method
   @Test
   void testCase_getZero() {
 

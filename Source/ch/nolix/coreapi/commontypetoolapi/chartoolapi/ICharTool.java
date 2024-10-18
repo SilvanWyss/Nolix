@@ -1,4 +1,3 @@
-//package declaration
 package ch.nolix.coreapi.commontypetoolapi.chartoolapi;
 
 /**
@@ -9,14 +8,12 @@ package ch.nolix.coreapi.commontypetoolapi.chartoolapi;
  */
 public interface ICharTool {
 
-  //method declaration
   /**
    * @param character
    * @return true if the given character is a digit.
    */
   boolean isDigit(char character);
 
-  //method declaration
   /**
    * @param character
    * @return true if the given character is a hexadecimal digit.

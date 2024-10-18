@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
-//class
 final class LabelTest extends ControlTest<ILabel> {
 
-  //method
   @Test
   void testCase_removeRole() {
 
@@ -32,7 +27,6 @@ final class LabelTest extends ControlTest<ILabel> {
     expectNot(testUnit.hasRole());
   }
 
-  //method
   @Test
   void testCase_setRole() {
 
@@ -50,7 +44,6 @@ final class LabelTest extends ControlTest<ILabel> {
     expect(testUnit.getRole()).is(LabelRole.TITLE);
   }
 
-  //method
   @Test
   void testCase_setText() {
 
@@ -67,7 +60,6 @@ final class LabelTest extends ControlTest<ILabel> {
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
-  //method
   @Test
   void testCase_setText_whenGivenTextIsEmpty() {
 
@@ -81,7 +73,6 @@ final class LabelTest extends ControlTest<ILabel> {
     expect(testUnit.getText()).isEqualTo("");
   }
 
-  //method
   @Test
   void testCase_setText_whenGivenTextIsNull() {
 
@@ -99,7 +90,6 @@ final class LabelTest extends ControlTest<ILabel> {
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
-  //method
   @Override
   protected Label createTestUnit() {
     return new Label();

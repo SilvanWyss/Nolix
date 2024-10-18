@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link NewArgumentException} is a {@link InvalidArgumentException} that is
  * supposed to be thrown when a given argument is undesirably not new.
@@ -12,10 +10,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class NewArgumentException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is new";
 
-  //constructor
   /**
    * Creates a new {@link NewArgumentException} for the given argument.
    * 
@@ -27,7 +23,6 @@ public final class NewArgumentException extends InvalidArgumentException {
     super(argument, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argument
    * @return a new {@link NewArgumentException} for the given argument.

@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//class
 /**
  * A {@link ArgumentIsNullException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument is undesirably null.
@@ -12,10 +10,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsNullException extends InvalidArgumentException {
 
-  //constant
   private static final String ERROR_PREDICATE = "is null";
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsNullException} for the given argumentType.
    * 
@@ -28,7 +24,6 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
   }
 
-  //constructor
   /**
    * Creates a new {@link ArgumentIsNullException} for the given argumentName.
    * 
@@ -42,7 +37,6 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     super(argumentName, null, ERROR_PREDICATE);
   }
 
-  //static method
   /**
    * @param argumentName
    * @return a new {@link ArgumentIsNullException} for the given argumentName.
@@ -53,7 +47,6 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     return new ArgumentIsNullException(argumentName);
   }
 
-  //static method
   /**
    * @param argumentType
    * @return a new {@link ArgumentIsNullException} for the given argumentType.
@@ -63,7 +56,6 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     return new ArgumentIsNullException(argumentType);
   }
 
-  //static method
   /**
    * @param argumentType
    * @return the name of the given argumentType.

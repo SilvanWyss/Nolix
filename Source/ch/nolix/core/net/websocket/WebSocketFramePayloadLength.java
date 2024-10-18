@@ -1,19 +1,14 @@
-//package declaration
 package ch.nolix.core.net.websocket;
 
-//Java imports
 import java.math.BigInteger;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-//class
 public record WebSocketFramePayloadLength(long value) {
 
-  //constructor
   public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
 
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNegative();
@@ -21,18 +16,15 @@ public record WebSocketFramePayloadLength(long value) {
     this.value = value;
   }
 
-  //method
   public WebSocketFramePayloadLengthType getType() {
 
     return WebSocketFramePayloadLengthType.fromPayloadLength(value);
   }
 
-  //method
   public long getValue() {
     return value;
   }
 
-  //method
   public byte[] toBytes() {
     return switch (getType()) {
       case BITS_7 ->
@@ -46,7 +38,6 @@ public record WebSocketFramePayloadLength(long value) {
     };
   }
 
-  //method
   private byte[] toBytesWhen7Bits() {
 
     final var byteArray = BigInteger.valueOf(value).toByteArray();
@@ -54,7 +45,6 @@ public record WebSocketFramePayloadLength(long value) {
     return new byte[] { byteArray[0] };
   }
 
-  //method
   private byte[] toBytesWhen16Bits() {
 
     final var byteArray = BigInteger.valueOf(value).toByteArray();
@@ -70,7 +60,6 @@ public record WebSocketFramePayloadLength(long value) {
     return new byte[] { byteArray[1], byteArray[2] };
   }
 
-  //method
   private byte[] toBytesWhen64Bits() {
 
     final var byteArray = BigInteger.valueOf(value).toByteArray();

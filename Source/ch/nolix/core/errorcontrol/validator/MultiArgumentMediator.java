@@ -1,15 +1,11 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//Java imports
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.containertool.ArrayTool;
 
-//class
 /**
  * A multi argument mediator is an mediator for several arguments of the same
  * type. A multi argument mediator is not mutable.
@@ -20,13 +16,10 @@ import ch.nolix.core.independent.containertool.ArrayTool;
  */
 public class MultiArgumentMediator<A> {
 
-  //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //attribute
   private final Iterable<A> arguments;
 
-  //constructor
   /**
    * Creates a new multi argument mediator with the given arguments.
    * 
@@ -44,7 +37,6 @@ public class MultiArgumentMediator<A> {
     this.arguments = arguments;
   }
 
-  //constructor
   /**
    * Creates a new multi argument mediator with the given arguments.
    * 
@@ -57,7 +49,6 @@ public class MultiArgumentMediator<A> {
     this(ARRAY_TOOL.createIterable(arguments));
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException if one of the arguments of this multi
    *                                 argument mediator is null.
@@ -78,7 +69,6 @@ public class MultiArgumentMediator<A> {
     }
   }
 
-  //method
   /**
    * @param condition
    * @throws ArgumentIsNullException  if the given condition is null.
@@ -104,7 +94,6 @@ public class MultiArgumentMediator<A> {
     }
   }
 
-  //method
   /**
    * @return the arguments of this multi argument mediator.
    */

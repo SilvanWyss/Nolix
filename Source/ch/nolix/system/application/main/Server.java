@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.application.main;
 
-//own imports
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.net.target.ServerTarget;
@@ -10,7 +8,6 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
-//class
 /**
  * A {@link Server} is a {@link BaseServer} that listens to net {@link Client}s
  * on a specific port.
@@ -20,13 +17,10 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  */
 public final class Server extends BaseServer<Server> {
 
-  //constant
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  //attribute
   private ch.nolix.core.net.endpoint3.Server internalServer;
 
-  //constructor
   /**
    * Creates a new {@link Server} that will listen to net {@link Client}s on the
    * given port.
@@ -45,7 +39,6 @@ public final class Server extends BaseServer<Server> {
     createCloseDependencyTo(internalServer);
   }
 
-  //static method
   /**
    * @return a new {@link Server} that will listen to net {@link Client}s on the
    *         HTTP port (80).
@@ -54,7 +47,6 @@ public final class Server extends BaseServer<Server> {
     return forPort(PortCatalogue.HTTP);
   }
 
-  //static method
   /**
    * @param port
    * @return a new {@link Server} that will listen to net {@link Client}s on the
@@ -65,7 +57,6 @@ public final class Server extends BaseServer<Server> {
     return new Server(port);
   }
 
-  //method
   /**
    * @return the current {@link Server} as {@link IServerTarget}.
    */
@@ -77,7 +68,6 @@ public final class Server extends BaseServer<Server> {
       SECURITY_MODE_FOR_CONNECTIONS);
   }
 
-  //method
   /**
    * @return the Ip of the current {@link Server}.
    */
@@ -85,7 +75,6 @@ public final class Server extends BaseServer<Server> {
     return LocalComputer.getLanIp();
   }
 
-  //method
   /**
    * @return the port of the current {@link Server}.
    */
@@ -93,7 +82,6 @@ public final class Server extends BaseServer<Server> {
     return internalServer.getPort();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -102,7 +90,6 @@ public final class Server extends BaseServer<Server> {
     return internalServer.getSecurityMode();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -111,7 +98,6 @@ public final class Server extends BaseServer<Server> {
     return this;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -120,7 +106,6 @@ public final class Server extends BaseServer<Server> {
     internalServer.addSlot(new ServerSlot(application.getUrlInstanceName(), this));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -129,7 +114,6 @@ public final class Server extends BaseServer<Server> {
     internalServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

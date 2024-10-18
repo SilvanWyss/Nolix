@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.webgui.main;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -14,19 +11,15 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayerStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-//class
 public final class LayerStack implements ILayerStack {
 
-  //attribute
   private final IWebGui<?> parentGui;
 
-  //optional attribute
   private Runnable removeLayerAction;
 
   //multi-atribute
   private final ILinkedList<ILayer<?>> layers = LinkedList.createEmpty();
 
-  //constructor
   private LayerStack(final IWebGui<?> parentGui) {
 
     GlobalValidator.assertThat(parentGui).thatIsNamed("parent gui").isNotNull();
@@ -34,18 +27,15 @@ public final class LayerStack implements ILayerStack {
     this.parentGui = parentGui;
   }
 
-  //static method
   public static LayerStack forWebGui(final IWebGui<?> webGui) {
     return new LayerStack(webGui);
   }
 
-  //method
   @Override
   public boolean containsControl(final IControl<?, ?> control) {
     return getStoredLayers().containsAny(l -> l.containsControl(control));
   }
 
-  //method
   @Override
   public void clear() {
     while (containsAny()) {
@@ -53,13 +43,11 @@ public final class LayerStack implements ILayerStack {
     }
   }
 
-  //method
   @Override
   public int getLayerCount() {
     return getStoredLayers().getCount();
   }
 
-  //method
   @Override
   public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
 
@@ -75,37 +63,31 @@ public final class LayerStack implements ILayerStack {
     return Optional.empty();
   }
 
-  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
     return getStoredLayers().toFromGroups(ILayer::getStoredControls);
   }
 
-  //method
   @Override
   public IContainer<ILayer<?>> getStoredLayers() {
     return layers;
   }
 
-  //method
   @Override
   public ILayer<?> getStoredTopLayer() {
     return getStoredLayers().getStoredLast();
   }
 
-  //method
   @Override
   public boolean hasRemoveLayerAction() {
     return (removeLayerAction != null);
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return getStoredLayers().isEmpty();
   }
 
-  //method
   @Override
   public ILayerStack pushLayer(ILayer<?> layer) {
 
@@ -116,13 +98,11 @@ public final class LayerStack implements ILayerStack {
     return this;
   }
 
-  //method
   @Override
   public ILayerStack pushLayerWithRootControl(IControl<?, ?> rootControl) {
     return pushLayer(new Layer().setRootControl(rootControl));
   }
 
-  //method
   @Override
   public void removeLayer(final ILayer<?> layer) {
 
@@ -142,7 +122,6 @@ public final class LayerStack implements ILayerStack {
     return this;
   }
 
-  //method
   private void runProbableRemoveLayerAction() {
     if (hasRemoveLayerAction()) {
       removeLayerAction.run();

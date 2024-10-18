@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
 import java.util.Optional;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
@@ -21,37 +18,28 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IReferenceValidator;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
-//class
 public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
 
-  //constant
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
-  //constant
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
-  //constant
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
-  //optional attribute
   private String referencedEntityId;
 
-  //constructor
   private Reference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  //static method
   public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
     return new Reference<>(type.getSimpleName());
   }
 
-  //static method
   public static Reference<BaseEntity> forEntityWithTableName(final String tableName) {
     return new Reference<>(tableName);
   }
 
-  //method
   @Override
   public String getReferencedEntityId() {
 
@@ -60,7 +48,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     return referencedEntityId;
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
@@ -79,37 +66,31 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     return ImmutableList.createEmpty();
   }
 
-  //method
   @Override
   public E getStoredReferencedEntity() {
     return getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
-  //method
   @Override
   public ContentType getType() {
     return ContentType.REFERENCE;
   }
 
-  //method
   @Override
   public IContentFieldDto internalToContentField() {
     return new ContentFieldDto(getName(), getReferencedEntityId());
   }
 
-  //method
   @Override
   public boolean isEmpty() {
     return (referencedEntityId == null);
   }
 
-  //method
   @Override
   public boolean isMandatory() {
     return true;
   }
 
-  //method
   @Override
   public boolean referencesEntity(final IEntity entity) {
     return containsAny()
@@ -117,21 +98,18 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     && getReferencedEntityId().equals(entity.getId());
   }
 
-  //method
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
     && !getStoredReferencedEntity().belongsToTable();
   }
 
-  //method
   @Override
   @SuppressWarnings("unchecked")
   public void setEntity(final Object entity) {
     setCastedEntity((E) entity);
   }
 
-  //method
   @Override
   public void setEntityById(final String id) {
 
@@ -140,13 +118,11 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     setEntity(entity);
   }
 
-  //method
   @Override
   void internalSetOrClearFromContent(final Object content) {
     referencedEntityId = (String) content;
   }
 
-  //method
   @Override
   void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
@@ -154,19 +130,16 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
   }
 
-  //method
   private void assertCanSetEntity(final E entity) {
     REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
   }
 
-  //method
   private void clear() {
     if (containsAny()) {
       clearWhenContainsAny();
     }
   }
 
-  //method
   private void clearWhenContainsAny() {
 
     updateProbableBackReferencingFieldForClear();
@@ -176,14 +149,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
     return ENTITY_TOOL
       .getStoredReferencingFields(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
   }
 
-  //method
   private void insertEntityIntoDatabaseIfPossible(final E entity) {
     if (belongsToEntity()
     && getStoredParentEntity().belongsToTable()
@@ -193,7 +164,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
   }
 
-  //method
   private void setCastedEntity(final E entity) {
 
     assertCanSetEntity(entity);
@@ -211,7 +181,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  //method
   private void updateBackReferencingFieldForClear(final IField backReferencingField) {
     switch (backReferencingField.getType()) {
       case BACK_REFERENCE:
@@ -235,19 +204,16 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
   }
 
-  //method
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
     BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
-  //method
   private void updateProbableBackReferencingFieldForClear() {
     for (final var brp : getStoredBaseBackReferences()) {
       updateBackReferencingFieldForClear(brp);
     }
   }
 
-  //method
   private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
 
     for (final var bbr : getStoredBaseBackReferences()) {
@@ -263,12 +229,10 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   }
 
-  //method
   private void updateStateForClear() {
     referencedEntityId = null;
   }
 
-  //method
   private void updateStateForSetEntity(final E entity) {
     referencedEntityId = entity.getId();
   }

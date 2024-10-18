@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITokenHolder;
 
-//interface
 /**
  * A {@link IFluentMutableTokenHolder} is a {@link ITokenHolder} whose token can
  * be set programmatically and fluently.
@@ -15,7 +12,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITokenHolder;
  */
 public interface IFluentMutableTokenHolder<FMTH extends IFluentMutableTokenHolder<FMTH>> extends ITokenHolder {
 
-  //method declaration
   /**
    * Sets the token of the current {@link IFluentMutableTokenHolder}.
    * 

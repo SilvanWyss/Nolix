@@ -1,14 +1,11 @@
-//package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IResultFuture;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-09-29
@@ -16,10 +13,8 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IResultFuture;
  */
 public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R> {
 
-  //attribute
   private final ResultJobRunner<R> resultJobRunner;
 
-  //constructor
   /**
    * Creates a new {@link ResultFuture} with the given resultJobRunner.
    * 
@@ -35,7 +30,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     this.resultJobRunner = resultJobRunner;
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -44,7 +38,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     return resultJobRunner.caughtError();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -53,7 +46,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     return resultJobRunner.getError();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -62,7 +54,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     return resultJobRunner.getResult();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -71,7 +62,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     return resultJobRunner.isFinished();
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -80,7 +70,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     GlobalSequencer.waitUntil(this::isFinished);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -98,7 +87,6 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     }
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

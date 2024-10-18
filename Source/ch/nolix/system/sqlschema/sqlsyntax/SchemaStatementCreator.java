@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.system.sqlschema.sqlsyntax;
 
-//own imports
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
@@ -9,16 +7,13 @@ import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
-//class
 public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
-  //method
   @Override
   public String createStatementToAddColumn(final String tabbleName, final IColumnDto column) {
     return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column) + ";");
   }
 
-  //method
   @Override
   public String createStatementToAddTable(ITableDto table) {
     return "CREATE TABLE "
@@ -27,19 +22,16 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ");";
   }
 
-  //method
   @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return ("ALTER TABLE " + tableName + " DROP COLUMN " + columnName + ";");
   }
 
-  //method
   @Override
   public String createStatementToDeleteTable(final String tableName) {
     return ("DROP TABLE " + tableName + ";");
   }
 
-  //method
   @Override
   public String createStatementToRenameColumn(
     final String tableName,
@@ -48,13 +40,11 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";");
   }
 
-  //method
   @Override
   public String createStatementToRenameTable(final String tableName, final String newTableName) {
     return ("ALTER TABLE " + tableName + " RENAME TO " + newTableName + ";");
   }
 
-  //method
   private String getColumnAsSql(final IColumnDto column) {
 
     var sql = column.getName() + " " + getDataTypeAsSql(column.getDataType());
@@ -66,7 +56,6 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return sql;
   }
 
-  //method
   private String getConstraintAsSql(final IConstraintDto constraint) {
 
     var sql = constraint.getType().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
@@ -78,17 +67,14 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return sql;
   }
 
-  //method
   private String getConstraintsAsSql(final IColumnDto column) {
     return column.getConstraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
   }
 
-  //method
   private String getConstraintParametersAsSql(final IConstraintDto constraint) {
     return ("(" + constraint.getParameters().toStringWithSeparator(",") + ")");
   }
 
-  //method
   private String getDataTypeAsSql(final IDataTypeDto dataType) {
 
     if (!dataType.hasParameter()) {

@@ -1,10 +1,7 @@
-//package declaration
 package ch.nolix.core.commontypetool.stringtool;
 
-//Java imports
 import java.util.Locale;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -13,7 +10,6 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
-//class
 /**
  * The {@link StringTool} provides methods to handle {@link String}s.
  * 
@@ -24,7 +20,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  */
 public final class StringTool implements IStringTool {
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -36,7 +31,6 @@ public final class StringTool implements IStringTool {
     return string.substring(0, string.length() - n);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -55,7 +49,6 @@ public final class StringTool implements IStringTool {
     return stringBuilder.toString();
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -70,7 +63,6 @@ public final class StringTool implements IStringTool {
     return ("{" + object + "}");
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -105,7 +97,6 @@ public final class StringTool implements IStringTool {
     return ("(" + stringBuilder.toString() + ")");
   }
 
-  //method
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -120,7 +111,6 @@ public final class StringTool implements IStringTool {
     return ("'" + object + "'");
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -131,7 +121,6 @@ public final class StringTool implements IStringTool {
     && string.equals(string.toLowerCase(Locale.ENGLISH));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -142,7 +131,6 @@ public final class StringTool implements IStringTool {
     && string.equals(toPascalCase(string));
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -154,7 +142,6 @@ public final class StringTool implements IStringTool {
     && string.regionMatches(true, 0, prefix, 0, prefix.length());
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -173,7 +160,6 @@ public final class StringTool implements IStringTool {
     };
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -187,7 +173,6 @@ public final class StringTool implements IStringTool {
     return Double.valueOf(string);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */
@@ -196,7 +181,6 @@ public final class StringTool implements IStringTool {
     return new PascalCaseTransformer().toPascalCase(string);
   }
 
-  //method
   /**
    * {@inheritDoc}
    */

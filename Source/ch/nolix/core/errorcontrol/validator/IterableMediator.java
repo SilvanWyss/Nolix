@@ -1,12 +1,9 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//Java imports
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -18,7 +15,6 @@ import ch.nolix.core.independent.containertool.IterableTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
-//class
 /**
  * A named container mediator is an argument mediator for an iterable object
  * with a name. A named container mediator is not mutable.
@@ -30,13 +26,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  */
 public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
-  //constant
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  //constant
   private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
-  //constructor
   /**
    * Creates a new container mediator for the given argument.
    * 
@@ -48,7 +41,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     super(argument);
   }
 
-  //constructor
   /**
    * Creates a new container mediator for the given argument with the given
    * argument name.
@@ -66,7 +58,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     super(argumentName, argument);
   }
 
-  //method
   /**
    * @param element
    * @throws ArgumentDoesNotContainElementException if the argument of the current
@@ -82,7 +73,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   /**
    * @param condition
    * @throws ArgumentIsNullException  if the given condition is null.
@@ -117,7 +107,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   public void containsAll(final Object[] elements) {
 
     if (elements == null) {
@@ -129,7 +118,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   public void containsAll(final Iterable<Object> elements) {
 
     if (elements == null) {
@@ -139,7 +127,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     elements.forEach(this::contains);
   }
 
-  //method
   public void containsAsManyElementsAs(final Object[] array) {
 
     if (array == null) {
@@ -149,7 +136,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     hasElementCount(array.length);
   }
 
-  //method
   public void containsAsManyElementsAs(final Iterable<?> iterable) {
 
     final var elementCountOfIterable = ITERABLE_TOOL.getElementCount(iterable);
@@ -157,7 +143,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     hasElementCount(elementCountOfIterable);
   }
 
-  //method
   public void containsExactly(final Object firstElement, final Object... elements) {
 
     final var allElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
@@ -167,7 +152,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     containsAll(allElements);
   }
 
-  //method
   public void containsExactlyEqualing(final Object firstElement, final Object... elements) {
 
     final var localElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
@@ -175,7 +159,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     containsExactlyEqualing(localElements);
   }
 
-  //method
   public void containsExactlyEqualing(final Object[] elements) {
 
     containsAsManyElementsAs(elements);
@@ -194,7 +177,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked") E... elements) {
 
     final var localElements = ARRAY_TOOL.createArrayWithElement(element, elements);
@@ -202,7 +184,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     containsExactlyInSameOrder(localElements);
   }
 
-  //method
   public void containsExactlyInSameOrder(final E[] elements) {
 
     containsAsManyElementsAs(elements);
@@ -222,7 +203,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   public void containsExactlyInSameOrder(final Iterable<E> elements) {
 
     containsAsManyElementsAs(elements);
@@ -245,7 +225,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   /**
    * @param stringRepresentation
    * @throws InvalidArgumentException if the argument of the current
@@ -262,7 +241,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   /**
    * @param element
    * @throws InvalidArgumentException if the argument of the current
@@ -280,7 +258,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   /**
    * @param elementCount
    * @throws NegativeArgumentException if the given element count is negative.
@@ -330,7 +307,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   /**
    * @param array
    * @throws ArgumentIsNullException  if the given array is null.
@@ -349,7 +325,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     hasElementCount(array.length);
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException   if the argument of this container mediator
    *                                   is null.
@@ -367,7 +342,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  //method
   /**
    * @throws ArgumentIsNullException if the argument of this container mediator is
    *                                 null.

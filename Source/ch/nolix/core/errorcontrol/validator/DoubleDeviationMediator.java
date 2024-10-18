@@ -1,26 +1,20 @@
-//package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
-//class
 /**
  * @author Silvan Wyss
  * @version 2017-01-01
  */
 public final class DoubleDeviationMediator extends Mediator {
 
-  //attribute
   private final double argument;
 
-  //attribute
   private final double maxDeviation;
 
-  //constructor
   /**
    * Creates a new named double deviation mediator with the given argument name,
    * argument and max deviation.
@@ -49,7 +43,6 @@ public final class DoubleDeviationMediator extends Mediator {
     this.maxDeviation = maxDeviation;
   }
 
-  //method
   /**
    * @param value
    * @throws UnequalArgumentException if the argument of this named double

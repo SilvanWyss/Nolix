@@ -1,20 +1,15 @@
-//package declaration
 package ch.nolix.coretest.webtest.htmltest;
 
-//JUnit imports
 import org.junit.jupiter.api.Test;
 
-//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.core.web.html.HtmlElementStringRepresentator;
 
-//class
 final class HtmlElementStringRepresentatorTest extends StandardTest {
 
-  //method
   @Test
   void testCase_toString() {
 
@@ -29,7 +24,6 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     expect(result).isEqualTo("<div />");
   }
 
-  //method
   @Test
   void testCase_toString_whenContainsAttributes() {
 
@@ -48,7 +42,6 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\" />");
   }
 
-  //method
   @Test
   void testCase_toString_whenContainsAttributesAndChildElements() {
 
@@ -70,7 +63,6 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\"><h1 /><p /></div>");
   }
 
-  //method
   @Test
   void testCase_toString_whenContainsAttributesAndInnerText() {
 
@@ -91,7 +83,6 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\">my_content</div>");
   }
 
-  //method
   @Test
   void testCase_toString_whenContainsChildElements() {
 
@@ -110,7 +101,6 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     expect(result).isEqualTo("<div><h1 /><p /></div>");
   }
 
-  //method
   @Test
   void testCase_toString_whenContainsInnerText() {
 
