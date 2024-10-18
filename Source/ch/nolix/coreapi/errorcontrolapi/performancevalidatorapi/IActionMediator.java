@@ -4,7 +4,7 @@ import java.util.function.LongToDoubleFunction;
 
 public interface IActionMediator {
 
-  void hasConstantTimeComplexity();
+  void hasConstantOrLowerTimeComplexity();
 
   void hasGivenOrLowerTimeComplexity(LongToDoubleFunction timeComplexityFunction);
 

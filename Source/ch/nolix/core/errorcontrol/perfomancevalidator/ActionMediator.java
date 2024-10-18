@@ -36,7 +36,7 @@ public final class ActionMediator<O> implements IActionMediator {
   }
 
   @Override
-  public void hasConstantTimeComplexity() {
+  public void hasConstantOrLowerTimeComplexity() {
     hasGivenOrLowerTimeComplexity(LongToDoubleFunctionCatalogue.CONSTANT_FUNCTION);
   }
 

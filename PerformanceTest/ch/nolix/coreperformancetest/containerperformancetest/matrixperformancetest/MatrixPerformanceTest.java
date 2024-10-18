@@ -12,7 +12,7 @@ final class MatrixPerformanceTest extends PerformanceTest {
 
   @Test
   void testCase_getCount() {
-    expectOnAnObjectFrom(this::createMatrix).running(Matrix::getCount).hasConstantTimeComplexity();
+    expectOnAnObjectFrom(this::createMatrix).running(Matrix::getCount).hasConstantOrLowerTimeComplexity();
   }
 
   private Matrix<Integer> createMatrix(final int rowAndColumnCount) {

@@ -13,17 +13,17 @@ final class LinkedListPerformanceTest extends PerformanceTest {
 
   @Test
   void testCase_addAtBegin() {
-    expectOnAnObjectFrom(this::createLinkedList).running(ll -> ll.addAtBegin(66)).hasConstantTimeComplexity();
+    expectOnAnObjectFrom(this::createLinkedList).running(ll -> ll.addAtBegin(66)).hasConstantOrLowerTimeComplexity();
   }
 
   @Test
   void testCase_addAtEnd() {
-    expectOnAnObjectFrom(this::createLinkedList).running(ll -> ll.addAtEnd(66)).hasConstantTimeComplexity();
+    expectOnAnObjectFrom(this::createLinkedList).running(ll -> ll.addAtEnd(66)).hasConstantOrLowerTimeComplexity();
   }
 
   @Test
   void testCase_getCount() {
-    expectOnAnObjectFrom(this::createLinkedList).running(IContainer::getCount).hasConstantTimeComplexity();
+    expectOnAnObjectFrom(this::createLinkedList).running(IContainer::getCount).hasConstantOrLowerTimeComplexity();
   }
 
   @Test
@@ -49,7 +49,7 @@ final class LinkedListPerformanceTest extends PerformanceTest {
 
   @Test
   void testCase_removeFirst() {
-    expectOnAnObjectFrom(this::createLinkedList).running(ILinkedList::removeFirst).hasConstantTimeComplexity();
+    expectOnAnObjectFrom(this::createLinkedList).running(ILinkedList::removeFirst).hasConstantOrLowerTimeComplexity();
 
   }
 
