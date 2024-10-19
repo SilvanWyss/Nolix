@@ -933,7 +933,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends IContainer<E>> getStoredGroups(final Function<E, ?> norm) {
+  public final IContainer<? extends IContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
 
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 

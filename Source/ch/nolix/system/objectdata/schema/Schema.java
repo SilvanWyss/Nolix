@@ -63,6 +63,6 @@ public final class Schema implements ISchema {
 
   private boolean containsDifferentEntityTypesOnly(
     final IContainer<Class<? extends IEntity>> entityTypes) {
-    return entityTypes.getStoredGroups(Class::getSimpleName).containsAsManyAs(entityTypes);
+    return entityTypes.getStoredInGroups(Class::getSimpleName).containsAsManyAs(entityTypes);
   }
 }

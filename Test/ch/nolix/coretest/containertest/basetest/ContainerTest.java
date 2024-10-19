@@ -747,7 +747,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(String.class);
 
     //execution
-    final var result = testUnit.getStoredGroups(String::length);
+    final var result = testUnit.getStoredInGroups(String::length);
 
     //verification
     expect(result).isEmpty();
@@ -760,7 +760,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "y", "x", "y", "x", "y");
 
     //execution
-    final var result = testUnit.getStoredGroups(String::length);
+    final var result = testUnit.getStoredInGroups(String::length);
 
     //verification
     expect(result.getCount()).isEqualTo(1);
@@ -774,7 +774,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 
     //execution
-    final var result = testUnit.getStoredGroups(String::length);
+    final var result = testUnit.getStoredInGroups(String::length);
 
     //verification
     expect(result.getCount()).isEqualTo(3);

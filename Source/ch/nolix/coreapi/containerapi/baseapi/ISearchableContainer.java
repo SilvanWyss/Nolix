@@ -81,7 +81,7 @@ public interface ISearchableContainer<E> {
    * @return a new {@link ISearchableContainer} with groups with the elements of
    *         the current {@link ISearchableContainer} grouped by the given norm.
    */
-  IContainer<? extends IContainer<E>> getStoredGroups(Function<E, ?> norm);
+  IContainer<? extends IContainer<E>> getStoredInGroups(Function<E, ?> norm);
 
   /**
    * @return the last element of the current {@link ISearchableContainer}.
