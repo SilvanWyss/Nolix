@@ -65,16 +65,16 @@ public interface IMappableContainer<E> {
   <E2> IContainer<E2> toFromGroups(Function<E, IContainer<E2>> extractor);
 
   /**
-   * @param intGetter
-   * @return a new array with the ints the given intGetter returns from the
-   *         elements of the current {@link IMappableContainer}.
+   * @param norm
+   * @return a new array with the ints the given norm returns from the elements of
+   *         the current {@link IMappableContainer}. Maps null elements to 0.
    */
-  int[] toIntArray(ToIntFunction<E> intGetter);
+  int[] toIntArray(ToIntFunction<E> norm);
 
   /**
-   * @param longGetter
-   * @return a new array with the longs the given longGetter returns from the
-   *         elements of the current {@link IMappableContainer}.
+   * @param norm
+   * @return a new array with the longs the given norm returns from the elements
+   *         of the current {@link IMappableContainer}. Maps null elements to 0.
    */
-  long[] toLongArray(ToLongFunction<E> longGetter);
+  long[] toLongArray(ToLongFunction<E> norm);
 }

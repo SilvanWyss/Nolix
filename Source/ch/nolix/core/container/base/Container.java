@@ -1312,16 +1312,25 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int[] toIntArray(final ToIntFunction<E> intNorm) {
+  public final int[] toIntArray(final ToIntFunction<E> norm) {
 
     //Creates array.
     final var array = new int[getCount()];
 
     //Fills up the array.
-    var i = 0;
+    var index = 0;
     for (final var e : this) {
-      array[i] = intNorm.applyAsInt(e);
-      i++;
+
+      //Handles the case that the current element is null.
+      if (e == null) {
+        array[index] = 0;
+      }
+
+      //Handles the case that the current element is not null.
+      else {
+        array[index] = norm.applyAsInt(e);
+        index++;
+      }
     }
 
     return array;
@@ -1334,16 +1343,25 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final long[] toLongArray(final ToLongFunction<E> longNorm) {
+  public final long[] toLongArray(final ToLongFunction<E> norm) {
 
     //Creates the array.
     final var array = new long[getCount()];
 
     //Fills up the array.
-    var i = 0;
+    var index = 0;
     for (final var e : this) {
-      array[i] = longNorm.applyAsLong(e);
-      i++;
+
+      //Handles the case that the current element is null.
+      if (e == null) {
+        array[index] = 0;
+      }
+
+      //Handles the case that the current element is not null.
+      else {
+        array[index] = norm.applyAsLong(e);
+        index++;
+      }
     }
 
     return array;
