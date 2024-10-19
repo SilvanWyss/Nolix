@@ -58,6 +58,13 @@ final class LinkedListPerformanceTest extends PerformanceTest {
     expectOnAnObjectFrom(this::createLinkedList).running(ILinkedList::removeLast).hasLinearOrLowerTimeComplexity();
   }
 
+  @Test
+  void testCase_toIntArray() {
+    expectOnAnObjectFrom(this::createLinkedList)
+      .running(l -> l.toIntArray(i -> (i / 2) + 3))
+      .hasLinearOrLowerTimeComplexity();
+  }
+
   private ILinkedList<Integer> createLinkedList(final int elementCount) {
 
     final ILinkedList<Integer> list = LinkedList.createEmpty();
