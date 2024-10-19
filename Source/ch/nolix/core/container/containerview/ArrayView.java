@@ -6,6 +6,7 @@ import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -90,7 +91,19 @@ public final class ArrayView<E> extends Container<E> {
    */
   @Override
   public E getStoredLast() {
-    return array[getCount() - 1];
+
+    var local0BasedIndex = getCount() - 1;
+
+    while (local0BasedIndex > -1) {
+
+      final var element = array[local0BasedIndex];
+
+      if (element != null) {
+        return element;
+      }
+    }
+
+    throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
   /**
@@ -118,9 +131,6 @@ public final class ArrayView<E> extends Container<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n). if the current
-   * {@link ArrayView} contains n elements.
-   * 
    * @return a {@link String} representation of the current {@link ArrayView}.
    */
   @Override

@@ -84,7 +84,8 @@ public interface ISearchableContainer<E> {
   IContainer<? extends IContainer<E>> getStoredInGroups(Function<E, ?> norm);
 
   /**
-   * @return the last element of the current {@link ISearchableContainer}.
+   * @return the last element of the current {@link ISearchableContainer}. Ignores
+   *         null elements.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
    *                          empty.
    */

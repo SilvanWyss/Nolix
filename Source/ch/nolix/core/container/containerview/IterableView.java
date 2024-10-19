@@ -5,6 +5,7 @@ import java.util.function.Function;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -110,7 +111,19 @@ public final class IterableView<E> extends Container<E> {
    */
   @Override
   public E getStoredLast() {
-    return getStoredAt1BasedIndex(getCount());
+
+    var local1BasedIndex = getCount();
+
+    while (local1BasedIndex > 0) {
+
+      final var element = getStoredAt1BasedIndex(local1BasedIndex);
+
+      if (element != null) {
+        return element;
+      }
+    }
+
+    throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
   /**
