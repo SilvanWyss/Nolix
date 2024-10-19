@@ -917,8 +917,8 @@ implements IContainer<E> {
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
         return e;
       }
     }

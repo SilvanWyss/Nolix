@@ -70,7 +70,7 @@ public interface ISearchableContainer<E> {
   /**
    * @param selector
    * @return the first element the given selector selects from the current
-   *         {@link ISearchableContainer}.
+   *         {@link ISearchableContainer}. Ignores null elements.
    * @throws RuntimeException if the current {@link ISearchableContainer} does not
    *                          contain an element the given selector selects.
    */
