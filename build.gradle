@@ -1,5 +1,7 @@
 plugins {
-  id 'java'
+  id 'java-library'
+  id 'maven-publish'
+  id 'signing'
 }
 
 java {
@@ -41,6 +43,58 @@ sourceSets {
   test {
     java {
       srcDirs = ['Test', 'PerformanceTest']
+    }
+  }
+}
+
+group = 'ch.nolix'
+version = '0.0.0'
+
+signing {
+  sign publishing.publications
+}
+
+publishing {
+
+  publications {
+    nolix(MavenPublication) {
+
+      from components.java
+
+      pom {
+
+        name = 'Nolix'
+        description = 'Nolix provides a smart web framework, an ORM (object relation mapper) and some technical functions.'
+        url = 'https://github.com/silvanwyss/nolix'
+
+        licenses {
+          license {
+            name = 'MIT License'
+            url = 'https://opensource.org/license/mit'
+            distribution = 'repo'
+          }
+        }
+
+        developers {
+          developer {
+            id = 'SilvanWyss'
+            name = 'Silvan Wyss'
+            email = 'silvan.wyss@gmail.com'
+          }
+        }
+      }
+    }
+  }
+
+  repositories {
+    maven {
+
+      url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+
+      credentials {
+        username = "${maven_username}"
+        password = "${maven_password}"
+      }
     }
   }
 }
