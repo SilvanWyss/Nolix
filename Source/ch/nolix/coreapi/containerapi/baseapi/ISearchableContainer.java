@@ -80,6 +80,7 @@ public interface ISearchableContainer<E> {
    * @param norm
    * @return a new {@link ISearchableContainer} with groups with the elements of
    *         the current {@link ISearchableContainer} grouped by the given norm.
+   *         Ignores null elements.
    */
   IContainer<? extends IContainer<E>> getStoredInGroups(Function<E, ?> norm);
 

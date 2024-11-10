@@ -927,8 +927,12 @@ implements IContainer<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n^2) if the current
-   * {@link Container} contains n elements.
+   * The time complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -The given norm assignes the elements of the current {@link Container} in n
+   * groups.
    * 
    * {@inheritDoc}
    */
@@ -937,20 +941,24 @@ implements IContainer<E> {
 
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 
-    //Iterates the current list.
+    //Iterates the current Container.
     for (final var e : this) {
 
-      final var groupKey = norm.apply(e);
-      final var group = groups.getOptionalStoredFirst(g -> g.containsAny(e2 -> norm.apply(e2).equals(groupKey)));
+      //Handles the case that the current element is not null.
+      if (e != null) {
 
-      if (group.isEmpty()) {
+        final var groupKey = norm.apply(e);
+        final var group = groups.getOptionalStoredFirst(g -> g.containsAny(e2 -> norm.apply(e2).equals(groupKey)));
 
-        final var list = createEmptyMutableList(new Marker<E>());
-        list.addAtEnd(e);
+        if (group.isEmpty()) {
 
-        groups.addAtEnd(list);
-      } else {
-        group.get().addAtEnd(e);
+          final var list = createEmptyMutableList(new Marker<E>());
+
+          list.addAtEnd(e);
+          groups.addAtEnd(list);
+        } else {
+          group.get().addAtEnd(e);
+        }
       }
     }
 
