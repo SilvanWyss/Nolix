@@ -22,12 +22,6 @@ public interface IMappableContainer<E> {
   <E2> IContainer<E2> to(Function<E, E2> extractor);
 
   /**
-   * @return a new array with the elements of the current
-   *         {@link IMappableContainer}.
-   */
-  Object[] toArray();
-
-  /**
    * @param byteGetter
    * @return a new array with the bytes the given byteGetter returns from the
    *         elements of the current {@link IMappableContainer}.
@@ -77,4 +71,10 @@ public interface IMappableContainer<E> {
    *         of the current {@link IMappableContainer}. Maps null elements to 0.
    */
   long[] toLongArray(ToLongFunction<E> norm);
+
+  /**
+   * @return a new array with the {@link String} representations of the elements
+   *         of the current {@link IMappableContainer}.
+   */
+  String[] toStringArray();
 }

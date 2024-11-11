@@ -63,17 +63,15 @@ StoringRequestable<E> {
   <C extends Comparable<C>> IContainer<E> toOrderedList(Function<E, C> norm);
 
   /**
+   * @return a new array with the elements of the current {@link IContainer}.
+   */
+  Object[] toArray();
+
+  /**
    * @return a new {@link IContainer} with the elements of the current
    *         {@link IContainer} in reversed order.
    */
   IContainer<E> toReversedList();
-
-  /**
-   * 
-   * @return a new array with the {@link String} representations of the elements
-   *         of the current {@link IContainer}.
-   */
-  String[] toStringArray();
 
   /**
    * @return a new {@link IContainer} with the {@link String} representations of
