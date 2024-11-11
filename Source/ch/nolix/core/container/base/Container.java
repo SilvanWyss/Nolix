@@ -1011,24 +1011,26 @@ implements IContainer<E> {
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
 
         //Handles the case that the given selector selected already an element.
         if (selectedElement != null) {
-          throw InvalidArgumentException.forArgumentAndErrorPredicate(
+          throw //
+          InvalidArgumentException.forArgumentAndErrorPredicate(
             this,
             "contains several elements the given selector selects");
         }
 
-        //Handles the case that the given selector did not selected already an element.
+        //Handles the case that the given selector did not select already an element.
         selectedElement = e;
       }
     }
 
     //Handles the case that the given selector did not select an element.
     if (selectedElement == null) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
         this,
         "does not contain an element the given selector selects");
     }
