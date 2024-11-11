@@ -18,34 +18,34 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public abstract class ContainerTest extends StandardTest {
 
   @Test
-  final void testCase_contains_whenContainerContainsGivenElement() {
+  final void testCase_contains_whenContainsTheGivenElement() {
 
     //setup
-    final var string1 = "x";
-    final var string2 = "xx";
-    final var string3 = "xxx";
-    final var string4 = "xxxx";
-    final var testUnit = createContainerWithElements(string1, string2, string3, string4);
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
     //execution
-    final var result = testUnit.contains(string4);
+    final var result = testUnit.contains(lion);
 
     //verification
     expect(result);
   }
 
   @Test
-  final void testCase_contains_whenContainerDoesNotContainGivenElement() {
+  final void testCase_contains_whenDoesNotContainTheGivenElement() {
 
     //setup
-    final var string1 = "x";
-    final var string2 = "xx";
-    final var string3 = "xxx";
-    final var string4 = "xxxx";
-    final var testUnit = createContainerWithElements(string1, string2, string3);
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
     //execution
-    final var result = testUnit.contains(string4);
+    final var result = testUnit.contains(lion);
 
     //verification
     expectNot(result);
