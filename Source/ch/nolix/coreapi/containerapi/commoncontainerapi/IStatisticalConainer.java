@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.containerapi.baseapi;
+package ch.nolix.coreapi.containerapi.commoncontainerapi;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

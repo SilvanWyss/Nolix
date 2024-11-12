@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.containerapi.baseapi;
+package ch.nolix.coreapi.containerapi.commoncontainerapi;
 
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 

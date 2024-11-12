@@ -23,7 +23,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.baseapi.StoringRequestable;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;

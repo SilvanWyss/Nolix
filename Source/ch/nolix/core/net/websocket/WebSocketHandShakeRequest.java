@@ -1,7 +1,7 @@
 package ch.nolix.core.net.websocket;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.baseapi.StoringRequestable;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 
 public final class WebSocketHandShakeRequest {
 

@@ -3,6 +3,10 @@ package ch.nolix.coreapi.containerapi.baseapi;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import ch.nolix.coreapi.containerapi.commoncontainerapi.ArrayMappable;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.IStatisticalConainer;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.IterableWithCopyableIterator;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
 

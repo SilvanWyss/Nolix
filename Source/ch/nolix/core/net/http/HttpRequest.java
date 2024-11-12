@@ -1,7 +1,7 @@
 package ch.nolix.core.net.http;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.baseapi.StoringRequestable;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 public record HttpRequest(String content) {
