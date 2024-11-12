@@ -55,6 +55,17 @@ StoringRequestable<E> {
   int get1BasedIndexOfFirstOccuranceOf(E element);
 
   /**
+   * @return a new array with the elements of the current {@link IContainer}.
+   */
+  Object[] toArray();
+
+  /**
+   * @return a concatenation of the {@link String} representations of the elements
+   *         of the current {@link IContainer}.
+   */
+  String toConcatenatedString();
+
+  /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
    * @return a new {@link IContainer} with the elements of the current
@@ -62,11 +73,6 @@ StoringRequestable<E> {
    *         according to the given norm.
    */
   <C extends Comparable<C>> IContainer<E> toOrderedList(Function<E, C> norm);
-
-  /**
-   * @return a new array with the elements of the current {@link IContainer}.
-   */
-  Object[] toArray();
 
   /**
    * @return a new {@link IContainer} with the elements of the current
