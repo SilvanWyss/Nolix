@@ -10,20 +10,26 @@ import java.util.function.Function;
 public interface Mappable<E> {
 
   /**
-   * @param extractor
-   * @param <E2>      is the type of the elements the given extractor returns.
-   * @return a new {@link IContainer} with the elements the given extractor
-   *         extracts from the elements of the current {@link Mappable}.
+   * @param mapper
+   * @param <E2>   is the type of the elements the given mapper returns.
+   * @return a new {@link IContainer} with the elements the given mapper maps from
+   *         the elements of the current {@link Mappable}.
    */
-  <E2> IContainer<E2> to(Function<E, E2> extractor);
+  <E2> IContainer<E2> to(Function<E, E2> mapper);
 
   /**
-   * @param extractor
-   * @param <E2>      is the type of the elements of the
-   *                  {@link Mappable}s the given extractor returns.
-   * @return a new {@link IContainer} with the elements of the
-   *         {@link Mappable}s the given extractor extracts from the
-   *         elements of the current {@link Mappable}.
+   * @param mapper
+   * @param <E2>   is the type of the elements of the {@link Mappable}s the given
+   *               mapper returns.
+   * @return a new {@link IContainer} with the elements of the {@link Mappable}s
+   *         the given mapper maps from the elements of the current
+   *         {@link Mappable}.
    */
-  <E2> IContainer<E2> toFromGroups(Function<E, IContainer<E2>> extractor);
+  <E2> IContainer<E2> toFromGroups(Function<E, IContainer<E2>> mapper);
+
+  /**
+   * @return a new {@link IContainer} with the {@link String} representations of
+   *         the elements of the current {@link IContainer}.
+   */
+  IContainer<String> toStrings();
 }

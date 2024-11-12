@@ -87,12 +87,6 @@ StoringRequestable<E> {
   IContainer<E> toReversedList();
 
   /**
-   * @return a new {@link IContainer} with the {@link String} representations of
-   *         the elements of the current {@link IContainer}.
-   */
-  IContainer<String> toStrings();
-
-  /**
    * @param separator
    * @return a {@link String} representation of the current {@link IContainer}
    *         with the given separator.
