@@ -1,10 +1,10 @@
 package ch.nolix.coreapi.containerapi.baseapi;
 
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ArrayMappable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IStatisticalConainer;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.IndexRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IterableWithCopyableIterator;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.SingleSearchable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
@@ -24,6 +24,7 @@ public interface IContainer<E>
 extends
 ArrayMappable<E>,
 EmptinessRequestable,
+IndexRequestable<E>,
 IStatisticalConainer<E>,
 IterableWithCopyableIterator<E>,
 IViewProviderContainer<E>,
@@ -32,33 +33,6 @@ MaterializationRequestable,
 MultiSearchable<E>,
 SingleSearchable<E>,
 StoringRequestable<E> {
-
-  /**
-   * @param selector
-   * @return the 1-based index of the first element the given selector selects
-   *         from the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} does not contain
-   *                          an element the given selector selects.
-   */
-  int get1BasedIndexOfFirst(Predicate<E> selector);
-
-  /**
-   * @param element
-   * @return the 1-based index of the first element of the current
-   *         {@link IContainer} that equals the given element.
-   * @throws RuntimeException if the current {@link IContainer} does not contain
-   *                          an element that equals the given element.
-   */
-  int get1BasedIndexOfFirstEqualElement(E element);
-
-  /**
-   * @param element
-   * @return the 1-based index of the given element in the current
-   *         {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} does not contain
-   *                          the given element.
-   */
-  int get1BasedIndexOfFirstOccuranceOf(E element);
 
   /**
    * @return a new array with the elements of the current {@link IContainer}.

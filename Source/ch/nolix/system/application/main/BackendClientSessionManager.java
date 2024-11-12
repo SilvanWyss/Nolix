@@ -131,7 +131,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AC>, A
   }
 
   private int getCurrentSessionIndex() {
-    return sessionStack.get1BasedIndexOfFirstOccuranceOf(getStoredCurrentSession());
+    return sessionStack.get1BasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
   }
 
   private Session<C, AC> getStoredTopSession() {

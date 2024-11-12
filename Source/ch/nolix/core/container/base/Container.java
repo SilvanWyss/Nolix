@@ -639,7 +639,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirstOccuranceOf(final E element) {
+  public final int get1BasedIndexOfFirstOccurrenceOf(final E element) {
 
     //Iterates the current Container.
     var index = 1;
