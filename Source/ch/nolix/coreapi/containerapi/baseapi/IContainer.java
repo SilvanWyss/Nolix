@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ArrayMappable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IStatisticalConainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IterableWithCopyableIterator;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.SingleSearchable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
@@ -23,12 +24,13 @@ public interface IContainer<E>
 extends
 ArrayMappable<E>,
 EmptinessRequestable,
-IterableWithCopyableIterator<E>,
-ISearchableContainer<E>,
 IMappableContainer<E>,
-MaterializationRequestable,
 IStatisticalConainer<E>,
+IterableWithCopyableIterator<E>,
 IViewProviderContainer<E>,
+MaterializationRequestable,
+MultiSearchable<E>,
+SingleSearchable<E>,
 StoringRequestable<E> {
 
   /**
