@@ -17,6 +17,7 @@ import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
  */
 public interface IContainer<E>
 extends
+ArrayMappable<E>,
 EmptinessRequestable,
 IterableWithCopyableIterator<E>,
 ISearchableContainer<E>,
