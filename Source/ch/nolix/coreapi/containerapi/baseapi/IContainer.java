@@ -24,10 +24,10 @@ public interface IContainer<E>
 extends
 ArrayMappable<E>,
 EmptinessRequestable,
-IMappableContainer<E>,
 IStatisticalConainer<E>,
 IterableWithCopyableIterator<E>,
 IViewProviderContainer<E>,
+Mappable<E>,
 MaterializationRequestable,
 MultiSearchable<E>,
 SingleSearchable<E>,
