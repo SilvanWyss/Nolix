@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @version 2016-08-01
  * @param <E> is the type of the elements of a {@link MatrixIterator}.
  */
-final class MatrixIterator<E> implements CopyableIterator<E> {
+public final class MatrixIterator<E> implements CopyableIterator<E> {
 
   private final Matrix<E> parentMatrix;
 
