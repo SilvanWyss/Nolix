@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -52,57 +53,108 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   @Test
-  final void testCase_containsAll_whenContainsAllOfTheGivenElementsAndOtherElements() {
+  final void testCase_containsAll_forIterable_whenContainsNoneOfTheGivenElements() {
 
     //setup
-    final var element1 = "x";
-    final var element2 = "xx";
-    final var element3 = "xxx";
-    final var element4 = "xxxx";
-    final var container = createContainerWithElements(element1, element2, element3);
-    final var testUnit = createContainerWithElements(element1, element2, element3, element4);
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope);
+    final var list = ImmutableList.withElement(baboon, elephant, lion);
 
     //execution
-    final var result = testUnit.containsAll(container);
+    final var result = testUnit.containsAll(list);
+
+    //verification
+    expectNot(result);
+  }
+
+  @Test
+  final void testCase_containsAll_forVarargs_whenContainsNoneOfTheGivenElements() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope);
+
+    //execution
+    final var result = testUnit.containsAll(baboon, elephant, lion);
+
+    //verification
+    expectNot(result);
+  }
+
+  @Test
+  final void testCase_containsAll_forIterable_whenContainsOnlySomeOfTheGivenElements() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant);
+    final var list = ImmutableList.withElement(antelope, baboon, elephant, lion);
+
+    //execution
+    final var result = testUnit.containsAll(list);
+
+    //verification
+    expectNot(result);
+  }
+
+  @Test
+  final void testCase_containsAll_forVarargs_whenContainsOnlySomeOfTheGivenElements() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant);
+
+    //execution
+    final var result = testUnit.containsAll(antelope, baboon, elephant, lion);
+
+    //verification
+    expectNot(result);
+  }
+
+  @Test
+  final void testCase_containsAll_forIterable_whenContainsAllTheGivenElements() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
+    final var list = ImmutableList.withElement(antelope, baboon, elephant);
+
+    //execution
+    final var result = testUnit.containsAll(list);
 
     //verification
     expect(result);
   }
 
   @Test
-  final void testCase_containsAll_whenContainsNoneOfTheGivenElementsButOtherElements() {
+  final void testCase_containsAll_forVarargs_whenContainsAllTheGivenElements() {
 
     //setup
-    final var element1 = "x";
-    final var element2 = "xx";
-    final var element3 = "xxx";
-    final var element4 = "xxxx";
-    final var container = createContainerWithElements(element1, element2);
-    final var testUnit = createContainerWithElements(element3, element4);
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
     //execution
-    final var result = testUnit.containsAll(container);
+    final var result = testUnit.containsAll(antelope, baboon, elephant);
 
     //verification
-    expectNot(result);
-  }
-
-  @Test
-  final void testCase_containsAll_whenContainsOnlySomeOfTheGivenElementsButOtherElements() {
-
-    //setup
-    final var element1 = "x";
-    final var element2 = "xx";
-    final var element3 = "xxx";
-    final var element4 = "xxxx";
-    final var container = createContainerWithElements(element1, element2, element3);
-    final var testUnit = createContainerWithElements(element2, element3, element4);
-
-    //execution
-    final var result = testUnit.containsAll(container);
-
-    //verification
-    expectNot(result);
+    expect(result);
   }
 
   @Test
