@@ -1,4 +1,4 @@
-package ch.nolix.core.sql;
+package ch.nolix.core.sql.sqltool;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
