@@ -111,7 +111,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void saveChanges() {
     try {
-      sqlCollector.executeUsingConnection(sqlConnection);
+      sqlCollector.executeAndClearUsingConnection(sqlConnection);
       saveCount++;
     } finally {
       reset();

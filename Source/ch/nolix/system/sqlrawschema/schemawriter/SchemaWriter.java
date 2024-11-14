@@ -108,7 +108,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
       systemDataWriter.setSchemaTimestamp(Time.ofNow());
       sqlCollector.addSqlStatements(internalSchemaWriter.getSqlStatements());
-      sqlCollector.executeUsingConnection(sqlConnection);
+      sqlCollector.executeAndClearUsingConnection(sqlConnection);
 
       saveCount++;
     } finally {

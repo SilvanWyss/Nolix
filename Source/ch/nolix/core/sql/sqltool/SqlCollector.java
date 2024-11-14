@@ -2,15 +2,15 @@ package ch.nolix.core.sql.sqltool;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.sqlapi.sqltoolapi.ISqlCollector;
 
-public final class SqlCollector implements Clearable {
+public final class SqlCollector implements ISqlCollector {
 
   private final LinkedList<String> sqlStatements = LinkedList.createEmpty();
 
+  @Override
   public SqlCollector addSqlStatement(final String sqlstatement) {
 
     GlobalValidator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
@@ -20,6 +20,7 @@ public final class SqlCollector implements Clearable {
     return this;
   }
 
+  @Override
   public SqlCollector addSqlStatements(final Iterable<String> sqlStatements) {
 
     sqlStatements.forEach(this::addSqlStatement);
@@ -32,7 +33,8 @@ public final class SqlCollector implements Clearable {
     sqlStatements.clear();
   }
 
-  public void executeAndClearUsingConnection(final SqlConnection sqlConnection) {
+  @Override
+  public void executeAndClearUsingConnection(final ISqlConnection sqlConnection) {
     try {
       executeUsingConnection(sqlConnection);
     } finally {
@@ -40,10 +42,7 @@ public final class SqlCollector implements Clearable {
     }
   }
 
-  public void executeUsingConnection(final ISqlConnection sqlConnection) {
-    sqlConnection.executeStatements(sqlStatements);
-  }
-
+  @Override
   public IContainer<String> getSqlStatements() {
     return sqlStatements;
   }
@@ -51,6 +50,10 @@ public final class SqlCollector implements Clearable {
   @Override
   public boolean isEmpty() {
     return sqlStatements.isEmpty();
+  }
+
+  private void executeUsingConnection(final ISqlConnection sqlConnection) {
+    sqlConnection.executeStatements(sqlStatements);
   }
 
   private String getSqlStatementWithSemicolonAtEnd(final String sqlStatement) {

@@ -160,7 +160,7 @@ public final class InternalDataWriter {
 
   public void saveChangesAndReset() {
     try {
-      sqlCollector.executeUsingConnection(sqlConnection);
+      sqlCollector.executeAndClearUsingConnection(sqlConnection);
       saveCount++;
     } finally {
       reset();
