@@ -251,6 +251,57 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   @Test
+  final void testCase_containsOnce_whenDoesNotContainTheGivenElement() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant);
+
+    //execution
+    final var result = testUnit.containsOnce(lion);
+
+    //verification
+    expectNot(result);
+  }
+
+  @Test
+  final void testCase_containsOnce_whenContainsTheGivenElementOnce() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
+
+    //execution
+    final var result = testUnit.containsOnce(lion);
+
+    //verification
+    expect(result);
+  }
+
+  @Test
+  final void testCase_containsOnce_whenContainsTheGivenElementSeveralTimes() {
+
+    //setup
+    final var antelope = "antelope";
+    final var baboon = "baboon";
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, lion);
+
+    //execution
+    final var result = testUnit.containsOnce(lion);
+
+    //verification
+    expectNot(result);
+  }
+
+  @Test
   final void testCase_containsOne_1A() {
 
     //setup
