@@ -1,10 +1,10 @@
 package ch.nolix.core.container.pair;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalogue;
 
 /**
- * A {@link FloatingPointNumberPair} contains two floating point numbers. FPN =
- * floating pointer number. A {@link FloatingPointNumberPair} is not mutable.
+ * A {@link FloatingPointNumberPair} is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2016-08-01
@@ -20,41 +20,52 @@ public final class FloatingPointNumberPair {
   private final double value2;
 
   /**
-   * Creates a new {@link FloatingPointNumberPair} with default values.
-   */
-  public FloatingPointNumberPair() {
-
-    //Calls other constructor.
-    this(DEFAULT_VALUE, DEFAULT_VALUE);
-  }
-
-  /**
    * Creates a new {@link FloatingPointNumberPair} with the given values.
    * 
    * @param value1
    * @param value2
    */
-  public FloatingPointNumberPair(final double value1, final double value2) {
-
-    //Sets the values of the current FPNPair.
+  private FloatingPointNumberPair(final double value1, final double value2) {
     this.value1 = value1;
     this.value2 = value2;
   }
 
+  /**
+   * @param value1
+   * @param value2
+   * @return a new {@link FloatingPointNumberPair} with the given values.
+   */
+  public static FloatingPointNumberPair withValues(final double value1, final double value2) {
+    return new FloatingPointNumberPair(value1, value2);
+  }
+
+  //TODO: Centralize this implementation.
+  /**
+   * @param value1
+   * @param value2
+   * @return true if the given values are equal, false otherwise.
+   */
+  private static boolean areEqual(double value1, double value2) {
+
+    if (value1 < value2) {
+      return (value1 + ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD >= value2);
+    }
+
+    return (value2 + ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD >= value1);
+  }
+
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}}
    */
   @Override
   public boolean equals(final Object object) {
 
-    //Handles the case that the given object is not a FPNPair.
-    if (!(object instanceof FloatingPointNumberPair)) {
-      return false;
+    if (object instanceof FloatingPointNumberPair floatingPointNumberPair) {
+      return areEqual(value1, floatingPointNumberPair.value1) && areEqual(value2, floatingPointNumberPair.value2);
     }
 
-    //Handles the case that the given object is a FPNPair.
-    final var lFPNPair = (FloatingPointNumberPair) object;
-    return (getValue1() == lFPNPair.getValue1() && getValue2() == lFPNPair.getValue2());
+    return false;
   }
 
   /**
