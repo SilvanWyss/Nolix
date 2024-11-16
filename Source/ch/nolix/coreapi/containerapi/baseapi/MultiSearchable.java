@@ -17,6 +17,7 @@ public interface MultiSearchable<E> {
    * @return a new {@link IContainer} with the elements of the current
    *         {@link MultiSearchable} grouped by the given norm. Ignores null
    *         elements.
+   * @throws RuntimeException if the given norm is null.
    */
   IContainer<? extends IContainer<E>> getStoredInGroups(Function<E, ?> norm);
 
@@ -26,20 +27,24 @@ public interface MultiSearchable<E> {
    *             {@link SingleSearchable}.
    * @return a new {@link IContainer} with the elements from the current
    *         {@link MultiSearchable} that are of the given type.
+   * @throws RuntimeException if the given type is null.
    */
   <E2 extends E> IContainer<E2> getStoredOfType(Class<E2> type);
 
   /**
    * @param selector
    * @return a new {@link IContainer} with the elements from the current
-   *         {@link MultiSearchable} the given selector skips.
+   *         {@link MultiSearchable} the given selector skips. Ignores null
+   *         elements.
+   * @throws RuntimeException if the given selector is null.
    */
   IContainer<E> getStoredOthers(Predicate<E> selector);
 
   /**
    * @param selector
    * @return a new {@link IContainer} with the elements the given selector selects
-   *         from the current {@link MultiSearchable}.
+   *         from the current {@link MultiSearchable}. Ignores null elements.
+   * @throws RuntimeException if the given selector is null.
    */
   IContainer<E> getStoredSelected(Predicate<? super E> selector);
 }

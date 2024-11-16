@@ -939,6 +939,9 @@ implements IContainer<E> {
   @Override
   public final IContainer<? extends IContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
 
+    //Asserst that the given norm is not null.
+    GlobalValidator.assertThat(norm).thatIsNamed("norm").isNotNull();
+
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 
     //Iterates the current Container.
@@ -974,6 +977,9 @@ implements IContainer<E> {
   @Override
   @SuppressWarnings("unchecked")
   public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
+
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
+
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
@@ -1047,7 +1053,23 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
-    return getStoredSelected(e -> !selector.test(e));
+
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+
+    //Creates list.
+    final var list = createEmptyMutableList(new Marker<E>());
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is not null and the given selector does not select the current element.
+      if (e != null && !selector.test(e)) {
+        list.addAtEnd(e);
+      }
+    }
+
+    return list;
   }
 
   /**
@@ -1059,15 +1081,17 @@ implements IContainer<E> {
   @Override
   public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
 
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E>());
 
-    //Fills up the list with the elements the given selector selects from the
-    //current IContainer.
+    //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
         list.addAtEnd(e);
       }
     }
