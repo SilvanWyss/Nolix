@@ -1183,7 +1183,7 @@ implements IContainer<E> {
     //Asserts that the given mapper is not null.
     GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalogue.MAPPER).isNotNull();
 
-    //Creates a list.
+    //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
 
     //Iterates the current Container.
@@ -1301,18 +1301,27 @@ implements IContainer<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * The time complexity of this implementation is O(m*n) if:
+   * 
+   * -The current * {@link Container} contains m elements.
+   * 
+   * -On average, the given groupMapper maps n elements from an element of the
+   * current {@link Container}.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> toFromGroups(final Function<E, IContainer<E2>> extractor) {
+  public final <E2> IContainer<E2> toFromGroups(final Function<E, IContainer<E2>> groupMapper) {
 
+    //Asserts that the given groupMapper is not null.
+    GlobalValidator.assertThat(groupMapper).thatIsNamed("group mapper").isNotNull();
+
+    //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
 
+    //Iterates the current Container.
     for (final var e : this) {
-      list.addAtEnd(extractor.apply(e));
+      list.addAtEnd(groupMapper.apply(e));
     }
 
     return list;

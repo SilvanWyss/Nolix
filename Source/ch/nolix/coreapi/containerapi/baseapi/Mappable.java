@@ -11,25 +11,29 @@ public interface Mappable<E> {
 
   /**
    * @param mapper
-   * @param <E2>   is the type of the elements the given mapper returns.
+   * @param <E2>   is the type of the elements the given mapper maps to.
    * @return a new {@link IContainer} with the elements the given mapper maps from
    *         the elements of the current {@link Mappable}.
    * @throws RuntimeException if the given mapper is null.
-   * @throws RuntimeException if the given mapper cannont handle null elements and
+   * @throws RuntimeException if the given mapper cannot handle null elements and
    *                          one of the elements of the current {@link Mappable}
    *                          is null.
    */
   <E2> IContainer<E2> to(Function<E, E2> mapper);
 
   /**
-   * @param mapper
-   * @param <E2>   is the type of the elements of the {@link Mappable}s the given
-   *               mapper returns.
-   * @return a new {@link IContainer} with the elements of the {@link Mappable}s
-   *         the given mapper maps from the elements of the current
+   * @param groupMapper
+   * @param <E2>        is the type of the elements of the {@link IContainer}s the
+   *                    given groupMapper maps to.
+   * @return a new {@link IContainer} with the elements of the {@link IContainer}s
+   *         the given groupMapper maps from the elements of the current
    *         {@link Mappable}.
+   * @throws RuntimeException if the given groupMapper is null.
+   * @throws RuntimeException if the given groupMapper cannot handle null elements
+   *                          and one of the elements of the current
+   *                          {@link Mappable} is null.
    */
-  <E2> IContainer<E2> toFromGroups(Function<E, IContainer<E2>> mapper);
+  <E2> IContainer<E2> toFromGroups(Function<E, IContainer<E2>> groupMapper);
 
   /**
    * @return a new {@link IContainer} with the {@link String} representations of
