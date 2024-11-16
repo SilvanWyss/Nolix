@@ -591,17 +591,20 @@ implements IContainer<E> {
   @Override
   public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
 
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+
     //Iterates the current Container.
-    var l1BasedIndex = 1;
+    var local1BasedIndex = 1;
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
-        return l1BasedIndex;
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
+        return local1BasedIndex;
       }
 
-      //Increments the index.
-      l1BasedIndex++;
+      //Increments the local1BasedIndex.
+      local1BasedIndex++;
     }
 
     throw ArgumentDoesNotContainElementException.forArgument(this);
