@@ -14,6 +14,10 @@ public interface Mappable<E> {
    * @param <E2>   is the type of the elements the given mapper returns.
    * @return a new {@link IContainer} with the elements the given mapper maps from
    *         the elements of the current {@link Mappable}.
+   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper cannont handle null elements and
+   *                          one of the elements of the current {@link Mappable}
+   *                          is null.
    */
   <E2> IContainer<E2> to(Function<E, E2> mapper);
 

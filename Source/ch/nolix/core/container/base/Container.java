@@ -1178,14 +1178,17 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> to(final Function<E, E2> extractor) {
+  public final <E2> IContainer<E2> to(final Function<E, E2> mapper) {
+
+    //Asserts that the given mapper is not null.
+    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalogue.MAPPER).isNotNull();
 
     //Creates a list.
     final var list = createEmptyMutableList(new Marker<E2>());
 
     //Iterates the current Container.
     for (final var e : this) {
-      list.addAtEnd(extractor.apply(e));
+      list.addAtEnd(mapper.apply(e));
     }
 
     return list;
