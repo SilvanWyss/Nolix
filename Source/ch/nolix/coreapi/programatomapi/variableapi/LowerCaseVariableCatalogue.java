@@ -236,6 +236,8 @@ public final class LowerCaseVariableCatalogue {
 
   public static final String LOGIN_PASSWORD = "login password";
 
+  public static final String MAPPER = "mapper";
+
   public static final String MAXIMUM = "maximum";
 
   public static final String MESSAGE = "message";

@@ -236,6 +236,8 @@ public final class PascalCaseVariableCatalogue {
 
   public static final String LOGIN_PASSWORD = "LoginPassword";
 
+  public static final String MAPPER = "Mapper";
+
   public static final String MAXIMUM = "Maximum";
 
   public static final String MESSAGE = "Message";

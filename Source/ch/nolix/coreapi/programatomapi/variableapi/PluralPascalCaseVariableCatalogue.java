@@ -237,6 +237,8 @@ public final class PluralPascalCaseVariableCatalogue {
 
   public static final String LOGIN_PASSWORDS = "LoginPassword";
 
+  public static final String MAPPERS = "Mappers";
+
   public static final String MAXIMA = "Maxima";
 
   public static final String MESSAGES = "Messages";

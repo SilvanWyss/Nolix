@@ -237,6 +237,8 @@ public final class PluralLowerCaseVariableCatalogue {
 
   public static final String LOGIN_PASSWORDS = "login passwords";
 
+  public static final String MAPPERS = "mappers";
+
   public static final String MAXIMA = "maxima";
 
   public static final String MESSAGES = "messages";
