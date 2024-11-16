@@ -1438,7 +1438,16 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<String> toStrings() {
-    return to(E::toString);
+
+    //Creates list.
+    final var list = createEmptyMutableList(new Marker<String>());
+
+    //Iterates the current Container.
+    for (final var e : this) {
+      list.addAtEnd(Objects.toString(e));
+    }
+
+    return list;
   }
 
   /**
