@@ -1386,13 +1386,15 @@ implements IContainer<E> {
   @Override
   public final IContainer<E> toReversedList() {
 
-    //Handles the case that the current Container is empty.
-    if (isEmpty()) {
-      return createEmptyMutableList(new Marker<E>());
+    //Creates a ILinkedList.
+    final var reversedList = createEmptyMutableList(new Marker<E>());
+
+    //Iterates the current Container.
+    for (final var e : this) {
+      reversedList.addAtBegin(e);
     }
 
-    //Handles the case that the current Container contains elements.
-    return getReversedListWhenContainsElements();
+    return reversedList;
   }
 
   /**
@@ -1652,27 +1654,6 @@ implements IContainer<E> {
     }
 
     return min;
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
-   * 
-   * @return a new {@link ILinkedList} with the elements of the current
-   *         {@link Container} in the reversed order for the case that the current
-   *         {@link Container} contains elements.
-   */
-  private ILinkedList<E> getReversedListWhenContainsElements() {
-
-    //Creates a ILinkedList.
-    final var reversedList = createEmptyMutableList(new Marker<E>());
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      reversedList.addAtBegin(e);
-    }
-
-    return reversedList;
   }
 
   /**

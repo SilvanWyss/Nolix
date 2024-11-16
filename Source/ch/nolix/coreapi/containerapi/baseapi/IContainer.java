@@ -49,6 +49,8 @@ StringMappable {
    *         {@link IContainer} ordered from the smallest to the biggest element
    *         according to the {@link Comparable}s the given comparableMapper maps
    *         from the elements of the current {@link IContainer}.
+   * @throws RuntimeException if one of the elements of the current
+   *                          {@link IContainer} is null.
    */
   <C extends Comparable<C>> IContainer<E> toOrderedList(Function<E, C> comparableMapper);
 
