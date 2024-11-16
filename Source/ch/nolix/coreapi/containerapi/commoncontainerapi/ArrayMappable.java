@@ -13,39 +13,49 @@ import java.util.function.ToLongFunction;
 public interface ArrayMappable<E> {
 
   /**
-   * @param byteGetter
-   * @return a new array with the bytes the given byteGetter returns from the
-   *         elements of the current {@link ArrayMappable}.
+   * @param byteMapper
+   * @return a new array with the bytes the given byteMapper maps from the
+   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         0.
+   * @throws RuntimeException if the given byteMapper is null.
    */
-  byte[] toByteArray(Function<E, Byte> byteGetter);
+  byte[] toByteArray(Function<E, Byte> byteMapper);
 
   /**
-   * @param charGetter
-   * @return a new array with the chars the given charGetter returns from the
-   *         elements of the current {@link ArrayMappable}.
+   * @param charMapper
+   * @return a new array with the chars the given charMapper maps from the
+   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         a space.
+   * @throws RuntimeException if the given charMapper is null.
    */
-  char[] toCharArray(Function<E, Character> charGetter);
+  char[] toCharArray(Function<E, Character> charMapper);
 
   /**
-   * @param doubleGetter
-   * @return a new array with the doubles the given doubleGetter returns from the
-   *         elements of the current {@link ArrayMappable}.
+   * @param doubleMapper
+   * @return a new array with the doubles the given doubleMapper maps from the
+   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         0.0.
+   * @throws RuntimeException if the given doubleMapper is null.
    */
-  double[] toDoubleArray(ToDoubleFunction<E> doubleGetter);
+  double[] toDoubleArray(ToDoubleFunction<E> doubleMapper);
 
   /**
-   * @param norm
-   * @return a new array with the ints the given norm returns from the elements of
-   *         the current {@link ArrayMappable}. Maps null elements to 0.
+   * @param intMapper
+   * @return a new array with the ints the given intMapper maps from the elements
+   *         of the current {@link ArrayMappable}. Maps null elements to 0. Maps
+   *         null elements to 0.
+   * @throws RuntimeException if the given intMapper is null.
    */
-  int[] toIntArray(ToIntFunction<E> norm);
+  int[] toIntArray(ToIntFunction<E> intMapper);
 
   /**
-   * @param norm
-   * @return a new array with the longs the given norm returns from the elements
-   *         of the current {@link ArrayMappable}. Maps null elements to 0.
+   * @param longMapper
+   * @return a new array with the longs the given longMapper maps from the
+   *         elements of the current {@link ArrayMappable}. Maps null elements to
+   *         0.
+   * @throws RuntimeException if the given longMapper is null.
    */
-  long[] toLongArray(ToLongFunction<E> norm);
+  long[] toLongArray(ToLongFunction<E> longMapper);
 
   /**
    * @return a new array with the {@link String} representations of the elements

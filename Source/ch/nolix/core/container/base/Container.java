@@ -25,6 +25,7 @@ import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
@@ -1247,16 +1248,30 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final byte[] toByteArray(final Function<E, Byte> byteNorm) {
+  public final byte[] toByteArray(final Function<E, Byte> byteMapper) {
+
+    //Asserts that the given byteMapper is not null.
+    GlobalValidator.assertThat(byteMapper).thatIsNamed("byte mapper").isNotNull();
 
     //Creates array.
     final var array = new byte[getCount()];
 
     //Fills up the array.
-    var i = 0;
+    var index = 0;
     for (final var e : this) {
-      array[i] = byteNorm.apply(e);
-      i++;
+
+      //Handles the case that the current element is null.
+      if (e == null) {
+        array[index] = 0;
+      }
+
+      //Handles the case that the current element is not  null.
+      else {
+        array[index] = byteMapper.apply(e);
+      }
+
+      //Increments the index.
+      index++;
     }
 
     return array;
@@ -1269,16 +1284,30 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final char[] toCharArray(final Function<E, Character> charNorm) {
+  public final char[] toCharArray(final Function<E, Character> charMapper) {
+
+    //Asserts that the given charMapper is not null.
+    GlobalValidator.assertThat(charMapper).thatIsNamed("char mapper").isNotNull();
 
     //Creates array.
     final var array = new char[getCount()];
 
     //Fills up the array.
-    var i = 0;
+    var index = 0;
     for (final var e : this) {
-      array[i] = charNorm.apply(e);
-      i++;
+
+      //Handles the case that the current element is null.
+      if (e == null) {
+        array[index] = CharacterCatalogue.SPACE;
+      }
+
+      //Handles the case that the current element is not  null.
+      else {
+        array[index] = charMapper.apply(e);
+      }
+
+      //Increments the index.
+      index++;
     }
 
     return array;
@@ -1309,16 +1338,30 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double[] toDoubleArray(final ToDoubleFunction<E> doubleNorm) {
+  public final double[] toDoubleArray(final ToDoubleFunction<E> doubleMapper) {
+
+    //Asserts that the given doubleMapper is not null.
+    GlobalValidator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
 
     //Creates array.
     final var array = new double[getCount()];
 
     //Fills up the array.
-    var i = 0;
+    var index = 0;
     for (final var e : this) {
-      array[i] = doubleNorm.applyAsDouble(e);
-      i++;
+
+      //Handles the case that the current element is null.
+      if (e == null) {
+        array[index] = 0.0;
+      }
+
+      //Handles the case that the current element is not null.
+      else {
+        array[index] = doubleMapper.applyAsDouble(e);
+      }
+
+      //Increments the index.
+      index++;
     }
 
     return array;
@@ -1358,7 +1401,10 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int[] toIntArray(final ToIntFunction<E> norm) {
+  public final int[] toIntArray(final ToIntFunction<E> intMapper) {
+
+    //Asserts that the given intMapper is not null.
+    GlobalValidator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
     //Creates array.
     final var array = new int[getCount()];
@@ -1374,9 +1420,12 @@ implements IContainer<E> {
 
       //Handles the case that the current element is not null.
       else {
-        array[index] = norm.applyAsInt(e);
-        index++;
+        array[index] = intMapper.applyAsInt(e);
+
       }
+
+      //Increments the index.
+      index++;
     }
 
     return array;
@@ -1389,7 +1438,10 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final long[] toLongArray(final ToLongFunction<E> norm) {
+  public final long[] toLongArray(final ToLongFunction<E> longMapper) {
+
+    //Asserts that the given longMapper is not null.
+    GlobalValidator.assertThat(longMapper).thatIsNamed("long mapper").isNotNull();
 
     //Creates the array.
     final var array = new long[getCount()];
@@ -1400,14 +1452,16 @@ implements IContainer<E> {
 
       //Handles the case that the current element is null.
       if (e == null) {
-        array[index] = 0;
+        array[index] = 0L;
       }
 
       //Handles the case that the current element is not null.
       else {
-        array[index] = norm.applyAsLong(e);
-        index++;
+        array[index] = longMapper.applyAsLong(e);
       }
+
+      //Increments the index.
+      index++;
     }
 
     return array;
