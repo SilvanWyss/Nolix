@@ -29,7 +29,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
     this.value = value;
   }
 
-  public <LK, LV> KeyValuePair<LK, LV> withKeyAndValue(final LK key, final LV value) {
+  public static <LK, LV> KeyValuePair<LK, LV> withKeyAndValue(final LK key, final LV value) {
     return new KeyValuePair<>(key, value);
   }
 
