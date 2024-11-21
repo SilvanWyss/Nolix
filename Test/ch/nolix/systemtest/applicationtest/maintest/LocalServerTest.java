@@ -1,6 +1,5 @@
 package ch.nolix.systemtest.applicationtest.maintest;
 
-//Mockito imports
 import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;

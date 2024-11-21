@@ -1,7 +1,6 @@
 package ch.nolix.coretest.programcontroltest.sequencertest;
 
 import org.junit.jupiter.api.Test;
-//Mockito imports
 import org.mockito.Mockito;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;

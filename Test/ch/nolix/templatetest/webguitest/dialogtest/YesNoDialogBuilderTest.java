@@ -1,7 +1,6 @@
 package ch.nolix.templatetest.webguitest.dialogtest;
 
 import org.junit.jupiter.api.Test;
-//Mockito imports
 import org.mockito.Mockito;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
