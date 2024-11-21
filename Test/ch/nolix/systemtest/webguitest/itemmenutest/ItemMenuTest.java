@@ -4,11 +4,22 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.system.webgui.itemmenu.ItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
-abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-extends ControlTest<IM> {
+abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>> extends ControlTest<IM> {
+
+  @Test
+  final void testCase_creation() {
+
+    //setup
+    final var testUnit = createTestUnit();
+
+    //setup verification
+    expect(testUnit.isEmpty());
+    expectNot(testUnit.containsSelectedItem());
+  }
 
   @Test
   final void testCase_addItemWithIdAndText() {
@@ -21,33 +32,50 @@ extends ControlTest<IM> {
 
     //execution
     testUnit
-      .addItemWithIdAndText("my_id_1", "my_text_1")
-      .addItemWithIdAndText("my_id_2", "my_text_2")
-      .addItemWithIdAndText("my_id_3", "my_text_3");
+      .addItemWithIdAndText("my_id1", "my_text1")
+      .addItemWithIdAndText("my_id2", "my_text2")
+      .addItemWithIdAndText("my_id3", "my_text3");
 
     //verification
     expect(testUnit.getStoredItems()).containsExactlyEqualing(
-      ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
-      ItemMenuItem.withIdAndText("my_id_2", "my_text_2"),
-      ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
+      ItemMenuItem.withIdAndText("my_id1", "my_text1"),
+      ItemMenuItem.withIdAndText("my_id2", "my_text2"),
+      ItemMenuItem.withIdAndText("my_id3", "my_text3"));
+  }
+
+  @Test
+  final void testCase_addItemWithText() {
+
+    //setup
+    final var testUnit = createTestUnit();
+
+    //setup verification
+    expect(testUnit.isEmpty());
+
+    //execution
+    testUnit.addItemWithText("my_text1", "my_text2", "my_text3", "my_text4");
+
+    //verification
+    expect(testUnit.getStoredItems().to(IItemMenuItem::getText))
+      .containsExactlyEqualing("my_text1", "my_text2", "my_text3", "my_text4");
   }
 
   @Test
   final void testCase_selectItemById_whenContainsItemWithGivenId() {
 
     //setup
-    final var item = ItemMenuItem.withIdAndText("my_id_2", "my_text_2");
+    final var item = ItemMenuItem.withIdAndText("my_id2", "my_text2");
     final var testUnit = createTestUnit()
       .addItem(
-        ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
+        ItemMenuItem.withIdAndText("my_id1", "my_text1"),
         item,
-        ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
+        ItemMenuItem.withIdAndText("my_id3", "my_text3"));
 
     //setup verification
     expectNot(item.isSelected());
 
     //execution
-    testUnit.selectItemById("my_id_2");
+    testUnit.selectItemById("my_id2");
 
     //verification
     expect(item.isSelected());
