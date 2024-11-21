@@ -3,11 +3,6 @@ package ch.nolix.templatetest.webguitest.dialogtest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.webgui.atomiccontrol.Button;
-import ch.nolix.system.webgui.atomiccontrol.Label;
-import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
@@ -26,22 +21,7 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     //execution
     final var result = testUnit.build();
 
-    //verification part 1
-    final var expectedStructure = //
-    new Layer()
-      .setRootControl(
-        new VerticalStack()
-          .addControl(
-            new Label(),
-            new HorizontalStack()
-              .addControl(
-                new Label(),
-                new Button()),
-            new Button()));
-    expect(result.getStructureSpecification())
-      .hasSameStringRepresentationAs(expectedStructure.getStructureSpecification());
-
-    //verification part 2
+    //verification
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
   }
 

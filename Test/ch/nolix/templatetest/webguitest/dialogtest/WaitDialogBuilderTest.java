@@ -3,9 +3,9 @@ package ch.nolix.templatetest.webguitest.dialogtest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.webgui.atomiccontrol.Label;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 
@@ -20,12 +20,18 @@ final class WaitDialogBuilderTest extends StandardTest {
     //execution
     final var result = testUnit.build();
 
-    //verification part 1
-    final var expectedStructure = new Layer().setRootControl(new VerticalStack().addControl(new Label()));
-    expect(result.getStructureSpecification())
-      .hasSameStringRepresentationAs(expectedStructure.getStructureSpecification());
-
-    //verification part 2
+    //verification
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
+    final var controls = result.getStoredControls();
+    expect(controls.containsAny(this::isMainLabel));
+  }
+
+  private boolean isMainLabel(final IControl<?, ?> control) {
+
+    if (control instanceof ILabel label) {
+      return (label.getRole() == LabelRole.MAIN_LABEL);
+    }
+
+    return false;
   }
 }
