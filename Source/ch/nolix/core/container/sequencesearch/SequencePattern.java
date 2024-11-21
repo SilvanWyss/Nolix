@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.function.Predicate;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -12,13 +11,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 
 /**
- * A {@link SequencePattern} is a pattern for sequences. -The sequences of a
- * {@link SequencePattern} must have a defined length. -The elements of the
- * sequences of a {@link SequencePattern} must fulfill the according element
- * conditions of the {@link SequencePattern}. -The sequences of a
- * {@link SequencePattern} must fulfill the sequence conditions of the
- * {@link SequencePattern}.
- * 
  * @author Silvan Wyss
  * @version 2016-10-01
  * @param <E> is the type of the elements of the sequences of a
@@ -31,12 +23,10 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   private final ILinkedList<Predicate<ILinkedList<E>>> sequenceConditions = LinkedList.createEmpty();
 
   /**
-   * Adds a blank condition for the next element of the sequences of the current
-   * {@link SequencePattern}.
-   * 
-   * @return this {@link SequencePattern}.
+   * {@inheritDoc}
    */
-  public SequencePattern<E> addBlankForNext() {
+  @Override
+  public ISequencePattern<E> addBlankForNext() {
 
     addConditionForNext(e -> true);
 
@@ -44,14 +34,10 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   }
 
   /**
-   * Adds the given condition for the next element of the sequences of the current
-   * {@link SequencePattern}.
-   * 
-   * @param condition
-   * @return the current {@link SequencePattern}.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
-  public SequencePattern<E> addConditionForNext(final Predicate<E> condition) {
+  @Override
+  public ISequencePattern<E> addConditionForNext(final Predicate<E> condition) {
 
     elementConditions.addAtEnd(condition);
 
@@ -59,16 +45,10 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   }
 
   /**
-   * Adds the given sequence condition to the current {@link SequencePattern}. The
-   * sequence conditions must be fulfilled from the sequences of a
-   * {@link SequencePattern}.
-   * 
-   * @param sequenceCondition
-   * @return this {@link SequencePattern}.
-   * @throws ArgumentIsNullException if the given sequence condition is null.
-   * 
+   * {@inheritDoc}
    */
-  public SequencePattern<E> addSequenceCondition(final Predicate<ILinkedList<E>> sequenceCondition) {
+  @Override
+  public ISequencePattern<E> addSequenceCondition(final Predicate<ILinkedList<E>> sequenceCondition) {
 
     sequenceConditions.addAtEnd(sequenceCondition);
 
