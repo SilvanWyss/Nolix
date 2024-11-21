@@ -931,6 +931,21 @@ implements IContainer<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Container} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  public final <E2 extends E> E2 getStoredFirstOfType(final Class<E2> type) {
+
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
+
+    return (E2) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
+  }
+
+  /**
    * The time complexity of this implementation is O(m*n) if:
    * 
    * -The current {@link Container} contains m elements.
