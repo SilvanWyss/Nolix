@@ -113,6 +113,30 @@ public final class ContainerView<E> extends Container<E> {
   }
 
   /**
+   * @param iterable
+   * @param element
+   * @param elements
+   * @param <E2>     is the type of the elements of the given iterable and element
+   *                 and elements.
+   * @return a new {@link ContainerView} for the given iterable and element and
+   *         elements.
+   * @throws ArgumentIsNullException if the given iterable is null.
+   * @throws ArgumentIsNullException if one of the given elements is null.
+   */
+  @SafeVarargs
+  public static <E2> ContainerView<E2> forIterableAndElement(
+    final Iterable<? extends E2> iterable,
+    final E2 element,
+    final E2... elements) {
+
+    @SuppressWarnings("unchecked")
+    final var container = //
+    MultiContainerView.forIterable(iterable, ImmutableList.withElement(element), ArrayView.forArray(elements));
+
+    return new ContainerView<>(container);
+  }
+
+  /**
    * An object equals a {@link ContainerView} when the object is a
    * {@link Iterable} that contains exactly the same elements in the same order
    * like the {@link ContainerView}.
