@@ -31,7 +31,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   /**
    * Creates a new {@link SequencePattern}.
    */
-  public SequencePattern() {
+  private SequencePattern() {
     this(ImmutableList.createEmpty(), ImmutableList.createEmpty());
   }
 
@@ -53,6 +53,15 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     final IContainer<Predicate<IContainer<E>>> sequenceConditions) {
     this.elementConditions = ImmutableList.forIterable(elementConditions);
     this.sequenceConditions = ImmutableList.forIterable(sequenceConditions);
+  }
+
+  /**
+   * @param <E2>
+   * @param elementType
+   * @return a new {@link SequencePattern} for the given elementType.
+   */
+  public static <E2> SequencePattern<E2> forElementType(final Class<E2> elementType) {
+    return new SequencePattern<>();
   }
 
   /**
