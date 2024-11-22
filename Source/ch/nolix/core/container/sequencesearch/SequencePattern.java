@@ -3,13 +3,18 @@ package ch.nolix.core.container.sequencesearch;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
+import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 
 /**
+ * A {@link SequencePattern} is not mutable.
+ * 
  * @author Silvan Wyss
  * @version 2016-10-01
  * @param <E> is the type of the elements of the sequences of a
@@ -17,41 +22,85 @@ import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {
 
-  private final LinkedList<Predicate<E>> elementConditions = LinkedList.createEmpty();
+  private final IContainer<Predicate<E>> elementConditions;
 
-  private final ILinkedList<Predicate<ILinkedList<E>>> sequenceConditions = LinkedList.createEmpty();
+  private final IContainer<Predicate<IContainer<E>>> sequenceConditions;
+
+  private final Predicate<E> blankCondition = e -> true;
 
   /**
-   * {@inheritDoc}
+   * Creates a new {@link SequencePattern}.
    */
-  @Override
-  public ISequencePattern<E> addBlankForNext() {
+  public SequencePattern() {
+    this(ImmutableList.createEmpty(), ImmutableList.createEmpty());
+  }
 
-    addConditionForNext(e -> true);
+  /**
+   * Creates a new {@link SequencePattern} with the given elementConditions and
+   * sequenceConditions.
+   * 
+   * @param elementConditions
+   * @param sequenceConditions
+   * @throws ArgumentIsNullException if the given elementConditions is null.
+   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   *                                 null.
+   * @throws ArgumentIsNullException if the given elementConditions is null.
+   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   *                                 null.
+   */
+  private SequencePattern(
+    final IContainer<Predicate<E>> elementConditions,
+    final IContainer<Predicate<IContainer<E>>> sequenceConditions) {
+    this.elementConditions = ImmutableList.forIterable(elementConditions);
+    this.sequenceConditions = ImmutableList.forIterable(sequenceConditions);
+  }
 
-    return this;
+  /**
+   * @param elementConditions
+   * @param sequenceConditions
+   * @return a new {@link SequencePattern} with the given elementConditions and
+   *         sequenceConditions.
+   * @throws ArgumentIsNullException if the given elementConditions is null.
+   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   *                                 null.
+   * @throws ArgumentIsNullException if the given elementConditions is null.
+   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   *                                 null.
+   */
+  private static <E2> SequencePattern<E2> withElementConditionsAndSequenceConditions(
+    final IContainer<Predicate<E2>> elementConditions,
+    final IContainer<Predicate<IContainer<E2>>> sequenceConditions) {
+    return new SequencePattern<>(elementConditions, sequenceConditions);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> addConditionForNext(final Predicate<E> condition) {
-
-    elementConditions.addAtEnd(condition);
-
-    return this;
+  public ISequencePattern<E> withBlankForNext() {
+    return withConditionForNext(blankCondition);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> addSequenceCondition(final Predicate<ILinkedList<E>> sequenceCondition) {
+  public ISequencePattern<E> withConditionForNext(final Predicate<E> condition) {
 
-    sequenceConditions.addAtEnd(sequenceCondition);
+    final var newElementConditions = ContainerView.forIterableAndElement(elementConditions, condition);
 
-    return this;
+    return withElementConditionsAndSequenceConditions(newElementConditions, sequenceConditions);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> withSequenceCondition(final Predicate<IContainer<E>> sequenceCondition) {
+
+    final var newSequenceConditions = ContainerView.forIterableAndElement(sequenceConditions, sequenceCondition);
+
+    return withElementConditionsAndSequenceConditions(elementConditions, newSequenceConditions);
   }
 
   /**
@@ -76,8 +125,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     final var iterator = list.iterator();
     for (var i = 1; i <= maxSequenceCount; i++) {
 
-      //Asserts that the current sequence fulfills the element conditions of the
-      //current SequencePattern.
+      //Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
       var sequenceFulfillsElementConditions = true;
       final var iterator2 = iterator.getCopy();
       for (final Predicate<E> c : elementConditions) {
@@ -96,8 +144,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
         final var iterator3 = iterator.getCopy();
         GlobalSequencer.forCount(getSize()).run(() -> sequence.addAtEnd(iterator3.next()));
 
-        //Asserts that the current sequence fulfills the sequence conditions of the
-        //current SequencePattern.
+        //Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
         if (sequenceConditions.containsOnly(sc -> sc.test(sequence))) {
           sequences.addAtEnd(sequence);
         }
@@ -120,19 +167,16 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
   /**
    * @param list
-   * @return true if this {@link SequencePattern} matches the given list.
+   * @return true if the current {@link SequencePattern} matches the given list.
    */
-  boolean matches(final LinkedList<E> list) {
+  public boolean matches(final LinkedList<E> list) {
 
-    //Asserts that the given list has as many elements as the current
-    //SequencePattern requires.
+    //Asserts that the given list has as many elements as the current SequencePattern requires.
     if (list.getCount() != getSize()) {
       return false;
     }
 
-    //Asserts that the elements of the given list
-    //fulfill the according element conditions the current SequencePattern
-    //requires.
+    //Asserts that the elements of the given listfulfill the according element conditions the current SequencePattern requires.
     final Iterator<Predicate<E>> iterator = elementConditions.iterator();
     for (final E e : list) {
       if (!iterator.next().test(e)) {
@@ -140,8 +184,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       }
     }
 
-    //Asserts that the given list fulfils the sequence conditions of the current
-    //SequencePattern.
+    //Asserts that the given list fulfils the sequence conditions of the current SequencePattern.
     return sequenceConditions.containsOnly(sc -> sc.test(list));
   }
 }

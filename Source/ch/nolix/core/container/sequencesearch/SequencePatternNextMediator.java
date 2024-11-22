@@ -5,7 +5,6 @@ import java.util.function.Predicate;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePatternNextMediator;
 
@@ -32,14 +31,9 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    */
   private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
 
-    //Asserts that the given sequencePattern is not null.
-    GlobalValidator.assertThat(sequencePattern).thatIsNamed(SequencePattern.class).isNotNull();
-
-    //Asserts that the given count is not negative.
+    GlobalValidator.assertThat(sequencePattern).thatIsNamed(ISequencePattern.class).isNotNull();
     GlobalValidator.assertThat(count).thatIsNamed("count").isNotNegative();
 
-    //Sets the sequencePattern and the count of the current
-    //SequencePatternNextMediator.
     this.sequencePattern = sequencePattern;
     this.count = count;
   }
@@ -62,27 +56,33 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
     return new SequencePatternNextMediator<>(null, count);
   }
 
+  //TODO: Improve this implementation.
   /**
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> addBlank() {
+  public ISequencePattern<E> withBlank() {
 
+    var newSequencePattern = sequencePattern;
     for (var i = 1; i < count; i++) {
-      sequencePattern.addBlankForNext();
+      newSequencePattern = newSequencePattern.withBlankForNext();
     }
 
-    return sequencePattern;
+    return newSequencePattern;
   }
 
+  //TODO: Improve this implementation.
   /**
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> addCondition(final Predicate<E> condition) {
+  public ISequencePattern<E> withCondition(final Predicate<E> condition) {
 
-    GlobalSequencer.forCount(count).run(() -> sequencePattern.addConditionForNext(condition));
+    var newSequencePattern = sequencePattern;
+    for (var i = 1; i < count; i++) {
+      newSequencePattern = newSequencePattern.withConditionForNext(condition);
+    }
 
-    return sequencePattern;
+    return newSequencePattern;
   }
 }

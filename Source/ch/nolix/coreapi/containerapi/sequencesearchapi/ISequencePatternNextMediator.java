@@ -12,22 +12,20 @@ import java.util.function.Predicate;
 public interface ISequencePatternNextMediator<E> {
 
   /**
-   * Adds a blank condition for the next elements of the sequences of the
-   * {@link ISequencePattern} of the current {@link ISequencePatternNextMediator}.
-   * 
-   * @return the {@link ISequencePattern} of the current
-   *         {@link ISequencePatternNextMediator}.
+   * @return a new {@link ISequencePattern} from the {@link ISequencePattern} of
+   *         the current {@link ISequencePatternNextMediator} with a blank
+   *         condition for the next elements of the sequences of the
+   *         {@link ISequencePattern}.
    */
-  ISequencePattern<E> addBlank();
+  ISequencePattern<E> withBlank();
 
   /**
-   * Adds the given condition for the next elements of the sequences of the
-   * {@link ISequencePattern} of the current {@link ISequencePatternNextMediator}.
-   * 
    * @param condition
-   * @return the {@link ISequencePattern} of the current
-   *         {@link ISequencePatternNextMediator}.
+   * @return a new {@link ISequencePattern} from the {@link ISequencePattern} of
+   *         the current {@link ISequencePatternNextMediator} with the given
+   *         condition for the next elements of the sequences of the
+   *         {@link ISequencePattern}.
    * @throws RuntimeException if the given condition is null.
    */
-  ISequencePattern<E> addCondition(Predicate<E> condition);
+  ISequencePattern<E> withCondition(Predicate<E> condition);
 }

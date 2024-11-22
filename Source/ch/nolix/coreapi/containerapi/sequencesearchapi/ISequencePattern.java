@@ -3,7 +3,6 @@ package ch.nolix.coreapi.containerapi.sequencesearchapi;
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 /**
  * A {@link ISequencePattern} is a pattern for sequences.
@@ -13,7 +12,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  * -The elements of the sequences of a {@link ISequencePattern} must fulfill the
  * element conditions of the {@link ISequencePattern}.
  * 
- * -The sequences of a {@link ISequencePattern} must fulfill the sequence
+ * -The sequences of a {@link ISequencePattern} must fulfill all sequence
  * conditions of the {@link ISequencePattern}.
  * 
  * @author Silvan Wyss
@@ -24,32 +23,32 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 public interface ISequencePattern<E> {
 
   /**
-   * Adds a blank condition for the next element of the sequences of the current
-   * {@link ISequencePattern}.
-   * 
-   * @return the current {@link ISequencePattern}.
+   * @return a new {@link ISequencePattern} from the current
+   *         {@link ISequencePattern } with a blank condition for the next element
+   *         of the sequences of the {@link ISequencePattern}.
    */
-  ISequencePattern<E> addBlankForNext();
+  ISequencePattern<E> withBlankForNext();
 
   /**
-   * Adds the given condition for the next element of the sequences of the current
-   * {@link ISequencePattern}.
-   * 
    * @param condition
-   * @return the current {@link ISequencePattern}.
+   * @return a new {@link ISequencePattern} from the current
+   *         {@link ISequencePattern } with the given condition for the next
+   *         element of the sequences of the {@link ISequencePattern}.
    * @throws RuntimeException if the given condition is null.
    */
-  ISequencePattern<E> addConditionForNext(Predicate<E> condition);
+  ISequencePattern<E> withConditionForNext(Predicate<E> condition);
 
   /**
    * Adds the given sequenceCondition to the current {@link ISequencePattern}.
    * 
    * @param sequenceCondition
-   * @return this {@link ISequencePattern}.
+   * @return a new {@link ISequencePattern} from the current
+   *         {@link ISequencePattern } with the given sequenceCondition for the
+   *         sequences the {@link ISequencePattern}.
    * @throws RuntimeException if the given sequenceCondition is null.
    * 
    */
-  ISequencePattern<E> addSequenceCondition(Predicate<ILinkedList<E>> sequenceCondition);
+  ISequencePattern<E> withSequenceCondition(Predicate<IContainer<E>> sequenceCondition);
 
   /**
    * @param count
