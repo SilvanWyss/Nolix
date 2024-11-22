@@ -52,6 +52,14 @@ public interface ISequencePattern<E> {
   ISequencePattern<E> addSequenceCondition(Predicate<ILinkedList<E>> sequenceCondition);
 
   /**
+   * @param count
+   * @return a new {@link ISequencePatternNextMediator} for the current
+   *         {@link ISequencePattern} and the given count.
+   * @throws RuntimeException if the given count is negative.
+   */
+  ISequencePatternNextMediator<E> forNext(int count);
+
+  /**
    * @param container
    * @return all sequences from the given container that match the current
    *         {@link ISequencePattern}.

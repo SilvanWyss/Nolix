@@ -6,6 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
+import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePatternNextMediator;
 
 /**
  * @author Silvan Wyss
@@ -13,22 +15,22 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
  * @param <E> is the type of the elements of the sequences of the
  *            {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */
-public final class SequencePatternNextMediator<E> {
+public final class SequencePatternNextMediator<E> implements ISequencePatternNextMediator<E> {
 
-  private final SequencePattern<E> sequencePattern;
+  private final ISequencePattern<E> sequencePattern;
 
   private final int count;
 
   /**
    * Creates a new {@link SequencePatternNextMediator} for the given
-   * sequencePattern and with the given count.
+   * sequencePattern and count.
    * 
    * @param sequencePattern
    * @param count
-   * @throws ArgumentIsNullException   if the givenSequence pattern is null.
+   * @throws ArgumentIsNullException   if the sequencePattern is null.
    * @throws NegativeArgumentException if the given count is negative.
    */
-  SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
+  private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
 
     //Asserts that the given sequencePattern is not null.
     GlobalValidator.assertThat(sequencePattern).thatIsNamed(SequencePattern.class).isNotNull();
@@ -43,13 +45,28 @@ public final class SequencePatternNextMediator<E> {
   }
 
   /**
-   * Adds a blank condition for the next elements of the sequences of the
-   * {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
+   * @return a new {@link SequencePatternNextMediator} for the given
+   *         sequencePattern and count.
    * 
-   * @return the sequence pattern of the current
-   *         {@link SequencePatternNextMediator}.
+   * @param sequencePattern
+   * @param count
+   * @param <E2>            is the type of the elements of the sequences of the
+   *                        {@link ISequencePattern} of the
+   *                        {@link ISequencePatternNextMediator}.
+   * @throws ArgumentIsNullException   if the sequencePattern is null.
+   * @throws NegativeArgumentException if the given count is negative.
    */
-  public SequencePattern<E> addBlank() {
+  public static <E2> SequencePatternNextMediator<E2> forSequencePatternAndCount(
+    final ISequencePattern<E2> sequencePattern,
+    final int count) {
+    return new SequencePatternNextMediator<>(null, count);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> addBlank() {
 
     for (var i = 1; i < count; i++) {
       sequencePattern.addBlankForNext();
@@ -59,15 +76,10 @@ public final class SequencePatternNextMediator<E> {
   }
 
   /**
-   * Adds the given condition for the next elements of the sequences of the
-   * {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
-   * 
-   * @param condition
-   * @return the {@link SequencePattern} of the current
-   *         {@link SequencePatternNextMediator}.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
-  public SequencePattern<E> addCondition(final Predicate<E> condition) {
+  @Override
+  public ISequencePattern<E> addCondition(final Predicate<E> condition) {
 
     GlobalSequencer.forCount(count).run(() -> sequencePattern.addConditionForNext(condition));
 

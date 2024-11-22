@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.function.Predicate;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -56,13 +55,11 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   }
 
   /**
-   * @param count
-   * @return a new {@link SequencePatternNextMediator} for the current
-   *         {@link SequencePattern} with the given count.
-   * @throws NegativeArgumentException if the given count is negative.
+   * {@inheritDoc}
    */
+  @Override
   public SequencePatternNextMediator<E> forNext(final int count) {
-    return new SequencePatternNextMediator<>(this, count);
+    return SequencePatternNextMediator.forSequencePatternAndCount(this, count);
   }
 
   /**
