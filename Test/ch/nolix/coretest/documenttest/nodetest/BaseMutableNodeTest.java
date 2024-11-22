@@ -5,9 +5,126 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.core.document.node.BaseMutableNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
+
+  @Test
+  void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsBlank() {
+
+    //setup
+    final var testUnit = createBlankNode();
+
+    //execution
+    expectRunning(() -> testUnit.addPostfixToHeader(" "))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessageThatMatches("The given postfix is blank.");
+
+    //verification
+    expectNot(testUnit.hasHeader());
+  }
+
+  @Test
+  void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsNotBlank() {
+
+    //setup
+    final var testUnit = createBlankNode();
+
+    //execution
+    testUnit.addPostfixToHeader("1");
+
+    //verification
+    expect(testUnit.getHeader()).isEqualTo("1");
+  }
+
+  @Test
+  void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsBlank() {
+
+    //setup
+    final var testUnit = createNodeWithHeader("Color");
+
+    //execution
+    expectRunning(() -> testUnit.addPostfixToHeader(" "))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessageThatMatches("The given postfix is blank.");
+
+    //verification
+    expect(testUnit.getHeader()).isEqualTo("Color");
+  }
+
+  @Test
+  void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsNotBlank() {
+
+    //setup
+    final var testUnit = createNodeWithHeader("Color");
+
+    //execution
+    testUnit.addPostfixToHeader("1");
+
+    //verification
+    expect(testUnit.getHeader()).isEqualTo("Color1");
+  }
+
+  @Test
+  void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsBlank() {
+
+    //setup
+    final var testUnit = createBlankNode();
+
+    //execution
+    expectRunning(() -> testUnit.addPrefixToHeader(" "))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessageThatMatches("The given prefix is blank.");
+
+    //verification
+    expectNot(testUnit.hasHeader());
+  }
+
+  @Test
+  void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsNotBlank() {
+
+    //setup
+    final var testUnit = createBlankNode();
+
+    //execution
+    testUnit.addPrefixToHeader("Background");
+
+    //verification
+    expect(testUnit.getHeader()).isEqualTo("Background");
+  }
+
+  @Test
+  void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsBlank() {
+
+    //setup
+    final var testUnit = createNodeWithHeader("Color");
+
+    //execution
+    expectRunning(() -> testUnit.addPrefixToHeader(" "))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessageThatMatches("The given prefix is blank.");
+
+    //verification
+    expect(testUnit.getHeader()).isEqualTo("Color");
+  }
+
+  @Test
+  void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsNotBlank() {
+
+    //setup
+    final var testUnit = createNodeWithHeader("Color");
+
+    //execution
+    testUnit.addPrefixToHeader("Background");
+
+    //verification
+    expect(testUnit.getHeader()).isEqualTo("BackgroundColor");
+  }
 
   @Test
   void testCase_removeHeader() {
