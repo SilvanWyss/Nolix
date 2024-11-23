@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -144,6 +146,34 @@ final class BasicCalculatorTest extends StandardTest {
 
     //validation
     expect(result).isEqualTo(expectedAbsoluteValue);
+  }
+
+  @Test
+  void testCase_getAverage() {
+
+    //setup
+    final var values = ImmutableList.withElement(80.0, 90.0, 100.0, 110.0, 120.0);
+    final var testUnit = new BasicCalculator();
+
+    //execution
+    final var result = testUnit.getAverage(values);
+
+    //verification
+    expect(result).isEqualTo(100.0);
+  }
+
+  @Test
+  void testCase_getAverage_whenTheGivenIterableIsEmpty() {
+
+    //setup
+    final ImmutableList<Double> values = ImmutableList.createEmpty();
+    final var testUnit = new BasicCalculator();
+
+    //execution
+    expectRunning(() -> testUnit.getAverage(values))
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessageThatMatches("The given values is empty.");
   }
 
   @Test
