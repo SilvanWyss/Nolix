@@ -39,20 +39,8 @@ public final class ColorGradient extends Element implements IColorGradient {
   private final Color color2;
 
   /**
-   * Creates a new {@link ColorGradient} with the given direction.
-   * 
-   * @param direction
-   * @throws ArgumentIsNullException if the given direction is null.
-   */
-  public ColorGradient(final DirectionInCanvas direction) {
-
-    //Calls other constructor.
-    this(direction, DEFAULT_COLOR1, DEFAULT_COLOR2);
-  }
-
-  /**
-   * Creates a new {@link ColorGradient} with the given direction, color 1 and
-   * color 2.
+   * Creates a new {@link ColorGradient} with the given direction, color1 and
+   * color2.
    * 
    * @param direction
    * @param color1
@@ -61,15 +49,10 @@ public final class ColorGradient extends Element implements IColorGradient {
    * @throws ArgumentIsNullException if the given color 1 is null.
    * @throws ArgumentIsNullException if the given color 2 is null.
    */
-  public ColorGradient(final DirectionInCanvas direction, final Color color1, final Color color2) {
+  private ColorGradient(final DirectionInCanvas direction, final Color color1, final Color color2) {
 
-    //Asserts that the given direction is not null.
     GlobalValidator.assertThat(direction).thatIsNamed("direction").isNotNull();
-
-    //Asserts that the given color1 is not null.
     GlobalValidator.assertThat(color1).thatIsNamed("color1").isNotNull();
-
-    //Asserts that the given color2 is not null.
     GlobalValidator.assertThat(color2).thatIsNamed("color2").isNotNull();
 
     this.direction = direction;
@@ -85,8 +68,9 @@ public final class ColorGradient extends Element implements IColorGradient {
   public static ColorGradient fromSpecification(final INode<?> specification) {
 
     final var attributes = specification.getStoredChildNodes();
+    final var attributeCount = attributes.getCount();
 
-    return switch (attributes.getCount()) {
+    return switch (attributeCount) {
       case 2 ->
         from2Attributes(attributes);
       case 3 ->
@@ -106,6 +90,23 @@ public final class ColorGradient extends Element implements IColorGradient {
    */
   public static ColorGradient withColors(final Color color1, final Color color2) {
     return new ColorGradient(DEFAULT_DIRECTION, color1, color2);
+  }
+
+  /**
+   * @param direction
+   * @param color1
+   * @param color2
+   * @return a new {@link ColorGradient} with the given direction, color1 and
+   *         color2.
+   * @throws ArgumentIsNullException if the given direction is null.
+   * @throws ArgumentIsNullException if the given color 1 is null.
+   * @throws ArgumentIsNullException if the given color 2 is null.
+   */
+  public static ColorGradient withDirectionAndColors(
+    final DirectionInCanvas direction,
+    final Color color1,
+    final Color color2) {
+    return new ColorGradient(direction, color1, color2);
   }
 
   /**
@@ -135,7 +136,8 @@ public final class ColorGradient extends Element implements IColorGradient {
     final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
     final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
 
-    return new ColorGradient(
+    return //
+    new ColorGradient(
       DirectionInCanvas.fromSpecification(directionSpecification),
       Color.fromSpecification(color1Specification),
       Color.fromSpecification(color2Specification));
