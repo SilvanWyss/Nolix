@@ -29,7 +29,7 @@ final class FieldTypeTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getFieldTypesAndTheirCardinality")
-  void testCase(final ContentType testUnit, final Cardinality expectedCardinality) {
+  void testCase_getCardinality(final ContentType testUnit, final Cardinality expectedCardinality) {
 
     //execution
     final var result = testUnit.getCardinality();

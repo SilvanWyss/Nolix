@@ -29,7 +29,7 @@ final class FontTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirFonts")
-  void fromSpecification(final INode<?> specification, final Font expectedFont) {
+  void testCase_fromSpecification(final INode<?> specification, final Font expectedFont) {
 
     //execution
     final var result = Font.fromSpecification(specification);

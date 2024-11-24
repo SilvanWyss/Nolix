@@ -23,7 +23,7 @@ final class CardinalityTest extends StandardTest {
 
   @ParameterizedTest
   @MethodSource("getCardinalitysAndTheirBaseCardinality")
-  void testCase(final Cardinality testUnit, final BaseCardinality expectedBaseCardinality) {
+  void testCase_fromSpecification(final Cardinality testUnit, final BaseCardinality expectedBaseCardinality) {
 
     //execution
     final var result = testUnit.getBaseCardinality();
