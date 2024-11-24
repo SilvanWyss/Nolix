@@ -11,18 +11,22 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public final class ColumnDtoMapper {
 
-  public ColumnDto createColumnDto(final IContainer<String> columnSystemTableSqlRecord) {
-    return switch (ContentType.valueOf(columnSystemTableSqlRecord.getStoredAt1BasedIndex(4)).getBaseType()) {
+  public ColumnDto createColumnDtoFromSchemaColumnTableSqlRecord(final IContainer<String> schemaColumnTableSqlRecord) {
+
+    final var contentType = ContentType.valueOf(schemaColumnTableSqlRecord.getStoredAt1BasedIndex(4));
+    final var baseContentType = contentType.getBaseType();
+
+    return switch (baseContentType) {
       case BASE_VALUE ->
-        createColumnDtoForBaseValue(columnSystemTableSqlRecord);
+        createColumnDtoForBaseValue(schemaColumnTableSqlRecord);
       case BASE_BACK_REFERENCE ->
-        createColumnDtoForBaseBackReference(columnSystemTableSqlRecord);
+        createColumnDtoForBaseBackReference(schemaColumnTableSqlRecord);
       case BASE_REFERENCE ->
-        createColumnDtoForBaseReference(columnSystemTableSqlRecord);
+        createColumnDtoForBaseReference(schemaColumnTableSqlRecord);
       default ->
         throw InvalidArgumentException.forArgumentNameAndArgument(
           "column system table record",
-          columnSystemTableSqlRecord);
+          schemaColumnTableSqlRecord);
     };
   }
 

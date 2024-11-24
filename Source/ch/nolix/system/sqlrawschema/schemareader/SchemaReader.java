@@ -77,14 +77,14 @@ public final class SchemaReader implements ISchemaReader {
   public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
-      .to(COLUMN_DTO_MAPPER::createColumnDto);
+      .to(COLUMN_DTO_MAPPER::createColumnDtoFromSchemaColumnTableSqlRecord);
   }
 
   @Override
   public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
-      .to(COLUMN_DTO_MAPPER::createColumnDto);
+      .to(COLUMN_DTO_MAPPER::createColumnDtoFromSchemaColumnTableSqlRecord);
   }
 
   @Override
