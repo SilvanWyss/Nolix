@@ -48,21 +48,6 @@ public final class ColorGradient extends Element implements IColorGradient {
   }
 
   /**
-   * Creates a new {@link ColorGradient} with the given color1 and color2.
-   * 
-   * @param color1
-   * @param color2
-   * @throws ArgumentIsNullException if the given direction is null.
-   * @throws ArgumentIsNullException if the given color1 is null.
-   * @throws ArgumentIsNullException if the given color2 is null.
-   */
-  public ColorGradient(final Color color1, final Color color2) {
-
-    //Calls other constructor.
-    this(DEFAULT_DIRECTION, color1, color2);
-  }
-
-  /**
    * Creates a new {@link ColorGradient} with the given direction.
    * 
    * @param direction
@@ -122,6 +107,17 @@ public final class ColorGradient extends Element implements IColorGradient {
   }
 
   /**
+   * @param color1
+   * @param color2
+   * @return a new {@link ColorGradient} with the given color1 and color2.
+   * @throws ArgumentIsNullException if the given color1 is null.
+   * @throws ArgumentIsNullException if the given color2 is null.
+   */
+  public static ColorGradient withColors(final Color color1, final Color color2) {
+    return new ColorGradient(DEFAULT_DIRECTION, color1, color2);
+  }
+
+  /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
    * @throws InvalidArgumentException if the given attributes are not valid.
@@ -131,7 +127,8 @@ public final class ColorGradient extends Element implements IColorGradient {
     final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
     final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
 
-    return new ColorGradient(
+    return //
+    withColors(
       Color.fromSpecification(color1Specification),
       Color.fromSpecification(color2Specification));
   }
