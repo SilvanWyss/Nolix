@@ -1,7 +1,6 @@
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -79,6 +78,10 @@ implements ISelectingStyleWithSelectors {
 
     if (hasSelectorType()) {
       attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_TYPE_HEADER, getSelectorType()));
+    }
+
+    for (final var sr : getSelectorRoles()) {
+      attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_ROLE_HEADER, sr));
     }
 
     for (final var aa : getAttachingAttributes()) {
