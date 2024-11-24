@@ -39,15 +39,6 @@ public final class ColorGradient extends Element implements IColorGradient {
   private final Color color2;
 
   /**
-   * Creates a new {@link ColorGradient}.
-   */
-  public ColorGradient() {
-
-    //Calls other constructor.
-    this(DEFAULT_DIRECTION, DEFAULT_COLOR1, DEFAULT_COLOR2);
-  }
-
-  /**
    * Creates a new {@link ColorGradient} with the given direction.
    * 
    * @param direction
