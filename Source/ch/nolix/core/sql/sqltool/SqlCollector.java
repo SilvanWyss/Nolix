@@ -15,7 +15,7 @@ public final class SqlCollector implements ISqlCollector {
 
     GlobalValidator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
 
-    sqlStatements.addAtEnd(getSqlStatementWithSemicolonAtEnd(sqlstatement));
+    sqlStatements.addAtEnd(sqlstatement);
 
     return this;
   }
@@ -54,14 +54,5 @@ public final class SqlCollector implements ISqlCollector {
 
   private void executeUsingConnection(final ISqlConnection sqlConnection) {
     sqlConnection.executeStatements(sqlStatements);
-  }
-
-  private String getSqlStatementWithSemicolonAtEnd(final String sqlStatement) {
-
-    if (!sqlStatement.endsWith(";")) {
-      return (sqlStatement + ";");
-    }
-
-    return sqlStatement;
   }
 }
