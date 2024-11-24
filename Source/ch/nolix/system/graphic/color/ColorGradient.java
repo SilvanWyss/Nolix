@@ -20,12 +20,6 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
  */
 public final class ColorGradient extends Element implements IColorGradient {
 
-  public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT = new ColorGradient(
-    DirectionInCanvas.VERTICAL, Color.BLACK, Color.WHITE);
-
-  public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT = new ColorGradient(DirectionInCanvas.VERTICAL,
-    Color.RED, Color.WHITE);
-
   public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
 
   public static final Color DEFAULT_COLOR1 = Color.BLACK;
