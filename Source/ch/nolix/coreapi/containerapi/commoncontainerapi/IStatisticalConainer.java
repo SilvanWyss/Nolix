@@ -14,21 +14,24 @@ import java.util.function.ToIntFunction;
 public interface IStatisticalConainer<E> {
 
   /**
-   * @param norm
-   * @return the average of the values the given norm returns from the elements of
-   *         the current {@link IStatisticalConainer}.
+   * @param mapper
+   * @return the average of the values the given mapper maps from the elements of
+   *         the current {@link IStatisticalConainer}. Maps null elements to 0.0.
    * @throws RuntimeException if the current {@link IStatisticalConainer} is
    *                          empty.
+   * @throws RuntimeException if the given mapper is null.
    */
-  double getAverage(Function<E, Number> norm);
+  double getAverage(Function<E, Number> mapper);
 
   /**
-   * @param norm
-   * @return the average of the values the given norm returns from the elements of
+   * @param mapper
+   * @return the average of the values the given mapper maps from the elements of
    *         the current {@link IStatisticalConainer} if the current
-   *         {@link IStatisticalConainer} contains elements, 0.0 otherwise.
+   *         {@link IStatisticalConainer} contains elements, 0.0 otherwise. Maps
+   *         null elements to 0.0.
+   * @throws RuntimeException if the given mapper is null.
    */
-  double getAverageOrZero(Function<E, Number> norm);
+  double getAverageOrZero(Function<E, Number> mapper);
 
   /**
    * @return the number of elements of the current {@link IStatisticalConainer}.
@@ -112,11 +115,12 @@ public interface IStatisticalConainer<E> {
   double getStandardDeviation(Function<E, Number> norm);
 
   /**
-   * @param norm
-   * @return the sum of the values the given norm returns from the elements of the
-   *         current {@link IStatisticalConainer}.
+   * @param mapper
+   * @return the sum of the values the given mapper maps from the elements of the
+   *         current {@link IStatisticalConainer}. Maps null elements to 0.0.
+   * @throws RuntimeException if the given mapper is null.
    */
-  BigDecimal getSum(Function<E, Number> norm);
+  BigDecimal getSum(Function<E, Number> mapper);
 
   /**
    * @param norm

@@ -507,17 +507,18 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getAverage(final Function<E, Number> norm) {
+  public final double getAverage(final Function<E, Number> mapper) {
 
     assertIsNotEmpty();
 
-    final var sumAsBigDecimal = getSum(norm);
+    final var sumAsBigDecimal = getSum(mapper);
     final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
     final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 
     return averageAsBigDecimal.doubleValue();
   }
 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -525,15 +526,21 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getAverageOrZero(final Function<E, Number> norm) {
+  public final double getAverageOrZero(final Function<E, Number> mapper) {
 
     //Handles the case that the current Container is empty.
     if (isEmpty()) {
+
+      //Asserts that the given mapper is not null.
+      if (mapper == null) {
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MAPPER);
+      }
+
       return 0.0;
     }
 
     //Handles the case that the current Container contains elements.
-    return getAverage(norm);
+    return getAverage(mapper);
   }
 
   /**
@@ -1129,6 +1136,7 @@ implements IContainer<E> {
     return Math.sqrt(getVariance(norm));
   }
 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1136,12 +1144,23 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final BigDecimal getSum(final Function<E, Number> norm) {
+  public final BigDecimal getSum(final Function<E, Number> mapper) {
 
+    //Asserts that the given mapper is not null.
+    if (mapper == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MAPPER);
+    }
+
+    //Initializes sum.
     var sum = BigDecimal.ZERO;
 
+    //Iterates the current Container.
     for (final var e : this) {
-      sum = sum.add(BigDecimal.valueOf(norm.apply(e).doubleValue()));
+
+      //Handles the case that the current element is null.
+      if (e != null) {
+        sum = sum.add(BigDecimal.valueOf(mapper.apply(e).doubleValue()));
+      }
     }
 
     return sum;
