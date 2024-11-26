@@ -552,18 +552,25 @@ implements IContainer<E> {
   @Override
   public final int getCount(final Predicate<E> selector) {
 
-    var elementCount = 0;
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+
+    //Initializes count.
+    var count = 0;
 
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
-        elementCount++;
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
+
+        //Increments count.
+        count++;
       }
     }
 
-    return elementCount;
+    //Returns count.
+    return count;
   }
 
   /**
@@ -573,7 +580,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int getCount(final Object element) {
+  public final int getCountOf(final Object element) {
 
     var elementCount = 0;
 

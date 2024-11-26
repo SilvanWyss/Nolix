@@ -3,7 +3,6 @@ package ch.nolix.coreapi.containerapi.commoncontainerapi;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 
 /**
@@ -32,25 +31,6 @@ public interface IStatisticalConainer<E> {
    * @throws RuntimeException if the given mapper is null.
    */
   double getAverageOrZero(Function<E, Number> mapper);
-
-  /**
-   * @return the number of elements of the current {@link IStatisticalConainer}.
-   */
-  int getCount();
-
-  /**
-   * @param selector
-   * @return the number of elements the given selector selects from the current
-   *         {@link IStatisticalConainer}.
-   */
-  int getCount(Predicate<E> selector);
-
-  /**
-   * @param element
-   * @return the number how many times the current {@link IStatisticalConainer}
-   *         contains the given element.
-   */
-  int getCount(Object element);
 
   /**
    * @param norm
