@@ -13,9 +13,10 @@ public interface SingleSearchable<E> {
 
   /**
    * @return a {@link Optional} with the first element of the current
-   *         {@link SingleSearchable} if the current {@link SingleSearchable}
-   *         contains any, an empty {@link Optional} otherwise. Ignores null
-   *         elements.
+   *         {@link SingleSearchable} if the current {@link SingleSearchable} is
+   *         not empty and if the first element of the current
+   *         {@link SingleSearchable} is not null, an empty {@link Optional}
+   *         otherwise.
    */
   Optional<E> getOptionalStoredFirst();
 
@@ -38,28 +39,36 @@ public interface SingleSearchable<E> {
   E getStoredAt1BasedIndex(int param1BasedIndex);
 
   /**
-   * @param norm
-   * @param <C>  is the type of the {@link Comparable}s the given norm returns.
-   * @return the element with the biggest {@link Comparable} the given norm
-   *         returns from the elements of the current {@link SingleSearchable}.
-   *         Ignores null elements.
-   * @throws RuntimeException if the current {@link SingleSearchable} is empty.
+   * @param comparableMapper
+   * @param <C>              is the type of the {@link Comparable}s the given
+   *                         comparableMapper maps from the elements of the
+   *                         current {@link SingleSearchable}.
+   * @return the element with the biggest {@link Comparable} the given
+   *         comparableMapper maps from the elements of the current
+   *         {@link SingleSearchable}. Ignores null elements.
+   * @throws RuntimeException if the given comparableMapper is null.
+   * @throws RuntimeException if the current {@link SingleSearchable} does not
+   *                          contain a non-null element.
    */
-  <C extends Comparable<C>> E getStoredByMax(Function<E, C> norm);
+  <C extends Comparable<C>> E getStoredByMax(Function<E, C> comparableMapper);
 
   /**
-   * @param norm
-   * @param <C>  is the type of the {@link Comparable}s the given norm returns.
-   * @return the element with the smallest {@link Comparable} the given norm
-   *         returns from the elements of the current {@link SingleSearchable}.
-   *         Ignores null elements.
-   * @throws RuntimeException if the current {@link SingleSearchable} is empty.
+   * @param comparableMapper
+   * @param <C>              is the type of the {@link Comparable}s the given
+   *                         comparableMapper maps from the elements of the
+   *                         current {@link SingleSearchable}.
+   * @return the element with the smallest {@link Comparable} the given
+   *         comparableMapper maps from the elements of the current
+   *         {@link SingleSearchable}. Ignores null elements.
+   * @throws RuntimeException if the given comparableMapper is null.
+   * @throws RuntimeException if the current {@link SingleSearchable} does not
+   *                          contain a non-null element.
    */
-  <C extends Comparable<C>> E getStoredByMin(Function<E, C> norm);
+  <C extends Comparable<C>> E getStoredByMin(Function<E, C> comparableMapper);
 
   /**
-   * @return the first element of the current {@link SingleSearchable}. Ignores
-   *         null elements.
+   * @return the first element of the current {@link SingleSearchable}. The
+   *         element can be null.
    * @throws RuntimeException if the current {@link SingleSearchable} is empty.
    */
   E getStoredFirst();

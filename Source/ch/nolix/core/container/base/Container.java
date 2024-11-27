@@ -682,19 +682,33 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> C getMax(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> C getMax(final Function<E, C> comparableMapper) {
 
-    var max = norm.apply(getStoredFirst());
+    //Asserts that the given comparableMapper is not null.
+    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
+    //Initializes max.
+    var max = comparableMapper.apply(getStoredFirst());
+
+    //Iterates the current Container.
     for (final var e : this) {
 
-      final var comparableValueOfElement = norm.apply(e);
+      //Handles the case that the current element is not null.
+      if (e != null) {
 
-      if (comparableValueOfElement.compareTo(max) > 0) {
-        max = comparableValueOfElement;
+        //Gets the Comparable of the current element.
+        final var comparable = comparableMapper.apply(e);
+
+        //Handles the case that the the Comparable of the current element is bigger than max.
+        if (comparable.compareTo(max) > 0) {
+
+          //Sets max as the Comparable of the current element.
+          max = comparable;
+        }
       }
     }
 
+    //Returns max.
     return max;
   }
 
@@ -810,22 +824,24 @@ implements IContainer<E> {
 
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * The time complexity of this implementation is O(1) if the current Container
-   * does not contain null elements. The time complexity of this implementation is
-   * O(n) if the current Container contains null elements and if the current
-   * Container contains n elements.
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
   @Override
   public final Optional<E> getOptionalStoredFirst() {
 
-    for (final var e : this) {
-      if (e != null) {
-        return Optional.of(e);
-      }
+    //Creates iterator.
+    final var iterator = iterator();
+
+    //Handles the case that the iterator has a next element.
+    if (iterator.hasNext()) {
+
+      //Creates and returns a new Optional with the next element of the iterator.
+      return Optional.ofNullable(iterator.next());
     }
 
+    //Handles the case that the iterator does not have a next element.
     return Optional.empty();
   }
 
@@ -838,14 +854,21 @@ implements IContainer<E> {
   @Override
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
 
+    //Asserts that the given selector is not null.
     GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
 
+    //Iterates the current Container.
     for (final var e : this) {
+
+      //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
+
+        //Creates an returns a new Optional with the current element.
         return Optional.of(e);
       }
     }
 
+    //Creates an empty Optional.
     return Optional.empty();
   }
 
@@ -856,23 +879,58 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> comparableMapper) {
 
-    var max = getStoredFirst();
-    var comparebleOfMax = norm.apply(max);
+    //Asserts that the given comparableMapper is not null.
+    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
+    //Declares max.
+    E max = null;
+
+    //Declares comparebleOfMax.
+    C comparebleOfMax = null;
+
+    //Iterates the current Container.
     for (final var e : this) {
+
+      //Handles the case that the current element is not null.
       if (e != null) {
 
-        final var comparableValueOfElement = norm.apply(e);
+        //Gets the Comparable of the current element.
+        final var comparable = comparableMapper.apply(e);
 
-        if (comparableValueOfElement.compareTo(comparebleOfMax) > 0) {
+        //Handles the case that max is null.
+        if (max == null) {
+
+          //Sets max as the the current element.
           max = e;
-          comparebleOfMax = norm.apply(max);
+
+          //Sets comparebleOfMax as the Comparable of the current element.
+          comparebleOfMax = comparableMapper.apply(max);
+        }
+
+        //Handles the case that max is not null.
+        else {
+
+          //Handles the case that the the Comparable of the current element is bigger than comparebleOfMax.
+          if (comparable.compareTo(comparebleOfMax) > 0) {
+
+            //Sets max as the the current element.
+            max = e;
+
+            //Sets comparebleOfMax as the Comparable of the current element.
+            comparebleOfMax = comparable;
+          }
         }
       }
     }
 
+    //Handles the case that max is null.
+    if (max == null) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
+    }
+
+    //Handles the case that max is not null.
     return max;
   }
 
@@ -883,43 +941,81 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> comparableMapper) {
 
-    var min = getStoredFirst();
-    var comparebleOfMin = norm.apply(min);
+    //Asserts that the given comparableMapper is not null.
+    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
-    for (var e : this) {
+    //Declares min.
+    E min = null;
+
+    //Declares comparebleOfMin.
+    C comparebleOfMin = null;
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is not null.
       if (e != null) {
 
-        final var comparableValueOfElement = norm.apply(e);
+        //Gets the Comparable of the current element.
+        final var comparable = comparableMapper.apply(e);
 
-        if (comparableValueOfElement.compareTo(comparebleOfMin) < 0) {
+        //Handles the case that min is null.
+        if (min == null) {
+
+          //Sets min as the the current element.
           min = e;
-          comparebleOfMin = norm.apply(min);
+
+          //Sets comparebleOfMin as the Comparable of the current element.
+          comparebleOfMin = comparableMapper.apply(min);
+        }
+
+        //Handles the case that max is not null.
+        else {
+
+          //Handles the case that the the Comparable of the current element is smaller than comparebleOfMin.
+          if (comparable.compareTo(comparebleOfMin) < 0) {
+
+            //Sets min as the the current element.
+            min = e;
+
+            //Sets comparebleOfMin as the Comparable of the current element.
+            comparebleOfMin = comparable;
+          }
         }
       }
     }
 
+    //Handles the case that min is null.
+    if (min == null) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
+    }
+
+    //Handles the case that min is not null.
     return min;
   }
 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * The time complexity of this implementation is O(1) if the current Container
-   * does not contain null elements. The time complexity of this implementation is
-   * O(n) if the current Container contains null elements and if the current
-   * Container contains n elements.
+   * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
    */
   @Override
   public final E getStoredFirst() {
 
-    for (final var e : this) {
-      if (e != null) {
-        return e;
-      }
+    //Creates iterator.
+    final var iterator = iterator();
+
+    //Handles the case that the iterator has a next element.
+    if (iterator.hasNext()) {
+
+      //Returns the next element of the iterator.
+      return iterator.next();
     }
 
+    //Handles the case that the iterator does not have a next element.
     throw EmptyArgumentException.forArgument(this);
   }
 

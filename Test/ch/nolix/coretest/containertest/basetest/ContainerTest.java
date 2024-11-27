@@ -748,8 +748,7 @@ public abstract class ContainerTest extends StandardTest {
     //execution
     expectRunning(() -> testUnit.getStoredByMax(String::length))
       .throwsException()
-      .ofType(EmptyArgumentException.class)
-      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .ofType(InvalidArgumentException.class);
   }
 
   @Test
@@ -787,8 +786,7 @@ public abstract class ContainerTest extends StandardTest {
     //execution
     expectRunning(() -> testUnit.getStoredByMin(String::length))
       .throwsException()
-      .ofType(EmptyArgumentException.class)
-      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .ofType(InvalidArgumentException.class);
   }
 
   @Test

@@ -33,14 +33,17 @@ public interface IStatisticalConainer<E> {
   double getAverageOrZero(Function<E, Number> mapper);
 
   /**
-   * @param norm
-   * @param <C>  is the type of the {@link Comparable}s the given norm returns.
-   * @return the biggest {@link Comparable} the given norm returns from the
-   *         elements of the current {@link IStatisticalConainer}.
-   * @throws RuntimeException if the current {@link IStatisticalConainer} is
-   *                          empty.
+   * @param comparableMapper
+   * @param <C>              is the type of the {@link Comparable}s the given
+   *                         comparableMapper maps from the elements of the
+   *                         current {@link IStatisticalConainer}.
+   * @return the biggest {@link Comparable} the given comparableMapper maps from
+   *         the elements of the current {@link IStatisticalConainer}. Ignores
+   *         null elements.
+   * @throws RuntimeException if the current {@link IStatisticalConainer} does not
+   *                          contain a non-null element.
    */
-  <C extends Comparable<C>> C getMax(Function<E, C> norm);
+  <C extends Comparable<C>> C getMax(Function<E, C> comparableMapper);
 
   /**
    * @param norm
