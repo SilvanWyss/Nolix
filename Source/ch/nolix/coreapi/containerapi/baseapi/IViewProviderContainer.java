@@ -11,7 +11,6 @@ public interface IViewProviderContainer<E> {
    * @param param1BasedStartIndex
    * @return a new view of the current {@link IViewProviderContainer} from the
    *         given param1BasedStartIndex.
-   * @throws RuntimeException if the given param1BasedStartIndex is not positive.
    * @throws RuntimeException if the given param1BasedStartIndex is bigger than
    *                          the number of elements of the current
    *                          {@link IContainer}.

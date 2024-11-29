@@ -20,20 +20,20 @@ public interface IndexRequestable<E> {
   int get1BasedIndexOfFirst(Predicate<E> selector);
 
   /**
-   * @param element
+   * @param object
    * @return the 1-based index of the first element of the current
-   *         {@link IndexRequestable} that equals the given element.
+   *         {@link IndexRequestable} that equals the given object.
    * @throws RuntimeException if the current {@link IndexRequestable} does not
-   *                          contain an element that equals the given element.
+   *                          contain an element that equals the given object.
    */
-  int get1BasedIndexOfFirstEqualElement(E element);
+  int get1BasedIndexOfFirstEqualElement(Object object);
 
   /**
-   * @param element
-   * @return the 1-based index of the first occurrence of the given element in the
+   * @param object
+   * @return the 1-based index of the first occurrence of the given object in the
    *         current {@link IndexRequestable}.
    * @throws RuntimeException if the current {@link IndexRequestable} does not
-   *                          contain the given element.
+   *                          contain the given object.
    */
-  int get1BasedIndexOfFirstOccurrenceOf(E element);
+  int get1BasedIndexOfFirstOccurrenceOf(Object object);
 }

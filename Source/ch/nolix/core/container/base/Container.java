@@ -15,11 +15,8 @@ import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -105,6 +102,8 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAll(final Object object, final Object... objects) {
+
+    //Calls other methods.
     return //
     contains(object)
     && containsAll(objects);
@@ -178,6 +177,8 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAny(final Object object, final Object... objects) {
+
+    //Calls other methods.
     return //
     contains(object)
     || containsAnyOf(objects);
@@ -368,6 +369,8 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNone(final Predicate<E> selector) {
+
+    //Calls other method.
     return !containsAny(selector);
   }
 
@@ -382,6 +385,8 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNone(final Object object, final Object... objects) {
+
+    //Calls other method.
     return !containsAny(object, objects);
   }
 
@@ -396,6 +401,8 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNoneOf(final Iterable<?> elements) {
+
+    //Calls other method.
     return !containsAnyOf(elements);
   }
 
@@ -474,14 +481,14 @@ implements IContainer<E> {
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
 
-        //Handles the case that an element the given selector selected already another element.
+        //Handles the case the given selector selected already another element.
         if (found) {
 
           //Returns false.
           return false;
         }
 
-        //Sets found true.
+        //Handles the case that the given selector did not select already another element.
         found = true;
       }
     }
@@ -515,7 +522,7 @@ implements IContainer<E> {
           return false;
         }
 
-        //Sets found true.
+        //Handles the case that an element that equals the given object is not already found.
         found = true;
       }
     }
@@ -552,26 +559,6 @@ implements IContainer<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewFrom1BasedStartIndex(final int startIndex) {
-    return getSubContainerFromStartIndexToEndIndex(startIndex, getCount());
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(final int startIndex, final int endIndex) {
-    return getSubContainerFromStartIndexToEndIndex(startIndex, endIndex);
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
@@ -580,12 +567,15 @@ implements IContainer<E> {
   @Override
   public final double getAverage(final Function<E, Number> mapper) {
 
+    //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
+    //Calculates the average as BigDecimal.
     final var sumAsBigDecimal = getSum(mapper);
     final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
     final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 
+    //Returns the average as double.
     return averageAsBigDecimal.doubleValue();
   }
 
@@ -604,13 +594,16 @@ implements IContainer<E> {
 
       //Asserts that the given mapper is not null.
       if (mapper == null) {
+
+        //Creates and throws a new ArgumentIsNullException. 
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MAPPER);
       }
 
+      //Returns 0.0.
       return 0.0;
     }
 
-    //Handles the case that the current Container contains elements.
+    //Handles the case that the current Container is not empty.
     return getAverage(mapper);
   }
 
@@ -635,12 +628,12 @@ implements IContainer<E> {
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
 
-        //Increments count.
+        //Increments the count.
         count++;
       }
     }
 
-    //Returns count.
+    //Returns the count.
     return count;
   }
 
@@ -653,18 +646,22 @@ implements IContainer<E> {
   @Override
   public final int getCountOf(final Object element) {
 
-    var elementCount = 0;
+    //Initializes count.
+    var count = 0;
 
     //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element is the given element.
       if (e == element) {
-        elementCount++;
+
+        //Increments the count.
+        count++;
       }
     }
 
-    return elementCount;
+    //Returns the count.
+    return count;
   }
 
   /**
@@ -679,12 +676,16 @@ implements IContainer<E> {
     //Asserts that the given selector is not null.
     GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
-    //Iterates the current Container.
+    //Initializes local1BasedIndex.
     var local1BasedIndex = 1;
+
+    //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
+
+        //Returns the local1BasedIndex.
         return local1BasedIndex;
       }
 
@@ -692,6 +693,7 @@ implements IContainer<E> {
       local1BasedIndex++;
     }
 
+    //Creates and throws a new ArgumentDoesNotContainElementException. 
     throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
@@ -702,23 +704,30 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirstEqualElement(final E object) {
+  public final int get1BasedIndexOfFirstEqualElement(final Object object) {
 
-    //Initializes index.
-    var index = 1;
+    //Initializes local1BasedIndex.
+    var local1BasedIndex = 1;
 
     //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element equals the given object.
       if (Objects.equals(e, object)) {
-        return index;
+
+        //Returns the local1BasedIndex.
+        return local1BasedIndex;
       }
 
-      index++;
+      //Handles the case that the current element does not equals the given object.
+      local1BasedIndex++;
     }
 
-    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an element an equal element");
+    //Creates and throws a new InvalidArgumentException. 
+    throw //
+    InvalidArgumentException.forArgumentAndErrorPredicate(
+      this,
+      "does not contain an element that equals '" + object + "'.");
   }
 
   /**
@@ -728,22 +737,25 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirstOccurrenceOf(final E element) {
+  public final int get1BasedIndexOfFirstOccurrenceOf(final Object object) {
+
+    //Initializes local1BasedIndex.
+    var local1BasedIndex = 1;
 
     //Iterates the current Container.
-    var index = 1;
     for (final var e : this) {
 
-      //Handles the case that the current element is the given element.
-      if (e == element) {
-        return index;
+      //Handles the case that the current element is the given object.
+      if (e == object) {
+        return local1BasedIndex;
       }
 
-      //Increments index.
-      index++;
+      //Handles the case that the current element is not the given object.
+      local1BasedIndex++;
     }
 
-    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the given element");
+    //Creates and throws a new ArgumentDoesNotContainElementException. 
+    throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, object);
   }
 
   /**
@@ -1403,6 +1415,32 @@ implements IContainer<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewFrom1BasedStartIndex(final int param1BasedStartIndex) {
+
+    //Calls other method.
+    return getViewFrom1BasedStartIndexTo1BasedEndIndex(param1BasedStartIndex, getCount());
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(
+    final int param1BasedStartIndex,
+    final int param1BasedEndIndex) {
+
+    //Creates and returns a new ContainerView.
+    return ContainerView.forContainerAndStartIndexAndEndIndex(this, param1BasedStartIndex, param1BasedEndIndex);
+  }
+
+  /**
    * The time complexity of this implementation is O(1) if the current Container
    * does not contain null elements. The time complexity of this implementation is
    * O(n) if the current Container contains null elements and if the current
@@ -1815,7 +1853,7 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewTo1BasedEndIndex(final int endIndex) {
-    return getSubContainerFromStartIndexToEndIndex(1, endIndex);
+    return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, endIndex);
   }
 
   /**
@@ -1848,7 +1886,7 @@ implements IContainer<E> {
 
     //Handles the case that the current Container contains more than n elements.
     if (elementCount > n) {
-      return getSubContainerFromStartIndexToEndIndex(n + 1, elementCount);
+      return getViewFrom1BasedStartIndexTo1BasedEndIndex(n + 1, elementCount);
     }
 
     //Handles the case that the current Container contains n or less elements.
@@ -1886,7 +1924,7 @@ implements IContainer<E> {
 
     //Handles the case that the current Container contains more than n elements.
     if (elementCount > 0) {
-      return getSubContainerFromStartIndexToEndIndex(1, elementCount - n);
+      return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, elementCount - n);
     }
 
     //Handles the case that the current Container contains n or less elements.
@@ -2028,29 +2066,6 @@ implements IContainer<E> {
     }
 
     return min;
-  }
-
-  /**
-   * @param param1BasedStartIndex
-   * @param param1BasedEndIndex
-   * @return a {@link IContainer} that views the current {@link Container} from
-   *         the given param1BasedStartIndex to the given param1BasedEndIndex.
-   * @throws NonPositiveArgumentException if the given param1BasedStartIndex is
-   *                                      not positive.
-   * @throws NonPositiveArgumentException if the given param1BasedEndIndex is not
-   *                                      positive.
-   * @throws SmallerArgumentException     if the given param1BasedEndIndex is
-   *                                      smaller than the given
-   *                                      param1BasedStartIndex.
-   * @throws BiggerArgumentException      if the given endIndex is bigger than the
-   *                                      number of elements of the current
-   *                                      {@link Container}.
-   */
-
-  private IContainer<E> getSubContainerFromStartIndexToEndIndex(
-    final int param1BasedStartIndex,
-    final int param1BasedEndIndex) {
-    return ContainerView.forContainerAndStartIndexAndEndIndex(this, param1BasedStartIndex, param1BasedEndIndex);
   }
 
   /**
