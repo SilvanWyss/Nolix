@@ -33,7 +33,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <E> is the type of the elements a {@link Container} can store.
+ * @param <E> is the type of the elements of a {@link Container}.
  */
 public abstract class Container<E> //NOSONAR: A Container has many methods and thus many dependencies.
 implements IContainer<E> {
@@ -54,10 +54,13 @@ implements IContainer<E> {
 
       //Handles the case that the current element is the given object.
       if (e == object) {
+
+        //Returns true.
         return true;
       }
     }
 
+    //Returns false.
     return false;
   }
 
@@ -73,15 +76,21 @@ implements IContainer<E> {
   @Override
   public final boolean containsAll(final Iterable<?> objects) {
 
+    //Asserts that the given objects is not null.
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+
     //Iterates the given objects.
     for (final var o : objects) {
 
       //Handles the case that the current Container does not contain the current object.
       if (!contains(o)) {
+
+        //Returns false.
         return false;
       }
     }
 
+    //Returns true.
     return true;
   }
 
@@ -121,10 +130,13 @@ implements IContainer<E> {
 
       //Handles the case that the current Container does not contain the given object.
       if (!contains(o)) {
+
+        //Returns false.
         return false;
       }
     }
 
+    //Returns true.
     return true;
   }
 
@@ -137,15 +149,21 @@ implements IContainer<E> {
   @Override
   public final boolean containsAny(final Predicate<E> selector) {
 
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
+
+        //Returns true.
         return true;
       }
     }
 
+    //Returns false.
     return false;
   }
 
@@ -177,15 +195,21 @@ implements IContainer<E> {
   @Override
   public final boolean containsAnyOf(final Iterable<?> objects) {
 
+    //Asserts that the given objects is not null.
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+
     //Iterates the given objects.
     for (final var o : objects) {
 
       //Handles the case that the current Container contains the current object.
       if (contains(o)) {
+
+        //Returns true.
         return true;
       }
     }
 
+    //Returns false.
     return false;
   }
 
@@ -201,21 +225,27 @@ implements IContainer<E> {
   @Override
   public final boolean containsAnyOf(final Object[] objects) {
 
+    //Asserts that the given objects is not null.
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+
     //Iterates the given objects.
     for (final var o : objects) {
 
       //Handles the case that the current Container contains the current object.
       if (contains(o)) {
+
+        //Returns true.
         return true;
       }
     }
 
+    //Returns false.
     return false;
   }
 
   /**
-   * The time complexity of this implementation is -O(1) if the given container is
-   * a {@link IContainer}. -O(n) otherwise.
+   * The time complexity of this implementation is O(n) if the current container
+   * contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -245,10 +275,13 @@ implements IContainer<E> {
 
       //Handles the case that the current element equals the given element.
       if (e.equals(element)) {
+
+        //Returns true.
         return true;
       }
     }
 
+    //Returns false.
     return false;
   }
 
@@ -265,12 +298,12 @@ implements IContainer<E> {
   public final boolean containsExactlyEqualingInSameOrder(final Iterable<?> iterable) {
 
     //Handles the case that the given iterable is null.
-    if (iterable != null) {
-      return containsExactlyEqualingInSameOrderIfGivenIterableIsNotNull(iterable);
+    if (iterable == null) {
+      return isEmpty();
     }
 
-    //Handles the case that the given iterable is null.
-    return isEmpty();
+    //Handles the case that the given iterable is not null.
+    return containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(iterable);
   }
 
   /**
@@ -280,29 +313,20 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsExactlyInSameOrder(final Iterable<?> container) {
+  public final boolean containsExactlyInSameOrder(final Iterable<?> iterable) {
 
-    //Iterates the current Container.
-    final var iterator = container.iterator();
-    for (final var e : this) {
-
-      //Handles the case that the current element is not the next element in the
-      //given container.
-      if (!iterator.hasNext() || e != iterator.next()) {
-        return false;
-      }
+    //Handles the case that the given iterable is null.
+    if (iterable == null) {
+      return isEmpty();
     }
 
-    return !iterator.hasNext();
+    //Handles the case that the given iterable is not null.
+    return containsExactlyInSameOrderWhenGivenIterableIsNotNull(iterable);
   }
 
   /**
-   * The time complexity of this implementation is -O(1) if the given container is
-   * a {@link IContainer}.
-   * 
-   * The time complexity of this implementation is O(n) if the given iterable is
-   * not a {@link IContainer} and if the current {@link Container} contains n
-   * elements..
+   * The time complexity of this implementation is O(n) if the given iterable
+   * contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -319,20 +343,21 @@ implements IContainer<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(1).
+   * The time complexity of this implementation is O(n) if the given iterable
+   * contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsMoreThan(final Iterable<?> container) {
+  public final boolean containsMoreThan(final Iterable<?> iterable) {
 
     //Handles the case that the given container is a IContainer.
-    if (container instanceof IContainer<?> lContainer) {
-      return (getCount() > lContainer.getCount());
+    if (iterable instanceof IContainer<?> container) {
+      return (getCount() > container.getCount());
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getCount() > ITERABLE_TOOL.getCount(container));
+    return (getCount() > ITERABLE_TOOL.getCount(iterable));
   }
 
   /**
@@ -343,23 +368,29 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNone(final Predicate<E> selector) {
-    return !containsAny(selector::test);
+    return !containsAny(selector);
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The time complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNone(final Object element, final Object... elements) {
-    return !containsAny(element, elements);
+  public final boolean containsNone(final Object object, final Object... objects) {
+    return !containsAny(object, objects);
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The time complexity of this implementation is O(m*n) if:
+   * 
+   * -The current {@link Container} contains m elements.
+   * 
+   * -n objects are given.
    * 
    * {@inheritDoc}
    */
@@ -377,6 +408,7 @@ implements IContainer<E> {
   @Override
   public final boolean containsOnce(final Object object) {
 
+    //Initializes found.
     var found = false;
 
     //Iterates the current Container.
@@ -385,19 +417,21 @@ implements IContainer<E> {
       //Handles the case that the current element is the given object.
       if (e == object) {
 
-        //Handles the case that the given element is already found.
+        //Handles the case that the given object is already found.
         if (found) {
           return false;
         }
 
-        //Handles the case that the given element is not already found.
+        //Handles the case that the given object is not already found.
         found = true;
       }
     }
 
+    //Returns found.
     return found;
   }
 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -406,6 +440,7 @@ implements IContainer<E> {
   @Override
   public final boolean containsOne() {
 
+    //Creates iterator.
     final var iterator = iterator();
 
     //Handles the case that the current Container is empty.
@@ -427,24 +462,31 @@ implements IContainer<E> {
   @Override
   public final boolean containsOne(final Predicate<E> selector) {
 
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+
+    //Initializes found.
     var found = false;
 
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector selects the current element.
-      if (selector.test(e)) {
+      //Handles the case that the current element is not null and the given selector selects the current element.
+      if (e != null && selector.test(e)) {
 
-        //Handles the case that an element the given selector selects was already
-        //found.
+        //Handles the case that an element the given selector selected already another element.
         if (found) {
+
+          //Returns false.
           return false;
         }
 
+        //Sets found true.
         found = true;
       }
     }
 
+    //Returns found.
     return found;
   }
 
@@ -455,28 +497,57 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOneEqualing(final E element) {
-    return containsOne(e -> e.equals(element));
+  public final boolean containsOneEqualing(final E object) {
+
+    //Initializes found.
+    var found = false;
+
+    //Iterates the current container.
+    for (final var e : this) {
+
+      //Handles the case that the current element equals he given object..
+      if (Objects.equals(e, object)) {
+
+        //Handles the case that an element that equals the given object is already found.
+        if (found) {
+
+          //Returns false.
+          return false;
+        }
+
+        //Sets found true.
+        found = true;
+      }
+    }
+
+    //Returns found.
+    return found;
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if: -The current
-   * {@link Container} contains m elements. -n elements are given.
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Container} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
   public final boolean containsOnly(final Predicate<E> selector) {
 
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the given selector does not select the current element.
-      if (!selector.test(e)) {
+      //Handles the case that the current element is null or the given selector does not select the current element.
+      if (e == null || !selector.test(e)) {
+
+        //Returns false.
         return false;
       }
     }
 
+    //Returns true.
     return true;
   }
 
@@ -1844,11 +1915,10 @@ implements IContainer<E> {
   /**
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains exactly
-   *         elements that equal the elements of given iterable in the same order
-   *         like the given iterable, false otherwise, for the case that the given
-   *         iterable is not null
+   *         elements that equal the elements of given iterable in the same order,
+   *         false otherwise, for the case that the given iterable is not null.
    */
-  private boolean containsExactlyEqualingInSameOrderIfGivenIterableIsNotNull(final Iterable<?> iterable) {
+  private boolean containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
 
     //Gets a new iterator from the given iterable.
     var iterator = iterable.iterator();
@@ -1870,6 +1940,35 @@ implements IContainer<E> {
       }
     }
 
+    return !iterator.hasNext();
+  }
+
+  /**
+   * @param iterable
+   * @return true if the current {@link StoringRequestable} contains exactly the
+   *         elements of the given iterable in the same order, false otherwise,
+   *         for the case that the given iterable is not null.
+   */
+  private boolean containsExactlyInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
+
+    //Creates iterator.
+    final var iterator = iterable.iterator();
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      /*
+       * Handles the case that the iterator does not have a next element of the
+       * current element is not the next element in the given iterable.
+       */
+      if (!iterator.hasNext() || e != iterator.next()) {
+
+        //Returns false.
+        return false;
+      }
+    }
+
+    //Returns if the given iterable has more elements than the current Container.
     return !iterator.hasNext();
   }
 

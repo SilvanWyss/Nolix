@@ -20,7 +20,7 @@ import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <E> is the type of the elements a {@link IContainer}.
+ * @param <E> is the type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E>
 extends
