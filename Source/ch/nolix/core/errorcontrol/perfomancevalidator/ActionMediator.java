@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programanalysis.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IActionMediator;
-import ch.nolix.coreapi.mathapi.function.LongToDoubleFunctionCatalogue;
 import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.IPerformanceAnalyzer;
+import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.TimeComplexityFunctionCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 public final class ActionMediator<O> implements IActionMediator {
@@ -37,7 +37,7 @@ public final class ActionMediator<O> implements IActionMediator {
 
   @Override
   public void hasConstantOrLowerTimeComplexity() {
-    hasGivenOrLowerTimeComplexity(LongToDoubleFunctionCatalogue.CONSTANT_FUNCTION);
+    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalogue.CONSTANT);
   }
 
   @Override
@@ -58,11 +58,11 @@ public final class ActionMediator<O> implements IActionMediator {
 
   @Override
   public void hasLinearOrLowerTimeComplexity() {
-    hasGivenOrLowerTimeComplexity(LongToDoubleFunctionCatalogue.LINEAR_FUNCTION);
+    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalogue.LINEAR);
   }
 
   @Override
   public void hasQuadraticOrLowerTimeComplexity() {
-    hasGivenOrLowerTimeComplexity(LongToDoubleFunctionCatalogue.QUADRATIC_FUNCTION);
+    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalogue.QUADRATIC);
   }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.mathapi.function.LongToDoubleFunctionCatalogue;
+import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.TimeComplexityFunctionCatalogue;
 
 final class LongToDoubleFunctionCatalogueTest extends StandardTest {
 
@@ -33,7 +33,7 @@ final class LongToDoubleFunctionCatalogueTest extends StandardTest {
   void testCase_constantFunction(final long input, final double expectedResult) {
 
     //execution
-    final var result = LongToDoubleFunctionCatalogue.CONSTANT_FUNCTION.applyAsDouble(input);
+    final var result = TimeComplexityFunctionCatalogue.CONSTANT.applyAsDouble(input);
 
     //verification
     expect(result).isEqualTo(expectedResult);
@@ -64,7 +64,7 @@ final class LongToDoubleFunctionCatalogueTest extends StandardTest {
   void testCase_linearFunction(final long input, final double expectedResult) {
 
     //execution
-    final var result = LongToDoubleFunctionCatalogue.LINEAR_FUNCTION.applyAsDouble(input);
+    final var result = TimeComplexityFunctionCatalogue.LINEAR.applyAsDouble(input);
 
     //verification
     expect(result).isEqualTo(expectedResult);
@@ -95,7 +95,7 @@ final class LongToDoubleFunctionCatalogueTest extends StandardTest {
   void testCase_quadraticFunction(final long input, final double expectedResult) {
 
     //execution
-    final var result = LongToDoubleFunctionCatalogue.QUADRATIC_FUNCTION.applyAsDouble(input);
+    final var result = TimeComplexityFunctionCatalogue.QUADRATIC.applyAsDouble(input);
 
     //verification
     expect(result).isEqualTo(expectedResult);
