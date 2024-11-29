@@ -59,11 +59,6 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return elements.getStoredFirst(e -> e.getStoredElement1().equals(id)).getStoredElement2();
   }
 
-  @Override
-  public E getStoredLast() {
-    return elements.getStoredLast().getStoredElement2();
-  }
-
   /**
    * {@inheritDoc}
    */

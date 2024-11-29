@@ -1098,6 +1098,17 @@ implements IContainer<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(1) or O(n) if the current
+   * {@link Container} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final E getStoredLast() {
+    return getStoredAt1BasedIndex(getCount());
+  }
+
+  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 

@@ -195,16 +195,6 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredLast() {
-    return getStoredAt1BasedIndex(getCount());
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return true;
   }

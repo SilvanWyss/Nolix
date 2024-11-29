@@ -333,16 +333,20 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
+    if (containsAny() && param1BasedIndex == getCount()) {
+      return lastNode.getElement();
+    }
+
     //Iterates the current LinkedList.
-    var i = 1;
+    var index = 1;
     for (final var e : this) {
 
       //Asserts that the current index is the given index.
-      if (i == param1BasedIndex) {
+      if (index == param1BasedIndex) {
         return e;
       }
 
-      i++;
+      index++;
     }
 
     throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
@@ -350,20 +354,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       param1BasedIndex,
       1,
       getCount());
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * @return the last element of the current {@link LinkedList}.
-   * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
-   */
-  @Override
-  public E getStoredLast() {
-
-    assertContainsAny();
-
-    return lastNode.getElement();
   }
 
   /**

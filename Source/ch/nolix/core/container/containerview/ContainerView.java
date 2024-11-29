@@ -175,14 +175,6 @@ public final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredLast() {
-    return internalContainer.getStoredLast();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public int hashCode() {
     return internalContainer.hashCode();
   }

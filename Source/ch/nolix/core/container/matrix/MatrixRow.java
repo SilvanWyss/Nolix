@@ -49,11 +49,6 @@ public final class MatrixRow<E> extends Container<E> {
   }
 
   @Override
-  public E getStoredLast() {
-    return parentMatrix.getStoredAt1BasedRowIndexAndColumnIndex(getRowIndex(), parentMatrix.getColumnCount());
-  }
-
-  @Override
   public boolean isMaterialized() {
     return false;
   }

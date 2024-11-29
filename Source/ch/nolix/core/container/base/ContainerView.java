@@ -122,14 +122,6 @@ public final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredLast() {
-    return getStoredAt1BasedIndex(getCount());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return false;
   }

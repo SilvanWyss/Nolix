@@ -161,14 +161,6 @@ public final class ImmutableList<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredLast() {
-    return elements[getCount() - 1];
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return true;
   }

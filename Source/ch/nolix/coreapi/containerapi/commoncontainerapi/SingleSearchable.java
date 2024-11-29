@@ -86,7 +86,7 @@ public interface SingleSearchable<E> {
    * @param type
    * @param <E2> is the given type.
    * @return the first element from the current {@link SingleSearchable} that is
-   *         of the given type
+   *         of the given type.
    * @throws RuntimeException if the given type is null.
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain an element of the given type.
@@ -94,8 +94,8 @@ public interface SingleSearchable<E> {
   <E2 extends E> E2 getStoredFirstOfType(Class<E2> type);
 
   /**
-   * @return the last element of the current {@link SingleSearchable}. Ignores
-   *         null elements.
+   * @return the last element of the current {@link SingleSearchable}. The element
+   *         can be null.
    * @throws RuntimeException if the current {@link SingleSearchable} is empty.
    */
   E getStoredLast();

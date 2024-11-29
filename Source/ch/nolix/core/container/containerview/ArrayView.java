@@ -6,7 +6,6 @@ import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -84,26 +83,6 @@ public final class ArrayView<E> extends Container<E> {
       .isNotBiggerThan(getCount());
 
     return array[param1BasedIndex - 1];
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public E getStoredLast() {
-
-    var local0BasedIndex = getCount() - 1;
-
-    while (local0BasedIndex > -1) {
-
-      final var element = array[local0BasedIndex];
-
-      if (element != null) {
-        return element;
-      }
-    }
-
-    throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
   /**

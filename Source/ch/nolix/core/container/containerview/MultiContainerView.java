@@ -97,11 +97,6 @@ public final class MultiContainerView<E> extends Container<E> {
   }
 
   @Override
-  public E getStoredLast() {
-    return containers.getStoredLast().getStoredLast();
-  }
-
-  @Override
   public boolean isMaterialized() {
     return false;
   }

@@ -416,16 +416,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return (E) elements[param1BasedRowIndex - 1][param1BasedColumnIndex - 1];
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  @SuppressWarnings("unchecked")
-  public E getStoredLast() {
-    return (E) elements[getRowCount() - 1][getColumnCount() - 1];
-  }
-
   /**
    * @param rowIndex
    * @return the row of the current {@link Matrix} at the given row index.
