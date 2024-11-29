@@ -605,15 +605,19 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   }
 
   /**
-   * This implementation uses the merge sort algorithm. The complexity of this
-   * implementation is O(n*log(n)) if the current {@link Container} contains n
-   * elements.
+   * The complexity of this implementation is O(n*log(n)) if the current
+   * {@link Container} contains n elements.
+   * 
+   * This implementation uses the merge sort algorithm.
    * 
    * {@inheritDoc}
    */
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return getOrderedSubList(1, getCount(), norm);
+  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> comparableMapper) {
+
+    GlobalValidator.assertThat(comparableMapper).thatIsNamed("comparable mapper").isNotNull();
+
+    return getOrderedSubList(1, getCount(), comparableMapper);
   }
 
   /**
