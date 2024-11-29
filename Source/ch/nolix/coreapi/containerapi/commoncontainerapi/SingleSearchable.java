@@ -101,7 +101,8 @@ public interface SingleSearchable<E> {
   E getStoredLast();
 
   /**
-   * @return the one element of the current {@link SingleSearchable}.
+   * @return the one element of the current {@link SingleSearchable}. The element
+   *         can be null.
    * @throws RuntimeException if the current {@link SingleSearchable} is empty.
    * @throws RuntimeException if the current {@link SingleSearchable} contains
    *                          several elements.

@@ -1123,6 +1123,7 @@ implements IContainer<E> {
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
