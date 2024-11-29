@@ -170,7 +170,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
 
   @Override
   public IContainer<IColumn> getStoredAllBackReferenceColumns(final IDatabase database) {
-    return database.getStoredTables().toFromGroups(TABLE_TOOL::getStoredBackReferenceColumns);
+    return database.getStoredTables().toMultiple(TABLE_TOOL::getStoredBackReferenceColumns);
   }
 
   @Override

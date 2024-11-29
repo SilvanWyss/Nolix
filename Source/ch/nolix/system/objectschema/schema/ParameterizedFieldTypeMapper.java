@@ -59,7 +59,7 @@ public final class ParameterizedFieldTypeMapper {
     final var baseParameterizedBackReferenceType = (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType;
     final var backReferencedColumnId = baseParameterizedBackReferenceType.getBackReferencedColumnId();
 
-    return (Column) tables.toFromGroups(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
+    return (Column) tables.toMultiple(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
   }
 
   private ITable getStoredReferencedTableFromParameterizedFieldType(

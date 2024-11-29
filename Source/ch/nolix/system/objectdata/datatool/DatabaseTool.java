@@ -26,7 +26,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
 
   @Override
   public IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
-    return database.getStoredTables().toFromGroups(ITable::internalGetStoredEntitiesInLocalData);
+    return database.getStoredTables().toMultiple(ITable::internalGetStoredEntitiesInLocalData);
   }
 
   @Override

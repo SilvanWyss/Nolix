@@ -16,7 +16,7 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
     final IMutableNode<?> databaseNode,
     final String columnId) {
     return getStoredTableNodesFromDatabaseNode(databaseNode)
-      .toFromGroups(TABLE_NODE_SEARCHER::getStoredColumnNodesFromTableNode)
+      .toMultiple(TABLE_NODE_SEARCHER::getStoredColumnNodesFromTableNode)
       .getStoredFirst(
         cn -> COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(cn).getStoredSingleChildNode()
           .hasHeader(columnId));

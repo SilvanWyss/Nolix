@@ -74,7 +74,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return ContainerView
       .forIterable(
         getStoredDirectBaseTypes(),
-        getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredBaseTypes));
+        getStoredDirectBaseTypes().toMultiple(IAbstractableObject::getStoredBaseTypes));
   }
 
   @Override
@@ -101,7 +101,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   public IContainer<? extends IAbstractableField> getStoredFields() {
     return ContainerView.forIterable(
       getStoredDeclaredFields().getStoredOthers(IAbstractableField::inheritsFromBaseField),
-      getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
+      getStoredDirectBaseTypes().toMultiple(IAbstractableObject::getStoredFields));
   }
 
   @Override

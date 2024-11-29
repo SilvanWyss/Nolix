@@ -149,6 +149,6 @@ public final class AbstractableFieldEvaluator {
     return field
       .getStoredParentObject()
       .getStoredSubTypes()
-      .toFromGroups(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
+      .toMultiple(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
   }
 }

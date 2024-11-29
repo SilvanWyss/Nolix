@@ -103,7 +103,7 @@ public final class MultiContainerView<E> extends Container<E> {
 
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return containers.toFromGroups(c -> c).toOrderedList(norm);
+    return containers.toMultiple(c -> c).toOrderedList(norm);
   }
 
   @Override

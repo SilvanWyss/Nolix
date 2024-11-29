@@ -80,7 +80,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   public IAbstractableField getStoredBaseField() {
     return getStoredParentObject()
       .getStoredDirectBaseTypes()
-      .toFromGroups(IAbstractableObject::getStoredFields)
+      .toMultiple(IAbstractableObject::getStoredFields)
       .getStoredFirst(f -> f.hasSameNameAs(this));
   }
 

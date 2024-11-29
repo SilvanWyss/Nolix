@@ -65,7 +65,7 @@ public final class LayerStack implements ILayerStack {
 
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
-    return getStoredLayers().toFromGroups(ILayer::getStoredControls);
+    return getStoredLayers().toMultiple(ILayer::getStoredControls);
   }
 
   @Override

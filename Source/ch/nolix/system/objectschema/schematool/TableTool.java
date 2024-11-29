@@ -141,7 +141,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
 
-    final var columns = table.getParentDatabase().getStoredTables().toFromGroups(ITable::getStoredColumns);
+    final var columns = table.getParentDatabase().getStoredTables().toMultiple(ITable::getStoredColumns);
 
     return table
       .getStoredColumns()
@@ -160,7 +160,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
     return table
       .getParentDatabase()
       .getStoredTables()
-      .toFromGroups(ITable::getStoredColumns)
+      .toMultiple(ITable::getStoredColumns)
       .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
   }
 

@@ -17,7 +17,7 @@ implements IParameterizedFieldTypeMapper<IBaseParameterizedBackReferenceTypeDto>
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
     final var backReferencedColumnId = parameterizedFieldTypeDto.getBackReferencedColumnId();
-    final var referencableColumns = referencableTables.toFromGroups(ITable::getStoredColumns);
+    final var referencableColumns = referencableTables.toMultiple(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
     return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn);

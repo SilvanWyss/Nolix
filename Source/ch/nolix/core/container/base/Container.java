@@ -1351,6 +1351,7 @@ implements IContainer<E> {
     return true;
   }
 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1368,9 +1369,19 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
+
+      //Asserts that the current element is not null.
+      if (e == null) {
+
+        //Creates and throws a ArgumentIsNullException.
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
+      }
+
+      //Adds the current element at the end of the list.
       list.addAtEnd(mapper.apply(e));
     }
 
+    //Returns list.
     return list;
   }
 
@@ -1523,33 +1534,6 @@ implements IContainer<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current * {@link Container} contains m elements.
-   * 
-   * -On average, the given groupMapper maps n elements from an element of the
-   * current {@link Container}.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final <E2> IContainer<E2> toFromGroups(final Function<E, IContainer<E2>> groupMapper) {
-
-    //Asserts that the given groupMapper is not null.
-    GlobalValidator.assertThat(groupMapper).thatIsNamed("group mapper").isNotNull();
-
-    //Creates list.
-    final var list = createEmptyMutableList(new Marker<E2>());
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      list.addAtEnd(groupMapper.apply(e));
-    }
-
-    return list;
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
@@ -1620,6 +1604,43 @@ implements IContainer<E> {
     }
 
     return array;
+  }
+
+  /**
+   * The time complexity of this implementation is O(m*n) if:
+   * 
+   * -The current * {@link Container} contains m elements.
+   * 
+   * -On average, the given multipleMapper maps n elements from an element of the
+   * current {@link Container}.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final <E2> IContainer<E2> toMultiple(final Function<E, IContainer<E2>> multipleMapper) {
+
+    //Asserts that the given multipleMapper is not null.
+    GlobalValidator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
+
+    //Creates list.
+    final var list = createEmptyMutableList(new Marker<E2>());
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Asserts that the current element is not null.
+      if (e == null) {
+
+        //Creates and throws a ArgumentIsNullException.
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
+      }
+
+      //Adds the elements the given multipleMapper maps from the current element at the end of the list.
+      list.addAtEnd(multipleMapper.apply(e));
+    }
+
+    //Returns the list.
+    return list;
   }
 
   /**

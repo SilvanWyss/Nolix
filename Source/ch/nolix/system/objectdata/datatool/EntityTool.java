@@ -91,7 +91,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
   @Override
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
-    return entity.internalGetStoredFields().toFromGroups(IField::getStoredBaseBackReferences);
+    return entity.internalGetStoredFields().toMultiple(IField::getStoredBaseBackReferences);
   }
 
   @Override
@@ -101,7 +101,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
 
   @Override
   public IContainer<? extends IField> getStoredReferencingFields(final IEntity entity) {
-    return entity.internalGetStoredFields().toFromGroups(IField::getStoredReferencingFields);
+    return entity.internalGetStoredFields().toMultiple(IField::getStoredReferencingFields);
   }
 
   @Override
@@ -183,7 +183,7 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
       .getStoredParentTable()
       .getStoredParentDatabase()
       .getStoredTables()
-      .toFromGroups(ITable::internalGetStoredEntitiesInLocalData).getStoredSelected(IEntity::isDeleted)
+      .toMultiple(ITable::internalGetStoredEntitiesInLocalData).getStoredSelected(IEntity::isDeleted)
       .to(IEntity::getId);
   }
 }

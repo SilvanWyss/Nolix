@@ -203,8 +203,7 @@ public final class Column extends SchemaObject implements IColumn {
       return COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
-        .toFromGroups(
-          t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
+        .toMultiple(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
 
     if (belongsToTable()) {
