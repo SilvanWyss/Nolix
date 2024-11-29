@@ -39,11 +39,6 @@ StoringRequestable<E>,
 StringMappable {
 
   /**
-   * @return a new array with the elements of the current {@link IContainer}.
-   */
-  Object[] toArray();
-
-  /**
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given
    *                         comparableMapper returns.

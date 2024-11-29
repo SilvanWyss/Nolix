@@ -13,6 +13,11 @@ import java.util.function.ToLongFunction;
 public interface ArrayMappable<E> {
 
   /**
+   * @return a new array with the elements of the current {@link ArrayMappable}.
+   */
+  Object[] toArray();
+
+  /**
    * @param byteMapper
    * @return a new array with the bytes the given byteMapper maps from the
    *         elements of the current {@link ArrayMappable}. Maps null elements to
