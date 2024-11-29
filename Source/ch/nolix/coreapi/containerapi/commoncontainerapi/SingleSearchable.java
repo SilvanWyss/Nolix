@@ -113,6 +113,7 @@ public interface SingleSearchable<E> {
    * @param selector
    * @return the one element the given selector selects from the current
    *         {@link SingleSearchable}. Ignores null elements.
+   * @throws RuntimeException if the given selector is null.
    * @throws RuntimeException if the given selector selects none or several
    *                          elements from the current {@link SingleSearchable}.
    */

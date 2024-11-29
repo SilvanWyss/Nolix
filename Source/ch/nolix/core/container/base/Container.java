@@ -1152,7 +1152,10 @@ implements IContainer<E> {
   @Override
   public final E getStoredOne(final Predicate<? super E> selector) {
 
-    //Declares the selected element.
+    //Asserts that the given selector is not null.
+    GlobalValidator.assertThat("selector").isNotNull();
+
+    //Initializes selectedElement.
     E selectedElement = null;
 
     //Iterates the current Container.
