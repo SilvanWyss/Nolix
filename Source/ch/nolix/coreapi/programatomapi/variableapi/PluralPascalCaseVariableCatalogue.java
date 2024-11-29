@@ -329,6 +329,8 @@ public final class PluralPascalCaseVariableCatalogue {
 
   public static final String SAVE_STAMPS = "SaveStamps";
 
+  public static final String SELECTORS = "Selectors";
+
   public static final String SENDERS = "Senders";
 
   public static final String SEPARATORS = "Separators";

@@ -328,6 +328,8 @@ public final class PascalCaseVariableCatalogue {
 
   public static final String SAVE_STAMP = "SaveStamp";
 
+  public static final String SELECTOR = "Selector";
+
   public static final String SENDER = "Sender";
 
   public static final String SEPARATOR = "Separator";

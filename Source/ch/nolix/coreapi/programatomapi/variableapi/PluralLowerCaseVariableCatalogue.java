@@ -329,6 +329,8 @@ public final class PluralLowerCaseVariableCatalogue {
 
   public static final String SAVE_STAMPS = "save stamps";
 
+  public static final String SELECTORS = "selectors";
+
   public static final String SENDERS = "senders";
 
   public static final String SEPARATORS = "separators";

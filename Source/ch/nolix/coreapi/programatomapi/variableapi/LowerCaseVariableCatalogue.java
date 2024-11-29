@@ -328,6 +328,8 @@ public final class LowerCaseVariableCatalogue {
 
   public static final String SAVE_STAMP = "save stamp";
 
+  public static final String SELECTOR = "selector";
+
   public static final String SENDER = "sender";
 
   public static final String SEPARATOR = "separator";

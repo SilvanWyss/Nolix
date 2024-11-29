@@ -553,7 +553,7 @@ implements IContainer<E> {
   public final int getCount(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
     //Initializes count.
     var count = 0;
@@ -606,7 +606,7 @@ implements IContainer<E> {
   public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     var local1BasedIndex = 1;
@@ -855,7 +855,7 @@ implements IContainer<E> {
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1153,7 +1153,7 @@ implements IContainer<E> {
   public final E getStoredOne(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat("selector").isNotNull();
+    GlobalValidator.assertThat(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
     //Initializes selectedElement.
     E selectedElement = null;
@@ -1199,7 +1199,7 @@ implements IContainer<E> {
   public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E>());
@@ -1226,7 +1226,7 @@ implements IContainer<E> {
   public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E>());
