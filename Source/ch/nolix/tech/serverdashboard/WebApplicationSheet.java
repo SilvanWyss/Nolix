@@ -1,14 +1,14 @@
 package ch.nolix.tech.serverdashboard;
 
+import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
-public final class WebApplicationSheet implements IWebApplicationSheet {
+public final class WebApplicationSheet implements IWebApplicationInfo {
 
   private final IApplicationInstanceTarget applicationInstanceTarget;
 

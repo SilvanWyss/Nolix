@@ -1,9 +1,9 @@
-package ch.nolix.techapi.serverdashboardapi;
+package ch.nolix.applicationapi.serverdashboardapi.datamodelapi;
 
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
-public interface IWebApplicationSheet {
+public interface IWebApplicationInfo {
 
   IApplicationInstanceTarget getApplicationInstanceTarget();
 

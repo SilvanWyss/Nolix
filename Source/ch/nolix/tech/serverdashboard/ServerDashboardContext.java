@@ -1,13 +1,13 @@
 package ch.nolix.tech.serverdashboard;
 
+import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
+import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;
-import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 public final class ServerDashboardContext implements IServerDashboardContext {
 
@@ -27,7 +27,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
   }
 
   @Override
-  public IContainer<IWebApplicationSheet> getWebApplicationSheets() {
+  public IContainer<IWebApplicationInfo> getWebApplicationInfos() {
     return getStoredWebApplications().to(WebApplicationSheet::forWebApplication);
   }
 

@@ -1,5 +1,7 @@
 package ch.nolix.tech.serverdashboardapplication.view;
 
+import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
+import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -10,8 +12,6 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationComponent;
 import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationController;
-import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 
@@ -36,9 +36,9 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
       .to(was -> new WebApplicationComponent(new WebApplicationController(was), this));
   }
 
-  private IContainer<IWebApplicationSheet> getWebApplicationSheets() {
+  private IContainer<IWebApplicationInfo> getWebApplicationSheets() {
     return getStoredApplicationContext()
-      .getWebApplicationSheets()
+      .getWebApplicationInfos()
       .getStoredOthers(
         as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName()));
   }

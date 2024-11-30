@@ -1,5 +1,7 @@
 package ch.nolix.tech.serverdashboardapplication.webapplicationcomponent;
 
+import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
+import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.system.application.component.Component;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -10,8 +12,6 @@ import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 public final class WebApplicationComponent //NOSONAR: A WebApplicationComponent is a Component.
 extends Component<WebApplicationController, IServerDashboardContext> {
@@ -54,13 +54,13 @@ extends Component<WebApplicationController, IServerDashboardContext> {
             controller.getWebApplicationSheet().getApplicationInstanceTarget().getApplicationInstanceName()));
   }
 
-  private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationSheet webApplicationSheet) {
+  private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationInfo webApplicationInfo) {
 
-    if (!webApplicationSheet.hasApplicationLogo()) {
+    if (!webApplicationInfo.hasApplicationLogo()) {
       return DEFAULT_APPLICATION_LOGO;
     }
 
-    return webApplicationSheet
+    return webApplicationInfo
       .getApplicationLogo()
       .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
   }
