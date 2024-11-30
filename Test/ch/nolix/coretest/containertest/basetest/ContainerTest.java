@@ -521,7 +521,7 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   @Test
-  final void testCase_getMax_whenIsEmptyAndGivenNormIsInteger() {
+  final void testCase_getMax_whenIsEmptyAndTheGivenComparableMapperMapsToIntegers() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
@@ -529,8 +529,7 @@ public abstract class ContainerTest extends StandardTest {
     //execution
     expectRunning(() -> testUnit.getMax(String::length))
       .throwsException()
-      .ofType(EmptyArgumentException.class)
-      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .ofType(InvalidArgumentException.class);
   }
 
   @Test
@@ -641,16 +640,13 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   @Test
-  final void testCase_getMin_whenIsEmptyAndGivenNormIsInteger() {
+  final void testCase_getMin_whenIsEmptyAndTheGivenComparableMapperMapstoIntegers() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
 
     //execution
-    expectRunning(() -> testUnit.getMin(String::length))
-      .throwsException()
-      .ofType(EmptyArgumentException.class)
-      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+    expectRunning(() -> testUnit.getMin(String::length)).throwsException().ofType(InvalidArgumentException.class);
   }
 
   @Test

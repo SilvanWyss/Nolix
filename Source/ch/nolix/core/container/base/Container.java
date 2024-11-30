@@ -565,13 +565,13 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getAverage(final Function<E, Number> mapper) {
+  public final double getAverage(final Function<E, Number> valueMapper) {
 
     //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
     //Calculates the average as BigDecimal.
-    final var sumAsBigDecimal = getSum(mapper);
+    final var sumAsBigDecimal = getSum(valueMapper);
     final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
     final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 
@@ -771,7 +771,7 @@ implements IContainer<E> {
     GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
     //Initializes max.
-    var max = comparableMapper.apply(getStoredFirst());
+    C max = null;
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -782,8 +782,8 @@ implements IContainer<E> {
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that the the Comparable of the current element is bigger than max.
-        if (comparable.compareTo(max) > 0) {
+        //Handles the case that max is null or the Comparable of the current element is bigger than max.
+        if (max == null || comparable.compareTo(max) > 0) {
 
           //Sets max as the Comparable of the current element.
           max = comparable;
@@ -791,7 +791,14 @@ implements IContainer<E> {
       }
     }
 
-    //Returns max.
+    //Handles the case that max is null.
+    if (max == null) {
+
+      //Creates and throws a new InvalidArgumentException.
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
+    }
+
+    //Handles the case that max is not null.
     return max;
   }
 
@@ -802,15 +809,41 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMaxOrZero(Function<E, Number> norm) {
+  public final double getMaxOrZero(Function<E, Number> numberMapper) {
 
-    //Handles the case that the current Container is empty.
-    if (isEmpty()) {
+    //Asserts that the given numberMapper is not null.
+    GlobalValidator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
+
+    //Initializes max.
+    Double max = null;
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is not null.
+      if (e != null) {
+
+        //Gets the number of the current element.
+        final var number = numberMapper.apply(e).doubleValue();
+
+        //Handles the case that max is null or the number of the current element is bigger than max.
+        if (max == null || number > max) {
+
+          //Sets max as the number of the current element..
+          max = number;
+        }
+      }
+    }
+
+    //Handles the case that max is null.
+    if (max == null) {
+
+      //Returns 0.0.
       return 0.0;
     }
 
-    //Handles the case that the current Container contains elements.
-    return getMaxWhenContainsAny(norm);
+    //Handles the case that max is not null.
+    return max;
   }
 
   /**
@@ -820,33 +853,44 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMedian(final Function<E, Number> norm) {
+  public final double getMedian(final Function<E, Number> numberMapper) {
 
     //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
-    //Calculates the values the given norm returns from the elements of the current
-    //Container.
-    final var values = to(norm::apply);
+    //Gets the numbers the numberMapper maps from the elements of the current Container.
+    final var numbers = toNumbers(numberMapper);
 
-    //Orders the values by an ascending order.
-    final var orderedValues = values.toOrderedList(Number::doubleValue);
+    //Orders the numbers by an ascending order.
+    final var orderedValues = numbers.toOrderedList(Number::doubleValue);
 
-    //Gets the number of values.
-    final var valueCount = values.getCount();
+    //Gets the number of numbers.
+    final var valueCount = numbers.getCount();
 
     //Handles the case that the number of values is even.
     if (valueCount % 2 == 0) {
 
-      final var firstIndex = valueCount / 2;
-      final var preMedian = orderedValues.getStoredAt1BasedIndex(firstIndex).doubleValue();
-      final var postMedian = orderedValues.getStoredAt1BasedIndex(firstIndex + 1).doubleValue();
+      //Calculates the preMedianIndex.
+      final var preMedianIndex = valueCount / 2;
 
+      //Calculates the postMedianIndex.
+      final var postMedianIndex = preMedianIndex + 1;
+
+      //Calculates the preMedian.
+      final var preMedian = orderedValues.getStoredAt1BasedIndex(preMedianIndex).doubleValue();
+
+      //Calculates the postMedian
+      final var postMedian = orderedValues.getStoredAt1BasedIndex(postMedianIndex).doubleValue();
+
+      //Calculates and returns the median.
       return 0.5 * (preMedian + postMedian);
     }
 
-    //Handles the case that the number of values is odd.
-    return orderedValues.getStoredAt1BasedIndex((valueCount / 2) + 1).doubleValue();
+    //Calculates the medianIndex.
+    final var medianIndex = (valueCount / 2) + 1;
+
+    //Calculates and returns the median.
+    return orderedValues.getStoredAt1BasedIndex(medianIndex).doubleValue();
   }
 
   /**
@@ -874,19 +918,40 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> C getMin(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> C getMin(final Function<E, C> comparableMapper) {
 
-    var min = norm.apply(getStoredFirst());
+    //Asserts that the given comparableMapper is not null.
+    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
+    //Initializes min.
+    C min = null;
+
+    //Iterates the current Container.
     for (final var e : this) {
 
-      final var comparableValueOfElement = norm.apply(e);
+      //Handles the case that the current element is not null.
+      if (e != null) {
 
-      if (comparableValueOfElement.compareTo(min) < 0) {
-        min = comparableValueOfElement;
+        //Gets the Comparable of the current element.
+        final var comparable = comparableMapper.apply(e);
+
+        //Handles the case that min is null or the Comparable of the current element is smaller than min.
+        if (min == null || comparable.compareTo(min) < 0) {
+
+          //Sets min as the Comparable of the current element.
+          min = comparable;
+        }
       }
     }
 
+    //Handles the case that min is null.
+    if (min == null) {
+
+      //Creates and throws a new InvalidArgumentException.
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
+    }
+
+    //Handles the case that min is not null.
     return min;
   }
 
@@ -894,15 +959,41 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMinOrZero(Function<E, Number> norm) {
+  public final double getMinOrZero(final Function<E, Number> numberMapper) {
 
-    //Handles the case that the current Container is empty.
-    if (isEmpty()) {
+    //Asserts that the given numberMapper is not null.
+    GlobalValidator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
+
+    //Initializes min.
+    Double min = null;
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is not null.
+      if (e != null) {
+
+        //Gets the number of the current element.
+        final var number = numberMapper.apply(e).doubleValue();
+
+        //Handles the case that min is null or the number of the current element is smaller than min.
+        if (min == null || number < min) {
+
+          //Sets min as the number of the current element..
+          min = number;
+        }
+      }
+    }
+
+    //Handles the case that min is null.
+    if (min == null) {
+
+      //Returns 0.0.
       return 0.0;
     }
 
-    //Handles the case that the current Container contains elements.
-    return getMinWhenContainsAny(norm);
+    //Handles the case that min is not null.
+    return min;
   }
 
   //For a better performance, this implementation does not use all comfortable methods.
@@ -982,28 +1073,14 @@ implements IContainer<E> {
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that max is null.
-        if (max == null) {
+        //Handles the case that max is null or the Comparable of the current element is bigger than comparebleOfMax.
+        if (max == null || comparable.compareTo(comparebleOfMax) > 0) {
 
           //Sets max as the the current element.
           max = e;
 
           //Sets comparebleOfMax as the Comparable of the current element.
-          comparebleOfMax = comparableMapper.apply(max);
-        }
-
-        //Handles the case that max is not null.
-        else {
-
-          //Handles the case that the the Comparable of the current element is bigger than comparebleOfMax.
-          if (comparable.compareTo(comparebleOfMax) > 0) {
-
-            //Sets max as the the current element.
-            max = e;
-
-            //Sets comparebleOfMax as the Comparable of the current element.
-            comparebleOfMax = comparable;
-          }
+          comparebleOfMax = comparable;
         }
       }
     }
@@ -1044,28 +1121,14 @@ implements IContainer<E> {
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that min is null.
-        if (min == null) {
+        //Handles the case that min is null or the Comparable of the current element is smaller than comparebleOfMin.
+        if (min == null || comparable.compareTo(comparebleOfMin) < 0) {
 
           //Sets min as the the current element.
           min = e;
 
           //Sets comparebleOfMin as the Comparable of the current element.
-          comparebleOfMin = comparableMapper.apply(min);
-        }
-
-        //Handles the case that max is not null.
-        else {
-
-          //Handles the case that the the Comparable of the current element is smaller than comparebleOfMin.
-          if (comparable.compareTo(comparebleOfMin) < 0) {
-
-            //Sets min as the the current element.
-            min = e;
-
-            //Sets comparebleOfMin as the Comparable of the current element.
-            comparebleOfMin = comparable;
-          }
+          comparebleOfMin = comparable;
         }
       }
     }
@@ -1133,8 +1196,10 @@ implements IContainer<E> {
   @SuppressWarnings("unchecked")
   public final <E2 extends E> E2 getStoredFirstOfType(final Class<E2> type) {
 
+    //Asserts that the given type is not null.
     GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
 
+    //Calls other method.
     return (E2) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
   }
 
@@ -1151,9 +1216,10 @@ implements IContainer<E> {
   @Override
   public final IContainer<? extends IContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
 
-    //Asserst that the given norm is not null.
+    //Asserts that the given norm is not null.
     GlobalValidator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
+    //Initializes groups.
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 
     //Iterates the current Container.
@@ -1162,21 +1228,36 @@ implements IContainer<E> {
       //Handles the case that the current element is not null.
       if (e != null) {
 
+        //Gets the groupKey of the current element.
         final var groupKey = norm.apply(e);
-        final var group = groups.getOptionalStoredFirst(g -> g.containsAny(e2 -> norm.apply(e2).equals(groupKey)));
 
-        if (group.isEmpty()) {
+        //Gets the optionalGroup of the current element.
+        final var optionalGroup = //
+        groups.getOptionalStoredFirst(g -> g.containsAny() && norm.apply(g.getStoredFirst()).equals(groupKey));
 
-          final var list = createEmptyMutableList(new Marker<E>());
+        //Handles the case that the optionalGroup of the current element does not exist.
+        if (optionalGroup.isEmpty()) {
 
-          list.addAtEnd(e);
-          groups.addAtEnd(list);
-        } else {
-          group.get().addAtEnd(e);
+          //Creates group for the current element.
+          final var group = createEmptyMutableList(new Marker<E>());
+
+          //Adds the current element to the group for the current element.
+          group.addAtEnd(e);
+
+          //Adds the group for the current element to the groups.
+          groups.addAtEnd(group);
+        }
+
+        //Handles the case that the optionalGroup of the current element exists. 
+        else {
+
+          //Adds the current element to the group for the current element.
+          optionalGroup.get().addAtEnd(e);
         }
       }
     }
 
+    //Returns groups.
     return groups;
   }
 
@@ -1188,6 +1269,8 @@ implements IContainer<E> {
    */
   @Override
   public final E getStoredLast() {
+
+    //Calls other method.
     return getStoredAt1BasedIndex(getCount());
   }
 
@@ -1201,8 +1284,10 @@ implements IContainer<E> {
   @SuppressWarnings("unchecked")
   public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
 
+    //Asserts that the given type is not null.
     GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
 
+    //Calls other method.
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
@@ -1284,19 +1369,22 @@ implements IContainer<E> {
     //Asserts that the given selector is not null.
     GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
-    //Creates list.
-    final var list = createEmptyMutableList(new Marker<E>());
+    //Initializes otherElements.
+    final var otherElements = createEmptyMutableList(new Marker<E>());
 
     //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element is not null and the given selector does not select the current element.
       if (e != null && !selector.test(e)) {
-        list.addAtEnd(e);
+
+        //Adds the current element to the otherElements.
+        otherElements.addAtEnd(e);
       }
     }
 
-    return list;
+    //Returns the otherElements.
+    return otherElements;
   }
 
   /**
@@ -1311,19 +1399,22 @@ implements IContainer<E> {
     //Asserts that the given selector is not null.
     GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
 
-    //Creates list.
-    final var list = createEmptyMutableList(new Marker<E>());
+    //Initializes selectedElements.
+    final var selectedElements = createEmptyMutableList(new Marker<E>());
 
     //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        list.addAtEnd(e);
+
+        //Adds the current element to the selectedElements.
+        selectedElements.addAtEnd(e);
       }
     }
 
-    return list;
+    //Returns the selectedElements.
+    return selectedElements;
   }
 
   /**
@@ -1334,7 +1425,12 @@ implements IContainer<E> {
    */
   @Override
   public final double getStandardDeviation(final Function<E, Number> norm) {
-    return Math.sqrt(getVariance(norm));
+
+    //Calculates the variance.
+    final var variance = getVariance(norm);
+
+    //Calculates and returns the standard deviation.
+    return Math.sqrt(variance);
   }
 
   //For a better performance, this implementation does not use all comfortable methods.
@@ -1345,12 +1441,10 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final BigDecimal getSum(final Function<E, Number> mapper) {
+  public final BigDecimal getSum(final Function<E, Number> valueMapper) {
 
-    //Asserts that the given mapper is not null.
-    if (mapper == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MAPPER);
-    }
+    //Asserts that the given valueMapper is not null.
+    GlobalValidator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
 
     //Initializes sum.
     var sum = BigDecimal.ZERO;
@@ -1358,12 +1452,15 @@ implements IContainer<E> {
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the current element is null.
+      //Handles the case that the current element is not null.
       if (e != null) {
-        sum = sum.add(BigDecimal.valueOf(mapper.apply(e).doubleValue()));
+
+        //Adds the value the given valueMapper maps from the current element to the sum.
+        sum = sum.add(BigDecimal.valueOf(valueMapper.apply(e).doubleValue()));
       }
     }
 
+    //Returns sum.
     return sum;
   }
 
@@ -1374,14 +1471,26 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final BigInteger getSumOfIntegers(final ToIntFunction<E> norm) {
+  public final BigInteger getSumOfInts(final ToIntFunction<E> intMapper) {
 
+    //Asserts that the given intMapper is not null.
+    GlobalValidator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
+
+    //Initializes sum.
     var sum = BigInteger.ZERO;
 
+    //Iterates the current container.
     for (final var e : this) {
-      sum = sum.add(BigInteger.valueOf(norm.applyAsInt(e)));
+
+      //Handles the case that the current element is not null.
+      if (e != null) {
+
+        //Adds the int the given intMapper maps from the current element to the sum.
+        sum = sum.add(BigInteger.valueOf(intMapper.applyAsInt(e)));
+      }
     }
 
+    //Returns the sum.
     return sum;
   }
 
@@ -1392,26 +1501,41 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getVariance(final Function<E, Number> norm) {
+  public final double getVariance(final Function<E, Number> numberMapper) {
 
-    final var average = getAverage(norm);
+    //Calculates the average.
+    final var average = getAverage(numberMapper);
 
-    var sumOfSquaredDeviationsAsBigDecimal = BigDecimal.ZERO;
+    //Initializes sumOfSquaredDifferencesToAverage.
+    var sumOfSquaredDifferencesToAverage = BigDecimal.ZERO;
+
+    //Iterates the current Container.
     for (final var e : this) {
 
-      final var deviation = norm.apply(e).doubleValue() - average;
-      final var squaredDevication = Math.pow(deviation, 2);
+      //Initializes number.
+      var number = 0.0;
 
-      sumOfSquaredDeviationsAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal
-        .add(BigDecimal.valueOf(squaredDevication));
+      //Handles the case that the current element is not null.
+      if (e != null) {
+        number = numberMapper.apply(e).doubleValue();
+      }
+
+      //Calculates differenceToAverage.
+      final var differenceToAverage = number - average;
+
+      //Calculates squaredDifferenceToAverage.
+      final var squaredDifferenceToAverage = Math.pow(differenceToAverage, 2);
+
+      //Adds the squaredDifferenceToAverage to the sumOfSquaredDifferencesToAverage.
+      sumOfSquaredDifferencesToAverage = //
+      sumOfSquaredDifferencesToAverage.add(BigDecimal.valueOf(squaredDifferenceToAverage));
     }
 
-    final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
+    //Gets the elementCount.
+    final var elementCount = BigDecimal.valueOf(getCount());
 
-    final var varianceAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal.divide(elementCountAsBigDecimal,
-      MathContext.DECIMAL32);
-
-    return varianceAsBigDecimal.doubleValue();
+    //Calculates and returns the variance.
+    return sumOfSquaredDifferencesToAverage.divide(elementCount, MathContext.DECIMAL32).doubleValue();
   }
 
   /**
@@ -1438,6 +1562,92 @@ implements IContainer<E> {
 
     //Creates and returns a new ContainerView.
     return ContainerView.forContainerAndStartIndexAndEndIndex(this, param1BasedStartIndex, param1BasedEndIndex);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewTo1BasedEndIndex(final int param1BasedEndIndex) {
+
+    //Calls other method.
+    return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, param1BasedEndIndex);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewWithoutFirst() {
+
+    //Calls other method.
+    return getViewWithoutFirst(1);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewWithoutFirst(final int n) {
+
+    //Asserts that the given n is not negative.
+    GlobalValidator.assertThat(n).thatIsNamed("n").isNotNegative();
+
+    //Gets the count.
+    final var count = getCount();
+
+    //Handles the case that the current Container contains more than n elements.
+    if (count > n) {
+
+      //Creates and returns a new view IContainer.
+      return getViewFrom1BasedStartIndexTo1BasedEndIndex(n + 1, count);
+    }
+
+    //Handles the case that the current Container contains n or less elements.
+    return createEmptyMutableList(new Marker<E>());
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewWithoutLast() {
+
+    //Calls other method.
+    return getViewWithoutLast(1);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewWithoutLast(final int n) {
+
+    //Asserts that the given n is not negative.
+    GlobalValidator.assertThat(n).thatIsNamed("n").isNotNegative();
+
+    //Gets the count.
+    final var count = getCount();
+
+    //Handles the case that the current Container contains more than n elements.
+    if (count > 0) {
+
+      //Creates and returns a new view IContainer.
+      return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, count - n);
+    }
+
+    //Handles the case that the current Container contains n or less elements.
+    return createEmptyMutableList(new Marker<E>());
   }
 
   /**
@@ -1506,13 +1716,20 @@ implements IContainer<E> {
     //Creates array.
     final var array = new Object[getCount()];
 
-    //Fills up the array.
-    var i = 0;
+    //Initializes index.
+    var index = 0;
+
+    //Iterates the current container.
     for (final var e : this) {
-      array[i] = e;
-      i++;
+
+      //Sets the field of the array at the current index to the current element.
+      array[index] = e;
+
+      //Increments the index.
+      index++;
     }
 
+    //Returns the array.
     return array;
   }
 
@@ -1759,6 +1976,47 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
+  public <N extends Number> IContainer<N> toNumbers(final Function<E, N> numberMapper) {
+
+    //Asserts that the given numberMapper is not null.
+    GlobalValidator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
+
+    //Initializes numbers.
+    final var numbers = createEmptyMutableList(new Marker<N>());
+
+    //Creates zero.
+    @SuppressWarnings("unchecked")
+    final var zero = (N) Double.valueOf(0.0);
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Handles the case that the current element is null.
+      if (e == null) {
+
+        //Adds zero to numbers.
+        numbers.addAtEnd(zero);
+      }
+
+      //Handles the case that the current element is not null.
+      else {
+
+        //Adds the Numebr the given numberMapper maps from the current element.
+        numbers.addAtBegin(numberMapper.apply(e));
+      }
+    }
+
+    //Returns numbers.
+    return numbers;
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Container} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
   public final IContainer<E> toReversedList() {
 
     //Creates a ILinkedList.
@@ -1847,91 +2105,6 @@ implements IContainer<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewTo1BasedEndIndex(final int endIndex) {
-    return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, endIndex);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewWithoutFirst() {
-
-    if (isEmpty()) {
-      throw EmptyArgumentException.forArgument(this);
-    }
-
-    return getViewWithoutFirst(1);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewWithoutFirst(final int n) {
-
-    //Asserts that the given n is positive.
-    GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
-
-    final var elementCount = getCount();
-
-    //Handles the case that the current Container contains more than n elements.
-    if (elementCount > n) {
-      return getViewFrom1BasedStartIndexTo1BasedEndIndex(n + 1, elementCount);
-    }
-
-    //Handles the case that the current Container contains n or less elements.
-    return createEmptyMutableList(new Marker<E>());
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewWithoutLast() {
-
-    //Asserts that the current Container is not empty.
-    if (isEmpty()) {
-      throw EmptyArgumentException.forArgument(this);
-    }
-
-    return getViewWithoutLast(1);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewWithoutLast(final int n) {
-
-    //Asserts that the given n is positive.
-    GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
-
-    final var elementCount = getCount();
-
-    //Handles the case that the current Container contains more than n elements.
-    if (elementCount > 0) {
-      return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, elementCount - n);
-    }
-
-    //Handles the case that the current Container contains n or less elements.
-    return createEmptyMutableList(new Marker<E>());
-  }
-
-  /**
    * @param marker
    * @param <E2>   is the type of the elements the created {@link ILinkedList} can
    *               contain.
@@ -2008,64 +2181,6 @@ implements IContainer<E> {
 
     //Returns if the given iterable has more elements than the current Container.
     return !iterator.hasNext();
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
-   * 
-   * @param norm
-   * @return the biggest value the given norm returns from the elements of the
-   *         current {@link IContainer} for the case that the current
-   *         {@link IContainer} contains elements.
-   */
-  private double getMaxWhenContainsAny(final Function<E, Number> norm) {
-
-    //Declares max.
-    var max = norm.apply(getStoredFirst()).doubleValue();
-
-    //Iterates the current Container.
-    for (final var e : this) {
-
-      //Extracts the current number.
-      final var number = norm.apply(e).doubleValue();
-
-      //Handles the case that the current number is bigger than max.
-      if (number > max) {
-        max = number;
-      }
-    }
-
-    return max;
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
-   * 
-   * @param norm
-   * @return the smallest value the given norm returns from the elements of the
-   *         current {@link IContainer} for the case that the current
-   *         {@link IContainer} contains elements.
-   */
-  private double getMinWhenContainsAny(final Function<E, Number> norm) {
-
-    //Declares min.
-    var min = norm.apply(getStoredFirst()).doubleValue();
-
-    //Iterates the current Container.
-    for (final var e : this) {
-
-      //Extracts the current number.
-      final var number = norm.apply(e).doubleValue();
-
-      //Handles the case that the current number is smaller than min.
-      if (number < min) {
-        min = number;
-      }
-    }
-
-    return min;
   }
 
   /**

@@ -33,8 +33,8 @@ public interface IViewProviderContainer<E> {
 
   /**
    * @param param1BasedEndIndex
-   * @return a new view of the current {@link IViewProviderContainer} to the given
-   *         param1BasedEndIndex.
+   * @return a new view {@link IContainer} of the current
+   *         {@link IViewProviderContainer} to the given param1BasedEndIndex.
    * @throws RuntimeException if the given param1BasedEndIndex is not positive.
    * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
    *                          number of the elements of the current
@@ -43,8 +43,8 @@ public interface IViewProviderContainer<E> {
   IContainer<E> getViewTo1BasedEndIndex(int param1BasedEndIndex);
 
   /**
-   * @return a new view of the current {@link IViewProviderContainer} without the
-   *         first element.
+   * @return a new view {@link IContainer} view of the current
+   *         {@link IViewProviderContainer} without the first element.
    * @throws RuntimeException if the current {@link IViewProviderContainer} is
    *                          empty.
    */
@@ -52,18 +52,15 @@ public interface IViewProviderContainer<E> {
 
   /**
    * @param n
-   * @return a new view of the current {@link IViewProviderContainer} without the
-   *         first n elements.
-   * @throws RuntimeException if the given n is not positive.
-   * @throws RuntimeException if the given n is bigger than the number of the
-   *                          elements of the current
-   *                          {@link IViewProviderContainer}.
+   * @return a new view {@link IContainer} view of the current
+   *         {@link IViewProviderContainer} without the first n elements.
+   * @throws RuntimeException if the given n is negative.
    */
   IContainer<E> getViewWithoutFirst(int n);
 
   /**
-   * @return a new view of the current {@link IViewProviderContainer} without the
-   *         last element.
+   * @return a new view {@link IContainer} view of the current
+   *         {@link IViewProviderContainer} without the last element.
    * @throws RuntimeException if the current {@link IViewProviderContainer} is
    *                          empty.
    */
@@ -71,12 +68,9 @@ public interface IViewProviderContainer<E> {
 
   /**
    * @param n
-   * @return a new sub view of the current {@link IViewProviderContainer} without
-   *         the last n elements.
-   * @throws RuntimeException if the given n is not positive.
-   * @throws RuntimeException if the given n is bigger than the number of the
-   *                          elements of the current
-   *                          {@link IViewProviderContainer}.
+   * @return a new view {@link IContainer} of the current
+   *         {@link IViewProviderContainer} without the last n elements.
+   * @throws RuntimeException if the given n is negative.
    */
   IContainer<E> getViewWithoutLast(int n);
 }

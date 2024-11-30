@@ -72,7 +72,7 @@ public final class MultiContainerView<E> extends Container<E> {
 
   @Override
   public int getCount() {
-    return containers.getSumOfIntegers(IContainer::getCount).intValue();
+    return containers.getSumOfInts(IContainer::getCount).intValue();
   }
 
   @Override
