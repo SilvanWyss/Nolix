@@ -1,4 +1,4 @@
-package ch.nolix.tech.serverdashboard;
+package ch.nolix.application.serverdashboard.datamodel;
 
 import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -8,13 +8,13 @@ import ch.nolix.system.application.webapplication.WebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
-public final class WebApplicationSheet implements IWebApplicationInfo {
+public final class WebApplicationInfo implements IWebApplicationInfo {
 
   private final IApplicationInstanceTarget applicationInstanceTarget;
 
   private final IImage applicationLogo;
 
-  private <AC> WebApplicationSheet(final Application<WebClient<AC>, AC> webApplication) {
+  private <AC> WebApplicationInfo(final Application<WebClient<AC>, AC> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
 
@@ -27,8 +27,8 @@ public final class WebApplicationSheet implements IWebApplicationInfo {
     }
   }
 
-  public static <AC> WebApplicationSheet forWebApplication(final Application<WebClient<AC>, AC> webApplication) {
-    return new WebApplicationSheet(webApplication);
+  public static <AC> WebApplicationInfo forWebApplication(final Application<WebClient<AC>, AC> webApplication) {
+    return new WebApplicationInfo(webApplication);
   }
 
   @Override

@@ -1,4 +1,4 @@
-package ch.nolix.tech.serverdashboardapplication.webapplicationcomponent;
+package ch.nolix.application.serverdashboard.webgui.webapplicationcomponent;
 
 import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
 import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;

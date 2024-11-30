@@ -1,5 +1,8 @@
-package ch.nolix.tech.serverdashboardapplication.view;
+package ch.nolix.application.serverdashboard.webgui.session;
 
+import ch.nolix.application.serverdashboard.webgui.style.StyleCatalogue;
+import ch.nolix.application.serverdashboard.webgui.webapplicationcomponent.WebApplicationComponent;
+import ch.nolix.application.serverdashboard.webgui.webapplicationcomponent.WebApplicationController;
 import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
 import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -10,8 +13,6 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
-import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationComponent;
-import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationController;
 
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 
@@ -28,7 +29,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
             new FloatContainer()
               .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
               .addControls(createApplicationComponents())))
-      .setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
+      .setStyle(StyleCatalogue.STYLE);
   }
 
   private IContainer<IComponent> createApplicationComponents() {

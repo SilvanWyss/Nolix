@@ -2,9 +2,9 @@ package ch.nolix.techtest.serverdashboardapplicationtest.maintest;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.application.serverdashboard.webgui.application.ServerDashboardApplication;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.LocalServer;
-import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
 
 final class ServerDashboardApplicationTest extends StandardTest {
 

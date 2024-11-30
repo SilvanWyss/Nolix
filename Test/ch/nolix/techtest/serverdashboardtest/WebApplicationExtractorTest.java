@@ -2,9 +2,9 @@ package ch.nolix.techtest.serverdashboardtest;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.application.serverdashboard.logic.WebApplicationExtractor;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.LocalServer;
-import ch.nolix.tech.serverdashboard.WebApplicationExtractor;
 
 final class WebApplicationExtractorTest extends StandardTest {
 

@@ -1,4 +1,4 @@
-package ch.nolix.tech.serverdashboardapplication.view;
+package ch.nolix.application.serverdashboard.webgui.style;
 
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
-final class ServerDashboardStyleCreator {
+public final class StyleCreator {
 
   public IStyle createServerDashboardStyle() {
     return //

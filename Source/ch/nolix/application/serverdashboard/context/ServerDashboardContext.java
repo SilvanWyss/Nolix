@@ -1,5 +1,7 @@
-package ch.nolix.tech.serverdashboard;
+package ch.nolix.application.serverdashboard.context;
 
+import ch.nolix.application.serverdashboard.datamodel.WebApplicationInfo;
+import ch.nolix.application.serverdashboard.logic.WebApplicationExtractor;
 import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
 import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -28,7 +30,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 
   @Override
   public IContainer<IWebApplicationInfo> getWebApplicationInfos() {
-    return getStoredWebApplications().to(WebApplicationSheet::forWebApplication);
+    return getStoredWebApplications().to(WebApplicationInfo::forWebApplication);
   }
 
   private IContainer<Application<WebClient<Object>, Object>> getStoredWebApplications() {
