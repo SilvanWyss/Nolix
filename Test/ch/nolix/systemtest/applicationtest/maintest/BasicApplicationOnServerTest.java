@@ -16,12 +16,12 @@ final class BasicApplicationOnServerTest extends StandardTest {
     try (final var localServer = new LocalServer()) {
 
       //setup
-      final var applicationContext = new VoidObject();
+      final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
         "My application",
         TestSession.withClientClass(WebClient.class).getClass(),
-        applicationContext);
+        applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution
@@ -36,12 +36,12 @@ final class BasicApplicationOnServerTest extends StandardTest {
   void testCase_getInstanceName_whenDoesNotBelongToAServer() {
 
     //setup
-    final var applicationContext = new VoidObject();
+    final var applicationService = new VoidObject();
     @SuppressWarnings("unchecked")
     final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
       "My application",
       TestSession.withClientClass(WebClient.class).getClass(),
-      applicationContext);
+      applicationService);
 
     //execution
     final var result = testUnit.getInstanceName();
@@ -55,12 +55,12 @@ final class BasicApplicationOnServerTest extends StandardTest {
     try (final var localServer = new LocalServer()) {
 
       //setup
-      final var applicationContext = new VoidObject();
+      final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
         "My application",
         TestSession.withClientClass(WebClient.class).getClass(),
-        applicationContext);
+        applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution
@@ -76,12 +76,12 @@ final class BasicApplicationOnServerTest extends StandardTest {
     try (final var localServer = new LocalServer()) {
 
       //setup
-      final var applicationContext = new VoidObject();
+      final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
         "My application",
         TestSession.withClientClass(WebClient.class).getClass(),
-        applicationContext);
+        applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution

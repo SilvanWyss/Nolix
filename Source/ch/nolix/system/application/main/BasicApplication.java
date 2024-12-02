@@ -2,17 +2,16 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
-public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
-extends Application<BC, AC> {
+public final class BasicApplication<BC extends BackendClient<BC, AS>, AS> extends Application<BC, AS> {
 
   private final String applicationName;
 
   private final Class<?> initialSessionClass;
 
-  private <S extends Session<BC, AC>> BasicApplication(
+  private <S extends Session<BC, AS>> BasicApplication(
     final String applicationName,
     final Class<S> initialSessionClass,
-    final AC applicationContext) {
+    final AS applicationContext) {
 
     super(applicationContext);
 

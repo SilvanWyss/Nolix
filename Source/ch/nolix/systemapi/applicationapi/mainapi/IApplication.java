@@ -2,7 +2,7 @@ package ch.nolix.systemapi.applicationapi.mainapi;
 
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 
-public interface IApplication<AC> {
+public interface IApplication<AS> {
 
   IApplicationInstanceTarget asTarget();
 
@@ -14,7 +14,7 @@ public interface IApplication<AC> {
 
   String getNameAddendum();
 
-  AC getStoredApplicationContext();
+  AS getStoredApplicationService();
 
   String getUrlInstanceName();
 

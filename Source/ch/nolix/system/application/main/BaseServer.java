@@ -81,7 +81,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
   /**
    * Adds a new {@link Application} with the given instanceName,
-   * initialSessionClass and applicationContext to the current {@link BaseServer}.
+   * initialSessionClass and applicationService to the current {@link BaseServer}.
    * 
    * @param applicationName
    * @param initialSessionClass
@@ -89,7 +89,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * @param <S>                 is the type of the given initialSessionClass.
    * @param <BC>                is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @param <AC>                is the type of the given applicationContext.
+   * @param <AS>                is the type of the given applicationContext.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -98,11 +98,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR//
+  public final <S extends Session<BC, AS>, BC extends BackendClient<BC, AS>, AS> SR//
   addApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<S> initialSessionClass,
-    final AC applicationContext) {
+    final AS applicationContext) {
 
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -154,13 +154,13 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * @param defaultApplication
    * @param <BC>               is the type of the {@link BackendClient} of the
    *                           given defaultApplication.
-   * @param <AC>               is the type of the context of the given
+   * @param <AS>               is the type of the context of the given
    *                           defaultApplication.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException if the given defaultApplication is null.
    */
-  public final <BC extends BackendClient<BC, AC>, AC> SR addDefaultApplication(
-    final Application<BC, AC> defaultApplication) {
+  public final <BC extends BackendClient<BC, AS>, AS> SR addDefaultApplication(
+    final Application<BC, AS> defaultApplication) {
 
     defaultApplication.internalSetParentServer(this);
 
@@ -174,7 +174,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
   /**
    * Adds a new default {@link Application} with the given name,
-   * initialSessionClass and applicationContext to the current {@link BaseServer}.
+   * initialSessionClass and applicationService to the current {@link BaseServer}.
    * 
    * @param applicationName
    * @param initialSessionClass
@@ -182,7 +182,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * @param <S>                 is the type of the given initialSessionClass.
    * @param <BC>                is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @param <AC>                is the type of the given applicationContext.
+   * @param <AS>                is the type of the given applicationContext.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -193,11 +193,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR //
+  public final <S extends Session<BC, AS>, BC extends BackendClient<BC, AS>, AS> SR //
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<S> initialSessionClass,
-    final AC applicationContext) {
+    final AS applicationContext) {
 
     //Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(

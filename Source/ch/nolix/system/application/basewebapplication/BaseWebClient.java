@@ -12,8 +12,8 @@ import ch.nolix.coreapi.webapi.cookieapi.ICookieManager;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
-public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
-extends BackendClient<BBWC, AC>
+public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AS>, AS>
+extends BackendClient<BBWC, AS>
 implements ICookieManager {
 
   private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //

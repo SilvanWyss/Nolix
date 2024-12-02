@@ -4,7 +4,7 @@ import ch.nolix.application.serverdashboard.frontend.style.StyleCatalogue;
 import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationComponent;
 import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationController;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
-import ch.nolix.applicationapi.serverdashboardapi.frontendapi.contextapi.IServerDashboardContext;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.applicationapi.IServerDashboardService;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
-public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
+public final class ServerDashboardSession extends WebClientSession<IServerDashboardService> {
 
   @Override
   protected void initialize() {

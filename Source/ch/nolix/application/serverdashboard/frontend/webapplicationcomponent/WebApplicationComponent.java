@@ -1,7 +1,7 @@
 package ch.nolix.application.serverdashboard.frontend.webapplicationcomponent;
 
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
-import ch.nolix.applicationapi.serverdashboardapi.frontendapi.contextapi.IServerDashboardContext;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.applicationapi.IServerDashboardService;
 import ch.nolix.system.application.component.Component;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public final class WebApplicationComponent //NOSONAR: A WebApplicationComponent is a Component.
-extends Component<WebApplicationController, IServerDashboardContext> {
+extends Component<WebApplicationController, IServerDashboardService> {
 
   public static final int APPLICATION_LOGO_IMAGE_WIDTH = 250;
 
@@ -28,7 +28,7 @@ extends Component<WebApplicationController, IServerDashboardContext> {
 
   public WebApplicationComponent(
     final WebApplicationController webApplicationController,
-    final WebClientSession<IServerDashboardContext> webClientSession) {
+    final WebClientSession<IServerDashboardService> webClientSession) {
     super(webApplicationController, webClientSession);
   }
 

@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
-import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
+import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationService;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 public final class WebApplicationInfo implements IWebApplicationInfo {
@@ -14,20 +14,20 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
 
   private final IImage applicationLogo;
 
-  private <AC> WebApplicationInfo(final Application<WebClient<AC>, AC> webApplication) {
+  private <AS> WebApplicationInfo(final Application<WebClient<AS>, AS> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
 
-    final var applicationContext = webApplication.getStoredApplicationContext();
+    final AS applicationService = webApplication.getStoredApplicationService();
 
-    if (applicationContext instanceof IWebApplicationContext webApplicationContext) {
-      applicationLogo = webApplicationContext.getApplicationLogo();
+    if (applicationService instanceof IWebApplicationService webApplicationService) {
+      applicationLogo = webApplicationService.getApplicationLogo();
     } else {
       applicationLogo = null;
     }
   }
 
-  public static <AC> WebApplicationInfo forWebApplication(final Application<WebClient<AC>, AC> webApplication) {
+  public static <AS> WebApplicationInfo forWebApplication(final Application<WebClient<AS>, AS> webApplication) {
     return new WebApplicationInfo(webApplication);
   }
 

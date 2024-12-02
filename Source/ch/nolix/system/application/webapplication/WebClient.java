@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
+public final class WebClient<AS> extends BaseWebClient<WebClient<AS>, AS> {
 
   private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
 
@@ -74,7 +74,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   }
 
   private void refreshCounterpartGui() {
-    ((WebClientSession<AC>) getStoredCurrentSession()).refresh();
+    ((WebClientSession<AS>) getStoredCurrentSession()).refresh();
   }
 
   private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
@@ -103,7 +103,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
     final var command = guiCommand.getNextNode();
     final var internalControlId = guiCommand.getSingleChildNodeHeader();
-    final var webClientSession = (WebClientSession<AC>) getStoredCurrentSession();
+    final var webClientSession = (WebClientSession<AS>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
     final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
@@ -141,7 +141,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
   private void runSetUserInputsCommand(final IChainedNode guiCommand) {
 
-    final var webClientSession = (WebClientSession<AC>) getStoredCurrentSession();
+    final var webClientSession = (WebClientSession<AS>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
 
@@ -166,7 +166,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
         refreshCounterpartGui();
         break;
       case REFRESH_SELF:
-        ((WebClientSession<AC>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
+        ((WebClientSession<AS>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
         break;
     }
   }

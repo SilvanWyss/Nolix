@@ -6,7 +6,7 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClient<AC>, AC> {
+public abstract class WebClientSession<AS> extends BaseWebClientSession<WebClient<AS>, AS> {
 
   private final IWebGui<?> webGui = new WebGui();
 

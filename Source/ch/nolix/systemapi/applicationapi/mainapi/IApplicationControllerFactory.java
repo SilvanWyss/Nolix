@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-public interface IApplicationControllerFactory<AC> {
+public interface IApplicationControllerFactory<AS> {
 
-  AC createApplicationController();
+  AS createApplicationController();
 }

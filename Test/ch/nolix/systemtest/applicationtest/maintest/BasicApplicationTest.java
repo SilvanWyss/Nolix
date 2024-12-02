@@ -14,19 +14,19 @@ final class BasicApplicationTest extends StandardTest {
   void testCase_withNameAndInitialSessionClassAndContext() {
 
     //setup
-    final var applicationContext = new VoidObject();
+    final var applicationService = new VoidObject();
 
     //execution
     @SuppressWarnings("unchecked")
     final var result = BasicApplication.withNameAndInitialSessionClassAndContext(
       "My application",
       TestSession.withClientClass(WebClient.class).getClass(),
-      applicationContext);
+      applicationService);
 
     //verification
     expect(result.getApplicationName()).isEqualTo("My application");
     expectNot(result.hasNameAddendum());
-    expect(result.getStoredApplicationContext()).is(applicationContext);
+    expect(result.getStoredApplicationService()).is(applicationService);
     expectNot(result.hasClientConnected());
   }
 }

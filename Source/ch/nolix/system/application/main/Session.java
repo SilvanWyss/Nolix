@@ -13,10 +13,10 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
  * @author Silvan Wyss
  * @version 2016-01-01
  * @param <BC> is the type of the {@link BackendClient} of a {@link Session}.
- * @param <AC> is the type of the context of the parent {@link Application} of
+ * @param <AS> is the type of the context of the parent {@link Application} of
  *             the parent {@link BackendClient} of a {@link Session}.
  */
-public abstract class Session<BC extends BackendClient<BC, AC>, AC>
+public abstract class Session<BC extends BackendClient<BC, AS>, AS>
 implements IRefreshableSubscriber {
 
   private BC parentClient;
@@ -42,8 +42,8 @@ implements IRefreshableSubscriber {
    * @return the context of the parent {@link Application} of the parent
    *         {@link Client} of the current {@link Session}.
    */
-  public final AC getStoredApplicationContext() {
-    return getStoredParentApplication().getStoredApplicationContext();
+  public final AS getStoredApplicationContext() {
+    return getStoredParentApplication().getStoredApplicationService();
   }
 
   /**
@@ -98,7 +98,7 @@ implements IRefreshableSubscriber {
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final void push(final Session<BC, AC> session) {
+  public final void push(final Session<BC, AS> session) {
     getStoredParentClient().internalPush(session);
   }
 
@@ -111,7 +111,7 @@ implements IRefreshableSubscriber {
    * @return the result from the given session.
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final <R> R pushAndGetResult(final Session<BC, AC> session) {
+  public final <R> R pushAndGetResult(final Session<BC, AS> session) {
     return getStoredParentClient().internalPushAndGetResult(session);
   }
 
@@ -124,7 +124,7 @@ implements IRefreshableSubscriber {
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final void setNext(final Session<BC, AC> session) {
+  public final void setNext(final Session<BC, AS> session) {
     getStoredParentClient().internalSetCurrentSession(session);
   }
 
@@ -209,7 +209,7 @@ implements IRefreshableSubscriber {
    * @return the parent {@link Application} of the parent {@link Client} of the
    *         current {@link Session}.
    */
-  private Application<BC, AC> getStoredParentApplication() {
+  private Application<BC, AS> getStoredParentApplication() {
     return getStoredParentClient().getStoredParentApplication();
   }
 }

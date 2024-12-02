@@ -26,13 +26,13 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @version 2016-01-01
  * @param <BC> is the type of the {@link BackendClient}s of a
  *             {@link Application}.
- * @param <AC> is the type of the application context of a {@link Application}.
+ * @param <AS> is the type of the application context of a {@link Application}.
  */
-public abstract class Application<BC extends BackendClient<BC, AC>, AC> implements IApplication<AC> {
+public abstract class Application<BC extends BackendClient<BC, AS>, AS> implements IApplication<AS> {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
-  private final AC applicationContext;
+  private final AS applicationService;
 
   private String nameAddendum;
 
@@ -43,14 +43,14 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
   /**
    * Creates a new {@link Application} with the given applicationContext.
    * 
-   * @param applicationContext
-   * @throws ArgumentIsNullException if the given applicationContext is null.
+   * @param applicationService
+   * @throws ArgumentIsNullException if the given applicationService is null.
    */
-  protected Application(final AC applicationContext) {
+  protected Application(final AS applicationService) {
 
-    GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
+    GlobalValidator.assertThat(applicationService).thatIsNamed("application context").isNotNull();
 
-    this.applicationContext = applicationContext;
+    this.applicationService = applicationService;
   }
 
   /**
@@ -108,8 +108,8 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
    * {@inheritDoc}
    */
   @Override
-  public final AC getStoredApplicationContext() {
-    return applicationContext;
+  public final AS getStoredApplicationService() {
+    return applicationService;
   }
 
   /**
@@ -173,8 +173,8 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC> implemen
    *         {@link Application}.
    */
   @SuppressWarnings("unchecked")
-  protected final Session<BC, AC> createInitialSession() {
-    return (Session<BC, AC>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
+  protected final Session<BC, AS> createInitialSession() {
+    return (Session<BC, AS>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
   }
 
   /**
