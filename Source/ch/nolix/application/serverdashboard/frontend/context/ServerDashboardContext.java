@@ -1,9 +1,9 @@
-package ch.nolix.application.serverdashboard.context;
+package ch.nolix.application.serverdashboard.frontend.context;
 
-import ch.nolix.application.serverdashboard.datamodel.WebApplicationInfo;
-import ch.nolix.application.serverdashboard.logic.WebApplicationExtractor;
-import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
-import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
+import ch.nolix.application.serverdashboard.backend.datamodel.WebApplicationInfo;
+import ch.nolix.application.serverdashboard.backend.logic.WebApplicationExtractor;
+import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.contextapi.IServerDashboardContext;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;

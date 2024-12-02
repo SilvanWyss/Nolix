@@ -1,4 +1,4 @@
-package ch.nolix.applicationapi.serverdashboardapi.datamodelapi;
+package ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi;
 
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;

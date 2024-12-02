@@ -1,8 +1,8 @@
-package ch.nolix.application.serverdashboard.webgui.application;
+package ch.nolix.application.serverdashboard.frontend.application;
 
-import ch.nolix.application.serverdashboard.context.ServerDashboardContext;
-import ch.nolix.application.serverdashboard.webgui.session.ServerDashboardSession;
-import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
+import ch.nolix.application.serverdashboard.frontend.context.ServerDashboardContext;
+import ch.nolix.application.serverdashboard.frontend.session.ServerDashboardSession;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.contextapi.IServerDashboardContext;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;

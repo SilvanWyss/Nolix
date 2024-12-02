@@ -1,4 +1,4 @@
-package ch.nolix.application.serverdashboard.logic;
+package ch.nolix.application.serverdashboard.backend.logic;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

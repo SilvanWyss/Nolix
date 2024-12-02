@@ -1,6 +1,6 @@
-package ch.nolix.application.serverdashboard.datamodel;
+package ch.nolix.application.serverdashboard.backend.datamodel;
 
-import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
+import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.main.Application;

@@ -1,10 +1,10 @@
-package ch.nolix.application.serverdashboard.webgui.session;
+package ch.nolix.application.serverdashboard.frontend.session;
 
-import ch.nolix.application.serverdashboard.webgui.style.StyleCatalogue;
-import ch.nolix.application.serverdashboard.webgui.webapplicationcomponent.WebApplicationComponent;
-import ch.nolix.application.serverdashboard.webgui.webapplicationcomponent.WebApplicationController;
-import ch.nolix.applicationapi.serverdashboardapi.contextapi.IServerDashboardContext;
-import ch.nolix.applicationapi.serverdashboardapi.datamodelapi.IWebApplicationInfo;
+import ch.nolix.application.serverdashboard.frontend.style.StyleCatalogue;
+import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationComponent;
+import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationController;
+import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.contextapi.IServerDashboardContext;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Label;

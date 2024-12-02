@@ -1,4 +1,4 @@
-package ch.nolix.application.serverdashboard.webgui.style;
+package ch.nolix.application.serverdashboard.frontend.style;
 
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
