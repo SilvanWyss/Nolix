@@ -2,9 +2,9 @@ package ch.nolix.techapitest.relationaldocapitest.baseapitest;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
 final class DataTypeTest extends StandardTest {
 

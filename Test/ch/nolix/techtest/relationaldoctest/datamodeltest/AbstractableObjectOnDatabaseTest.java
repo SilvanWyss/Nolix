@@ -2,12 +2,12 @@ package ch.nolix.techtest.relationaldoctest.datamodeltest;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.application.relationaldoc.backend.datamodel.AbstractableField;
+import ch.nolix.application.relationaldoc.backend.datamodel.AbstractableObject;
+import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalogue;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
-import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
-import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;
-import ch.nolix.tech.relationaldoc.datamodel.SchemaCatalogue;
 
 final class AbstractableObjectOnDatabaseTest extends StandardTest {
 
