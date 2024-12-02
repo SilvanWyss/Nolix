@@ -1,15 +1,16 @@
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.element.styletool.AttributeReplacer;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -20,6 +21,8 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @version 2016-02-01
  */
 public final class Style extends BaseStyle<IStyle> implements IStyle {
+
+  private static final AttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
   /**
    * Creates a new empty {@link Style}.
@@ -121,6 +124,24 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     }
 
     return new Style(allAttachingAttributes, getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IStyle withReplacedAttachingAttributes(
+    final IContainer<IPair<String, String>> attachingAttributeReplacements) {
+
+    final var replacedAttachingAttributes = //
+    ATTRIBUTE_REPLACER.getReplacedAttributesFromAttributesAndAttributeReplacements(
+      getAttachingAttributes().toStrings(),
+      attachingAttributeReplacements);
+
+    final var subStylesWithReplacedAttachingAttributes = //
+    getSubStyles().to(ss -> ss.withReplacedAttachingAttributes(attachingAttributeReplacements));
+
+    return new Style(replacedAttachingAttributes, subStylesWithReplacedAttachingAttributes);
   }
 
   /**

@@ -1,11 +1,11 @@
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
@@ -72,6 +72,20 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     final var allAttachingAttributes = ContainerView.forElementAndArray(attachingAttribute, attachingAttributes);
 
     return withAttachingAttributes(allAttachingAttributes);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S withReplacedAttachingAttributes(
+    final IPair<String, String> attachingAttributeReplacement,
+    @SuppressWarnings("unchecked") final IPair<String, String>... attachingAttributeReplacements) {
+
+    final var allAttachingAttributeReplacements = //
+    ContainerView.forElementAndArray(attachingAttributeReplacement, attachingAttributeReplacements);
+
+    return withReplacedAttachingAttributes(allAttachingAttributeReplacements);
   }
 
   /**

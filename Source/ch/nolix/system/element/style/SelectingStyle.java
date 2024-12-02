@@ -7,8 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.element.styletool.AttributeReplacer;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
@@ -19,6 +21,8 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 public final class SelectingStyle extends BaseSelectingStyle {
 
   public static final String TYPE_NAME = "SelectingStyle";
+
+  private static final AttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
   /**
    * Creates a new empty {@link SelectingStyle}.
@@ -150,7 +154,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public SelectingStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
+  public ISelectingStyleWithSelectors withAttachingAttributes(final IContainer<String> attachingAttributes) {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
@@ -182,6 +186,45 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISelectingStyleWithSelectors withReplacedAttachingAttributes(
+    final IContainer<IPair<String, String>> attachingAttributeReplacements) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    final var replacedAttachingAttributes = //
+    ATTRIBUTE_REPLACER.getReplacedAttributesFromAttributesAndAttributeReplacements(
+      getAttachingAttributes().toStrings(),
+      attachingAttributeReplacements);
+
+    final var subStylesWithReplacedAttachingAttributes = //
+    getSubStyles().to(ss -> ss.withReplacedAttachingAttributes(attachingAttributeReplacements));
+
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      replacedAttachingAttributes,
+      subStylesWithReplacedAttachingAttributes);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
 
@@ -203,6 +246,9 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISelectingStyleWithSelectors withSelectorRoles(final IContainer<String> selectorRoles) {
 
@@ -231,6 +277,9 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISelectingStyleWithSelectors withSelectorTokens(final IContainer<String> selectorTokens) {
 
@@ -259,6 +308,9 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSubStyles());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISelectingStyleWithSelectors withSelectorType(final String selectorType) {
 

@@ -1,6 +1,7 @@
 package ch.nolix.systemapi.elementapi.styleapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
@@ -53,6 +54,26 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    *                          valid.
    */
   S withAttachingAttributes(IContainer<String> attachingAttributes);
+
+  /**
+   * @param attachingAttributeReplacements
+   * @return a new {@link IStyle} from the current {@link IStyle} where the given
+   *         attachingAttributeReplacements replaced all the according attaching
+   *         attributes.
+   */
+  S withReplacedAttachingAttributes(IContainer<IPair<String, String>> attachingAttributeReplacements);
+
+  /**
+   * 
+   * @param attachingAttributeReplacement
+   * @param attachingAttributeReplacements
+   * @return a new {@link IStyle} from the current {@link IStyle} where the given
+   *         attributeAttributeReplacement and attachingAttributeReplacements
+   *         replaced all the according attachingAttributes.
+   */
+  S withReplacedAttachingAttributes(
+    IPair<String, String> attachingAttributeReplacement,
+    @SuppressWarnings("unchecked") IPair<String, String>... attachingAttributeReplacements);
 
   /**
    * @param subStyle
