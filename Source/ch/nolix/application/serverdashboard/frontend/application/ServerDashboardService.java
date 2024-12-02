@@ -1,7 +1,7 @@
 package ch.nolix.application.serverdashboard.frontend.application;
 
 import ch.nolix.application.serverdashboard.backend.datamodel.WebApplicationInfo;
-import ch.nolix.application.serverdashboard.backend.logic.WebApplicationExtractor;
+import ch.nolix.application.serverdashboard.backend.datatool.WebApplicationExtractor;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.applicationapi.serverdashboardapi.frontendapi.applicationapi.IServerDashboardService;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
