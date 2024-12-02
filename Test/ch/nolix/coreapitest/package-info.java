@@ -1,4 +1,3 @@
-//package info
 /**
  * The {@link ch.nolix.coreapitest} package defines tests for the
  * {@link ch.nolix.coreapi} package.

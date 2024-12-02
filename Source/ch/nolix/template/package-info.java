@@ -1,4 +1,3 @@
-//package info
 /**
  * The {@link ch.nolix.template} package defines templates. For example GUI
  * styles.

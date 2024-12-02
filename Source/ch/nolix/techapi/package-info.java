@@ -1,4 +1,3 @@
-//package info
 /**
  * The {@link ch.nolix.techapi} package defines types for technical purpose. For
  * example fractal builders.

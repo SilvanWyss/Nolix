@@ -1,4 +1,3 @@
-//package info
 /**
  * The {@link ch.nolix.templatetest} package defines tests for the
  * {@link ch.nolix.template} package.

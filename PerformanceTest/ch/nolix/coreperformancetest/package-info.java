@@ -1,4 +1,3 @@
-//package info
 /**
  * The {@link ch.nolix.coreperformancetest} package defines performance tests
  * for the {@link ch.nolix.core} package.
