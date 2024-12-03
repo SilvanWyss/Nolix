@@ -1,4 +1,4 @@
-package ch.nolix.techtest.serverdashboardtest;
+package ch.nolix.applicationtest.serverdashboardtest.backendtest.datatooltest;
 
 import org.junit.jupiter.api.Test;
 

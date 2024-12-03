@@ -1,4 +1,4 @@
-package ch.nolix.techtest.relationaldoctest.datamodeltest;
+package ch.nolix.applicationtest.relationaldoctest.backendtest.datamodeltest;
 
 import org.junit.jupiter.api.Test;
 
