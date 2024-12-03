@@ -24,16 +24,6 @@ public final class ArrayView<E> extends Container<E> {
   private final E[] array;
 
   /**
-   * Creates a new {@link ArrayView} for a new empty array.
-   */
-  @SuppressWarnings("unchecked")
-  public ArrayView() {
-
-    //Calls other constructor.
-    this((E[]) new Object[0]);
-  }
-
-  /**
    * Creates a new {@link ArrayView} for the given array.
    * 
    * @param array
@@ -41,14 +31,19 @@ public final class ArrayView<E> extends Container<E> {
    */
   private ArrayView(final E[] array) {
 
-    //Asserts that the given array is not null.
-    GlobalValidator
-      .assertThat(array)
-      .thatIsNamed(LowerCaseVariableCatalogue.ARRAY)
-      .isNotNull();
+    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
 
-    //Sets the array of the current ArrayView.
     this.array = array; //NOSONAR: An ArrayView operates on the original instance.
+  }
+
+  /**
+   * @return a new {@link ArrayView} for a new empty array.
+   * @param <E2> is the types of the elements of the array of the
+   *             {@link ArrayView}.
+   */
+  @SuppressWarnings("unchecked")
+  public static <E2> ArrayView<E2> createEmpty() {
+    return forArray((E2[]) new Object[0]);
   }
 
   /**
@@ -75,12 +70,7 @@ public final class ArrayView<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
-
-    GlobalValidator
-      .assertThat(param1BasedIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
-      .isNotBiggerThan(getCount());
+    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
 
     return array[param1BasedIndex - 1];
   }
@@ -105,12 +95,12 @@ public final class ArrayView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
+  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> comparableMapper) {
+    return LinkedList.fromIterable(this).toOrderedList(comparableMapper);
   }
 
   /**
-   * @return a {@link String} representation of the current {@link ArrayView}.
+   * {@inheritDoc}
    */
   @Override
   public String toString() {

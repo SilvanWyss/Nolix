@@ -31,6 +31,6 @@ final class ArrayViewTest extends ContainerTest {
 
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
-    return new ArrayView<>();
+    return ArrayView.createEmpty();
   }
 }
