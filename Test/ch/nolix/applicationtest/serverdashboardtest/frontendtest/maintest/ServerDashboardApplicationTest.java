@@ -2,7 +2,7 @@ package ch.nolix.applicationtest.serverdashboardtest.frontendtest.maintest;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.application.serverdashboard.frontend.application.ServerDashboardApplication;
+import ch.nolix.application.serverdashboard.frontend.main.ServerDashboardApplication;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.LocalServer;
 

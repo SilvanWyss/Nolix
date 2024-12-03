@@ -1,7 +1,7 @@
 package ch.nolix.application.serverdashboard.frontend.webapplicationcomponent;
 
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
-import ch.nolix.applicationapi.serverdashboardapi.frontendapi.applicationapi.IServerDashboardService;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDashboardService;
 import ch.nolix.system.application.component.Component;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.MutableImage;

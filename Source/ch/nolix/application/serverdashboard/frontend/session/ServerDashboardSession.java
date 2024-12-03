@@ -4,7 +4,7 @@ import ch.nolix.application.serverdashboard.frontend.style.StyleCatalogue;
 import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationComponent;
 import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationController;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
-import ch.nolix.applicationapi.serverdashboardapi.frontendapi.applicationapi.IServerDashboardService;
+import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDashboardService;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Label;
