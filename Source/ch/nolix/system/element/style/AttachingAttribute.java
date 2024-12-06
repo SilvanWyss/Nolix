@@ -2,6 +2,8 @@ package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -50,11 +52,28 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return withValue(attachingAttribute.getValue());
   }
 
+  public static AttachingAttribute fromSpecification(final INode<?> specification) {
+
+    final var attributes = specification.getStoredChildNodes();
+
+    return //
+    switch (attributes.getCount()) {
+
+      case 1 -> withValue(attributes.getStoredAt1BasedIndex(1).getStoredSingleChildNode());
+
+      //TODO: Implement.
+      case 2 -> throw UnsupportedCaseException.forCase(LowerCaseVariableCatalogue.TAG);
+
+      default -> throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION,
+        specification);
+    };
+  }
+
   public static AttachingAttribute withTagAndValue(final Enum<?> tag, final INode<?> value) {
     return new AttachingAttribute(tag, value);
   }
 
-  public static Object withTagAndValue(final Enum<?> tag, final String value) {
+  public static AttachingAttribute withTagAndValue(final Enum<?> tag, final String value) {
     return new AttachingAttribute(tag, Node.fromString(value));
   }
 
@@ -72,7 +91,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
       attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.TAG, optionalTag.toString()));
     }
 
-    attributes.addAtEnd(value);
+    attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.VALUE, value));
 
     return attributes;
   }
