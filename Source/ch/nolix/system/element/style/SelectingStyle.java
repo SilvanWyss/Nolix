@@ -221,6 +221,42 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * {@inheritDoc}
    */
   @Override
+  public ISelectingStyleWithSelectors withReplacedTaggedAttachingAttributes(
+    final IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    final var replacedAttachingAttributes = //
+    ATTRIBUTE_REPLACER.getReplacedTaggedAttributesFromAttributesAndAttributeReplacements(
+      getAttachingAttributes(),
+      attachingAttributeReplacements);
+
+    final var subStylesWithReplacedAttachingAttributes = //
+    getSubStyles().to(ss -> ss.withReplacedTaggedAttachingAttributes(attachingAttributeReplacements));
+
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      replacedAttachingAttributes,
+      subStylesWithReplacedAttachingAttributes);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
 
     GlobalValidator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();

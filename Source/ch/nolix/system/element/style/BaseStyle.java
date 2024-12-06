@@ -113,6 +113,20 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
    * {@inheritDoc}
    */
   @Override
+  public final S withReplacedTaggedAttachingAttributes(
+    final IPair<Enum<?>, String> attachingAttributeReplacement,
+    @SuppressWarnings("unchecked") final IPair<Enum<?>, String>... attachingAttributeReplacements) {
+
+    final var allAttachingAttributeReplacements = //
+    ContainerView.forElementAndArray(attachingAttributeReplacement, attachingAttributeReplacements);
+
+    return withReplacedTaggedAttachingAttributes(allAttachingAttributeReplacements);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S withSubStyle(
     final ISelectingStyleWithSelectors subStyle,
     final ISelectingStyleWithSelectors... subStyles) {

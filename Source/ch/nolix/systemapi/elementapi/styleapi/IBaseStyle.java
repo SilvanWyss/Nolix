@@ -91,6 +91,26 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
     @SuppressWarnings("unchecked") IPair<String, String>... attachingAttributeReplacements);
 
   /**
+   * @param attachingAttributeReplacements
+   * @return a new {@link IStyle} from the current {@link IStyle} where the given
+   *         attachingAttributeReplacements replaced all the according attaching
+   *         attributes.
+   */
+  S withReplacedTaggedAttachingAttributes(IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements);
+
+  /**
+   * 
+   * @param attachingAttributeReplacement
+   * @param attachingAttributeReplacements
+   * @return a new {@link IStyle} from the current {@link IStyle} where the given
+   *         attributeAttributeReplacement and attachingAttributeReplacements
+   *         replaced all the according attachingAttributes.
+   */
+  S withReplacedTaggedAttachingAttributes(
+    IPair<Enum<?>, String> attachingAttributeReplacement,
+    @SuppressWarnings("unchecked") IPair<Enum<?>, String>... attachingAttributeReplacements);
+
+  /**
    * @param subStyle
    * @param subStyles
    * @return a new {@link IStyle} from the current {@link IStyle} with the given

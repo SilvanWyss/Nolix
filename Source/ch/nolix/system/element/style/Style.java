@@ -144,6 +144,24 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
+  public IStyle withReplacedTaggedAttachingAttributes(
+    final IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements) {
+
+    final var replacedAttachingAttributes = //
+    ATTRIBUTE_REPLACER.getReplacedTaggedAttributesFromAttributesAndAttributeReplacements(
+      getAttachingAttributes(),
+      attachingAttributeReplacements);
+
+    final var subStylesWithReplacedAttachingAttributes = //
+    getSubStyles().to(ss -> ss.withReplacedTaggedAttachingAttributes(attachingAttributeReplacements));
+
+    return new Style(replacedAttachingAttributes, subStylesWithReplacedAttachingAttributes);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
     final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();
