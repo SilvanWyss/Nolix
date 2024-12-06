@@ -71,6 +71,29 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   S withAttachingAttributes(IContainer<? extends IAttachingAttribute> attachingAttributes);
 
   /**
+   * @param selectorType
+   * @param newAttachingAttributes
+   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
+   *         each of the given newAttachingAttributes was either added or updated
+   *         the according attachingAttributes where the given selectorType is.
+   */
+  S withNewAttachingAttributesWhereSelectorType(Class<?> selectorType, IContainer<String> newAttachingAttributes);
+
+  /**
+   * @param selectorType
+   * @param newAttachingAttribute
+   * @param newAttachingAttributes
+   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
+   *         the newAttachingAttribute and each of the given
+   *         newAttachingAttributes either was added or updated the according
+   *         attachingAttributes where the given selectorType is.
+   */
+  S withNewAttachingAttributesWhereSelectorType(
+    Class<?> selectorType,
+    String newAttachingAttribute,
+    String... newAttachingAttributes);
+
+  /**
    * @param attachingAttributeReplacements
    * @return a new {@link IStyle} from the current {@link IStyle} where the given
    *         attachingAttributeReplacements replaced all the according attaching
@@ -79,7 +102,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   S withReplacedAttachingAttributes(IContainer<IPair<String, String>> attachingAttributeReplacements);
 
   /**
-   * 
    * @param attachingAttributeReplacement
    * @param attachingAttributeReplacements
    * @return a new {@link IStyle} from the current {@link IStyle} where the given
@@ -99,7 +121,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   S withReplacedTaggedAttachingAttributes(IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements);
 
   /**
-   * 
    * @param attachingAttributeReplacement
    * @param attachingAttributeReplacements
    * @return a new {@link IStyle} from the current {@link IStyle} where the given

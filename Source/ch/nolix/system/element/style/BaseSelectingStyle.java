@@ -141,6 +141,12 @@ implements ISelectingStyleWithSelectors {
     return (selectorType != null);
   }
 
+  public final boolean hasSelectorType(final Class<?> selectorType) {
+    return //
+    selectorType != null
+    && hasSelectorType(selectorType.getSimpleName());
+  }
+
   public final boolean hasSelectorType(final String selectorType) {
 
     if (!hasSelectorType()) {

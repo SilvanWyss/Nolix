@@ -10,10 +10,13 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.element.styletool.AttributeMerger;
 import ch.nolix.system.element.styletool.AttributeReplacer;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeMerger;
+import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +26,9 @@ public final class SelectingStyle extends BaseSelectingStyle {
 
   public static final String TYPE_NAME = "SelectingStyle";
 
-  private static final AttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
+  private static final IAttributeMerger ATTRIBUTE_MERGER = new AttributeMerger();
+
+  private static final IAttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
   /**
    * Creates a new empty {@link SelectingStyle}.
@@ -179,6 +184,46 @@ public final class SelectingStyle extends BaseSelectingStyle {
       getSelectorTokens(),
       allAttachingAttributes,
       getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISelectingStyleWithSelectors withNewAttachingAttributesWhereSelectorType(
+    final Class<?> selectorType,
+    final IContainer<String> newAttachingAttributes) {
+
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    IContainer<? extends IAttachingAttribute> attachingAttributes;
+
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+
+    if (hasSelectorType(selectorType)) {
+      attachingAttributes = //
+      ATTRIBUTE_MERGER.getAttributesMergedWithNewAttributes(getAttachingAttributes(), newAttachingAttributes);
+    } else {
+      attachingAttributes = getAttachingAttributes();
+    }
+
+    final var subStylesWithNewAttachingAttributes = //
+    getSubStyles().to(ss -> ss.withNewAttachingAttributesWhereSelectorType(selectorType, newAttachingAttributes));
+
+    return //
+    new DeepSelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      getSelectorRoles(),
+      getSelectorTokens(),
+      attachingAttributes,
+      subStylesWithNewAttachingAttributes);
   }
 
   /**

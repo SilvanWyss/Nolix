@@ -95,6 +95,18 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     return withAttachingAttributes(allAttachingAttributes);
   }
 
+  @Override
+  public final S withNewAttachingAttributesWhereSelectorType(
+    final Class<?> selectorType,
+    final String newAttachingAttribute,
+    final String... newAttachingAttributes) {
+
+    final var allNewAttachingAttribtues = //
+    ContainerView.forElementAndArray(newAttachingAttribute, newAttachingAttributes);
+
+    return withNewAttachingAttributesWhereSelectorType(selectorType, allNewAttachingAttribtues);
+  }
+
   /**
    * {@inheritDoc}
    */

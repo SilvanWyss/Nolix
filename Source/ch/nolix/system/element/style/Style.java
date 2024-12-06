@@ -17,6 +17,7 @@ import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
+import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
 
 /**
  * @author Silvan Wyss
@@ -24,7 +25,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  */
 public final class Style extends BaseStyle<IStyle> implements IStyle {
 
-  private static final AttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
+  private static final IAttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
   /**
    * Creates a new empty {@link Style}.
@@ -120,6 +121,20 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
     final var allAttachingAttributes = ContainerView.forIterable(getAttachingAttributes(), attachingAttributes);
 
     return new Style(allAttachingAttributes, getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IStyle withNewAttachingAttributesWhereSelectorType(
+    final Class<?> selectorType,
+    final IContainer<String> newAttachingAttributes) {
+
+    final var subStylesWtihNewAttachingAttribtues = //
+    getSubStyles().to(ss -> ss.withNewAttachingAttributesWhereSelectorType(selectorType, newAttachingAttributes));
+
+    return new Style(getAttachingAttributes(), subStylesWtihNewAttachingAttribtues);
   }
 
   /**
