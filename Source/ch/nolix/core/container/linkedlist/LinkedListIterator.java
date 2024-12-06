@@ -33,7 +33,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> getCopy() {
+  public CopyableIterator<E> createCopy() {
     return withNullableFirstNode(nextNode);
   }
 

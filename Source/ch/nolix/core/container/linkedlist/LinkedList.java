@@ -304,7 +304,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public ILinkedList<E> getCopy() {
+  public ILinkedList<E> createCopy() {
 
     //Creates a LinkedList.
     final var copy = new LinkedList<E>();

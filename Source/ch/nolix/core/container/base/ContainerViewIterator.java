@@ -63,7 +63,7 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> getCopy() {
+  public CopyableIterator<E> createCopy() {
     return new ContainerViewIterator<>(parentContainer, currentIndex, endIndex);
   }
 

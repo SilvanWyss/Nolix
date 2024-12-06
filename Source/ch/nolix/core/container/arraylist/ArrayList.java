@@ -162,7 +162,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    * {@inheritDoc}
    */
   @Override
-  public IArrayList<E> getCopy() {
+  public IArrayList<E> createCopy() {
     return withElements(elements);
   }
 

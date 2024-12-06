@@ -41,7 +41,7 @@ final class IterableViewIterator<E> implements CopyableIterator<E> {
   }
 
   @Override
-  public CopyableIterator<E> getCopy() {
+  public CopyableIterator<E> createCopy() {
     return new IterableViewIterator<>(parentIterable, iterationCount);
   }
 

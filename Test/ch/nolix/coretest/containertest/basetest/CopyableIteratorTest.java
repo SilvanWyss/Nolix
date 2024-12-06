@@ -29,7 +29,7 @@ public abstract class CopyableIteratorTest extends StandardTest {
     GlobalSequencer.forCount(4).run(testUnit::next);
 
     //execution
-    final var result = testUnit.getCopy();
+    final var result = testUnit.createCopy();
 
     //verification
     expect(testUnit.next()).is(rhino);

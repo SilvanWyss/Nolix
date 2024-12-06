@@ -40,7 +40,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
   }
 
   @Override
-  public CopyableIterator<E> getCopy() {
+  public CopyableIterator<E> createCopy() {
     return forArrayAndStartIndex(parentArray, nextIndex);
   }
 

@@ -12,8 +12,8 @@ final class CachingContainerIterator<E> implements CopyableIterator<E> {
   }
 
   @Override
-  public CopyableIterator<E> getCopy() {
-    return new CachingContainerIterator<>(parentCachingContainerIterator.getCopy());
+  public CopyableIterator<E> createCopy() {
+    return new CachingContainerIterator<>(parentCachingContainerIterator.createCopy());
   }
 
   @Override

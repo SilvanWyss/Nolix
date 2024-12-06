@@ -73,7 +73,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> getCopy() {
+  public CopyableIterator<E> createCopy() {
     return forMatrixAnd1BasedStartIndex(parentMatrix, nextElement1BasedIndex);
   }
 

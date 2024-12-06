@@ -10,7 +10,7 @@ package ch.nolix.coreapi.programstructureapi.builderapi;
 public interface Copyable<C extends Copyable<C>> {
 
   /**
-   * @return a copy of the current {@link Copyable}.
+   * @return a new copy of the current {@link Copyable}.
    */
-  C getCopy();
+  C createCopy();
 }
