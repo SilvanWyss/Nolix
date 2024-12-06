@@ -8,15 +8,12 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
 
-public interface IField extends EmptinessRequestable, IDatabaseObject, MandatorynessRequestable, INameHolder {
-
-  boolean belongsToEntity();
+public interface IField
+extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, MandatorynessRequestable {
 
   IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences();
 
   IColumn getStoredParentColumn();
-
-  IEntity getStoredParentEntity();
 
   IContainer<IField> getStoredReferencingFields();
 
