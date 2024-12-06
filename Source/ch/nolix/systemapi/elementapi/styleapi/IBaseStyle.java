@@ -33,6 +33,12 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
 
   /**
+   * @return true if the current {@link IBaseStyle} has attaching attributes,
+   *         false otherwise.
+   */
+  boolean hasAttachingAttributes();
+
+  /**
    * @param tag
    * @param value
    * @return a new {@link IStyle} from the current {@link IStyle} with an

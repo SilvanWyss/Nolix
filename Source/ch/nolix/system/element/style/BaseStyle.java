@@ -59,8 +59,9 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
   }
 
   /**
-   * @return true if the current {@link BaseStyle} has attaching attributes.
+   * {@inheritDoc}
    */
+  @Override
   public final boolean hasAttachingAttributes() {
     return attachingAttributes.containsAny();
   }
