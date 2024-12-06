@@ -35,4 +35,36 @@ public final class AttributeReplacer implements IAttributeReplacer {
 
     return replacedAttributes;
   }
+
+  @Override
+  public IContainer<IAttachingAttribute> getReplacedTaggedAttributesFromAttributesAndAttributeReplacements(
+    final IContainer<? extends IAttachingAttribute> attributes,
+    final IContainer<IPair<Enum<?>, String>> attributeReplacements) {
+
+    final IArrayList<IAttachingAttribute> replacedAttributes = ArrayList.withInitialCapacity(attributes.getCount());
+
+    for (final var a : attributes) {
+
+      if (a.hasTag()) {
+
+        final var attributeTag = a.getTag();
+
+        final var attributeReplacement = //
+        attributeReplacements.getOptionalStoredFirst(ar -> ar.getStoredElement1().equals(attributeTag));
+
+        if (attributeReplacement.isPresent()) {
+
+          final var replacingAttribute = a.withValue(attributeReplacement.get().getStoredElement2());
+
+          replacedAttributes.addAtEnd(replacingAttribute);
+        } else {
+          replacedAttributes.addAtEnd(a);
+        }
+      } else {
+        replacedAttributes.addAtEnd(a);
+      }
+    }
+
+    return replacedAttributes;
+  }
 }
