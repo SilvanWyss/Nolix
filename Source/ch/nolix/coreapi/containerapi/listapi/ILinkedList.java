@@ -3,7 +3,7 @@ package ch.nolix.coreapi.containerapi.listapi;
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programstructureapi.builderapi.Copyable;
+import ch.nolix.coreapi.programstructureapi.copierapi.Copyable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 /**
