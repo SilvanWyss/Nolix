@@ -81,6 +81,10 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return new AttachingAttribute(value);
   }
 
+  public static AttachingAttribute withValue(final String value) {
+    return new AttachingAttribute(Node.fromString(value));
+  }
+
   //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public IContainer<INode<?>> getAttributes() {
