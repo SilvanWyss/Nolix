@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.programstructureapi.builderapi;
 
 /**
- * A {@link Copyable} can be copied.
+ * A {@link Copyable} can create a copy of itself.
  * 
  * @author Silvan Wyss
  * @version 2023-02-12

@@ -102,7 +102,7 @@ final class NodeDataAdapterTest extends StandardTest {
     expect(testUnit.hasChanges());
 
     //execution
-    final var result = testUnit.getEmptyCopy();
+    final var result = testUnit.createEmptyCopy();
 
     //verification
     expect(testUnit.hasChanges());

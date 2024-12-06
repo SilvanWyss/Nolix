@@ -43,7 +43,7 @@ public final class NodeDataAdapter extends DataAdapter {
   }
 
   @Override
-  public DataAdapter getEmptyCopy() {
+  public DataAdapter createEmptyCopy() {
     return forNodeDatabase(nodeDatabase).withName(getDatabaseName()).andSchema(getSchema());
   }
 }

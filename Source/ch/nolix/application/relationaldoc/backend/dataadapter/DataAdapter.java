@@ -51,8 +51,8 @@ public final class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public IDataAdapter getEmptyCopy() {
-    return new DataAdapter(internalDataAdapter.getEmptyCopy());
+  public IDataAdapter createEmptyCopy() {
+    return new DataAdapter(internalDataAdapter.createEmptyCopy());
   }
 
   @Override

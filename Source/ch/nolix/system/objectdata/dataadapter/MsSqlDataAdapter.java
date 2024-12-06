@@ -49,7 +49,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
   }
 
   @Override
-  public DataAdapter getEmptyCopy() {
+  public DataAdapter createEmptyCopy() {
     return new MsSqlDataAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);
   }
 }
