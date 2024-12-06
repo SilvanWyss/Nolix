@@ -1,18 +1,18 @@
 package ch.nolix.system.element.styletool;
 
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
+import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 
 public final class AttributeReplacer {
 
-  public IContainer<Node> getReplacedAttributesFromAttributesAndAttributeReplacements(
-    final IContainer<String> attributes,
+  public IContainer<IAttachingAttribute> getReplacedAttributesFromAttributesAndAttributeReplacements(
+    final IContainer<? extends IAttachingAttribute> attributes,
     final IContainer<IPair<String, String>> attributeReplacements) {
 
-    final IArrayList<Node> replacedAttributes = ArrayList.withInitialCapacity(attributes.getCount());
+    final IArrayList<IAttachingAttribute> replacedAttributes = ArrayList.withInitialCapacity(attributes.getCount());
 
     for (final var a : attributes) {
 
@@ -20,9 +20,12 @@ public final class AttributeReplacer {
       attributeReplacements.getOptionalStoredFirst(ar -> ar.getStoredElement1().equals(a));
 
       if (attributeReplacement.isPresent()) {
-        replacedAttributes.addAtEnd(Node.fromString(attributeReplacement.get().getStoredElement2()));
+
+        final var replacingAttribute = a.withValue(attributeReplacement.get().getStoredElement2());
+
+        replacedAttributes.addAtEnd(replacingAttribute);
       } else {
-        replacedAttributes.addAtEnd(Node.fromString(a));
+        replacedAttributes.addAtEnd(a);
       }
     }
 

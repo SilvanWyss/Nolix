@@ -2,12 +2,13 @@ package ch.nolix.system.element.style;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.Node;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.base.Element;
+import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -21,7 +22,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
 
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
-  private final ImmutableList<Node> attachingAttributes;
+  private final ImmutableList<AttachingAttribute> attachingAttributes;
 
   private final ImmutableList<BaseSelectingStyle> subStyles;
 
@@ -32,10 +33,11 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
    * @param subStyles
    */
   protected BaseStyle(
-    final IContainer<? extends INode<?>> attachingAttributes,
+    final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
-    this.attachingAttributes = ImmutableList.forIterable(attachingAttributes.to(Node::fromNode));
+    this.attachingAttributes = //
+    ImmutableList.forIterable(attachingAttributes.to(AttachingAttribute::fromAttachingAttribute));
 
     this.subStyles = ImmutableList.forIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
   }
@@ -44,7 +46,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends INode<?>> getAttachingAttributes() {
+  public final IContainer<? extends IAttachingAttribute> getAttachingAttributes() {
     return attachingAttributes;
   }
 
@@ -67,9 +69,27 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
    * {@inheritDoc}
    */
   @Override
+  public final S withAttachingAttribute(final Enum<?> tag, final String value) {
+
+    final var attachingAttribute = AttachingAttribute.forTagAndValue(tag, value);
+    final var attachingAttribtues = ImmutableList.withElement(attachingAttribute);
+
+    return withAttachingAttributes(attachingAttribtues);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
 
-    final var allAttachingAttributes = ContainerView.forElementAndArray(attachingAttribute, attachingAttributes);
+    final ILinkedList<IAttachingAttribute> allAttachingAttributes = LinkedList.createEmpty();
+
+    allAttachingAttributes.addAtEnd(AttachingAttribute.forValue(attachingAttribute));
+
+    for (final var a : attachingAttributes) {
+      allAttachingAttributes.addAtEnd(AttachingAttribute.forValue(a));
+    }
 
     return withAttachingAttributes(allAttachingAttributes);
   }
@@ -113,7 +133,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
   protected final void setAttachingAttributesToElement(IStylableElement<?> element) {
     for (final var aa : getAttachingAttributes()) {
       try {
-        element.addOrChangeAttribute(aa);
+        element.addOrChangeAttribute(aa.getValue());
       } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(

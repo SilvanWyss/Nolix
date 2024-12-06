@@ -1,8 +1,8 @@
 package ch.nolix.system.element.style;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -11,6 +11,7 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.element.styletool.AttributeReplacer;
+import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
@@ -47,7 +48,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     final String optionalSelectorType,
     final IContainer<String> selectorRoles,
     final IContainer<String> selectorTokens,
-    final IContainer<? extends INode<?>> attachingAttributes,
+    final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(
       optionalSelectorId,
@@ -69,7 +70,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     String optionalSelectorType = null;
     final ILinkedList<String> selectorRoles = LinkedList.createEmpty();
     final ILinkedList<String> selectorTokens = LinkedList.createEmpty();
-    final ILinkedList<INode<?>> attachingAttributes = LinkedList.createEmpty();
+    final ILinkedList<IAttachingAttribute> attachingAttributes = LinkedList.createEmpty();
     final ILinkedList<BaseSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
@@ -87,7 +88,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
           selectorTokens.addAtEnd(a.getSingleChildNodeHeader());
           break;
         case ATTACHING_ATTRIBUTE_HEADER:
-          attachingAttributes.addAtEnd(a.getStoredSingleChildNode());
+          attachingAttributes.addAtEnd(AttachingAttribute.fromSpecification(a));
           break;
         case SelectingStyle.TYPE_NAME:
           subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
@@ -137,11 +138,11 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAttachingAttributes(final IContainer<String> attachingAttributes) {
+  public ISelectingStyleWithSelectors withAttachingAttributes(
+    final IContainer<? extends IAttachingAttribute> attachingAttributes) {
 
     String optionalSelectorId = null;
     String optionalSelectorType = null;
-    final ILinkedList<INode<?>> allAttachingAttributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
@@ -151,13 +152,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
       optionalSelectorType = getSelectorType();
     }
 
-    for (final var aa : getAttachingAttributes()) {
-      allAttachingAttributes.addAtEnd(Node.fromNode(aa));
-    }
-
-    for (final var aa : attachingAttributes) {
-      allAttachingAttributes.addAtEnd(Node.fromString(aa));
-    }
+    final var allAttachingAttributes = ContainerView.forIterable(getAttachingAttributes(), attachingAttributes);
 
     return //
     new DeepSelectingStyle(
@@ -189,7 +184,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 
     final var replacedAttachingAttributes = //
     ATTRIBUTE_REPLACER.getReplacedAttributesFromAttributesAndAttributeReplacements(
-      getAttachingAttributes().toStrings(),
+      getAttachingAttributes(),
       attachingAttributeReplacements);
 
     final var subStylesWithReplacedAttachingAttributes = //

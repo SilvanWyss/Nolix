@@ -2,7 +2,6 @@ package ch.nolix.systemapi.elementapi.styleapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 /**
@@ -26,12 +25,22 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
-  IContainer<? extends INode<?>> getAttachingAttributes();
+  IContainer<? extends IAttachingAttribute> getAttachingAttributes();
 
   /**
    * @return the sub styles of the current {@link IBaseStyle}.
    */
   IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
+
+  /**
+   * @param tag
+   * @param value
+   * @return a new {@link IStyle} from the current {@link IStyle} with an
+   *         attaching attribute added that has the given tag and value.
+   * @throws RuntimeException if the given tag is null.
+   * @throws RuntimeException if the given attachingAttribute is not valid.
+   */
+  S withAttachingAttribute(Enum<?> tag, String value);
 
   /**
    * @param attachingAttribute
@@ -53,7 +62,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
    */
-  S withAttachingAttributes(IContainer<String> attachingAttributes);
+  S withAttachingAttributes(IContainer<? extends IAttachingAttribute> attachingAttributes);
 
   /**
    * @param attachingAttributeReplacements

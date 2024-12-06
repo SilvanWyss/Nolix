@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.system.element.style.AttachingAttribute;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.element.style.Style;
@@ -61,8 +62,8 @@ final class StyleTest extends StandardTest {
     //setup part 2: create testUnit
     final var testUnit = new Style(
       ImmutableList.withElement(
-        Node.fromString("Title(my_title)"),
-        Node.fromString("Background(Color(Blue))")),
+        AttachingAttribute.forValue("Title(my_title)"),
+        AttachingAttribute.forValue("Background(Color(Blue))")),
       ImmutableList.createEmpty());
 
     //execution
