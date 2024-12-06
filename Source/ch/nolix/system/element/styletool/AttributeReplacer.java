@@ -5,9 +5,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
+import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
 
-public final class AttributeReplacer {
+public final class AttributeReplacer implements IAttributeReplacer {
 
+  @Override
   public IContainer<IAttachingAttribute> getReplacedAttributesFromAttributesAndAttributeReplacements(
     final IContainer<? extends IAttachingAttribute> attributes,
     final IContainer<IPair<String, String>> attributeReplacements) {
@@ -16,8 +18,10 @@ public final class AttributeReplacer {
 
     for (final var a : attributes) {
 
+      final var attributeValue = a.getValue().toString();
+
       final var attributeReplacement = //
-      attributeReplacements.getOptionalStoredFirst(ar -> ar.getStoredElement1().equals(a));
+      attributeReplacements.getOptionalStoredFirst(ar -> ar.getStoredElement1().equals(attributeValue));
 
       if (attributeReplacement.isPresent()) {
 
