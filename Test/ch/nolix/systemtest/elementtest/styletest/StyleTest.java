@@ -45,9 +45,9 @@ final class StyleTest extends StandardTest {
     final var result = Style.fromSpecification(specification);
 
     //verification
-    expect(result.getAttachingAttributes()).containsExactlyEqualing(
-      Node.withHeader("test_attaching_attribute_1"),
-      Node.withHeader("test_attaching_attribute_2"));
+    expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing(
+      "AttachingAttribute(test_attaching_attribute_1)",
+      "AttachingAttribute(test_attaching_attribute_2)");
     expect(result.getSubStyles()).containsExactlyEqualing(
       new SelectingStyle(),
       new DeepSelectingStyle());
@@ -84,7 +84,9 @@ final class StyleTest extends StandardTest {
     final var result = testUnit.withAttachingAttribute("p1(v1)", "p2(v2)");
 
     //verification
-    expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing("p1(v1)", "p2(v2)");
+    expect(result.getAttachingAttributes()
+      .toStrings())
+      .containsExactlyEqualing("AttachingAttribute(p1(v1))", "AttachingAttribute(p2(v2))");
     expect(result.getSubStyles()).isEmpty();
   }
 
@@ -118,7 +120,11 @@ final class StyleTest extends StandardTest {
 
     //verification
     expect(result.getAttachingAttributes().toStrings())
-      .containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
+      .containsExactlyEqualing(
+        "AttachingAttribute(p1(v1))",
+        "AttachingAttribute(p2(v2))",
+        "AttachingAttribute(p3(v3))",
+        "AttachingAttribute(p4(v4))");
     expect(result.getSubStyles()).isEmpty();
   }
 
