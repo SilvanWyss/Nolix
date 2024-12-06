@@ -76,7 +76,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return //
     switch (attributes.getCount()) {
 
-      case 1 -> forValue(attributes.getStoredAt1BasedIndex(1).getStoredSingleChildNode());
+      case 1 -> forValue(attributes.getStoredAt1BasedIndex(1));
 
       //TODO: Implement.
       case 2 -> throw UnsupportedCaseException.forCase(LowerCaseVariableCatalogue.TAG);
@@ -95,7 +95,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
       attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.TAG, optionalTag.toString()));
     }
 
-    attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.VALUE, value));
+    attributes.addAtEnd(value);
 
     return attributes;
   }
