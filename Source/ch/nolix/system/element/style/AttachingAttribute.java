@@ -41,6 +41,10 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return new AttachingAttribute(tag, value);
   }
 
+  public static Object withTagAndValue(final Enum<?> tag, final String value) {
+    return new AttachingAttribute(tag, Node.fromString(value));
+  }
+
   public static AttachingAttribute withValue(final INode<?> value) {
     return new AttachingAttribute(value);
   }
