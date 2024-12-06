@@ -37,6 +37,19 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     this.value = Node.fromNode(value);
   }
 
+  public static AttachingAttribute fromAttachingAttribute(final IAttachingAttribute attachingAttribute) {
+
+    if (attachingAttribute instanceof AttachingAttribute concreteAttachingAttribute) {
+      return concreteAttachingAttribute;
+    }
+
+    if (attachingAttribute.hasTag()) {
+      return withTagAndValue(attachingAttribute.getTag(), attachingAttribute.getValue());
+    }
+
+    return withValue(attachingAttribute.getValue());
+  }
+
   public static AttachingAttribute withTagAndValue(final Enum<?> tag, final INode<?> value) {
     return new AttachingAttribute(tag, value);
   }
