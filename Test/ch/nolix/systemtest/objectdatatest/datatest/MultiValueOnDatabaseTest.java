@@ -35,7 +35,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
     //verification
-    expect(loadedRound.amounts.getAllStoredValues().isEmpty());
+    expect(loadedRound.amounts.isEmpty());
   }
 
   @Test
