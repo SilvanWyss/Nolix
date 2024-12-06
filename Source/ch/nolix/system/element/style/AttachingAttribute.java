@@ -39,6 +39,23 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     this.value = Node.fromNode(value);
   }
 
+  public static AttachingAttribute forTagAndValue(final Enum<?> tag, final INode<?> value) {
+    return new AttachingAttribute(tag, value);
+  }
+
+  public static AttachingAttribute forTagAndValue(final Enum<?> tag, final String value) {
+    return new AttachingAttribute(tag, Node.fromString(value));
+  }
+
+  public static AttachingAttribute forValue(final INode<?> value) {
+    return new AttachingAttribute(value);
+  }
+
+  public static AttachingAttribute forValue(final String value) {
+    return new AttachingAttribute(Node.fromString(value));
+  }
+
+  //For a better performance, this implementation does not use all comfortable methods.
   public static AttachingAttribute fromAttachingAttribute(final IAttachingAttribute attachingAttribute) {
 
     if (attachingAttribute instanceof AttachingAttribute concreteAttachingAttribute) {
@@ -46,10 +63,10 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     }
 
     if (attachingAttribute.hasTag()) {
-      return withTagAndValue(attachingAttribute.getTag(), attachingAttribute.getValue());
+      return forTagAndValue(attachingAttribute.getTag(), attachingAttribute.getValue());
     }
 
-    return withValue(attachingAttribute.getValue());
+    return forValue(attachingAttribute.getValue());
   }
 
   public static AttachingAttribute fromSpecification(final INode<?> specification) {
@@ -59,7 +76,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return //
     switch (attributes.getCount()) {
 
-      case 1 -> withValue(attributes.getStoredAt1BasedIndex(1).getStoredSingleChildNode());
+      case 1 -> forValue(attributes.getStoredAt1BasedIndex(1).getStoredSingleChildNode());
 
       //TODO: Implement.
       case 2 -> throw UnsupportedCaseException.forCase(LowerCaseVariableCatalogue.TAG);
@@ -69,23 +86,6 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     };
   }
 
-  public static AttachingAttribute withTagAndValue(final Enum<?> tag, final INode<?> value) {
-    return new AttachingAttribute(tag, value);
-  }
-
-  public static AttachingAttribute withTagAndValue(final Enum<?> tag, final String value) {
-    return new AttachingAttribute(tag, Node.fromString(value));
-  }
-
-  public static AttachingAttribute withValue(final INode<?> value) {
-    return new AttachingAttribute(value);
-  }
-
-  public static AttachingAttribute withValue(final String value) {
-    return new AttachingAttribute(Node.fromString(value));
-  }
-
-  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public IContainer<INode<?>> getAttributes() {
 
@@ -124,5 +124,16 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return //
     optionalTag != null
     && optionalTag == tag;
+  }
+
+  //For a better performance, this implementation does not use all comfortable methods.
+  @Override
+  public IAttachingAttribute withValue(String value) {
+
+    if (optionalTag != null) {
+      return forTagAndValue(optionalTag, value);
+    }
+
+    return forValue(value);
   }
 }

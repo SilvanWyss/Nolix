@@ -11,4 +11,6 @@ public interface IAttachingAttribute extends IElement, IValueHolder<INode<?>> {
   boolean hasTag();
 
   boolean hasTag(Enum<?> tag);
+
+  IAttachingAttribute withValue(String value);
 }
