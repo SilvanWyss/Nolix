@@ -114,7 +114,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
     for (final var aa : getAttachingAttributes()) {
       try {
         element.addOrChangeAttribute(aa);
-      } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+      } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           "attaching attribute",

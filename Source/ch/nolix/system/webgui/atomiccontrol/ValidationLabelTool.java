@@ -24,7 +24,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     try {
       action.run();
       clearNearestValidationLabelOfControl(control);
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
     }
   }
@@ -36,7 +36,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     try {
       action.accept(control);
       clearNearestValidationLabelOfControl(control);
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
     }
   }

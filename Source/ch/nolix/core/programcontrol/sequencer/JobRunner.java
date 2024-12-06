@@ -363,7 +363,7 @@ final class JobRunner extends Thread {
       finishedJobCount++;
 
       return true;
-    } catch (final Throwable paramError) { //NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable paramError) { //NOSONAR: All Throwables must be caught.
 
       error = paramError;
       GlobalLogger.logError(paramError);

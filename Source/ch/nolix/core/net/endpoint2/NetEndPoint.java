@@ -264,7 +264,7 @@ public final class NetEndPoint extends EndPoint {
       if (isOpen()) {
         send(new Package(paramPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
       }
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       String responseMessage = error.getMessage();
       send(new Package(paramPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
     }

@@ -47,7 +47,7 @@ public abstract class FieldBinder<F extends IField, W extends IControl<?, ?>> {
     try {
       updateFieldFromControl(field, control);
       fieldBinding.removeCurrentError();
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       fieldBinding.setCurrentError(error);
     }
   }
