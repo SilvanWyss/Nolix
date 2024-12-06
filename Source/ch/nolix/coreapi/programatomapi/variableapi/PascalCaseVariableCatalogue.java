@@ -374,6 +374,8 @@ public final class PascalCaseVariableCatalogue {
 
   public static final String TABLE = "Table";
 
+  public static final String TAG = "Tag";
+
   public static final String TARGET = "Target";
 
   public static final String TEST = "Test";

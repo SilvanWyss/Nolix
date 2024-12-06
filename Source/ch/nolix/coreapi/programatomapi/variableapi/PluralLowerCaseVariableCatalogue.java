@@ -375,6 +375,8 @@ public final class PluralLowerCaseVariableCatalogue {
 
   public static final String TABS = "tabs";
 
+  public static final String TAGS = "tags";
+
   public static final String TARGETS = "targets";
 
   public static final String TESTS = "tests";

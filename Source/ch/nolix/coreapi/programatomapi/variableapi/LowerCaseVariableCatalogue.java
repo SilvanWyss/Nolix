@@ -374,6 +374,8 @@ public final class LowerCaseVariableCatalogue {
 
   public static final String TAB = "tab";
 
+  public static final String TAG = "tag";
+
   public static final String TARGET = "target";
 
   public static final String TEST = "test";
