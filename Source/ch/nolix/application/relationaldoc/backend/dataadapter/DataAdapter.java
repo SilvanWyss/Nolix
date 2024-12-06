@@ -13,23 +13,21 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 
 public final class DataAdapter implements IDataAdapter {
 
-  private static final AbstractableObjectExaminer ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectExaminer();
+  private static final AbstractableObjectExaminer ABSTRACTABLE_OBJECT_EXAMINER = new AbstractableObjectExaminer();
 
   private final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter;
 
   private DataAdapter(final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter) {
 
-    GlobalValidator
-      .assertThat(internalDataAdapter)
-      .thatIsNamed("internal data adapter")
-      .isNotNull();
+    GlobalValidator.assertThat(internalDataAdapter).thatIsNamed("internal data adapter").isNotNull();
 
     this.internalDataAdapter = internalDataAdapter;
   }
 
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
 
-    final var nodeDataAdapter = NodeDataAdapter
+    final var nodeDataAdapter = //
+    NodeDataAdapter
       .forNodeDatabase(nodeDatabase)
       .withName(LowerCaseVariableCatalogue.DATABASE)
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
@@ -53,11 +51,6 @@ public final class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public void deleteObject(IAbstractableObject object) {
-    ((AbstractableObject) object).delete();
-  }
-
-  @Override
   public IDataAdapter getEmptyCopy() {
     return new DataAdapter(internalDataAdapter.getEmptyCopy());
   }
@@ -65,11 +58,10 @@ public final class DataAdapter implements IDataAdapter {
   @Override
   public IContainer<? extends IAbstractableObject> getStoredTopLevelObjects() {
 
-    final var table = internalDataAdapter.getStoredTableByEntityType(AbstractableObject.class);
+    final var objectTable = internalDataAdapter.getStoredTableByEntityType(AbstractableObject.class);
+    final var objects = objectTable.getStoredEntities();
 
-    final var objects = table.getStoredEntities();
-
-    return objects.getStoredOthers(ABSTRACTABLE_OBJECT_EVALUATOR::hasBaseTypes);
+    return objects.getStoredOthers(ABSTRACTABLE_OBJECT_EXAMINER::hasBaseTypes);
   }
 
   @Override

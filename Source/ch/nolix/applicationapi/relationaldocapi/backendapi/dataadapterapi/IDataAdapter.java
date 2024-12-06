@@ -9,7 +9,5 @@ public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IChangeSaver 
 
   IAbstractableObject createObject();
 
-  void deleteObject(IAbstractableObject object);
-
   IContainer<? extends IAbstractableObject> getStoredTopLevelObjects();
 }
