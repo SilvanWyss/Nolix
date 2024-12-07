@@ -144,6 +144,17 @@ public final class GlobalSequencer {
    * job will not run properly.
    * 
    * @param job
+   */
+  public static void runInEnclosedMode(final Runnable job) {
+    runInEnclosedModeAndGetSuccessFlag(job);
+  }
+
+  /**
+   * Runs the given job in an enclosed mode. Prints out the stack trace of any
+   * occurring error. An error will occur it the given job is null or if the given
+   * job will not run properly.
+   * 
+   * @param job
    * @return true if the given job run successfully, false otherwise.
    */
   public static boolean runInEnclosedModeAndGetSuccessFlag(final Runnable job) {
