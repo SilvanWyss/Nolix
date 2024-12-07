@@ -15,14 +15,15 @@ final class MatrixTest extends StandardTest {
   void testCase_add() {
 
     //setup
-    final var testUnit = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
-    final var matrix = new Matrix(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
+    final var matrix = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
 
     //execution
     final var result = testUnit.getSum(matrix);
 
     //verification
-    final var expectedResult = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0,
+      8.0);
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -30,10 +31,12 @@ final class MatrixTest extends StandardTest {
   void testCase_appendAtBottom() {
 
     //setup
-    final var testUnit = new Matrix(2, 3).setValues(10, 11.0, 12.0, 20.0, 21.0, 22.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(10, 11.0, 12.0, 20.0, 21.0,
+      22.0);
 
     //setup verification
-    final var expectedResult = new Matrix(3, 3).setValues(10, 11.0, 12.0, 20.0, 21.0, 22.0, 30.0, 31.0, 32.0);
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(3, 3).setValues(10, 11.0, 12.0, 20.0, 21.0,
+      22.0, 30.0, 31.0, 32.0);
 
     //execution
     testUnit.appendAtBottom(30.0, 31.0, 32.0);
@@ -46,7 +49,8 @@ final class MatrixTest extends StandardTest {
   void testCase_appendAtBottom_whenTheNumberOfTheGivenValuesDoesNotEqualTheNumberOfColumns() {
 
     //setup
-    final var testUnit = new Matrix(2, 3).setValues(10, 11.0, 12.0, 20.0, 21.0, 22.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(10, 11.0, 12.0, 20.0, 21.0,
+      22.0);
 
     //execution
     expectRunning(() -> testUnit.appendAtBottom(30.0, 31.0, 32.0, 33.0))
@@ -58,14 +62,15 @@ final class MatrixTest extends StandardTest {
   void testCase_appendAtRight() {
 
     //setup
-    final var testUnit = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
-    final var matrix = new Matrix(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
+    final var matrix = Matrix.createMatrixWithRowCountAndColumnCount(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
 
     //execution
     testUnit.appendAtRight(matrix);
 
     //verification
-    final var expectedResult = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0,
+      2.0, 6.0, 6.0);
     expect(testUnit).isEqualTo(expectedResult);
   }
 
@@ -105,13 +110,13 @@ final class MatrixTest extends StandardTest {
   void testCase_getInverse_whenMatrixIs2x2Matrix() {
 
     //setup
-    final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
 
     //execution
     final var result = testUnit.getInverse();
 
     //verification
-    final var expectedResult = new Matrix(2, 2).setValues(1.0, 0.0, 0.0, 1.0);
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(2, 2).setValues(1.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result)).isEqualTo(expectedResult);
   }
 
@@ -119,13 +124,15 @@ final class MatrixTest extends StandardTest {
   void testCase_getInverse_whenMatrixIs3x3Matrix() {
 
     //setup
-    final var testUnit = new Matrix(3, 3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(3, 3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0,
+      3.0, 7.0, 8.0);
 
     //execution
     final var result = testUnit.getInverse();
 
     //verification
-    final var expectedResult = new Matrix(3, 3).setValues(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(3, 3).setValues(1.0, 0.0, 0.0, 0.0, 1.0,
+      0.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
 
@@ -133,14 +140,16 @@ final class MatrixTest extends StandardTest {
   void testCase_getInverse_whenMatrixIs4x4Matrix() {
 
     //setup
-    final var testUnit = new Matrix(4, 4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0,
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(4, 4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0,
+      8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0,
       9.0, 3.0, 2.0);
 
     //execution
     final var result = testUnit.getInverse();
 
     //verification
-    final var expectedResult = new Matrix(4, 4).setValues(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(4, 4).setValues(1.0, 0.0, 0.0, 0.0, 0.0,
+      1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
       0.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
@@ -149,14 +158,14 @@ final class MatrixTest extends StandardTest {
   void testCase_getProduct() {
 
     //setup
-    final var testUnit = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
-    final var matrix = new Matrix(3, 2).setValues(1, 1, 2, 2, 3, 3);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(1, 1, 1, 2, 2, 2);
+    final var matrix = Matrix.createMatrixWithRowCountAndColumnCount(3, 2).setValues(1, 1, 2, 2, 3, 3);
 
     //execution
     final var result = testUnit.getProduct(matrix);
 
     //verification
-    final Matrix expectedProduct = new Matrix(2, 2).setValues(6, 6, 12, 12);
+    final Matrix expectedProduct = Matrix.createMatrixWithRowCountAndColumnCount(2, 2).setValues(6, 6, 12, 12);
     expect(result).isEqualTo(expectedProduct);
   }
 
@@ -184,7 +193,7 @@ final class MatrixTest extends StandardTest {
   void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
 
     //setup
-    final var testUnit = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
 
     //execution
     final var result = testUnit.getSolutionAsExtendedMatrix();
@@ -199,7 +208,9 @@ final class MatrixTest extends StandardTest {
   void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
 
     //setup
-    final var testUnit = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
+    final var testUnit = //
+    Matrix.createMatrixWithRowCountAndColumnCount(3, 4)
+      .setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
 
     //execution
     final var result = testUnit.getSolutionAsExtendedMatrix();
@@ -235,13 +246,15 @@ final class MatrixTest extends StandardTest {
   void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
 
     //setup
-    final var testUnit = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0, 1.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0,
+      20.0, 10.0, 1.0, 10.0, 20.0, 1.0);
 
     //execution
     final var result = testUnit.getTransposed();
 
     //verification
-    final var expectedResult = new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0,
+    final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(3, 4).setValues(20.0, 10.0, 20.0, 10.0,
+      10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0,
       1.0);
     expect(result).isEqualTo(expectedResult);
   }
@@ -250,7 +263,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toPolynom_whenHas1Row() {
 
     //setup
-    final var testUnit = new Matrix(1, 4);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(1, 4);
     testUnit.setValues(1.0, 2.0, 3.0, 4.0);
 
     //execution
@@ -264,7 +277,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toPolynom_whenHas1Column() {
 
     //setup
-    final var testUnit = new Matrix(4, 1);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(4, 1);
     testUnit.setValues(1.0, 2.0, 3.0, 4.0);
 
     //execution
@@ -278,7 +291,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toPolynom_whenHas2Rows() {
 
     //setup
-    final var testUnit = new Matrix(2, 4);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 4);
     testUnit.setValues(1.0, 2.0, 3.0, 4.0, 11.0, 12.0, 13.0, 14.0);
 
     //execution & verification
@@ -292,7 +305,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toPolynom_whenHas2Columns() {
 
     //setup
-    final var testUnit = new Matrix(4, 2);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(4, 2);
     testUnit.setValues(1.0, 2.0, 3.0, 4.0, 11.0, 12.0, 13.0, 14.0);
 
     //execution & verification
@@ -306,7 +319,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toVector_whenContains1Row() {
 
     //setup
-    final var testUnit = new Matrix(1, 4).setValues(1.0, 2.0, 3.0, 4.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(1, 4).setValues(1.0, 2.0, 3.0, 4.0);
 
     //execution
     final var result = testUnit.toVector();
@@ -319,7 +332,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toVector_whenContains1Column() {
 
     //setup
-    final var testUnit = new Matrix(4, 1).setValues(1.0, 2.0, 3.0, 4.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(4, 1).setValues(1.0, 2.0, 3.0, 4.0);
 
     //execution
     final var result = testUnit.toVector();
@@ -332,7 +345,7 @@ final class MatrixTest extends StandardTest {
   void testCase_toVector_whenIs2x2Matrix() {
 
     //setup
-    final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
+    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
 
     //execution & verification
     expectRunning(testUnit::toVector)

@@ -183,7 +183,7 @@ public final class GlobalCalculator {
     //xValues.
     GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 
-    final var factorMatrix = new Matrix(xValues.length, degree + 1);
+    final var factorMatrix = Matrix.createMatrixWithRowCountAndColumnCount(xValues.length, degree + 1);
     final var xMatrixValues = new double[factorMatrix.getSize()];
     for (var i = 0; i < factorMatrix.getRowCount(); i++) {
       for (var j = 0; j < factorMatrix.getColumnCount(); j++) {
@@ -193,7 +193,7 @@ public final class GlobalCalculator {
     }
     factorMatrix.setValues(xMatrixValues);
 
-    final var solutionMatrix = new Matrix(yValues.length, 1);
+    final var solutionMatrix = Matrix.createMatrixWithRowCountAndColumnCount(yValues.length, 1);
     solutionMatrix.setValues(yValues);
 
     return factorMatrix.getMinimalFactorMatrix(solutionMatrix).toPolynom();

@@ -20,7 +20,7 @@ public final class ARModel extends StatisticalModel {
     super(pOrder, inputValues);
 
     //Creates factor1 matrix.
-    final var factor1Matrix = new Matrix(inputValues.length - pOrder, pOrder + 1);
+    final var factor1Matrix = Matrix.createMatrixWithRowCountAndColumnCount(inputValues.length - pOrder, pOrder + 1);
     for (var i = 1; i <= factor1Matrix.getRowCount(); i++) {
 
       for (var j = 1; j < factor1Matrix.getColumnCount(); j++) {
@@ -31,7 +31,7 @@ public final class ARModel extends StatisticalModel {
     }
 
     //Creates product matrix.
-    final var productMatrix = new Matrix(inputValues.length - pOrder, 1);
+    final var productMatrix = Matrix.createMatrixWithRowCountAndColumnCount(inputValues.length - pOrder, 1);
     for (var i = pOrder; i < inputValues.length; i++) {
       productMatrix.setValue(i - pOrder + 1, 1, inputValues[i]);
     }

@@ -46,7 +46,7 @@ public final class Matrix {
    * @param size
    * @throws NonPositiveArgumentException if the given size is not positive.
    */
-  public Matrix(final int size) {
+  private Matrix(final int size) {
 
     //Asserts that the given size is positive.
     GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalogue.SIZE).isPositive();
@@ -64,7 +64,7 @@ public final class Matrix {
    * @throws NonPositiveArgumentException if the given column count is not
    *                                      positive.
    */
-  public Matrix(final int rowCount, final int columnCount) {
+  private Matrix(final int rowCount, final int columnCount) {
 
     //Asserts that the given rowCount is positive.
     GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalogue.ROW_COUNT).isPositive();
@@ -171,6 +171,21 @@ public final class Matrix {
     }
 
     return matrix;
+  }
+
+  /**
+   * @return a new {@link Matrix} with the given rowCount and columnCount.
+   * 
+   * @param rowCount
+   * @param columnCount
+   * @throws NonPositiveArgumentException if the given rowCount is not positive.
+   * @throws NonPositiveArgumentException if the given columnCount is not
+   *                                      positive.
+   */
+  public static Matrix createMatrixWithRowCountAndColumnCount(final int rowCount, final int columnCount) {
+
+    //Calls constructor.
+    return new Matrix(rowCount, columnCount);
   }
 
   /**
