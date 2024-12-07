@@ -128,7 +128,7 @@ public final class Style extends BaseStyle<IStyle> implements IStyle {
    */
   @Override
   public IStyle withNewAttachingAttributesWhereSelectorType(
-    final Class<?> selectorType,
+    final String selectorType,
     final IContainer<String> newAttachingAttributes) {
 
     final var subStylesWtihNewAttachingAttribtues = //

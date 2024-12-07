@@ -97,7 +97,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
 
   @Override
   public final S withNewAttachingAttributesWhereSelectorType(
-    final Class<?> selectorType,
+    final String selectorType,
     final String newAttachingAttribute,
     final String... newAttachingAttributes) {
 

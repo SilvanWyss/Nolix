@@ -191,7 +191,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withNewAttachingAttributesWhereSelectorType(
-    final Class<?> selectorType,
+    final String selectorType,
     final IContainer<String> newAttachingAttributes) {
 
     String optionalSelectorId = null;

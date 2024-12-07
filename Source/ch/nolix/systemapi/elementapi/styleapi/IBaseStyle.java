@@ -77,7 +77,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    *         each of the given newAttachingAttributes was either added or updated
    *         the according attachingAttributes where the given selectorType is.
    */
-  S withNewAttachingAttributesWhereSelectorType(Class<?> selectorType, IContainer<String> newAttachingAttributes);
+  S withNewAttachingAttributesWhereSelectorType(String selectorType, IContainer<String> newAttachingAttributes);
 
   /**
    * @param selectorType
@@ -89,7 +89,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    *         attachingAttributes where the given selectorType is.
    */
   S withNewAttachingAttributesWhereSelectorType(
-    Class<?> selectorType,
+    String selectorType,
     String newAttachingAttribute,
     String... newAttachingAttributes);
 

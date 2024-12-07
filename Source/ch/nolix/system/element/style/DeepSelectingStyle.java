@@ -174,7 +174,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withNewAttachingAttributesWhereSelectorType(
-    final Class<?> selectorType,
+    final String selectorType,
     final IContainer<String> newAttachingAttributes) {
 
     String optionalSelectorId = null;
