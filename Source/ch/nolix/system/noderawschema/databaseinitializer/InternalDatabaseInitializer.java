@@ -10,8 +10,8 @@ import ch.nolix.systemapi.noderawschemaapi.databaseinitializingapi.IDatabaseInit
 final class InternalDatabaseInitializer implements IDatabaseInitializer {
 
   @Override
-  public void initializeDatabase(final IMutableNode<?> databaseNode) {
-    databaseNode
+  public void initializeDatabase(final IMutableNode<?> nodeDatabase) {
+    nodeDatabase
       .setHeader(StructureHeaderCatalogue.DATABASE)
       .addChildNode(createDatabasePropertiesNode(), createEntityHeadsNode());
   }

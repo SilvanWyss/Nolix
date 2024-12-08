@@ -7,21 +7,20 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatte
 
 public final class NodeSchemaAdapter extends SchemaAdapter {
 
-  private NodeSchemaAdapter(final String databaseName, final IMutableNode<?> databaseNode) {
-    super(databaseName,
-      ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode));
+  private NodeSchemaAdapter(final String databaseName, final IMutableNode<?> nodeDatabase) {
+    super(databaseName, ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter.forNodeDatabase(nodeDatabase));
   }
 
-  public static NodeSchemaAdapter forDatabaseNode(final String databaseName, final IMutableNode<?> databaseNode) {
-    return new NodeSchemaAdapter(databaseName, databaseNode);
+  public static NodeSchemaAdapter forNodeDatabase(final String databaseName, final IMutableNode<?> nodeDatabase) {
+    return new NodeSchemaAdapter(databaseName, nodeDatabase);
   }
 
-  public static NodeSchemaAdapter forDatabaseNodeInFile(final String filePath) {
+  public static NodeSchemaAdapter forFileNodeDatabase(final String filePath) {
 
     final var fileName = new FileAccessor(filePath).getName();
     final var databaseName = RegularExpressionPatternCatalogue.DOT_PATTERN.split(fileName)[0];
-    final var databaseNode = MutableNode.fromFile(filePath);
+    final var nodeDatabase = MutableNode.fromFile(filePath);
 
-    return new NodeSchemaAdapter(databaseName, databaseNode);
+    return new NodeSchemaAdapter(databaseName, nodeDatabase);
   }
 }

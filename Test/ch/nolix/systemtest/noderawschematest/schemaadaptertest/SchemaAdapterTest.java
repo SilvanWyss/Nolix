@@ -21,8 +21,8 @@ final class SchemaAdapterTest extends StandardTest {
     final var tableName = "table_name";
     final var columnName = "column_name";
 
-    //Setups databaseNode.
-    final var databaseNode = MutableNode.createEmpty();
+    //Setups nodeDatabase.
+    final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
@@ -35,7 +35,7 @@ final class SchemaAdapterTest extends StandardTest {
       new BaseParameterizedValueTypeDto(ContentType.VALUE, DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forDatabaseNode(databaseNode);
+    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
 
     //execution
@@ -53,14 +53,14 @@ final class SchemaAdapterTest extends StandardTest {
     //parameter definition
     final var tableName = "table_name";
 
-    //Setups databaseNode.
-    final var databaseNode = MutableNode.createEmpty();
+    //Setups nodeDatabase.
+    final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forDatabaseNode(databaseNode);
+    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //setup verification
     expect(testUnit.isChangeFree());
@@ -81,8 +81,8 @@ final class SchemaAdapterTest extends StandardTest {
     final var tableName = "table_name";
     final var columnName = "column_name";
 
-    //Setups databaseNode.
-    final var databaseNode = MutableNode.createEmpty();
+    //Setups nodeDatabase.
+    final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
@@ -95,7 +95,7 @@ final class SchemaAdapterTest extends StandardTest {
       new BaseParameterizedValueTypeDto(ContentType.VALUE, DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forDatabaseNode(databaseNode);
+    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
     testUnit.addColumn(tableName, columnDto);
     testUnit.saveChanges();
@@ -115,11 +115,11 @@ final class SchemaAdapterTest extends StandardTest {
     //parameter definition
     final var tableName = "table_name";
 
-    //Setups databaseNode.
-    final var databaseNode = MutableNode.createEmpty();
+    //Setups nodeDatabase.
+    final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forDatabaseNode(databaseNode);
+    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());

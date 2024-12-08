@@ -17,12 +17,12 @@ public final class DataReader implements IDataReader {
 
   private final IContainer<ITableInfo> tableInfos;
 
-  public DataReader(final IMutableNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
+  public DataReader(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 
-    internalDataReader = new InternalDataReader(databaseNode);
+    internalDataReader = new InternalDataReader(nodeDatabase);
     this.tableInfos = tableInfos;
   }
 

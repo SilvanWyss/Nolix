@@ -19,7 +19,7 @@ public final class NodeDataAdapter extends DataAdapter {
 
     super(
       databaseName,
-      NodeSchemaAdapter.forDatabaseNode(databaseName, nodeDatabase),
+      NodeSchemaAdapter.forNodeDatabase(databaseName, nodeDatabase),
       schema,
       () -> DataAndSchemaAdapter.forNodeDatabase(nodeDatabase));
 

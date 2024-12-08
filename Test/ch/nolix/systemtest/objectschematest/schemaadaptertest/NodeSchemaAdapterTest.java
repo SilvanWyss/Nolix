@@ -19,7 +19,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     expect(database.isBlank());
 
     //execution
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
 
     //verification part 1
     expect(testUnit.isChangeFree());
@@ -36,7 +36,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
     //setup
     final var database = MutableNode.createEmpty();
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
 
     //execution
     testUnit.addTable(new Table("MyTable")).saveChanges();
@@ -58,7 +58,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_getSaveCount_whenIsNew() {
 
     //setup
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", MutableNode.createEmpty());
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", MutableNode.createEmpty());
 
     //execution
     final var result = testUnit.getSaveCount();
@@ -71,7 +71,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
 
     //setup
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", MutableNode.createEmpty());
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", MutableNode.createEmpty());
     testUnit.addTable(new Table("MyTable1"));
     testUnit.saveChanges();
 
@@ -86,7 +86,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
 
     //setup
-    final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", MutableNode.createEmpty());
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", MutableNode.createEmpty());
     testUnit.addTable(new Table("MyTable1"));
     testUnit.saveChanges();
     testUnit.addTable(new Table("MyTable2"));

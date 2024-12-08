@@ -10,10 +10,10 @@ public final class DatabaseInitializer {
 
   private static final InternalDatabaseInitializer INTERNAL_DATABASE_INITIALIZER = new InternalDatabaseInitializer();
 
-  public void initializeDatabaseIfNotInitialized(IMutableNode<?> databaseNode) {
-    switch (DATABASE_SCHEMA_INSPECTOR.getDatabaseSchemaState(databaseNode)) {
+  public void initializeDatabaseIfNotInitialized(IMutableNode<?> nodeDatabase) {
+    switch (DATABASE_SCHEMA_INSPECTOR.getDatabaseSchemaState(nodeDatabase)) {
       case UNINITIALIZED:
-        INTERNAL_DATABASE_INITIALIZER.initializeDatabase(databaseNode);
+        INTERNAL_DATABASE_INITIALIZER.initializeDatabase(nodeDatabase);
         break;
       case INITIALIZED:
         break;

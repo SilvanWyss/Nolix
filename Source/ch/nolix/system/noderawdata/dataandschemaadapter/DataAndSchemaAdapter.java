@@ -9,7 +9,7 @@ import ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter;
 public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 
   private DataAndSchemaAdapter(final IMutableNode<?> nodeDatabase) {
-    super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
+    super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forNodeDatabase(nodeDatabase));
   }
 
   public static DataAndSchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {

@@ -163,7 +163,7 @@ final class NodeDataAdapterTest extends StandardTest {
     GlobalSequencer.waitForMilliseconds(1);
 
     //setup part 4: Edit the schema of the database.
-    final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
+    final var schemaAdapter = NodeSchemaAdapter.forNodeDatabase("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")
       .addColumn(new Column("Name", ParameterizedValueType.forDataType(DataType.STRING)));

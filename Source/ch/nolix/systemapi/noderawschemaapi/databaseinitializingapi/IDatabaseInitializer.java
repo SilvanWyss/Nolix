@@ -4,5 +4,5 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface IDatabaseInitializer {
 
-  void initializeDatabase(IMutableNode<?> databaseNode);
+  void initializeDatabase(IMutableNode<?> nodeDatabase);
 }

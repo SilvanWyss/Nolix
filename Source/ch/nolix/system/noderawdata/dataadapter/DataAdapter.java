@@ -13,7 +13,7 @@ public final class DataAdapter extends BaseDataAdapter {
   private static final TableDefinitionLoader TABLE_DEFINITION_LOADER = new TableDefinitionLoader();
 
   private DataAdapter(final IMutableNode<?> nodeDatabase) {
-    this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableDefinitionsFromDatabaseNode(nodeDatabase));
+    this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableDefinitionsFromNodeDatabase(nodeDatabase));
   }
 
   private DataAdapter(

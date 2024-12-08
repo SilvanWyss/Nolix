@@ -6,7 +6,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
 
-  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final NodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
 
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
@@ -39,29 +39,29 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private int saveCount;
 
-  private final IMutableNode<?> databaseNode;
+  private final IMutableNode<?> nodeDatabase;
 
-  private IMutableNode<?> editedDatabaseNode;
+  private IMutableNode<?> editedNodeDatabase;
 
   private boolean hasChanges;
 
-  private SchemaWriter(final IMutableNode<?> databaseNode) {
+  private SchemaWriter(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
+    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("database Node").isNotNull();
 
-    this.databaseNode = databaseNode;
+    this.nodeDatabase = nodeDatabase;
 
     reset();
   }
 
-  public static SchemaWriter forDatabaseNode(final IMutableNode<?> databaseNode) {
-    return new SchemaWriter(databaseNode);
+  public static SchemaWriter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new SchemaWriter(nodeDatabase);
   }
 
   @Override
   public void addColumn(final String tableName, final IColumnDto column) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
     tableNode.addChildNode(columnNodeMapper.createColumnNodeFrom(column));
@@ -72,7 +72,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void addTable(final ITableDto table) {
 
-    editedDatabaseNode.addChildNode(TABLE_NODE_MAPPER.createTableNodeFrom(table));
+    editedNodeDatabase.addChildNode(TABLE_NODE_MAPPER.createTableNodeFrom(table));
 
     hasChanges = true;
   }
@@ -80,7 +80,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
     tableNode.removeFirstChildNodeThat(
@@ -94,7 +94,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void deleteTable(final String tableName) {
 
-    editedDatabaseNode.removeFirstChildNodeThat(
+    editedNodeDatabase.removeFirstChildNodeThat(
       (final INode<?> a) -> a.hasHeader(StructureHeaderCatalogue.TABLE)
       && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(tableName));
@@ -125,7 +125,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void reset() {
 
-    editedDatabaseNode = MutableNode.fromNode(databaseNode);
+    editedNodeDatabase = MutableNode.fromNode(nodeDatabase);
 
     hasChanges = false;
   }
@@ -135,7 +135,7 @@ public final class SchemaWriter implements ISchemaWriter {
     try {
 
       setSchemaTimestamp(Time.ofNow());
-      databaseNode.setChildNodes(editedDatabaseNode.getStoredChildNodes());
+      nodeDatabase.setChildNodes(editedNodeDatabase.getStoredChildNodes());
 
       saveCount++;
     } finally {
@@ -146,7 +146,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
     final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
@@ -161,7 +161,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final String columnId,
     final IParameterizedFieldTypeDto parameterizedFieldType) {
 
-    final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
+    final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
@@ -173,7 +173,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setTableName(final String tableName, final String newTableName) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
     final var nameNode = TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode);
@@ -185,7 +185,7 @@ public final class SchemaWriter implements ISchemaWriter {
   private void setSchemaTimestamp(final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-      .getStoredDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
+      .getStoredDatabasePropertiesNodeFromNodeDatabase(editedNodeDatabase);
 
     final var schemaTimestampNode = DATABASE_PROPERTIES_NODE_SEARCHER
       .getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);

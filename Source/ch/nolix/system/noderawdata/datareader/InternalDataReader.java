@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class InternalDataReader {
 
-  private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
+  private static final NodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
 
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
@@ -25,26 +25,26 @@ public final class InternalDataReader {
 
   private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
-  private final IMutableNode<?> databaseNode;
+  private final IMutableNode<?> nodeDatabase;
 
-  public InternalDataReader(final IMutableNode<?> databaseNode) {
+  public InternalDataReader(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(databaseNode).thatIsNamed("database node").isNotNull();
+    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("database node").isNotNull();
 
-    this.databaseNode = databaseNode;
+    this.nodeDatabase = nodeDatabase;
   }
 
   public ITime getSchemaTimestamp() {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-      .getStoredDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+      .getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
     return DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
   }
 
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
     return TABLE_NODE_SEARCHER
@@ -57,7 +57,7 @@ public final class InternalDataReader {
     final String entityId,
     final IColumnInfo multiBackReferenceColumnInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
@@ -74,7 +74,7 @@ public final class InternalDataReader {
     final String entityId,
     final IColumnInfo multiReferenceColumnInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
@@ -91,7 +91,7 @@ public final class InternalDataReader {
     final String entityId,
     final IColumnInfo multiValueColumnInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
@@ -107,7 +107,7 @@ public final class InternalDataReader {
 
   public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, id);
@@ -121,7 +121,7 @@ public final class InternalDataReader {
     final String value) {
 
     final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableInfo.getTableName());
 
     final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 
@@ -139,7 +139,7 @@ public final class InternalDataReader {
     final IContainer<String> entitiesToIgnoreIds) {
 
     final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableInfo.getTableName());
 
     final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 
@@ -153,7 +153,7 @@ public final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, id);
   }

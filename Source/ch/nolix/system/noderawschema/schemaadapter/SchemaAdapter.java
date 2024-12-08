@@ -24,22 +24,22 @@ public final class SchemaAdapter implements ISchemaAdapter {
 
   private final SchemaWriter schemaWriter;
 
-  private SchemaAdapter(final IMutableNode<?> databaseNode) {
+  private SchemaAdapter(final IMutableNode<?> nodeDatabase) {
 
-    DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(databaseNode);
+    DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(nodeDatabase);
 
-    schemaReader = SchemaReader.forDatabaseNode(databaseNode);
-    schemaWriter = SchemaWriter.forDatabaseNode(databaseNode);
+    schemaReader = SchemaReader.forNodeDatabase(nodeDatabase);
+    schemaWriter = SchemaWriter.forNodeDatabase(nodeDatabase);
 
     createCloseDependencyTo(schemaReader);
     createCloseDependencyTo(schemaWriter);
   }
 
-  public static SchemaAdapter forDatabaseNode(final IMutableNode<?> databaseNode) {
-    return new SchemaAdapter(databaseNode);
+  public static SchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new SchemaAdapter(nodeDatabase);
   }
 
-  public static SchemaAdapter forDatabaseNodeInFile(final String filePath) {
+  public static SchemaAdapter forFileNodeDatabase(final String filePath) {
     return new SchemaAdapter(new FileNode(filePath));
   }
 
