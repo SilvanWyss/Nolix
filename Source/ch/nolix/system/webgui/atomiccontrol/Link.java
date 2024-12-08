@@ -16,6 +16,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILinkStyle;
@@ -58,7 +59,9 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     //Info: Reset is technically optional, but required to achieve a well-defined initial state.
     reset();
 
-    getStoredStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
+    getStoredStyle()
+      .setTextLineDecorationForState(ControlState.HOVER, LineDecoration.UNDERLINE)
+      .setTextColorForState(ControlState.BASE, Color.BLUE);
   }
 
   @Override
