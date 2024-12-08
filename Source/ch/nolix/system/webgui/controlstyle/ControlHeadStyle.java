@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.controlstyle;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -27,46 +26,41 @@ implements IControlHeadStyle<CS> {
 
   public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 
-  private static final String OPACITY_HEADER = PascalCaseVariableCatalogue.OPACITY;
-
-  private static final String FONT_HEADER = PascalCaseVariableCatalogue.FONT;
-
-  private static final String BOLD_TEXT_FLAG_HEADER = "BoldText";
-
-  private static final String TEXT_SIZE_HEADER = PascalCaseVariableCatalogue.TEXT_SIZE;
-
-  private static final String TEXT_COLOR_HEADER = "TextColor";
-
-  private final NonCascadingProperty<ControlState, Double> opacity = new NonCascadingProperty<>(
-    OPACITY_HEADER,
+  private final NonCascadingProperty<ControlState, Double> opacity = //
+  new NonCascadingProperty<>(
+    ControlHeadStyleAttributeHeaderCatalogue.OPACITY_HEADER,
     ControlState.class,
     s -> getOpacityFromString(s.getSingleChildNodeHeader()),
     Node::withChildNode,
     this::setOpacityForState,
     DEFAULT_OPACITY);
 
-  private final CascadingProperty<ControlState, Font> font = new CascadingProperty<>(
-    FONT_HEADER,
+  private final CascadingProperty<ControlState, Font> font = //
+  new CascadingProperty<>(
+    ControlHeadStyleAttributeHeaderCatalogue.FONT_HEADER,
     ControlState.class,
     Font::fromSpecification,
     Node::fromEnum,
     DEFAULT_FONT);
 
-  private final CascadingProperty<ControlState, Boolean> boldTextFlag = CascadingProperty
+  private final CascadingProperty<ControlState, Boolean> boldTextFlag = //
+  CascadingProperty
     .forBooleanWithNameAndStateClassAndDefaultValue(
-      BOLD_TEXT_FLAG_HEADER,
+      ControlHeadStyleAttributeHeaderCatalogue.BOLD_TEXT_FLAG_HEADER,
       ControlState.class,
       DEFAULT_BOLD_TEXT_FLAG);
 
-  private final CascadingProperty<ControlState, Integer> textSize = CascadingProperty
+  private final CascadingProperty<ControlState, Integer> textSize = //
+  CascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-      TEXT_SIZE_HEADER,
+      ControlHeadStyleAttributeHeaderCatalogue.TEXT_SIZE_HEADER,
       ControlState.class,
       this::setTextSizeForState,
       DEAULT_TEXT_SIZE);
 
-  private final CascadingProperty<ControlState, IColor> textColor = new CascadingProperty<>(
-    TEXT_COLOR_HEADER,
+  private final CascadingProperty<ControlState, IColor> textColor = //
+  new CascadingProperty<>(
+    ControlHeadStyleAttributeHeaderCatalogue.TEXT_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
