@@ -56,12 +56,13 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
+    setMinWidth(200);
     getStoredStyle()
-      .setBorderThicknessForState(ControlState.BASE, 1)
       .setLeftPaddingForState(ControlState.BASE, 20)
       .setRightPaddingForState(ControlState.BASE, 20)
-      .setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY)
-      .setBackgroundColorForState(ControlState.FOCUS, Color.LIGHT_GREY);
+      .setBackgroundColorForState(ControlState.BASE, Color.LIGHT_GREY)
+      .setBackgroundColorForState(ControlState.HOVER, Color.DARK_GREY)
+      .setBackgroundColorForState(ControlState.FOCUS, Color.DARK_GREY);
   }
 
   @Override
