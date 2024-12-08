@@ -20,8 +20,7 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 
   public DropdownMenu() {
 
-    //Info: Reset is technically optional, but required to achieve a well-defined
-    //initial state.
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredStyle()

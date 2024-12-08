@@ -52,8 +52,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   public Textbox() {
 
-    //Info: Reset is technically optional, but required to achieve a well-defined
-    //initial state.
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredStyle()

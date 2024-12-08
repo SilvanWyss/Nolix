@@ -56,8 +56,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   public Button() {
 
-    //Info: Reset is technically optional, but required to achieve a well-defined
-    //initial state.
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredStyle()
