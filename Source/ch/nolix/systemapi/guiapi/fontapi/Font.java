@@ -3,8 +3,6 @@ package ch.nolix.systemapi.guiapi.fontapi;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 /**
- * A {@link Font} is not mutable.
- * 
  * @author Silvan Wyss
  * @version 2017-08-19
  */
