@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
@@ -32,23 +31,21 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 
-  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
-
-  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
-
   private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
 
   private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
 
   private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
 
-  private final MutableOptionalValue<ButtonRole> role = new MutableOptionalValue<>(
-    ROLE_HEADER,
+  private final MutableOptionalValue<ButtonRole> role = //
+  new MutableOptionalValue<>(
+    ButtonAttributeHeaderCatalogue.ROLE_HEADER,
     this::setRole,
     ButtonRole::fromSpecification,
     Node::fromEnum);
 
-  private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final MutableValue<String> text = //
+  MutableValue.forString(ButtonAttributeHeaderCatalogue.TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   private Consumer<IButton> leftMouseButtonPressAction;
 
