@@ -331,6 +331,11 @@ implements IControlCssBuilder<C, CS> {
         String.valueOf(style.getTextSizeWhenHasState(state)) + "px"),
       getFontWeightCssPropertyForControlAndState(control, state));
 
+    if (style.definesTextLineDecorationForState(state)) {
+      list.addAtEnd(
+        CONTROL_CSS_VALUE_TOOL.getCssPropertyFromLineDecoration(style.getTextLineDecorationWhenHasState(state)));
+    }
+
     fillUpOptionalCssPropertiesForControlAndStateIntoList(control, state, list);
 
     fillUpMandatoryCssPropertiesForControlAndStateIntoList(control, state, list);

@@ -9,6 +9,7 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
+import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -23,6 +24,8 @@ implements IControlHeadStyle<CS> {
   public static final boolean DEFAULT_BOLD_TEXT_FLAG = false;
 
   public static final int DEAULT_TEXT_SIZE = 20;
+
+  public static final LineDecoration DEFAULT_TEXT_LINE_DECORATION = LineDecoration.UNDERLINE;
 
   public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 
@@ -58,6 +61,14 @@ implements IControlHeadStyle<CS> {
       this::setTextSizeForState,
       DEAULT_TEXT_SIZE);
 
+  private final CascadingProperty<ControlState, LineDecoration> textLineDecoration = //
+  new CascadingProperty<>(
+    ControlHeadStyleAttributeHeaderCatalogue.TEXT_LINE_DECORATION_HEADER,
+    ControlState.class,
+    LineDecoration::fromSpecification,
+    Node::fromEnum,
+    DEFAULT_TEXT_LINE_DECORATION);
+
   private final CascadingProperty<ControlState, IColor> textColor = //
   new CascadingProperty<>(
     ControlHeadStyleAttributeHeaderCatalogue.TEXT_COLOR_HEADER,
@@ -67,13 +78,21 @@ implements IControlHeadStyle<CS> {
     DEFAULT_TEXT_COLOR);
 
   protected ControlHeadStyle() {
+
     super(ControlState.BASE);
+
+    textLineDecoration.setUndefined();
   }
 
   @Override
   @SuppressWarnings("unchecked")
   public final <CS2 extends IControlHeadStyle<CS2>> void addChild(final CS2 controlStyle) {
     internalAddChild((CS) controlStyle);
+  }
+
+  @Override
+  public boolean definesTextLineDecorationForState(final ControlState state) {
+    return textLineDecoration.hasValueForState(state);
   }
 
   @Override
@@ -94,6 +113,11 @@ implements IControlHeadStyle<CS> {
   @Override
   public final IColor getTextColorWhenHasState(final ControlState state) {
     return textColor.getValueWhenHasState(state);
+  }
+
+  @Override
+  public LineDecoration getTextLineDecorationWhenHasState(ControlState state) {
+    return textLineDecoration.getValueWhenHasState(state);
   }
 
   @Override
@@ -119,6 +143,11 @@ implements IControlHeadStyle<CS> {
   @Override
   public final void removeCustomTextColors() {
     textColor.setUndefined();
+  }
+
+  @Override
+  public void removeCustomTextLineDecorations() {
+    textLineDecoration.setUndefined();
   }
 
   @Override
@@ -156,6 +185,14 @@ implements IControlHeadStyle<CS> {
   public final CS setTextColorForState(final ControlState state, final IColor textColor) {
 
     this.textColor.setValueForState(state, textColor);
+
+    return asConcrete();
+  }
+
+  @Override
+  public CS setTextLineDecorationForState(final ControlState state, final LineDecoration textLineDecoration) {
+
+    this.textLineDecoration.setValueForState(state, textLineDecoration);
 
     return asConcrete();
   }

@@ -12,7 +12,9 @@ public final class ControlHeadStyleAttributeHeaderCatalogue {
 
   public static final String TEXT_SIZE_HEADER = PascalCaseVariableCatalogue.TEXT_SIZE;
 
-  public static final String TEXT_COLOR_HEADER = "TextColor";
+  public static final String TEXT_COLOR_HEADER = PascalCaseVariableCatalogue.TEXT_COLOR;
+
+  public static final String TEXT_LINE_DECORATION_HEADER = "TextLineDecoration";
 
   private ControlHeadStyleAttributeHeaderCatalogue() {
   }
