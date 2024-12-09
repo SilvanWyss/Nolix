@@ -9,7 +9,6 @@ import ch.nolix.system.graphic.color.Color;
 
 final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
 
-  //static enum
   private enum CustomState {
     A,
     B,

@@ -17,17 +17,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     final String name,
     final Class<S> stateClass,
     final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator) {
-
-    super(name, stateClass, valueCreator, specificationCreator);
-
-    defaultValue = null;
-  }
-
-  public NonCascadingProperty(
-    final String name,
-    final Class<S> stateClass,
-    final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator,
     final V defaultValue) {
 

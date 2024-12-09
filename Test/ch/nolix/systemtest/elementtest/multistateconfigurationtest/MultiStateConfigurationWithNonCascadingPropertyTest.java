@@ -10,7 +10,6 @@ import ch.nolix.system.graphic.color.Color;
 
 final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
 
-  //static enum
   private enum CustomState {
     A,
     B,
@@ -24,7 +23,8 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
       "Color",
       CustomState.class,
       Color::fromSpecification,
-      Color::getSpecification);
+      Color::getSpecification,
+      Color.WHITE);
 
     CustomFormatElement() {
 
