@@ -6,11 +6,13 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.web.url.UrlTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.webapi.urlapi.IUrlTool;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
@@ -41,6 +43,8 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
 
   private static final LinkCssBuilder LINK_CSS_BUILDER = new LinkCssBuilder();
+
+  private static final IUrlTool URL_TOOL = new UrlTool();
 
   private final MutableValue<String> displayText = MutableValue.forString(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
     this::setDisplayText);
@@ -143,6 +147,17 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     GlobalValidator.assertThat(url).thatIsNamed(LowerCaseVariableCatalogue.URL).isNotBlank();
 
     this.url.setValue(url);
+
+    return this;
+  }
+
+  @Override
+  public ILink setUrlAndDisplayTextFromIt(final String url) {
+
+    final var displayText = URL_TOOL.getDisplayTextForUrl(url);
+
+    setUrl(url);
+    setDisplayText(displayText);
 
     return this;
   }

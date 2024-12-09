@@ -20,4 +20,6 @@ public interface ILink extends IControl<ILink, ILinkStyle> {
   ILink setTarget(LinkTarget target);
 
   ILink setUrl(String url);
+
+  ILink setUrlAndDisplayTextFromIt(String url);
 }
