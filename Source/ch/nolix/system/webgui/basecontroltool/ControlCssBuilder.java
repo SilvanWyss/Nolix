@@ -13,13 +13,17 @@ import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
+import ch.nolix.system.webgui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.cssmapperapi.ICssPropertyMapper;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
 implements IControlCssBuilder<C, CS> {
+
+  private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
   private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
@@ -332,8 +336,7 @@ implements IControlCssBuilder<C, CS> {
       getFontWeightCssPropertyForControlAndState(control, state));
 
     if (style.definesTextLineDecorationForState(state)) {
-      list.addAtEnd(
-        CONTROL_CSS_VALUE_TOOL.getCssPropertyFromLineDecoration(style.getTextLineDecorationWhenHasState(state)));
+      list.addAtEnd(CSS_PROPERTY_MAPPER.mapLineDecorationToCssProperty(style.getTextLineDecorationWhenHasState(state)));
     }
 
     fillUpOptionalCssPropertiesForControlAndStateIntoList(control, state, list);
