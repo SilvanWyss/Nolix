@@ -416,7 +416,7 @@ public final class LowerCaseVariableCatalogue {
 
   public static final String TYPE = "type";
 
-  public static final String URL = "URL";
+  public static final String URL = "url";
 
   public static final String VALUE = "value";
 

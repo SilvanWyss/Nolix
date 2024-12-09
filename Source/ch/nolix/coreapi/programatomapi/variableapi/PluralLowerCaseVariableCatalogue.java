@@ -417,7 +417,7 @@ public final class PluralLowerCaseVariableCatalogue {
 
   public static final String TYPES = "types";
 
-  public static final String URLS = "URLs";
+  public static final String URLS = "urls";
 
   public static final String VALUES = "values";
 

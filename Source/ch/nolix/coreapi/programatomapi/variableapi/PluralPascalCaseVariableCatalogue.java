@@ -417,7 +417,7 @@ public final class PluralPascalCaseVariableCatalogue {
 
   public static final String TYPES = "Types";
 
-  public static final String URLS = "URLs";
+  public static final String URLS = "Urls";
 
   public static final String VALUES = "Values";
 

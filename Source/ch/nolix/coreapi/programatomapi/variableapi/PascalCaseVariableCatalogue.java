@@ -416,7 +416,7 @@ public final class PascalCaseVariableCatalogue {
 
   public static final String TYPE = "Type";
 
-  public static final String URL = "URL";
+  public static final String URL = "Url";
 
   public static final String VALUE = "Value";
 
