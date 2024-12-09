@@ -4,7 +4,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -25,18 +24,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalogue.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
-  }
-
-  public NonCascadingProperty(
-    final String name,
-    final Class<S> stateClass,
-    final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator,
-    final BiConsumer<S, V> setterMethod) {
-
-    super(name, stateClass, valueCreator, specificationCreator, setterMethod);
-
-    defaultValue = null;
   }
 
   public NonCascadingProperty(
@@ -69,19 +56,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       defaultValue);
   }
 
-  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
-    final String name,
-    final Class<S2> stateClass,
-    final BiConsumer<S2, Integer> setterMethod) {
-    return new NonCascadingProperty //
-    <S2, Integer>( //NOSONAR: Gradle fails on diamond operators in this case.
-      name,
-      stateClass,
-      INode::getSingleChildNodeAsInt,
-      Node::withChildNode,
-      setterMethod);
-  }
-
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>//
   forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
     final String name,
@@ -95,10 +69,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       Node::withChildNode,
       setterMethod,
       defaultValue);
-  }
-
-  public boolean hasDefaultValue() {
-    return (defaultValue != null);
   }
 
   public void setEmptyForState(final S state) {
@@ -118,13 +88,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       return baseStateProperty.getValue();
     }
 
-    if (hasDefaultValue()) {
-      return defaultValue;
-    }
-
-    throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
-      this,
-      "value for the" + state.getQualifyingPrefix() + " state");
+    return defaultValue;
   }
 
   @Override

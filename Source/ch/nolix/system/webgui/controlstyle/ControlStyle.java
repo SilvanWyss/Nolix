@@ -77,7 +77,8 @@ implements IControlStyle<ECS> {
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
     IAbsoluteOrRelativeInt::getSpecification,
-    this::setWidthForState);
+    this::setWidthForState,
+    AbsoluteOrRelativeInt.withIntValue(100));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = //
   new NonCascadingProperty //
@@ -86,7 +87,8 @@ implements IControlStyle<ECS> {
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
     IAbsoluteOrRelativeInt::getSpecification,
-    this::setHeightForState);
+    this::setHeightForState,
+    AbsoluteOrRelativeInt.withIntValue(100));
 
   private final NonCascadingProperty<ControlState, Integer> leftBorderThickness = NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
