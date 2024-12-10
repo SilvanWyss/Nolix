@@ -154,10 +154,10 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   @Override
   public ILink setUrlAndDisplayTextFromIt(final String url) {
 
-    final var displayText = URL_TOOL.getDisplayTextForUrl(url);
+    final var localDisplayText = URL_TOOL.getDisplayTextForUrl(url);
 
     setUrl(url);
-    setDisplayText(displayText);
+    setDisplayText(localDisplayText);
 
     return this;
   }
