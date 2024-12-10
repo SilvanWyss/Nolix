@@ -118,12 +118,11 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     return (optionalTag != null);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
   @Override
   public boolean hasTag(final Enum<?> tag) {
     return //
-    optionalTag != null
-    && optionalTag == tag;
+    hasTag()
+    && getTag().equals(tag);
   }
 
   //For a better performance, this implementation does not use all comfortable methods.
