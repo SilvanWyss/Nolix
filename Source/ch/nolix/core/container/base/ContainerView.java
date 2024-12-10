@@ -34,30 +34,6 @@ public final class ContainerView<E> extends Container<E> {
   private final int endIndex;
 
   /**
-   * @param container
-   * @param startIndex
-   * @param endIndex
-   * @param <E2>       is the type of the elements of the created
-   *                   {@link ContainerView}.
-   * @return a new {@link ContainerView} with the given container, startIndex and
-   *         endIndex.
-   * @throws ArgumentIsNullException      if the given container is null.
-   * @throws NonPositiveArgumentException if the given startIndex is not positive.
-   * @throws NonPositiveArgumentException if the given endIndex is not positive.
-   * @throws SmallerArgumentException     if the given endIndex is smaller than
-   *                                      the given startIndex.
-   * @throws BiggerArgumentException      if the given endIndex is bigger than the
-   *                                      number of elements of the given
-   *                                      container.
-   */
-  public static <E2> ContainerView<E2> forContainerAndStartIndexAndEndIndex(
-    final Container<E2> container,
-    final int startIndex,
-    final int endIndex) {
-    return new ContainerView<>(container, startIndex, endIndex);
-  }
-
-  /**
    * Creates a new {@link ContainerView} with the given container, startIndex and
    * endIndex.
    * 
@@ -92,6 +68,30 @@ public final class ContainerView<E> extends Container<E> {
     this.container = container;
     this.startIndex = startIndex;
     this.endIndex = endIndex;
+  }
+
+  /**
+   * @param container
+   * @param startIndex
+   * @param endIndex
+   * @param <E2>       is the type of the elements of the created
+   *                   {@link ContainerView}.
+   * @return a new {@link ContainerView} with the given container, startIndex and
+   *         endIndex.
+   * @throws ArgumentIsNullException      if the given container is null.
+   * @throws NonPositiveArgumentException if the given startIndex is not positive.
+   * @throws NonPositiveArgumentException if the given endIndex is not positive.
+   * @throws SmallerArgumentException     if the given endIndex is smaller than
+   *                                      the given startIndex.
+   * @throws BiggerArgumentException      if the given endIndex is bigger than the
+   *                                      number of elements of the given
+   *                                      container.
+   */
+  public static <E2> ContainerView<E2> forContainerAndStartIndexAndEndIndex(
+    final Container<E2> container,
+    final int startIndex,
+    final int endIndex) {
+    return new ContainerView<>(container, startIndex, endIndex);
   }
 
   /**
