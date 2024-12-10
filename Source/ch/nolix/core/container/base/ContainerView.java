@@ -54,7 +54,7 @@ public final class ContainerView<E> extends Container<E> {
     final Container<E2> container,
     final int startIndex,
     final int endIndex) {
-    return new ContainerView<E2>(container, startIndex, endIndex);
+    return new ContainerView<>(container, startIndex, endIndex);
   }
 
   /**
