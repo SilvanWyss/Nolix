@@ -33,6 +33,12 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   private Object[][] elements = new Object[0][0];
 
   /**
+   * Creates a new empty {@link Matrix}.
+   */
+  private Matrix() {
+  }
+
+  /**
    * @return a new empty {@link Matrix}.
    * @param <E2> is the type of the elements of the created {@link Matrix}.
    */
@@ -54,12 +60,6 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     }
 
     return newMatrix;
-  }
-
-  /**
-   * Creates a new empty {@link Matrix}.
-   */
-  private Matrix() {
   }
 
   /**
