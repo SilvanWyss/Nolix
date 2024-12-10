@@ -1375,7 +1375,10 @@ implements IContainer<E> {
     //Iterates the current Container.
     for (final var e : this) {
 
-      //Handles the case that the current element is not null and the given selector does not select the current element.
+      /*
+       * Handles the case that the current element is not null and the given selector
+       * does not select the current element.
+       */
       if (e != null && !selector.test(e)) {
 
         //Adds the current element to the otherElements.

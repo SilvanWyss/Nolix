@@ -185,7 +185,10 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       return false;
     }
 
-    //Asserts that the elements of the given listfulfill the according element conditions the current SequencePattern requires.
+    /*
+     * Asserts that the elements of the given list fulfill the according element
+     * conditions the current SequencePattern requires.
+     */
     final Iterator<Predicate<E>> iterator = elementConditions.iterator();
     for (final E e : list) {
       if (!iterator.next().test(e)) {
