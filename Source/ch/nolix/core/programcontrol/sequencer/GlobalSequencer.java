@@ -161,7 +161,7 @@ public final class GlobalSequencer {
     try {
       job.run();
       return true;
-    } catch (final Throwable error) {
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       error.printStackTrace();
       return false;
     }

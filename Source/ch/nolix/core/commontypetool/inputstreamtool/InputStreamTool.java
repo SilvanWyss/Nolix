@@ -35,7 +35,7 @@ public final class InputStreamTool implements IInputStreamTool {
         }
 
         bytes.addAtEnd((byte) lByte);
-      } catch (final Exception exception) { //NOSONAR: At this place any Exception should be caught.
+      } catch (final Exception exception) { //NOSONAR: All Exceptions must be caught.
         return null;
       }
     }
