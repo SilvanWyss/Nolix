@@ -9,9 +9,9 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
  * 
  * @author Silvan Wyss
  * @version 2023-08-25
- * @param <FMCH> is the type of a {@link IFluentMutableCardinalityHolder}.
+ * @param <H> is the type of a {@link IFluentMutableCardinalityHolder}.
  */
-public interface IFluentMutableCardinalityHolder<FMCH extends IFluentMutableCardinalityHolder<FMCH>>
+public interface IFluentMutableCardinalityHolder<H extends IFluentMutableCardinalityHolder<H>>
 extends ICardinalityHolder {
 
   /**
@@ -22,5 +22,5 @@ extends ICardinalityHolder {
    * @return the current {@link IFluentMutableCardinalityHolder}.
    * @throws RuntimeException if the given cardinality is null.
    */
-  FMCH setCardinality(Cardinality cardinality);
+  H setCardinality(Cardinality cardinality);
 }
