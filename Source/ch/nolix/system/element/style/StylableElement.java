@@ -63,7 +63,7 @@ implements IStylableElement<SE> {
   }
 
   @Override
-  public SE removeId() {
+  public final SE removeId() {
 
     id.clear();
 
