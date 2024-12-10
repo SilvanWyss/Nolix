@@ -6,7 +6,7 @@ public final class TimeComplexityFunctionCatalogue {
 
   public static final LongToDoubleFunction CONSTANT = n -> 1.0;
 
-  public static final LongToDoubleFunction LOGARITHM = n -> Math.log(n);
+  public static final LongToDoubleFunction LOGARITHM = Math::log;
 
   public static final LongToDoubleFunction LINEAR = n -> n;
 
