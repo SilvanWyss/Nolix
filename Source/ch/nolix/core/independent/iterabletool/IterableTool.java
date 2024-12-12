@@ -1,35 +1,20 @@
 package ch.nolix.core.independent.iterabletool;
 
+import ch.nolix.coreapi.independentapi.iterabletoolapi.IIterableTool;
+
 /**
- * The {@link IterableTool} provides methods to handle {@link Iterable}s.
- * 
  * @author Silvan Wyss
  * @version 2017-12-16
  */
-public final class IterableTool {
-
-  /**
-   * @param iterable
-   * @param element
-   * @return true if the given container contains the given element, false
-   *         otherwise.
-   */
-  public boolean containsElement(final Iterable<?> iterable, final Object element) {
-
-    if (iterable == null) {
-      return false;
-    }
-
-    return containsElementWhenIsNotNull(iterable, element);
-  }
+public final class IterableTool implements IIterableTool {
 
   /**
    * @param iterable
    * @param element
    * @return true if the given iterable contains the given element exactly 1 time,
-   *         false otherwise.
+   *         false otherwise, for the case that the given iterable is not null.
    */
-  public boolean containsElementOnce(final Iterable<?> iterable, final Object element) {
+  private static boolean containsElementOnceWhenIsNotNull(final Iterable<?> iterable, final Object element) {
 
     var found = false;
 
@@ -49,49 +34,11 @@ public final class IterableTool {
 
   /**
    * @param iterable
-   * @param stringRepresentation
-   * @return true if the given iterable contains exactly 1 element with the given
-   *         stringRepresentation
-   */
-  public boolean containsExactlyOneWithStringRepresentation(
-    final Iterable<?> iterable,
-    final String stringRepresentation) {
-    return //
-    iterable != null
-    && containsExacltyOneWithStringRepresentationWhenIsNotNull(iterable, stringRepresentation);
-  }
-
-  /**
-   * @param container
-   * @return the number of elements of the given container.
-   */
-  public int getElementCount(final Iterable<?> container) {
-
-    var elementCount = 0;
-    final var iterator = container.iterator();
-    while (iterator.hasNext()) {
-      elementCount++;
-      iterator.next();
-    }
-
-    return elementCount;
-  }
-
-  /**
-   * @param container
-   * @return true if the given container is not empty.
-   */
-  public boolean isEmpty(final Iterable<?> container) {
-    return !container.iterator().hasNext();
-  }
-
-  /**
-   * @param iterable
    * @param element
-   * @return true if the given container contains the given element, false
+   * @return true if the given iterable contains the given element, false
    *         otherwise, for the case that the given iterable is not null.
    */
-  private boolean containsElementWhenIsNotNull(final Iterable<?> iterable, final Object element) {
+  private static boolean containsElementWhenIsNotNull(final Iterable<?> iterable, final Object element) {
 
     for (final var e : iterable) {
       if (e == element) {
@@ -102,7 +49,14 @@ public final class IterableTool {
     return false;
   }
 
-  private boolean containsExacltyOneWithStringRepresentationWhenIsNotNull(
+  /**
+   * @param iterable
+   * @param stringRepresentation
+   * @return true if the given iterable contains exactly 1 element with the given
+   *         stringRepresentation, false otherwise, for the case that the given
+   *         iterable is not null.
+   */
+  private static boolean containsExacltyOneWithStringRepresentationWhenIsNotNull(
     final Iterable<?> iterable,
     final String stringRepresentation) {
 
@@ -120,5 +74,91 @@ public final class IterableTool {
     }
 
     return found;
+  }
+
+  /**
+   * @param iterable
+   * @return the number of elements of the given iterable for the case that the
+   *         given iterable is not null.
+   */
+  private static int getElementCountWhenIsNotNull(final Iterable<?> iterable) {
+
+    var elementCount = 0;
+
+    final var iterator = iterable.iterator();
+
+    while (iterator.hasNext()) {
+      elementCount++;
+      iterator.next();
+    }
+
+    return elementCount;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsElement(final Iterable<?> iterable, final Object element) {
+
+    if (iterable == null) {
+      return false;
+    }
+
+    return containsElementWhenIsNotNull(iterable, element);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsElementOnce(final Iterable<?> iterable, final Object element) {
+
+    if (iterable == null) {
+      return false;
+    }
+
+    return containsElementOnceWhenIsNotNull(iterable, element);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsExactlyOneWithStringRepresentation(
+    final Iterable<?> iterable,
+    final String stringRepresentation) {
+
+    if (iterable == null) {
+      return false;
+    }
+
+    return containsExacltyOneWithStringRepresentationWhenIsNotNull(iterable, stringRepresentation);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getElementCount(final Iterable<?> iterable) {
+
+    if (iterable == null) {
+      return 0;
+    }
+
+    return getElementCountWhenIsNotNull(iterable);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isEmpty(final Iterable<?> iterable) {
+
+    if (iterable == null) {
+      throw new IllegalArgumentException("The given iterable is null.");
+    }
+
+    return !iterable.iterator().hasNext();
   }
 }
