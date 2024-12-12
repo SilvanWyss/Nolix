@@ -1246,10 +1246,9 @@ implements IContainer<E> {
 
           //Adds the group for the current element to the groups.
           groups.addAtEnd(group);
-        }
 
-        //Handles the case that the optionalGroup of the current element exists. 
-        else {
+          //Handles the case that the optionalGroup of the current element exists. 
+        } else {
 
           //Adds the current element to the group for the current element.
           optionalGroup.get().addAtEnd(e);
@@ -1758,10 +1757,9 @@ implements IContainer<E> {
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0;
-      }
 
-      //Handles the case that the current element is not  null.
-      else {
+        //Handles the case that the current element is not  null.
+      } else {
         array[index] = byteMapper.apply(e);
       }
 
@@ -1794,10 +1792,9 @@ implements IContainer<E> {
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = CharacterCatalogue.SPACE;
-      }
 
-      //Handles the case that the current element is not  null.
-      else {
+        //Handles the case that the current element is not  null.
+      } else {
         array[index] = charMapper.apply(e);
       }
 
@@ -1848,10 +1845,9 @@ implements IContainer<E> {
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0.0;
-      }
 
-      //Handles the case that the current element is not null.
-      else {
+        //Handles the case that the current element is not null.
+      } else {
         array[index] = doubleMapper.applyAsDouble(e);
       }
 
@@ -1884,10 +1880,9 @@ implements IContainer<E> {
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0;
-      }
 
-      //Handles the case that the current element is not null.
-      else {
+        //Handles the case that the current element is not null.
+      } else {
         array[index] = intMapper.applyAsInt(e);
 
       }
@@ -1921,10 +1916,9 @@ implements IContainer<E> {
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0L;
-      }
 
-      //Handles the case that the current element is not null.
-      else {
+        //Handles the case that the current element is not null.
+      } else {
         array[index] = longMapper.applyAsLong(e);
       }
 
@@ -1999,10 +1993,9 @@ implements IContainer<E> {
 
         //Adds zero to numbers.
         numbers.addAtEnd(zero);
-      }
 
-      //Handles the case that the current element is not null.
-      else {
+        //Handles the case that the current element is not null.
+      } else {
 
         //Adds the Numebr the given numberMapper maps from the current element.
         numbers.addAtBegin(numberMapper.apply(e));
