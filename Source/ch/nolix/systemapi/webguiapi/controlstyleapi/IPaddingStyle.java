@@ -2,7 +2,7 @@ package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public interface IPaddingStyle<PS extends IPaddingStyle<PS>> {
+public interface IPaddingStyle<S extends IPaddingStyle<S>> {
 
   int getBottomPaddingWhenHasState(ControlState state);
 
@@ -22,13 +22,13 @@ public interface IPaddingStyle<PS extends IPaddingStyle<PS>> {
 
   void removeCustomTopPaddings();
 
-  PS setBottomPaddingForState(ControlState state, int bottomPadding);
+  S setBottomPaddingForState(ControlState state, int bottomPadding);
 
-  PS setLeftPaddingForState(ControlState state, int leftPadding);
+  S setLeftPaddingForState(ControlState state, int leftPadding);
 
-  PS setPaddingForState(ControlState state, int padding);
+  S setPaddingForState(ControlState state, int padding);
 
-  PS setRightPaddingForState(ControlState state, int rightPadding);
+  S setRightPaddingForState(ControlState state, int rightPadding);
 
-  PS setTopPaddingForState(ControlState state, int topPadding);
+  S setTopPaddingForState(ControlState state, int topPadding);
 }

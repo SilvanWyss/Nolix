@@ -5,12 +5,12 @@ package ch.nolix.coreapi.programstructureapi.copierapi;
  * 
  * @author Silvan Wyss
  * @version 2023-01-14
- * @param <EC> is the type of a {@link EmptyCopyable}.
+ * @param <C> is the type of a {@link EmptyCopyable}.
  */
-public interface EmptyCopyable<EC extends EmptyCopyable<EC>> {
+public interface EmptyCopyable<C extends EmptyCopyable<C>> {
 
   /**
    * @return a new empty copy of the current {@link EmptyCopyable}.
    */
-  EC createEmptyCopy();
+  C createEmptyCopy();
 }

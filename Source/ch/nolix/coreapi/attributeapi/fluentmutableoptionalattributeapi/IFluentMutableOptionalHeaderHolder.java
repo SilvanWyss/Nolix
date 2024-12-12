@@ -9,9 +9,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
  * 
  * @author Silvan Wyss
  * @version 2019-02-24
- * @param <FMOHH> is the type of a {@link IFluentMutableOptionalHeaderHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalHeaderHolder}.
  */
-public interface IFluentMutableOptionalHeaderHolder<FMOHH extends IFluentMutableOptionalHeaderHolder<FMOHH>>
+public interface IFluentMutableOptionalHeaderHolder<H extends IFluentMutableOptionalHeaderHolder<H>>
 extends IOptionalHeaderHolder {
 
   /**
@@ -19,7 +19,7 @@ extends IOptionalHeaderHolder {
    * 
    * @return the current {@link IFluentMutableOptionalHeaderHolder}.
    */
-  FMOHH removeHeader();
+  H removeHeader();
 
   /**
    * Sets the header of the current {@link IFluentMutableOptionalHeaderHolder}.
@@ -29,5 +29,5 @@ extends IOptionalHeaderHolder {
    * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
    */
-  FMOHH setHeader(String header);
+  H setHeader(String header);
 }

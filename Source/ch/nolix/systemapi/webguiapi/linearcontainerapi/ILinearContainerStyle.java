@@ -3,11 +3,11 @@ package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public interface ILinearContainerStyle<LCL extends ILinearContainerStyle<LCL>> extends IControlStyle<LCL> {
+public interface ILinearContainerStyle<S extends ILinearContainerStyle<S>> extends IControlStyle<S> {
 
   int getChildControlMarginWhenHasState(ControlState state);
 
   void removeCustomChildControlMargins();
 
-  LCL setChildControlMarginForState(ControlState state, int childControlMargin);
+  S setChildControlMarginForState(ControlState state, int childControlMargin);
 }

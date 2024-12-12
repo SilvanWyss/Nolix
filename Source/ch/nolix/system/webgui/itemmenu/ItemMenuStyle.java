@@ -5,7 +5,7 @@ import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfi
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public abstract class ItemMenuStyle<IMS extends IItemMenuStyle<IMS> & IMultiStateConfiguration<IMS, ControlState>>
-extends ControlStyle<IMS>
-implements IItemMenuStyle<IMS> {
+public abstract class ItemMenuStyle<S extends IItemMenuStyle<S> & IMultiStateConfiguration<S, ControlState>>
+extends ControlStyle<S>
+implements IItemMenuStyle<S> {
 }

@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-10-25
- * @param <FMLH> is the type of a {@link IFluentMutableLabelHolder}.
+ * @param <H> is the type of a {@link IFluentMutableLabelHolder}.
  */
-public interface IFluentMutableLabelHolder<FMLH extends IFluentMutableLabelHolder<FMLH>> extends ILabelHolder {
+public interface IFluentMutableLabelHolder<H extends IFluentMutableLabelHolder<H>> extends ILabelHolder {
 
   /**
    * Sets the label of the current {@link IFluentMutableLabelHolder}.
@@ -20,5 +20,5 @@ public interface IFluentMutableLabelHolder<FMLH extends IFluentMutableLabelHolde
    * @throws RuntimeException if the given label is null.
    * @throws RuntimeException if the given label is blank.
    */
-  FMLH setLabel(String label);
+  H setLabel(String label);
 }

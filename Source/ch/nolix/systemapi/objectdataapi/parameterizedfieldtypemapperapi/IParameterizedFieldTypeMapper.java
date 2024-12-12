@@ -6,9 +6,9 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-public interface IParameterizedFieldTypeMapper<PPTDTO extends IParameterizedFieldTypeDto> {
+public interface IParameterizedFieldTypeMapper<T extends IParameterizedFieldTypeDto> {
 
   IParameterizedFieldType createParameterizedFieldTypeFromDto(
-    PPTDTO parameterizedFieldTypeDto,
+    T parameterizedFieldTypeDto,
     IContainer<? extends ITable<IEntity>> referencableTables);
 }

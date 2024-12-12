@@ -5,7 +5,7 @@ import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.guiapi.selectionapi.Selectable;
 
-public interface IItemMenuItem<IMI extends IItemMenuItem<IMI>>
+public interface IItemMenuItem<I extends IItemMenuItem<I>>
 extends BlanknessRequestable, IIdHolder, IMutableElement, Selectable {
 
   boolean belongsToMenu();

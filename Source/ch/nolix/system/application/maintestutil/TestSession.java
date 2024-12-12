@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.application.main.Session;
 
-public final class TestSession<BC extends BackendClient<BC, AS>, AS> extends Session<BC, AS> {
+public final class TestSession<C extends BackendClient<C, S>, S> extends Session<C, S> {
 
   private final Class<?> clientClass;
 
@@ -15,8 +15,8 @@ public final class TestSession<BC extends BackendClient<BC, AS>, AS> extends Ses
     this.clientClass = clientClass;
   }
 
-  public static <BC2 extends BackendClient<BC2, AC2>, AC2> TestSession<BC2, AC2> withClientClass(
-    final Class<BC2> clientClass) {
+  public static <C2 extends BackendClient<C2, S2>, S2> TestSession<C2, S2> withClientClass(
+    final Class<C2> clientClass) {
     return new TestSession<>(clientClass);
   }
 

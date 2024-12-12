@@ -7,24 +7,23 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //An IItemMenu can contain 0 or 1 selected item.
-public interface IItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-extends Clearable, IControl<IM, IMS> {
+public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends Clearable, IControl<M, S> {
 
-  IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items);
+  M addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items);
 
-  IM addBlankItem();
+  M addBlankItem();
 
-  IM addItemWithIdAndText(String id, String text);
+  M addItemWithIdAndText(String id, String text);
 
-  IM addItemWithIdAndTextAndSelectAction(String id, String text, Runnable selectAction);
+  M addItemWithIdAndTextAndSelectAction(String id, String text, Runnable selectAction);
 
-  IM addItemWithIdAndTextAndSelectAction(String id, String text, Consumer<IItemMenuItem<?>> selectAction);
+  M addItemWithIdAndTextAndSelectAction(String id, String text, Consumer<IItemMenuItem<?>> selectAction);
 
-  IM addItemWithText(String text, String... texts);
+  M addItemWithText(String text, String... texts);
 
-  IM addItemWithTextAndSelectAction(String text, Runnable selectAction);
+  M addItemWithTextAndSelectAction(String text, Runnable selectAction);
 
-  IM addItemWithTextAndSelectAction(String text, Consumer<IItemMenuItem<?>> selectAction);
+  M addItemWithTextAndSelectAction(String text, Consumer<IItemMenuItem<?>> selectAction);
 
   boolean blankItemIsSelected();
 
@@ -46,17 +45,17 @@ extends Clearable, IControl<IM, IMS> {
 
   void removeSelectAction();
 
-  IM selectBlankItem();
+  M selectBlankItem();
 
-  IM selectFirstItem();
+  M selectFirstItem();
 
-  IM selectItemById(String id);
+  M selectItemById(String id);
 
-  IM selectItemByText(String text);
+  M selectItemByText(String text);
 
-  IM setSelectAction(Runnable selectAction);
+  M setSelectAction(Runnable selectAction);
 
-  IM setSelectAction(Consumer<IItemMenuItem<?>> selectAction);
+  M setSelectAction(Consumer<IItemMenuItem<?>> selectAction);
 
   void internalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
 }

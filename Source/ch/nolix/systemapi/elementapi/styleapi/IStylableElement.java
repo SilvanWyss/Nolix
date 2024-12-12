@@ -13,12 +13,12 @@ import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <SE> is the type of a {@link IStylableElement}.
+ * @param <E> is the type of a {@link IStylableElement}.
  */
-public interface IStylableElement<SE extends IStylableElement<SE>>
+public interface IStylableElement<E extends IStylableElement<E>>
 extends
-IFluentMutableMultiTokenHolder<SE>,
-IFluentMutableOptionalIdHolder<SE>,
+IFluentMutableMultiTokenHolder<E>,
+IFluentMutableOptionalIdHolder<E>,
 IMutableElement,
 IStructureElement,
 TypeRequestable {

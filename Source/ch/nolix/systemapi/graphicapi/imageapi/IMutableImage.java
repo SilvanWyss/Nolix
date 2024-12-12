@@ -2,7 +2,7 @@ package ch.nolix.systemapi.graphicapi.imageapi;
 
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
-public interface IMutableImage<MI extends IMutableImage<MI>> extends IImage {
+public interface IMutableImage<I extends IMutableImage<I>> extends IImage {
 
-  MI setPixel(int xPosition, int yPosition, IColor color);
+  I setPixel(int xPosition, int yPosition, IColor color);
 }

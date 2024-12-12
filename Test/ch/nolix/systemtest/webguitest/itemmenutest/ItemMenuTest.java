@@ -8,13 +8,13 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
-abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>> extends ControlTest<IM> {
+abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
 
   @Test
   final void testCase_creation() {
 
     //setup
-    final var testUnit = createTestUnit();
+    final M testUnit = createTestUnit();
 
     //setup verification
     expect(testUnit.isEmpty());
@@ -25,7 +25,7 @@ abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenu
   final void testCase_addItemWithIdAndText() {
 
     //setup
-    final var testUnit = createTestUnit();
+    final M testUnit = createTestUnit();
 
     //setup verification
     expect(testUnit.isEmpty());
@@ -47,7 +47,7 @@ abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenu
   final void testCase_addItemWithText() {
 
     //setup
-    final var testUnit = createTestUnit();
+    final M testUnit = createTestUnit();
 
     //setup verification
     expect(testUnit.isEmpty());
@@ -65,7 +65,7 @@ abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenu
 
     //setup
     final var item = ItemMenuItem.withIdAndText("my_id2", "my_text2");
-    final var testUnit = createTestUnit()
+    final M testUnit = createTestUnit()
       .addItem(
         ItemMenuItem.withIdAndText("my_id1", "my_text1"),
         item,

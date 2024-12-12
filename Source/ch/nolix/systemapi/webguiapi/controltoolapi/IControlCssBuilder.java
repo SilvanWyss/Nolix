@@ -5,7 +5,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public interface IControlCssBuilder<C extends IControl<C, CS>, CS extends IControlStyle<CS>> {
+public interface IControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>> {
 
   IContainer<ICssRule> createCssRulesForControl(C control);
 }

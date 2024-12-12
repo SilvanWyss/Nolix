@@ -12,14 +12,13 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <BC> is the type of the {@link BackendClient} of a {@link Session}.
- * @param <AS> is the type of the context of the parent {@link Application} of
- *             the parent {@link BackendClient} of a {@link Session}.
+ * @param <C> is the type of the {@link BackendClient} of a {@link Session}.
+ * @param <S> is the type of the context of the parent {@link Application} of
+ *            the parent {@link BackendClient} of a {@link Session}.
  */
-public abstract class Session<BC extends BackendClient<BC, AS>, AS>
-implements IRefreshableSubscriber {
+public abstract class Session<C extends BackendClient<C, S>, S> implements IRefreshableSubscriber {
 
-  private BC parentClient;
+  private C parentClient;
 
   private Object result;
 
@@ -42,7 +41,7 @@ implements IRefreshableSubscriber {
    * @return the context of the parent {@link Application} of the parent
    *         {@link Client} of the current {@link Session}.
    */
-  public final AS getStoredApplicationContext() {
+  public final S getStoredApplicationContext() {
     return getStoredParentApplication().getStoredApplicationService();
   }
 
@@ -51,7 +50,7 @@ implements IRefreshableSubscriber {
    * @throws InvalidArgumentException if the current {@link Session} does not
    *                                  belong to a client.
    */
-  public final BC getStoredParentClient() {
+  public final C getStoredParentClient() {
 
     //Asserts that the current {@link Session} belonts to a client.
     assertBelongsToClient();
@@ -98,7 +97,7 @@ implements IRefreshableSubscriber {
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final void push(final Session<BC, AS> session) {
+  public final void push(final Session<C, S> session) {
     getStoredParentClient().internalPush(session);
   }
 
@@ -111,7 +110,7 @@ implements IRefreshableSubscriber {
    * @return the result from the given session.
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final <R> R pushAndGetResult(final Session<BC, AS> session) {
+  public final <R> R pushAndGetResult(final Session<C, S> session) {
     return getStoredParentClient().internalPushAndGetResult(session);
   }
 
@@ -124,7 +123,7 @@ implements IRefreshableSubscriber {
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final void setNext(final Session<BC, AS> session) {
+  public final void setNext(final Session<C, S> session) {
     getStoredParentClient().internalSetCurrentSession(session);
   }
 
@@ -162,7 +161,7 @@ implements IRefreshableSubscriber {
    * @throws InvalidArgumentException if the current {@link Session} belongs to a
    *                                  client.
    */
-  final void internalSetParentClient(BC parentClient) {
+  final void internalSetParentClient(C parentClient) {
 
     //Asserts that the given client is not null.
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
@@ -209,7 +208,7 @@ implements IRefreshableSubscriber {
    * @return the parent {@link Application} of the parent {@link Client} of the
    *         current {@link Session}.
    */
-  private Application<BC, AS> getStoredParentApplication() {
+  private Application<C, S> getStoredParentApplication() {
     return getStoredParentClient().getStoredParentApplication();
   }
 }

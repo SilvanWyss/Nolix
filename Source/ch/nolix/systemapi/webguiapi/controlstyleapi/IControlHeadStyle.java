@@ -6,10 +6,10 @@ import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public interface IControlHeadStyle<CS extends IControlHeadStyle<CS>>
-extends IMultiStateConfiguration<CS, ControlState> {
+public interface IControlHeadStyle<S extends IControlHeadStyle<S>>
+extends IMultiStateConfiguration<S, ControlState> {
 
-  <CS2 extends IControlHeadStyle<CS2>> void addChild(CS2 controlStyle);
+  <S2 extends IControlHeadStyle<S2>> void addChild(S2 controlStyle);
 
   boolean definesTextLineDecorationForState(ControlState state);
 
@@ -37,15 +37,15 @@ extends IMultiStateConfiguration<CS, ControlState> {
 
   void removeCustomTextSizes();
 
-  CS setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
+  S setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
 
-  CS setFontForState(ControlState state, Font font);
+  S setFontForState(ControlState state, Font font);
 
-  CS setOpacityForState(ControlState state, double opacity);
+  S setOpacityForState(ControlState state, double opacity);
 
-  CS setTextColorForState(ControlState state, IColor textColor);
+  S setTextColorForState(ControlState state, IColor textColor);
 
-  CS setTextLineDecorationForState(ControlState state, LineDecoration textLineDecoration);
+  S setTextLineDecorationForState(ControlState state, LineDecoration textLineDecoration);
 
-  CS setTextSizeForState(ControlState state, int textSize);
+  S setTextSizeForState(ControlState state, int textSize);
 }

@@ -8,8 +8,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
  * 
  * @author Silvan Wyss
  * @version 2024-01-19
- * @param <FMQNH> is the type of a {@link IFluentMutableQualifiedNameHolder}.
+ * @param <H> is the type of a {@link IFluentMutableQualifiedNameHolder}.
  */
-public interface IFluentMutableQualifiedNameHolder<FMQNH extends IFluentMutableQualifiedNameHolder<FMQNH>>
-extends IFluentMutableNameHolder<FMQNH>, IQualifiedNameHolder {
+public interface IFluentMutableQualifiedNameHolder<H extends IFluentMutableQualifiedNameHolder<H>>
+extends IFluentMutableNameHolder<H>, IQualifiedNameHolder {
 }

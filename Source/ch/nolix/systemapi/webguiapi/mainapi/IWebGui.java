@@ -12,7 +12,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.mainapi.IGui;
 
-public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
+public interface IWebGui<G extends IWebGui<G>> extends Clearable, ICanvas<G>, IGui<G>, IStyleElement<G> {
 
   boolean containsControl(IControl<?, ?> control);
 
@@ -34,13 +34,13 @@ public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>,
 
   boolean hasRemoveLayerAction();
 
-  WG pushLayer(ILayer<?> layer);
+  G pushLayer(ILayer<?> layer);
 
-  WG pushLayerWithRootControl(IControl<?, ?> rootControl);
+  G pushLayerWithRootControl(IControl<?, ?> rootControl);
 
   void removeLayer(ILayer<?> layer);
 
-  WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
+  G setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
 
-  WG setRemoveLayerAction(Runnable removeLayerAction);
+  G setRemoveLayerAction(Runnable removeLayerAction);
 }

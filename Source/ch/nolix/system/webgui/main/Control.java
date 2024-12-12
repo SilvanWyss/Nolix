@@ -34,9 +34,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 public abstract class Control //NOSONAR: A Control is a central object with many dependencies.
-<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
+<C extends IControl<C, S>, S extends IControlStyle<S>>
 extends StylableElement<C>
-implements IControl<C, CS> {
+implements IControl<C, S> {
 
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
 
@@ -96,7 +96,7 @@ implements IControl<C, CS> {
     CursorIcon::fromSpecification,
     Node::fromEnum);
 
-  private final ExtensionElement<CS> style = new ExtensionElement<>(createStyle());
+  private final ExtensionElement<S> style = new ExtensionElement<>(createStyle());
 
   private ControlParent parent;
 
@@ -120,7 +120,7 @@ implements IControl<C, CS> {
   }
 
   @Override
-  public final C editStyle(final Consumer<CS> styleEditor) {
+  public final C editStyle(final Consumer<S> styleEditor) {
 
     styleEditor.accept(getStoredStyle());
 
@@ -211,7 +211,7 @@ implements IControl<C, CS> {
   }
 
   @Override
-  public final CS getStoredStyle() {
+  public final S getStoredStyle() {
     return style.getExtensionElement();
   }
 
@@ -408,9 +408,9 @@ implements IControl<C, CS> {
     return asConcrete();
   }
 
-  protected abstract CS createStyle();
+  protected abstract S createStyle();
 
-  protected abstract IControlCssBuilder<C, CS> getCssBuilder();
+  protected abstract IControlCssBuilder<C, S> getCssBuilder();
 
   protected abstract IControlHtmlBuilder<C> getHtmlBuilder();
 

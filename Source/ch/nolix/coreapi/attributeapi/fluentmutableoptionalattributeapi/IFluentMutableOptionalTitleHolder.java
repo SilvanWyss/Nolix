@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-02-06
- * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTitleHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalTitleHolder}.
  */
-public interface IFluentMutableOptionalTitleHolder<FMOTH extends IFluentMutableOptionalTitleHolder<FMOTH>>
+public interface IFluentMutableOptionalTitleHolder<H extends IFluentMutableOptionalTitleHolder<H>>
 extends IOptionalTitleHolder {
 
   /**
@@ -18,7 +18,7 @@ extends IOptionalTitleHolder {
    * 
    * @return the current {@link IFluentMutableOptionalTitleHolder}.
    */
-  FMOTH removeTitle();
+  H removeTitle();
 
   /**
    * Sets the title of the current {@link IFluentMutableOptionalTitleHolder}.
@@ -28,5 +28,5 @@ extends IOptionalTitleHolder {
    * @throws RuntimeException if the given title is null.
    * @throws RuntimeException if the given title is blank.
    */
-  FMOTH setTitle(String title);
+  H setTitle(String title);
 }

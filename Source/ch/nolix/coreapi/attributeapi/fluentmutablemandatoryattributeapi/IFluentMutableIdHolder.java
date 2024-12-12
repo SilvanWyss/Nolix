@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
  * 
  * @author Silvan Wyss
  * @version 2020-03-29
- * @param <FMIH> is the type of a {@link IFluentMutableIdHolder}.
+ * @param <H> is the type of a {@link IFluentMutableIdHolder}.
  */
-public interface IFluentMutableIdHolder<FMIH> extends IIdHolder {
+public interface IFluentMutableIdHolder<H> extends IIdHolder {
 
   /**
    * Sets the id of the current {@link IFluentMutableIdHolder}.
@@ -20,5 +20,5 @@ public interface IFluentMutableIdHolder<FMIH> extends IIdHolder {
    * @throws RuntimeException if the given id is null.
    * @throws RuntimeException if the given id is blank.
    */
-  FMIH setId(String id);
+  H setId(String id);
 }

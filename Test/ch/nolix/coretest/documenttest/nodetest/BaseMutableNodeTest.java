@@ -8,13 +8,13 @@ import ch.nolix.core.document.node.BaseMutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
-abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
+abstract class BaseMutableNodeTest<N extends BaseMutableNode<N>> extends BaseNodeTest<N> {
 
   @Test
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsBlank() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution
     expectRunning(() -> testUnit.addPostfixToHeader(" "))
@@ -30,7 +30,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsNotBlank() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution
     testUnit.addPostfixToHeader("1");
@@ -43,7 +43,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsBlank() {
 
     //setup
-    final var testUnit = createNodeWithHeader("Color");
+    final N testUnit = createNodeWithHeader("Color");
 
     //execution
     expectRunning(() -> testUnit.addPostfixToHeader(" "))
@@ -59,7 +59,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsNotBlank() {
 
     //setup
-    final var testUnit = createNodeWithHeader("Color");
+    final N testUnit = createNodeWithHeader("Color");
 
     //execution
     testUnit.addPostfixToHeader("1");
@@ -72,7 +72,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsBlank() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution
     expectRunning(() -> testUnit.addPrefixToHeader(" "))
@@ -88,7 +88,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsNotBlank() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution
     testUnit.addPrefixToHeader("Background");
@@ -101,7 +101,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsBlank() {
 
     //setup
-    final var testUnit = createNodeWithHeader("Color");
+    final N testUnit = createNodeWithHeader("Color");
 
     //execution
     expectRunning(() -> testUnit.addPrefixToHeader(" "))
@@ -117,7 +117,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsNotBlank() {
 
     //setup
-    final var testUnit = createNodeWithHeader("Color");
+    final N testUnit = createNodeWithHeader("Color");
 
     //execution
     testUnit.addPrefixToHeader("Background");
@@ -130,7 +130,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_removeHeader() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
 
     //setup verification
@@ -160,7 +160,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_resetFromString(final String string) {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution
     testUnit.resetFromString(string);
@@ -173,7 +173,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_resetFromString_whenTheGivenStringIsNotValid() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution & verification
     expectRunning(() -> testUnit.resetFromString("a(b).c"))
@@ -185,7 +185,7 @@ abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseN
   void testCase_setHeader() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
 
     //setup verification

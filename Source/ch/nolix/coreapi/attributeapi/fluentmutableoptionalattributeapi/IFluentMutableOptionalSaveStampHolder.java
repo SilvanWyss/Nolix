@@ -9,10 +9,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalSaveStampHold
  * 
  * @author Silvan Wyss
  * @version 2024-02-11
- * @param <FMSSH> is the type of a
- *                {@link IFluentMutableOptionalSaveStampHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalSaveStampHolder}.
  */
-public interface IFluentMutableOptionalSaveStampHolder<FMSSH extends IFluentMutableOptionalSaveStampHolder<FMSSH>>
+public interface IFluentMutableOptionalSaveStampHolder<H extends IFluentMutableOptionalSaveStampHolder<H>>
 extends IOptionalSaveStampHolder {
 
   /**
@@ -21,7 +20,7 @@ extends IOptionalSaveStampHolder {
    * 
    * @return the current {@link IFluentMutableOptionalSaveStampHolder}.
    */
-  FMSSH removeSaveStamp();
+  H removeSaveStamp();
 
   /**
    * Sets the save stamp of the current
@@ -32,5 +31,5 @@ extends IOptionalSaveStampHolder {
    * @throws RuntimeException if the given saveStamp is null.
    * @throws RuntimeException if the given saveStamp is blank.
    */
-  FMSSH setSaveStamp(String saveStamp);
+  H setSaveStamp(String saveStamp);
 }

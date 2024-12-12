@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.guiapi.visibilityapi;
 
-public interface VisibilitySettable<VS extends VisibilitySettable<VS>> extends VisibilityRequestable {
+public interface VisibilitySettable<S extends VisibilitySettable<S>> extends VisibilityRequestable {
 
-  VS setInvisible();
+  S setInvisible();
 
-  VS setVisible();
+  S setVisible();
 }

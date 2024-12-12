@@ -8,11 +8,11 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-02-03
- * @param <FMOVH> is the type of a {@link IFluentMutableOptionalValueHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalValueHolder}.
  * @param <V>     is the type of the value of a
  *                {@link IFluentMutableOptionalValueHolder}.
  */
-public interface IFluentMutableOptionalValueHolder<FMOVH extends IFluentMutableOptionalValueHolder<FMOVH, V>, V>
+public interface IFluentMutableOptionalValueHolder<H extends IFluentMutableOptionalValueHolder<H, V>, V>
 extends IOptionalValueHolder<V> {
 
   /**
@@ -20,7 +20,7 @@ extends IOptionalValueHolder<V> {
    * 
    * @return the current {@link IFluentMutableOptionalValueHolder}.
    */
-  FMOVH removeValue();
+  H removeValue();
 
   /**
    * Sets the value of the current {@link IFluentMutableOptionalValueHolder}.
@@ -29,5 +29,5 @@ extends IOptionalValueHolder<V> {
    * @return the current {@link IFluentMutableOptionalValueHolder}.
    * @throws RuntimeException if the given value is null.
    */
-  FMOVH setValue(String value);
+  H setValue(String value);
 }

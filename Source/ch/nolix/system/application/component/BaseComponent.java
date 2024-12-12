@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-public abstract class BaseComponent<C extends Controller<AS>, AS>
+public abstract class BaseComponent<C extends Controller<S>, S>
 extends Control<IComponent, IComponentStyle>
 implements IComponent {
 
@@ -24,7 +24,7 @@ implements IComponent {
 
   private final C controller;
 
-  protected BaseComponent(final C controller, final WebClientSession<AS> webClientSession) {
+  protected BaseComponent(final C controller, final WebClientSession<S> webClientSession) {
 
     GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 
@@ -98,7 +98,7 @@ implements IComponent {
     return HTML_BUILDER;
   }
 
-  protected final AS getStoredApplicationContext() {
+  protected final S getStoredApplicationContext() {
     return getStoredController().getStoredApplicationContext();
   }
 
@@ -106,7 +106,7 @@ implements IComponent {
     return controller;
   }
 
-  protected final WebClientSession<AS> getStoredWebClientSession() {
+  protected final WebClientSession<S> getStoredWebClientSession() {
     return getStoredController().getStoredWebClientSession();
   }
 

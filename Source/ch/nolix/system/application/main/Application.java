@@ -24,21 +24,21 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <BC> is the type of the {@link BackendClient}s of a
+ * @param <C> is the type of the {@link BackendClient}s of a
  *             {@link Application}.
- * @param <AS> is the type of the application context of a {@link Application}.
+ * @param <S> is the type of the application context of a {@link Application}.
  */
-public abstract class Application<BC extends BackendClient<BC, AS>, AS> implements IApplication<AS> {
+public abstract class Application<C extends BackendClient<C, S>, S> implements IApplication<S> {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
-  private final AS applicationService;
+  private final S applicationService;
 
   private String nameAddendum;
 
   private BaseServer<?> parentServer;
 
-  private final LinkedList<BC> clients = LinkedList.createEmpty();
+  private final LinkedList<C> clients = LinkedList.createEmpty();
 
   /**
    * Creates a new {@link Application} with the given applicationContext.
@@ -46,7 +46,7 @@ public abstract class Application<BC extends BackendClient<BC, AS>, AS> implemen
    * @param applicationService
    * @throws ArgumentIsNullException if the given applicationService is null.
    */
-  protected Application(final AS applicationService) {
+  protected Application(final S applicationService) {
 
     GlobalValidator.assertThat(applicationService).thatIsNamed("application context").isNotNull();
 
@@ -76,8 +76,8 @@ public abstract class Application<BC extends BackendClient<BC, AS>, AS> implemen
    * @return the class of the {@link Client}s of the current {@link Application}.
    */
   @SuppressWarnings("unchecked")
-  public final Class<BC> getClientClass() {
-    return (Class<BC>) (createInitialSession().getClientClass());
+  public final Class<C> getClientClass() {
+    return (Class<C>) (createInitialSession().getClientClass());
   }
 
   /**
@@ -108,14 +108,14 @@ public abstract class Application<BC extends BackendClient<BC, AS>, AS> implemen
    * {@inheritDoc}
    */
   @Override
-  public final AS getStoredApplicationService() {
+  public final S getStoredApplicationService() {
     return applicationService;
   }
 
   /**
    * @return the {@link Client}s of the current {@link Application}.
    */
-  public final IContainer<BC> getStoredClients() {
+  public final IContainer<C> getStoredClients() {
 
     removeClosedClients();
 
@@ -153,7 +153,7 @@ public abstract class Application<BC extends BackendClient<BC, AS>, AS> implemen
    */
   @SuppressWarnings("unchecked")
   public final void takeClient(final BackendClient<?, ?> client) {
-    final var lClient = ((BC) client);
+    final C lClient = ((C) client);
     lClient.internalSetParentApplication(this);
     clients.addAtEnd(lClient);
     GlobalSequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
@@ -173,8 +173,8 @@ public abstract class Application<BC extends BackendClient<BC, AS>, AS> implemen
    *         {@link Application}.
    */
   @SuppressWarnings("unchecked")
-  protected final Session<BC, AS> createInitialSession() {
-    return (Session<BC, AS>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
+  protected final Session<C, S> createInitialSession() {
+    return (Session<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
   }
 
   /**
@@ -280,9 +280,9 @@ public abstract class Application<BC extends BackendClient<BC, AS>, AS> implemen
    * @param endPoint
    * @return a new {@link BackendClient} with the given endPoint
    */
-  private BC createBackendClientWithEndPoint(final IEndPoint endPoint) {
+  private C createBackendClientWithEndPoint(final IEndPoint endPoint) {
 
-    final var backendClient = GlobalReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
+    final C backendClient = GlobalReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
     backendClient.internalSetEndPoint(endPoint);
 
     return backendClient;

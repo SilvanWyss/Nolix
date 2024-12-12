@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITokenHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-02-06
- * @param <FMTH> is the type of a {@link IFluentMutableTokenHolder}.
+ * @param <H> is the type of a {@link IFluentMutableTokenHolder}.
  */
-public interface IFluentMutableTokenHolder<FMTH extends IFluentMutableTokenHolder<FMTH>> extends ITokenHolder {
+public interface IFluentMutableTokenHolder<H extends IFluentMutableTokenHolder<H>> extends ITokenHolder {
 
   /**
    * Sets the token of the current {@link IFluentMutableTokenHolder}.
@@ -20,5 +20,5 @@ public interface IFluentMutableTokenHolder<FMTH extends IFluentMutableTokenHolde
    * @throws RuntimeException if the given token is null.
    * @throws RuntimeException if the given token is blank.
    */
-  FMTH setToken(String token);
+  H setToken(String token);
 }

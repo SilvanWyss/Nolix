@@ -14,11 +14,11 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
 
   private final IImage applicationLogo;
 
-  private <AS> WebApplicationInfo(final Application<WebClient<AS>, AS> webApplication) {
+  private <S> WebApplicationInfo(final Application<WebClient<S>, S> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
 
-    final AS applicationService = webApplication.getStoredApplicationService();
+    final S applicationService = webApplication.getStoredApplicationService();
 
     if (applicationService instanceof IWebApplicationService webApplicationService) {
       applicationLogo = webApplicationService.getApplicationLogo();
@@ -27,7 +27,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
     }
   }
 
-  public static <AS> WebApplicationInfo forWebApplication(final Application<WebClient<AS>, AS> webApplication) {
+  public static <S> WebApplicationInfo forWebApplication(final Application<WebClient<S>, S> webApplication) {
     return new WebApplicationInfo(webApplication);
   }
 

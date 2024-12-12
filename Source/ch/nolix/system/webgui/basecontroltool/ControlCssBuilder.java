@@ -20,8 +20,8 @@ import ch.nolix.systemapi.webguiapi.cssmapperapi.ICssPropertyMapper;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
-implements IControlCssBuilder<C, CS> {
+public abstract class ControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
+implements IControlCssBuilder<C, S> {
 
   private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
@@ -134,7 +134,7 @@ implements IControlCssBuilder<C, CS> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
 
-    var style = control.getStoredStyle();
+    S style = control.getStoredStyle();
 
     list.addAtEnd(
       CssProperty.withNameAndValue(
@@ -185,7 +185,7 @@ implements IControlCssBuilder<C, CS> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
 
-    var style = control.getStoredStyle();
+    S style = control.getStoredStyle();
 
     if (style.definesWidthForState(state)) {
       list.addAtEnd(
@@ -238,7 +238,7 @@ implements IControlCssBuilder<C, CS> {
 
   private ICssProperty getFontWeightCssPropertyForControlAndState(final C control, final ControlState state) {
 
-    final var style = control.getStoredStyle();
+    final S style = control.getStoredStyle();
     final var boldTextFlag = style.getBoldTextFlagWhenHasState(state);
 
     if (!boldTextFlag) {
@@ -313,7 +313,7 @@ implements IControlCssBuilder<C, CS> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
 
-    final var style = control.getStoredStyle();
+    final S style = control.getStoredStyle();
 
     final var opacity = style.getOpacityWhenHasState(state);
     if (opacity < 1.0) {

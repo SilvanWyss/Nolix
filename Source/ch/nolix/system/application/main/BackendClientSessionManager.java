@@ -6,15 +6,15 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
-public final class BackendClientSessionManager<C extends BackendClient<C, AS>, AS> {
+public final class BackendClientSessionManager<C extends BackendClient<C, S>, S> {
 
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
 
   private final C parentClient;
 
-  private Session<C, AS> currentSession;
+  private Session<C, S> currentSession;
 
-  private final LinkedList<Session<C, AS>> sessionStack = LinkedList.createEmpty();
+  private final LinkedList<Session<C, S>> sessionStack = LinkedList.createEmpty();
 
   private BackendClientSessionManager(final C parentClient) {
 
@@ -25,7 +25,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AS>, A
     this.parentClient = parentClient;
   }
 
-  public static <C2 extends BackendClient<C2, AC2>, AC2> BackendClientSessionManager<C2, AC2> forClient(
+  public static <C2 extends BackendClient<C2, S2>, S2> BackendClientSessionManager<C2, S2> forClient(
     final C2 client) {
     return new BackendClientSessionManager<>(client);
   }
@@ -46,7 +46,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AS>, A
     return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
   }
 
-  public Session<C, AS> getStoredCurrentSession() {
+  public Session<C, S> getStoredCurrentSession() {
 
     GlobalSequencer
       .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
@@ -71,7 +71,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AS>, A
     popCurrentSessionFromStack();
   }
 
-  public void pushSession(final Session<C, AS> session) {
+  public void pushSession(final Session<C, S> session) {
 
     //Asserts that the given session is not null.
     GlobalValidator.assertThat(session).isOfType(Session.class);
@@ -88,7 +88,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AS>, A
   }
 
   @SuppressWarnings("unchecked")
-  public <R> R pushSessionAndGetResult(final Session<C, AS> session) {
+  public <R> R pushSessionAndGetResult(final Session<C, S> session) {
 
     pushSession(session);
 
@@ -99,7 +99,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AS>, A
     return (R) session.internalGetStoredResult();
   }
 
-  public void setCurrentSession(final Session<C, AS> session) {
+  public void setCurrentSession(final Session<C, S> session) {
     popCurrentSessionFromStack();
     pushSession(session);
   }
@@ -134,11 +134,11 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AS>, A
     return sessionStack.get1BasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
   }
 
-  private Session<C, AS> getStoredTopSession() {
+  private Session<C, S> getStoredTopSession() {
     return sessionStack.getStoredLast();
   }
 
-  private void initializeSession(final Session<C, AS> session) {
+  private void initializeSession(final Session<C, S> session) {
 
     //Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {

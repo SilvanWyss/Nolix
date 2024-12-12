@@ -7,8 +7,8 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi.IResourcePool;
 
-public abstract class ResourcePool<WR extends WrapperResource<WR, R>, R extends GroupCloseable>
-implements IResourcePool<WR> {
+public abstract class ResourcePool<W extends WrapperResource<W, R>, R extends GroupCloseable>
+implements IResourcePool<W> {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -17,7 +17,7 @@ implements IResourcePool<WR> {
   private final LinkedList<R> availableResources = LinkedList.createEmpty();
 
   @Override
-  public final synchronized WR borrowResource() {
+  public final synchronized W borrowResource() {
 
     final var resource = provideResource();
 
@@ -36,7 +36,7 @@ implements IResourcePool<WR> {
 
   protected abstract R createResource();
 
-  protected abstract WR createWrapperResourceWithResource(R resource);
+  protected abstract W createWrapperResourceWithResource(R resource);
 
   final synchronized void internalTakeBackResource(final R resource) {
     if (resource.isOpen()) {
@@ -44,9 +44,9 @@ implements IResourcePool<WR> {
     }
   }
 
-  private WR createWrapperResourceWithCurrentResourcePoolAndResource(final R resource) {
+  private W createWrapperResourceWithCurrentResourcePoolAndResource(final R resource) {
 
-    final var wrapperResource = createWrapperResourceWithResource(resource);
+    final W wrapperResource = createWrapperResourceWithResource(resource);
 
     wrapperResource.internalSetParentResourcePool(this);
 

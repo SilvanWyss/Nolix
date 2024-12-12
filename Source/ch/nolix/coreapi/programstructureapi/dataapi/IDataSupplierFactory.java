@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.programstructureapi.dataapi;
 
-public interface IDataSupplierFactory<DS> {
+public interface IDataSupplierFactory<F> {
 
-  DS createDataSupplier();
+  F createDataSupplier();
 }

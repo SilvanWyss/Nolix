@@ -9,11 +9,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalQualifiedName
  * 
  * @author Silvan Wyss
  * @version 2024-02-11
- * @param <FMOQNH> is the type of a
- *                 {@link IFluentMutableOptionalQualifiedNameHolder}.
+ * @param <H> is the type of a
+ *            {@link IFluentMutableOptionalQualifiedNameHolder}.
  */
-public interface IFluentMutableOptionalQualifiedNameHolder< //
-FMOQNH extends IFluentMutableOptionalQualifiedNameHolder<FMOQNH> //
->
-extends IFluentMutableOptionalNameHolder<FMOQNH>, IOptionalQualifiedNameHolder {
+public interface IFluentMutableOptionalQualifiedNameHolder<H extends IFluentMutableOptionalQualifiedNameHolder<H>>
+extends IFluentMutableOptionalNameHolder<H>, IOptionalQualifiedNameHolder {
 }

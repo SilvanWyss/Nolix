@@ -6,9 +6,9 @@ package ch.nolix.systemapi.elementapi.styleapi;
  * 
  * @author Silvan Wyss
  * @version 2022-07-23
- * @param <SE> is the type of a {@link IStyleElement}.
+ * @param <E> is the type of a {@link IStyleElement}.
  */
-public interface IStyleElement<SE extends IStyleElement<SE>> extends IStylableElement<SE> {
+public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElement<E> {
 
   /**
    * Applies the {@link IStyle} of the current {@link IStyleElement} to the
@@ -34,5 +34,5 @@ public interface IStyleElement<SE extends IStyleElement<SE>> extends IStylableEl
    * @return the current {@link IStyleElement}.
    * @throws RuntimeException if the given configuration is null.
    */
-  SE setStyle(IStyle style);
+  E setStyle(IStyle style);
 }

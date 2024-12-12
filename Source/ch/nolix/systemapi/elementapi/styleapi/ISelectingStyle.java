@@ -8,10 +8,10 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * 
  * @author Silvan Wyss
  * @version 2023-07-08
- * @param <SS> is the type of a {@link ISelectingStyle}.
+ * @param <S> is the type of a {@link ISelectingStyle}.
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface ISelectingStyle<SS extends ISelectingStyle<SS>> extends IBaseStyle<SS> {
+public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyle<S> {
 
   /**
    * @return true if the current {@link ISelectingStyle} would select the child

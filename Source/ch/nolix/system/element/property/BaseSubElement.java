@@ -8,15 +8,15 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-public abstract class BaseSubElement<ME extends IMutableElement> implements IProperty {
+public abstract class BaseSubElement<E extends IMutableElement> implements IProperty {
 
   private final String attributePrefix;
 
-  private ME internalSubElement;
+  private E internalSubElement;
 
   protected BaseSubElement(
     final String attributePrefix,
-    final ME internalSubElement) {
+    final E internalSubElement) {
 
     GlobalValidator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
 
@@ -28,7 +28,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     return attributePrefix;
   }
 
-  public ME getSubElement() {
+  public E getSubElement() {
     return internalSubElement;
   }
 
@@ -58,7 +58,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     }
   }
 
-  protected final void internalSetSubElement(final ME internalSubElement) {
+  protected final void internalSetSubElement(final E internalSubElement) {
 
     GlobalValidator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 

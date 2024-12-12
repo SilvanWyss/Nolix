@@ -2,9 +2,9 @@ package ch.nolix.system.element.property;
 
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 
-public final class ExchangableSubElement<ME extends IMutableElement> extends BaseSubElement<ME> {
+public final class ExchangableSubElement<E extends IMutableElement> extends BaseSubElement<E> {
 
-  public ExchangableSubElement(final String attributePrefix, final ME internalSubElement) {
+  public ExchangableSubElement(final String attributePrefix, final E internalSubElement) {
     super(attributePrefix, internalSubElement);
   }
 
@@ -13,7 +13,7 @@ public final class ExchangableSubElement<ME extends IMutableElement> extends Bas
     return true;
   }
 
-  public void setSubElement(final ME extensionElement) {
+  public void setSubElement(final E extensionElement) {
     internalSetSubElement(extensionElement);
   }
 }

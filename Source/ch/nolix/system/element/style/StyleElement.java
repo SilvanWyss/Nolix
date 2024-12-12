@@ -11,11 +11,9 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
  * 
  * @author Silvan Wyss
  * @version 2016-05-01
- * @param <SE> is the type of a {@link StyleElement}.
+ * @param <E> is the type of a {@link StyleElement}.
  */
-public abstract class StyleElement<SE extends StyleElement<SE>>
-extends StylableElement<SE>
-implements IStyleElement<SE> {
+public abstract class StyleElement<E extends StyleElement<E>> extends StylableElement<E> implements IStyleElement<E> {
 
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalogue.CONFIGURATION;
 
@@ -59,7 +57,7 @@ implements IStyleElement<SE> {
    * {@inheritDoc}
    */
   @Override
-  public SE setStyle(IStyle style) {
+  public E setStyle(IStyle style) {
 
     this.style.setValue(style);
     applyStyleIfHasStyle();

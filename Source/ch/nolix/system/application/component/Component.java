@@ -5,11 +5,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class Component<C extends Controller<AS>, AS> extends BaseComponent<C, AS> {
+public abstract class Component<C extends Controller<S>, S> extends BaseComponent<C, S> {
 
   private IControl<?, ?> childControl;
 
-  protected Component(final C controller, final WebClientSession<AS> webClientSession) {
+  protected Component(final C controller, final WebClientSession<S> webClientSession) {
 
     super(controller, webClientSession);
 

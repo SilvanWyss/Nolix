@@ -6,15 +6,15 @@ import ch.nolix.coreapi.programstructureapi.dataapi.IDataSupplierFactory;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ComponentWithDataSupplier<C extends Controller<AS>, AS extends IDataSupplierFactory<DS>, DS>
-extends BaseComponent<C, AS> {
+public abstract class ComponentWithDataSupplier<C extends Controller<S>, S extends IDataSupplierFactory<T>, T>
+extends BaseComponent<C, S> {
 
   private IControl<?, ?> childControl;
 
   protected ComponentWithDataSupplier(
     final C controller,
-    final DS initialDataSupplier,
-    final WebClientSession<AS> webClientSession) {
+    final T initialDataSupplier,
+    final WebClientSession<S> webClientSession) {
 
     super(controller, webClientSession);
 
@@ -34,18 +34,18 @@ extends BaseComponent<C, AS> {
   @Override
   public final void rebuild() {
 
-    final var dataSupplier = createDataSupplier();
+    final T dataSupplier = createDataSupplier();
 
     rebuild(dataSupplier);
   }
 
-  protected abstract IControl<?, ?> createControl(C controller, DS dataAdapter);
+  protected abstract IControl<?, ?> createControl(C controller, T dataAdapter);
 
-  private DS createDataSupplier() {
+  private T createDataSupplier() {
     return getStoredApplicationContext().createDataSupplier();
   }
 
-  private void rebuild(final DS dataSupplier) {
+  private void rebuild(final T dataSupplier) {
     childControl = createControl(getStoredController(), dataSupplier);
     childControl.internalSetParentControl(this);
     childControl.linkTo(this);

@@ -7,17 +7,17 @@ import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public interface IBackgroundStyle<BCS extends IBackgroundStyle<BCS>> {
+public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {
 
   IBackground getBackgroundWhenHasState(ControlState state);
 
   void removeCustomBackgrounds();
 
-  BCS setBackgroundColorForState(ControlState state, IColor backgroundColor);
+  S setBackgroundColorForState(ControlState state, IColor backgroundColor);
 
-  BCS setBackgroundColorGradientForState(ControlState state, IColorGradient backgroundColorGradient);
+  S setBackgroundColorGradientForState(ControlState state, IColorGradient backgroundColorGradient);
 
-  BCS setBackgroundImageForState(ControlState state, IImage backgroundImage, ImageApplication imageApplication);
+  S setBackgroundImageForState(ControlState state, IImage backgroundImage, ImageApplication imageApplication);
 
-  BCS setBackgroundForState(ControlState state, IBackground background);
+  S setBackgroundForState(ControlState state, IBackground background);
 }

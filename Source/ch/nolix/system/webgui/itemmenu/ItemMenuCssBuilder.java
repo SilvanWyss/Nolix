@@ -7,12 +7,12 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public abstract class ItemMenuCssBuilder<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-extends ControlCssBuilder<IM, IMS> {
+public abstract class ItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
+extends ControlCssBuilder<M, S> {
 
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndStateIntoList(
-    final IM itemMenu,
+    final M itemMenu,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
     //Does nothing.
@@ -20,7 +20,7 @@ extends ControlCssBuilder<IM, IMS> {
 
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-    final IM itemMenu,
+    final M itemMenu,
     final ILinkedList<? super ICssRule> list) {
     //Does nothing.
   }

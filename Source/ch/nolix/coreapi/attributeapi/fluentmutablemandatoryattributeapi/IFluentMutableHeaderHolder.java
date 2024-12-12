@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IHeaderHolder;
  * 
  * @author Silvan Wyss
  * @version 2018-04-15
- * @param <FMHH> is the type of a {@link IFluentMutableHeaderHolder}.
+ * @param <H> is the type of a {@link IFluentMutableHeaderHolder}.
  */
-public interface IFluentMutableHeaderHolder<FMHH extends IHeaderHolder> extends IHeaderHolder {
+public interface IFluentMutableHeaderHolder<H extends IHeaderHolder> extends IHeaderHolder {
 
   /**
    * Sets the header of the current {@link IFluentMutableHeaderHolder}.
@@ -20,5 +20,5 @@ public interface IFluentMutableHeaderHolder<FMHH extends IHeaderHolder> extends 
    * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
    */
-  FMHH setHeader(String header);
+  H setHeader(String header);
 }

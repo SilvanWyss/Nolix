@@ -8,10 +8,10 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public abstract class LinearContainerStyle< //
-LCS extends ILinearContainerStyle<LCS> & IMultiStateConfiguration<LCS, ControlState> //
+S extends ILinearContainerStyle<S> & IMultiStateConfiguration<S, ControlState> //
 >
-extends ControlStyle<LCS>
-implements ILinearContainerStyle<LCS> {
+extends ControlStyle<S>
+implements ILinearContainerStyle<S> {
 
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 
@@ -35,7 +35,7 @@ implements ILinearContainerStyle<LCS> {
   }
 
   @Override
-  public LCS setChildControlMarginForState(final ControlState state, final int childControlMargin) {
+  public S setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 
     GlobalValidator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 

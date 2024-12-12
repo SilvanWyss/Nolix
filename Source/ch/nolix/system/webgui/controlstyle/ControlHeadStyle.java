@@ -13,9 +13,9 @@ import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-abstract class ControlHeadStyle<CS extends IControlHeadStyle<CS>>
-extends MultiStateConfiguration<CS, ControlState>
-implements IControlHeadStyle<CS> {
+abstract class ControlHeadStyle<C extends IControlHeadStyle<C>>
+extends MultiStateConfiguration<C, ControlState>
+implements IControlHeadStyle<C> {
 
   public static final double DEFAULT_OPACITY = 1.0;
 
@@ -86,8 +86,8 @@ implements IControlHeadStyle<CS> {
 
   @Override
   @SuppressWarnings("unchecked")
-  public final <CS2 extends IControlHeadStyle<CS2>> void addChild(final CS2 controlStyle) {
-    internalAddChild((CS) controlStyle);
+  public final <C2 extends IControlHeadStyle<C2>> void addChild(final C2 controlStyle) {
+    internalAddChild((C) controlStyle);
   }
 
   @Override
@@ -156,7 +156,7 @@ implements IControlHeadStyle<CS> {
   }
 
   @Override
-  public final CS setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
+  public final C setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
 
     this.boldTextFlag.setValueForState(state, boldTextFlag);
 
@@ -164,7 +164,7 @@ implements IControlHeadStyle<CS> {
   }
 
   @Override
-  public final CS setFontForState(final ControlState state, final Font font) {
+  public final C setFontForState(final ControlState state, final Font font) {
 
     this.font.setValueForState(state, font);
 
@@ -172,7 +172,7 @@ implements IControlHeadStyle<CS> {
   }
 
   @Override
-  public final CS setOpacityForState(final ControlState state, final double opacity) {
+  public final C setOpacityForState(final ControlState state, final double opacity) {
 
     GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalogue.OPACITY).isBetween(0.0, 1.0);
 
@@ -182,7 +182,7 @@ implements IControlHeadStyle<CS> {
   }
 
   @Override
-  public final CS setTextColorForState(final ControlState state, final IColor textColor) {
+  public final C setTextColorForState(final ControlState state, final IColor textColor) {
 
     this.textColor.setValueForState(state, textColor);
 
@@ -190,7 +190,7 @@ implements IControlHeadStyle<CS> {
   }
 
   @Override
-  public CS setTextLineDecorationForState(final ControlState state, final LineDecoration textLineDecoration) {
+  public C setTextLineDecorationForState(final ControlState state, final LineDecoration textLineDecoration) {
 
     this.textLineDecoration.setValueForState(state, textLineDecoration);
 
@@ -198,7 +198,7 @@ implements IControlHeadStyle<CS> {
   }
 
   @Override
-  public final CS setTextSizeForState(final ControlState state, final int textSize) {
+  public final C setTextSizeForState(final ControlState state, final int textSize) {
 
     GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalogue.TEXT_SIZE).isPositive();
 

@@ -8,11 +8,10 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
  * 
  * @author Silvan Wyss
  * @version 2018-09-06
- * @param <FVH> is the type of a {@link IFluentMutableValueHolder}.
- * @param <V>   is the type of the value of a {@link IFluentMutableValueHolder}.
+ * @param <H> is the type of a {@link IFluentMutableValueHolder}.
+ * @param <V> is the type of the value of a {@link IFluentMutableValueHolder}.
  */
-public interface IFluentMutableValueHolder<FVH extends IFluentMutableValueHolder<FVH, V>, V>
-extends IValueHolder<V> {
+public interface IFluentMutableValueHolder<H extends IFluentMutableValueHolder<H, V>, V> extends IValueHolder<V> {
 
   /**
    * Sets the value of the current {@link IFluentMutableValueHolder}.
@@ -21,5 +20,5 @@ extends IValueHolder<V> {
    * @return the current {@link IFluentMutableValueHolder}.
    * @throws RuntimeException if the given value is null.
    */
-  FVH setValue(V value);
+  H setValue(V value);
 }

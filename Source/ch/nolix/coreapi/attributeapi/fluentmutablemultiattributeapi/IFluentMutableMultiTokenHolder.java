@@ -8,10 +8,9 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-06-16
- * @param <FMMTH> is the type of a {@link IFluentMutableMultiTokenHolder}.
+ * @param <H> is the type of a {@link IFluentMutableMultiTokenHolder}.
  */
-public interface IFluentMutableMultiTokenHolder<FMMTH extends IFluentMutableMultiTokenHolder<FMMTH>>
-extends IMultiTokenHolder {
+public interface IFluentMutableMultiTokenHolder<H extends IFluentMutableMultiTokenHolder<H>> extends IMultiTokenHolder {
 
   /**
    * Adds the given token to the current {@link IFluentMutableMultiTokenHolder}.
@@ -20,7 +19,7 @@ extends IMultiTokenHolder {
    * @return the current {@link IFluentMutableMultiTokenHolder}.
    * @throws RuntimeException if the given token is null or blank.
    */
-  FMMTH addToken(String token);
+  H addToken(String token);
 
   /**
    * Removes the token that equals the given token from the current
@@ -30,12 +29,12 @@ extends IMultiTokenHolder {
    * @param token
    * @return the current {@link IFluentMutableMultiTokenHolder}.
    */
-  FMMTH removeToken(String token);
+  H removeToken(String token);
 
   /**
    * Removes all tokens from the current {@link IFluentMutableMultiTokenHolder}.
    * 
    * @return the current {@link IFluentMutableMultiTokenHolder}.
    */
-  FMMTH removeTokens();
+  H removeTokens();
 }

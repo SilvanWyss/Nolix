@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  * 
  * @author Silvan Wyss
  * @version 2021-06-19
- * @param <FMTH> is the type of a {@link IFluentMutableTextHolder}.
+ * @param <H> is the type of a {@link IFluentMutableTextHolder}.
  */
-public interface IFluentMutableTextHolder<FMTH extends IFluentMutableTextHolder<FMTH>> extends ITextHolder {
+public interface IFluentMutableTextHolder<H extends IFluentMutableTextHolder<H>> extends ITextHolder {
 
   /**
    * Sets the text of the current {@link IFluentMutableTextHolder}.
@@ -19,5 +19,5 @@ public interface IFluentMutableTextHolder<FMTH extends IFluentMutableTextHolder<
    * @return the current {@link IFluentMutableTextHolder}.
    * @throws RuntimeException if the given text is null.
    */
-  FMTH setText(String text);
+  H setText(String text);
 }

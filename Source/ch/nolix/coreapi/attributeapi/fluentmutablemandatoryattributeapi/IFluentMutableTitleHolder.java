@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
  * 
  * @author Silvan Wyss
  * @version 2019-07-26
- * @param <FMTH> is the type of a {@link IFluentMutableTitleHolder}.
+ * @param <H> is the type of a {@link IFluentMutableTitleHolder}.
  */
-public interface IFluentMutableTitleHolder<FMTH extends IFluentMutableTitleHolder<FMTH>> extends ITitleHolder {
+public interface IFluentMutableTitleHolder<H extends IFluentMutableTitleHolder<H>> extends ITitleHolder {
 
   /**
    * Sets the title of the current {@link IFluentMutableTitleHolder}.
@@ -20,5 +20,5 @@ public interface IFluentMutableTitleHolder<FMTH extends IFluentMutableTitleHolde
    * @throws RuntimeException if the given title is null.
    * @throws RuntimeException if the given title is blank.
    */
-  FMTH setTitle(String title);
+  H setTitle(String title);
 }

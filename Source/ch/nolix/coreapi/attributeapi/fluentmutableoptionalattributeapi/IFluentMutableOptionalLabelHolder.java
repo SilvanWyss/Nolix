@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalLabelHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-10-25
- * @param <FMOLH> is the type of a {@link IFluentMutableOptionalLabelHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalLabelHolder}.
  */
-public interface IFluentMutableOptionalLabelHolder<FMOLH extends IFluentMutableOptionalLabelHolder<FMOLH>>
+public interface IFluentMutableOptionalLabelHolder<H extends IFluentMutableOptionalLabelHolder<H>>
 extends IOptionalLabelHolder {
 
   /**
@@ -18,7 +18,7 @@ extends IOptionalLabelHolder {
    * 
    * @return the current {@link IFluentMutableOptionalLabelHolder}.
    */
-  FMOLH removeLabel();
+  H removeLabel();
 
   /**
    * Sets the label of the current {@link IFluentMutableOptionalLabelHolder}.
@@ -28,5 +28,5 @@ extends IOptionalLabelHolder {
    * @throws RuntimeException if the given label is null.
    * @throws RuntimeException if the given label is blank.
    */
-  FMOLH setLabel(String label);
+  H setLabel(String label);
 }

@@ -1,5 +1,5 @@
 package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
-public interface IControlStyle<CS extends IControlStyle<CS>>
-extends IBackgroundStyle<CS>, IBorderStyle<CS>, IControlHeadStyle<CS>, ISizeStyle<CS>, IPaddingStyle<CS> {
+public interface IControlStyle<S extends IControlStyle<S>>
+extends IBackgroundStyle<S>, IBorderStyle<S>, IControlHeadStyle<S>, ISizeStyle<S>, IPaddingStyle<S> {
 }

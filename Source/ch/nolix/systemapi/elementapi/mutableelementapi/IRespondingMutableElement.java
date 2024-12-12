@@ -5,9 +5,9 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 /**
  * @author Silvan Wyss
  * @version 2021-04-01
- * @param <RME> is the type of a {@link IRespondingMutableElement}.
+ * @param <E> is the type of a {@link IRespondingMutableElement}.
  */
-public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement {
+public interface IRespondingMutableElement<E extends IRespondingMutableElement<E>> extends IMutableElement {
 
   /**
    * Adds or changes the given attribute to the current

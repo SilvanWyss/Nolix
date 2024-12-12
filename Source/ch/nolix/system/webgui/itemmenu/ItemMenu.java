@@ -18,8 +18,8 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
+public abstract class ItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
+extends Control<M, S> implements IItemMenu<M, S> {
 
   private static final String ITEM_HEADER = PascalCaseVariableCatalogue.ITEM;
 
@@ -32,12 +32,12 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   private Consumer<IItemMenuItem<?>> selectAction;
 
   @Override
-  public final IM addBlankItem() {
+  public final M addBlankItem() {
     return addItem(ItemMenuItem.createBlankItem());
   }
 
   @Override
-  public final IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
+  public final M addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
 
     final var allItems = ContainerView.forElementAndArray(item, items);
 
@@ -53,17 +53,17 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM addItemWithIdAndText(final String id, final String text) {
+  public final M addItemWithIdAndText(final String id, final String text) {
     return addItem(ItemMenuItem.withIdAndText(id, text));
   }
 
   @Override
-  public final IM addItemWithIdAndTextAndSelectAction(final String id, String text, final Runnable selectAction) {
+  public final M addItemWithIdAndTextAndSelectAction(final String id, String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
   @Override
-  public final IM addItemWithIdAndTextAndSelectAction(
+  public final M addItemWithIdAndTextAndSelectAction(
     final String id,
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {
@@ -71,7 +71,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM addItemWithText(final String text, final String... texts) {
+  public final M addItemWithText(final String text, final String... texts) {
 
     final var allTexts = ContainerView.forElementAndArray(text, texts);
 
@@ -83,12 +83,12 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM addItemWithTextAndSelectAction(final String text, final Runnable selectAction) {
+  public final M addItemWithTextAndSelectAction(final String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
   @Override
-  public final IM addItemWithTextAndSelectAction(
+  public final M addItemWithTextAndSelectAction(
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
@@ -180,7 +180,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM selectBlankItem() {
+  public final M selectBlankItem() {
 
     getStoredBlankItem().select();
 
@@ -188,7 +188,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM selectFirstItem() {
+  public final M selectFirstItem() {
 
     getStoredFirstItem().select();
 
@@ -196,7 +196,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM selectItemById(final String id) {
+  public final M selectItemById(final String id) {
 
     getStoredItemById(id).select();
 
@@ -204,7 +204,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM selectItemByText(final String text) {
+  public final M selectItemByText(final String text) {
 
     getStoredItemByText(text).select();
 
@@ -212,7 +212,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM setSelectAction(final Runnable selectAction) {
+  public final M setSelectAction(final Runnable selectAction) {
 
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
@@ -220,7 +220,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
+  public final M setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
 
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
@@ -230,7 +230,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
   }
 
   @Override
-  public final IM setUserInput(final String userInput) {
+  public final M setUserInput(final String userInput) {
 
     if (userInput.isEmpty()) {
       getStoredItems().forEach(IItemMenuItem::unselect);

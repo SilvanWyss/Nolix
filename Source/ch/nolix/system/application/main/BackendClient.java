@@ -9,19 +9,19 @@ import ch.nolix.core.net.endpoint3.EndPoint;
 /**
  * @author Silvan Wyss
  * @version 2022-03-18
- * @param <BC> is the type of a {@link BackendClient}.
- * @param <AS> is the type of the context of the parent {@link Application} of a
+ * @param <C> is the type of a {@link BackendClient}.
+ * @param <S> is the type of the context of the parent {@link Application} of a
  *             {@link BackendClient}.
  */
-public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extends Client<BC> {
+public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Client<C> {
 
   @SuppressWarnings("unchecked")
-  private final BackendClientSessionManager<BC, AS> sessionManager = BackendClientSessionManager.forClient((BC) this);
+  private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
   /**
    * The {@link Application} the current {@link BackendClient} belongs to.
    */
-  private Application<BC, AS> parentApplication;
+  private Application<C, S> parentApplication;
 
   /**
    * @return the name of the parent {@link Application} of the current
@@ -35,7 +35,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    * @return the context of the parent {@link Application} of the current
    *         {@link BackendClient}.
    */
-  public final AS getStoredApplicationContext() {
+  public final S getStoredApplicationContext() {
     return getStoredParentApplication().getStoredApplicationService();
   }
 
@@ -45,7 +45,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    *                                  not reference its parent
    *                                  {@link Application}.
    */
-  public final Application<BC, AS> getStoredParentApplication() {
+  public final Application<C, S> getStoredParentApplication() {
 
     assertReferencesParentApplication();
 
@@ -84,7 +84,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    *                                               {@link BackendClient} does not
    *                                               have a current {@link Session}.
    */
-  protected final Session<BC, AS> getStoredCurrentSession() {
+  protected final Session<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
   }
 
@@ -146,7 +146,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  final void internalPush(final Session<BC, AS> session) {
+  final void internalPush(final Session<C, S> session) {
     sessionManager.pushSession(session);
   }
 
@@ -158,7 +158,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    * @return the result from the given session.
    * @throws ArgumentIsNullException if the given session is null.
    */
-  final <R> R internalPushAndGetResult(final Session<BC, AS> session) {
+  final <R> R internalPushAndGetResult(final Session<C, S> session) {
     return sessionManager.pushSessionAndGetResult(session);
   }
 
@@ -171,7 +171,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  final void internalSetCurrentSession(final Session<BC, AS> session) {
+  final void internalSetCurrentSession(final Session<C, S> session) {
     sessionManager.setCurrentSession(session);
   }
 
@@ -185,7 +185,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AS>, AS> extend
    *                                  references already its parent
    *                                  {@link Application}.
    */
-  final void internalSetParentApplication(final Application<BC, AS> parentApplication) {
+  final void internalSetParentApplication(final Application<C, S> parentApplication) {
 
     //Asserts that the given parent application is not null.
     GlobalValidator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();

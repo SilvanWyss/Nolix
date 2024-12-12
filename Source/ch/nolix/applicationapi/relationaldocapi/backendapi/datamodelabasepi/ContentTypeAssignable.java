@@ -2,9 +2,9 @@ package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi;
 
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.ContentTypeRequestable;
 
-public interface ContentTypeAssignable<CTA extends ContentTypeAssignable<CTA>> extends ContentTypeRequestable {
+public interface ContentTypeAssignable<A extends ContentTypeAssignable<A>> extends ContentTypeRequestable {
 
-  CTA setForReferences();
+  A setForReferences();
 
-  CTA setForValues();
+  A setForValues();
 }

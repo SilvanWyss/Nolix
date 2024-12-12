@@ -14,9 +14,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 
-public abstract class MultiStateConfiguration<MSC extends IMultiStateConfiguration<MSC, S>, S extends Enum<S>>
+public abstract class MultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
 extends Element
-implements IMultiStateConfiguration<MSC, S> {
+implements IMultiStateConfiguration<C, S> {
 
   private final State<S> baseState;
 
@@ -92,10 +92,10 @@ implements IMultiStateConfiguration<MSC, S> {
     getStoredProperties().forEach(Property::setUndefined);
   }
 
-  public final void setFrom(final MSC element) {
+  public final void setFrom(final C element) {
 
     @SuppressWarnings("unchecked")
-    final var iterator = ((MultiStateConfiguration<MSC, S>) element).getStoredProperties().iterator();
+    final var iterator = ((MultiStateConfiguration<C, S>) element).getStoredProperties().iterator();
 
     for (final var p : getStoredProperties()) {
       p.setFrom(iterator.next());
@@ -107,12 +107,12 @@ implements IMultiStateConfiguration<MSC, S> {
    *         {@link MultiStateConfiguration}.
    */
   @SuppressWarnings("unchecked")
-  protected final MSC asConcrete() {
-    return (MSC) this;
+  protected final C asConcrete() {
+    return (C) this;
   }
 
   @SuppressWarnings("unchecked")
-  protected final void internalAddChild(final MSC child) {
+  protected final void internalAddChild(final C child) {
 
     GlobalValidator.assertThat(child).thatIsNamed(LowerCaseVariableCatalogue.CHILD).isNotNull();
 

@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-public interface IRootControlOwner<RCO extends IRootControlOwner<RCO>> extends Clearable {
+public interface IRootControlOwner<O extends IRootControlOwner<O>> extends Clearable {
 
   Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
@@ -13,5 +13,5 @@ public interface IRootControlOwner<RCO extends IRootControlOwner<RCO>> extends C
 
   IControl<?, ?> getStoredRootControl();
 
-  RCO setRootControl(IControl<?, ?> rootControl);
+  O setRootControl(IControl<?, ?> rootControl);
 }

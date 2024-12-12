@@ -1,12 +1,12 @@
 package ch.nolix.systemapi.guiapi.presenceapi;
 
-public interface PresenceSettable<PS extends PresenceSettable<PS>> extends PresenceRequestable {
+public interface PresenceSettable<S extends PresenceSettable<S>> extends PresenceRequestable {
 
-  PS setCollapsed();
+  S setCollapsed();
 
-  PS setInvisible();
+  S setInvisible();
 
-  PS setVisibility(boolean visible);
+  S setVisibility(boolean visible);
 
-  PS setVisible();
+  S setVisible();
 }

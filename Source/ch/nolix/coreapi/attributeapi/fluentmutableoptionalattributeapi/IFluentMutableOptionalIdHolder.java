@@ -8,17 +8,16 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
  * 
  * @author Silvan Wyss
  * @version 2020-02-01
- * @param <FMOIH> is the type of a {@link IFluentMutableOptionalIdHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalIdHolder}.
  */
-public interface IFluentMutableOptionalIdHolder<FMOIH extends IFluentMutableOptionalIdHolder<FMOIH>>
-extends IOptionalIdHolder {
+public interface IFluentMutableOptionalIdHolder<H extends IFluentMutableOptionalIdHolder<H>> extends IOptionalIdHolder {
 
   /**
    * Removes the id of the current {@link IFluentMutableOptionalIdHolder}.
    * 
    * @return the current {@link IFluentMutableOptionalIdHolder}.
    */
-  FMOIH removeId();
+  H removeId();
 
   /**
    * Sets the id of the current {@link IFluentMutableOptionalIdHolder}.
@@ -28,5 +27,5 @@ extends IOptionalIdHolder {
    * @throws RuntimeException if the given id is null.
    * @throws RuntimeException if the given id is blank.
    */
-  FMOIH setId(String id);
+  H setId(String id);
 }

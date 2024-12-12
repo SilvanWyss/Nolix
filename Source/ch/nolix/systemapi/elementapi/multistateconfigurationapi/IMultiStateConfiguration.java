@@ -2,8 +2,8 @@ package ch.nolix.systemapi.elementapi.multistateconfigurationapi;
 
 import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 
-public interface IMultiStateConfiguration<MSC extends IMultiStateConfiguration<MSC, S>, S extends Enum<S>>
-extends IRespondingMutableElement<MSC> {
+public interface IMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
+extends IRespondingMutableElement<C> {
 
   S getBaseState();
 }

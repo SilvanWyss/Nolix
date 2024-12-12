@@ -19,9 +19,9 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 /**
  * @author Silvan Wyss
  * @version 2017-06-24
- * @param <BN> is the type of a {@link BaseNode}.
+ * @param <N> is the type of a {@link BaseNode}.
  */
-public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
+public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
 
   public static final String COMMA_CODE = "$M";
 
@@ -129,7 +129,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
   }
 
   @Override
-  public Optional<BN> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
+  public Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
     return getStoredChildNodes().getOptionalStoredFirst(selector);
   }
 
@@ -137,7 +137,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredChildNodeAt1BasedIndex(final int index) {
+  public final N getStoredChildNodeAt1BasedIndex(final int index) {
     return getStoredChildNodes().getStoredAt1BasedIndex(index);
   }
 
@@ -145,7 +145,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<BN> getStoredChildNodesWithHeader(final String header) {
+  public final IContainer<N> getStoredChildNodesWithHeader(final String header) {
     return getStoredChildNodesThat(a -> a.hasHeader(header));
   }
 
@@ -153,7 +153,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<BN> getStoredChildNodesThat(final Predicate<INode<?>> selector) {
+  public final IContainer<N> getStoredChildNodesThat(final Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 
@@ -161,7 +161,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredFirstChildNode() {
+  public final N getStoredFirstChildNode() {
     return getStoredChildNodes().getStoredFirst();
   }
 
@@ -169,7 +169,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredSingleChildNode() {
+  public final N getStoredSingleChildNode() {
     return getStoredChildNodes().getStoredOne();
   }
 
@@ -177,7 +177,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
+  public final N getStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 
@@ -185,7 +185,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredFirstChildNodeWithHeader(final String header) {
+  public final N getStoredFirstChildNodeWithHeader(final String header) {
     return getStoredFirstChildNodeThat(a -> a.hasHeader(header));
   }
 
@@ -425,7 +425,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     }
 
     final var iterator = node.getStoredChildNodes().iterator();
-    for (final var cn : getStoredChildNodes()) {
+    for (final N cn : getStoredChildNodes()) {
       if (!cn.equals(iterator.next())) {
         return false;
       }

@@ -11,9 +11,9 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS extends ILinearContainerStyle<LCS>>
-extends Container<LC, LCS>
-implements ILinearContainer<LC, LCS> {
+public abstract class LinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
+extends Container<C, S>
+implements ILinearContainer<C, S> {
 
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
@@ -24,7 +24,7 @@ implements ILinearContainer<LC, LCS> {
     IControl::getSpecification);
 
   @Override
-  public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
+  public final C addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 
     final var allControls = ContainerView.forElementAndArray(control, controls);
 
@@ -32,7 +32,7 @@ implements ILinearContainer<LC, LCS> {
   }
 
   @Override
-  public final LC addControls(final IContainer<? extends IControl<?, ?>> controls) {
+  public final C addControls(final IContainer<? extends IControl<?, ?>> controls) {
 
     controls.forEach(this::addControl);
 

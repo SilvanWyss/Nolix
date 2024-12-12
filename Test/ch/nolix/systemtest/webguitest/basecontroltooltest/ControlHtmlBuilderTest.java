@@ -6,14 +6,14 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ControlHtmlBuilderTest<CHB extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
+public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
 extends StandardTest {
 
   @Test
   final void testCase_createHtmlElementForNewControl() {
 
     //setup
-    final var testUnit = createTestUnit();
+    final B testUnit = createTestUnit();
 
     //execution
     final var result = testUnit.createHtmlElementForControl(createControl());
@@ -24,7 +24,7 @@ extends StandardTest {
 
   protected abstract C createControl();
 
-  protected abstract CHB createTestUnit();
+  protected abstract B createTestUnit();
 
   protected abstract String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl();
 }

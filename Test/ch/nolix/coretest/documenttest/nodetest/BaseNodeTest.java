@@ -10,13 +10,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
+abstract class BaseNodeTest<N extends BaseNode<N>> extends StandardTest {
 
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("a");
+    final N testUnit = createNodeWithHeaderAndChildNodes("a");
 
     //execution & verification
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
@@ -26,10 +26,10 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
+    final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
     //execution
-    final var result = testUnit.getStoredSingleChildNode();
+    final N result = testUnit.getStoredSingleChildNode();
 
     //verification
     expect(result).hasStringRepresentation("b");
@@ -39,12 +39,12 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   void testCase_getStoredChildNodeAt1BasedIndex() {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
+    final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
     //execution
-    final var result1 = testUnit.getStoredChildNodeAt1BasedIndex(1);
-    final var result2 = testUnit.getStoredChildNodeAt1BasedIndex(2);
-    final var result3 = testUnit.getStoredChildNodeAt1BasedIndex(3);
+    final N result1 = testUnit.getStoredChildNodeAt1BasedIndex(1);
+    final N result2 = testUnit.getStoredChildNodeAt1BasedIndex(2);
+    final N result3 = testUnit.getStoredChildNodeAt1BasedIndex(3);
 
     //verification part 1
     expect(result1.toString()).isEqualTo("b");
@@ -77,7 +77,7 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   void testCase_getHeader(final String header) {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes(header);
+    final N testUnit = createNodeWithHeaderAndChildNodes(header);
 
     //execution
     final var result = testUnit.getHeader();
@@ -90,10 +90,10 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   void testCase_getStoredSingleChildNode_1A() {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
+    final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
     //execution
-    final var result = testUnit.getStoredSingleChildNode();
+    final N result = testUnit.getStoredSingleChildNode();
 
     //verification
     expect(result.toString()).isEqualTo("b");
@@ -103,7 +103,7 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   void testCase_getStoredSingleChildNode_1B() {
 
     //setup
-    final var testUnit = createBlankNode();
+    final N testUnit = createBlankNode();
 
     //execution
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
@@ -113,7 +113,7 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   void testCase_toString_1() {
 
     //setup
-    final var testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
+    final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
     //execution
     final var result = testUnit.toString();
@@ -131,7 +131,7 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
   void testCase_toString_2(final String header, final String expectedResult) {
 
     //setup
-    final var testUnit = createNodeWithHeader(header);
+    final N testUnit = createNodeWithHeader(header);
 
     //execution
     final var result = testUnit.toString();
@@ -140,9 +140,9 @@ abstract class BaseNodeTest<BN extends BaseNode<BN>> extends StandardTest {
     expect(result).isEqualTo(expectedResult);
   }
 
-  protected abstract BN createBlankNode();
+  protected abstract N createBlankNode();
 
-  protected abstract BN createNodeWithHeader(String header);
+  protected abstract N createNodeWithHeader(String header);
 
-  protected abstract BN createNodeWithHeaderAndChildNodes(String header, String... childNodeHeaders);
+  protected abstract N createNodeWithHeaderAndChildNodes(String header, String... childNodeHeaders);
 }

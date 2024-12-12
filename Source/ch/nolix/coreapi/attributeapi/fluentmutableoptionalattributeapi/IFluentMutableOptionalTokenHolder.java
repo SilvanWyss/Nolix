@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTokenHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalTokenHolder}.
  */
-public interface IFluentMutableOptionalTokenHolder<FMOTH extends IFluentMutableOptionalTokenHolder<FMOTH>>
+public interface IFluentMutableOptionalTokenHolder<H extends IFluentMutableOptionalTokenHolder<H>>
 extends IOptionalTokenHolder {
 
   /**
@@ -18,7 +18,7 @@ extends IOptionalTokenHolder {
    * 
    * @return the current {@link IFluentMutableOptionalTokenHolder}.
    */
-  FMOTH removeToken();
+  H removeToken();
 
   /**
    * Sets the token of the current {@link IFluentMutableOptionalTokenHolder}.
@@ -28,5 +28,5 @@ extends IOptionalTokenHolder {
    * @throws RuntimeException if the given token is null.
    * @throws RuntimeException if the given token is blank.
    */
-  FMOTH setToken(String token);
+  H setToken(String token);
 }

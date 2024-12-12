@@ -17,11 +17,11 @@ import ch.nolix.systemapi.applicationapi.mainapi.IServer;
  * A {@link BaseServer} can contain {@link Application}s. A {@link BaseServer}
  * is closable.
  * 
- * @param <SR> is the type of a {@link BaseServer}.
+ * @param <S> is the type of a {@link BaseServer}.
  * @author Silvan Wyss
  * @version 2016-11-01
  */
-public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
+public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -41,7 +41,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  already a {@link Application} with the given
    *                                  instanceName.
    */
-  public final SR addApplication(final Application<?, ?> application) {
+  public final S addApplication(final Application<?, ?> application) {
 
     application.internalSetParentServer(this);
 
@@ -68,7 +68,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                          {@link Application} with the given
    *                                          instanceName.
    */
-  public final SR addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
+  public final S addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
 
     application.internalSetParentServer(this);
     application.internalSetNameAddendum(nameAddendum);
@@ -86,10 +86,10 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * @param applicationName
    * @param initialSessionClass
    * @param applicationContext
-   * @param <S>                 is the type of the given initialSessionClass.
-   * @param <BC>                is the type of the {@link BackendClient} of the
+   * @param <T>                 is the type of the given initialSessionClass.
+   * @param <C>                is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @param <AS>                is the type of the given applicationContext.
+   * @param <U>                is the type of the given applicationContext.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -98,11 +98,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, AS>, BC extends BackendClient<BC, AS>, AS> SR//
+  public final <T extends Session<C, U>, C extends BackendClient<C, U>, U> S//
   addApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
-    final Class<S> initialSessionClass,
-    final AS applicationContext) {
+    final Class<T> initialSessionClass,
+    final U applicationContext) {
 
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -120,8 +120,8 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * 
    * @param name
    * @param initialSessionClass
-   * @param <S>                 is the type of the given initialSessionClass.
-   * @param <BC>                is the type of the {@link BackendClient} of the
+   * @param <T>                 is the type of the given initialSessionClass.
+   * @param <C>                is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given name is null.
@@ -131,10 +131,10 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR //
+  public final <T extends Session<C, Object>, C extends BackendClient<C, Object>> S //
   addApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
-    final Class<S> initialSessionClass) {
+    final Class<T> initialSessionClass) {
 
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -152,15 +152,15 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * target.
    * 
    * @param defaultApplication
-   * @param <BC>               is the type of the {@link BackendClient} of the
+   * @param <C>               is the type of the {@link BackendClient} of the
    *                           given defaultApplication.
-   * @param <AS>               is the type of the context of the given
+   * @param <U>               is the type of the context of the given
    *                           defaultApplication.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException if the given defaultApplication is null.
    */
-  public final <BC extends BackendClient<BC, AS>, AS> SR addDefaultApplication(
-    final Application<BC, AS> defaultApplication) {
+  public final <C extends BackendClient<C, U>, U> S addDefaultApplication(
+    final Application<C, U> defaultApplication) {
 
     defaultApplication.internalSetParentServer(this);
 
@@ -179,10 +179,10 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * @param applicationName
    * @param initialSessionClass
    * @param applicationContext
-   * @param <S>                 is the type of the given initialSessionClass.
-   * @param <BC>                is the type of the {@link BackendClient} of the
+   * @param <T>                 is the type of the given initialSessionClass.
+   * @param <C>                is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @param <AS>                is the type of the given applicationContext.
+   * @param <U>                is the type of the given applicationContext.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -193,11 +193,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, AS>, BC extends BackendClient<BC, AS>, AS> SR //
+  public final <T extends Session<C, U>, C extends BackendClient<C, U>, U> S //
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
-    final Class<S> initialSessionClass,
-    final AS applicationContext) {
+    final Class<T> initialSessionClass,
+    final U applicationContext) {
 
     //Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -215,8 +215,8 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    * 
    * @param name
    * @param initialSessionClass
-   * @param <S>                 is the type of the given initialSessionClass.
-   * @param <BC>                is the type of the {@link BackendClient} of the
+   * @param <T>                 is the type of the given initialSessionClass.
+   * @param <C>                is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given name is null.
@@ -226,10 +226,10 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    *                                  instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR//
+  public final <T extends Session<C, Object>, C extends BackendClient<C, Object>> S//
   addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
-    final Class<S> initialSessionClass) {
+    final Class<T> initialSessionClass) {
 
     //Creates a default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -384,7 +384,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
   /**
    * @return the current {@link BaseServer}.
    */
-  protected abstract SR asConcrete();
+  protected abstract S asConcrete();
 
   /**
    * Notes that the given application has been added to the current

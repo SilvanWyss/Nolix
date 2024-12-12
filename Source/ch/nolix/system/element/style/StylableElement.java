@@ -12,9 +12,9 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-public abstract class StylableElement<SE extends IStylableElement<SE>>
+public abstract class StylableElement<E extends IStylableElement<E>>
 extends MutableElement
-implements IStylableElement<SE> {
+implements IStylableElement<E> {
 
   private static final String ID_HEADER = PascalCaseVariableCatalogue.ID;
 
@@ -28,7 +28,7 @@ implements IStylableElement<SE> {
   private final MultiValue<String> tokens = MultiValue.forStrings(TOKEN_HEADER, this::addToken);
 
   @Override
-  public final SE addToken(final String token) {
+  public final E addToken(final String token) {
 
     GlobalValidator.assertThat(token).thatIsNamed(LowerCaseVariableCatalogue.TOKEN).isNotBlank();
 
@@ -63,7 +63,7 @@ implements IStylableElement<SE> {
   }
 
   @Override
-  public final SE removeId() {
+  public final E removeId() {
 
     id.clear();
 
@@ -71,7 +71,7 @@ implements IStylableElement<SE> {
   }
 
   @Override
-  public final SE removeToken(final String token) {
+  public final E removeToken(final String token) {
 
     tokens.remove(token);
 
@@ -79,7 +79,7 @@ implements IStylableElement<SE> {
   }
 
   @Override
-  public final SE removeTokens() {
+  public final E removeTokens() {
 
     tokens.clear();
 
@@ -106,7 +106,7 @@ implements IStylableElement<SE> {
   }
 
   @Override
-  public final SE setId(final String id) {
+  public final E setId(final String id) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
@@ -116,8 +116,8 @@ implements IStylableElement<SE> {
   }
 
   @SuppressWarnings("unchecked")
-  protected final SE asConcrete() {
-    return (SE) this;
+  protected final E asConcrete() {
+    return (E) this;
   }
 
   protected abstract void resetStylableElement();

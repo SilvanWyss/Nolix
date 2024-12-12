@@ -19,9 +19,9 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public abstract class ControlStyle< //NOSONAR: A ControlStyle has many methods per se.
-ECS extends IControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>>
-extends ControlHeadStyle<ECS>
-implements IControlStyle<ECS> {
+S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
+extends ControlHeadStyle<S>
+implements IControlStyle<S> {
 
   public static final int DEFAULT_BORDER_THICKNESS = 0;
 
@@ -380,19 +380,19 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
+  public final S setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
     return setBackgroundForState(state, Background.withColor(backgroundColor));
   }
 
   @Override
-  public final ECS setBackgroundColorGradientForState(
+  public final S setBackgroundColorGradientForState(
     final ControlState state,
     final IColorGradient backgroundColorGradient) {
     return setBackgroundForState(state, Background.withColorGradient(backgroundColorGradient));
   }
 
   @Override
-  public final ECS setBackgroundForState(ControlState state, IBackground background) {
+  public final S setBackgroundForState(ControlState state, IBackground background) {
 
     this.background.setValueForState(state, background);
 
@@ -400,7 +400,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBackgroundImageForState(
+  public final S setBackgroundImageForState(
     final ControlState state,
     final IImage backgroundImage,
     final ImageApplication imageApplication) {
@@ -410,7 +410,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBorderColorForState(final ControlState state, final IColor borderColor) {
+  public final S setBorderColorForState(final ControlState state, final IColor borderColor) {
 
     this.borderColor.setValueForState(state, borderColor);
 
@@ -418,7 +418,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBorderThicknessForState(final ControlState state, final int borderThickness) {
+  public final S setBorderThicknessForState(final ControlState state, final int borderThickness) {
 
     this.borderThickness.setValueForState(state, borderThickness);
 
@@ -426,7 +426,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
+  public final S setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
 
     this.bottomBorderColor.setValueForState(state, bottomBorderColor);
 
@@ -434,7 +434,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
+  public final S setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
 
     GlobalValidator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 
@@ -444,7 +444,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setBottomPaddingForState(final ControlState state, final int bottomPadding) {
+  public final S setBottomPaddingForState(final ControlState state, final int bottomPadding) {
 
     GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 
@@ -454,7 +454,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setHeightForState(final ControlState state, final int height) {
+  public final S setHeightForState(final ControlState state, final int height) {
 
     setHeightForState(state, AbsoluteOrRelativeInt.withIntValue(height));
 
@@ -462,7 +462,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setHeightInPercentOfViewAreaForState(
+  public final S setHeightInPercentOfViewAreaForState(
     final ControlState state,
     final double heightInPercentOfViewAreaHeight) {
 
@@ -472,7 +472,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
+  public final S setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
 
     this.leftBorderColor.setValueForState(state, leftBorderColor);
 
@@ -480,7 +480,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
+  public final S setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
 
     GlobalValidator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 
@@ -490,7 +490,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setLeftPaddingForState(final ControlState state, final int leftPadding) {
+  public final S setLeftPaddingForState(final ControlState state, final int leftPadding) {
 
     GlobalValidator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 
@@ -500,7 +500,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setPaddingForState(final ControlState state, final int padding) {
+  public final S setPaddingForState(final ControlState state, final int padding) {
 
     this.padding.setValueForState(state, padding);
 
@@ -508,7 +508,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
+  public final S setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
 
     this.rightBorderColor.setValueForState(state, rightBorderColor);
 
@@ -516,7 +516,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
+  public final S setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
 
     GlobalValidator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 
@@ -526,7 +526,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setRightPaddingForState(final ControlState state, final int rightPadding) {
+  public final S setRightPaddingForState(final ControlState state, final int rightPadding) {
 
     GlobalValidator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 
@@ -536,7 +536,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
+  public final S setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
 
     this.topBorderColor.setValueForState(state, topBorderColor);
 
@@ -544,7 +544,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
+  public final S setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
 
     GlobalValidator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 
@@ -554,7 +554,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setTopPaddingForState(final ControlState state, final int topPadding) {
+  public final S setTopPaddingForState(final ControlState state, final int topPadding) {
 
     GlobalValidator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 
@@ -564,7 +564,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public final ECS setWidthForState(final ControlState state, final int width) {
+  public final S setWidthForState(final ControlState state, final int width) {
 
     setWidthForState(state, AbsoluteOrRelativeInt.withIntValue(width));
 
@@ -572,7 +572,7 @@ implements IControlStyle<ECS> {
   }
 
   @Override
-  public ECS setWidthInPercentOfViewAreaWidthForState(
+  public S setWidthInPercentOfViewAreaWidthForState(
     final ControlState state,
     final double widthInPercentOfViewAreaWidth) {
 

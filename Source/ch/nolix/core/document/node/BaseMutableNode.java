@@ -9,13 +9,13 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends BaseNode<MN> implements IMutableNode<MN> {
+public abstract class BaseMutableNode<N extends BaseMutableNode<N>> extends BaseNode<N> implements IMutableNode<N> {
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final MN addPostfixToHeader(final String postfix) {
+  public final N addPostfixToHeader(final String postfix) {
 
     //Asserts that the given postfix is not blank.
     GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalogue.POSTFIX).isNotBlank();
@@ -36,7 +36,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
    * {@inheritDoc}
    */
   @Override
-  public final MN addPrefixToHeader(final String prefix) {
+  public final N addPrefixToHeader(final String prefix) {
 
     //Asserts that the given prefix is not blank.
     GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalogue.PREFIX).isNotBlank();
@@ -85,7 +85,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
    * {@inheritDoc}
    */
   @Override
-  public final MN setChildNodes(final Iterable<? extends INode<?>> childNodes) {
+  public final N setChildNodes(final Iterable<? extends INode<?>> childNodes) {
 
     removeChildNodes();
     addChildNodes(childNodes);
@@ -96,7 +96,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   /**
    * @return the current {@link BaseMutableNode}.
    */
-  protected abstract MN asConcrete();
+  protected abstract N asConcrete();
 
   final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
 

@@ -8,10 +8,9 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-10-25
- * @param <FMMTH> is the type of a {@link IFluentMutableMultiTextHolder}.
+ * @param <H> is the type of a {@link IFluentMutableMultiTextHolder}.
  */
-public interface IFluentMutableMultiTextHolder<FMMTH extends IFluentMutableMultiTextHolder<FMMTH>>
-extends IMultiTextHolder {
+public interface IFluentMutableMultiTextHolder<H extends IFluentMutableMultiTextHolder<H>> extends IMultiTextHolder {
 
   /**
    * Adds the given text to the current {@link IFluentMutableMultiTextHolder}.
@@ -20,7 +19,7 @@ extends IMultiTextHolder {
    * @return the current {@link IFluentMutableMultiTextHolder}.
    * @throws RuntimeException if the given text is null or blank.
    */
-  FMMTH addText(String text);
+  H addText(String text);
 
   /**
    * Removes the text that equals the given text from the current
@@ -30,12 +29,12 @@ extends IMultiTextHolder {
    * @param text
    * @return the current {@link IFluentMutableMultiTextHolder}.
    */
-  FMMTH removeText(String text);
+  H removeText(String text);
 
   /**
    * Removes all texts from the current {@link IFluentMutableMultiTextHolder}.
    * 
    * @return the current {@link IFluentMutableMultiTextHolder}.
    */
-  FMMTH removeTexts();
+  H removeTexts();
 }

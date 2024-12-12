@@ -8,17 +8,16 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-02-06
- * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTextHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalTextHolder}.
  */
-public interface IFluentMutableOptionalTextHolder<FMOTH extends IFluentMutableOptionalTextHolder<FMOTH>>
-extends ITextHolder {
+public interface IFluentMutableOptionalTextHolder<H extends IFluentMutableOptionalTextHolder<H>> extends ITextHolder {
 
   /**
    * Removes the text of the current {@link IFluentMutableOptionalTextHolder}.
    * 
    * @return the current {@link IFluentMutableOptionalTextHolder}.
    */
-  FMOTH removeText();
+  H removeText();
 
   /**
    * Sets the text of the current {@link IFluentMutableOptionalTextHolder}.
@@ -27,5 +26,5 @@ extends ITextHolder {
    * @return the current {@link IFluentMutableOptionalTextHolder}.
    * @throws RuntimeException if the given text is null.
    */
-  FMOTH setText(String text);
+  H setText(String text);
 }

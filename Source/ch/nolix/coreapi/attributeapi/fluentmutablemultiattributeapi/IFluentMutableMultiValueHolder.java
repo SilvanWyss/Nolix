@@ -8,11 +8,11 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
  * 
  * @author Silvan Wyss
  * @version 2023-08-25
- * @param <FMMVH> is the type of a {@link IFluentMutableMultiValueHolder}.
- * @param <V>     is the type of the values of a
- *                {@link IFluentMutableMultiValueHolder}.
+ * @param <H> is the type of a {@link IFluentMutableMultiValueHolder}.
+ * @param <V> is the type of the values of a
+ *            {@link IFluentMutableMultiValueHolder}.
  */
-public interface IFluentMutableMultiValueHolder<FMMVH extends IFluentMutableMultiValueHolder<FMMVH, V>, V>
+public interface IFluentMutableMultiValueHolder<H extends IFluentMutableMultiValueHolder<H, V>, V>
 extends IMultiValueHolder<V> {
 
   /**
@@ -22,7 +22,7 @@ extends IMultiValueHolder<V> {
    * @return the current {@link IFluentMutableMultiValueHolder}.
    * @throws RuntimeException if the given value is null.
    */
-  FMMVH addValue(V value);
+  H addValue(V value);
 
   /**
    * Removes the given value from the current

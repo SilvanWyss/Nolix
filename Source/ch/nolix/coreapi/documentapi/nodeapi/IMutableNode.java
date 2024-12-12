@@ -9,9 +9,9 @@ import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMu
  * 
  * @author Silvan Wyss
  * @version 2022-06-25
- * @param <MN> is the type of a {@link IMutableNode}.
+ * @param <N> is the type of a {@link IMutableNode}.
  */
-public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IFluentMutableOptionalHeaderHolder<MN> {
+public interface IMutableNode<N extends IMutableNode<N>> extends INode<N>, IFluentMutableOptionalHeaderHolder<N> {
 
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
@@ -21,7 +21,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @return the current {@link IMutableNode}.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  MN addChildNode(INode<?> childNode, INode<?>... childNodes);
+  N addChildNode(INode<?> childNode, INode<?>... childNodes);
 
   /**
    * Adds the child {@link INode}s from the given strings the current
@@ -33,17 +33,17 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @throws RuntimeException if one of the given strings does not represent a
    *                          {@link INode}.
    */
-  MN addChildNodeFromString(String string, String... strings);
+  N addChildNodeFromString(String string, String... strings);
 
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 
    * @param childNodes
    * @return the current {@link IMutableNode}.
-   * @param <N> is the type of the given childNodes.
+   * @param <N2> is the type of the given childNodes.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  <N extends INode<?>> MN addChildNodes(Iterable<N> childNodes);
+  <N2 extends INode<?>> N addChildNodes(Iterable<N2> childNodes);
 
   /**
    * Adds the child {@link INode}s from the given strings the current
@@ -54,7 +54,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @throws RuntimeException if one of the given strings does not represent a
    *                          {@link INode}.
    */
-  MN addChildNodesFromStrings(Iterable<String> strings);
+  N addChildNodesFromStrings(Iterable<String> strings);
 
   /**
    * Adds the given postfix at the end of the header of the current
@@ -67,7 +67,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @throws RuntimeException if the given postfix is null.
    * @throws RuntimeException if the given postfix is blank.
    */
-  MN addPostfixToHeader(String postfix);
+  N addPostfixToHeader(String postfix);
 
   /**
    * Adds the given prefix at the begin of the header of the current
@@ -80,7 +80,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @throws RuntimeException if the given prefix is null.
    * @throws RuntimeException if the given prefix is blank.
    */
-  MN addPrefixToHeader(String prefix);
+  N addPrefixToHeader(String prefix);
 
   /**
    * Removes and returns the first child {@link INode} the given selector selects
@@ -92,7 +92,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
    *                          a child {@link INode} the given selector selects.
    */
-  MN removeAndGetStoredFirstChildNodeThat(Predicate<INode<?>> selector);
+  N removeAndGetStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
   /**
    * Removes the child {@link INode}s from the current {@link IMutableNode}.
@@ -161,5 +161,5 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @return the current {@link IMutableNode}.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  MN setChildNodes(Iterable<? extends INode<?>> childNodes);
+  N setChildNodes(Iterable<? extends INode<?>> childNodes);
 }

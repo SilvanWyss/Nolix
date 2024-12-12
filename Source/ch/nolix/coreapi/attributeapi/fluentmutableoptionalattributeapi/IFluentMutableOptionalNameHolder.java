@@ -8,9 +8,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <FMONH> is the type of a {@link IFluentMutableOptionalNameHolder}.
+ * @param <H> is the type of a {@link IFluentMutableOptionalNameHolder}.
  */
-public interface IFluentMutableOptionalNameHolder<FMONH extends IFluentMutableOptionalNameHolder<FMONH>>
+public interface IFluentMutableOptionalNameHolder<H extends IFluentMutableOptionalNameHolder<H>>
 extends IOptionalNameHolder {
 
   /**
@@ -18,7 +18,7 @@ extends IOptionalNameHolder {
    * 
    * @return the current {@link IFluentMutableOptionalNameHolder}.
    */
-  FMONH removeName();
+  H removeName();
 
   /**
    * Sets the name of the current {@link IFluentMutableOptionalNameHolder}.
@@ -28,5 +28,5 @@ extends IOptionalNameHolder {
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    */
-  FMONH setName(String name);
+  H setName(String name);
 }

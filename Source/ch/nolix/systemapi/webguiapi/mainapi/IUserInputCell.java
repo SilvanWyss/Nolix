@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-public interface IUserInputCell<UIC extends IUserInputCell<UIC>> {
+public interface IUserInputCell<C extends IUserInputCell<C>> {
 
   String getUserInput();
 
-  UIC setUserInput(String userInput);
+  C setUserInput(String userInput);
 }

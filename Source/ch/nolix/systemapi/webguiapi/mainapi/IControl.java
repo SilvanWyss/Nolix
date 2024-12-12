@@ -14,7 +14,7 @@ import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.guiapi.presenceapi.PresenceSettable;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
-public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
+public interface IControl<C extends IControl<C, S>, S extends IControlStyle<S>>
 extends
 Dimensionable<C>,
 IHtmlGetter,
@@ -29,7 +29,7 @@ PresenceSettable<C> {
 
   boolean belongsToLayer();
 
-  C editStyle(Consumer<CS> styleEditor);
+  C editStyle(Consumer<S> styleEditor);
 
   IContainer<ICssRule> getCssRules();
 
@@ -49,7 +49,7 @@ PresenceSettable<C> {
 
   ILayer<?> getStoredParentLayer();
 
-  CS getStoredStyle();
+  S getStoredStyle();
 
   boolean hasInternalId(String internalId);
 

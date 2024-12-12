@@ -8,10 +8,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISaveStampHolder;
  * 
  * @author Silvan Wyss
  * @version 2024-02-11
- * @param <FMSSH> is the type of a {@link IFluentMutableSaveStampHolder}.
+ * @param <H> is the type of a {@link IFluentMutableSaveStampHolder}.
  */
-public interface IFluentMutableSaveStampHolder<FMSSH extends IFluentMutableSaveStampHolder<FMSSH>>
-extends ISaveStampHolder {
+public interface IFluentMutableSaveStampHolder<H extends IFluentMutableSaveStampHolder<H>> extends ISaveStampHolder {
 
   /**
    * Sets the save stamp of the current {@link IFluentMutableSaveStampHolder}.
@@ -21,5 +20,5 @@ extends ISaveStampHolder {
    * @throws RuntimeException if the given saveStamp is null.
    * @throws RuntimeException if the given saveStamp is blank.
    */
-  FMSSH setSaveStamp(String saveStamp);
+  H setSaveStamp(String saveStamp);
 }
