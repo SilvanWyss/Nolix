@@ -60,7 +60,9 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @param elementType
    * @return a new {@link SequencePattern} for the given elementType.
    */
-  public static <E2> SequencePattern<E2> forElementType(final Class<E2> elementType) {
+  public static <E2> SequencePattern<E2> forElementType(
+    final Class<E2> elementType //NOSONAR: The unused parameter is necessary to know the type.
+  ) {
     return new SequencePattern<>();
   }
 
