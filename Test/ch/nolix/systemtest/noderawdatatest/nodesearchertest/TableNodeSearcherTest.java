@@ -1,6 +1,7 @@
 package ch.nolix.systemtest.noderawdatatest.nodesearchertest;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
@@ -10,10 +11,27 @@ import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 
 final class TableNodeSearcherTest extends StandardTest {
 
-  @Test
-  void testCase_tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities_1A() {
+  @ParameterizedTest
+  @CsvSource({
+  "3, Donald, id1, false",
+  "3, Donald, id2, true",
+  "3, Donald, id3, true",
+  "3, Donald, id4, true",
+  "3, Daisy, id1, true",
+  "3, Daisy, id2, false",
+  "3, Daisy, id3, true",
+  "3, Daisy, id4, true",
+  "4, Duck, id1, true",
+  "4, Duck, id2, true",
+  "4, Duck, id3, true"
+  })
+  void testCase_containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    final int param1BasedColumnIndex,
+    final String value,
+    final String ingoredEntityId,
+    final boolean expectedResult) {
 
-    //Setups tableNode.
+    //setup of tableNode
     final var tableNode = //
     MutableNode
       .createEmpty()
@@ -26,123 +44,26 @@ final class TableNodeSearcherTest extends StandardTest {
         Node.withHeaderAndChildNode("Entity",
           Node.withHeader("id2"),
           Node.withHeader("save_stamp"),
-          Node.withHeader("Dagobert"),
-          Node.withHeader("Duck")));
-
-    //Setups testUnit
-    final var testUnit = new TableNodeSearcher();
-
-    //execution
-    final var result = testUnit
-      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
-        tableNode,
-        4,
-        "Duck",
-        ImmutableList.withElement("id1"));
-
-    //verification
-    expect(result);
-  }
-
-  @Test
-  void testCase_tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities_1B() {
-
-    //Setups tableNode.
-    final var tableNode = //
-    MutableNode
-      .createEmpty()
-      .addChildNode(
-        Node.withHeaderAndChildNode("Entity",
-          Node.withHeader("id1"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Donald"),
+          Node.withHeader("Daisy"),
           Node.withHeader("Duck")),
         Node.withHeaderAndChildNode("Entity",
-          Node.withHeader("id2"),
+          Node.withHeader("id3"),
           Node.withHeader("save_stamp"),
           Node.withHeader("Dagobert"),
           Node.withHeader("Duck")));
 
-    //Setups testUnit
+    //setup of testUnit
     final var testUnit = new TableNodeSearcher();
 
     //execution
-    final var result = testUnit
-      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
-        tableNode,
-        4,
-        "Duck",
-        ImmutableList.withElement("id2"));
+    final var result = //
+    testUnit.containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+      tableNode,
+      param1BasedColumnIndex,
+      value,
+      ImmutableList.withElement(ingoredEntityId));
 
     //verification
-    expect(result);
-  }
-
-  @Test
-  void testCase_tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities_2A() {
-
-    //Setups tableNode.
-    final var tableNode = //
-    MutableNode
-      .createEmpty()
-      .addChildNode(
-        Node.withHeaderAndChildNode("Entity",
-          Node.withHeader("id1"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Donald"),
-          Node.withHeader("Duck")),
-        Node.withHeaderAndChildNode("Entity",
-          Node.withHeader("id2"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Dagobert"),
-          Node.withHeader("Duck")));
-
-    //Setups testUnit
-    final var testUnit = new TableNodeSearcher();
-
-    //execution
-    final var result = testUnit
-      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
-        tableNode,
-        3,
-        "Donald",
-        ImmutableList.withElement("id2"));
-
-    //verification
-    expect(result);
-  }
-
-  @Test
-  void testCase_tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities_2B() {
-
-    //Setups tableNode.
-    final var tableNode = //
-    MutableNode
-      .createEmpty()
-      .addChildNode(
-        Node.withHeaderAndChildNode("Entity",
-          Node.withHeader("id1"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Donald"),
-          Node.withHeader("Duck")),
-        Node.withHeaderAndChildNode("Entity",
-          Node.withHeader("id2"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Dagobert"),
-          Node.withHeader("Duck")));
-
-    //Setups testUnit
-    final var testUnit = new TableNodeSearcher();
-
-    //execution
-    final var result = testUnit
-      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
-        tableNode,
-        3,
-        "Donald",
-        ImmutableList.withElement("id1"));
-
-    //verification
-    expectNot(result);
+    expect(Boolean.valueOf(result)).isEqualTo(expectedResult);
   }
 }
