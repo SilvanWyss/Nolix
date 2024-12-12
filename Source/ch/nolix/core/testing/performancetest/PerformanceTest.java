@@ -7,7 +7,7 @@ import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IObjectSupplierM
 
 public abstract class PerformanceTest { //NOSONAR: PerformanceTest does not have abstract methods.
 
-  protected final <O> IObjectSupplierMediator<O> expectOnAnObjectFrom(final IntFunction<O> objectSupplier) {
+  protected static final <O> IObjectSupplierMediator<O> expectOnAnObjectFrom(final IntFunction<O> objectSupplier) {
     return ObjectSupplierMediator.forObjectSupplier(objectSupplier);
   }
 }
