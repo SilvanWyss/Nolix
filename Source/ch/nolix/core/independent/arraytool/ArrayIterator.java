@@ -1,4 +1,4 @@
-package ch.nolix.core.independent.container;
+package ch.nolix.core.independent.arraytool;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

@@ -3,6 +3,7 @@ package ch.nolix.core.independent.container;
 import java.util.Arrays;
 import java.util.Iterator;
 
+import ch.nolix.core.independent.arraytool.ArrayIterator;
 import ch.nolix.core.independent.arrayvalidator.ArrayValidator;
 
 public final class ImmutableList<E> implements Iterable<E> {
