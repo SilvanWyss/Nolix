@@ -1,15 +1,15 @@
-package ch.nolix.core.independent.arraytool;
+package ch.nolix.core.independent.list;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public final class ArrayIterator<E> implements Iterator<E> {
+public final class ImmutableListIterator<E> implements Iterator<E> {
 
   private final E[] parentArray;
 
   private int nextIndex;
 
-  private ArrayIterator(final E[] parrentArray) {
+  private ImmutableListIterator(final E[] parrentArray) {
 
     if (parrentArray == null) {
       throw new IllegalArgumentException("The given parent array is null.");
@@ -19,8 +19,8 @@ public final class ArrayIterator<E> implements Iterator<E> {
     nextIndex = 0;
   }
 
-  public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
-    return new ArrayIterator<>(array);
+  public static <E2> ImmutableListIterator<E2> forArray(final E2[] array) {
+    return new ImmutableListIterator<>(array);
   }
 
   @Override

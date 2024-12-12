@@ -3,7 +3,6 @@ package ch.nolix.core.independent.list;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import ch.nolix.core.independent.arraytool.ArrayIterator;
 import ch.nolix.core.independent.arrayvalidator.ArrayValidator;
 
 public final class ImmutableList<E> implements Iterable<E> {
@@ -51,6 +50,6 @@ public final class ImmutableList<E> implements Iterable<E> {
 
   @Override
   public Iterator<E> iterator() {
-    return ArrayIterator.forArray(elements);
+    return ImmutableListIterator.forArray(elements);
   }
 }
