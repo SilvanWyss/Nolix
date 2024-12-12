@@ -53,7 +53,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
   public static <E2> SequencePatternNextMediator<E2> forSequencePatternAndCount(
     final ISequencePattern<E2> sequencePattern,
     final int count) {
-    return new SequencePatternNextMediator<>(null, count);
+    return new SequencePatternNextMediator<>(sequencePattern, count);
   }
 
   //TODO: Improve this implementation.
