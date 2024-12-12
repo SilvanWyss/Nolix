@@ -5,7 +5,18 @@ import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
 
 public final class FieldFlyWeight implements IFieldFlyWeight {
 
-  private Runnable updateAction;
+  private final Runnable updateAction;
+
+  private FieldFlyWeight(final Runnable updateAction) {
+
+    GlobalValidator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
+
+    this.updateAction = updateAction;
+  }
+
+  public static FieldFlyWeight wihUpdateAction(final Runnable updateAction) {
+    return new FieldFlyWeight(updateAction);
+  }
 
   @Override
   public boolean isVoid() {
@@ -14,20 +25,6 @@ public final class FieldFlyWeight implements IFieldFlyWeight {
 
   @Override
   public void noteUpdate() {
-    if (hasUpdateAction()) {
-      updateAction.run();
-    }
-  }
-
-  @Override
-  public void setUpdateAction(final Runnable updateAction) {
-
-    GlobalValidator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
-
-    this.updateAction = updateAction;
-  }
-
-  private boolean hasUpdateAction() {
-    return (updateAction != null);
+    updateAction.run();
   }
 }

@@ -5,6 +5,4 @@ import ch.nolix.coreapi.stateapi.staterequestapi.VoidnessRequestable;
 public interface IFieldFlyWeight extends VoidnessRequestable {
 
   void noteUpdate();
-
-  void setUpdateAction(Runnable updateAction);
 }

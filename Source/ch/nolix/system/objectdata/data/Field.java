@@ -122,10 +122,7 @@ public abstract class Field implements IField {
 
   @Override
   public final void setUpdateAction(final Runnable updateAction) {
-
-    setEffectiveFieldFlyWeightIfFieldFlyWeightIsVoid();
-
-    fieldFlyWeight.setUpdateAction(updateAction);
+    fieldFlyWeight = FieldFlyWeight.wihUpdateAction(updateAction);
   }
 
   protected final void setAsEditedAndRunPotentialUpdateAction() {
@@ -198,16 +195,6 @@ public abstract class Field implements IField {
     }
 
     return DatabaseObjectState.EDITED;
-  }
-
-  private void setEffectiveFieldFlyWeightIfFieldFlyWeightIsVoid() {
-    if (fieldFlyWeight.isVoid()) {
-      setEffectiveFieldFlyWeightWhenFieldFlyWeightIsVoid();
-    }
-  }
-
-  private void setEffectiveFieldFlyWeightWhenFieldFlyWeightIsVoid() {
-    fieldFlyWeight = new FieldFlyWeight();
   }
 
   private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final BaseEntity parentEntity) {
