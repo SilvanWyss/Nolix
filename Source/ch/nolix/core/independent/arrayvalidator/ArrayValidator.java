@@ -1,4 +1,4 @@
-package ch.nolix.core.independent.containervalidator;
+package ch.nolix.core.independent.arrayvalidator;
 
 public final class ArrayValidator {
 

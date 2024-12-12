@@ -2,7 +2,7 @@ package ch.nolix.coretest.independenttest.containervalidatortest;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.independent.containervalidator.ArrayValidator;
+import ch.nolix.core.independent.arrayvalidator.ArrayValidator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ArrayValidatorTest extends StandardTest {
