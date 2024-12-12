@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.independent.containertool.ArrayTool;
+import ch.nolix.core.independent.arraytool.ArrayTool;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 
 /**

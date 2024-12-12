@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.independent.containertool.ArrayTool;
+import ch.nolix.core.independent.arraytool.ArrayTool;
 
 /**
  * A multi double mediator is not mutable.

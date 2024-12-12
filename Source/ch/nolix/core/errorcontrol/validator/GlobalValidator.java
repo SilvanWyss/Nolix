@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.independent.containertool.ArrayTool;
+import ch.nolix.core.independent.arraytool.ArrayTool;
 
 /**
  * The {@link GlobalValidator} provides methods to validate arguments. Of the

@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.independent.containertool.ArrayTool;
+import ch.nolix.core.independent.arraytool.ArrayTool;
 
 /**
  * A multi argument mediator is an mediator for several arguments of the same
