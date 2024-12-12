@@ -1,7 +1,5 @@
 package ch.nolix.core.independent.iterabletool;
 
-import java.util.Objects;
-
 /**
  * The {@link IterableTool} provides methods to handle {@link Iterable}s.
  * 
@@ -47,23 +45,6 @@ public final class IterableTool {
     }
 
     return found;
-  }
-
-  /**
-   * @param container
-   * @param object
-   * @return true if the given container contains an element that equals the given
-   *         object.
-   */
-  public boolean containsEqualing(final Iterable<?> container, final Object object) {
-
-    for (final var e : container) {
-      if (Objects.equals(e, object)) {
-        return true;
-      }
-    }
-
-    return false;
   }
 
   /**
