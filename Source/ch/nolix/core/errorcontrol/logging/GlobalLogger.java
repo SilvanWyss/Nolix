@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.logging;
 
-import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
 
 public final class GlobalLogger {

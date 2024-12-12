@@ -1,6 +1,6 @@
 package ch.nolix.core.independent.arraytool;
 
-import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.list.List;
 
 /**
  * The {@link ArrayTool} provides functions to handle arrays.

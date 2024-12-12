@@ -1,4 +1,4 @@
-package ch.nolix.core.independent.container;
+package ch.nolix.core.independent.list;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

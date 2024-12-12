@@ -3,7 +3,7 @@ package ch.nolix.coretest.commontypetooltest.iteratortooltest.iterabletooltest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
-import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.list.List;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class IsEmptyMethodTest extends StandardTest {

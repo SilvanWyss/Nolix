@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.logging;
 
-import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.list.List;
 
 final class LogWorker extends Thread {
 

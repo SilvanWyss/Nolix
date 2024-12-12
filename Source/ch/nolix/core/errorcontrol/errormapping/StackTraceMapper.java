@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.errormapping;
 
-import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.list.List;
 
 public final class StackTraceMapper {
 

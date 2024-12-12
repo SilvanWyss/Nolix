@@ -3,7 +3,7 @@ package ch.nolix.core.errorcontrol.validator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.independent.arraytool.ArrayTool;
-import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.list.List;
 
 /**
  * A long container mediator is not mutable.
