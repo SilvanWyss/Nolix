@@ -18,7 +18,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
 
     applicationInstanceTarget = webApplication.asTarget();
 
-    final S applicationService = webApplication.getStoredApplicationService();
+    final var applicationService = webApplication.getStoredApplicationService();
 
     if (applicationService instanceof IWebApplicationService webApplicationService) {
       applicationLogo = webApplicationService.getApplicationLogo();

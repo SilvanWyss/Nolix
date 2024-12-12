@@ -25,7 +25,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @author Silvan Wyss
  * @version 2016-01-01
  * @param <C> is the type of the {@link BackendClient}s of a
- *             {@link Application}.
+ *            {@link Application}.
  * @param <S> is the type of the application context of a {@link Application}.
  */
 public abstract class Application<C extends BackendClient<C, S>, S> implements IApplication<S> {
@@ -153,10 +153,10 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
    */
   @SuppressWarnings("unchecked")
   public final void takeClient(final BackendClient<?, ?> client) {
-    final C lClient = ((C) client);
-    lClient.internalSetParentApplication(this);
-    clients.addAtEnd(lClient);
-    GlobalSequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
+    final var localClient = (C) client;
+    localClient.internalSetParentApplication(this);
+    clients.addAtEnd(localClient);
+    GlobalSequencer.runInBackground(() -> localClient.internalPush(createInitialSession()));
   }
 
   /**

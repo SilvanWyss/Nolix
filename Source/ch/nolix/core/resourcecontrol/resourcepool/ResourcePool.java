@@ -46,7 +46,7 @@ implements IResourcePool<W> {
 
   private W createWrapperResourceWithCurrentResourcePoolAndResource(final R resource) {
 
-    final W wrapperResource = createWrapperResourceWithResource(resource);
+    final var wrapperResource = createWrapperResourceWithResource(resource);
 
     wrapperResource.internalSetParentResourcePool(this);
 

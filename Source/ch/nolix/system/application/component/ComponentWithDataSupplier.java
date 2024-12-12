@@ -34,7 +34,7 @@ extends BaseComponent<C, S> {
   @Override
   public final void rebuild() {
 
-    final T dataSupplier = createDataSupplier();
+    final var dataSupplier = createDataSupplier();
 
     rebuild(dataSupplier);
   }

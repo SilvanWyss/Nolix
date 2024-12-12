@@ -134,7 +134,7 @@ implements IControlCssBuilder<C, S> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
 
-    S style = control.getStoredStyle();
+    final var style = control.getStoredStyle();
 
     list.addAtEnd(
       CssProperty.withNameAndValue(
@@ -185,7 +185,7 @@ implements IControlCssBuilder<C, S> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
 
-    S style = control.getStoredStyle();
+    var style = control.getStoredStyle();
 
     if (style.definesWidthForState(state)) {
       list.addAtEnd(
@@ -238,7 +238,7 @@ implements IControlCssBuilder<C, S> {
 
   private ICssProperty getFontWeightCssPropertyForControlAndState(final C control, final ControlState state) {
 
-    final S style = control.getStoredStyle();
+    final var style = control.getStoredStyle();
     final var boldTextFlag = style.getBoldTextFlagWhenHasState(state);
 
     if (!boldTextFlag) {
@@ -313,7 +313,7 @@ implements IControlCssBuilder<C, S> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
 
-    final S style = control.getStoredStyle();
+    final var style = control.getStoredStyle();
 
     final var opacity = style.getOpacityWhenHasState(state);
     if (opacity < 1.0) {
