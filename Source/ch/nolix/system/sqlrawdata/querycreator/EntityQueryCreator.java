@@ -1,6 +1,7 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
@@ -32,7 +33,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ") FROM "
     + TableType.ENTITY_TABLE.getQualifyingPrefix()
     + tableName
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + columnName
     + " = '"
     + value
@@ -51,7 +52,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ") FROM "
     + TableType.ENTITY_TABLE.getQualifyingPrefix()
     + tableName
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + columnName
     + " = '"
     + value
@@ -64,7 +65,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
     + tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
     + ";";
   }
@@ -73,7 +74,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
     + tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
     + " WHERE Id = '"
     + id
@@ -84,9 +85,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
     + DatabasePropertyTableColumn.VALUE.getLabel()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + DatabasePropertyTableColumn.KEY.getLabel()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()

@@ -1,5 +1,6 @@
 package ch.nolix.system.sqlrawschema.schemareader;
 
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
@@ -32,9 +33,9 @@ final class QueryCreator {
     + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + SchemaTableType.COLUMN.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
     + tableId
@@ -56,9 +57,9 @@ final class QueryCreator {
     + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + SchemaTableType.COLUMN.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
     + tableName
@@ -70,9 +71,9 @@ final class QueryCreator {
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + SchemaTableType.TABLE.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + TableTableColumn.ID.getName()
     + " = '"
     + id
@@ -84,9 +85,9 @@ final class QueryCreator {
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + SchemaTableType.TABLE.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + TableTableColumn.NAME.getName()
     + " = '"
     + name
@@ -98,16 +99,16 @@ final class QueryCreator {
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + SchemaTableType.TABLE.getQualifiedName();
   }
 
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
     + DatabasePropertyTableColumn.VALUE.getLabel()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalogue.FROM
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + DatabasePropertyTableColumn.KEY.getLabel()
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();

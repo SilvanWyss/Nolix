@@ -2,6 +2,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParameterizedFieldTypeSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
@@ -62,7 +63,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + parameterizedFieldTypeRecord.getBackReferencedColumnIdValue()
     + " FROM "
     + SchemaTableType.TABLE.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + TableTableColumn.NAME.getQualifiedName()
     + " = '"
     + parentTableName
@@ -87,7 +88,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return "DELETE FROM "
     + SchemaTableType.COLUMN.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = "
     + tableName
@@ -102,7 +103,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   public String createStatementToDeleteTable(final String tableName) {
     return "DELETE FROM "
     + SchemaTableType.TABLE.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + TableTableColumn.NAME
     + " = '"
     + tableName
@@ -114,7 +115,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     final String newColumnName) {
     return "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
-    + " SET "
+    + SpaceEnclosedSqlKeywordCatalogue.SET
     + ColumnTableColumn.NAME
     + " = '"
     + newColumnName
@@ -139,7 +140,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
     return "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
-    + " SET "
+    + SpaceEnclosedSqlKeywordCatalogue.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
     + parameterizedFieldTypeRecord.getDataTypeValue()
@@ -162,7 +163,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return "UPDATE "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + " SET "
+    + SpaceEnclosedSqlKeywordCatalogue.SET
     + DatabasePropertyTableColumn.VALUE.getLabel()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
@@ -176,7 +177,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   public String createStatementToSetTableName(final String tableName, final String newTableName) {
     return "UPDATE "
     + SchemaTableType.TABLE.getQualifiedName()
-    + " SET "
+    + SpaceEnclosedSqlKeywordCatalogue.SET
     + TableTableColumn.NAME.getName()
     + " = '"
     + newTableName
