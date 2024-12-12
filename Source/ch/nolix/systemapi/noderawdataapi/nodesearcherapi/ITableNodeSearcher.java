@@ -7,6 +7,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface ITableNodeSearcher {
 
+  boolean containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    IMutableNode<?> tableNode,
+    int param1BasedIndex,
+    String value,
+    IContainer<String> entitiesToIgnoreIds);
+
   Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     IMutableNode<?> tableNode,
     String id);
@@ -28,10 +34,4 @@ public interface ITableNodeSearcher {
     IMutableNode<?> tableNode,
     int index,
     String header);
-
-  boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
-    IMutableNode<?> tableNode,
-    int index,
-    String header,
-    IContainer<String> entitiesToIgnoreIds);
 }

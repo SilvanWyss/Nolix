@@ -34,7 +34,7 @@ final class TableNodeSearcherTest extends StandardTest {
 
     //execution
     final var result = testUnit
-      .tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
         tableNode,
         4,
         "Duck",
@@ -68,7 +68,7 @@ final class TableNodeSearcherTest extends StandardTest {
 
     //execution
     final var result = testUnit
-      .tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
         tableNode,
         4,
         "Duck",
@@ -102,7 +102,7 @@ final class TableNodeSearcherTest extends StandardTest {
 
     //execution
     final var result = testUnit
-      .tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
         tableNode,
         3,
         "Donald",
@@ -136,7 +136,7 @@ final class TableNodeSearcherTest extends StandardTest {
 
     //execution
     final var result = testUnit
-      .tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+      .containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
         tableNode,
         3,
         "Donald",

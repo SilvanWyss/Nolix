@@ -4,8 +4,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -141,12 +141,12 @@ public final class InternalDataReader {
     final var tableNode = //
     DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableInfo.getTableName());
 
-    final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
+    final var local1BasedColumnIndex = columnInfo.getColumnIndexOnEntityNode();
 
     return //
-    TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
+    TABLE_NODE_SEARCHER.containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
       tableNode,
-      columnIndex,
+      local1BasedColumnIndex,
       value,
       entitiesToIgnoreIds);
   }

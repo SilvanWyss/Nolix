@@ -11,6 +11,20 @@ import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
+  public boolean containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    final IMutableNode<?> tableNode,
+    final int param1BasedIndex,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    tableNode.containsChildNodeThat(
+      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      && a.getStoredChildNodeAt1BasedIndex(param1BasedIndex).hasHeader(value)
+      && !entitiesToIgnoreIds
+        .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader()));
+  }
+
+  @Override
   public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     final IMutableNode<?> tableNode,
     final String id) {
@@ -69,18 +83,5 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     tableNode.containsChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
-  }
-
-  @Override
-  public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenHeaderIgnoringGivenEntities(
-    final IMutableNode<?> tableNode,
-    final int index,
-    final String header,
-    final IContainer<String> entitiesToIgnoreIds) {
-    return //
-    tableNode.containsChildNodeThat(
-      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-      && entitiesToIgnoreIds.containsNone(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader())
-      && a.getStoredChildNodeAt1BasedIndex(index).hasHeader(header));
   }
 }
