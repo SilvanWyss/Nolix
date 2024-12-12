@@ -11,8 +11,6 @@ import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 
 /**
- * A test is a test that provides the fluent pattern for writing expectations.
- * 
  * @author Silvan Wyss
  * @version 2016-09-01
  */
@@ -23,7 +21,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * 
    * @param value
    */
-  protected final void expect(final boolean value) {
+  protected static final void expect(final boolean value) {
 
     //Handles the case that the given value is false.
     if (!value) {
@@ -37,7 +35,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @param value
    * @param values
    */
-  protected final void expect(final boolean value, final boolean... values) {
+  protected static final void expect(final boolean value, final boolean... values) {
 
     //Handles the case that the given values is null.
     if (values == null) {
@@ -66,7 +64,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @param value
    * @return a new {@link ByteMediator} for the given value.
    */
-  protected final ByteMediator expect(final byte value) {
+  protected static final ByteMediator expect(final byte value) {
     return new ByteMediator(value);
   }
 
@@ -75,7 +73,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new double mediator that belongs to this test and is for the given
    *         value.
    */
-  protected final DoubleMediator expect(final double value) {
+  protected static final DoubleMediator expect(final double value) {
     return DoubleMediator.forArgument(value);
   }
 
@@ -84,7 +82,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new double mediator that belongs to this test and is for the given
    *         value.
    */
-  protected final DoubleMediator expect(final Double value) {
+  protected static final DoubleMediator expect(final Double value) {
     return DoubleMediator.forArgument(value);
   }
 
@@ -93,7 +91,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new long mediator that belongs to this test and is for the given
    *         value.
    */
-  protected final LongMediator expect(final int value) {
+  protected static final LongMediator expect(final int value) {
     return LongMediator.forArgument(value);
   }
 
@@ -102,7 +100,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new long mediator that belongs to this test and is for the given
    *         value.
    */
-  protected final LongMediator expect(final Integer value) {
+  protected static final LongMediator expect(final Integer value) {
     return LongMediator.forArgument(value);
   }
 
@@ -112,7 +110,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new container mediator that belongs to this test and is for the
    *         given container.
    */
-  protected final <E> IterableMediator<E> expect(final Iterable<E> container) {
+  protected static final <E> IterableMediator<E> expect(final Iterable<E> container) {
     return new IterableMediator<>(container);
   }
 
@@ -121,7 +119,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new long mediator that belongs to this test and is for the given
    *         value.
    */
-  protected final LongMediator expect(final long value) {
+  protected static final LongMediator expect(final long value) {
     return LongMediator.forArgument(value);
   }
 
@@ -130,7 +128,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new long mediator that belongs to this test and is for the given
    *         value.
    */
-  protected final LongMediator expect(final Long value) {
+  protected static final LongMediator expect(final Long value) {
     return LongMediator.forArgument(value);
   }
 
@@ -140,7 +138,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new object mediator that belongs to this test and has the given
    *         value.
    */
-  protected final <V> ArgumentMediator<V> expect(final V value) {
+  protected static final <V> ArgumentMediator<V> expect(final V value) {
     return ArgumentMediator.forArgument(value);
   }
 
@@ -149,7 +147,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new string mediator that belongs to this nolix test and has the
    *         given value.
    */
-  protected final StringMediator expect(final String value) {
+  protected static final StringMediator expect(final String value) {
     return StringMediator.forArgument(value);
   }
 
@@ -158,7 +156,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * 
    * @param value
    */
-  protected final void expectNot(final boolean value) {
+  protected static final void expectNot(final boolean value) {
 
     //Handles the case that the given value is true.
     if (value) {
@@ -172,7 +170,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @param value
    * @param values
    */
-  protected final void expectNot(final boolean value, final boolean... values) {
+  protected static final void expectNot(final boolean value, final boolean... values) {
 
     //Handles the case that the given values is null.
     if (values == null) {
@@ -202,7 +200,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @param closure
    * @return a new closure mediator that belongs for the given closure.
    */
-  protected final ClosureMediator expectRunning(final Runnable closure) {
+  protected static final ClosureMediator expectRunning(final Runnable closure) {
     return new ClosureMediator(closure);
   }
 
@@ -211,7 +209,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new multi double mediator that belongs to this test and is for the
    *         given values.
    */
-  protected final MultiDoubleMediator expectTheDoubles(final double... values) {
+  protected static final MultiDoubleMediator expectTheDoubles(final double... values) {
     return new MultiDoubleMediator(values);
   }
 
@@ -220,7 +218,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new multi double mediator that belongs to this test and is for the
    *         given values.
    */
-  protected final MultiDoubleMediator expectTheDoubles(Iterable<Double> values) {
+  protected static final MultiDoubleMediator expectTheDoubles(Iterable<Double> values) {
     return new MultiDoubleMediator(values);
   }
 
@@ -230,7 +228,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new multi long mediator that belongs to this test and is for the
    *         given values.
    */
-  protected final MultiLongMediator expectTheInts(final int value, final int... values) {
+  protected static final MultiLongMediator expectTheInts(final int value, final int... values) {
     return MultiLongMediator.forValue(value, values);
   }
 
@@ -239,7 +237,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new long container mediator that belongs to this test and has the
    *         given values.
    */
-  protected final MultiLongMediator expectTheLongs(final Iterable<Long> values) {
+  protected static final MultiLongMediator expectTheLongs(final Iterable<Long> values) {
     return new MultiLongMediator(values);
   }
 
@@ -249,7 +247,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new long container mediator that belongs to this test and has the
    *         given values.
    */
-  protected final MultiLongMediator expectTheLongs(final long value, final long... values) {
+  protected static final MultiLongMediator expectTheLongs(final long value, final long... values) {
     return expectTheLongs(value, values);
   }
 }
