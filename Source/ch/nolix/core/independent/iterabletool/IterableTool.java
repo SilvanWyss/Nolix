@@ -1,4 +1,4 @@
-package ch.nolix.core.independent.containertool;
+package ch.nolix.core.independent.iterabletool;
 
 import java.util.Objects;
 
