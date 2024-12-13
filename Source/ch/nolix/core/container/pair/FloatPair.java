@@ -1,7 +1,7 @@
 package ch.nolix.core.container.pair;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalogue;
+import ch.nolix.core.math.main.GlobalNumberComparator;
 
 /**
  * A {@link FloatPair} is not mutable.
@@ -39,21 +39,6 @@ public final class FloatPair {
     return new FloatPair(value1, value2);
   }
 
-  //TODO: Centralize this implementation
-  /**
-   * @param value1
-   * @param value2
-   * @return true if the given values are equal, false otherwise.
-   */
-  private static boolean areEqual(double value1, double value2) {
-
-    if (value1 < value2) {
-      return (value1 + ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD >= value2);
-    }
-
-    return (value2 + ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD >= value1);
-  }
-
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}}
@@ -61,8 +46,10 @@ public final class FloatPair {
   @Override
   public boolean equals(final Object object) {
 
-    if (object instanceof FloatPair floatPair) {
-      return areEqual(value1, floatPair.value1) && areEqual(value2, floatPair.value2);
+    if (object instanceof final FloatPair floatPair) {
+      return //
+      GlobalNumberComparator.areEqual(value1, floatPair.value1)
+      && GlobalNumberComparator.areEqual(value2, floatPair.value2);
     }
 
     return false;
