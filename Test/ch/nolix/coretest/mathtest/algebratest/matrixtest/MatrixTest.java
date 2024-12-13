@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Vector;
-import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class MatrixTest extends StandardTest {
@@ -133,7 +132,7 @@ final class MatrixTest extends StandardTest {
     //verification
     final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(3, 3).setValues(1.0, 0.0, 0.0, 0.0, 1.0,
       0.0, 0.0, 0.0, 1.0);
-    expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
+    expect(testUnit.getProduct(result)).isEqualTo(expectedResult);
   }
 
   @Test
@@ -151,7 +150,7 @@ final class MatrixTest extends StandardTest {
     final var expectedResult = Matrix.createMatrixWithRowCountAndColumnCount(4, 4).setValues(1.0, 0.0, 0.0, 0.0, 0.0,
       1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
       0.0, 0.0, 0.0, 1.0);
-    expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
+    expect(testUnit.getProduct(result)).isEqualTo(expectedResult);
   }
 
   @Test

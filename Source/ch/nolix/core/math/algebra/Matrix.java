@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -287,30 +287,12 @@ public final class Matrix {
    */
   @Override
   public boolean equals(final Object object) {
-    return (object instanceof Matrix matrix && equals(matrix));
-  }
 
-  /**
-   * @param matrix
-   * @param epsilon
-   * @return true if the current {@link Matrix} equals the given matrix with a
-   *         deviation, that is smaller than the given epsilon.
-   */
-  public boolean equalsApproximatively(final Matrix matrix, final double epsilon) {
-
-    if (!hasSameSize(matrix)) {
-      return false;
+    if (object instanceof final Matrix matrix) {
+      return equalsMatrix(matrix);
     }
 
-    for (var i = 0; i < getRowCount(); i++) {
-      for (var j = 0; j < getColumnCount(); j++) {
-        if (!GlobalCalculator.equalsApproximatively(matrix.values[i][j], values[i][j], epsilon)) {
-          return false;
-        }
-      }
-    }
-
-    return true;
+    return false;
   }
 
   /**
@@ -743,7 +725,7 @@ public final class Matrix {
       var isZeroRow = true;
 
       for (double v : r) {
-        if (!GlobalCalculator.equalsApproximatively(v, 0.0)) {
+        if (!GlobalNumberComparator.isZero(v)) {
           isZeroRow = false;
           break;
         }
@@ -1010,7 +992,7 @@ public final class Matrix {
     //Iterates the rows of the current Matrix.
     for (var i = getRowCount() - 1; i >= 0; i--) {
 
-      if (GlobalCalculator.equalsApproximatively(values[i][i], 0.0)) {
+      if (GlobalNumberComparator.isZero(values[i][i])) {
         throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
       }
 
@@ -1159,11 +1141,11 @@ public final class Matrix {
     final var columnCount = getColumnCount();
     for (var j = 0; j < columnCount; j++) {
       if (lineIndex != j) {
-        if (!GlobalCalculator.isApproximatelyZero(values[lineIndex - 1][j])) {
+        if (!GlobalNumberComparator.isZero(values[lineIndex - 1][j])) {
           return false;
         }
       } else if ( //NOSONAR: The else-case is continuing the loop.
-      !GlobalCalculator.isApproximatelyOne(values[lineIndex - 1][j])) {
+      !GlobalNumberComparator.isOne(values[lineIndex - 1][j])) {
         return false;
       }
     }
@@ -1175,15 +1157,14 @@ public final class Matrix {
    * @param matrix
    * @return true if the current {@link Matrix} equals the given matrix.
    */
-  private boolean equals(final Matrix matrix) {
-
+  private boolean equalsMatrix(Matrix matrix) {
     if (!hasSameSize(matrix)) {
       return false;
     }
 
     for (var i = 0; i < getRowCount(); i++) {
       for (var j = 0; j < getColumnCount(); j++) {
-        if (matrix.values[i][j] != values[i][j]) {
+        if (!GlobalNumberComparator.areEqual(matrix.values[i][j], values[i][j])) {
           return false;
         }
       }

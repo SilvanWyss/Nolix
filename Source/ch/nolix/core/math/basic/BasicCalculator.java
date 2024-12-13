@@ -1,43 +1,9 @@
 package ch.nolix.core.math.basic;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 
 public final class BasicCalculator {
-
-  /**
-   * The default maximum deviation is 10^-9.
-   */
-  public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
-
-  //For a better performance, this implementation does not use all comfortable methods.
-  /**
-   * @param value1
-   * @param value2
-   * @return true if the given values equals approximately each other with a
-   *         deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
-   */
-  public boolean equalsApproximatively(final double value1, final double value2) {
-    return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
-  }
-
-  /**
-   * @param value1
-   * @param value2
-   * @param maxDeviation
-   * @return true if the given values equals approximately each other with a
-   *         deviation that is not bigger than the given maxDeviation.
-   * @throws NegativeArgumentException if the given maxDeviation is negative.
-   */
-  public boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
-
-    //Asserts that the given maxDeviation is not negative.
-    GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
-
-    return (Math.abs(value1 - value2) <= maxDeviation);
-  }
 
   /**
    * @param value1
@@ -355,55 +321,5 @@ public final class BasicCalculator {
     }
 
     return sum;
-  }
-
-  //For a better performance, this implementation does not use all comfortable methods.
-  /**
-   * @param value
-   * @return true if the given value is approximately 1.0 with a deviation that is
-   *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
-   */
-  public boolean isApproximatelyOne(final double value) {
-    return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
-  }
-
-  /**
-   * @param value
-   * @param maxDeviation
-   * @return true if the given value is approximately 1.0 with a deviation that is
-   *         not bigger than the given maxDeviation.
-   * @throws NegativeArgumentException if the given maxDeviation is negative.
-   */
-  public boolean isApproximatelyOne(final double value, final double maxDeviation) {
-
-    //Asserts that the given maxDeviation is not negative.
-    GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
-
-    return (Math.abs(value - 1.0) <= maxDeviation);
-  }
-
-  //For a better performance, this implementation does not use all comfortable methods.
-  /**
-   * @param value
-   * @return true if the given value is approximately 0.0 with a deviation that is
-   *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
-   */
-  public boolean isApproximatelyZero(final double value) {
-    return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
-  }
-
-  /**
-   * @param value
-   * @param maxDeviation
-   * @return true if the given value is approximately 0.0 with a deviation that is
-   *         not bigger than the given maxDeviation.
-   * @throws NegativeArgumentException if the given maxDeviation is negative.
-   */
-  public boolean isApproximatelyZero(final double value, final double maxDeviation) {
-
-    //Asserts that the given maxDeviation is not negative.
-    GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
-
-    return (Math.abs(value) <= maxDeviation);
   }
 }

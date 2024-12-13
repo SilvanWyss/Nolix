@@ -19,39 +19,12 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  */
 public final class GlobalCalculator {
 
-  /**
-   * The default maximum deviation is 10^-9.
-   */
-  public static final double DEFAULT_MAX_DEVIATION = BasicCalculator.DEFAULT_MAX_DEVIATION;
-
   private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
   /**
    * Prevents that an instance of the {@link GlobalCalculator} can be created.
    */
   private GlobalCalculator() {
-  }
-
-  /**
-   * @param value1
-   * @param value2
-   * @return true if the given values equals approximately each other with a
-   *         deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
-   */
-  public static boolean equalsApproximatively(final double value1, final double value2) {
-    return BASIC_CALCULATOR.equalsApproximatively(value1, value2);
-  }
-
-  /**
-   * @param value1
-   * @param value2
-   * @param maxDeviation
-   * @return true if the given values equals approximately each other with a
-   *         deviation that is not bigger than the given maxDeviation.
-   * @throws NegativeArgumentException if the given maxDeviation is negative.
-   */
-  public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
-    return BASIC_CALCULATOR.equalsApproximatively(value1, value2, maxDeviation);
   }
 
   /**
@@ -310,45 +283,5 @@ public final class GlobalCalculator {
    */
   public static long getSum(final long value, final long... values) {
     return BASIC_CALCULATOR.getSum(value, values);
-  }
-
-  /**
-   * @param value
-   * @return true if the given value is approximately 1.0 with a deviation that is
-   *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
-   */
-  public static boolean isApproximatelyOne(final double value) {
-    return BASIC_CALCULATOR.isApproximatelyOne(value);
-  }
-
-  /**
-   * @param value
-   * @param maxDeviation
-   * @return true if the given value is approximately 1.0 with a deviation that is
-   *         not bigger than the given maxDeviation.
-   * @throws NegativeArgumentException if the given maxDeviation is negative.
-   */
-  public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
-    return BASIC_CALCULATOR.isApproximatelyOne(value, maxDeviation);
-  }
-
-  /**
-   * @param value
-   * @return true if the given value is approximately 0.0 with a deviation that is
-   *         not bigger than {@value #DEFAULT_MAX_DEVIATION}.
-   */
-  public static boolean isApproximatelyZero(final double value) {
-    return BASIC_CALCULATOR.isApproximatelyZero(value);
-  }
-
-  /**
-   * @param value
-   * @param maxDeviation
-   * @return true if the given value is approximately 0.0 with a deviation that is
-   *         not bigger than the given maxDeviation.
-   * @throws NegativeArgumentException if the given maxDeviation is negative.
-   */
-  public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
-    return BASIC_CALCULATOR.isApproximatelyZero(value, maxDeviation);
   }
 }
