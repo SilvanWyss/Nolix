@@ -10,35 +10,11 @@ import ch.nolix.system.objectdata.entityflyweight.EntityFlyWeight;
 final class EntityFlyWeightTest extends StandardTest {
 
   @Test
-  void testCase_isVoid() {
-
-    //setup
-    final var testUnit = new EntityFlyWeight();
-
-    //execution
-    final var result = testUnit.isVoid();
-
-    //verification
-    expectNot(result);
-  }
-
-  @Test
-  void testCase_noteInsert_whenDoesNotHaveInsertAction() {
-
-    //setup
-    final var testUnit = new EntityFlyWeight();
-
-    //execution & verification
-    expectRunning(testUnit::noteInsert).doesNotThrowException();
-  }
-
-  @Test
-  void testCase_noteInsert_whenHasInsertAction() {
+  void testCase_noteInsert() {
 
     //setup
     final var insertAction = Mockito.mock(Runnable.class);
-    final var testUnit = new EntityFlyWeight();
-    testUnit.setInsertAction(insertAction);
+    final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
 
     //execution
     testUnit.noteInsert();
@@ -48,13 +24,23 @@ final class EntityFlyWeightTest extends StandardTest {
   }
 
   @Test
-  void testCase_setInsertAction_whenGivenInsertActionIsNull() {
+  void testCase_withInsertAction() {
 
     //setup
-    final var testUnit = new EntityFlyWeight();
+    final var insertAction = Mockito.mock(Runnable.class);
+
+    //execution
+    final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
+
+    //verification
+    expect(testUnit.isEffectual());
+  }
+
+  @Test
+  void testCase_withInsertAction_whenTheGivenInsertActionIsNull() {
 
     //execution & verification
-    expectRunning(() -> testUnit.setInsertAction(null))
+    expectRunning(() -> EntityFlyWeight.withInsertAction(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given insert action is null.");

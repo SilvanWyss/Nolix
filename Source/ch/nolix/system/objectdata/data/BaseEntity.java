@@ -171,10 +171,7 @@ public abstract class BaseEntity implements IEntity {
   }
 
   protected final void setInsertAction(final Runnable insertAction) {
-
-    setEffectiveEntityFlyWeightIfEntityFlyWeightIsVoid();
-
-    entityFlyweight.setInsertAction(insertAction);
+    entityFlyweight = EntityFlyWeight.withInsertAction(insertAction);
   }
 
   final void internalClose() {
@@ -287,16 +284,6 @@ public abstract class BaseEntity implements IEntity {
     ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
       .containsAny(c -> c.internalContainsGivenValueInPersistedDataIgnoringGivenEntities(localId, entitiesToIgnoreIds));
-  }
-
-  private void setEffectiveEntityFlyWeightIfEntityFlyWeightIsVoid() {
-    if (entityFlyweight.isVoid()) {
-      setEffectiveEntityFlyWeightWhenEntityFlyWeightIsVoid();
-    }
-  }
-
-  private void setEffectiveEntityFlyWeightWhenEntityFlyWeightIsVoid() {
-    entityFlyweight = new EntityFlyWeight();
   }
 
   private void updateBackReferenceForDeletion(final BackReference<?> backReference) {
