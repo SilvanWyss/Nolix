@@ -31,19 +31,19 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
 
   private AttachingAttribute(final String tag, final INode<?> value) {
 
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotNull();
+    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotBlank();
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
 
-    this.optionalTag = tag.toString();
+    this.optionalTag = tag;
     this.value = Node.fromNode(value);
   }
 
   private AttachingAttribute(final String tag, final String value) {
 
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotNull();
+    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotBlank();
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
 
-    this.optionalTag = tag.toString();
+    this.optionalTag = tag;
     this.value = Node.fromString(value);
   }
 
