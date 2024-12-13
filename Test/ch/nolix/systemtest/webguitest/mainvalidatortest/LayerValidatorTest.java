@@ -19,7 +19,7 @@ final class LayerValidatorTest extends StandardTest {
     final var testUnit = new LayerValidator();
 
     //setup verification
-    expectNot(layer.belongsToGui());
+    expect(layer.belongsToGui()).isFalse();
 
     //execution & verification
     expectRunning(() -> testUnit.assertBelongsToGui(layer))
@@ -36,7 +36,7 @@ final class LayerValidatorTest extends StandardTest {
     final var testUnit = new LayerValidator();
 
     //setup verification
-    expect(layer.belongsToGui());
+    expect(layer.belongsToGui()).isTrue();
 
     //execution & verification
     expectRunning(() -> testUnit.assertBelongsToGui(layer)).doesNotThrowException();
@@ -50,7 +50,7 @@ final class LayerValidatorTest extends StandardTest {
     final var testUnit = new LayerValidator();
 
     //setup verification
-    expectNot(layer.belongsToGui());
+    expect(layer.belongsToGui()).isFalse();
 
     //execution & verification
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer)).doesNotThrowException();
@@ -65,7 +65,7 @@ final class LayerValidatorTest extends StandardTest {
     final var testUnit = new LayerValidator();
 
     //setup verification
-    expect(layer.belongsToGui());
+    expect(layer.belongsToGui()).isTrue();
 
     //execution & verification
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer))

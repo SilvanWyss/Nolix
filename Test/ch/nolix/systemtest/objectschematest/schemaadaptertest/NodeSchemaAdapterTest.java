@@ -16,7 +16,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var database = MutableNode.createEmpty();
 
     //setup verification
-    expect(database.isBlank());
+    expect(database.isBlank()).isTrue();
 
     //execution
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
@@ -42,13 +42,13 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addTable(new Table("MyTable")).saveChanges();
 
     //verification part 1
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.getStoredTables().getCount()).isEqualTo(1);
     expect(testUnit.getStoredTables().containsOne(t -> t.hasName("MyTable")));
 
     //verification part 2
     final var tableNodes = database.getStoredChildNodesWithHeader("Table");
-    expect(tableNodes.containsOne());
+    expect(tableNodes.containsOne()).isTrue();
     final var tableNode = tableNodes.getStoredFirst();
     final var nameNode = tableNode.getStoredFirstChildNodeWithHeader("Name");
     expect(nameNode.getSingleChildNodeHeader()).isEqualTo("MyTable");

@@ -19,7 +19,7 @@ final class CharToolTest extends StandardTest {
     final var result = testUnit.isDigit(character);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -33,7 +33,7 @@ final class CharToolTest extends StandardTest {
     final var result = testUnit.isDigit(character);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @ParameterizedTest
@@ -47,7 +47,7 @@ final class CharToolTest extends StandardTest {
     final var result = testUnit.isHexadecimalDigit(character);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -61,6 +61,6 @@ final class CharToolTest extends StandardTest {
     final var result = testUnit.isHexadecimalDigit(character);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

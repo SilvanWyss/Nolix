@@ -34,9 +34,9 @@ public abstract class CopyableIteratorTest extends StandardTest {
     //verification
     expect(testUnit.next()).is(rhino);
     expect(testUnit.next()).is(zebra);
-    expectNot(testUnit.hasNext());
+    expect(testUnit.hasNext()).isFalse();
     expect(result.next()).is(rhino);
     expect(result.next()).is(zebra);
-    expectNot(result.hasNext());
+    expect(result.hasNext()).isFalse();
   }
 }

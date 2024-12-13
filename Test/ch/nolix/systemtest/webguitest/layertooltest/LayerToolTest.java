@@ -19,7 +19,7 @@ final class LayerToolTest extends StandardTest {
     final var result = testUnit.createIdHtmlAttributeForLayer(layer);
 
     //verification
-    expect(result.hasName("id"));
-    expect(result.getValue().startsWith("i"));
+    expect(result.hasName("id")).isTrue();
+    expect(result.getValue().startsWith("i")).isTrue();
   }
 }

@@ -20,7 +20,7 @@ final class WebGuiTest extends StandardTest {
     expect(result.getTitle()).isEqualTo(WebGui.DEFAULT_TITLE);
     expect(result.getIcon()).isEqualTo(WebGui.DEFAULT_ICON);
     expect(result.getBackgroundColor()).isEqualTo(WebGui.DEFAULT_BACKGROUND_COLOR);
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
     expect(result.getTokens()).isEmpty();
   }
 
@@ -40,7 +40,7 @@ final class WebGuiTest extends StandardTest {
     //verification
     expect(testUnit.getTitle()).isEqualTo(WebGui.DEFAULT_TITLE);
     expect(testUnit.getIcon()).isEqualTo(WebGui.DEFAULT_ICON);
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
     expect(testUnit.getTokens()).isEmpty();
   }
 }

@@ -21,7 +21,7 @@ final class ColorTest extends StandardTest {
     final var result = testUnit.equals(color);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -35,7 +35,7 @@ final class ColorTest extends StandardTest {
     final var result = testUnit.equals(color);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test

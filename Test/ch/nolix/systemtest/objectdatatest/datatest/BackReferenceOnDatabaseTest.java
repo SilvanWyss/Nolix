@@ -147,7 +147,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
     //setup verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
-    expect(loadedGarfield.owner.isEmpty());
+    expect(loadedGarfield.owner.isEmpty()).isTrue();
 
     //execution & verification
     expectRunning(nodeDataAdapter::saveChanges).throwsException();

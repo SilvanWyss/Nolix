@@ -83,7 +83,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapter.saveChanges();
 
     //verification
-    expect(garfield.isClosed());
+    expect(garfield.isClosed()).isTrue();
   }
 
   @Test
@@ -166,7 +166,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     loadedGarfield.delete();
 
     //verification part 1
-    expect(loadedGarfield.isDeleted());
+    expect(loadedGarfield.isDeleted()).isTrue();
 
     //execution part 2
     nodeDataAdapter.saveChanges();

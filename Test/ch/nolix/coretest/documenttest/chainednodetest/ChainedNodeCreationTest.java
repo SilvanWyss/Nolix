@@ -18,7 +18,7 @@ final class ChainedNodeCreationTest extends StandardTest {
     final var node = Node.EMPTY_NODE;
 
     //setup verification
-    expect(node.isBlank());
+    expect(node.isBlank()).isTrue();
 
     //execution
     final var result = ChainedNode.fromNode(node);

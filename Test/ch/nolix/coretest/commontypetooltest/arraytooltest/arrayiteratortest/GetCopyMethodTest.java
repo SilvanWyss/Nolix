@@ -34,7 +34,7 @@ final class GetCopyMethodTest extends StandardTest {
     expect(testUnit.next()).is(element4);
     expect(testUnit.next()).is(element5);
     expect(testUnit.next()).is(element6);
-    expectNot(testUnit.hasNext());
+    expect(testUnit.hasNext()).isFalse();
 
     //verification part 2: Verifies result.
     expect(result.next()).is(element1);
@@ -43,7 +43,7 @@ final class GetCopyMethodTest extends StandardTest {
     expect(result.next()).is(element4);
     expect(result.next()).is(element5);
     expect(result.next()).is(element6);
-    expectNot(result.hasNext());
+    expect(result.hasNext()).isFalse();
   }
 
   @Test
@@ -69,13 +69,13 @@ final class GetCopyMethodTest extends StandardTest {
     expect(testUnit.next()).is(element4);
     expect(testUnit.next()).is(element5);
     expect(testUnit.next()).is(element6);
-    expectNot(testUnit.hasNext());
+    expect(testUnit.hasNext()).isFalse();
 
     //verification part 2: Verifies result.
     expect(result.next()).is(element4);
     expect(result.next()).is(element5);
     expect(result.next()).is(element6);
-    expectNot(result.hasNext());
+    expect(result.hasNext()).isFalse();
   }
 
   @Test
@@ -98,9 +98,9 @@ final class GetCopyMethodTest extends StandardTest {
     final var result = testUnit.createCopy();
 
     //verification part 1: Verifies testUnit.
-    expectNot(testUnit.hasNext());
+    expect(testUnit.hasNext()).isFalse();
 
     //verification part 2: Verifies result.
-    expectNot(result.hasNext());
+    expect(result.hasNext()).isFalse();
   }
 }

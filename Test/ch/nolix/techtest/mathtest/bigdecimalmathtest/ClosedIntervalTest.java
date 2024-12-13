@@ -22,7 +22,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.containsValue(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @ParameterizedTest
@@ -41,7 +41,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.containsValue(valueAsBigDecimal);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -59,7 +59,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.containsValue(valueAsBigDecimal);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -93,7 +93,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.equals(nullCloedInterval);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -106,7 +106,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.equals(new ClosedInterval(-1.0, 0.0));
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -119,7 +119,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.equals(new ClosedInterval(0.0, 1.0));
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -311,7 +311,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var result = testUnit.intersectsWith(closedInterval);
 
     //verification
-    expect(result == expectedResult);
+    expect(result).is(expectedResult);
   }
 
   @Test

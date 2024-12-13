@@ -16,7 +16,7 @@ final class ChangeRequestableTest extends StandardTest {
     final var result = testUnit.isChangeFree();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -29,6 +29,6 @@ final class ChangeRequestableTest extends StandardTest {
     final var result = testUnit.isChangeFree();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

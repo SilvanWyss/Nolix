@@ -14,7 +14,7 @@ final class FunctionCatalogueTest extends StandardTest {
     final var result = GlobalFunctionService.getFalse();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -74,7 +74,7 @@ final class FunctionCatalogueTest extends StandardTest {
     final var result = GlobalFunctionService.getTrue();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test

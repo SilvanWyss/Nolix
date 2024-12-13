@@ -197,7 +197,7 @@ final class LinkedListTest extends ContainerTest {
     testUnit.clear();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -210,7 +210,7 @@ final class LinkedListTest extends ContainerTest {
     testUnit.clear();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -233,7 +233,7 @@ final class LinkedListTest extends ContainerTest {
     final var result = LinkedList.fromArray(array);
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test

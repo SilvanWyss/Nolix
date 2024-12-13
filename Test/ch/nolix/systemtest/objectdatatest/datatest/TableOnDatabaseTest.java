@@ -33,7 +33,7 @@ final class TableOnDatabaseTest extends StandardTest {
     final var result = testUnit.containsEntityWithId(thing.getId());
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -54,6 +54,6 @@ final class TableOnDatabaseTest extends StandardTest {
     final var result = testUnit.containsEntityWithId(thing.getId());
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 }

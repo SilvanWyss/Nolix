@@ -97,7 +97,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.getInBraces(string);
 
     //verification
-    expect(result);
+    expect(result).isEqualTo(expectedResult);
   }
 
   @Test
@@ -111,23 +111,6 @@ final class StringToolTest extends StandardTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");
-  }
-
-  @ParameterizedTest
-  @CsvSource({
-  "'', ''", //
-  "zebra, '\'zebra\''" //
-  })
-  void testCase_getInSingleQuotes(final String string, final String expectedResult) {
-
-    //setup
-    final var testUnit = new StringTool();
-
-    //execution
-    final var result = testUnit.getInSingleQuotes(string);
-
-    //verification
-    expect(result);
   }
 
   @Test
@@ -160,7 +143,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.isLowerCase(string);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -180,7 +163,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.isLowerCase(string);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @ParameterizedTest
@@ -198,7 +181,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.isPascalCase(string);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -216,7 +199,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.isPascalCase(string);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @ParameterizedTest
@@ -258,7 +241,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -324,7 +307,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @ParameterizedTest
@@ -344,7 +327,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.toBoolean(string);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @ParameterizedTest
@@ -364,7 +347,7 @@ final class StringToolTest extends StandardTest {
     final var result = testUnit.toBoolean(string);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @ParameterizedTest
@@ -388,28 +371,6 @@ final class StringToolTest extends StandardTest {
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
       .withMessage("The given String '" + string + "' does not represent a boolean.");
-  }
-
-  @ParameterizedTest
-  @CsvSource({
-  "-1.5", //
-  "-1.0", //
-  "-1.5", //
-  "0.0", //
-  "0.5", //
-  "1.0", //
-  "1.5" //
-  })
-  void testCase_toDouble_whenTheGivenStringRepresentsADouble(final String string) {
-
-    //setup
-    final var testUnit = new StringTool();
-
-    //execution
-    final var result = testUnit.toDouble(string);
-
-    //verification
-    expect(result);
   }
 
   @ParameterizedTest

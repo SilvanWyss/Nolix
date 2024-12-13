@@ -19,13 +19,13 @@ final class LayerTest extends StandardTest {
     final var testUnit = new Layer();
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution
     testUnit.clear();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -36,13 +36,13 @@ final class LayerTest extends StandardTest {
     testUnit.setRootControl(new Label());
 
     //setup verification
-    expect(testUnit.containsAny());
+    expect(testUnit.containsAny()).isTrue();
 
     //execution
     testUnit.clear();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -52,7 +52,7 @@ final class LayerTest extends StandardTest {
     final var testUnit = new Layer();
 
     //setup verification
-    expectNot(testUnit.belongsToGui());
+    expect(testUnit.belongsToGui()).isFalse();
 
     //execution
     expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
@@ -68,14 +68,14 @@ final class LayerTest extends StandardTest {
 
     //setup verification
     expect(webGui.getStoredLayers()).contains(testUnit);
-    expect(testUnit.belongsToGui());
+    expect(testUnit.belongsToGui()).isTrue();
 
     //execution
     testUnit.removeSelfFromGui();
 
     //verification
-    expectNot(webGui.getStoredLayers().contains(testUnit));
-    expectNot(testUnit.belongsToGui());
+    expect(webGui.getStoredLayers().contains(testUnit)).isFalse();
+    expect(testUnit.belongsToGui()).isFalse();
   }
 
   @Test
@@ -94,11 +94,11 @@ final class LayerTest extends StandardTest {
     testUnit.reset();
 
     //verification
-    expectNot(testUnit.hasId());
-    expectNot(testUnit.hasRole());
+    expect(testUnit.hasId()).isFalse();
+    expect(testUnit.hasRole()).isFalse();
     expect(testUnit.getOpacity()).isEqualTo(1.0);
-    expectNot(testUnit.hasBackground());
+    expect(testUnit.hasBackground()).isFalse();
     expect(testUnit.getContentAlignment()).is(ContentAlignment.TOP);
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 }

@@ -25,8 +25,8 @@ final class YesNoDialogBuilderTest extends StandardTest {
     //verification 
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
-    expect(controls.containsAny(this::isConfirmButton));
-    expect(controls.containsAny(this::isCancelButton));
+    expect(controls).contains(this::isConfirmButton);
+    expect(controls).contains(this::isCancelButton);
   }
 
   @Test
@@ -85,7 +85,7 @@ final class YesNoDialogBuilderTest extends StandardTest {
     cancelButton.pressLeftMouseButton();
 
     //verification
-    expectNot(result.belongsToGui());
+    expect(result.belongsToGui()).isFalse();
     Mockito.verify(confirmActionMock, Mockito.never()).run();
   }
 
@@ -108,7 +108,7 @@ final class YesNoDialogBuilderTest extends StandardTest {
 
     //verification
     Mockito.verify(confirmActionMock).run();
-    expectNot(result.belongsToGui());
+    expect(result.belongsToGui()).isFalse();
   }
 
   private boolean isCancelButton(final IControl<?, ?> control) {

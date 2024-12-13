@@ -20,7 +20,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
 
     //verification
-    expect(result.isAbsolute());
+    expect(result.isAbsolute()).isTrue();
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
@@ -34,7 +34,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
 
     //verification
-    expect(result.isRelative());
+    expect(result.isRelative()).isTrue();
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 
@@ -123,7 +123,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     final var result = AbsoluteOrRelativeInt.withIntValue(500);
 
     //verification
-    expect(result.isAbsolute());
+    expect(result.isAbsolute()).isTrue();
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
@@ -134,7 +134,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     final var result = AbsoluteOrRelativeInt.withPercentage(0.2);
 
     //verification
-    expect(result.isRelative());
+    expect(result.isRelative()).isTrue();
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 

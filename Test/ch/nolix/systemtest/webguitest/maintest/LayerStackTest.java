@@ -18,13 +18,13 @@ final class LayerStackTest extends StandardTest {
     final var testUnit = LayerStack.forWebGui(new WebGui());
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution
     final var result = testUnit.getOptionalStoredControlByInternalId(control.getInternalId());
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -49,7 +49,7 @@ final class LayerStackTest extends StandardTest {
     final var testUnit = LayerStack.forWebGui(new WebGui());
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution
     final var result = testUnit.getStoredControls();

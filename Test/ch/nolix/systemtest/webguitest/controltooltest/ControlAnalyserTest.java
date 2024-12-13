@@ -24,7 +24,7 @@ final class ControlAnalyserTest extends StandardTest {
     final var result = testUnit.firstControlContainsSecondControl(null, new Label());
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -37,7 +37,7 @@ final class ControlAnalyserTest extends StandardTest {
     final var result = testUnit.firstControlContainsSecondControl(new Label(), null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -52,7 +52,7 @@ final class ControlAnalyserTest extends StandardTest {
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -76,6 +76,6 @@ final class ControlAnalyserTest extends StandardTest {
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 }

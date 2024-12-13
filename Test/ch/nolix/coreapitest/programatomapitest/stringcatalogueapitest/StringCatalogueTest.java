@@ -13,8 +13,8 @@ final class StringCatalogueTest extends StandardTest {
 
     //verification
     for (final var f : StringCatalogue.class.getFields()) {
-      expect(GlobalReflectionTool.isPublic(f));
-      expect(GlobalReflectionTool.isStatic(f));
+      expect(GlobalReflectionTool.isPublic(f)).isTrue();
+      expect(GlobalReflectionTool.isStatic(f)).isTrue();
       expect(GlobalReflectionTool.getValueFromStaticField(f).getClass()).is(String.class);
     }
   }

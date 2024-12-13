@@ -19,7 +19,7 @@ final class ContainsAnyMethodTest extends StandardTest {
     final var result = testUnit.containsAny(iterable);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -33,7 +33,7 @@ final class ContainsAnyMethodTest extends StandardTest {
     final var result = testUnit.containsAny(iterable);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -47,7 +47,7 @@ final class ContainsAnyMethodTest extends StandardTest {
     final var result = testUnit.containsAny(iterable);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -61,6 +61,6 @@ final class ContainsAnyMethodTest extends StandardTest {
     final var result = testUnit.containsAny(iterable);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 }

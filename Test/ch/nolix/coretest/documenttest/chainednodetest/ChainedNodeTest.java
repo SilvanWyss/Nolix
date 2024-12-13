@@ -20,7 +20,7 @@ final class ChainedNodeTest extends StandardTest {
     final var result = testUnit.equals(ChainedNode.fromString("a"));
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -33,7 +33,7 @@ final class ChainedNodeTest extends StandardTest {
     final var result = testUnit.equals(ChainedNode.fromString(""));
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -43,7 +43,7 @@ final class ChainedNodeTest extends StandardTest {
     final var testUnit = ChainedNode.withHeader("a");
 
     //setup verification
-    expectNot(testUnit.containsChildNodes());
+    expect(testUnit.containsChildNodes()).isFalse();
 
     //execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
@@ -107,7 +107,7 @@ final class ChainedNodeTest extends StandardTest {
     final var result = testUnit.isBlank();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -120,7 +120,7 @@ final class ChainedNodeTest extends StandardTest {
     final var result = testUnit.isBlank();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test

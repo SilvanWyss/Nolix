@@ -33,7 +33,7 @@ final class EntityFlyWeightTest extends StandardTest {
     final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
 
     //verification
-    expect(testUnit.isEffectual());
+    expect(testUnit.isEffectual()).isTrue();
   }
 
   @Test

@@ -20,18 +20,18 @@ final class ContainerViewTest extends ContainerTest {
     final var testUnit = ContainerView.forArray(array1, array2, array3);
 
     //execution
-    expect(testUnit.containsEqualing("apple"));
-    expect(testUnit.containsEqualing("banana"));
-    expect(testUnit.containsEqualing("cerish"));
-    expect(testUnit.containsEqualing("antelope"));
-    expect(testUnit.containsEqualing("baboon"));
-    expect(testUnit.containsEqualing("lion"));
-    expect(testUnit.containsEqualing("flower"));
-    expect(testUnit.containsEqualing("tree"));
-    expect(testUnit.containsEqualing("palm"));
-    expectNot(testUnit.containsEqualing("jupiter"));
-    expectNot(testUnit.containsEqualing("saturn"));
-    expectNot(testUnit.containsEqualing("uranus"));
+    expect(testUnit.containsEqualing("apple")).isTrue();
+    expect(testUnit.containsEqualing("banana")).isTrue();
+    expect(testUnit.containsEqualing("cerish")).isTrue();
+    expect(testUnit.containsEqualing("antelope")).isTrue();
+    expect(testUnit.containsEqualing("baboon")).isTrue();
+    expect(testUnit.containsEqualing("lion")).isTrue();
+    expect(testUnit.containsEqualing("flower")).isTrue();
+    expect(testUnit.containsEqualing("tree")).isTrue();
+    expect(testUnit.containsEqualing("palm")).isTrue();
+    expect(testUnit.containsEqualing("jupiter")).isFalse();
+    expect(testUnit.containsEqualing("saturn")).isFalse();
+    expect(testUnit.containsEqualing("uranus")).isFalse();
   }
 
   @Test

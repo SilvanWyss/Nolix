@@ -17,7 +17,7 @@ final class PolynomTest extends StandardTest {
     final var result = testUnit.equals(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -31,7 +31,7 @@ final class PolynomTest extends StandardTest {
     final var result = testUnit.equals(object);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -45,7 +45,7 @@ final class PolynomTest extends StandardTest {
     final var result = testUnit.equals(object);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -59,7 +59,7 @@ final class PolynomTest extends StandardTest {
     final var result = testUnit.equals(object);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test

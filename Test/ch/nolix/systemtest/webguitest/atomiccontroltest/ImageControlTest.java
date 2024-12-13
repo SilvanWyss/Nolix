@@ -23,7 +23,7 @@ final class ImageControlTest extends ControlTest<IImageControl> {
     final var testUnit = new ImageControl();
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution & verification
     expectRunning(testUnit::getStoredImage)

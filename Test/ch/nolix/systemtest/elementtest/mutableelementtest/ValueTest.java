@@ -17,7 +17,7 @@ final class ValueTest extends StandardTest {
 
     //verification
     expect(result.getName()).isEqualTo("amount");
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -41,7 +41,7 @@ final class ValueTest extends StandardTest {
     final var testUnit = Value.forString("name", GlobalFunctionService::takeObjectAndDoNothing);
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution & verification
     expectRunning(() -> testUnit.setValue(null))
@@ -50,7 +50,7 @@ final class ValueTest extends StandardTest {
       .withMessage("The given value is null.");
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -63,7 +63,7 @@ final class ValueTest extends StandardTest {
     testUnit.setValue("Garfield");
 
     //verification
-    expect(testUnit.containsAny());
+    expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getValue()).isEqualTo("Garfield");
   }
 }

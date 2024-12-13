@@ -29,7 +29,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     actionButton.pressLeftMouseButton();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -41,13 +41,13 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     new VerticalStack().addControl(testUnit, actionButton);
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution
     actionButton.pressLeftMouseButton();
 
     //verification
-    expect(testUnit.containsAny());
+    expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogueThrowExceptionMethod());
   }
 

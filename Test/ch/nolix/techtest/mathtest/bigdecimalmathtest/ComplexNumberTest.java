@@ -266,7 +266,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureImaginary();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -279,7 +279,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureImaginary();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -292,7 +292,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureImaginary();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -305,7 +305,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureImaginary();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -318,7 +318,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureImaginary();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -331,7 +331,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureImaginary();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -344,7 +344,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureReal();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -357,7 +357,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureReal();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -370,7 +370,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureReal();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -383,7 +383,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureReal();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -396,7 +396,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureReal();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -409,7 +409,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.isPureReal();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test

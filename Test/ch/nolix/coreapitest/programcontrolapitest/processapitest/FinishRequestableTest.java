@@ -23,7 +23,7 @@ final class FinishRequestableTest extends StandardTest {
     final var result = testUnit.isRunning();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -42,6 +42,6 @@ final class FinishRequestableTest extends StandardTest {
     final var result = testUnit.isRunning();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

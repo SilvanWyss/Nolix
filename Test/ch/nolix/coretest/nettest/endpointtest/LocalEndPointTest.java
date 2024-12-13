@@ -74,7 +74,7 @@ final class LocalEndPointTest extends StandardTest {
       testUnit.close(); //NOSONAR: This test case tests the close method.
 
       //setup verification
-      expect(testUnit.isClosed());
+      expect(testUnit.isClosed()).isTrue();
       expect(slot.getLatestReceivedMessage()).isNull();
 
       //execution & verification
@@ -122,7 +122,7 @@ final class LocalEndPointTest extends StandardTest {
       server.addSlot(slot);
 
       //setup verification
-      expectNot(server.containsDefaultSlot());
+      expect(server.containsDefaultSlot()).isFalse();
 
       //execution
       final var result = LocalEndPoint.toTargetSlotOnServer(server, slot.getName());

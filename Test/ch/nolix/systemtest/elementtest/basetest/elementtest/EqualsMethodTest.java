@@ -28,7 +28,7 @@ final class EqualsMethodTest extends StandardTest {
     final var result = testUnit.equals(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -48,7 +48,7 @@ final class EqualsMethodTest extends StandardTest {
     final var result = testUnit.equals(object);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -67,6 +67,6 @@ final class EqualsMethodTest extends StandardTest {
     final var result = testUnit.equals(testUnit);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 }

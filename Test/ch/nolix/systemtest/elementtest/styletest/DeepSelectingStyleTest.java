@@ -54,7 +54,7 @@ final class DeepSelectingStyleTest extends StandardTest {
     final var result = testUnit.selectsChildElements();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -67,6 +67,6 @@ final class DeepSelectingStyleTest extends StandardTest {
     final var result = testUnit.skipsChildElements();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

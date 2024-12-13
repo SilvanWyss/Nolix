@@ -45,7 +45,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     final var result = garfield.owner.containsAny();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -153,7 +153,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     //setup part 2 verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
-    expect(loadedGarfield.owner.isEmpty());
+    expect(loadedGarfield.owner.isEmpty()).isTrue();
 
     //execution & verification
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
@@ -177,7 +177,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     //setup part 1 verification
     expect(john.pet.getReferencedEntity()).is(garfield);
     expect(garfield.owner.getBackReferencedEntity()).is(john);
-    expect(odie.owner.isEmpty());
+    expect(odie.owner.isEmpty()).isTrue();
 
     //setup part 2
     nodeDataAdapter.saveChanges();

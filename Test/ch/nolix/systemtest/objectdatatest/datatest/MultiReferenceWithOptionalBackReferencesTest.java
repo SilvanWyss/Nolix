@@ -96,7 +96,7 @@ final class MultiReferenceWithOptionalBackReferencesTest extends StandardTest {
     nodeDataAdapter.saveChanges();
 
     //verification part 1
-    expectNot(loadedJohn1.pets.referencesEntity(loadedOdie1));
+    expect(loadedJohn1.pets.referencesEntity(loadedOdie1)).isFalse();
 
     //verification part 2
     final var loadedJohn2 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());

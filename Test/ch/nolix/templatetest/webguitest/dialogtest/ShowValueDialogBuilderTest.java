@@ -41,7 +41,7 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     confirmButton.pressLeftMouseButton();
 
     //verification
-    expectNot(result.belongsToGui());
+    expect(result.belongsToGui()).isFalse();
   }
 
   private boolean isConfirmButton(final IControl<?, ?> control) {

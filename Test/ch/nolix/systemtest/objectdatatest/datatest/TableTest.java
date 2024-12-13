@@ -44,7 +44,7 @@ final class TableTest extends StandardTest {
     final var result = testUnit.getStoredEntities();
 
     //verification
-    expectNot(nodeDataAdapter.hasChanges());
+    expect(nodeDataAdapter.hasChanges()).isFalse();
     expect(result).isEmpty();
   }
 

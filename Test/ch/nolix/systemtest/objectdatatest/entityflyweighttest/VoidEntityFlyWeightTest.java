@@ -14,6 +14,6 @@ final class VoidEntityFlyWeightTest extends StandardTest {
     final var testUnit = new VoidEntityFlyWeight();
 
     //verification
-    expect(testUnit.isVoid());
+    expect(testUnit.isVoid()).isTrue();
   }
 }

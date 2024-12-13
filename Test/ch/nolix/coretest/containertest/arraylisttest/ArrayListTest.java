@@ -98,7 +98,7 @@ final class ArrayListTest extends ContainerTest {
     final var result = testUnit.isMaterialized();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test

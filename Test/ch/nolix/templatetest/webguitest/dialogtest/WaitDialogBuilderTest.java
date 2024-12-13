@@ -23,7 +23,7 @@ final class WaitDialogBuilderTest extends StandardTest {
     //verification
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
-    expect(controls.containsAny(this::isMainLabel));
+    expect(controls).contains(this::isMainLabel);
   }
 
   private boolean isMainLabel(final IControl<?, ?> control) {

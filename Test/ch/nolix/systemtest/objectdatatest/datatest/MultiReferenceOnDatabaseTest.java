@@ -42,7 +42,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
     //verification
-    expect(loadedJohn.pets.isEmpty());
+    expect(loadedJohn.pets.isEmpty()).isTrue();
   }
 
   @Test
@@ -67,8 +67,8 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //verification
     expect(loadedJohn.pets.getAllStoredReferencedEntities().getCount()).isEqualTo(2);
-    expect(loadedJohn.pets.getAllStoredReferencedEntities().containsAny(p -> p.hasId(garfield.getId())));
-    expect(loadedJohn.pets.getAllStoredReferencedEntities().containsAny(p -> p.hasId(odie.getId())));
+    expect(loadedJohn.pets.getAllStoredReferencedEntities()).contains(p -> p.hasId(garfield.getId()));
+    expect(loadedJohn.pets.getAllStoredReferencedEntities()).contains(p -> p.hasId(odie.getId()));
   }
 
   @Test
@@ -144,7 +144,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     john.pets.addEntity(garfield);
 
     //verification
-    expect(garfield.belongsToTable());
+    expect(garfield.belongsToTable()).isTrue();
   }
 
   @Test

@@ -48,7 +48,7 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
     //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
-    expectNot(loadedGarfield.hasName());
+    expect(loadedGarfield.hasName()).isFalse();
   }
 
   @Test

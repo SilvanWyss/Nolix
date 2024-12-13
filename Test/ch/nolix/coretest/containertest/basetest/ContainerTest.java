@@ -32,7 +32,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.contains(lion);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -49,7 +49,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.contains(lion);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -67,7 +67,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAll(list);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -84,7 +84,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAll(baboon, elephant, lion);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -102,7 +102,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAll(list);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -119,7 +119,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAll(antelope, baboon, elephant, lion);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -137,7 +137,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAll(list);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -154,7 +154,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAll(antelope, baboon, elephant);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -169,7 +169,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAny(element1, element2);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -186,7 +186,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAny(element1, element2, element3, element4);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -203,7 +203,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsAny(element3, element4);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -217,7 +217,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsExactlyInSameOrder(container);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -232,7 +232,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsExactlyInSameOrder(container);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -247,7 +247,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsExactlyInSameOrder(container);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -264,7 +264,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOnce(lion);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -281,7 +281,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOnce(lion);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -298,7 +298,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOnce(lion);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -311,7 +311,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOne();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -324,7 +324,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOne();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -337,7 +337,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOne();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -350,7 +350,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOne(e -> e.equals("x"));
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -363,7 +363,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.containsOne(e -> e.equals("x"));
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -715,7 +715,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.getOptionalStoredFirst();
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -978,7 +978,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.getStoredSelected(e -> e.length() > 6);
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -1088,7 +1088,7 @@ public abstract class ContainerTest extends StandardTest {
     final var result = testUnit.isView();
 
     //verification
-    expect(result == !testUnit.isMaterialized());
+    expect(result).is(!testUnit.isMaterialized());
   }
 
   @Test
@@ -1311,23 +1311,13 @@ public abstract class ContainerTest extends StandardTest {
     //execution
     final var result = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution & verification part 1
-    expect(
-      result.containsAny(s -> s.equals("x")),
-      result.containsAny(s -> s.equals("xx")),
-      result.containsAny(s -> s.equals("xxx")),
-      result.containsAny(s -> s.equals("xxxx")),
-      result.containsAny(s -> s.equals("xxxxx")),
-      result.containsAny(s -> s.equals("xxxxxx")));
-
-    //execution & verification part 2
-    expectNot(
-      result.containsAny(s -> s.equals("xxxxxxx")),
-      result.containsAny(s -> s.equals("xxxxxxxx")),
-      result.containsAny(s -> s.equals("xxxxxxxxx")),
-      result.containsAny(s -> s.equals("xxxxxxxxxx")),
-      result.containsAny(s -> s.equals("xxxxxxxxxxx")),
-      result.containsAny(s -> s.equals("xxxxxxxxxxxx")));
+    //verification
+    expect(result).contains(s -> s.equals("x"));
+    expect(result).contains(s -> s.equals("xx"));
+    expect(result).contains(s -> s.equals("xxx"));
+    expect(result).contains(s -> s.equals("xxxx"));
+    expect(result).contains(s -> s.equals("xxxxx"));
+    expect(result).contains(s -> s.equals("xxxxxx"));
   }
 
   @Test

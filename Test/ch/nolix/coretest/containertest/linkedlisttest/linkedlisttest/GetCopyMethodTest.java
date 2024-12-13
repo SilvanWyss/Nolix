@@ -17,7 +17,7 @@ final class GetCopyMethodTest extends StandardTest {
     final var result = testUnit.createCopy();
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test

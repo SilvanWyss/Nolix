@@ -43,7 +43,7 @@ final class SchemaAdapterTest extends StandardTest {
     testUnit.saveChanges();
 
     //verification
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadColumnsByTableName(tableName)).contains(t -> t.getName().equals(columnName));
   }
 
@@ -63,7 +63,7 @@ final class SchemaAdapterTest extends StandardTest {
     final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //setup verification
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
 
     //execution
     testUnit.addTable(tableDto);
@@ -105,7 +105,7 @@ final class SchemaAdapterTest extends StandardTest {
     testUnit.saveChanges();
 
     //verification
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadColumnsByTableName(tableName)).isEmpty();
   }
 
@@ -131,7 +131,7 @@ final class SchemaAdapterTest extends StandardTest {
     testUnit.saveChanges();
 
     //verification
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTables()).isEmpty();
   }
 }

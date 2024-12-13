@@ -79,7 +79,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     final var testUnit = createTestUnit();
 
     //setup verification
-    expectNot(testUnit.isLinkedToAnObject());
+    expect(testUnit.isLinkedToAnObject()).isFalse();
 
     //execution
     testUnit.linkTo(voidObject);
@@ -104,11 +104,11 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     testUnit.reset();
 
     //verification
-    expect(testUnit.isVisible());
-    expectNot(testUnit.hasMinWidth());
-    expectNot(testUnit.hasMinHeight());
-    expectNot(testUnit.hasMaxWidth());
-    expectNot(testUnit.hasMaxHeight());
+    expect(testUnit.isVisible()).isTrue();
+    expect(testUnit.hasMinWidth()).isFalse();
+    expect(testUnit.hasMinHeight()).isFalse();
+    expect(testUnit.hasMaxWidth()).isFalse();
+    expect(testUnit.hasMaxHeight()).isFalse();
   }
 
   @Test

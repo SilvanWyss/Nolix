@@ -26,7 +26,7 @@ final class ServerTest extends StandardTest {
       testUnit.addDefaultSlot(mockSlot);
 
       //verification
-      expect(testUnit.containsAny());
+      expect(testUnit.containsAny()).isTrue();
       expect(testUnit.containsDefaultSlot());
     }
   }
@@ -40,13 +40,13 @@ final class ServerTest extends StandardTest {
     try (final var testUnit = Server.forPort(port)) {
 
       //setup verification
-      expect(testUnit.isEmpty());
+      expect(testUnit.isEmpty()).isTrue();
 
       //execution
       testUnit.clear();
 
       //verification
-      expect(testUnit.isEmpty());
+      expect(testUnit.isEmpty()).isTrue();
     }
   }
 
@@ -62,13 +62,13 @@ final class ServerTest extends StandardTest {
       GlobalSequencer.forCount(5).run(() -> testUnit.addDefaultSlot(Mockito.mock(ISlot.class)));
 
       //setup verification
-      expect(testUnit.containsAny());
+      expect(testUnit.containsAny()).isTrue();
 
       //execution
       testUnit.clear();
 
       //verification
-      expect(testUnit.isEmpty());
+      expect(testUnit.isEmpty()).isTrue();
     }
   }
 
@@ -85,7 +85,7 @@ final class ServerTest extends StandardTest {
       testUnit.close(); //NOSONAR: This test case tests the close method.
 
       //verification
-      expect(testUnit.isClosed());
+      expect(testUnit.isClosed()).isTrue();
     }
   }
 
@@ -97,9 +97,9 @@ final class ServerTest extends StandardTest {
       expect(result.getPort()).isEqualTo(80);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
-      expect(result.isOpen());
-      expect(result.isEmpty());
-      expectNot(result.containsDefaultSlot());
+      expect(result.isOpen()).isTrue();
+      expect(result.isEmpty()).isTrue();
+      expect(result.containsDefaultSlot()).isFalse();
     }
   }
 
@@ -116,8 +116,8 @@ final class ServerTest extends StandardTest {
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
       expect(result.isOpen());
-      expect(result.isEmpty());
-      expectNot(result.containsDefaultSlot());
+      expect(result.isEmpty()).isTrue();
+      expect(result.containsDefaultSlot()).isFalse();
     }
   }
 }

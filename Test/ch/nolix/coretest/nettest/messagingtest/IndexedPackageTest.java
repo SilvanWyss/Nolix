@@ -18,7 +18,7 @@ final class IndexedPackageTest extends StandardTest {
     final var result = testUnit.hasIndex(105);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -31,6 +31,6 @@ final class IndexedPackageTest extends StandardTest {
     final var result = testUnit.hasIndex(106);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

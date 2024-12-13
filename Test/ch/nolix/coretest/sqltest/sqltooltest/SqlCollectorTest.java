@@ -84,7 +84,7 @@ final class SqlCollectorTest extends StandardTest {
     final var result = new SqlCollector();
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
     expect(result.getSqlStatements()).isEmpty();
   }
 
@@ -101,7 +101,7 @@ final class SqlCollectorTest extends StandardTest {
     testUnit.executeAndClearUsingConnection(sqlConnectionMock);
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
     Mockito.verify(sqlConnectionMock).executeStatements(testUnit.getSqlStatements());
   }
 }

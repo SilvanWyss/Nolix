@@ -15,7 +15,7 @@ final class CachingContainerTest extends StandardTest {
     final var result = new CachingContainer<String>();
 
     //verification
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -55,7 +55,7 @@ final class CachingContainerTest extends StandardTest {
 
     //verification
     expect(testUnit.getCount()).isEqualTo(1);
-    expect(testUnit.containsWithId(result));
+    expect(testUnit.containsWithId(result)).isTrue();
     expect(testUnit.contains(garfield));
   }
 
@@ -84,7 +84,7 @@ final class CachingContainerTest extends StandardTest {
 
     //verification
     expect(testUnit.getCount()).isEqualTo(1);
-    expect(testUnit.containsWithId(garfieldId));
+    expect(testUnit.containsWithId(garfieldId)).isTrue();
     expect(testUnit.contains(garfield));
   }
 
@@ -113,7 +113,7 @@ final class CachingContainerTest extends StandardTest {
 
     //verification
     expect(testUnit.getCount()).isEqualTo(1);
-    expect(testUnit.containsWithId(result));
+    expect(testUnit.containsWithId(result)).isTrue();
     expect(testUnit.contains(garfield));
   }
 

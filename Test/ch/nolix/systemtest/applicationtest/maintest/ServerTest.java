@@ -19,7 +19,7 @@ final class ServerTest extends StandardTest {
       expect(testUnit.getPort()).isEqualTo(PortCatalogue.HTTP);
       expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
       expect(testUnit.getStoredApplications()).isEmpty();
-      expectNot(testUnit.containsDefaultApplication());
+      expect(testUnit.containsDefaultApplication()).isFalse();
     }
   }
 }

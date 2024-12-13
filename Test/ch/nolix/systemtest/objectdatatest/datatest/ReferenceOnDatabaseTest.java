@@ -128,7 +128,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
     john.pet.setEntity(garfield);
 
     //verification
-    expect(garfield.belongsToTable());
+    expect(garfield.belongsToTable()).isTrue();
   }
 
   @Test

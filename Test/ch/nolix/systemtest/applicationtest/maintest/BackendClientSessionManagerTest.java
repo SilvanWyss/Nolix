@@ -20,9 +20,9 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
     //verification
     expect(testUnit.getSessionStackSize()).isEqualTo(0);
-    expectNot(testUnit.containsPreviousSession());
-    expectNot(testUnit.containsCurrentSession());
-    expectNot(testUnit.containsNextSession());
+    expect(testUnit.containsPreviousSession()).isFalse();
+    expect(testUnit.containsCurrentSession()).isFalse();
+    expect(testUnit.containsNextSession()).isFalse();
   }
 
   @Test
@@ -60,9 +60,9 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
     //verification
     expect(testUnit.getSessionStackSize()).isEqualTo(0);
-    expectNot(testUnit.containsPreviousSession());
-    expectNot(testUnit.containsCurrentSession());
-    expectNot(testUnit.containsNextSession());
+    expect(testUnit.containsPreviousSession()).isFalse();
+    expect(testUnit.containsCurrentSession()).isFalse();
+    expect(testUnit.containsNextSession()).isFalse();
   }
 
   @Test
@@ -78,9 +78,9 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
     //verification
     expect(testUnit.getSessionStackSize()).isEqualTo(1);
-    expectNot(testUnit.containsPreviousSession());
-    expect(testUnit.containsCurrentSession());
-    expectNot(testUnit.containsNextSession());
+    expect(testUnit.containsPreviousSession()).isFalse();
+    expect(testUnit.containsCurrentSession()).isTrue();
+    expect(testUnit.containsNextSession()).isFalse();
     expect(testUnit.getStoredCurrentSession()).is(mockBackendClientSession);
   }
 
@@ -99,9 +99,9 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
     //verification
     expect(testUnit.getSessionStackSize()).isEqualTo(2);
-    expect(testUnit.containsPreviousSession());
-    expect(testUnit.containsCurrentSession());
-    expectNot(testUnit.containsNextSession());
+    expect(testUnit.containsPreviousSession()).isTrue();
+    expect(testUnit.containsCurrentSession()).isTrue();
+    expect(testUnit.containsNextSession()).isFalse();
     expect(testUnit.getStoredCurrentSession()).is(mockBackendClientSession2);
   }
 }

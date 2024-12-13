@@ -16,11 +16,11 @@ final class ValueTest extends StandardTest {
 
     //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-    expect(result.isOpen());
-    expectNot(result.isDeleted());
-    expectNot(result.isLinkedWithRealDatabase());
+    expect(result.isOpen()).isTrue();
+    expect(result.isDeleted()).isFalse();
+    expect(result.isLinkedWithRealDatabase()).isFalse();
     expect(result.isMandatory());
-    expect(result.isEmpty());
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -33,7 +33,7 @@ final class ValueTest extends StandardTest {
     testUnit.setValue("LoremIpsum");
 
     //verification
-    expect(testUnit.containsAny());
+    expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
   }
 }

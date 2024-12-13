@@ -25,7 +25,7 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
     final var result = testUnit.createHtmlElementForControl(control);
 
     //verification
-    expect(result.getInnerText().isEmpty());
+    expect(result.getInnerText().isEmpty()).isTrue();
     final var childElements = result.getChildElements();
     expect(childElements).hasElementCount(3);
     expect(childElements.getStoredAt1BasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);

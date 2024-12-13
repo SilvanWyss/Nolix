@@ -38,7 +38,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
     //verification
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
-    expect(loadedJohn.pet.isEmpty());
+    expect(loadedJohn.pet.isEmpty()).isTrue();
   }
 
   @Test
@@ -130,7 +130,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
     john.pet.setEntity(garfield);
 
     //verification
-    expect(garfield.belongsToTable());
+    expect(garfield.belongsToTable()).isTrue();
   }
 
   @Test

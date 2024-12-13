@@ -29,7 +29,7 @@ final class NameHolderTest extends StandardTest {
     final var result = testUnit.hasName("My_name");
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -42,7 +42,7 @@ final class NameHolderTest extends StandardTest {
     final var result = testUnit.hasName("my_name");
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -56,7 +56,7 @@ final class NameHolderTest extends StandardTest {
     final var result = testUnit.hasSameNameAs(nameHolder);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -70,6 +70,6 @@ final class NameHolderTest extends StandardTest {
     final var result = testUnit.hasSameNameAs(nameHolder);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 }

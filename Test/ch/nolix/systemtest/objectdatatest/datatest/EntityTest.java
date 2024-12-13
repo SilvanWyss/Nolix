@@ -19,12 +19,12 @@ final class EntityTest extends StandardTest {
 
     //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-    expectNot(result.isClosed());
-    expectNot(result.isDeleted());
+    expect(result.isClosed()).isFalse();
+    expect(result.isDeleted()).isFalse();
     expect(result.getId()).hasLength(10);
     expect(result.getShortDescription()).startsWith("Thing");
-    expectNot(result.isLinkedWithRealDatabase());
-    expectNot(result.belongsToTable());
+    expect(result.isLinkedWithRealDatabase()).isFalse();
+    expect(result.belongsToTable()).isFalse();
   }
 
   @Test

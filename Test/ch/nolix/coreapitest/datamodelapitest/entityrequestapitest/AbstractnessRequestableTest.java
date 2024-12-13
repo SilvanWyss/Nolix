@@ -16,7 +16,7 @@ final class AbstractnessRequestableTest extends StandardTest {
     final var result = testUnit.isConcrete();
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -29,6 +29,6 @@ final class AbstractnessRequestableTest extends StandardTest {
     final var result = testUnit.isConcrete();
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 }

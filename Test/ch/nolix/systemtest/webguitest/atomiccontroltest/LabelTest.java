@@ -18,13 +18,13 @@ final class LabelTest extends ControlTest<ILabel> {
     testUnit.setRole(LabelRole.TITLE);
 
     //setup verification
-    expect(testUnit.hasRole());
+    expect(testUnit.hasRole()).isTrue();
 
     //execution
     testUnit.removeRole();
 
     //verification
-    expectNot(testUnit.hasRole());
+    expect(testUnit.hasRole()).isFalse();
   }
 
   @Test
@@ -34,7 +34,7 @@ final class LabelTest extends ControlTest<ILabel> {
     final var testUnit = new Label();
 
     //setup verification
-    expectNot(testUnit.hasRole());
+    expect(testUnit.hasRole()).isFalse();
 
     //execution
     final var result = testUnit.setRole(LabelRole.TITLE);

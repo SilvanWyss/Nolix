@@ -18,7 +18,7 @@ final class OptionalValueTest extends StandardTest {
     testUnit.clear();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
@@ -29,11 +29,11 @@ final class OptionalValueTest extends StandardTest {
 
     //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-    expect(result.isOpen());
-    expectNot(result.isDeleted());
-    expectNot(result.isLinkedWithRealDatabase());
-    expect(result.isOptional());
-    expect(result.isEmpty());
+    expect(result.isOpen()).isTrue();
+    expect(result.isDeleted()).isFalse();
+    expect(result.isLinkedWithRealDatabase()).isFalse();
+    expect(result.isOptional()).isTrue();
+    expect(result.isEmpty()).isTrue();
   }
 
   @Test
@@ -46,7 +46,7 @@ final class OptionalValueTest extends StandardTest {
     testUnit.setValue("LoremIpsum");
 
     //verification
-    expect(testUnit.containsAny());
+    expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
   }
 }

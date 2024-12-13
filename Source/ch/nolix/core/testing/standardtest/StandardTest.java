@@ -1,7 +1,7 @@
 package ch.nolix.core.testing.standardtest;
 
-import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
+import ch.nolix.core.errorcontrol.validator.BooleanMediator;
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.errorcontrol.validator.IterableMediator;
@@ -17,47 +17,11 @@ import ch.nolix.core.errorcontrol.validator.StringMediator;
 public abstract class StandardTest { //NOSONAR: StandardTest does not have abstract methods.
 
   /**
-   * Generates an error if the given value is false.
-   * 
    * @param value
+   * @return a new {@link BooleanMediator} for the given value.
    */
-  protected static final void expect(final boolean value) {
-
-    //Handles the case that the given value is false.
-    if (!value) {
-      throw GeneralException.withErrorMessage("True was expected, but false was received.");
-    }
-  }
-
-  /**
-   * Generates an error for all of the given values that are false.
-   * 
-   * @param value
-   * @param values
-   */
-  protected static final void expect(final boolean value, final boolean... values) {
-
-    //Handles the case that the given values is null.
-    if (values == null) {
-      throw GeneralException.withErrorMessage("True values were expected, but null was received.");
-    }
-
-    if (!value) {
-      throw GeneralException.withErrorMessage("True values were expected, but the 1th value is false.");
-    }
-
-    //Handles the case that the given values is not null.
-    var index = 2;
-    for (final boolean b : values) {
-
-      //Handles the case that the current value is false.
-      if (!b) {
-        throw GeneralException.withErrorMessage("True values were expected, but the " + index + "th value is false.");
-      }
-
-      //Increments index.
-      index++;
-    }
+  protected static final BooleanMediator expect(final boolean value) {
+    return BooleanMediator.forArgument(value);
   }
 
   /**
@@ -149,51 +113,6 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    */
   protected static final StringMediator expect(final String value) {
     return StringMediator.forArgument(value);
-  }
-
-  /**
-   * Generates an error if the given value is true.
-   * 
-   * @param value
-   */
-  protected static final void expectNot(final boolean value) {
-
-    //Handles the case that the given value is true.
-    if (value) {
-      throw GeneralException.withErrorMessage("False was expected, but true was received.");
-    }
-  }
-
-  /**
-   * Generates an error for all of the given values that are true.
-   * 
-   * @param value
-   * @param values
-   */
-  protected static final void expectNot(final boolean value, final boolean... values) {
-
-    //Handles the case that the given values is null.
-    if (values == null) {
-      throw GeneralException.withErrorMessage("False values were expected, but null was received.");
-    }
-
-    //Handles the case that the given value is false.
-    if (value) {
-      throw GeneralException.withErrorMessage("False values were expected, but the 1th value is true.");
-    }
-
-    //Handles the case that the given values is not null.
-    var index = 2;
-    for (final boolean v : values) {
-
-      //Handles the case that the current value is false.
-      if (v) {
-        throw GeneralException.withErrorMessage("False values were expected, but the " + index + "th value is true.");
-      }
-
-      //Increments index.
-      index++;
-    }
   }
 
   /**

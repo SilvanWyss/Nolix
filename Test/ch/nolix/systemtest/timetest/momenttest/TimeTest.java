@@ -101,7 +101,7 @@ final class TimeTest extends StandardTest {
     final var result = testUnit.isAfter(time);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -131,7 +131,7 @@ final class TimeTest extends StandardTest {
     final var result = testUnit.isAfter(time);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -161,7 +161,7 @@ final class TimeTest extends StandardTest {
     final var result = testUnit.isAfter(time);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -191,7 +191,7 @@ final class TimeTest extends StandardTest {
     final var result = testUnit.isBefore(time);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -221,7 +221,7 @@ final class TimeTest extends StandardTest {
     final var result = testUnit.isBefore(time);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -251,7 +251,7 @@ final class TimeTest extends StandardTest {
     final var result = testUnit.isBefore(time);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test

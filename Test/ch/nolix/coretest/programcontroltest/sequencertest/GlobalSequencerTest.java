@@ -19,7 +19,7 @@ final class GlobalSequencerTest extends StandardTest {
     result.waitUntilIsFinished();
 
     //verification
-    expect(result.isFinishedWithError());
+    expect(result.isFinishedWithError()).isTrue();
     expect(result.getError()).isOfType(GeneralException.class);
   }
 
@@ -31,7 +31,7 @@ final class GlobalSequencerTest extends StandardTest {
     result.waitUntilIsFinished();
 
     //verification
-    expect(result.isFinishedSuccessfully());
+    expect(result.isFinishedSuccessfully()).isTrue();
   }
 
   @Test
@@ -42,7 +42,7 @@ final class GlobalSequencerTest extends StandardTest {
     result.waitUntilIsFinished();
 
     //verification
-    expect(result.isFinishedSuccessfully());
+    expect(result.isFinishedSuccessfully()).isTrue();
     expect(result.getResult()).isEqualTo(7);
   }
 }

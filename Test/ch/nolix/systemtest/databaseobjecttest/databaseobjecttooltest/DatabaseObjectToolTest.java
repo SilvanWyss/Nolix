@@ -20,7 +20,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrDeleted(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -37,7 +37,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -54,7 +54,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -71,7 +71,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -88,7 +88,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -105,7 +105,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -118,7 +118,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrEdited(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -135,7 +135,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -152,7 +152,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -169,7 +169,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -186,7 +186,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -203,7 +203,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -216,7 +216,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoaded(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -233,7 +233,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -250,7 +250,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -267,7 +267,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -284,7 +284,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -301,7 +301,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -314,7 +314,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoadedOrEdited(null);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -331,7 +331,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -348,7 +348,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -365,7 +365,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -382,7 +382,7 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -399,6 +399,6 @@ final class DatabaseObjectToolTest extends StandardTest {
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

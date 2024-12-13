@@ -14,6 +14,6 @@ abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> 
     final var testUnit = createTestUnit();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 }

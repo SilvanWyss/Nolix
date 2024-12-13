@@ -23,7 +23,7 @@ final class LocalServerTest extends StandardTest {
       testUnit.addApplication(applicationMock);
 
       //verification
-      expectNot(testUnit.containsDefaultApplication());
+      expect(testUnit.containsDefaultApplication()).isFalse();
       expect(testUnit.getStoredApplications()).containsExactly(applicationMock);
     }
   }
@@ -40,7 +40,7 @@ final class LocalServerTest extends StandardTest {
       testUnit.addDefaultApplication(applicationMock);
 
       //verification
-      expect(testUnit.containsDefaultApplication());
+      expect(testUnit.containsDefaultApplication()).isTrue();
       expect(testUnit.getStoredApplications()).containsExactly(applicationMock);
     }
   }
@@ -60,9 +60,9 @@ final class LocalServerTest extends StandardTest {
 
       //verification
       expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
-      expect(testUnit.isEmpty());
-      expectNot(testUnit.containsDefaultApplication());
-      expectNot(testUnit.hasClientConnected());
+      expect(testUnit.isEmpty()).isTrue();
+      expect(testUnit.containsDefaultApplication()).isFalse();
+      expect(testUnit.hasClientConnected()).isFalse();
     }
   }
 }

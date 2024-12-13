@@ -23,7 +23,7 @@ abstract class BaseMutableNodeTest<N extends BaseMutableNode<N>> extends BaseNod
       .withMessageThatMatches("The given postfix is blank.");
 
     //verification
-    expectNot(testUnit.hasHeader());
+    expect(testUnit.hasHeader()).isFalse();
   }
 
   @Test
@@ -81,7 +81,7 @@ abstract class BaseMutableNodeTest<N extends BaseMutableNode<N>> extends BaseNod
       .withMessageThatMatches("The given prefix is blank.");
 
     //verification
-    expectNot(testUnit.hasHeader());
+    expect(testUnit.hasHeader()).isFalse();
   }
 
   @Test
@@ -134,13 +134,13 @@ abstract class BaseMutableNodeTest<N extends BaseMutableNode<N>> extends BaseNod
     testUnit.setHeader("Lorem");
 
     //setup verification
-    expect(testUnit.hasHeader());
+    expect(testUnit.hasHeader()).isTrue();
 
     //execution
     testUnit.removeHeader();
 
     //verification
-    expectNot(testUnit.hasHeader());
+    expect(testUnit.hasHeader()).isFalse();
   }
 
   @ParameterizedTest

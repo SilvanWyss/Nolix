@@ -64,7 +64,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     expect(result.getStoredField()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();
-    expect(value.isEmpty());
+    expect(value.isEmpty()).isTrue();
     expect(textBox.getText()).isEqualTo("");
   }
 

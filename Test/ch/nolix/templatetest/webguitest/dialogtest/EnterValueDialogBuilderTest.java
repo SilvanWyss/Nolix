@@ -29,8 +29,8 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     //verification
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
-    expect(controls.containsAny(this::isConfirmButton));
-    expect(controls.containsAny(this::isCancelButton));
+    expect(controls).contains(this::isConfirmButton);
+    expect(controls).contains(this::isCancelButton);
   }
 
   @Test
@@ -99,7 +99,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     cancelButton.pressLeftMouseButton();
 
     //verification
-    expectNot(result.belongsToGui());
+    expect(result.belongsToGui()).isFalse();
     Mockito.verify(valueTakerMock, Mockito.never()).accept(Mockito.any());
   }
 
@@ -129,7 +129,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     confirmButton.pressLeftMouseButton();
 
     //verification
-    expectNot(result.belongsToGui());
+    expect(result.belongsToGui()).isFalse();
     Mockito.verify(valueTakerMock).accept(value);
   }
 

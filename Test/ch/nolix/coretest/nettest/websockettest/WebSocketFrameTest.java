@@ -48,8 +48,8 @@ final class WebSocketFrameTest extends StandardTest {
     final var resultPayload = webSocketFrame.getPayload();
 
     //verification
-    expect(resultFINBit);
-    expectNot(resultMaskBit);
+    expect(resultFINBit).isTrue();
+    expect(resultMaskBit).isFalse();
     expect(resultOpcode).isEqualTo(WebSocketFrameOpcodeMeaning.TEXT_FRAME);
     expect(resultPayload.length).isEqualTo(2);
     expect(new UnsignedByte(resultPayload[0]).toBitString()).isEqualTo("00010000");

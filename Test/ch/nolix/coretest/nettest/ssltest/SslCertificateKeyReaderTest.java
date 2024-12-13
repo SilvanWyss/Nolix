@@ -51,6 +51,6 @@ final class SslCertificateKeyReaderTest extends StandardTest {
     final var result = testUnit.isKeyLine(line);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

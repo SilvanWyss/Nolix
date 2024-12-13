@@ -19,13 +19,13 @@ final class DataAdapterTest extends StandardTest {
     final var originTopLevelObjects = testUnit.getStoredTopLevelObjects();
 
     //setup verification
-    expect(testUnit.hasChanges());
+    expect(testUnit.hasChanges()).isTrue();
 
     //execution
     final var result = testUnit.createEmptyCopy();
 
     //verification
-    expectNot(result.hasChanges());
+    expect(result.hasChanges()).isFalse();
     expect(result.getStoredTopLevelObjects()).isEmpty();
     expect(testUnit.getStoredTopLevelObjects().containsExactlyInSameOrder(originTopLevelObjects));
   }

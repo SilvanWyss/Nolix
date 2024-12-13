@@ -115,7 +115,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(a320);
 
     //setup verification
-    expect(a320.flights.isEmpty());
+    expect(a320.flights.isEmpty()).isTrue();
 
     //execution & verification
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();

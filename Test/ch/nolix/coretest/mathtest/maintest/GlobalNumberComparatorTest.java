@@ -1,6 +1,5 @@
 package ch.nolix.coretest.mathtest.maintest;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,17 +7,6 @@ import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GlobalNumberComparatorTest extends StandardTest {
-
-  @Test
-  void temp() {
-
-    //execution
-    final var result = GlobalNumberComparator.areEqual(0.0, 0.0);
-
-    //TODO: Create BooleanMediator
-    //verification
-    expect(result);
-  }
 
   @ParameterizedTest
   @CsvSource({
@@ -79,9 +67,8 @@ final class GlobalNumberComparatorTest extends StandardTest {
     //execution
     final var result = GlobalNumberComparator.areEqual(value1, value2);
 
-    //TODO: Create BooleanMediator
     //verification
-    expect(Boolean.valueOf(result)).isEqualTo(expectedResult);
+    expect(result).is(expectedResult);
   }
 
   @ParameterizedTest
@@ -109,9 +96,8 @@ final class GlobalNumberComparatorTest extends StandardTest {
     //execution
     final var result = GlobalNumberComparator.isOne(value);
 
-    //TODO: Create BooleanMediator
     //verification
-    expect(Boolean.valueOf(result)).isEqualTo(expectedResult);
+    expect(result).is(expectedResult);
   }
 
   @ParameterizedTest
@@ -139,8 +125,7 @@ final class GlobalNumberComparatorTest extends StandardTest {
     //execution
     final var result = GlobalNumberComparator.isZero(value);
 
-    //TODO: Create BooleanMediator
     //verification
-    expect(Boolean.valueOf(result)).isEqualTo(expectedResult);
+    expect(result).is(expectedResult);
   }
 }

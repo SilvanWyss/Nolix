@@ -16,7 +16,7 @@ final class LocalServerTest extends StandardTest {
       expect(server.getSecurityMode()).is(SecurityMode.NONE);
       expect(server.isOpen());
       expect(server.isEmpty());
-      expectNot(server.containsDefaultSlot());
+      expect(server.containsDefaultSlot()).isFalse();
     }
   }
 }

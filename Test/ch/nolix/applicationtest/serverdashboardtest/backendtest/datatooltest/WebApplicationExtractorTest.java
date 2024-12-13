@@ -16,7 +16,7 @@ final class WebApplicationExtractorTest extends StandardTest {
     final var testUnit = new WebApplicationExtractor();
 
     //setup verification
-    expect(server.isEmpty());
+    expect(server.isEmpty()).isTrue();
 
     //execution
     final var result = testUnit.getStoredWebApplicationsOfServer(server);

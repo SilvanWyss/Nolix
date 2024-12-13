@@ -17,8 +17,8 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
     final M testUnit = createTestUnit();
 
     //setup verification
-    expect(testUnit.isEmpty());
-    expectNot(testUnit.containsSelectedItem());
+    expect(testUnit.isEmpty()).isTrue();
+    expect(testUnit.containsSelectedItem()).isFalse();
   }
 
   @Test
@@ -28,7 +28,7 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
     final M testUnit = createTestUnit();
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution
     testUnit
@@ -50,7 +50,7 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
     final M testUnit = createTestUnit();
 
     //setup verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
 
     //execution
     testUnit.addItemWithText("my_text1", "my_text2", "my_text3", "my_text4");
@@ -72,7 +72,7 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
         ItemMenuItem.withIdAndText("my_id3", "my_text3"));
 
     //setup verification
-    expectNot(item.isSelected());
+    expect(item.isSelected()).isFalse();
 
     //execution
     testUnit.selectItemById("my_id2");

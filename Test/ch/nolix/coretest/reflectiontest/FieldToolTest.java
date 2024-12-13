@@ -32,7 +32,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, LinkedList.class);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -46,7 +46,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, Container.class);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -60,7 +60,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, ILinkedList.class);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -74,7 +74,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, IContainer.class);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -88,7 +88,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, Matrix.class);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -102,7 +102,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, ArrayList.class);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -116,7 +116,7 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, IMatrix.class);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -130,6 +130,6 @@ final class FieldToolTest extends StandardTest {
     final var result = testUnit.hasGivenTypeOrSuperType(studentsField, IArrayList.class);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

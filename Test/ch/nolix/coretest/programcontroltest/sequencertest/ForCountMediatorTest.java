@@ -73,7 +73,7 @@ final class ForCountMediatorTest extends StandardTest {
     result.waitUntilIsFinished();
 
     //verification
-    expect(result.isFinishedSuccessfully());
+    expect(result.isFinishedSuccessfully()).isTrue();
     Mockito.verify(mockRunnable, Mockito.never()).run();
   }
 
@@ -89,7 +89,7 @@ final class ForCountMediatorTest extends StandardTest {
     result.waitUntilIsFinished();
 
     //verification
-    expect(result.isFinishedSuccessfully());
+    expect(result.isFinishedSuccessfully()).isTrue();
     Mockito.verify(mockRunnable).run();
   }
 
@@ -105,7 +105,7 @@ final class ForCountMediatorTest extends StandardTest {
     result.waitUntilIsFinished();
 
     //verification
-    expect(result.isFinishedSuccessfully());
+    expect(result.isFinishedSuccessfully()).isTrue();
     Mockito.verify(mockRunnable, Mockito.times(5)).run();
   }
 }

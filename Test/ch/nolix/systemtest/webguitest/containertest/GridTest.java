@@ -25,7 +25,7 @@ final class GridTest extends ContainerTest<IGrid> {
     testUnit.clear();
 
     //verification
-    expect(testUnit.isEmpty());
+    expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test

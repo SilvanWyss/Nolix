@@ -19,7 +19,7 @@ final class IsEmptyMethodTest extends StandardTest {
     final var result = testUnit.isEmpty(iterable);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -33,7 +33,7 @@ final class IsEmptyMethodTest extends StandardTest {
     final var result = testUnit.isEmpty(iterable);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -47,7 +47,7 @@ final class IsEmptyMethodTest extends StandardTest {
     final var result = testUnit.isEmpty(iterable);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -61,6 +61,6 @@ final class IsEmptyMethodTest extends StandardTest {
     final var result = testUnit.isEmpty(iterable);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

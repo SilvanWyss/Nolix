@@ -32,7 +32,7 @@ final class ValueToolTest extends StandardTest {
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -48,13 +48,13 @@ final class ValueToolTest extends StandardTest {
     final var testUnit = new ValueTool();
 
     //setup verification
-    expect(pet.name.isClosed());
+    expect(pet.name.isClosed()).isTrue();
 
     //execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -69,6 +69,6 @@ final class ValueToolTest extends StandardTest {
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 }

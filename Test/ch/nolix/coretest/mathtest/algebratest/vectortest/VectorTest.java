@@ -22,7 +22,7 @@ final class VectorTest extends StandardTest {
     final var result = testUnit.equals(vector);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -36,7 +36,7 @@ final class VectorTest extends StandardTest {
     final var result = testUnit.equals(vector);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test
@@ -50,7 +50,7 @@ final class VectorTest extends StandardTest {
     final var result = testUnit.equals(vector);
 
     //verification
-    expect(result);
+    expect(result).isTrue();
   }
 
   @Test
@@ -64,7 +64,7 @@ final class VectorTest extends StandardTest {
     final var result = testUnit.equals(vector);
 
     //verification
-    expectNot(result);
+    expect(result).isFalse();
   }
 
   @Test

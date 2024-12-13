@@ -32,13 +32,13 @@ final class NodeDataAdapterTest extends StandardTest {
     NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
 
     //setup verification
-    expect(testUnit.isOpen());
+    expect(testUnit.isOpen()).isTrue();
 
     //execution
     testUnit.close();
 
     //verification
-    expect(testUnit.isClosed());
+    expect(testUnit.isClosed()).isTrue();
   }
 
   @Test
@@ -51,13 +51,13 @@ final class NodeDataAdapterTest extends StandardTest {
     testUnit.close();
 
     //setup verification
-    expect(testUnit.isClosed());
+    expect(testUnit.isClosed()).isTrue();
 
     //execution
     testUnit.close();
 
     //verification
-    expect(testUnit.isClosed());
+    expect(testUnit.isClosed()).isTrue();
   }
 
   @Test
@@ -72,7 +72,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //verification
     expect(result.getSaveCount()).isEqualTo(0);
-    expect(result.isChangeFree());
+    expect(result.isChangeFree()).isTrue();
   }
 
   @Test
@@ -99,14 +99,14 @@ final class NodeDataAdapterTest extends StandardTest {
     testUnit.insertEntity(new Pet());
 
     //setup verification
-    expect(testUnit.hasChanges());
+    expect(testUnit.hasChanges()).isTrue();
 
     //execution
     final var result = testUnit.createEmptyCopy();
 
     //verification
-    expect(testUnit.hasChanges());
-    expect(result.isChangeFree());
+    expect(testUnit.hasChanges()).isTrue();
+    expect(result.isChangeFree()).isTrue();
   }
 
   @Test
@@ -122,7 +122,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //verification
     expect(testUnit.getSaveCount()).isEqualTo(1);
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
   }
 
   @Test
@@ -139,7 +139,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //verification
     expect(testUnit.getSaveCount()).isEqualTo(1);
-    expect(testUnit.isChangeFree());
+    expect(testUnit.isChangeFree()).isTrue();
   }
 
   @Test
