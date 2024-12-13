@@ -194,11 +194,11 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBa
    */
   private BaseSelectingStyle createSelectingStyleFromSelectingStyle(final ISelectingStyleWithSelectors selectingStyle) {
 
-    if (selectingStyle instanceof SelectingStyle elementSelectingStyle) {
+    if (selectingStyle instanceof final SelectingStyle elementSelectingStyle) {
       return elementSelectingStyle;
     }
 
-    if (selectingStyle instanceof DeepSelectingStyle deepSelectingStyle) {
+    if (selectingStyle instanceof final DeepSelectingStyle deepSelectingStyle) {
       return deepSelectingStyle;
     }
 

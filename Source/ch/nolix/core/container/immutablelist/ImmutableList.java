@@ -88,8 +88,8 @@ public final class ImmutableList<E> extends Container<E> {
   @SuppressWarnings("unchecked")
   public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
 
-    if (container instanceof ImmutableList) {
-      return (ImmutableList<E2>) container;
+    if (container instanceof final ImmutableList immutableList) {
+      return immutableList;
     }
 
     final var elementCount = ITERABLE_TOOL.getCount(container);

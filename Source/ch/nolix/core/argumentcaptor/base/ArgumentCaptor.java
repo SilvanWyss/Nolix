@@ -28,7 +28,7 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   }
 
   protected ArgumentCaptor(final N nextArgumentCaptor) {
-    if (nextArgumentCaptor instanceof ArgumentCaptor<?, ?> localArgumentCaptor) {
+    if (nextArgumentCaptor instanceof final ArgumentCaptor<?, ?> localArgumentCaptor) {
 
       this.nextArgumentCaptor = localArgumentCaptor;
 

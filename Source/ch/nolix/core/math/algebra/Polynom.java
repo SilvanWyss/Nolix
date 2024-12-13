@@ -80,7 +80,7 @@ public final class Polynom {
    */
   @Override
   public boolean equals(final Object object) {
-    return (object instanceof Polynom polynom && equals(polynom));
+    return (object instanceof final Polynom polynom && equals(polynom));
   }
 
   /**

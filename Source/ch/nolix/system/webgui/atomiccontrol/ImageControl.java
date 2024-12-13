@@ -113,7 +113,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public IImageControl setImage(final IImage image) {
 
-    if (image instanceof MutableImage mutableImage) {
+    if (image instanceof final MutableImage mutableImage) {
       this.image.setValue(mutableImage);
     } else {
       this.image.setValue(MutableImage.fromAnyImage(image));

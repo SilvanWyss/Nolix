@@ -27,7 +27,7 @@ public final class GeneralException extends RuntimeException {
   @Override
   public boolean equals(final Object object) {
 
-    if (object instanceof GeneralException generalException) {
+    if (object instanceof final GeneralException generalException) {
       return getMessage().equals(generalException.getMessage());
     }
 

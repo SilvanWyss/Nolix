@@ -46,7 +46,7 @@ final class ShowValueDialogBuilderTest extends StandardTest {
 
   private boolean isConfirmButton(final IControl<?, ?> control) {
 
-    if (control instanceof IButton button) {
+    if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
     }
 

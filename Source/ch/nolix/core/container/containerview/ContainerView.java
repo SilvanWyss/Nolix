@@ -147,7 +147,7 @@ public final class ContainerView<E> extends Container<E> {
   public boolean equals(final Object object) {
 
     //Handles the case that the given object is a Iterable.
-    if (object instanceof Iterable<?> iterable) {
+    if (object instanceof final Iterable<?> iterable) {
       return containsExactlyInSameOrder(iterable);
     }
 

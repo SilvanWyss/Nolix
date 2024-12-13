@@ -58,7 +58,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
   //For a better performance, this implementation does not use all comfortable methods.
   public static AttachingAttribute fromAttachingAttribute(final IAttachingAttribute attachingAttribute) {
 
-    if (attachingAttribute instanceof AttachingAttribute concreteAttachingAttribute) {
+    if (attachingAttribute instanceof final AttachingAttribute concreteAttachingAttribute) {
       return concreteAttachingAttribute;
     }
 

@@ -20,7 +20,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
 
     final var applicationService = webApplication.getStoredApplicationService();
 
-    if (applicationService instanceof IWebApplicationService webApplicationService) {
+    if (applicationService instanceof final IWebApplicationService webApplicationService) {
       applicationLogo = webApplicationService.getApplicationLogo();
     } else {
       applicationLogo = null;

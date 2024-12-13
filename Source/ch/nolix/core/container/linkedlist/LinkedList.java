@@ -289,7 +289,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   public boolean equals(final Object object) {
 
     //Handles the case that the given object is a LinkedList.
-    if (object instanceof LinkedList<?> linkedList) {
+    if (object instanceof final LinkedList<?> linkedList) {
       return containsExactlyInSameOrder(linkedList);
     }
 

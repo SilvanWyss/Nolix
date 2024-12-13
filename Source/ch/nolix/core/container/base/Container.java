@@ -254,7 +254,7 @@ implements IContainer<E> {
   public final boolean containsAsManyAs(Iterable<?> iterable) {
 
     //Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof IContainer<?> container) {
+    if (iterable instanceof final IContainer<?> container) {
       return (getCount() == container.getCount());
     }
 
@@ -335,7 +335,7 @@ implements IContainer<E> {
   public final boolean containsLessThan(final Iterable<?> iterable) {
 
     //Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof IContainer<?> container) {
+    if (iterable instanceof final IContainer<?> container) {
       return (getCount() < container.getCount());
     }
 
@@ -353,7 +353,7 @@ implements IContainer<E> {
   public final boolean containsMoreThan(final Iterable<?> iterable) {
 
     //Handles the case that the given container is a IContainer.
-    if (iterable instanceof IContainer<?> container) {
+    if (iterable instanceof final IContainer<?> container) {
       return (getCount() > container.getCount());
     }
 

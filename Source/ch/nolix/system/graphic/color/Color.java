@@ -1001,7 +1001,7 @@ public final class Color extends Element implements IColor {
    */
   public static Color fromColor(final IColor color) {
 
-    if (color instanceof Color localColor) {
+    if (color instanceof final Color localColor) {
       return localColor;
     }
 

@@ -53,7 +53,7 @@ public final class ClosedInterval implements IClosedInterval {
   @Override
   public boolean equals(final Object object) {
 
-    if (!(object instanceof ClosedInterval)) {
+    if (!(object instanceof final ClosedInterval)) {
       return false;
     }
 

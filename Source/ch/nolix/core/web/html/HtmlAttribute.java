@@ -27,7 +27,7 @@ public final class HtmlAttribute implements IHtmlAttribute {
 
   public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
 
-    if (htmlAttribute instanceof HtmlAttribute concreteHtmlAttribute) {
+    if (htmlAttribute instanceof final HtmlAttribute concreteHtmlAttribute) {
       return concreteHtmlAttribute;
     }
 

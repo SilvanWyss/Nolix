@@ -25,7 +25,7 @@ public final class Image extends Element implements IImage {
 
   public static Image fromAnyImage(final IImage image) {
 
-    if (image instanceof Image lImage) {
+    if (image instanceof final Image lImage) {
       return lImage;
     }
 

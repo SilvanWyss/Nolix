@@ -39,7 +39,7 @@ public final class WebClientHtmlEventExecutor {
   private Optional<IControl<?, ?>> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
 
     if (control.isLinkedToAnObject()
-    && control.getStoredLinkedObjects().getStoredFirst() instanceof IComponent component) {
+    && control.getStoredLinkedObjects().getStoredFirst() instanceof final IComponent component) {
       return Optional.of(component);
     }
 

@@ -27,7 +27,7 @@ public final class CssProperty implements ICssProperty {
 
   public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
 
-    if (cssProperty instanceof CssProperty localCssProperty) {
+    if (cssProperty instanceof final CssProperty localCssProperty) {
       return localCssProperty;
     }
 

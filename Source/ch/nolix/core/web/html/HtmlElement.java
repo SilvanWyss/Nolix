@@ -40,7 +40,7 @@ public final class HtmlElement implements IHtmlElement {
 
   public static HtmlElement fromHtmlElement(final IHtmlElement htmlElement) {
 
-    if (htmlElement instanceof HtmlElement htmlAttribute) {
+    if (htmlElement instanceof final HtmlElement htmlAttribute) {
       return htmlAttribute;
     }
 
@@ -164,7 +164,7 @@ public final class HtmlElement implements IHtmlElement {
   @Override
   public boolean equals(final Object object) {
 
-    if (object instanceof HtmlElement htmlElement) {
+    if (object instanceof final HtmlElement htmlElement) {
       return getType().equals(htmlElement.getType())
       && getAttributes().containsExactlyEqualingInSameOrder(htmlElement.getAttributes())
       && getChildElements().containsExactlyEqualingInSameOrder(htmlElement.getChildElements())

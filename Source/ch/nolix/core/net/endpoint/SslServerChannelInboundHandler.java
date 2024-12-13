@@ -46,7 +46,7 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
       parentWebSocketServerEndPoint.receiveRawMessage(rawMessage);
 
       parentWebSocketServer.internalTakeBackendEndPoint(parentWebSocketServerEndPoint);
-    } else if (webSocketFrame instanceof TextWebSocketFrame textWebSocketFrame) {
+    } else if (webSocketFrame instanceof final TextWebSocketFrame textWebSocketFrame) {
 
       final var rawMessage = textWebSocketFrame.text();
 

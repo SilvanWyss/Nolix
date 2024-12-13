@@ -77,7 +77,7 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public boolean equals(final Object object) {
 
-    if (!(object instanceof ComplexNumber)) {
+    if (!(object instanceof final ComplexNumber)) {
       return false;
     }
 

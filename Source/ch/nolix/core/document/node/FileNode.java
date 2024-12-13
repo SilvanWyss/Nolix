@@ -143,7 +143,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
   @Override
   public boolean equals(final Object object) {
 
-    if (!(object instanceof FileNode)) {
+    if (!(object instanceof final FileNode)) {
       return false;
     }
 

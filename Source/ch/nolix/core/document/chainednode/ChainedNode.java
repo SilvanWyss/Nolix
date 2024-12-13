@@ -351,7 +351,7 @@ public final class ChainedNode implements IChainedNode {
    */
   private static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
 
-    if (chainedNode instanceof ChainedNode lChainedNode) {
+    if (chainedNode instanceof final ChainedNode lChainedNode) {
       return lChainedNode;
     }
 
@@ -383,7 +383,7 @@ public final class ChainedNode implements IChainedNode {
    */
   @Override
   public boolean equals(final Object object) {
-    return (object instanceof ChainedNode chainedNode && equals(chainedNode));
+    return (object instanceof final ChainedNode chainedNode && equals(chainedNode));
   }
 
   /**
@@ -715,14 +715,14 @@ public final class ChainedNode implements IChainedNode {
    */
   private void addChildNode(final IChainedNode childNode, final IChainedNode... childNodes) {
 
-    if (childNode instanceof ChainedNode chainedNode) {
+    if (childNode instanceof final ChainedNode chainedNode) {
       this.childNodes.addAtEnd(chainedNode);
     } else {
       this.childNodes.addAtEnd(fromChainedNode(childNode));
     }
 
     for (final var cn : childNodes) {
-      if (cn instanceof ChainedNode chainedNode) {
+      if (cn instanceof final ChainedNode chainedNode) {
         this.childNodes.addAtEnd(chainedNode);
       } else {
         this.childNodes.addAtEnd(fromChainedNode(cn));
@@ -753,7 +753,7 @@ public final class ChainedNode implements IChainedNode {
    */
   private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
     for (final var cn : childNodes) {
-      if (cn instanceof ChainedNode chainedNode) {
+      if (cn instanceof final ChainedNode chainedNode) {
         this.childNodes.addAtEnd(chainedNode);
       } else {
         this.childNodes.addAtEnd(fromChainedNode(cn));
@@ -1055,7 +1055,7 @@ public final class ChainedNode implements IChainedNode {
       throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
     }
 
-    if (nextNode instanceof ChainedNode chainedNode) {
+    if (nextNode instanceof final ChainedNode chainedNode) {
       this.nextNode = chainedNode;
     } else {
       this.nextNode = fromChainedNode(nextNode);

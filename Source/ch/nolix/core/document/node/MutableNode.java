@@ -147,7 +147,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
   @Override
   public boolean equals(final Object object) {
 
-    if (!(object instanceof MutableNode)) {
+    if (!(object instanceof final MutableNode)) {
       return false;
     }
 

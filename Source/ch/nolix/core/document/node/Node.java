@@ -118,7 +118,7 @@ public final class Node extends BaseNode<Node> {
    */
   public static Node fromNode(final INode<?> node) {
 
-    if (node instanceof Node lNode) {
+    if (node instanceof final Node lNode) {
       return lNode;
     }
 
@@ -358,7 +358,7 @@ public final class Node extends BaseNode<Node> {
   @Override
   public boolean equals(final Object object) {
 
-    if (!(object instanceof Node)) {
+    if (!(object instanceof final Node)) {
       return false;
     }
 
