@@ -907,7 +907,7 @@ public final class Matrix {
   public Polynom toPolynom() {
 
     //Asserts that the upper left element of the current {@link Matrix} is 0.
-    if (values[0][0] == 0) {
+    if (GlobalNumberComparator.isZero(values[0][0])) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
     }
 

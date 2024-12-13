@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -157,7 +158,7 @@ public final class Polynom {
 
     final var integratedCoefficients = new double[integratedDegree + 1];
     for (var i = 0; i < integratedDegree; i++) {
-      if (coefficients[i] == 0.0) {
+      if (GlobalNumberComparator.isZero(coefficients[i])) {
         integratedCoefficients[i] = 0.0;
       } else {
 
@@ -293,7 +294,7 @@ public final class Polynom {
     }
 
     for (var i = 0; i < coefficients.length; i++) {
-      if (coefficients[i] != polynom.coefficients[i]) {
+      if (!GlobalNumberComparator.areEqual(coefficients[i], polynom.coefficients[i])) {
         return false;
       }
     }
@@ -340,7 +341,7 @@ public final class Polynom {
 
       final var constant = coefficients[coefficients.length - 1];
 
-      if (constant != 0.0) {
+      if (!GlobalNumberComparator.isZero(constant)) {
 
         if (coefficients.length > 1 && constant > 0.0) {
           stringBuilder.append("+");
@@ -359,13 +360,13 @@ public final class Polynom {
 
       final var coefficient = coefficients[i];
 
-      if (coefficient != 0.0) {
+      if (!GlobalNumberComparator.isZero(coefficient)) {
 
         if (i > 0 && coefficient > 0.0) {
           stringBuilder.append('+');
         }
 
-        if (coefficient != 1.0) {
+        if (!GlobalNumberComparator.isOne(coefficient)) {
           stringBuilder.append(DOUBLE_TOOL.toString(coefficient));
         }
 
@@ -380,7 +381,7 @@ public final class Polynom {
 
       final var linearCoefficient = coefficients[coefficients.length - 2];
 
-      if (linearCoefficient != 0.0) {
+      if (!GlobalNumberComparator.isZero(linearCoefficient)) {
 
         if (coefficients.length > 2 && linearCoefficient > 0.0) {
           stringBuilder.append("+");

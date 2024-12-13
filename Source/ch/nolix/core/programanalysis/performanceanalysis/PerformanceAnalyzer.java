@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
+import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.core.programcontrol.stopwatch.RuntimeMeter;
 import ch.nolix.core.programcontrol.stopwatch.StopWatch;
 import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.IPerformanceAnalyzer;
@@ -81,7 +82,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
           return false;
         }
 
-        if (latestTimeComplexityInvariant == 0.0) {
+        if (GlobalNumberComparator.isZero(latestTimeComplexityInvariant)) {
           latestTimeComplexityInvariant = timeComplexityInvariant;
         } else {
           latestTimeComplexityInvariant = (0.2 * latestTimeComplexityInvariant) + (0.8 * timeComplexityInvariant);

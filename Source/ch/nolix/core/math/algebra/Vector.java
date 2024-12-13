@@ -6,6 +6,7 @@ import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.math.main.GlobalNumberComparator;
 
 /**
  * A {@link Vector} is not mutable.
@@ -226,8 +227,9 @@ public final class Vector {
     }
 
     final var size = getSize();
+
     for (var i = 0; i < size; i++) {
-      if (values[i] != vector.values[i]) {
+      if (!GlobalNumberComparator.areEqual(values[i], vector.values[i])) {
         return false;
       }
     }
