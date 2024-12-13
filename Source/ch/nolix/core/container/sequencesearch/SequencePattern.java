@@ -7,6 +7,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -98,9 +99,22 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   @Override
   public ISequencePattern<E> withConditionForNext(final Predicate<E> condition) {
 
-    final var newElementConditions = ContainerView.forIterableAndElement(elementConditions, condition);
+    final var allElementConditions = ContainerView.forIterableAndElement(elementConditions, condition);
 
-    return withElementConditionsAndSequenceConditions(newElementConditions, sequenceConditions);
+    return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISequencePattern<E> withConditionsForNexts(IContainer<Predicate<E>> conditions) {
+
+    GlobalValidator.assertThatTheElements(conditions).areNotNull();
+
+    final var allElementConditions = ContainerView.forIterable(elementConditions, conditions);
+
+    return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
   }
 
   /**

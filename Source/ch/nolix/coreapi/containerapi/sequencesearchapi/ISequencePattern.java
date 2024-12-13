@@ -39,6 +39,16 @@ public interface ISequencePattern<E> {
   ISequencePattern<E> withConditionForNext(Predicate<E> condition);
 
   /**
+   * @param conditions
+   * @return a new {@link ISequencePattern} from the current
+   *         {@link ISequencePattern } with the given conditions for the next
+   *         elements of the sequences of the {@link ISequencePattern}.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if one of the given conditions is null.
+   */
+  ISequencePattern<E> withConditionsForNexts(IContainer<Predicate<E>> conditions);
+
+  /**
    * Adds the given sequenceCondition to the current {@link ISequencePattern}.
    * 
    * @param sequenceCondition
