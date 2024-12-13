@@ -11,6 +11,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -19,6 +20,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
@@ -39,6 +41,14 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   private Consumer<IImageControl> leftMouseButtonPressAction;
 
   private Consumer<IImageControl> leftMouseButtonReleaseAction;
+
+  public ImageControl() {
+
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    reset();
+
+    getStoredStyle().setBackgroundColorForState(ControlState.BASE, Color.LIGHT_GREY);
+  }
 
   @Override
   public void clear() {
