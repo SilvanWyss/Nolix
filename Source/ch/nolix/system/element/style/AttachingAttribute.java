@@ -3,7 +3,6 @@ package ch.nolix.system.element.style;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -18,18 +17,9 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
 
   private static final IAttachingAttributeValidator ATTACHING_ATTRIBUTE_VALIDATOR = new AttachingAttributeValidator();
 
-  private final Enum<?> optionalTag;
+  private final String optionalTag;
 
   private final Node value;
-
-  private AttachingAttribute(final Enum<?> tag, final INode<?> value) {
-
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotNull();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
-
-    this.optionalTag = tag;
-    this.value = Node.fromNode(value);
-  }
 
   private AttachingAttribute(final INode<?> value) {
 
@@ -39,12 +29,30 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     this.value = Node.fromNode(value);
   }
 
+  private AttachingAttribute(final String tag, final INode<?> value) {
+
+    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+
+    this.optionalTag = tag.toString();
+    this.value = Node.fromNode(value);
+  }
+
+  private AttachingAttribute(final String tag, final String value) {
+
+    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+
+    this.optionalTag = tag.toString();
+    this.value = Node.fromString(value);
+  }
+
   public static AttachingAttribute forTagAndValue(final Enum<?> tag, final INode<?> value) {
-    return new AttachingAttribute(tag, value);
+    return new AttachingAttribute(tag.toString(), value);
   }
 
   public static AttachingAttribute forTagAndValue(final Enum<?> tag, final String value) {
-    return new AttachingAttribute(tag, Node.fromString(value));
+    return new AttachingAttribute(tag.toString(), Node.fromString(value));
   }
 
   public static AttachingAttribute forValue(final INode<?> value) {
@@ -63,7 +71,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     }
 
     if (attachingAttribute.hasTag()) {
-      return forTagAndValue(attachingAttribute.getTag(), attachingAttribute.getValue());
+      return new AttachingAttribute(attachingAttribute.getTag(), attachingAttribute.getValue());
     }
 
     return forValue(attachingAttribute.getValue());
@@ -75,14 +83,13 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
 
     return //
     switch (attributes.getCount()) {
-
-      case 1 -> forValue(attributes.getStoredAt1BasedIndex(1));
-
-      //TODO: Implement
-      case 2 -> throw UnsupportedCaseException.forCase(LowerCaseVariableCatalogue.TAG);
-
-      default -> throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION,
-        specification);
+      case 1 ->
+        forValue(attributes.getStoredAt1BasedIndex(1));
+      case 2 ->
+        new AttachingAttribute(attributes.getStoredAt1BasedIndex(1).toString(), attributes.getStoredAt1BasedIndex(2));
+      default ->
+        throw //
+        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
     };
   }
 
@@ -92,7 +99,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (optionalTag != null) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.TAG, optionalTag.toString()));
+      attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.TAG, optionalTag));
     }
 
     attributes.addAtEnd(value);
@@ -101,7 +108,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
   }
 
   @Override
-  public Enum<?> getTag() {
+  public String getTag() {
 
     ATTACHING_ATTRIBUTE_VALIDATOR.assertHasTag(this);
 
@@ -122,7 +129,8 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
   public boolean hasTag(final Enum<?> tag) {
     return //
     hasTag()
-    && getTag().equals(tag);
+    && tag != null
+    && getTag().equals(tag.toString());
   }
 
   //For a better performance, this implementation does not use all comfortable methods.
@@ -130,7 +138,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
   public IAttachingAttribute withValue(String value) {
 
     if (optionalTag != null) {
-      return forTagAndValue(optionalTag, value);
+      return new AttachingAttribute(optionalTag, value);
     }
 
     return forValue(value);

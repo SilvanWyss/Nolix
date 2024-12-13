@@ -6,7 +6,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 public interface IAttachingAttribute extends IElement, IValueHolder<INode<?>> {
 
-  Enum<?> getTag();
+  String getTag();
 
   boolean hasTag();
 
