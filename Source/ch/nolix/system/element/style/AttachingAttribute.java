@@ -78,7 +78,7 @@ public final class AttachingAttribute extends Element implements IAttachingAttri
 
       case 1 -> forValue(attributes.getStoredAt1BasedIndex(1));
 
-      //TODO: Implement.
+      //TODO: Implement
       case 2 -> throw UnsupportedCaseException.forCase(LowerCaseVariableCatalogue.TAG);
 
       default -> throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION,

@@ -39,7 +39,7 @@ public final class FloatingPointNumberPair {
     return new FloatingPointNumberPair(value1, value2);
   }
 
-  //TODO: Centralize this implementation.
+  //TODO: Centralize this implementation
   /**
    * @param value1
    * @param value2

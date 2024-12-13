@@ -56,7 +56,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
     return new SequencePatternNextMediator<>(sequencePattern, count);
   }
 
-  //TODO: Improve this implementation.
+  //TODO: Improve this implementation
   /**
    * {@inheritDoc}
    */
@@ -71,7 +71,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
     return newSequencePattern;
   }
 
-  //TODO: Improve this implementation.
+  //TODO: Improve this implementation
   /**
    * {@inheritDoc}
    */

@@ -158,7 +158,7 @@ final class NodeDataAdapterTest extends StandardTest {
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
 
-    //TODO: Use a more sensitive schema time stamp.
+    //TODO: Use a more sensitive schema time stamp
     //setup part 3: Wait a millisecond that the schema time stamp can be distinguished every time.
     GlobalSequencer.waitForMilliseconds(1);
 

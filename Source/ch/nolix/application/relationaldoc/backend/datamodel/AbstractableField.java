@@ -27,22 +27,22 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
   private final Value<String> cardinality = Value.withInitialValue(DEFAULT_CARDINALITY.toString());
 
-  //TODO: Enable BaseReference to reference base types.
+  //TODO: Enable BaseReference to reference base types
 
   private final OptionalReference<AbstractValueContent> abstractValueContent = OptionalReference
     .forEntity(AbstractValueContent.class);
 
-  //TODO: Enable BaseReference to reference base types.
+  //TODO: Enable BaseReference to reference base types
 
   private final OptionalReference<AbstractReferenceContent> abstractReferenceContent = OptionalReference
     .forEntity(AbstractReferenceContent.class);
 
-  //TODO: Enable BaseReference to reference base types.
+  //TODO: Enable BaseReference to reference base types
 
   private final OptionalReference<ConcreteValueContent> concreteValueContent = OptionalReference
     .forEntity(ConcreteValueContent.class);
 
-  //TODO: Enable BaseReference to reference base types.
+  //TODO: Enable BaseReference to reference base types
 
   private final OptionalReference<ConcreteReferenceContent> concreteReferenceContent = OptionalReference
     .forEntity(ConcreteReferenceContent.class);
