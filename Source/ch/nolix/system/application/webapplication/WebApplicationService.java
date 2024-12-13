@@ -1,12 +1,15 @@
 package ch.nolix.system.application.webapplication;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationService;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 public class WebApplicationService implements IWebApplicationService {
 
-  private IImage applicationLogo;
+  public static final IImage DEFAULT_APPLICATION_LOGO = Image.fromResource("image/default_application_logo.jpg");
+
+  private IImage applicationLogo = DEFAULT_APPLICATION_LOGO;
 
   @Override
   public final IImage getApplicationLogo() {
