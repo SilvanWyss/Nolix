@@ -4,12 +4,12 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalogue;
 
 /**
- * A {@link FloatingPointNumberPair} is not mutable.
+ * A {@link FloatPair} is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2016-08-01
  */
-public final class FloatingPointNumberPair {
+public final class FloatPair {
 
   public static final double DEFAULT_VALUE = 0.0;
 
@@ -20,12 +20,12 @@ public final class FloatingPointNumberPair {
   private final double value2;
 
   /**
-   * Creates a new {@link FloatingPointNumberPair} with the given values.
+   * Creates a new {@link FloatPair} with the given values.
    * 
    * @param value1
    * @param value2
    */
-  private FloatingPointNumberPair(final double value1, final double value2) {
+  private FloatPair(final double value1, final double value2) {
     this.value1 = value1;
     this.value2 = value2;
   }
@@ -33,10 +33,10 @@ public final class FloatingPointNumberPair {
   /**
    * @param value1
    * @param value2
-   * @return a new {@link FloatingPointNumberPair} with the given values.
+   * @return a new {@link FloatPair} with the given values.
    */
-  public static FloatingPointNumberPair withValues(final double value1, final double value2) {
-    return new FloatingPointNumberPair(value1, value2);
+  public static FloatPair withValues(final double value1, final double value2) {
+    return new FloatPair(value1, value2);
   }
 
   //TODO: Centralize this implementation
@@ -61,22 +61,22 @@ public final class FloatingPointNumberPair {
   @Override
   public boolean equals(final Object object) {
 
-    if (object instanceof FloatingPointNumberPair floatingPointNumberPair) {
-      return areEqual(value1, floatingPointNumberPair.value1) && areEqual(value2, floatingPointNumberPair.value2);
+    if (object instanceof FloatPair floatPair) {
+      return areEqual(value1, floatPair.value1) && areEqual(value2, floatPair.value2);
     }
 
     return false;
   }
 
   /**
-   * @return value 1 of the current {@link FloatingPointNumberPair}.
+   * @return value 1 of the current {@link FloatPair}.
    */
   public double getValue1() {
     return value1;
   }
 
   /**
-   * @return value 2 of the current {@link FloatingPointNumberPair}.
+   * @return value 2 of the current {@link FloatPair}.
    */
   public double getValue2() {
     return value2;
