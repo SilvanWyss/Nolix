@@ -2,9 +2,12 @@ package ch.nolix.core.container.sequencesearch;
 
 import java.util.function.Predicate;
 
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePatternNextMediator;
 
@@ -19,6 +22,8 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
   private final ISequencePattern<E> sequencePattern;
 
   private final int count;
+
+  private final Predicate<E> blankCondition = e -> true;
 
   /**
    * Creates a new {@link SequencePatternNextMediator} for the given
@@ -56,33 +61,48 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
     return new SequencePatternNextMediator<>(sequencePattern, count);
   }
 
-  //TODO: Improve this implementation
   /**
    * {@inheritDoc}
    */
   @Override
   public ISequencePattern<E> withBlank() {
 
-    var newSequencePattern = sequencePattern;
-    for (var i = 1; i < count; i++) {
-      newSequencePattern = newSequencePattern.withBlankForNext();
-    }
+    final var blanks = createBlanks(count);
 
-    return newSequencePattern;
+    return sequencePattern.withConditionsForNexts(blanks);
   }
 
-  //TODO: Improve this implementation
   /**
    * {@inheritDoc}
    */
   @Override
+  @SuppressWarnings("unchecked")
   public ISequencePattern<E> withCondition(final Predicate<E> condition) {
 
-    var newSequencePattern = sequencePattern;
+    final IArrayList<Predicate<E>> conditions = ArrayList.withInitialCapacity(count);
+
     for (var i = 1; i < count; i++) {
-      newSequencePattern = newSequencePattern.withConditionForNext(condition);
+      conditions.addAtEnd(condition);
     }
 
-    return newSequencePattern;
+    return sequencePattern.withConditionsForNexts(conditions);
+  }
+
+  /**
+   * @param paramCount
+   * @return a new {@link IContainer} with as many blank conditions as the given
+   *         paramCount says.
+   * @throws NegativeArgumentException if the given paramCount is negative.
+   */
+  @SuppressWarnings("unchecked")
+  private IContainer<Predicate<E>> createBlanks(final int paramCount) {
+
+    final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);
+
+    for (var i = 1; i < paramCount; i++) {
+      blanks.addAtEnd(blankCondition);
+    }
+
+    return blanks;
   }
 }
