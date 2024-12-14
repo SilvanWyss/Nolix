@@ -28,7 +28,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  * @version 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> extends Container<E> implements ILinkedList<E> {
+public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
+extends Container<E>
+implements ILinkedList<E> {
 
   private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
