@@ -1,4 +1,4 @@
-package ch.nolix.core.programstructure.caching;
+package ch.nolix.core.container.cachingcontainer;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;

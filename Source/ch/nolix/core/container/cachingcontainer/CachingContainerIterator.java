@@ -1,4 +1,4 @@
-package ch.nolix.core.programstructure.caching;
+package ch.nolix.core.container.cachingcontainer;
 
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;

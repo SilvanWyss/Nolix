@@ -1,4 +1,4 @@
-package ch.nolix.core.programstructure.caching;
+package ch.nolix.core.container.cachingcontainer;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -10,10 +10,10 @@ import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.cachingcontainerapi.ICachingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programstructureapi.cachingapi.ICachingContainer;
 
 public final class CachingContainer<E> extends Container<E> implements ICachingContainer<E> {
 

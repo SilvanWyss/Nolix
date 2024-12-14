@@ -2,8 +2,8 @@ package ch.nolix.coretest.programstructuretest.cachingtest;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.container.cachingcontainer.CachingContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programstructure.caching.CachingContainer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class CachingContainerTest extends StandardTest {

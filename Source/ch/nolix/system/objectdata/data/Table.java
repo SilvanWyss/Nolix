@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.data;
 
 import java.util.Optional;
 
+import ch.nolix.core.container.cachingcontainer.CachingProperty;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programstructure.caching.CachingProperty;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.datatool.TableTool;

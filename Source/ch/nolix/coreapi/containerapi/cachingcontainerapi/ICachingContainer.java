@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programstructureapi.cachingapi;
+package ch.nolix.coreapi.containerapi.cachingcontainerapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
