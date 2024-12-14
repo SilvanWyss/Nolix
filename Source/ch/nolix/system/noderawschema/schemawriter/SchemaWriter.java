@@ -36,7 +36,8 @@ public final class SchemaWriter implements ISchemaWriter {
   private static final ParameterizedFieldTypeNodeMapper parameterizedFieldTypeNodeMapper = //
   new ParameterizedFieldTypeNodeMapper();
 
-  private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = new IncrementalCurrentTimeCreator();
+  private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
+  new IncrementalCurrentTimeCreator();
 
   private final CloseController closeController = CloseController.forElement(this);
 
