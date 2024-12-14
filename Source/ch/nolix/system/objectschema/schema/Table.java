@@ -95,7 +95,7 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   @Override
-  public Database getParentDatabase() {
+  public Database getStoredParentDatabase() {
 
     assertBelongsToDatabase();
 
@@ -112,7 +112,7 @@ public final class Table extends SchemaObject implements ITable {
 
   @Override
   public boolean isLinkedWithRealDatabase() {
-    return (belongsToDatabase() && getParentDatabase().isLinkedWithRealDatabase());
+    return (belongsToDatabase() && getStoredParentDatabase().isLinkedWithRealDatabase());
   }
 
   @Override
@@ -144,7 +144,7 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   RawSchemaLinkerAdapter internalgetStoredRawSchemaAdapter() {
-    return getParentDatabase().internalGetRefRawSchemaAdapter();
+    return getStoredParentDatabase().internalGetRefRawSchemaAdapter();
   }
 
   void removeColumnAttribute(final Column column) {
@@ -181,7 +181,7 @@ public final class Table extends SchemaObject implements ITable {
 
     loadedColumnsFromDatabase = true;
 
-    final var tables = getParentDatabase().getStoredTables();
+    final var tables = getStoredParentDatabase().getStoredTables();
 
     columns = LinkedList.fromIterable(
       internalgetStoredRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables)));

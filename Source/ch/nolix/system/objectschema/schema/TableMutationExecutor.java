@@ -22,7 +22,7 @@ final class TableMutationExecutor {
   public void deleteTable(final Table table) {
 
     if (table.belongsToDatabase()) {
-      table.getParentDatabase().removeTableAttribute(table);
+      table.getStoredParentDatabase().removeTableAttribute(table);
     }
 
     table.internalgetStoredRawSchemaAdapter().deleteTable(table);

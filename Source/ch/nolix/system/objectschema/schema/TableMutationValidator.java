@@ -35,7 +35,7 @@ final class TableMutationValidator {
       final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) column.getParameterizedFieldType();
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
-      DATABASE_TOOL.assertContainsGivenTable(table.getParentDatabase(), referencedTable);
+      DATABASE_TOOL.assertContainsGivenTable(table.getStoredParentDatabase(), referencedTable);
     }
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
@@ -45,7 +45,7 @@ final class TableMutationValidator {
 
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
-      DATABASE_TOOL.assertContainsTableWithGivenColumn(table.getParentDatabase(), backReferencedColumn);
+      DATABASE_TOOL.assertContainsTableWithGivenColumn(table.getStoredParentDatabase(), backReferencedColumn);
     }
   }
 
@@ -61,7 +61,7 @@ final class TableMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
 
     if (table.belongsToDatabase()) {
-      DATABASE_TOOL.assertDoesNotContainTableWithGivenName(table.getParentDatabase(), name);
+      DATABASE_TOOL.assertDoesNotContainTableWithGivenName(table.getStoredParentDatabase(), name);
     }
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();

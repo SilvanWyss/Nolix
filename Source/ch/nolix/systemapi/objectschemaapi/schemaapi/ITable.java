@@ -12,8 +12,8 @@ public interface ITable
 extends
 Deletable,
 IDatabaseObject,
-IIdHolder,
-IFluentMutableNameHolder<ITable> {
+IFluentMutableNameHolder<ITable>,
+IIdHolder {
 
   ITable addColumn(IColumn column);
 
@@ -25,7 +25,7 @@ IFluentMutableNameHolder<ITable> {
 
   IFlatTableDto getFlatDto();
 
-  IDatabase getParentDatabase();
+  IDatabase getStoredParentDatabase();
 
   IContainer<IColumn> getStoredColumns();
 

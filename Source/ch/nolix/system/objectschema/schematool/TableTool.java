@@ -26,7 +26,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   @Override
   public void assertDoesNotBelongToDatabase(final ITable table) {
     if (table.belongsToDatabase()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(table, table.getParentDatabase());
+      throw ArgumentBelongsToParentException.forArgumentAndParent(table, table.getStoredParentDatabase());
     }
   }
 
@@ -134,14 +134,14 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   @Override
   public boolean isReferenced(final ITable table) {
     return table.belongsToDatabase()
-    && table.getParentDatabase().getStoredTables()
+    && table.getStoredParentDatabase().getStoredTables()
       .containsAny(t -> containsColumnThatReferencesGivenTable(t, table));
   }
 
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
 
-    final var columns = table.getParentDatabase().getStoredTables().toMultiple(ITable::getStoredColumns);
+    final var columns = table.getStoredParentDatabase().getStoredTables().toMultiple(ITable::getStoredColumns);
 
     return table
       .getStoredColumns()
@@ -158,7 +158,7 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
 
   private IContainer<IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
     return table
-      .getParentDatabase()
+      .getStoredParentDatabase()
       .getStoredTables()
       .toMultiple(ITable::getStoredColumns)
       .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));

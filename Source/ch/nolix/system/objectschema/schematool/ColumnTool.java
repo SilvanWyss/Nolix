@@ -62,7 +62,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
 
   @Override
   public IDatabase getParentDatabase(final IColumn column) {
-    return column.getStoredParentTable().getParentDatabase();
+    return column.getStoredParentTable().getStoredParentDatabase();
   }
 
   @Override
