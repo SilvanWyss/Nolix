@@ -21,5 +21,5 @@ public interface IDatabaseComponent<D> {
    * @throws RuntimeException if the current {@link IDatabaseComponent} does not
    *                          belong to a database.
    */
-  D getStoredParentDatabse();
+  D getStoredParentDatabase();
 }
