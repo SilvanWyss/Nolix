@@ -5,11 +5,11 @@ import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
+import ch.nolix.core.errorcontrol.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programanalysis.performanceanalysis.PerformanceAnalyzer;
+import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.IPerformanceAnalyzer;
+import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.TimeComplexityFunctionCatalogue;
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IActionMediator;
-import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.IPerformanceAnalyzer;
-import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.TimeComplexityFunctionCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
 public final class ActionMediator<O> implements IActionMediator {

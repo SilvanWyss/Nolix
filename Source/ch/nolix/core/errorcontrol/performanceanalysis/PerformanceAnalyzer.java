@@ -1,4 +1,4 @@
-package ch.nolix.core.programanalysis.performanceanalysis;
+package ch.nolix.core.errorcontrol.performanceanalysis;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -8,7 +8,7 @@ import java.util.function.LongToDoubleFunction;
 import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.core.programcontrol.stopwatch.RuntimeMeter;
 import ch.nolix.core.programcontrol.stopwatch.StopWatch;
-import ch.nolix.coreapi.programanalysisapi.performanceanalysisapi.IPerformanceAnalyzer;
+import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.IPerformanceAnalyzer;
 
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 

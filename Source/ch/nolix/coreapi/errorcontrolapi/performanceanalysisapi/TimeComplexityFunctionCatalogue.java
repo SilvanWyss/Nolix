@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programanalysisapi.performanceanalysisapi;
+package ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi;
 
 import java.util.function.LongToDoubleFunction;
 
