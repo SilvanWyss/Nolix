@@ -2,7 +2,7 @@ package ch.nolix.system.application.component;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programstructureapi.dataapi.IDataSupplierFactory;
+import ch.nolix.coreapi.programcontrolapi.datasupplierapi.IDataSupplierFactory;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
