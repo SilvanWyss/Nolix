@@ -7,7 +7,7 @@ final class ColumnMutationExecutor {
   public void deleteColumn(final Column column) {
 
     if (column.belongsToTable()) {
-      column.getParentTable().removeColumnAttribute(column);
+      column.getStoredParentTable().removeColumnAttribute(column);
     }
 
     column.internalGetRefRawSchemaAdapter().deleteColumn(column);

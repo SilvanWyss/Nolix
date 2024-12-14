@@ -8,13 +8,13 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 public interface IColumn
-extends Deletable, EmptinessRequestable, IDatabaseObject, IIdHolder, IFluentMutableNameHolder<IColumn> {
+extends Deletable, EmptinessRequestable, IDatabaseObject, IFluentMutableNameHolder<IColumn>, IIdHolder {
 
   boolean belongsToTable();
 
   IParameterizedFieldType getParameterizedFieldType();
 
-  ITable getParentTable();
+  ITable getStoredParentTable();
 
   IColumn setParameterizedFieldType(IParameterizedFieldType parameterizedFieldType);
 

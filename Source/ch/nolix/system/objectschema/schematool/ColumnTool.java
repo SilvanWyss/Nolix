@@ -27,7 +27,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
   @Override
   public void assertDoesNotBelongToTable(final IColumn column) {
     if (column.belongsToTable()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(column, column.getParentTable());
+      throw ArgumentBelongsToParentException.forArgumentAndParent(column, column.getStoredParentTable());
     }
   }
 
@@ -47,7 +47,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
 
   @Override
   public boolean belongsToDatabase(final IColumn column) {
-    return (column.belongsToTable() && column.getParentTable().belongsToDatabase());
+    return (column.belongsToTable() && column.getStoredParentTable().belongsToDatabase());
   }
 
   @Override
@@ -62,7 +62,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
 
   @Override
   public IDatabase getParentDatabase(final IColumn column) {
-    return column.getParentTable().getParentDatabase();
+    return column.getStoredParentTable().getParentDatabase();
   }
 
   @Override
@@ -98,7 +98,7 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
       return false;
     }
 
-    return referencesGivenTable(backReferencedColumn, column.getParentTable());
+    return referencesGivenTable(backReferencedColumn, column.getStoredParentTable());
   }
 
   @Override

@@ -98,7 +98,7 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   @Override
-  public Table getParentTable() {
+  public Table getStoredParentTable() {
 
     COLUMN_TOOL.assertBelongsToTable(this);
 
@@ -114,7 +114,7 @@ public final class Column extends SchemaObject implements IColumn {
 
   @Override
   public boolean isLinkedWithRealDatabase() {
-    return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
+    return (belongsToTable() && getStoredParentTable().isLinkedWithRealDatabase());
   }
 
   @Override
@@ -207,7 +207,7 @@ public final class Column extends SchemaObject implements IColumn {
     }
 
     if (belongsToTable()) {
-      return getParentTable().getStoredColumns()
+      return getStoredParentTable().getStoredColumns()
         .getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
@@ -224,7 +224,7 @@ public final class Column extends SchemaObject implements IColumn {
     }
 
     if (belongsToTable()) {
-      return getParentTable().getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
+      return getStoredParentTable().getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
     return false;

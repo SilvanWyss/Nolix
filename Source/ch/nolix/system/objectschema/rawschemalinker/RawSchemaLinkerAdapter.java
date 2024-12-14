@@ -34,12 +34,12 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
 
   @Override
   public boolean columnIsEmpty(final IColumn column) {
-    return internalRawSchemaAdapter.columnIsEmpty(column.getParentTable().getName(), column.getName());
+    return internalRawSchemaAdapter.columnIsEmpty(column.getStoredParentTable().getName(), column.getName());
   }
 
   @Override
   public void deleteColumn(final IColumn column) {
-    internalRawSchemaAdapter.deleteColumn(column.getParentTable().getName(), column.getName());
+    internalRawSchemaAdapter.deleteColumn(column.getStoredParentTable().getName(), column.getName());
   }
 
   @Override
@@ -77,7 +77,7 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
     final IColumn column,
     final String columnName,
     final String newColumnName) {
-    internalRawSchemaAdapter.setColumnName(column.getParentTable().getName(), columnName, newColumnName);
+    internalRawSchemaAdapter.setColumnName(column.getStoredParentTable().getName(), columnName, newColumnName);
   }
 
   @Override

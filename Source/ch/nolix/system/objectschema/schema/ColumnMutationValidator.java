@@ -39,7 +39,7 @@ final class ColumnMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
 
     if (column.belongsToTable()) {
-      TABLE_TOOL.assertDoesNotContainColumnWithGivenName(column.getParentTable(), name);
+      TABLE_TOOL.assertDoesNotContainColumnWithGivenName(column.getStoredParentTable(), name);
     }
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
