@@ -1,4 +1,4 @@
-package ch.nolix.coretest.independenttest.containervalidatortest;
+package ch.nolix.coretest.independenttest.arrayvalidatortest;
 
 import org.junit.jupiter.api.Test;
 
@@ -54,6 +54,6 @@ final class ArrayValidatorTest extends StandardTest {
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))
       .throwsException()
       .ofType(IllegalArgumentException.class)
-      .withMessage("The given array contains null at the index 4.");
+      .withMessage("The given array contains a null element at the index 4.");
   }
 }
