@@ -88,7 +88,7 @@ public final class ImmutableList<E> extends Container<E> {
   @SuppressWarnings("unchecked")
   public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
 
-    if (container instanceof final ImmutableList immutableList) {
+    if (container instanceof final ImmutableList<E2> immutableList) {
       return immutableList;
     }
 
