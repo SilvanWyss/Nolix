@@ -675,6 +675,17 @@ extends Element implements ITime {
    * {@inheritDoc}
    */
   @Override
+  public ITime withAddedOrSubtractedMicroseconds(final long microseconds) {
+
+    final var nanoseconds = 1_000 * microseconds;
+
+    return withAddedOrSubtractedNanoseconds(nanoseconds);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ITime withAddedOrSubtractedNanoseconds(final long nanoseconds) {
     return new Time(zonedDateTime.plusNanos(nanoseconds));
   }

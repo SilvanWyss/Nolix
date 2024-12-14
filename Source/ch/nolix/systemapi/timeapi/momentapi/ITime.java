@@ -40,6 +40,13 @@ public interface ITime extends IElement {
   boolean isBefore(ITime time);
 
   /**
+   * @param microseconds
+   * @return a new {@link ITime} with the given microseconds added or subtracted
+   *         from the current {@link ITime}.
+   */
+  ITime withAddedOrSubtractedMicroseconds(long microseconds);
+
+  /**
    * @param nanoseconds
    * @return a new {@link ITime} with the given nanoseconds added or subtracted
    *         from the current {@link ITime}.
