@@ -45,11 +45,4 @@ public interface ITime extends IElement {
    *         from the current {@link ITime}.
    */
   ITime withAddedOrSubtractedMicroseconds(long microseconds);
-
-  /**
-   * @param nanoseconds
-   * @return a new {@link ITime} with the given nanoseconds added or subtracted
-   *         from the current {@link ITime}.
-   */
-  ITime withAddedOrSubtractedNanoseconds(long nanoseconds);
 }

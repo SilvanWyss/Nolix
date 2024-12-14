@@ -19,10 +19,9 @@ import ch.nolix.systemapi.timeapi.timestructureapi.Month;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
 /**
- * A {@link Time} is not mutable.
- * 
- * A {@link Time} stores a point in time with a precision of 1 nanosecond.
- * Basically, a {@link Time} is a wrapper around a JDK's {@link ZonedDateTime}.
+ * A {@link Time} is not mutable. A {@link Time} stores a time with a precision
+ * of 1 microsecond. Technically, a {@link Time} is a wrapper around a JDK's
+ * {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss
  * @version 2016-09-01
@@ -44,34 +43,49 @@ extends Element implements ITime {
 
   public static final int DEFAULT_MILLISECOND_OF_SECOND = 0;
 
-  private static final Time DEFAULT_TIME = new Time();
+  public static final int DEFAULT_MICROSECOND_OF_MILLISECOND = 0;
 
-  private final ZonedDateTime zonedDateTime;
+  private static final Time DEFAULT_INSTANCE = forZonedDateTime(ZonedDateTime.of(
+    DEFAULT_YEAR,
+    DEFAULT_MONTH_OF_YEAR,
+    DEFAULT_DAY_OF_MONTH,
+    DEFAULT_HOUR_OF_DAY,
+    DEFAULT_MINUTE_OF_HOUR,
+    DEFAULT_SECOND_OF_MINUTE,
+    TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND * DEFAULT_MILLISECOND_OF_SECOND,
+    ZoneId.systemDefault()));
+
+  private final ZonedDateTime internalZonedDateTime;
 
   /**
-   * Creates a new {@link Time} with default values.
+   * Creates a new {@link Time} with the given zonedDateTime.
+   * 
+   * @param zonedDateTime
+   * @throws ArgumentIsNullException if the given zonedDateTime is null.
    */
-  private Time() {
-    this(
-      ZonedDateTime.of(
-        DEFAULT_YEAR,
-        DEFAULT_MONTH_OF_YEAR,
-        DEFAULT_DAY_OF_MONTH,
-        DEFAULT_HOUR_OF_DAY,
-        DEFAULT_MINUTE_OF_HOUR,
-        DEFAULT_SECOND_OF_MINUTE,
-        1000 * DEFAULT_MILLISECOND_OF_SECOND,
-        ZoneId.systemDefault()));
+  private Time(final ZonedDateTime zonedDateTime) {
+
+    GlobalValidator.assertThat(zonedDateTime).thatIsNamed(ZonedDateTime.class).isNotNull();
+
+    internalZonedDateTime = zonedDateTime;
   }
 
-  private Time(final ZonedDateTime zonedDateTime) {
-    this.zonedDateTime = zonedDateTime;
+  /**
+   * @return a new {@link Time} for the given zonedDateTime.
+   * 
+   * @param zonedDateTime
+   * @throws ArgumentIsNullException if the given zonedDateTime is null.
+   */
+  public static Time forZonedDateTime(final ZonedDateTime zonedDateTime) {
+    return new Time(zonedDateTime);
   }
 
   /**
    * @param specification
    * @return a new {@link Time} from the given specification.
-   * @throws InvalidArgumentException if the given specification is not valid.
+   * @NullPointerException if the given specification is null.
+   * @throws InvalidArgumentException if the given specification does not
+   *                                  represent a {@link Time}.
    */
   public static Time fromSpecification(final INode<?> specification) {
     return fromString(specification.getSingleChildNodeHeader());
@@ -80,36 +94,33 @@ extends Element implements ITime {
   /**
    * @param string
    * @return a new {@link Time} from the given string.
-   * @throws ArgumentIsNullException if the given string is null.
+   * @throws InvalidArgumentException if the given string does not represent a
+   *                                  {@link Time}.
    */
   public static Time fromString(final String string) {
 
-    //Asserts that the given string is not null.
     GlobalValidator.assertThat(string).thatIsNamed("string").isNotNull();
 
-    //Creates array of values of the given string.
-    final String[] array = string.split("-");
+    final var values = string.split("-");
 
-    //Enumerates the length of the array.
-    return switch (array.length) {
+    return switch (values.length) {
       case 3 ->
-        fromArrayWith3Values(array);
+        fromArrayWith3Values(values);
       case 5 ->
-        fromArrayWith5Values(array);
+        fromArrayWith5Values(values);
       case 6 ->
-        fromArrayWith6Values(array);
+        fromArrayWith6Values(values);
       case 7 ->
-        fromArrayWith7Values(array);
+        fromArrayWith7Values(values);
       case 8 ->
-        fromArrayWith8Values(array);
+        fromArrayWith8Values(values);
       default ->
         throw UnrepresentingArgumentException.forArgumentAndType(string, Time.class);
     };
   }
 
   /**
-   * @return a new {@link Time} that represents the current time on the local
-   *         computer.
+   * @return a new {@link Time} that represents the current time.
    */
   public static Time ofNow() {
     return new Time(ZonedDateTime.now());
@@ -120,7 +131,7 @@ extends Element implements ITime {
    * @return a new {@link Time} with the given year.
    */
   public static Time withYear(final int year) {
-    return new Time(DEFAULT_TIME.zonedDateTime.withYear(year));
+    return new Time(DEFAULT_INSTANCE.internalZonedDateTime.withYear(year));
   }
 
   /**
@@ -129,7 +140,7 @@ extends Element implements ITime {
    * @return a new {@link Time} with the given year and monthOfYear.
    */
   public static Time withYearAndMonthOfYear(final int year, final int monthOfYear) {
-    return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear));
+    return new Time(DEFAULT_INSTANCE.internalZonedDateTime.withYear(year).withMonth(monthOfYear));
   }
 
   /**
@@ -142,7 +153,9 @@ extends Element implements ITime {
     final int year,
     final int monthOfYear,
     final int dayOfMonth) {
-    return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear).withDayOfMonth(dayOfMonth));
+    return //
+    new Time(
+      DEFAULT_INSTANCE.internalZonedDateTime.withYear(year).withMonth(monthOfYear).withDayOfMonth(dayOfMonth));
   }
 
   /**
@@ -160,7 +173,7 @@ extends Element implements ITime {
     final int hourOfDay) {
     return //
     new Time(
-      DEFAULT_TIME.zonedDateTime
+      DEFAULT_INSTANCE.internalZonedDateTime
         .withYear(year)
         .withMonth(monthOfYear)
         .withDayOfMonth(dayOfMonth)
@@ -176,7 +189,7 @@ extends Element implements ITime {
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth,
    *         hourOfDay and minuteOfHour.
    */
-  public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
+  public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(
     final int year,
     final int monthOfYear,
     final int dayOfMonth,
@@ -184,7 +197,7 @@ extends Element implements ITime {
     final int minuteOfHour) {
     return //
     new Time(
-      DEFAULT_TIME.zonedDateTime
+      DEFAULT_INSTANCE.internalZonedDateTime
         .withYear(year)
         .withMonth(monthOfYear)
         .withDayOfMonth(dayOfMonth)
@@ -202,7 +215,7 @@ extends Element implements ITime {
    * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth,
    *         hourOfDay, minuteOfHour and secondOfMinute.
    */
-  public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
+  public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMin(
     final int year,
     final int monthOfYear,
     final int dayOfMonth,
@@ -211,7 +224,7 @@ extends Element implements ITime {
     final int secondOfMinute) {
     return //
     new Time(
-      DEFAULT_TIME.zonedDateTime
+      DEFAULT_INSTANCE.internalZonedDateTime
         .withYear(year)
         .withMonth(monthOfYear)
         .withDayOfMonth(dayOfMonth)
@@ -232,7 +245,7 @@ extends Element implements ITime {
    *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
    */
   public static Time //
-  withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+  withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
     final int year,
     final int monthOfYear,
     final int dayOfMonth,
@@ -241,11 +254,11 @@ extends Element implements ITime {
     final int secondOfMinute,
     final int millisecondOfSecond) {
 
-    final var nanoSecondsOfSecond = 1_000_000 * millisecondOfSecond;
+    final var nanoSecondsOfSecond = TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond;
 
     return //
     new Time(
-      DEFAULT_TIME.zonedDateTime
+      DEFAULT_INSTANCE.internalZonedDateTime
         .withYear(year)
         .withMonth(monthOfYear)
         .withDayOfMonth(dayOfMonth)
@@ -278,11 +291,13 @@ extends Element implements ITime {
     final int millisecondOfSecond,
     final int microsecondsOfMilliSecond) {
 
-    final var nanoSecondsOfSecond = (1_000_000 * millisecondOfSecond) + (1_000 * microsecondsOfMilliSecond);
+    final var nanoSecondsOfSecond = //
+    TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond
+    + TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND * microsecondsOfMilliSecond;
 
     return //
     new Time(
-      DEFAULT_TIME.zonedDateTime
+      DEFAULT_INSTANCE.internalZonedDateTime
         .withYear(year)
         .withMonth(monthOfYear)
         .withDayOfMonth(dayOfMonth)
@@ -293,77 +308,77 @@ extends Element implements ITime {
   }
 
   /**
-   * @param array with 3 values
-   * @return a new {@link Time} from the given array.
+   * @param arrayWith3Values
+   * @return a new {@link Time} from the given arrayWith3Values.
    */
-  private static Time fromArrayWith3Values(final String[] array) {
+  private static Time fromArrayWith3Values(final String[] arrayWith3Values) {
     return //
     withYearAndMonthOfYearAndDayOfMonth(
-      Integer.valueOf(array[0]),
-      Integer.valueOf(array[1]),
-      Integer.valueOf(array[2]));
+      Integer.valueOf(arrayWith3Values[0]),
+      Integer.valueOf(arrayWith3Values[1]),
+      Integer.valueOf(arrayWith3Values[2]));
   }
 
   /**
-   * @param array with 5 values
-   * @return a new {@link Time} from the given array.
+   * @param arrayWith5Values
+   * @return a new {@link Time} from the given arrayWith5Values.
    */
-  private static Time fromArrayWith5Values(final String[] array) {
+  private static Time fromArrayWith5Values(final String[] arrayWith5Values) {
     return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
-      Integer.valueOf(array[0]),
-      Integer.valueOf(array[1]),
-      Integer.valueOf(array[2]),
-      Integer.valueOf(array[3]),
-      Integer.valueOf(array[4]));
+    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(
+      Integer.valueOf(arrayWith5Values[0]),
+      Integer.valueOf(arrayWith5Values[1]),
+      Integer.valueOf(arrayWith5Values[2]),
+      Integer.valueOf(arrayWith5Values[3]),
+      Integer.valueOf(arrayWith5Values[4]));
   }
 
   /**
-   * @param array with 6 values
-   * @return a new {@link Time} from the given array.
+   * @param arrayWith6Values
+   * @return a new {@link Time} from the given arrayWith6Values.
    */
-  private static Time fromArrayWith6Values(final String[] array) {
+  private static Time fromArrayWith6Values(final String[] arrayWith6Values) {
     return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
-      Integer.valueOf(array[0]),
-      Integer.valueOf(array[1]),
-      Integer.valueOf(array[2]),
-      Integer.valueOf(array[3]),
-      Integer.valueOf(array[4]),
-      Integer.valueOf(array[5]));
+    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMin(
+      Integer.valueOf(arrayWith6Values[0]),
+      Integer.valueOf(arrayWith6Values[1]),
+      Integer.valueOf(arrayWith6Values[2]),
+      Integer.valueOf(arrayWith6Values[3]),
+      Integer.valueOf(arrayWith6Values[4]),
+      Integer.valueOf(arrayWith6Values[5]));
   }
 
   /**
-   * @param array with 7 values
-   * @return a new {@link Time} from the given array.
+   * @param arrayWith7Values
+   * @return a new {@link Time} from the given arrayWith7Values.
    */
-  private static Time fromArrayWith7Values(final String[] array) {
+  private static Time fromArrayWith7Values(final String[] arrayWith7Values) {
     return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
-      Integer.valueOf(array[0]),
-      Integer.valueOf(array[1]),
-      Integer.valueOf(array[2]),
-      Integer.valueOf(array[3]),
-      Integer.valueOf(array[4]),
-      Integer.valueOf(array[5]),
-      Integer.valueOf(array[6]));
+    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
+      Integer.valueOf(arrayWith7Values[0]),
+      Integer.valueOf(arrayWith7Values[1]),
+      Integer.valueOf(arrayWith7Values[2]),
+      Integer.valueOf(arrayWith7Values[3]),
+      Integer.valueOf(arrayWith7Values[4]),
+      Integer.valueOf(arrayWith7Values[5]),
+      Integer.valueOf(arrayWith7Values[6]));
   }
 
   /**
-   * @param array with 8 values
-   * @return a new {@link Time} from the given array.
+   * @param arrayWith8Values
+   * @return a new {@link Time} from the given arrayWith8Values.
    */
-  private static Time fromArrayWith8Values(final String[] array) {
+  private static Time fromArrayWith8Values(final String[] arrayWith8Values) {
     return //
     withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSecAndMicrosecOfMillisec(
-      Integer.valueOf(array[0]),
-      Integer.valueOf(array[1]),
-      Integer.valueOf(array[2]),
-      Integer.valueOf(array[3]),
-      Integer.valueOf(array[4]),
-      Integer.valueOf(array[5]),
-      Integer.valueOf(array[6]),
-      Integer.valueOf(array[7]));
+      Integer.valueOf(arrayWith8Values[0]),
+      Integer.valueOf(arrayWith8Values[1]),
+      Integer.valueOf(arrayWith8Values[2]),
+      Integer.valueOf(arrayWith8Values[3]),
+      Integer.valueOf(arrayWith8Values[4]),
+      Integer.valueOf(arrayWith8Values[5]),
+      Integer.valueOf(arrayWith8Values[6]),
+      Integer.valueOf(arrayWith8Values[7]));
   }
 
   /**
@@ -404,7 +419,7 @@ extends Element implements ITime {
    * @return the day of the month of the current {@link Time}.
    */
   public int getDayOfMonth() {
-    return zonedDateTime.getDayOfMonth();
+    return internalZonedDateTime.getDayOfMonth();
   }
 
   /**
@@ -434,7 +449,7 @@ extends Element implements ITime {
    * @return the hour of the month of the current {@link Time}.
    */
   public int getHourOfDay() {
-    return zonedDateTime.getHour();
+    return internalZonedDateTime.getHour();
   }
 
   /**
@@ -442,7 +457,9 @@ extends Element implements ITime {
    */
   @Override
   public int getMicrosecondsOfMillisecond() {
-    return ((zonedDateTime.getNano() / 1_000) % 1_000);
+    return //
+    (internalZonedDateTime.getNano() / TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND)
+    % TimeUnitConversionCatalogue.MICROSECONDS_PER_MILLISECOND;
   }
 
   /**
@@ -450,14 +467,14 @@ extends Element implements ITime {
    */
   @Override
   public long getMilliseconds() {
-    return zonedDateTime.toInstant().toEpochMilli();
+    return internalZonedDateTime.toInstant().toEpochMilli();
   }
 
   /**
    * @return the millisecond of the second of the current {@link Time}.
    */
   public int getMillisecondOfSecond() {
-    return (zonedDateTime.getNano() / 1_000_000);
+    return (internalZonedDateTime.getNano() / TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND);
   }
 
   /**
@@ -477,7 +494,7 @@ extends Element implements ITime {
    */
   public Time getMinute() {
     return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
+    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(
       getYearAsInt(),
       getMonthOfYearAsInt(),
       getDayOfMonth(),
@@ -489,14 +506,14 @@ extends Element implements ITime {
    * @return the minute of the hour of the current {@link Time}.
    */
   public int getMinuteOfHour() {
-    return zonedDateTime.getMinute();
+    return internalZonedDateTime.getMinute();
   }
 
   /**
    * @return the month of the current {@link Time}.
    */
   public Time getMonth() {
-    return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt());
+    return withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt());
   }
 
   /**
@@ -504,35 +521,35 @@ extends Element implements ITime {
    */
   @Override
   public Month getMonthOfYear() {
-    return Month.fromJavaMonth(zonedDateTime.getMonth());
+    return Month.fromJavaMonth(internalZonedDateTime.getMonth());
   }
 
   /**
    * @return the month of the year of the current {@link Time}.
    */
   public int getMonthOfYearAsInt() {
-    return zonedDateTime.getMonth().getValue();
+    return internalZonedDateTime.getMonth().getValue();
   }
 
   /**
    * @return the next day of the current {@link Time}.
    */
   public Time getNextDay() {
-    return getWithAddedOrSubtractedDays(1).getDay();
+    return withAddedOrSubtractedDays(1).getDay();
   }
 
   /**
    * @return the next hour of the current {@link Time}.
    */
   public Time getNextHour() {
-    return getWithAddedOrSubtractedHours(1).getHour();
+    return withAddedOrSubtractedHours(1).getHour();
   }
 
   /**
    * @return the next minute of the current {@link Time}.
    */
   public Time getNextMinute() {
-    return getWithAddedOrSubtractedMinutes(1).getMinute();
+    return withAddedOrSubtractedMinutes(1).getMinute();
   }
 
   /**
@@ -542,25 +559,25 @@ extends Element implements ITime {
 
     //Handles the case that the month of the year of the current {@link Time} is not December.
     if (getMonthOfYearAsInt() < 12) {
-      return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt() + 1);
+      return withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt() + 1);
     }
 
     //Handles the case that the month of the year of the current {@link Time} is December.
-    return Time.withYearAndMonthOfYear(getYearAsInt() + 1, 1);
+    return withYearAndMonthOfYear(getYearAsInt() + 1, 1);
   }
 
   /**
    * @return the next second of the current {@link Time}.
    */
   public Time getNextSecond() {
-    return getWithAddedOrSubtractedSeconds(1).getSecond();
+    return withAddedOrSubtractedSeconds(1).getSecond();
   }
 
   /**
    * @return the next year of the current {@link Time}.
    */
   public Time getNextYear() {
-    return Time.withYear(getYearAsInt() + 1);
+    return withYear(getYearAsInt() + 1);
   }
 
   /**
@@ -568,7 +585,7 @@ extends Element implements ITime {
    */
   public Time getSecond() {
     return //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
+    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMin(
       getYearAsInt(),
       getMonthOfYearAsInt(),
       getDayOfMonth(),
@@ -581,71 +598,26 @@ extends Element implements ITime {
    * @return the second of the minute of the current {@link Time}.
    */
   public int getSecondOfMinute() {
-    return zonedDateTime.getSecond();
+    return internalZonedDateTime.getSecond();
   }
 
   @Override
   public Weekday getWeekday() {
-    return Weekday.fromDayOfWeek(zonedDateTime.getDayOfWeek());
-  }
-
-  /**
-   * @param days
-   * @return a new {@link Time} with the given days added or subtracted to the
-   *         current {@link Time}.
-   */
-  public Time getWithAddedOrSubtractedDays(final int days) {
-    return new Time(zonedDateTime.plusDays(days));
-  }
-
-  /**
-   * @param hours
-   * @return a new {@link Time} with the given hours added or subtracted to the
-   *         current {@link Time}.
-   */
-  public Time getWithAddedOrSubtractedHours(final int hours) {
-    return new Time(zonedDateTime.plusHours(hours));
-  }
-
-  /**
-   * @param milliseconds
-   * @return a new {@link Time} with the given milliseconds added or subtracted to
-   *         the current {@link Time}.
-   */
-  public Time getWithAddedOrSubtractedMilliseconds(final int milliseconds) {
-    return new Time(zonedDateTime.plusNanos(1000L * milliseconds));
-  }
-
-  /**
-   * @param minutes
-   * @return a new {@link Time} with the given minutes added or subtracted to the
-   *         current {@link Time}.
-   */
-  public Time getWithAddedOrSubtractedMinutes(final int minutes) {
-    return new Time(zonedDateTime.plusMinutes(minutes));
-  }
-
-  /**
-   * @param seconds
-   * @return a new {@link Time} with the given seconds added or subtracted to the
-   *         current {@link Time}.
-   */
-  public Time getWithAddedOrSubtractedSeconds(final int seconds) {
-    return new Time(zonedDateTime.plusSeconds(seconds));
+    return Weekday.fromDayOfWeek(internalZonedDateTime.getDayOfWeek());
   }
 
   /**
    * @return the year of the current {@link Time}.
    */
   public Time getYear() {
-    return Time.withYear(getYearAsInt());
+    return withYear(getYearAsInt());
   }
 
   /**
    * @return the year of the current {@link Time}.
    */
   public int getYearAsInt() {
-    return zonedDateTime.getYear();
+    return internalZonedDateTime.getYear();
   }
 
   /**
@@ -672,21 +644,61 @@ extends Element implements ITime {
   }
 
   /**
-   * {@inheritDoc}
+   * @param days
+   * @return a new {@link Time} with the given days added or subtracted to the
+   *         current {@link Time}.
    */
-  @Override
-  public ITime withAddedOrSubtractedMicroseconds(final long microseconds) {
+  public Time withAddedOrSubtractedDays(final int days) {
+    return new Time(internalZonedDateTime.plusDays(days));
+  }
 
-    final var nanoseconds = 1_000 * microseconds;
-
-    return withAddedOrSubtractedNanoseconds(nanoseconds);
+  /**
+   * @param hours
+   * @return a new {@link Time} with the given hours added or subtracted to the
+   *         current {@link Time}.
+   */
+  public Time withAddedOrSubtractedHours(final int hours) {
+    return new Time(internalZonedDateTime.plusHours(hours));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ITime withAddedOrSubtractedNanoseconds(final long nanoseconds) {
-    return new Time(zonedDateTime.plusNanos(nanoseconds));
+  public ITime withAddedOrSubtractedMicroseconds(final long microseconds) {
+  
+    final var nanoseconds = TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND * microseconds;
+  
+    return forZonedDateTime(internalZonedDateTime.plusNanos(nanoseconds));
+  }
+
+  /**
+   * @param milliseconds
+   * @return a new {@link Time} with the given milliseconds added or subtracted to
+   *         the current {@link Time}.
+   */
+  public Time withAddedOrSubtractedMilliseconds(final int milliseconds) {
+  
+    final var nanoSeconds = TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * milliseconds;
+  
+    return forZonedDateTime(internalZonedDateTime.plusNanos(nanoSeconds));
+  }
+
+  /**
+   * @param minutes
+   * @return a new {@link Time} with the given minutes added or subtracted to the
+   *         current {@link Time}.
+   */
+  public Time withAddedOrSubtractedMinutes(final int minutes) {
+    return forZonedDateTime(internalZonedDateTime.plusMinutes(minutes));
+  }
+
+  /**
+   * @param seconds
+   * @return a new {@link Time} with the given seconds added or subtracted to the
+   *         current {@link Time}.
+   */
+  public Time withAddedOrSubtractedSeconds(final int seconds) {
+    return forZonedDateTime(internalZonedDateTime.plusSeconds(seconds));
   }
 }

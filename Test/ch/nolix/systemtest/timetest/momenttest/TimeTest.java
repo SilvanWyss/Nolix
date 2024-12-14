@@ -13,7 +13,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var testUnit = Time
-      .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+      .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
         2020,
         1,
         2,
@@ -79,7 +79,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -88,7 +88,7 @@ final class TimeTest extends StandardTest {
       00,
       000);
     final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       01,
@@ -109,7 +109,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -118,7 +118,7 @@ final class TimeTest extends StandardTest {
       00,
       000);
     final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -139,7 +139,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -148,7 +148,7 @@ final class TimeTest extends StandardTest {
       00,
       000);
     final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       03,
@@ -169,7 +169,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       01,
@@ -178,7 +178,7 @@ final class TimeTest extends StandardTest {
       00,
       000);
     final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       01,
@@ -199,7 +199,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -208,7 +208,7 @@ final class TimeTest extends StandardTest {
       00,
       000);
     final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -229,7 +229,7 @@ final class TimeTest extends StandardTest {
 
     //setup
     final var testUnit = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       02,
@@ -238,7 +238,7 @@ final class TimeTest extends StandardTest {
       00,
       000);
     final var time = //
-    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
       06,
       03,
@@ -281,14 +281,14 @@ final class TimeTest extends StandardTest {
   }
 
   @Test
-  void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour() {
+  void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour() {
 
     //main loop
     for (var h = 0; h <= 23; h++) {
       for (var m = 0; m <= 59; m++) {
 
         //execution
-        final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2000, 1, 1, h, m);
+        final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(2000, 1, 1, h, m);
 
         //verification
         expect(result.getYearAsInt()).isEqualTo(2000);
