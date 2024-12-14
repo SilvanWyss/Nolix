@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
  * 
  * A {@link IIncrementalCurrentTimeCreator} guarantees that each
  * {@link ZonedDateTime} the {@link IIncrementalCurrentTimeCreator} creates is
- * at least 1 nanosecond bigger then the previously created
+ * at least 1 microsecond bigger then the previously created
  * {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss

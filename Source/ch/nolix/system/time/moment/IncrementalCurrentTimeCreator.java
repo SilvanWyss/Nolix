@@ -17,7 +17,7 @@ public final class IncrementalCurrentTimeCreator implements IIncrementalCurrentT
     ITime now = Time.ofNow();
 
     if (now.equals(latestTime)) {
-      now = now.withAddedOrSubtractedNanoseconds(1);
+      now = now.withAddedOrSubtractedMicroseconds(1);
     }
 
     latestTime = now;
