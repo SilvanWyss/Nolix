@@ -5,14 +5,14 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedOptional
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public final class ParameterizedOptionalBackReferenceTypeMapper
 implements IParameterizedFieldTypeMapper<IOptionalBackReference<IEntity>> {
 
   @Override
-  public IParameterizedFieldType createParameterizedFieldTypeFromField(
+  public IContentModel createParameterizedFieldTypeFromField(
     final IOptionalBackReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 

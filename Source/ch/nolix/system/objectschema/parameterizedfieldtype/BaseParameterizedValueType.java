@@ -3,32 +3,32 @@ package ch.nolix.system.objectschema.parameterizedfieldtype;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseBackReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 public abstract class BaseParameterizedValueType<V> extends ParameterizedFieldType
-implements IBaseParameterizedValueType<V> {
+implements IBaseValueModel<V> {
 
   protected BaseParameterizedValueType(final DataType dataType) {
     super(dataType);
   }
 
   @Override
-  public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
+  public final IBaseBackReferenceModel asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
+  public final IBaseReferenceModel asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+  public final IBaseValueModel<?> asBaseParameterizedValueType() {
     return this;
   }
 
@@ -50,6 +50,6 @@ implements IBaseParameterizedValueType<V> {
 
   @Override
   public final IParameterizedFieldTypeDto toDto() {
-    return new BaseParameterizedValueTypeDto(getFieldType(), getDataType());
+    return new BaseParameterizedValueTypeDto(getContentType(), getDataType());
   }
 }

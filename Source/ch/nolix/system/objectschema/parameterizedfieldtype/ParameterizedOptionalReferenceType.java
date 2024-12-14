@@ -14,7 +14,7 @@ public final class ParameterizedOptionalReferenceType extends BaseParameterizedR
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.OPTIONAL_REFERENCE;
   }
 }

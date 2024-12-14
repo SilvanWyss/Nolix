@@ -32,7 +32,7 @@ final class TableMutationValidator {
 
     if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
 
-      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) column.getParameterizedFieldType();
+      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) column.getContentModel();
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
       DATABASE_TOOL.assertContainsGivenTable(table.getStoredParentDatabase(), referencedTable);
@@ -41,7 +41,7 @@ final class TableMutationValidator {
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
 
       final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) column
-        .getParameterizedFieldType();
+        .getContentModel();
 
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 

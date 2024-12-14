@@ -1,13 +1,13 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 
 public interface IParameterizedFieldTypeTool extends IDatabaseObjectTool {
 
-  boolean isABaseBackReferenceType(IParameterizedFieldType parameterizedFieldType);
+  boolean isABaseBackReferenceType(IContentModel contentModel);
 
-  boolean isABaseReferenceType(IParameterizedFieldType parameterizedFieldType);
+  boolean isABaseReferenceType(IContentModel contentModel);
 
-  boolean isABaseValueType(IParameterizedFieldType parameterizedFieldType);
+  boolean isABaseValueType(IContentModel contentModel);
 }

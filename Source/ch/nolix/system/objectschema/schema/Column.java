@@ -15,7 +15,7 @@ import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
@@ -39,26 +39,26 @@ public final class Column extends SchemaObject implements IColumn {
 
   private String name = INITIAL_HEADER;
 
-  private IParameterizedFieldType parameterizedFieldType = INITIAL_FIELD_TYPE;
+  private IContentModel contentModel = INITIAL_FIELD_TYPE;
 
   private Table parentTable;
 
   public Column(
     final String name,
-    final IParameterizedFieldType parameterizedFieldType) {
-    this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parameterizedFieldType);
+    final IContentModel contentModel) {
+    this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, contentModel);
   }
 
   private Column(
     final String id,
     final String name,
-    final IParameterizedFieldType parameterizedFieldType) {
+    final IContentModel contentModel) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
     this.id = id;
     setName(name);
-    setParameterizedFieldType(parameterizedFieldType);
+    setContentModel(contentModel);
   }
 
   public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
@@ -93,8 +93,8 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   @Override
-  public IParameterizedFieldType getParameterizedFieldType() {
-    return parameterizedFieldType;
+  public IContentModel getContentModel() {
+    return contentModel;
   }
 
   @Override
@@ -127,18 +127,18 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   @Override
-  public Column setParameterizedFieldType(
-    final IParameterizedFieldType parameterizedFieldType) {
+  public Column setContentModel(
+    final IContentModel contentModel) {
 
-    MUTATION_VALIDATOR.assertCanSetParameterizedFieldTypeToColumn(this, parameterizedFieldType);
-    MUTATION_EXECUTOR.setParameterizedFieldTypeToColumn(this, parameterizedFieldType);
+    MUTATION_VALIDATOR.assertCanSetParameterizedFieldTypeToColumn(this, contentModel);
+    MUTATION_EXECUTOR.setParameterizedFieldTypeToColumn(this, contentModel);
 
     return this;
   }
 
   @Override
   public ColumnDto toDto() {
-    return new ColumnDto(getId(), getName(), getParameterizedFieldType().toDto());
+    return new ColumnDto(getId(), getName(), getContentModel().toDto());
   }
 
   void assertIsEmpty() {
@@ -180,12 +180,12 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   void setParameterizedFieldTypeAttribute(
-    final IParameterizedFieldType parameterizedFieldType) {
-    this.parameterizedFieldType = parameterizedFieldType;
+    final IContentModel contentModel) {
+    this.contentModel = contentModel;
   }
 
   void setParameterizedFieldTypeToDatabase() {
-    internalGetRefRawSchemaAdapter().setColumnParameterizedFieldType(this, parameterizedFieldType);
+    internalGetRefRawSchemaAdapter().setColumnParameterizedFieldType(this, contentModel);
   }
 
   void setParentTableAttribute(final Table parentTable) {

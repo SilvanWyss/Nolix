@@ -2,9 +2,9 @@ package ch.nolix.system.objectschema.parameterizedfieldtype;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 
-public abstract class ParameterizedFieldType implements IParameterizedFieldType {
+public abstract class ParameterizedFieldType implements IContentModel {
 
   private final DataType dataType;
 

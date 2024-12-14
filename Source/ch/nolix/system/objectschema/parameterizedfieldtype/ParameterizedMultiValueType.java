@@ -14,7 +14,7 @@ public final class ParameterizedMultiValueType<V> extends BaseParameterizedValue
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.MULTI_VALUE;
   }
 }

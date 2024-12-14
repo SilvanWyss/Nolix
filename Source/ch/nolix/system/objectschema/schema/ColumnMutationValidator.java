@@ -9,7 +9,7 @@ import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.system.objectschema.schematool.ParameterizedFieldTypeTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
@@ -47,28 +47,28 @@ final class ColumnMutationValidator {
 
   public void assertCanSetParameterizedFieldTypeToColumn(
     final Column column,
-    final IParameterizedFieldType parameterizedFieldType) {
+    final IContentModel contentModel) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     column.assertIsEmpty();
 
-    if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)
+    if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
-      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) parameterizedFieldType;
+      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) contentModel;
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
       DATABASE_TOOL.assertContainsGivenTable(COLUMN_TOOL.getParentDatabase(column), referencedTable);
     }
 
-    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(parameterizedFieldType)) {
+    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)) {
       column.assertIsNotBackReferenced();
     }
 
-    if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(parameterizedFieldType)
+    if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(contentModel)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
-      final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) parameterizedFieldType;
+      final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) contentModel;
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
       DATABASE_TOOL.assertContainsTableWithGivenColumn(

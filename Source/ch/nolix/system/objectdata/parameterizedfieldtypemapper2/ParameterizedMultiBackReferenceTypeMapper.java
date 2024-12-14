@@ -5,14 +5,14 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiBac
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public final class ParameterizedMultiBackReferenceTypeMapper
 implements IParameterizedFieldTypeMapper<IMultiBackReference<IEntity>> {
 
   @Override
-  public IParameterizedFieldType createParameterizedFieldTypeFromField(
+  public IContentModel createParameterizedFieldTypeFromField(
     final IMultiBackReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 

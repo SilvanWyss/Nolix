@@ -14,7 +14,7 @@ public final class ParameterizedOptionalValueType<V> extends BaseParameterizedVa
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.OPTIONAL_VALUE;
   }
 }

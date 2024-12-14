@@ -21,7 +21,7 @@ IIdHolder {
 
   ITable createColumnWithNameAndParameterizedFieldType(
     String name,
-    IParameterizedFieldType parameterizedFieldType);
+    IContentModel contentModel);
 
   IFlatTableDto getFlatDto();
 

@@ -14,7 +14,7 @@ public final class ParameterizedBackReferenceType extends BaseParameterizedBackR
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.BACK_REFERENCE;
   }
 }

@@ -14,7 +14,7 @@ public final class ParameterizedReferenceType extends BaseParameterizedReference
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.REFERENCE;
   }
 }

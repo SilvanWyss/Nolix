@@ -17,9 +17,9 @@ IFluentMutableNameHolder<IColumn>,
 IIdHolder,
 ITableComponent<ITable> {
 
-  IParameterizedFieldType getParameterizedFieldType();
+  IContentModel getContentModel();
 
-  IColumn setParameterizedFieldType(IParameterizedFieldType parameterizedFieldType);
+  IColumn setContentModel(IContentModel contentModel);
 
   IColumnDto toDto();
 }

@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.schema;
 
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 
 final class ColumnMutationExecutor {
 
@@ -35,14 +35,14 @@ final class ColumnMutationExecutor {
 
   public void setParameterizedFieldTypeToColumn(
     final Column column,
-    final IParameterizedFieldType parameterizedFieldType) {
+    final IContentModel contentModel) {
 
-    column.setParameterizedFieldTypeAttribute(parameterizedFieldType);
+    column.setParameterizedFieldTypeAttribute(contentModel);
 
     if (column.isLinkedWithRealDatabase()) {
       column
         .internalGetRefRawSchemaAdapter()
-        .setColumnParameterizedFieldType(column, parameterizedFieldType);
+        .setColumnParameterizedFieldType(column, contentModel);
     }
 
     column.internalSetEdited();

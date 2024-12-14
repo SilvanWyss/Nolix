@@ -5,14 +5,14 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiRef
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public final class ParameterizedMultiReferenceTypeMapper
 implements IParameterizedFieldTypeMapper<IMultiReference<IEntity>> {
 
   @Override
-  public IParameterizedFieldType createParameterizedFieldTypeFromField(
+  public IContentModel createParameterizedFieldTypeFromField(
     final IMultiReference<IEntity> property,
     final IContainer<ITable> referencedTables) {
 

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-public interface IBaseParameterizedReferenceType extends IParameterizedFieldType {
+public interface IBaseReferenceModel extends IContentModel {
 
   ITable getReferencedTable();
 }

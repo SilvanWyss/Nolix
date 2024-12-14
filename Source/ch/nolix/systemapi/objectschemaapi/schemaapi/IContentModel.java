@@ -4,17 +4,17 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-public interface IParameterizedFieldType {
+public interface IContentModel {
 
-  IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType();
+  IBaseBackReferenceModel asBaseParameterizedBackReferenceType();
 
-  IBaseParameterizedReferenceType asBaseParameterizedReferenceType();
+  IBaseReferenceModel asBaseParameterizedReferenceType();
 
-  IBaseParameterizedValueType<?> asBaseParameterizedValueType();
+  IBaseValueModel<?> asBaseParameterizedValueType();
 
   DataType getDataType();
 
-  ContentType getFieldType();
+  ContentType getContentType();
 
   boolean referencesTable(ITable table);
 

@@ -14,7 +14,7 @@ public final class ParameterizedOptionalBackReferenceType extends BaseParameteri
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.OPTIONAL_BACK_REFERENCE;
   }
 }

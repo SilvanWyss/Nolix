@@ -14,7 +14,7 @@ public final class ParameterizedMultiReferenceType extends BaseParameterizedRefe
   }
 
   @Override
-  public ContentType getFieldType() {
+  public ContentType getContentType() {
     return ContentType.MULTI_REFERENCE;
   }
 }

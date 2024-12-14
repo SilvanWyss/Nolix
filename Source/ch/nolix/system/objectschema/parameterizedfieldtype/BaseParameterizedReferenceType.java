@@ -4,15 +4,15 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseBackReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 public abstract class BaseParameterizedReferenceType extends ParameterizedFieldType
-implements IBaseParameterizedReferenceType {
+implements IBaseReferenceModel {
 
   private final ITable referencedTable;
 
@@ -26,17 +26,17 @@ implements IBaseParameterizedReferenceType {
   }
 
   @Override
-  public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
+  public final IBaseBackReferenceModel asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
+  public final IBaseReferenceModel asBaseParameterizedReferenceType() {
     return this;
   }
 
   @Override
-  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+  public final IBaseValueModel<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
@@ -58,7 +58,7 @@ implements IBaseParameterizedReferenceType {
   @Override
   public final IParameterizedFieldTypeDto toDto() {
     return new BaseParameterizedReferenceTypeDto(
-      getFieldType(),
+      getContentType(),
       getDataType(),
       getReferencedTable().getId());
   }

@@ -7,7 +7,7 @@ import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedOptional
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public final class ParameterizedOptionalValueTypeMapper implements IParameterizedFieldTypeMapper<IOptionalValue<?>> {
@@ -15,7 +15,7 @@ public final class ParameterizedOptionalValueTypeMapper implements IParameterize
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   @Override
-  public IParameterizedFieldType createParameterizedFieldTypeFromField(
+  public IContentModel createParameterizedFieldTypeFromField(
     final IOptionalValue<?> field,
     final IContainer<ITable> referencedTables) {
 

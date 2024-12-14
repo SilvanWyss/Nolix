@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-public interface IBaseParameterizedBackReferenceType extends IParameterizedFieldType {
+public interface IBaseBackReferenceModel extends IContentModel {
 
   IColumn getBackReferencedColumn();
 }
