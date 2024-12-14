@@ -6,15 +6,16 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
-import ch.nolix.system.time.moment.Time;
+import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
@@ -34,6 +35,8 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private static final ParameterizedFieldTypeNodeMapper parameterizedFieldTypeNodeMapper = //
   new ParameterizedFieldTypeNodeMapper();
+
+  private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = new IncrementalCurrentTimeCreator();
 
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -134,7 +137,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void saveChanges() {
     try {
 
-      setSchemaTimestamp(Time.ofNow());
+      setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
       nodeDatabase.setChildNodes(editedNodeDatabase.getStoredChildNodes());
 
       saveCount++;

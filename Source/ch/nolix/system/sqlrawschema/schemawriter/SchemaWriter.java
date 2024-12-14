@@ -6,14 +6,17 @@ import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.time.moment.Time;
+import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
+
+  private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = new IncrementalCurrentTimeCreator();
 
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -106,7 +109,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void saveChanges() {
     try {
 
-      systemDataWriter.setSchemaTimestamp(Time.ofNow());
+      systemDataWriter.setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
       sqlCollector.addSqlStatements(internalSchemaWriter.getSqlStatements());
       sqlCollector.executeAndClearUsingConnection(sqlConnection);
 
