@@ -670,4 +670,12 @@ extends Element implements ITime {
   public boolean isInLeapYear() {
     return Year.isLeap(getYearAsInt());
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITime withAddedOrSubtractedNanoseconds(final long nanoseconds) {
+    return new Time(zonedDateTime.plusNanos(nanoseconds));
+  }
 }
