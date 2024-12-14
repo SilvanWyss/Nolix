@@ -9,33 +9,6 @@ import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 final class TimeTest extends StandardTest {
 
   @Test
-  void testCase_getDay() {
-
-    //setup
-    final var testUnit = Time
-      .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
-        2020,
-        1,
-        2,
-        10,
-        15,
-        30,
-        500);
-
-    //execution
-    final Time result = testUnit.getDay();
-
-    //verification
-    expect(result.getYearAsInt()).isEqualTo(2020);
-    expect(result.getMonthOfYearAsInt()).isEqualTo(1);
-    expect(result.getDayOfMonth()).isEqualTo(2);
-    expect(result.getHourOfDay()).isEqualTo(0);
-    expect(result.getMinuteOfHour()).isEqualTo(0);
-    expect(result.getSecondOfMinute()).isEqualTo(0);
-    expect(result.getMillisecondOfSecond()).isEqualTo(0);
-  }
-
-  @Test
   void testCase_getWeekday_whenIs2020_01_01() {
 
     //setup
@@ -272,7 +245,7 @@ final class TimeTest extends StandardTest {
           final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 
           //verification
-          expect(result.getYearAsInt()).isEqualTo(y);
+          expect(result.getYear()).isEqualTo(y);
           expect(result.getMonthOfYearAsInt()).isEqualTo(m);
           expect(result.getDayOfMonth()).isEqualTo(d);
         }
@@ -291,7 +264,7 @@ final class TimeTest extends StandardTest {
         final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(2000, 1, 1, h, m);
 
         //verification
-        expect(result.getYearAsInt()).isEqualTo(2000);
+        expect(result.getYear()).isEqualTo(2000);
         expect(result.getMonthOfYearAsInt()).isEqualTo(1);
         expect(result.getDayOfMonth()).isEqualTo(1);
         expect(result.getHourOfDay()).isEqualTo(h);

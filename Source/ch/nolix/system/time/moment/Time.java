@@ -19,9 +19,8 @@ import ch.nolix.systemapi.timeapi.timestructureapi.Month;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
 /**
- * A {@link Time} is not mutable. A {@link Time} stores a time with a precision
- * of 1 microsecond. Technically, a {@link Time} is a wrapper around a JDK's
- * {@link ZonedDateTime}.
+ * A {@link Time} is not mutable. Technically, a {@link Time} is a wrapper
+ * around a JDK's {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss
  * @version 2016-09-01
@@ -390,14 +389,14 @@ extends Element implements ITime {
     final var timeCode = //
     String.format(
       "%04d-%02d-%02d-%02d-%02d-%02d-%03d-%03d",
-      getYearAsInt(),
+      getYear(),
       getMonthOfYearAsInt(),
       getDayOfMonth(),
       getHourOfDay(),
       getMinuteOfHour(),
       getSecondOfMinute(),
       getMillisecondOfSecond(),
-      getMicrosecondsOfMillisecond());
+      getMicrosecondOfMillisecond());
 
     final var attribute = Node.withHeader(timeCode);
 
@@ -405,49 +404,17 @@ extends Element implements ITime {
   }
 
   /**
-   * @return the day of the current {@link Time}.
+   * {@inheritDoc}
    */
-  public Time getDay() {
-    return //
-    withYearAndMonthOfYearAndDayOfMonth(
-      getYearAsInt(),
-      getMonthOfYearAsInt(),
-      getDayOfMonth());
-  }
-
-  /**
-   * @return the day of the month of the current {@link Time}.
-   */
+  @Override
   public int getDayOfMonth() {
     return internalZonedDateTime.getDayOfMonth();
   }
 
   /**
-   * This method returns a negative value if the current {@link Time} is after the
-   * given time.
-   * 
-   * @param time
-   * @return the number of days from the current {@link Time} to the given time.
+   * {@inheritDoc}
    */
-  public int getDaysTo(final Time time) {
-    return (int) (getMillisecondsTo(time) / TimeUnitConversionCatalogue.MILLISECONDS_PER_DAY);
-  }
-
-  /**
-   * @return the hour of the current {@link Time}.
-   */
-  public Time getHour() {
-    return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
-      getYearAsInt(),
-      getMonthOfYearAsInt(),
-      getDayOfMonth(),
-      getHourOfDay());
-  }
-
-  /**
-   * @return the hour of the month of the current {@link Time}.
-   */
+  @Override
   public int getHourOfDay() {
     return internalZonedDateTime.getHour();
   }
@@ -456,7 +423,7 @@ extends Element implements ITime {
    * {@inheritDoc}
    */
   @Override
-  public int getMicrosecondsOfMillisecond() {
+  public int getMicrosecondOfMillisecond() {
     return //
     (internalZonedDateTime.getNano() / TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND)
     % TimeUnitConversionCatalogue.MICROSECONDS_PER_MILLISECOND;
@@ -466,54 +433,16 @@ extends Element implements ITime {
    * {@inheritDoc}
    */
   @Override
-  public long getMilliseconds() {
-    return internalZonedDateTime.toInstant().toEpochMilli();
-  }
-
-  /**
-   * @return the millisecond of the second of the current {@link Time}.
-   */
   public int getMillisecondOfSecond() {
     return (internalZonedDateTime.getNano() / TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND);
   }
 
   /**
-   * This method returns a negative value if the current {@link Time} is after the
-   * given time.
-   * 
-   * @param time
-   * @return the number of milliseconds from the current {@link Time} to the given
-   *         time.
+   * {@inheritDoc}
    */
-  public long getMillisecondsTo(final ITime time) {
-    return (time.getMilliseconds() - this.getMilliseconds());
-  }
-
-  /**
-   * @return the minute of the current {@link Time}.
-   */
-  public Time getMinute() {
-    return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(
-      getYearAsInt(),
-      getMonthOfYearAsInt(),
-      getDayOfMonth(),
-      getHourOfDay(),
-      getMinuteOfHour());
-  }
-
-  /**
-   * @return the minute of the hour of the current {@link Time}.
-   */
+  @Override
   public int getMinuteOfHour() {
     return internalZonedDateTime.getMinute();
-  }
-
-  /**
-   * @return the month of the current {@link Time}.
-   */
-  public Time getMonth() {
-    return withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt());
   }
 
   /**
@@ -525,98 +454,34 @@ extends Element implements ITime {
   }
 
   /**
-   * @return the month of the year of the current {@link Time}.
+   * {@inheritDoc}
    */
+  @Override
   public int getMonthOfYearAsInt() {
     return internalZonedDateTime.getMonth().getValue();
   }
 
   /**
-   * @return the next day of the current {@link Time}.
+   * {@inheritDoc}
    */
-  public Time getNextDay() {
-    return withAddedOrSubtractedDays(1).getDay();
-  }
-
-  /**
-   * @return the next hour of the current {@link Time}.
-   */
-  public Time getNextHour() {
-    return withAddedOrSubtractedHours(1).getHour();
-  }
-
-  /**
-   * @return the next minute of the current {@link Time}.
-   */
-  public Time getNextMinute() {
-    return withAddedOrSubtractedMinutes(1).getMinute();
-  }
-
-  /**
-   * @return the next month of the current {@link Time}.
-   */
-  public Time getNextMonth() {
-
-    //Handles the case that the month of the year of the current {@link Time} is not December.
-    if (getMonthOfYearAsInt() < 12) {
-      return withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt() + 1);
-    }
-
-    //Handles the case that the month of the year of the current {@link Time} is December.
-    return withYearAndMonthOfYear(getYearAsInt() + 1, 1);
-  }
-
-  /**
-   * @return the next second of the current {@link Time}.
-   */
-  public Time getNextSecond() {
-    return withAddedOrSubtractedSeconds(1).getSecond();
-  }
-
-  /**
-   * @return the next year of the current {@link Time}.
-   */
-  public Time getNextYear() {
-    return withYear(getYearAsInt() + 1);
-  }
-
-  /**
-   * @return the second of the current {@link Time}.
-   */
-  public Time getSecond() {
-    return //
-    withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMin(
-      getYearAsInt(),
-      getMonthOfYearAsInt(),
-      getDayOfMonth(),
-      getHourOfDay(),
-      getMinuteOfHour(),
-      getSecondOfMinute());
-  }
-
-  /**
-   * @return the second of the minute of the current {@link Time}.
-   */
+  @Override
   public int getSecondOfMinute() {
     return internalZonedDateTime.getSecond();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Weekday getWeekday() {
     return Weekday.fromDayOfWeek(internalZonedDateTime.getDayOfWeek());
   }
 
   /**
-   * @return the year of the current {@link Time}.
+   * {@inheritDoc}
    */
-  public Time getYear() {
-    return withYear(getYearAsInt());
-  }
-
-  /**
-   * @return the year of the current {@link Time}.
-   */
-  public int getYearAsInt() {
+  @Override
+  public int getYear() {
     return internalZonedDateTime.getYear();
   }
 
@@ -625,7 +490,7 @@ extends Element implements ITime {
    */
   @Override
   public boolean isAfter(final ITime time) {
-    return (getMilliseconds() > time.getMilliseconds());
+    return (toSeconds() > time.toSeconds());
   }
 
   /**
@@ -633,30 +498,37 @@ extends Element implements ITime {
    */
   @Override
   public boolean isBefore(final ITime time) {
-    return (getMilliseconds() < time.getMilliseconds());
+    return (toSeconds() < time.toSeconds());
   }
 
   /**
-   * @return true if the current {@link Time} is in a leap year.
+   * {@inheritDoc}
    */
+  @Override
   public boolean isInLeapYear() {
-    return Year.isLeap(getYearAsInt());
+    return Year.isLeap(getYear());
   }
 
   /**
-   * @param days
-   * @return a new {@link Time} with the given days added or subtracted to the
-   *         current {@link Time}.
+   * {@inheritDoc}
    */
+  @Override
+  public long toSeconds() {
+    return internalZonedDateTime.toEpochSecond();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public Time withAddedOrSubtractedDays(final int days) {
     return new Time(internalZonedDateTime.plusDays(days));
   }
 
   /**
-   * @param hours
-   * @return a new {@link Time} with the given hours added or subtracted to the
-   *         current {@link Time}.
+   * {@inheritDoc}
    */
+  @Override
   public Time withAddedOrSubtractedHours(final int hours) {
     return new Time(internalZonedDateTime.plusHours(hours));
   }
@@ -666,38 +538,35 @@ extends Element implements ITime {
    */
   @Override
   public ITime withAddedOrSubtractedMicroseconds(final long microseconds) {
-  
+
     final var nanoseconds = TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND * microseconds;
-  
+
     return forZonedDateTime(internalZonedDateTime.plusNanos(nanoseconds));
   }
 
   /**
-   * @param milliseconds
-   * @return a new {@link Time} with the given milliseconds added or subtracted to
-   *         the current {@link Time}.
+   * {@inheritDoc}
    */
+  @Override
   public Time withAddedOrSubtractedMilliseconds(final int milliseconds) {
-  
+
     final var nanoSeconds = TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * milliseconds;
-  
+
     return forZonedDateTime(internalZonedDateTime.plusNanos(nanoSeconds));
   }
 
   /**
-   * @param minutes
-   * @return a new {@link Time} with the given minutes added or subtracted to the
-   *         current {@link Time}.
+   * {@inheritDoc}
    */
+  @Override
   public Time withAddedOrSubtractedMinutes(final int minutes) {
     return forZonedDateTime(internalZonedDateTime.plusMinutes(minutes));
   }
 
   /**
-   * @param seconds
-   * @return a new {@link Time} with the given seconds added or subtracted to the
-   *         current {@link Time}.
+   * {@inheritDoc}
    */
+  @Override
   public Time withAddedOrSubtractedSeconds(final int seconds) {
     return forZonedDateTime(internalZonedDateTime.plusSeconds(seconds));
   }
