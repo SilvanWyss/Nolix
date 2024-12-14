@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programstructureapi.typerequestapi;
+package ch.nolix.coreapi.structureapi.typerequestapi;
 
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
