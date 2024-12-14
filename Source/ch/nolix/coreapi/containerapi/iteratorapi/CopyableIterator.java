@@ -2,7 +2,7 @@ package ch.nolix.coreapi.containerapi.iteratorapi;
 
 import java.util.Iterator;
 
-import ch.nolix.coreapi.programstructureapi.copierapi.Copyable;
+import ch.nolix.coreapi.structurecontrolapi.copierapi.Copyable;
 
 /**
  * A {@link CopyableIterator} is a {@link Iterator} that can be copied.

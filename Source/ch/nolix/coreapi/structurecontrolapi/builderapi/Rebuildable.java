@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programstructureapi.builderapi;
+package ch.nolix.coreapi.structurecontrolapi.builderapi;
 
 /**
  * A {@link Rebuildable} can rebuild itself.

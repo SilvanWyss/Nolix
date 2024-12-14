@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
+import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;

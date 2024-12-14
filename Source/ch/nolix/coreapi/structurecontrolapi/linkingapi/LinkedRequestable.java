@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programstructureapi.linkingapi;
+package ch.nolix.coreapi.structurecontrolapi.linkingapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
