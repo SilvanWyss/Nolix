@@ -1,10 +1,16 @@
 package ch.nolix.systemapi.timeapi.momentapi;
 
+import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.timeapi.timestructureapi.Month;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 
 public interface ITime extends IElement {
+
+  /**
+   * @return the microsecond of the millisecond of the current {@link Time}.
+   */
+  int getMicrosecondsOfMillisecond();
 
   /**
    * @return the milliseconds of the current {@link ITime}.
