@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.programcontrolapi.savecontrolapi;
 
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ChangeRequestable} can be asked if it has uncommitted changes.

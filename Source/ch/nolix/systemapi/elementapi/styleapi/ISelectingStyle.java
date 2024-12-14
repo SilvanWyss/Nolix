@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.elementapi.styleapi;
 
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ISelectingStyle} is a {@link IBaseStyle} that can select or skip a

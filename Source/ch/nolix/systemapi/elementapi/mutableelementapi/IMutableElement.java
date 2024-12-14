@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.elementapi.mutableelementapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.coreapi.stateapi.statemutationapi.Resettable;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 /**

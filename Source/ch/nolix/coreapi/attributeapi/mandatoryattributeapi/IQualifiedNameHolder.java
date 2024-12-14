@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link IQualifiedNameHolder} has a qualified name. The qualified name of a

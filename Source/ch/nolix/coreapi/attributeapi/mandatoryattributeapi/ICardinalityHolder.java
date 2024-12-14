@@ -2,7 +2,7 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ICardinalityHolder} has a {@link Cardinality}.

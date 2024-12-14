@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link CloseStateRequestable} can be asked if it is closed or open.

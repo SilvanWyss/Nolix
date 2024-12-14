@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.stateapi.staterequestapi;
 
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link EmptinessRequestable} can be asked if it is empty or contains

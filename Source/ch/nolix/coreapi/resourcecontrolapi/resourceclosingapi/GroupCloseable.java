@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
 
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * @author Silvan Wyss

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programstructureapi.markerapi;
+package ch.nolix.coreapi.structureapi.typemarkerapi;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
