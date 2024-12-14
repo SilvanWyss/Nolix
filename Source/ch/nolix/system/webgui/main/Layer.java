@@ -33,8 +33,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
-public final class Layer //NOSONAR: A Layer is a central object with many dependencies.
-extends StylableElement<Layer> implements ILayer<Layer> {
+public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
+extends StylableElement<Layer>
+implements ILayer<Layer> {
 
   public static final double DEFAULT_OPACITY = 1.0;
 

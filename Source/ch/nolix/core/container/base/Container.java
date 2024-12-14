@@ -32,7 +32,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  * @version 2016-01-01
  * @param <E> is the type of the elements of a {@link Container}.
  */
-public abstract class Container<E> //NOSONAR: A Container has many methods and thus many dependencies.
+public abstract class Container<E> //NOSONAR: A Control is a principal object thus it has many methods.
 implements IContainer<E> {
 
   private static final IIterableTool ITERABLE_TOOL = new IterableTool();

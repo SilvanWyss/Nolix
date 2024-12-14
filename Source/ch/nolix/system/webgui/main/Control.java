@@ -33,7 +33,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public abstract class Control //NOSONAR: A Control is a central object with many dependencies.
+public abstract class Control //NOSONAR: A Control is a principal object thus it has many methods.
 <C extends IControl<C, S>, S extends IControlStyle<S>>
 extends StylableElement<C>
 implements IControl<C, S> {

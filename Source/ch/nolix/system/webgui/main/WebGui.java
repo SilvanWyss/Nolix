@@ -37,8 +37,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayerStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public final class WebGui //NOSONAR: A WebGui is a central object with many dependencies.
-extends StyleElement<WebGui> implements IWebGui<WebGui> {
+public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
+extends StyleElement<WebGui>
+implements IWebGui<WebGui> {
 
   public static final String DEFAULT_TITLE = PascalCaseVariableCatalogue.GUI;
 

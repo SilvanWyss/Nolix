@@ -35,8 +35,7 @@ public final class Fractal implements IFractal {
 
   private final int decimalPlaces;
 
-  public Fractal( //NOSONAR: A Fractal has many parameters and therefore a FractalBuilder fills
-    //them up.
+  public Fractal( //NOSONAR: A Fractal has many parameters.
     final IClosedInterval realComponentInterval,
     final IClosedInterval imaginaryComponentInterval,
     final int widthInPixel,
