@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.data;
 
+import ch.nolix.core.datamodel.blob.Blob;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programstructure.data.BinaryObject;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 
 public final class ValueCreator {
@@ -25,7 +25,7 @@ public final class ValueCreator {
       case STRING ->
         string;
       case BINARY_OBJECT ->
-        BinaryObject.fromString(string);
+        Blob.fromString(string);
       default ->
         throw InvalidArgumentException.forArgument(dataType);
     };

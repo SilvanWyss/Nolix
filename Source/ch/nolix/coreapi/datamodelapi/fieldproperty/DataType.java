@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.datamodelapi.fieldproperty;
 
-import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
+import ch.nolix.coreapi.datamodelapi.blobapi.IBlob;
 
 public enum DataType {
   INTEGER_1BYTE(Byte.class),
@@ -11,7 +11,7 @@ public enum DataType {
   FLOATING_POINT_NUMBER_8BYTE(Double.class),
   BOOLEAN(Boolean.class),
   STRING(String.class),
-  BINARY_OBJECT(IBinaryObject.class);
+  BINARY_OBJECT(IBlob.class);
 
   private final Class<?> dataTypeClass;
 

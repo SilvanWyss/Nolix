@@ -1,27 +1,27 @@
-package ch.nolix.core.programstructure.data;
+package ch.nolix.core.datamodel.blob;
 
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
+import ch.nolix.coreapi.datamodelapi.blobapi.IBlob;
 
-public final class BinaryObject implements IBinaryObject {
+public final class Blob implements IBlob {
 
   private final byte[] bytes;
 
-  private BinaryObject(final byte[] bytes) {
+  private Blob(final byte[] bytes) {
 
     GlobalValidator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 
     this.bytes = bytes; //NOSONAR: A BinaryObject operates on the original instance.
   }
 
-  public static BinaryObject forBytes(final byte[] bytes) {
-    return new BinaryObject(bytes);
+  public static Blob forBytes(final byte[] bytes) {
+    return new Blob(bytes);
   }
 
-  public static BinaryObject fromString(final String string) {
-    return new BinaryObject(string.getBytes(StandardCharsets.UTF_8));
+  public static Blob fromString(final String string) {
+    return new Blob(string.getBytes(StandardCharsets.UTF_8));
   }
 
   @Override
