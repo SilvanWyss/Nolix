@@ -3,9 +3,9 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
-public abstract class ParameterizedFieldTypeDto implements IParameterizedFieldTypeDto {
+public abstract class ParameterizedFieldTypeDto implements IContentModelDto {
 
   private final ContentType contentType;
 

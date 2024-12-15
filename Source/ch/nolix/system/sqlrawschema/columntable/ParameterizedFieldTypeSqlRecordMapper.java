@@ -1,32 +1,32 @@
 package ch.nolix.system.sqlrawschema.columntable;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public final class ParameterizedFieldTypeSqlRecordMapper {
 
   private static final String NULL = "NULL";
 
   public ParameterizedFieldTypeSqlRecord createParameterizedFieldTypeRecordFrom(
-    final IParameterizedFieldTypeDto parameterizedFieldType) {
+    final IContentModelDto parameterizedFieldType) {
     return switch (parameterizedFieldType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
-        createBaseParameterizedValueTypeRecord((IBaseParameterizedValueTypeDto) parameterizedFieldType);
+        createBaseParameterizedValueTypeRecord((IAbstractValueModelDto) parameterizedFieldType);
       case BASE_REFERENCE ->
-        createBaseParameterizedReferenceTypeRecord((IBaseParameterizedReferenceTypeDto) parameterizedFieldType);
+        createBaseParameterizedReferenceTypeRecord((IAbstractReferenceModelDto) parameterizedFieldType);
       case BASE_BACK_REFERENCE ->
         createBaseParameterizedBackReferenceRecord(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType);
+          (IAbstractBackReferenceModelDto) parameterizedFieldType);
       default ->
         throw InvalidArgumentException.forArgument(parameterizedFieldType);
     };
   }
 
   private ParameterizedFieldTypeSqlRecord createBaseParameterizedBackReferenceRecord(
-    final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
+    final IAbstractBackReferenceModelDto baseParameterizedBackReferenceType) {
     return new ParameterizedFieldTypeSqlRecord(
       "'" + baseParameterizedBackReferenceType.getFieldType().toString() + "'",
       "'" + baseParameterizedBackReferenceType.getDataType().name() + "'",
@@ -35,7 +35,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
   }
 
   private ParameterizedFieldTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
-    final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
+    final IAbstractReferenceModelDto baseParameterizedReferenceType) {
     return new ParameterizedFieldTypeSqlRecord(
       "'" + baseParameterizedReferenceType.getFieldType().toString() + "'",
       "'" + baseParameterizedReferenceType.getDataType().name() + "'",
@@ -44,7 +44,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
   }
 
   private ParameterizedFieldTypeSqlRecord createBaseParameterizedValueTypeRecord(
-    final IBaseParameterizedValueTypeDto baseParameterizedFieldType) {
+    final IAbstractValueModelDto baseParameterizedFieldType) {
     return new ParameterizedFieldTypeSqlRecord(
       "'" + baseParameterizedFieldType.getFieldType().toString() + "'",
       "'" + baseParameterizedFieldType.getDataType().name() + "'",

@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public abstract class AbstractValueModel<V> implements IAbstractValueModel<V> {
 
@@ -59,7 +59,7 @@ public abstract class AbstractValueModel<V> implements IAbstractValueModel<V> {
   }
 
   @Override
-  public final IParameterizedFieldTypeDto toDto() {
+  public final IContentModelDto toDto() {
     return new BaseParameterizedValueTypeDto(getContentType(), getDataType());
   }
 }

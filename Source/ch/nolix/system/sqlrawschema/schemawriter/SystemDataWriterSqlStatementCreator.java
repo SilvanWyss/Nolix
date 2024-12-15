@@ -12,7 +12,7 @@ import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -133,7 +133,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   @Override
   public String createStatementToSetColumnParameterizedFieldType(
     final String columnID,
-    final IParameterizedFieldTypeDto parameterizedFieldType) {
+    final IContentModelDto parameterizedFieldType) {
 
     final var parameterizedFieldTypeRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
       .createParameterizedFieldTypeRecordFrom(parameterizedFieldType);

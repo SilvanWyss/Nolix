@@ -5,10 +5,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
 
 public final class BaseParameterizedBackReferenceTypeDto extends ParameterizedFieldTypeDto
-implements IBaseParameterizedBackReferenceTypeDto {
+implements IAbstractBackReferenceModelDto {
 
   private final String backReferencedColumnId;
 

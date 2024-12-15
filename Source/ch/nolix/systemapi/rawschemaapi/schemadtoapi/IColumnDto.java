@@ -6,5 +6,5 @@ public interface IColumnDto {
 
   String getName();
 
-  IParameterizedFieldTypeDto getParameterizedFieldType();
+  IContentModelDto getParameterizedFieldType();
 }

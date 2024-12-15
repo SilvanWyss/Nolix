@@ -3,28 +3,28 @@ package ch.nolix.system.noderawschema.schemawriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public final class ParameterizedFieldTypeNodeMapper {
 
-  public Node createParameterizedFieldTypeNodeFrom(final IParameterizedFieldTypeDto parameterizedFieldType) {
+  public Node createParameterizedFieldTypeNodeFrom(final IContentModelDto parameterizedFieldType) {
     return switch (parameterizedFieldType.getFieldType().getBaseType()) {
       case BASE_VALUE ->
-        createParameterizedFieldTypeNodeFrom((IBaseParameterizedValueTypeDto) parameterizedFieldType);
+        createParameterizedFieldTypeNodeFrom((IAbstractValueModelDto) parameterizedFieldType);
       case BASE_REFERENCE ->
-        createParameterizedFieldTypeNodeFrom((IBaseParameterizedReferenceTypeDto) parameterizedFieldType);
+        createParameterizedFieldTypeNodeFrom((IAbstractReferenceModelDto) parameterizedFieldType);
       case BASE_BACK_REFERENCE ->
-        createParameterizedFieldTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType);
+        createParameterizedFieldTypeNodeFrom((IAbstractBackReferenceModelDto) parameterizedFieldType);
       default ->
         throw InvalidArgumentException.forArgument(parameterizedFieldType);
     };
   }
 
   private Node createParameterizedFieldTypeNodeFrom(
-    IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
+    IAbstractBackReferenceModelDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       Node.withHeaderAndChildNode(
@@ -39,7 +39,7 @@ public final class ParameterizedFieldTypeNodeMapper {
   }
 
   private Node createParameterizedFieldTypeNodeFrom(
-    final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
+    final IAbstractReferenceModelDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       Node.withHeaderAndChildNode(
@@ -54,7 +54,7 @@ public final class ParameterizedFieldTypeNodeMapper {
   }
 
   private Node createParameterizedFieldTypeNodeFrom(
-    final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
+    final IAbstractValueModelDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
       Node.withHeaderAndChildNode(

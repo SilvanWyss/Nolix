@@ -2,7 +2,7 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
@@ -17,7 +17,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void setColumnName(String tableName, String columnName, String newColumnName);
 
-  void setColumnParameterizedFieldType(String columnId, IParameterizedFieldTypeDto parameterizedfieldType);
+  void setColumnParameterizedFieldType(String columnId, IContentModelDto parameterizedfieldType);
 
   void setTableName(String tableName, String newTableName);
 }

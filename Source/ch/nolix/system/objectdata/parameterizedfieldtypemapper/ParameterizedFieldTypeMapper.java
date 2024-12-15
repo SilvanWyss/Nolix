@@ -5,10 +5,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public final class ParameterizedFieldTypeMapper {
 
@@ -41,51 +41,51 @@ public final class ParameterizedFieldTypeMapper {
   new ParameterizedMultiBackReferenceTypeMapper();
 
   public IParameterizedFieldType createParameterizedFieldTypeFromDto(
-    final IParameterizedFieldTypeDto parameterizedFieldTypeDto,
+    final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var fieldType = parameterizedFieldTypeDto.getFieldType();
+    final var fieldType = contentModelDto.getFieldType();
 
     return //
     switch (fieldType) {
       case VALUE ->
         PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
+          (IAbstractValueModelDto) contentModelDto,
           referencableTables);
       case OPTIONAL_VALUE ->
         PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
+          (IAbstractValueModelDto) contentModelDto,
           referencableTables);
       case MULTI_VALUE ->
         PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedValueTypeDto) parameterizedFieldTypeDto,
+          (IAbstractValueModelDto) contentModelDto,
           referencableTables);
       case REFERENCE ->
         PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
+          (IAbstractReferenceModelDto) contentModelDto,
           referencableTables);
       case OPTIONAL_REFERENCE ->
         PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
+          (IAbstractReferenceModelDto) contentModelDto,
           referencableTables);
       case MULTI_REFERENCE ->
         PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedReferenceTypeDto) parameterizedFieldTypeDto,
+          (IAbstractReferenceModelDto) contentModelDto,
           referencableTables);
       case BACK_REFERENCE ->
         PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
+          (IAbstractBackReferenceModelDto) contentModelDto,
           referencableTables);
       case OPTIONAL_BACK_REFERENCE ->
         PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
+          (IAbstractBackReferenceModelDto) contentModelDto,
           referencableTables);
       case MULTI_BACK_REFERENCE ->
         PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-          (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldTypeDto,
+          (IAbstractBackReferenceModelDto) contentModelDto,
           referencableTables);
       default ->
-        throw InvalidArgumentException.forArgument(parameterizedFieldTypeDto);
+        throw InvalidArgumentException.forArgument(contentModelDto);
     };
   }
 }

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
@@ -129,7 +129,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnParameterizedFieldType(
     final String columnId,
-    final IParameterizedFieldTypeDto parameterizedFieldType) {
+    final IContentModelDto parameterizedFieldType) {
     systemDataWriter.setColumnParameterizedFieldType(columnId, parameterizedFieldType);
   }
 

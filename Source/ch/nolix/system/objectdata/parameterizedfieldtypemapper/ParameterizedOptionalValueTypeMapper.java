@@ -6,14 +6,14 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractValueModelDto;
 
 public final class ParameterizedOptionalValueTypeMapper
-implements IParameterizedFieldTypeMapper<IBaseParameterizedValueTypeDto> {
+implements IParameterizedFieldTypeMapper<IAbstractValueModelDto> {
 
   @Override
   public IParameterizedFieldType createParameterizedFieldTypeFromDto(
-    final IBaseParameterizedValueTypeDto parameterizedFieldTypeDto,
+    final IAbstractValueModelDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
     final var valueType = parameterizedFieldTypeDto.getDataType().getDataTypeClass();

@@ -6,14 +6,14 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
 
 public final class ParameterizedOptionalBackReferenceTypeMapper
-implements IParameterizedFieldTypeMapper<IBaseParameterizedBackReferenceTypeDto> {
+implements IParameterizedFieldTypeMapper<IAbstractBackReferenceModelDto> {
 
   @Override
   public IParameterizedFieldType createParameterizedFieldTypeFromDto(
-    final IBaseParameterizedBackReferenceTypeDto parameterizedFieldTypeDto,
+    final IAbstractBackReferenceModelDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
     final var backReferencedColumnId = parameterizedFieldTypeDto.getBackReferencedColumnId();

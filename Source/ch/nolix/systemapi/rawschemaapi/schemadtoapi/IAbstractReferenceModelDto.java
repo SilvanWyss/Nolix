@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 
-public interface IBaseParameterizedReferenceTypeDto extends IParameterizedFieldTypeDto {
+public interface IAbstractReferenceModelDto extends IContentModelDto {
 
   String getReferencedTableId();
 }

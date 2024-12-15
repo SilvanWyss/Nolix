@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public abstract class AbstractReferenceModel implements IAbstractReferenceModel {
 
@@ -58,7 +58,7 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
   }
 
   @Override
-  public final IParameterizedFieldTypeDto toDto() {
+  public final IContentModelDto toDto() {
 
     final var referencedTableIds = getReferencedTables().to(ITable::getId);
 

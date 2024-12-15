@@ -13,14 +13,14 @@ import ch.nolix.system.objectschema.contentmodel.ReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public final class ParameterizedFieldTypeMapper {
 
   public IContentModel createParameterizedFieldTypeFromDto(
-    final IParameterizedFieldTypeDto parameterizedFieldType,
+    final IContentModelDto parameterizedFieldType,
     final IContainer<ITable> tables) {
     return switch (parameterizedFieldType.getFieldType()) {
       case VALUE ->
@@ -53,20 +53,20 @@ public final class ParameterizedFieldTypeMapper {
   }
 
   private Column getStoredBackReferencedColumnFromParameterizedFieldType(
-    final IParameterizedFieldTypeDto parameterizedFieldType,
+    final IContentModelDto parameterizedFieldType,
     final IContainer<ITable> tables) {
 
-    final var baseParameterizedBackReferenceType = (IBaseParameterizedBackReferenceTypeDto) parameterizedFieldType;
+    final var baseParameterizedBackReferenceType = (IAbstractBackReferenceModelDto) parameterizedFieldType;
     final var backReferencedColumnId = baseParameterizedBackReferenceType.getBackReferencedColumnId();
 
     return (Column) tables.toMultiple(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
   }
 
   private ITable getStoredReferencedTableFromParameterizedFieldType(
-    final IParameterizedFieldTypeDto parameterizedFieldType,
+    final IContentModelDto parameterizedFieldType,
     final IContainer<ITable> tables) {
 
-    final var baseParameterizedReferenceType = (IBaseParameterizedReferenceTypeDto) parameterizedFieldType;
+    final var baseParameterizedReferenceType = (IAbstractReferenceModelDto) parameterizedFieldType;
 
     return tables.getStoredFirst(t -> t.hasId(baseParameterizedReferenceType.getReferencedTableId()));
   }

@@ -2,7 +2,7 @@ package ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -20,7 +20,7 @@ public interface ISystemDataWriterSqlStatementCreator {
 
   String createStatementToSetColumnParameterizedFieldType(
     String columnID,
-    IParameterizedFieldTypeDto parameterizedFieldType);
+    IContentModelDto parameterizedFieldType);
 
   String createStatementToSetSchemaTimestamp(ITime schemaTimestamp);
 

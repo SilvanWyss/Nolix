@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public final class ColumnDto implements IColumnDto {
 
@@ -11,13 +11,13 @@ public final class ColumnDto implements IColumnDto {
 
   private final String name;
 
-  private final IParameterizedFieldTypeDto parameterizedFieldTypeDto;
+  private final IContentModelDto contentModelDto;
 
   //For a better performance, this implementation does not use all comfortable methods.
   public ColumnDto(
     final String id,
     final String name,
-    final IParameterizedFieldTypeDto parameterizedFieldTypeDto) {
+    final IContentModelDto contentModelDto) {
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
@@ -27,13 +27,13 @@ public final class ColumnDto implements IColumnDto {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.HEADER);
     }
 
-    if (parameterizedFieldTypeDto == null) {
-      throw ArgumentIsNullException.forArgumentType(IParameterizedFieldTypeDto.class);
+    if (contentModelDto == null) {
+      throw ArgumentIsNullException.forArgumentType(IContentModelDto.class);
     }
 
     this.id = id;
     this.name = name;
-    this.parameterizedFieldTypeDto = parameterizedFieldTypeDto;
+    this.contentModelDto = contentModelDto;
   }
 
   @Override
@@ -47,7 +47,7 @@ public final class ColumnDto implements IColumnDto {
   }
 
   @Override
-  public IParameterizedFieldTypeDto getParameterizedFieldType() {
-    return parameterizedFieldTypeDto;
+  public IContentModelDto getParameterizedFieldType() {
+    return contentModelDto;
   }
 }
