@@ -3,8 +3,8 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
-import ch.nolix.system.objectschema.parameterizedfieldtype.BaseParameterizedBackReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.BaseParameterizedReferenceType;
+import ch.nolix.system.objectschema.contentmodel.AbstractBackReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.AbstractReferenceModel;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.system.objectschema.schematool.ParameterizedFieldTypeTool;
@@ -55,7 +55,7 @@ final class ColumnMutationValidator {
     if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
-      final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) contentModel;
+      final var baseParameterizedReferenceType = (AbstractReferenceModel) contentModel;
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 
       DATABASE_TOOL.assertContainsGivenTable(COLUMN_TOOL.getParentDatabase(column), referencedTable);
@@ -68,7 +68,7 @@ final class ColumnMutationValidator {
     if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(contentModel)
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
-      final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) contentModel;
+      final var baseParameterizedBackReferenceType = (AbstractBackReferenceModel) contentModel;
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
       DATABASE_TOOL.assertContainsTableWithGivenColumn(

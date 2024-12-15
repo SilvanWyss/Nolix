@@ -9,7 +9,7 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.schema.Schema;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedValueType;
+import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
@@ -161,7 +161,7 @@ final class NodeDataAdapterTest extends StandardTest {
     final var schemaAdapter = NodeSchemaAdapter.forNodeDatabase("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")
-      .addColumn(new Column("Name", ParameterizedValueType.forDataType(DataType.STRING)));
+      .addColumn(new Column("Name", ValueModel.forDataType(DataType.STRING)));
     schemaAdapter.saveChanges();
 
     //execution & verification: Try to save the the changes to the database.

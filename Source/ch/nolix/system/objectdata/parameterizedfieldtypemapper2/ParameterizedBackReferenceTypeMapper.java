@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.parameterizedfieldtypemapper2;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedBackReferenceType;
+import ch.nolix.system.objectschema.contentmodel.BackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
@@ -22,6 +22,6 @@ implements IParameterizedFieldTypeMapper<IBackReference<IEntity>> {
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 
-    return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn);
+    return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
   }
 }

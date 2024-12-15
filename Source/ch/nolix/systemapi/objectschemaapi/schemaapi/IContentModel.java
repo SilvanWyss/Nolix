@@ -6,11 +6,11 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 public interface IContentModel {
 
-  IBaseBackReferenceModel asBaseParameterizedBackReferenceType();
+  IAbstractBackReferenceModel asBaseParameterizedBackReferenceType();
 
-  IBaseReferenceModel asBaseParameterizedReferenceType();
+  IAbstractReferenceModel asBaseParameterizedReferenceType();
 
-  IBaseValueModel<?> asBaseParameterizedValueType();
+  IAbstractValueModel<?> asBaseParameterizedValueType();
 
   DataType getDataType();
 

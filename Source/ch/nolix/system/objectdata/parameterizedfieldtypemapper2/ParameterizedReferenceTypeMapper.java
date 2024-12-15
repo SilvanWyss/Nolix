@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.parameterizedfieldtypemapper2;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedReferenceType;
+import ch.nolix.system.objectschema.contentmodel.ReferenceModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
@@ -18,6 +18,6 @@ public final class ParameterizedReferenceTypeMapper implements IParameterizedFie
     final var referencedTableName = property.getReferencedTableName();
     final var referencedTable = referencedTables.getStoredFirst(t -> t.hasName(referencedTableName));
 
-    return ParameterizedReferenceType.forReferencedTable(referencedTable);
+    return ReferenceModel.forReferencedTable(referencedTable);
   }
 }

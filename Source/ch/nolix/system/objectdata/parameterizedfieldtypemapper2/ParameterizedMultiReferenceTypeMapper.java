@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.parameterizedfieldtypemapper2;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiReferenceType;
+import ch.nolix.system.objectschema.contentmodel.MultiReferenceModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
@@ -19,6 +19,6 @@ implements IParameterizedFieldTypeMapper<IMultiReference<IEntity>> {
     final var referencedTableName = property.getReferencedTableName();
     final var referencedTable = referencedTables.getStoredFirst(t -> t.hasName(referencedTableName));
 
-    return ParameterizedMultiReferenceType.forReferencedTable(referencedTable);
+    return MultiReferenceModel.forReferencedTable(referencedTable);
   }
 }

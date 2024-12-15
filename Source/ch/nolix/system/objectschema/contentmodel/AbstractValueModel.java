@@ -1,34 +1,34 @@
-package ch.nolix.system.objectschema.parameterizedfieldtype;
+package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseValueModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-public abstract class BaseParameterizedValueType<V> extends ParameterizedFieldType
-implements IBaseValueModel<V> {
+public abstract class AbstractValueModel<V> extends AbstractContentModel
+implements IAbstractValueModel<V> {
 
-  protected BaseParameterizedValueType(final DataType dataType) {
+  protected AbstractValueModel(final DataType dataType) {
     super(dataType);
   }
 
   @Override
-  public final IBaseBackReferenceModel asBaseParameterizedBackReferenceType() {
+  public final IAbstractBackReferenceModel asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IBaseReferenceModel asBaseParameterizedReferenceType() {
+  public final IAbstractReferenceModel asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IBaseValueModel<?> asBaseParameterizedValueType() {
+  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
     return this;
   }
 

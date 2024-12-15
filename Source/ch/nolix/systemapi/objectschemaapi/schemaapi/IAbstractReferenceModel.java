@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-public interface IBaseReferenceModel extends IContentModel {
+public interface IAbstractReferenceModel extends IContentModel {
 
   ITable getReferencedTable();
 }

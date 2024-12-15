@@ -2,16 +2,16 @@ package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedBackReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedFieldType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiBackReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedMultiValueType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedOptionalBackReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedOptionalReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedOptionalValueType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedReferenceType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedValueType;
+import ch.nolix.system.objectschema.contentmodel.AbstractContentModel;
+import ch.nolix.system.objectschema.contentmodel.BackReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.MultiBackReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.MultiReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.MultiValueModel;
+import ch.nolix.system.objectschema.contentmodel.OptionalBackReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.OptionalReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.OptionalValueModel;
+import ch.nolix.system.objectschema.contentmodel.ReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
@@ -19,33 +19,33 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 public final class ParameterizedFieldTypeMapper {
 
-  public ParameterizedFieldType createParameterizedFieldTypeFromDto(
+  public AbstractContentModel createParameterizedFieldTypeFromDto(
     final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
     return switch (parameterizedFieldType.getFieldType()) {
       case VALUE ->
-        ParameterizedValueType.forDataType(parameterizedFieldType.getDataType());
+        ValueModel.forDataType(parameterizedFieldType.getDataType());
       case OPTIONAL_VALUE ->
-        ParameterizedOptionalValueType.forDataType(parameterizedFieldType.getDataType());
+        OptionalValueModel.forDataType(parameterizedFieldType.getDataType());
       case MULTI_VALUE ->
-        ParameterizedMultiValueType.forDataType(parameterizedFieldType.getDataType());
+        MultiValueModel.forDataType(parameterizedFieldType.getDataType());
       case REFERENCE ->
-        ParameterizedReferenceType.forReferencedTable(
+        ReferenceModel.forReferencedTable(
           getStoredReferencedTableFromParameterizedFieldType(parameterizedFieldType, tables));
       case OPTIONAL_REFERENCE ->
-        ParameterizedOptionalReferenceType.forReferencedTable(
+        OptionalReferenceModel.forReferencedTable(
           getStoredReferencedTableFromParameterizedFieldType(parameterizedFieldType, tables));
       case MULTI_REFERENCE ->
-        ParameterizedMultiReferenceType.forReferencedTable(
+        MultiReferenceModel.forReferencedTable(
           getStoredReferencedTableFromParameterizedFieldType(parameterizedFieldType, tables));
       case BACK_REFERENCE ->
-        ParameterizedBackReferenceType.forBackReferencedColumn(
+        BackReferenceModel.forBackReferencedColumn(
           getStoredBackReferencedColumnFromParameterizedFieldType(parameterizedFieldType, tables));
       case OPTIONAL_BACK_REFERENCE ->
-        ParameterizedOptionalBackReferenceType.forBackReferencedColumn(
+        OptionalBackReferenceModel.forBackReferencedColumn(
           getStoredBackReferencedColumnFromParameterizedFieldType(parameterizedFieldType, tables));
       case MULTI_BACK_REFERENCE ->
-        ParameterizedMultiBackReferenceType.forBackReferencedColumn(
+        MultiBackReferenceModel.forBackReferencedColumn(
           getStoredBackReferencedColumnFromParameterizedFieldType(parameterizedFieldType, tables));
       default ->
         throw InvalidArgumentException.forArgument(parameterizedFieldType);

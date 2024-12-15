@@ -9,8 +9,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedFieldType;
-import ch.nolix.system.objectschema.parameterizedfieldtype.ParameterizedValueType;
+import ch.nolix.system.objectschema.contentmodel.AbstractContentModel;
+import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
@@ -23,8 +23,8 @@ public final class Column extends SchemaObject implements IColumn {
 
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 
-  private static final ParameterizedFieldType INITIAL_FIELD_TYPE = //
-  ParameterizedValueType.forDataType(DataType.INTEGER_4BYTE);
+  private static final AbstractContentModel INITIAL_FIELD_TYPE = //
+  ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
   private static final ParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ParameterizedFieldTypeMapper();

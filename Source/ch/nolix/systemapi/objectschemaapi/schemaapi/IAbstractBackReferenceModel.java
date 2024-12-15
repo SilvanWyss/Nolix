@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-public interface IBaseBackReferenceModel extends IContentModel {
+public interface IAbstractBackReferenceModel extends IContentModel {
 
   IColumn getBackReferencedColumn();
 }

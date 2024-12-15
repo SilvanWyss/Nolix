@@ -1,23 +1,23 @@
-package ch.nolix.system.objectschema.parameterizedfieldtype;
+package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseValueModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-public abstract class BaseParameterizedBackReferenceType extends ParameterizedFieldType
-implements IBaseBackReferenceModel {
+public abstract class AbstractBackReferenceModel extends AbstractContentModel
+implements IAbstractBackReferenceModel {
 
   private final IColumn backReferencedColumn;
 
-  protected BaseParameterizedBackReferenceType(final IColumn backReferencedColumn) {
+  protected AbstractBackReferenceModel(final IColumn backReferencedColumn) {
 
     super(DataType.STRING);
 
@@ -27,17 +27,17 @@ implements IBaseBackReferenceModel {
   }
 
   @Override
-  public final IBaseBackReferenceModel asBaseParameterizedBackReferenceType() {
+  public final IAbstractBackReferenceModel asBaseParameterizedBackReferenceType() {
     return this;
   }
 
   @Override
-  public final IBaseReferenceModel asBaseParameterizedReferenceType() {
+  public final IAbstractReferenceModel asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IBaseValueModel<?> asBaseParameterizedValueType() {
+  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
