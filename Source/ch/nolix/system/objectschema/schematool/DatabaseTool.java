@@ -56,13 +56,6 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   }
 
   @Override
-  public void assertContainsGivenTable(final IDatabase database, final ITable table) {
-    if (!containsGivenTable(database, table)) {
-      throw ArgumentDoesNotContainElementException.forArgumentAndElement(database, table);
-    }
-  }
-
-  @Override
   public void assertContainsTableReferencedByGivenColumn(
     final IDatabase database,
     final IColumn column) {
@@ -70,13 +63,6 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         database,
         "does not contain a table that is referenced by the column " + column.getNameInQuotes());
-    }
-  }
-
-  @Override
-  public void assertContainsTables(IDatabase database, IContainer<ITable> tables) {
-    for (final var t : tables) {
-      assertContainsGivenTable(database, t);
     }
   }
 

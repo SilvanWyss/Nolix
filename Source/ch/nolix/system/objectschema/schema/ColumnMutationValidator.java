@@ -9,17 +9,22 @@ import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.system.objectschema.schematool.ParameterizedFieldTypeTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
+import ch.nolix.system.objectschema.schemavalidator.DatabaseValidator;
+import ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
+import ch.nolix.systemapi.objectschemaapi.schemavalidatorapi.IDatabaseValidator;
 
 final class ColumnMutationValidator {
 
+  private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
-  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   private static final ITableTool TABLE_TOOL = new TableTool();
 
@@ -58,7 +63,7 @@ final class ColumnMutationValidator {
       final var baseParameterizedReferenceType = (AbstractReferenceModel) contentModel;
       final var referencedTables = baseParameterizedReferenceType.getReferencedTables();
 
-      DATABASE_TOOL.assertContainsTables(COLUMN_TOOL.getParentDatabase(column), referencedTables);
+      DATABASE_VALIDATOR.assertContainsTables(COLUMN_TOOL.getParentDatabase(column), referencedTables);
     }
 
     if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)) {

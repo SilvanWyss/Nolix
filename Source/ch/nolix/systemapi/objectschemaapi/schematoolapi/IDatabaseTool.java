@@ -16,12 +16,7 @@ public interface IDatabaseTool extends IDatabaseObjectTool {
 
   void assertCanSetGivenNameToDatabase(String name);
 
-  void assertContainsGivenTable(IDatabase database, ITable table);
-
   void assertContainsTableReferencedByGivenColumn(IDatabase database, IColumn column);
-
-  //TODO: Create DatabaseValidator
-  void assertContainsTables(IDatabase database, IContainer<ITable> tables);
 
   void assertContainsTableWithColumnBackReferencedByGivenColumn(IDatabase database, IColumn column);
 
