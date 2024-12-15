@@ -18,6 +18,8 @@ public interface ITableTool extends IDatabaseObjectTool {
 
   <E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(ITable<E> table);
 
+  IContainer<String> getLocallyDeletedEntities(final ITable<?> table);
+
   boolean hasChanges(ITable<?> table);
 
   boolean hasInsertedGivenEntityInLocalData(ITable<?> table, IEntity entity);

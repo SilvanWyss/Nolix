@@ -56,6 +56,11 @@ public final class TableTool extends DatabaseObjectTool implements ITableTool {
   }
 
   @Override
+  public IContainer<String> getLocallyDeletedEntities(final ITable<?> table) {
+    return table.internalGetStoredEntitiesInLocalData().getStoredSelected(IEntity::isDeleted).to(IEntity::getId);
+  }
+
+  @Override
   public boolean hasChanges(final ITable<?> table) {
     return table.internalGetStoredEntitiesInLocalData().containsAny(e -> !e.isLoaded());
   }
