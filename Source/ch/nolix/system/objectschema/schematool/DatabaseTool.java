@@ -74,6 +74,13 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   }
 
   @Override
+  public void assertContainsTables(IDatabase database, IContainer<ITable> tables) {
+    for (final var t : tables) {
+      assertContainsGivenTable(database, t);
+    }
+  }
+
+  @Override
   public void assertContainsTableWithColumnBackReferencedByGivenColumn(
     final IDatabase database,
     final IColumn column) {

@@ -33,9 +33,9 @@ final class TableMutationValidator {
     if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
 
       final var baseParameterizedReferenceType = (AbstractReferenceModel) column.getContentModel();
-      final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
+      final var referencedTables = baseParameterizedReferenceType.getReferencedTables();
 
-      DATABASE_TOOL.assertContainsGivenTable(table.getStoredParentDatabase(), referencedTable);
+      DATABASE_TOOL.assertContainsTables(table.getStoredParentDatabase(), referencedTables);
     }
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {

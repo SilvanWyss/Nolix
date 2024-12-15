@@ -20,6 +20,9 @@ public interface IDatabaseTool extends IDatabaseObjectTool {
 
   void assertContainsTableReferencedByGivenColumn(IDatabase database, IColumn column);
 
+  //TODO: Create DatabaseValidator
+  void assertContainsTables(IDatabase database, IContainer<ITable> tables);
+
   void assertContainsTableWithColumnBackReferencedByGivenColumn(IDatabase database, IColumn column);
 
   void assertContainsTableWithGivenColumn(IDatabase database, IColumn column);

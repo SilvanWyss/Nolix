@@ -1,7 +1,8 @@
 package ch.nolix.system.objectschema.contentmodel;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
@@ -15,13 +16,10 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
 
   private static final DataType DATA_TYPE = DataType.STRING;
 
-  private final ITable referencedTable;
+  private final ImmutableList<ITable> referencedTables;
 
-  protected AbstractReferenceModel(final ITable referencedTable) {
-
-    GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
-
-    this.referencedTable = referencedTable;
+  protected AbstractReferenceModel(final IContainer<ITable> referencedTables) {
+    this.referencedTables = ImmutableList.forIterable(referencedTables);
   }
 
   @Override
@@ -45,13 +43,13 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
   }
 
   @Override
-  public final ITable getReferencedTable() {
-    return referencedTable;
+  public final IContainer<ITable> getReferencedTables() {
+    return referencedTables;
   }
 
   @Override
   public final boolean referencesTable(final ITable table) {
-    return (getReferencedTable() == table);
+    return getReferencedTables().contains(table);
   }
 
   @Override
@@ -61,9 +59,14 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
 
   @Override
   public final IParameterizedFieldTypeDto toDto() {
+
+    final var referencedTableIds = getReferencedTables().to(ITable::getId);
+
     return new BaseParameterizedReferenceTypeDto(
       getContentType(),
       getDataType(),
-      getReferencedTable().getId());
+
+      //TODO: Handle all referenced Tables
+      referencedTableIds.getStoredFirst());
   }
 }

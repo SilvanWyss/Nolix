@@ -1,16 +1,25 @@
 package ch.nolix.system.objectschema.contentmodel;
 
+import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public final class MultiReferenceModel extends AbstractReferenceModel {
 
-  private MultiReferenceModel(final ITable referencedTable) {
-    super(referencedTable);
+  private MultiReferenceModel(final IContainer<ITable> referencedTables) {
+    super(referencedTables);
   }
 
-  public static MultiReferenceModel forReferencedTable(final ITable referencedTable) {
-    return new MultiReferenceModel(referencedTable);
+  public static MultiReferenceModel forReferencedTable(final ITable referencedTable, ITable... referencedTables) {
+
+    final var allReferencedTables = ContainerView.forElementAndArray(referencedTable, referencedTables);
+
+    return forReferencedTables(allReferencedTables);
+  }
+
+  public static MultiReferenceModel forReferencedTables(final IContainer<ITable> referencedTables) {
+    return new MultiReferenceModel(referencedTables);
   }
 
   @Override

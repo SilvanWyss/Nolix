@@ -56,9 +56,9 @@ final class ColumnMutationValidator {
     && COLUMN_TOOL.belongsToDatabase(column)) {
 
       final var baseParameterizedReferenceType = (AbstractReferenceModel) contentModel;
-      final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
+      final var referencedTables = baseParameterizedReferenceType.getReferencedTables();
 
-      DATABASE_TOOL.assertContainsGivenTable(COLUMN_TOOL.getParentDatabase(column), referencedTable);
+      DATABASE_TOOL.assertContainsTables(COLUMN_TOOL.getParentDatabase(column), referencedTables);
     }
 
     if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)) {
