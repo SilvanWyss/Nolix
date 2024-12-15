@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.contentmodel;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseBackReferenceModelDto;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
@@ -62,7 +62,7 @@ public abstract class AbstractBackReferenceModel implements IAbstractBackReferen
 
   @Override
   public final IContentModelDto toDto() {
-    return new BaseParameterizedBackReferenceTypeDto(
+    return new BaseBackReferenceModelDto(
       getContentType(),
       getDataType(),
       getBackReferencedColumn().getId());

@@ -4,10 +4,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseBackReferenceModelDto;
+import ch.nolix.system.objectschema.schemadto.BaseReferenceModelDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
-import ch.nolix.system.objectschema.schemadto.ParameterizedFieldTypeDto;
+import ch.nolix.system.objectschema.schemadto.AbstractContentModelDto;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public class ParameterizedFieldTypeDtoMapper {
@@ -15,7 +15,7 @@ public class ParameterizedFieldTypeDtoMapper {
   private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
   new ParameterizedFieldTypeNodeSearcher();
 
-  public ParameterizedFieldTypeDto createParameterizedProeprtyTypeDtoFromParameterizedFieldTypeNode(
+  public AbstractContentModelDto createParameterizedProeprtyTypeDtoFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var fieldType = getPropertyTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode);
@@ -38,19 +38,19 @@ public class ParameterizedFieldTypeDtoMapper {
     };
   }
 
-  private ParameterizedFieldTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedFieldTypeNode(
+  private AbstractContentModelDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode,
     final ContentType contentType) {
-    return new BaseParameterizedBackReferenceTypeDto(
+    return new BaseBackReferenceModelDto(
       contentType,
       getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode),
       getBackReferencedColumnIdFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));
   }
 
-  private ParameterizedFieldTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedFieldTypeNode(
+  private AbstractContentModelDto createBaseParameterizedReferenceTypeDtoFromParameterizedFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode,
     final ContentType contentType) {
-    return new BaseParameterizedReferenceTypeDto(
+    return new BaseReferenceModelDto(
       contentType,
       getDataTypeFromParameterizedFieldTypeNode(parameterizedFieldTypeNode),
       getReferencedTableIdFromParameterizedFieldTypeNode(parameterizedFieldTypeNode));

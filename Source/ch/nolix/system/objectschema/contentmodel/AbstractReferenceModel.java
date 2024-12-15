@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseReferenceModelDto;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
@@ -62,7 +62,7 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
 
     final var referencedTableIds = getReferencedTables().to(ITable::getId);
 
-    return new BaseParameterizedReferenceTypeDto(
+    return new BaseReferenceModelDto(
       getContentType(),
       getDataType(),
 

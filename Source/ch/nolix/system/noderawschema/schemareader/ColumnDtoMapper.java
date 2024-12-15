@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.schemareader;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
-import ch.nolix.system.objectschema.schemadto.ParameterizedFieldTypeDto;
+import ch.nolix.system.objectschema.schemadto.AbstractContentModelDto;
 
 final class ColumnDtoMapper {
 
@@ -27,7 +27,7 @@ final class ColumnDtoMapper {
     return COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
   }
 
-  private ParameterizedFieldTypeDto createParameterizedFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
+  private AbstractContentModelDto createParameterizedFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedFieldTypeNode = COLUMN_NODE_SEARCHER
       .getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);

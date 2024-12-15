@@ -5,12 +5,12 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractReferenceModelDto;
 
-public final class BaseParameterizedReferenceTypeDto extends ParameterizedFieldTypeDto
+public final class BaseReferenceModelDto extends AbstractContentModelDto
 implements IAbstractReferenceModelDto {
 
   private final String referencedTableId;
 
-  public BaseParameterizedReferenceTypeDto(
+  public BaseReferenceModelDto(
     final ContentType contentType,
     final DataType dataType,
     final String referencedTableId) {

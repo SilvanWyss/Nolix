@@ -5,14 +5,14 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
-public abstract class ParameterizedFieldTypeDto implements IContentModelDto {
+public abstract class AbstractContentModelDto implements IContentModelDto {
 
   private final ContentType contentType;
 
   private final DataType dataType;
 
   //For a better performance, this implementation does not use all comfortable methods.
-  protected ParameterizedFieldTypeDto(final ContentType contentType, final DataType dataType) {
+  protected AbstractContentModelDto(final ContentType contentType, final DataType dataType) {
 
     if (contentType == null) {
       throw ArgumentIsNullException.forArgumentType(ContentType.class);
