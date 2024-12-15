@@ -21,9 +21,12 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
-final class DarkStyleCreator {
+public final class DarkStyleCreator {
 
-  public IStyle createDarkStyle() {
+  private DarkStyleCreator() {
+  }
+
+  public static IStyle createDarkStyle() {
     return //
     new Style()
       .withSubStyle(
@@ -46,42 +49,48 @@ final class DarkStyleCreator {
         createDialogContainerStyle());
   }
 
-  private ISelectingStyleWithSelectors createLayerStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createLayerStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Layer.class)
       .withAttachingAttribute("Background(Color(0x202020))");
   }
 
-  private ISelectingStyleWithSelectors createControlStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createControlStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Control.class)
       .withAttachingAttribute("BaseTextColor(0xC0C0C0)");
   }
 
-  private ISelectingStyleWithSelectors createLinearContainerStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createLinearContainerStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(LinearContainer.class)
       .withAttachingAttribute("BaseChildControlMargin(10)");
   }
 
-  private ISelectingStyleWithSelectors createGridStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createGridStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Grid.class)
       .withAttachingAttribute(
         "BaseChildControlMargin(10)",
         "BaseGridThickness(0)");
   }
 
-  private ISelectingStyleWithSelectors createLinkStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createLinkStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Link.class)
       .withAttachingAttribute(
         "BaseTextColor(Blue)",
         "HoverTextColor(DarkBlue)");
   }
 
-  private ISelectingStyleWithSelectors createButtonStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createButtonStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Button.class)
       .withAttachingAttribute(
         "MinWidth(200)",
@@ -94,16 +103,18 @@ final class DarkStyleCreator {
         "HoverTextColor(White)");
   }
 
-  private ISelectingStyleWithSelectors createTextboxStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createTextboxStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Textbox.class)
       .withAttachingAttribute(
         "BaseWidth(200)",
         "BaseBackground(Color(Black))");
   }
 
-  private ISelectingStyleWithSelectors createDropdownMenuStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createDropdownMenuStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(DropdownMenu.class)
       .withAttachingAttribute(
         "MinWidth(200)",
@@ -115,14 +126,16 @@ final class DarkStyleCreator {
         "HoverTextColor(White)");
   }
 
-  private ISelectingStyleWithSelectors createValidationLabelStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createValidationLabelStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(ValidationLabel.class)
       .withAttachingAttribute("BaseTextColor(Orange)");
   }
 
-  private ISelectingStyleWithSelectors createOverallVerticalStackStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createOverallVerticalStackStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(VerticalStack.class)
       .withSelectorRole(ContainerRole.OVERALL_CONTAINER)
       .withAttachingAttribute(
@@ -132,8 +145,9 @@ final class DarkStyleCreator {
         "BaseChildControlMargin(20)");
   }
 
-  private ISelectingStyleWithSelectors createHeaderHorizontalStackStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createHeaderHorizontalStackStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(HorizontalStack.class)
       .withSelectorRole(ContainerRole.HEADER_CONTAINER)
       .withAttachingAttribute(
@@ -141,14 +155,16 @@ final class DarkStyleCreator {
         "BaseChildControlMargin(50)");
   }
 
-  private ISelectingStyleWithSelectors createMainContentContainerStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createMainContentContainerStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
       .withAttachingAttribute("MinHeight(500)");
   }
 
-  private ISelectingStyleWithSelectors createFooterHorizontalStackStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createFooterHorizontalStackStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(HorizontalStack.class)
       .withSelectorRole(ContainerRole.FOOTER_CONTAINER)
       .withAttachingAttribute(
@@ -157,21 +173,23 @@ final class DarkStyleCreator {
         "BaseTextSize(15)");
   }
 
-  private ISelectingStyleWithSelectors createTitleLabelStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createTitleLabelStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Label.class)
       .withSelectorRole(LabelRole.TITLE)
       .withAttachingAttribute("BaseTextSize(50)", "BaseTextColor(White)");
   }
 
-  private ISelectingStyleWithSelectors createLevel1HeaderLabelStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createLevel1HeaderLabelStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Label.class)
       .withSelectorRole(LabelRole.LEVEL1_HEADER)
       .withAttachingAttribute("BaseTextSize(30)", "BaseTextColor(White)");
   }
 
-  private ISelectingStyleWithSelectors createDialogLayerStyle() {
+  private static ISelectingStyleWithSelectors createDialogLayerStyle() {
     return new DeepSelectingStyle()
       .withSelectorType(Layer.class)
       .withSelectorRole(LayerRole.DIALOG_LAYER)
@@ -180,8 +198,9 @@ final class DarkStyleCreator {
         "ContentAlignment(CENTER)");
   }
 
-  private ISelectingStyleWithSelectors createDialogContainerStyle() {
-    return new DeepSelectingStyle()
+  private static ISelectingStyleWithSelectors createDialogContainerStyle() {
+    return //
+    new DeepSelectingStyle()
       .withSelectorType(Container.class)
       .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
       .withAttachingAttribute(
