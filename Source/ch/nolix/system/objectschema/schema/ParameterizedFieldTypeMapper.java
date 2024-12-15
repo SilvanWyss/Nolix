@@ -2,7 +2,6 @@ package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.contentmodel.AbstractContentModel;
 import ch.nolix.system.objectschema.contentmodel.BackReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.MultiBackReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.MultiReferenceModel;
@@ -12,6 +11,7 @@ import ch.nolix.system.objectschema.contentmodel.OptionalReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.OptionalValueModel;
 import ch.nolix.system.objectschema.contentmodel.ReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
 public final class ParameterizedFieldTypeMapper {
 
-  public AbstractContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel createParameterizedFieldTypeFromDto(
     final IParameterizedFieldTypeDto parameterizedFieldType,
     final IContainer<ITable> tables) {
     return switch (parameterizedFieldType.getFieldType()) {

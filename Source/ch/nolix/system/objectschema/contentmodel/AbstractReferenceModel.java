@@ -11,14 +11,13 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-public abstract class AbstractReferenceModel extends AbstractContentModel
-implements IAbstractReferenceModel {
+public abstract class AbstractReferenceModel implements IAbstractReferenceModel {
+
+  private static final DataType DATA_TYPE = DataType.STRING;
 
   private final ITable referencedTable;
 
   protected AbstractReferenceModel(final ITable referencedTable) {
-
-    super(DataType.STRING);
 
     GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 
@@ -41,7 +40,12 @@ implements IAbstractReferenceModel {
   }
 
   @Override
-  public ITable getReferencedTable() {
+  public final DataType getDataType() {
+    return DATA_TYPE;
+  }
+
+  @Override
+  public final ITable getReferencedTable() {
     return referencedTable;
   }
 

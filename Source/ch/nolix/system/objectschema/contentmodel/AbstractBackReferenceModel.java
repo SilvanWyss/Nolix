@@ -12,14 +12,13 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedFieldTypeDto;
 
-public abstract class AbstractBackReferenceModel extends AbstractContentModel
-implements IAbstractBackReferenceModel {
+public abstract class AbstractBackReferenceModel implements IAbstractBackReferenceModel {
+
+  private static final DataType DATA_TYPE = DataType.STRING;
 
   private final IColumn backReferencedColumn;
 
   protected AbstractBackReferenceModel(final IColumn backReferencedColumn) {
-
-    super(DataType.STRING);
 
     assertIsAnyReferenceColumn(backReferencedColumn);
 
@@ -42,8 +41,13 @@ implements IAbstractBackReferenceModel {
   }
 
   @Override
-  public IColumn getBackReferencedColumn() {
+  public final IColumn getBackReferencedColumn() {
     return backReferencedColumn;
+  }
+
+  @Override
+  public final DataType getDataType() {
+    return DATA_TYPE;
   }
 
   @Override
