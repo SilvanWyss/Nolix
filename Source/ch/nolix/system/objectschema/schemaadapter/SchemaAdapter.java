@@ -100,8 +100,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   private void resetUsingDatabaseName(final String databaseName) {
 
-    database = new Database(databaseName);
-    database.setRawSchemaAdapter(rawSchemaAdapter);
+    database = new Database(databaseName, rawSchemaAdapter);
 
     rawSchemaAdapter.reset();
   }

@@ -1,7 +1,6 @@
 package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
@@ -22,15 +21,18 @@ public final class Database extends SchemaObject implements IDatabase {
 
   private boolean loadedTablesFromDatabase;
 
-  private RawSchemaLinkerAdapter rawSchemaLinkerAdapter;
+  private final RawSchemaLinkerAdapter rawSchemaLinkerAdapter;
 
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
-  public Database(final String name) {
+  public Database(final String name, final ISchemaAdapter schemaAdapter) {
 
     DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
     this.name = name;
+    rawSchemaLinkerAdapter = new RawSchemaLinkerAdapter(schemaAdapter);
+
+    internalSetLoaded();
   }
 
   @Override
@@ -73,11 +75,6 @@ public final class Database extends SchemaObject implements IDatabase {
   @Override
   public boolean isLinkedWithRealDatabase() {
     return (rawSchemaLinkerAdapter != null);
-  }
-
-  @Override
-  public void setRawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
-    setRawSchemaAdapter(new RawSchemaLinkerAdapter(rawSchemaAdapter));
   }
 
   @Override
@@ -129,14 +126,5 @@ public final class Database extends SchemaObject implements IDatabase {
 
   private boolean needsToLoadTablesFromDatabase() {
     return (isLoaded() && !hasLoadedTablesFromDatabase());
-  }
-
-  private void setRawSchemaAdapter(final RawSchemaLinkerAdapter rawSchemaLinkerAdapter) {
-
-    GlobalValidator.assertThat(rawSchemaLinkerAdapter).thatIsNamed(RawSchemaLinkerAdapter.class).isNotNull();
-    DATABASE_OBJECT_VALIDATOR.assertIsNotLinkedWithRealDatabase(this);
-
-    internalSetLoaded();
-    this.rawSchemaLinkerAdapter = rawSchemaLinkerAdapter;
   }
 }
