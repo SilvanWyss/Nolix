@@ -8,12 +8,11 @@ import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class SchemaReader implements ISchemaReader {
 
@@ -103,7 +102,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public ITableDto loadTableById(final String id) {
+  public TableDto loadTableById(final String id) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, id);
 
@@ -111,7 +110,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public ITableDto loadTableByName(final String name) {
+  public TableDto loadTableByName(final String name) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name);
 
@@ -119,7 +118,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<ITableDto> loadTables() {
+  public IContainer<TableDto> loadTables() {
     return DATABASE_NODE_SEARCHER
       .getStoredTableNodesFromNodeDatabase(nodeDatabase)
       .to(this::loadTableFromTableNode);
@@ -147,7 +146,7 @@ public final class SchemaReader implements ISchemaReader {
       .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
   }
 
-  private ITableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
+  private TableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
     return new TableDto(
       TABLE_NODE_SEARCHER.getStoredIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
       TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode).getSingleChildNodeHeader(),

@@ -13,7 +13,7 @@ import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -70,14 +70,14 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   }
 
   @Override
-  public ILinkedList<String> createStatementsToAddTable(final ITableDto table) {
+  public ILinkedList<String> createStatementsToAddTable(final TableDto table) {
 
     final ILinkedList<String> statements = LinkedList.createEmpty();
 
     statements.addAtEnd(createStatementToAddTableIgnoringColumns(table));
 
-    for (final var c : table.getColumns()) {
-      statements.addAtEnd(createStatementToAddColumn(table.getName(), c));
+    for (final var c : table.columns()) {
+      statements.addAtEnd(createStatementToAddColumn(table.name(), c));
     }
 
     return statements;
@@ -187,7 +187,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  private String createStatementToAddTableIgnoringColumns(final ITableDto table) {
+  private String createStatementToAddTableIgnoringColumns(final TableDto table) {
 
     final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);
 

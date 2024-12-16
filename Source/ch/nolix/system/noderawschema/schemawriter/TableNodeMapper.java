@@ -3,13 +3,13 @@ package ch.nolix.system.noderawschema.schemawriter;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class TableNodeMapper {
 
   private static final ColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
-  public Node createTableNodeFrom(final ITableDto table) {
+  public Node createTableNodeFrom(final TableDto table) {
 
     final var childNodes = LinkedList.withElement(createIdNodeFrom(table), createNameNodeFrom(table));
     childNodes.addAtEnd(createColumnNodesFrom(table));
@@ -17,15 +17,15 @@ public final class TableNodeMapper {
     return Node.withHeaderAndChildNodes(StructureHeaderCatalogue.TABLE, childNodes);
   }
 
-  private Node createIdNodeFrom(final ITableDto table) {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.ID, table.getId());
+  private Node createIdNodeFrom(final TableDto table) {
+    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.ID, table.id());
   }
 
-  private Node createNameNodeFrom(final ITableDto table) {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.NAME, table.getName());
+  private Node createNameNodeFrom(final TableDto table) {
+    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.NAME, table.name());
   }
 
-  private Iterable<Node> createColumnNodesFrom(final ITableDto table) {
-    return table.getColumns().to(COLUMN_NODE_MAPPER::createColumnNodeFrom);
+  private Iterable<Node> createColumnNodesFrom(final TableDto table) {
+    return table.columns().to(COLUMN_NODE_MAPPER::createColumnNodeFrom);
   }
 }

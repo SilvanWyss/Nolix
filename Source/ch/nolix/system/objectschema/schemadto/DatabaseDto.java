@@ -5,18 +5,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IDatabaseDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
-public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implements IDatabaseDto {
+public record DatabaseDto(String name, ImmutableList<TableDto> tables) implements IDatabaseDto {
 
-  public DatabaseDto(final String name, final IContainer<ITableDto> tables) {
+  public DatabaseDto(final String name, final IContainer<TableDto> tables) {
     this(name, ImmutableList.forIterable(tables));
   }
 
   //For a better performance, this implementation does not use all comfortable methods.
-  public DatabaseDto(final String name, final ImmutableList<ITableDto> tables) { //NOSONAR: This implementations checks
-                                                                                 //the given arguments.
+  public DatabaseDto(final String name, final ImmutableList<TableDto> tables) { //NOSONAR: This implementations checks
+                                                                                //the given arguments.
 
     if (name == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.NAME);
@@ -36,7 +36,7 @@ public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implemen
   }
 
   @Override
-  public IContainer<ITableDto> getTables() {
+  public IContainer<TableDto> getTables() {
     return tables;
   }
 }

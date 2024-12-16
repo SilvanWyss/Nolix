@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 final class TableMapper {
 
@@ -11,23 +11,23 @@ final class TableMapper {
 
   @SuppressWarnings("unchecked")
   public Table<IEntity> createEmptyTableFromTableDtoForDatabase(
-    final ITableDto tableDto,
+    final TableDto tableDto,
     final Database database) {
     return Table.withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
       database,
-      tableDto.getName(),
-      tableDto.getId(),
-      (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.getName()));
+      tableDto.name(),
+      tableDto.id(),
+      (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.name()));
   }
 
   public ITable<IEntity> createTableFromTableDtoForDatabaseUsingGivenReferencableTables(
-    final ITableDto tableDto,
+    final TableDto tableDto,
     final Database database,
     final IContainer<ITable<IEntity>> referencableTables) {
 
     final var table = createEmptyTableFromTableDtoForDatabase(tableDto, database);
 
-    final var columns = tableDto.getColumns()
+    final var columns = tableDto.columns()
       .to(
         c -> COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table,
           referencableTables));

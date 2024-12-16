@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 final class DatabaseTableLoader {
 
@@ -30,19 +30,19 @@ final class DatabaseTableLoader {
 
   private void addBaseValueColumnsToTablesFromRawTables(
     final IContainer<Table<IEntity>> tables,
-    final IContainer<ITableDto> rawTables) {
+    final IContainer<TableDto> rawTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
-      final var rawTable = rawTables.getStoredFirst(rt -> rt.getName().equals(tableName));
+      final var rawTable = rawTables.getStoredFirst(rt -> rt.name().equals(tableName));
       addBaseValueColumnsToTableFromRawTable(t, rawTable);
     }
   }
 
   private void addBaseValueColumnsToTableFromRawTable(
     final Table<IEntity> table,
-    final ITableDto rawTable) {
+    final TableDto rawTable) {
 
-    final var rawBaseValueColumns = rawTable.getColumns().getStoredSelected(this::isBaseValue);
+    final var rawBaseValueColumns = rawTable.columns().getStoredSelected(this::isBaseValue);
 
     for (final var c : rawBaseValueColumns) {
 
@@ -57,21 +57,21 @@ final class DatabaseTableLoader {
 
   private void addBaseReferenceColumnsToTablesFromRawTables(
     final IContainer<Table<IEntity>> tables,
-    final IContainer<ITableDto> rawTables,
+    final IContainer<TableDto> rawTables,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
-      final var rawTable = rawTables.getStoredFirst(rt -> rt.getName().equals(tableName));
+      final var rawTable = rawTables.getStoredFirst(rt -> rt.name().equals(tableName));
       addBaseReferenceColumnsToTableFromRawTable(t, rawTable, referencableTables);
     }
   }
 
   private void addBaseReferenceColumnsToTableFromRawTable(
     final Table<IEntity> table,
-    final ITableDto rawTable,
+    final TableDto rawTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var rawBaseReferenceColumns = rawTable.getColumns().getStoredSelected(this::isBaseReference);
+    final var rawBaseReferenceColumns = rawTable.columns().getStoredSelected(this::isBaseReference);
 
     for (final var c : rawBaseReferenceColumns) {
 
@@ -86,21 +86,21 @@ final class DatabaseTableLoader {
 
   private void addBaseBackReferenceColumnsToTablesFromRawTables(
     final IContainer<Table<IEntity>> tables,
-    final IContainer<ITableDto> rawTables,
+    final IContainer<TableDto> rawTables,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
-      final var rawTable = rawTables.getStoredFirst(rt -> rt.getName().equals(tableName));
+      final var rawTable = rawTables.getStoredFirst(rt -> rt.name().equals(tableName));
       addBaseBackReferenceColumnsToTableFromRawTable(t, rawTable, referencableTables);
     }
   }
 
   private void addBaseBackReferenceColumnsToTableFromRawTable(
     final Table<IEntity> table,
-    final ITableDto rawTable,
+    final TableDto rawTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var rawBaseValueColumns = rawTable.getColumns().getStoredSelected(this::isBaseBackReference);
+    final var rawBaseValueColumns = rawTable.columns().getStoredSelected(this::isBaseBackReference);
 
     for (final var c : rawBaseValueColumns) {
 

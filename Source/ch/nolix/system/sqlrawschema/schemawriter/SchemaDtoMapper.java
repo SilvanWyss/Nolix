@@ -7,8 +7,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
-import ch.nolix.system.sqlschema.schemadto.TableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 final class SchemaDtoMapper {
 
@@ -26,21 +24,21 @@ final class SchemaDtoMapper {
   }
 
   public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto createSqlTableDtoFrom(
-    final ITableDto table) {
+    final ch.nolix.systemapi.rawschemaapi.schemadto.TableDto table) {
     return //
-    TableDto.withNameAndColumns(
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + table.getName(),
+    ch.nolix.system.sqlschema.schemadto.TableDto.withNameAndColumns(
+      TableType.ENTITY_TABLE.getQualifyingPrefix() + table.name(),
       createSqlColumnDtosFrom(table));
   }
 
   private IContainer<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> createSqlColumnDtosFrom(
-    final ITableDto table) {
+    final ch.nolix.systemapi.rawschemaapi.schemadto.TableDto table) {
 
     final ILinkedList<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> columns = LinkedList.createEmpty();
 
     columns.addAtEnd(SQL_ID_COLUMN_DTO);
 
-    for (final var c : table.getColumns()) {
+    for (final var c : table.columns()) {
       columns.addAtEnd(createSqlColumnDtoFrom(c));
     }
 

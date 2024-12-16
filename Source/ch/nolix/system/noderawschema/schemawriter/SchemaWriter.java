@@ -14,7 +14,7 @@ import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -74,7 +74,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void addTable(final ITableDto table) {
+  public void addTable(final TableDto table) {
 
     editedNodeDatabase.addChildNode(TABLE_NODE_MAPPER.createTableNodeFrom(table));
 

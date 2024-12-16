@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {
 
@@ -55,7 +55,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void addTable(final ITableDto table) {
+  public final void addTable(final TableDto table) {
     rawSchemaWriter.addTable(table);
   }
 
@@ -120,17 +120,17 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final ITableDto loadTableById(final String id) {
+  public final TableDto loadTableById(final String id) {
     return rawSchemaReader.loadTableById(id);
   }
 
   @Override
-  public final ITableDto loadTableByName(final String name) {
+  public final TableDto loadTableByName(final String name) {
     return rawSchemaReader.loadTableByName(name);
   }
 
   @Override
-  public final IContainer<ITableDto> loadTables() {
+  public final IContainer<TableDto> loadTables() {
     return rawSchemaReader.loadTables();
   }
 

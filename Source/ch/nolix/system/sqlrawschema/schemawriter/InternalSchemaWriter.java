@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 
 final class InternalSchemaWriter implements ChangeRequestable {
@@ -27,7 +27,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
       SCHEMA_DTO_MAPPER.createSqlColumnDtoFrom(column));
   }
 
-  public void addTable(final ITableDto table) {
+  public void addTable(final TableDto table) {
     sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.createSqlTableDtoFrom(table));
   }
 

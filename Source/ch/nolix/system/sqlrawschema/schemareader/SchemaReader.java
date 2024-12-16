@@ -6,7 +6,6 @@ import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableFlatDtoMapper;
@@ -14,7 +13,7 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class SchemaReader implements ISchemaReader {
@@ -116,17 +115,17 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public ITableDto loadTableById(final String id) {
+  public TableDto loadTableById(final String id) {
     return loadTable(loadFlatTableById(id));
   }
 
   @Override
-  public ITableDto loadTableByName(final String name) {
+  public TableDto loadTableByName(final String name) {
     return loadTable(loadFlatTableByName(name));
   }
 
   @Override
-  public IContainer<ITableDto> loadTables() {
+  public IContainer<TableDto> loadTables() {
     return loadFlatTables().to(t -> loadTableById(t.getId()));
   }
 
@@ -135,7 +134,7 @@ public final class SchemaReader implements ISchemaReader {
     //Does nothing.
   }
 
-  private ITableDto loadTable(final IFlatTableDto flatTable) {
+  private TableDto loadTable(final IFlatTableDto flatTable) {
     return new TableDto(
       flatTable.getId(),
       flatTable.getName(),

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter {
@@ -222,17 +222,17 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   }
 
   @Override
-  public final ITableDto loadTableById(final String id) {
+  public final TableDto loadTableById(final String id) {
     return schemaReader.loadTableById(id);
   }
 
   @Override
-  public final ITableDto loadTableByName(final String name) {
+  public final TableDto loadTableByName(final String name) {
     return schemaReader.loadTableByName(name);
   }
 
   @Override
-  public final IContainer<ITableDto> loadTables() {
+  public final IContainer<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 

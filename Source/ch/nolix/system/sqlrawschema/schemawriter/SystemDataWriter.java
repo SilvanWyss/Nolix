@@ -5,7 +5,7 @@ import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class SystemDataWriter implements ChangeRequestable {
@@ -32,7 +32,7 @@ final class SystemDataWriter implements ChangeRequestable {
       SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName));
   }
 
-  public void addTable(final ITableDto table) {
+  public void addTable(final TableDto table) {
     sqlCollector.addSqlStatements(SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementsToAddTable(table));
   }
 

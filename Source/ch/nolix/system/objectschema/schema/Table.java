@@ -8,13 +8,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
-import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class Table extends SchemaObject implements ITable {
 

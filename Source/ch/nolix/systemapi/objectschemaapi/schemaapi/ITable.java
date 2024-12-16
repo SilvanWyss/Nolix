@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public interface ITable
 extends
@@ -27,5 +27,5 @@ IIdHolder {
 
   IContainer<IColumn> getStoredColumns();
 
-  ITableDto toDto();
+  TableDto toDto();
 }
