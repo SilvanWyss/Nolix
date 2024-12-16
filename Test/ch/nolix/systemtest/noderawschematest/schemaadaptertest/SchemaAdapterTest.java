@@ -7,10 +7,9 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
 final class SchemaAdapterTest extends StandardTest {
 
@@ -32,7 +31,7 @@ final class SchemaAdapterTest extends StandardTest {
     new ColumnDto(
       "column_id",
       columnName,
-      new BaseParameterizedValueTypeDto(ContentType.VALUE, DataType.INTEGER_4BYTE));
+      new ValueModelDto(DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
     final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
@@ -92,7 +91,7 @@ final class SchemaAdapterTest extends StandardTest {
     new ColumnDto(
       "column_id",
       columnName,
-      new BaseParameterizedValueTypeDto(ContentType.VALUE, DataType.INTEGER_4BYTE));
+      new ValueModelDto(DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
     final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);

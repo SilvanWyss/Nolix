@@ -9,8 +9,8 @@ import ch.nolix.system.sqlrawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {

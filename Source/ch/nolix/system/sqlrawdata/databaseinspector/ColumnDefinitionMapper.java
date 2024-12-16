@@ -10,7 +10,7 @@ final class ColumnDefinitionMapper {
     return new ColumnInfo(
       column.getId(),
       column.getName(),
-      column.getParameterizedFieldType().getFieldType(),
+      column.getParameterizedFieldType().getContentType(),
       column.getParameterizedFieldType().getDataType(),
       0);
   }

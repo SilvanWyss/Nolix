@@ -5,7 +5,16 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.MultiBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.MultiReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.MultiValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 final class DatabaseTableLoader {
@@ -41,10 +50,7 @@ final class DatabaseTableLoader {
     final Table<IEntity> table,
     final ITableDto rawTable) {
 
-    final var rawBaseValueColumns = rawTable
-      .getColumns()
-      .getStoredSelected(
-        c -> c.getParameterizedFieldType().getFieldType().getBaseType() == BaseContentType.BASE_VALUE);
+    final var rawBaseValueColumns = rawTable.getColumns().getStoredSelected(this::isBaseValue);
 
     for (final var c : rawBaseValueColumns) {
 
@@ -73,10 +79,7 @@ final class DatabaseTableLoader {
     final ITableDto rawTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var rawBaseReferenceColumns = rawTable
-      .getColumns()
-      .getStoredSelected(
-        c -> c.getParameterizedFieldType().getFieldType().getBaseType() == BaseContentType.BASE_REFERENCE);
+    final var rawBaseReferenceColumns = rawTable.getColumns().getStoredSelected(this::isBaseReference);
 
     for (final var c : rawBaseReferenceColumns) {
 
@@ -105,11 +108,7 @@ final class DatabaseTableLoader {
     final ITableDto rawTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var rawBaseValueColumns = rawTable
-      .getColumns()
-      .getStoredSelected(
-        c -> c.getParameterizedFieldType().getFieldType()
-          .getBaseType() == BaseContentType.BASE_BACK_REFERENCE);
+    final var rawBaseValueColumns = rawTable.getColumns().getStoredSelected(this::isBaseBackReference);
 
     for (final var c : rawBaseValueColumns) {
 
@@ -120,5 +119,35 @@ final class DatabaseTableLoader {
 
       table.internalAddColumn(column);
     }
+  }
+
+  private boolean isBaseValue(IColumnDto columnDto) {
+
+    final var contentModel = columnDto.getParameterizedFieldType();
+
+    return //
+    contentModel instanceof ValueModelDto
+    || contentModel instanceof OptionalValueModelDto
+    || contentModel instanceof MultiValueModelDto;
+  }
+
+  private boolean isBaseReference(IColumnDto columnDto) {
+
+    final var contentModel = columnDto.getParameterizedFieldType();
+
+    return //
+    contentModel instanceof ReferenceModelDto
+    || contentModel instanceof OptionalReferenceModelDto
+    || contentModel instanceof MultiReferenceModelDto;
+  }
+
+  private boolean isBaseBackReference(IColumnDto columnDto) {
+
+    final var contentModel = columnDto.getParameterizedFieldType();
+
+    return //
+    contentModel instanceof BackReferenceModelDto
+    || contentModel instanceof OptionalBackReferenceModelDto
+    || contentModel instanceof MultiBackReferenceModelDto;
   }
 }

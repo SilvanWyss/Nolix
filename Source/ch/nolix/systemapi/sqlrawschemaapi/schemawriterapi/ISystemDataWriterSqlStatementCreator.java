@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

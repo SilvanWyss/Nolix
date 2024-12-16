@@ -25,8 +25,8 @@ public final class Column extends SchemaObject implements IColumn {
   private static final IContentModel INITIAL_FIELD_TYPE = //
   ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
-  private static final ParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
-  new ParameterizedFieldTypeMapper();
+  private static final ContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
+  new ContentModelMapper();
 
   private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
 
@@ -64,7 +64,7 @@ public final class Column extends SchemaObject implements IColumn {
     return new Column(
       columnDto.getId(),
       columnDto.getName(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.createContentModelFromDto(
         columnDto.getParameterizedFieldType(),
         tables));
   }

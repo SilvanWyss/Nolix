@@ -6,17 +6,17 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IAbstractBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.MultiBackReferenceModelDto;
 
 public final class ParameterizedMultiBackReferenceTypeMapper
-implements IParameterizedFieldTypeMapper<IAbstractBackReferenceModelDto> {
+implements IParameterizedFieldTypeMapper<MultiBackReferenceModelDto> {
 
   @Override
   public IParameterizedFieldType createParameterizedFieldTypeFromDto(
-    final IAbstractBackReferenceModelDto parameterizedFieldTypeDto,
+    final MultiBackReferenceModelDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var backReferencedColumnId = parameterizedFieldTypeDto.getBackReferencedColumnId();
+    final var backReferencedColumnId = parameterizedFieldTypeDto.backReferencedColumnId();
     final var referencableColumns = referencableTables.toMultiple(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 

@@ -2,6 +2,8 @@ package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 
 public final class BackReferenceModel extends AbstractBackReferenceModel {
 
@@ -16,5 +18,13 @@ public final class BackReferenceModel extends AbstractBackReferenceModel {
   @Override
   public ContentType getContentType() {
     return ContentType.BACK_REFERENCE;
+  }
+
+  @Override
+  public IContentModelDto toDto() {
+
+    final var backReferencedColumnId = getBackReferencedColumn().getId();
+
+    return new BackReferenceModelDto(getDataType(), backReferencedColumnId);
   }
 }

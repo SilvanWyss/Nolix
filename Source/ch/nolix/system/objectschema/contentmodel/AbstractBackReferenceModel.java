@@ -3,14 +3,12 @@ package ch.nolix.system.objectschema.contentmodel;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.objectschema.schemadto.BaseBackReferenceModelDto;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IContentModelDto;
 
 public abstract class AbstractBackReferenceModel implements IAbstractBackReferenceModel {
 
@@ -58,14 +56,6 @@ public abstract class AbstractBackReferenceModel implements IAbstractBackReferen
   @Override
   public final boolean referencesBackColumn(final IColumn column) {
     return (getBackReferencedColumn() == column);
-  }
-
-  @Override
-  public final IContentModelDto toDto() {
-    return new BaseBackReferenceModelDto(
-      getContentType(),
-      getDataType(),
-      getBackReferencedColumn().getId());
   }
 
   private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
