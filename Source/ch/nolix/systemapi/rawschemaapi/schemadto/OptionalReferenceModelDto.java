@@ -2,5 +2,5 @@ package ch.nolix.systemapi.rawschemaapi.schemadto;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-public record OptionalReferenceModelDto(IContainer<String> referencedTableIds) {
+public record OptionalReferenceModelDto(IContainer<String> referencedTableIds) implements IContentModelDto {
 }

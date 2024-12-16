@@ -1,4 +1,4 @@
 package ch.nolix.systemapi.rawschemaapi.schemadto;
 
-public record BackReferenceModelDto(String backReferencedColumnId) {
+public record BackReferenceModelDto(String backReferencedColumnId) implements IContentModelDto {
 }
