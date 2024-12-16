@@ -5,16 +5,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 final class DatabaseTableLoader {
@@ -121,33 +113,16 @@ final class DatabaseTableLoader {
     }
   }
 
-  private boolean isBaseValue(IColumnDto columnDto) {
-
-    final var contentModel = columnDto.getParameterizedFieldType();
-
-    return //
-    contentModel instanceof ValueModelDto
-    || contentModel instanceof OptionalValueModelDto
-    || contentModel instanceof MultiValueModelDto;
+  private boolean isBaseBackReference(final ColumnDto columnDto) {
+    return columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_BACK_REFERENCE;
   }
 
-  private boolean isBaseReference(IColumnDto columnDto) {
-
-    final var contentModel = columnDto.getParameterizedFieldType();
-
-    return //
-    contentModel instanceof ReferenceModelDto
-    || contentModel instanceof OptionalReferenceModelDto
-    || contentModel instanceof MultiReferenceModelDto;
+  private boolean isBaseReference(final ColumnDto columnDto) {
+    return columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_REFERENCE;
   }
 
-  private boolean isBaseBackReference(IColumnDto columnDto) {
-
-    final var contentModel = columnDto.getParameterizedFieldType();
-
-    return //
-    contentModel instanceof BackReferenceModelDto
-    || contentModel instanceof OptionalBackReferenceModelDto
-    || contentModel instanceof MultiBackReferenceModelDto;
+  private boolean isBaseValue(final ColumnDto columnDto) {
+    return columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_VALUE;
   }
+
 }

@@ -7,8 +7,8 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter;
-import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
 final class SchemaAdapterTest extends StandardTest {
@@ -43,7 +43,7 @@ final class SchemaAdapterTest extends StandardTest {
 
     //verification
     expect(testUnit.isChangeFree()).isTrue();
-    expect(testUnit.loadColumnsByTableName(tableName)).contains(t -> t.getName().equals(columnName));
+    expect(testUnit.loadColumnsByTableName(tableName)).contains(c -> c.name().equals(columnName));
   }
 
   @Test

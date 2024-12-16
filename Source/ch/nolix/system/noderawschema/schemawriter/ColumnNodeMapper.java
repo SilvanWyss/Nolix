@@ -2,14 +2,14 @@ package ch.nolix.system.noderawschema.schemawriter;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
 public final class ColumnNodeMapper {
 
   private static final ParameterizedFieldTypeNodeMapper PARAMETERIZED_FIELD_TYPE_NODE_MAPPER = //
   new ParameterizedFieldTypeNodeMapper();
 
-  public Node createColumnNodeFrom(final IColumnDto column) {
+  public Node createColumnNodeFrom(final ColumnDto column) {
     return Node.withHeaderAndChildNode(
       StructureHeaderCatalogue.COLUMN,
       createIdNodeFrom(column),
@@ -17,16 +17,15 @@ public final class ColumnNodeMapper {
       createParameterizedFieldTypeNodeFrom(column));
   }
 
-  private Node createIdNodeFrom(final IColumnDto column) {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.ID, column.getId());
+  private Node createIdNodeFrom(final ColumnDto column) {
+    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.ID, column.id());
   }
 
-  private Node createNameNodeFrom(final IColumnDto column) {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.NAME, column.getName());
+  private Node createNameNodeFrom(final ColumnDto column) {
+    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.NAME, column.name());
   }
 
-  private Node createParameterizedFieldTypeNodeFrom(final IColumnDto column) {
-    return PARAMETERIZED_FIELD_TYPE_NODE_MAPPER.createParameterizedFieldTypeNodeFrom(
-      column.getParameterizedFieldType());
+  private Node createParameterizedFieldTypeNodeFrom(final ColumnDto column) {
+    return PARAMETERIZED_FIELD_TYPE_NODE_MAPPER.createParameterizedFieldTypeNodeFrom(column.contentModel());
   }
 }

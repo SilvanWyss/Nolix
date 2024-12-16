@@ -3,7 +3,7 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -13,9 +13,9 @@ public interface ISchemaReader extends GroupCloseable {
 
   int getTableCount();
 
-  IContainer<IColumnDto> loadColumnsByTableName(String tableName);
+  IContainer<ColumnDto> loadColumnsByTableName(String tableName);
 
-  IContainer<IColumnDto> loadColumnsByTableId(String tableId);
+  IContainer<ColumnDto> loadColumnsByTableId(String tableId);
 
   IFlatTableDto loadFlatTableById(String id);
 

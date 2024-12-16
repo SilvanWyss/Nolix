@@ -8,7 +8,6 @@ import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 final class SchemaDtoMapper {
@@ -22,8 +21,8 @@ final class SchemaDtoMapper {
   ColumnDto.withNameAndDataType(PascalCaseVariableCatalogue.SAVE_STAMP, DatatypeTypeCatalogue.INTEGER);
 
   public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto createSqlColumnDtoFrom(
-    final IColumnDto column) {
-    return ColumnDto.withNameAndDataType(column.getName(), DatatypeTypeCatalogue.TEXT);
+    final ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto column) {
+    return ColumnDto.withNameAndDataType(column.name(), DatatypeTypeCatalogue.TEXT);
   }
 
   public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto createSqlTableDtoFrom(

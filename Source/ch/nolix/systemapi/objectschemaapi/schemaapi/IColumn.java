@@ -6,7 +6,7 @@ import ch.nolix.coreapi.componentapi.datamodelcomponentapi.ITableComponent;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
 public interface IColumn
 extends
@@ -21,5 +21,5 @@ ITableComponent<ITable> {
 
   IColumn setContentModel(IContentModel contentModel);
 
-  IColumnDto toDto();
+  ColumnDto toDto();
 }

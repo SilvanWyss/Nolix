@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
@@ -53,7 +53,7 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsOfTable(final ITable table) {
+  public IContainer<ColumnDto> loadColumnsOfTable(final ITable table) {
     return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
   }
 

@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 
@@ -21,7 +21,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
     this.sqlSchemaWriter = sqlSchemaWriter;
   }
 
-  public void addColumn(final String tableName, final IColumnDto column) {
+  public void addColumn(final String tableName, final ColumnDto column) {
     sqlSchemaWriter.addColumn(
       TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName,
       SCHEMA_DTO_MAPPER.createSqlColumnDtoFrom(column));

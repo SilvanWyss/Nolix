@@ -5,14 +5,14 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 public final class SchemaReader implements ISchemaReader {
@@ -66,7 +66,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
+  public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
 
@@ -75,7 +75,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
+  public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
@@ -142,7 +142,7 @@ public final class SchemaReader implements ISchemaReader {
     //Does nothing.
   }
 
-  private IContainer<IColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
+  private IContainer<ColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
       .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
   }

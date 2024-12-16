@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -22,7 +22,7 @@ final class SystemDataWriter implements ChangeRequestable {
     this.sqlCollector = sqlCollector;
   }
 
-  public void addColumn(final String tableName, final IColumnDto column) {
+  public void addColumn(final String tableName, final ColumnDto column) {
     sqlCollector.addSqlStatement(
       SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column));
   }

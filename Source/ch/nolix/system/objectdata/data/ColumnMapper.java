@@ -5,7 +5,7 @@ import ch.nolix.system.objectdata.parameterizedfieldtypemapper.ParameterizedFiel
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
 final class ColumnMapper {
 
@@ -13,14 +13,14 @@ final class ColumnMapper {
   new ParameterizedFieldTypeMapper();
 
   public IColumn createColumnFromDtoForParentTableUsingGivenReferencableTables(
-    final IColumnDto columnDto,
+    final ColumnDto columnDto,
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
     return Column.withNameAndIdAndParameterizedFieldTypeAndParentTable(
-      columnDto.getName(),
-      columnDto.getId(),
+      columnDto.name(),
+      columnDto.id(),
       PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
-        columnDto.getParameterizedFieldType(),
+        columnDto.contentModel(),
         referencableTables),
       parentTable);
   }

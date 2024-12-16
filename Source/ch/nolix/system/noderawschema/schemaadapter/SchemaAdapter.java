@@ -10,8 +10,8 @@ import ch.nolix.system.noderawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 public final class SchemaAdapter implements ISchemaAdapter {
@@ -49,7 +49,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public void addColumn(final String tableName, IColumnDto column) {
+  public void addColumn(final String tableName, ColumnDto column) {
     schemaWriter.addColumn(tableName, column);
   }
 
@@ -89,12 +89,12 @@ public final class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
+  public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
     return schemaReader.loadColumnsByTableId(tableId);
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
+  public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
     return schemaReader.loadColumnsByTableName(tableName);
   }
 

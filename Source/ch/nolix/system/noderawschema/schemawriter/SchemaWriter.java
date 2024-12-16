@@ -12,8 +12,8 @@ import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -63,7 +63,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void addColumn(final String tableName, final IColumnDto column) {
+  public void addColumn(final String tableName, final ColumnDto column) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);

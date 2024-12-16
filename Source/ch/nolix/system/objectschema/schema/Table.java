@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
 public final class Table extends SchemaObject implements ITable {
 
@@ -169,7 +169,7 @@ public final class Table extends SchemaObject implements ITable {
     }
   }
 
-  private IContainer<IColumnDto> createColumnDtos() {
+  private IContainer<ColumnDto> createColumnDtos() {
     return getStoredColumns().to(IColumn::toDto);
   }
 

@@ -11,8 +11,8 @@ import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -25,11 +25,10 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
 
   @Override
-  public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
+  public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
 
-    final var parameterizedFieldTypeRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
-      .createParameterizedFieldTypeRecordFrom(
-        column.getParameterizedFieldType());
+    final var parameterizedFieldTypeRecord = //
+    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.createParameterizedFieldTypeRecordFrom(column.contentModel());
 
     return "INSERT INTO "
     + SchemaTableType.COLUMN.getQualifiedName()
@@ -48,11 +47,11 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + ") SELECT '"
-    + column.getId()
+    + column.id()
     + "', "
     + TableTableColumn.ID.getQualifiedName()
     + ", '"
-    + column.getName()
+    + column.name()
     + "', "
     + parameterizedFieldTypeRecord.getFieldTypeValue()
     + ", "

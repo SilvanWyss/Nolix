@@ -13,7 +13,7 @@ import ch.nolix.system.sqlrawschema.tabletable.TableFlatDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -74,14 +74,14 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
+  public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
       .to(COLUMN_DTO_MAPPER::createColumnDtoFromSchemaColumnTableSqlRecord);
   }
 
   @Override
-  public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
+  public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
       .to(COLUMN_DTO_MAPPER::createColumnDtoFromSchemaColumnTableSqlRecord);

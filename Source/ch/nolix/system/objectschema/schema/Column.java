@@ -11,12 +11,11 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
-import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
 public final class Column extends SchemaObject implements IColumn {
 
@@ -60,12 +59,12 @@ public final class Column extends SchemaObject implements IColumn {
     setContentModel(contentModel);
   }
 
-  public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
+  public static Column fromDto(final ColumnDto columnDto, final IContainer<ITable> tables) {
     return new Column(
-      columnDto.getId(),
-      columnDto.getName(),
+      columnDto.id(),
+      columnDto.name(),
       PARAMETERIZED_FIELD_TYPE_MAPPER.createContentModelFromDto(
-        columnDto.getParameterizedFieldType(),
+        columnDto.contentModel(),
         tables));
   }
 
