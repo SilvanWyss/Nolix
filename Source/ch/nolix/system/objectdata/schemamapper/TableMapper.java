@@ -13,14 +13,19 @@ public final class TableMapper implements ITableMapper {
   private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
   @Override
-  public IContainer<ITable> createTablesFrom(final ISchema schema) {
+  public IContainer<ITable> createTablesFromSchema(final ISchema schema) {
 
     final var tables = createEmptyTablesFromSchema(schema);
+    final var entitTypes = schema.getEntityTypes();
 
     for (final var t : tables) {
-      final var entityType = schema.getEntityTypes().getStoredFirst(et -> t.hasName(et.getSimpleName()));
-      for (final var c : COLUMN_MAPPER.createColumnsFromGivenEntityTypeUsingGivenReferencableTables(entityType,
-        tables)) {
+
+      final var entityType = entitTypes.getStoredFirst(et -> t.hasName(et.getSimpleName()));
+
+      final var columns = //
+      COLUMN_MAPPER.createColumnsFromGivenEntityTypeUsingGivenReferencableTables(entityType, tables);
+
+      for (final var c : columns) {
         t.addColumn(c);
       }
     }
@@ -30,10 +35,17 @@ public final class TableMapper implements ITableMapper {
 
   @Override
   public IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema) {
-    return schema.getEntityTypes().to(this::createEmptyTableFrom);
+
+    final var entityTypes = schema.getEntityTypes();
+
+    return entityTypes.to(this::createEmptyTableFromEntityType);
   }
 
-  private <E extends IEntity> ITable createEmptyTableFrom(final Class<E> entityType) {
-    return new Table(entityType.getSimpleName());
+  @Override
+  public <E extends IEntity> ITable createEmptyTableFromEntityType(final Class<E> entityType) {
+
+    final var name = entityType.getSimpleName();
+
+    return new Table(name);
   }
 }
