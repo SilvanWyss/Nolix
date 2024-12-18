@@ -6,7 +6,6 @@ import ch.nolix.coreapi.componentapi.datamodelcomponentapi.ITableComponent;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
 public interface IColumn
 extends
@@ -20,6 +19,4 @@ ITableComponent<ITable> {
   IContentModel getContentModel();
 
   IColumn setContentModel(IContentModel contentModel);
-
-  ColumnDto toDto();
 }

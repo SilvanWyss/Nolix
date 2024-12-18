@@ -134,11 +134,6 @@ public final class Column extends SchemaObject implements IColumn {
     return this;
   }
 
-  @Override
-  public ColumnDto toDto() {
-    return new ColumnDto(getId(), getName(), getContentModel().toDto());
-  }
-
   void assertIsEmpty() {
     if (containsAny()) {
       throw NonEmptyArgumentException.forArgument(this);

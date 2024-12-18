@@ -2,7 +2,9 @@ package ch.nolix.system.objectschema.rawschemalinker;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.system.objectschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.objectschema.rawschemadtomapper.TableDtoMapper;
+import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi.IRawSchemaLinkerAdapter;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -17,6 +19,8 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
 
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
+  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
   private final ISchemaAdapter internalRawSchemaAdapter;
 
   public RawSchemaLinkerAdapter(final ISchemaAdapter internalRawSchemaAdapter) {
@@ -28,7 +32,11 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
 
   @Override
   public void addColumnToTable(final ITable table, final IColumn column) {
-    internalRawSchemaAdapter.addColumn(table.getName(), column.toDto());
+
+    final var tableName = table.getName();
+    final var columnDto = COLUMN_DTO_MAPPER.mapColumnToColumnDto(column);
+
+    internalRawSchemaAdapter.addColumn(tableName, columnDto);
   }
 
   @Override
