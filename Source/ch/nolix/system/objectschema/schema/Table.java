@@ -33,7 +33,7 @@ public final class Table extends SchemaObject implements ITable {
 
   private LinkedList<IColumn> columns = LinkedList.createEmpty();
 
-  public Table(final String id, final String name) {
+  private Table(final String id, final String name) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
 
