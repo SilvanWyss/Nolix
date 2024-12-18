@@ -5,11 +5,10 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
@@ -69,7 +68,7 @@ final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<IFlatTableDto> loadFlatTables() {
+  public IContainer<FlatTableDto> loadFlatTables() {
     return sqlConnection
       .getRecordsHavingSinlgeEntryFromQuery(schemaQueryCreator.createQueryToLoadNameOfTables())
       .to(FlatTableDto::new);
@@ -77,7 +76,7 @@ final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<ITableDto> loadTables() {
-    return loadFlatTables().to(t -> TableDto.withNameAndColumns(t.getName(), loadColumns(t.getName())));
+    return loadFlatTables().to(t -> TableDto.withNameAndColumns(t.name(), loadColumns(t.name())));
   }
 
   @Override
