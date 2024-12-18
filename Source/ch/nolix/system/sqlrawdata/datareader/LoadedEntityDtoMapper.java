@@ -4,7 +4,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.sqlrawdata.datadto.LoadedEntityDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
@@ -19,20 +19,20 @@ final class LoadedEntityDtoMapper {
     return new LoadedEntityDto(
       sqlRecordValues.getStoredAt1BasedIndex(1),
       sqlRecordValues.getStoredAt1BasedIndex(2),
-      getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo));
+      getContentFieldsFromSqlRecord(sqlRecordValues, tableInfo));
   }
 
-  private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
+  private IContainer<ContentFieldDto<Object>> getContentFieldsFromSqlRecord(
     final IContainer<String> sqlRecordValues,
     final ITableInfo tableInfo) {
-    return getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
+    return getContentFieldsFromSqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
   }
 
-  private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
+  private IContainer<ContentFieldDto<Object>> getContentFieldsFromSqlRecord(
     final IContainer<String> sqlRecordValues,
     final IContainer<IColumnInfo> contentColumnDefinitions) {
 
-    final ILinkedList<ILoadedContentFieldDto> contentFields = LinkedList.createEmpty();
+    final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecordValues.iterator();
 
     //Skips id and save stamp.

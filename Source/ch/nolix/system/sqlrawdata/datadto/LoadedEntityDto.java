@@ -3,16 +3,16 @@ package ch.nolix.system.sqlrawdata.datadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 
-public record LoadedEntityDto(String id, String saveStamp, IContainer<ILoadedContentFieldDto> contentFields)
+public record LoadedEntityDto(String id, String saveStamp, IContainer<ContentFieldDto<Object>> contentFields)
 implements ILoadedEntityDto {
 
   public LoadedEntityDto( //NOSONAR: This implementations checks the given arguments.
     final String id,
     final String saveStamp,
-    final IContainer<ILoadedContentFieldDto> contentFields) {
+    final IContainer<ContentFieldDto<Object>> contentFields) {
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ID);
@@ -32,7 +32,7 @@ implements ILoadedEntityDto {
   }
 
   @Override
-  public IContainer<ILoadedContentFieldDto> getContentFields() {
+  public IContainer<ContentFieldDto<Object>> getContentFields() {
     return contentFields;
   }
 

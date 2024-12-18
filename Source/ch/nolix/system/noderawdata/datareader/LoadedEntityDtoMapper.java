@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.datadto.LoadedEntityDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
@@ -25,11 +25,11 @@ public final class LoadedEntityDtoMapper {
       createContentFieldsFromEntityNode(entityNode, tableInfo));
   }
 
-  private IContainer<ILoadedContentFieldDto> createContentFieldsFromEntityNode(
+  private IContainer<ContentFieldDto<Object>> createContentFieldsFromEntityNode(
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo) {
 
-    final ILinkedList<ILoadedContentFieldDto> contentFields = LinkedList.createEmpty();
+    final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
     for (final var ci : tableInfo.getColumnInfos()) {
 
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
