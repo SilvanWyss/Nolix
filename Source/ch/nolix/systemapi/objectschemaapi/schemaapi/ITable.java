@@ -19,9 +19,9 @@ IIdHolder {
 
   ITable addColumn(IColumn column);
 
-  ITable createColumnWithNameAndParameterizedFieldType(
-    String name,
-    IContentModel contentModel);
+  ITable addColumns(IContainer<IColumn> columns);
+
+  ITable createColumnWithNameAndParameterizedFieldType(String name, IContentModel contentModel);
 
   FlatTableDto getFlatDto();
 

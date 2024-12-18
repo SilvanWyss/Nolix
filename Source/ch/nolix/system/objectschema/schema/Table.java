@@ -61,6 +61,16 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   @Override
+  public ITable addColumns(final IContainer<IColumn> columns) {
+
+    for (final var c : columns) {
+      addColumn(c);
+    }
+
+    return this;
+  }
+
+  @Override
   public boolean belongsToDatabase() {
     return (parentDatabase != null);
   }
