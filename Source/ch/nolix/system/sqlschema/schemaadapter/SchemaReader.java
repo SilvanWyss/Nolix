@@ -6,10 +6,10 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
-import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
@@ -64,7 +64,8 @@ final class SchemaReader implements ISchemaReader {
     return sqlConnection
       .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
       .to(
-        r -> ColumnDto.withNameAndDataType(r.getStoredAt1BasedIndex(1), new DataTypeDto(r.getStoredAt1BasedIndex(2))));
+        r -> ColumnDto.withNameAndDataType(r.getStoredAt1BasedIndex(1),
+          DataTypeDto.withName(r.getStoredAt1BasedIndex(2))));
   }
 
   @Override

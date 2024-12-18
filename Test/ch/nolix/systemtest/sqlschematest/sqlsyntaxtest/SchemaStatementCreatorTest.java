@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
-import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 
 final class SchemaStatementCreatorTest extends StandardTest {
 
@@ -14,7 +14,8 @@ final class SchemaStatementCreatorTest extends StandardTest {
   void testCase_createStatementToAddColumn() {
 
     //setup
-    final var columnDto = ColumnDto.withNameAndDataType("Name", new DataTypeDto("nvarchar(100)"));
+    final var dataTypeDto = DataTypeDto.withNameAndParameter("nvarchar", "100");
+    final var columnDto = ColumnDto.withNameAndDataType("Name", dataTypeDto);
     final var testUnit = new SchemaStatementCreator();
 
     //execution
@@ -30,8 +31,8 @@ final class SchemaStatementCreatorTest extends StandardTest {
     //setup
     final var tableDto = TableDto.withNameAndColumn(
       "Pet",
-      ColumnDto.withNameAndDataType("Name", new DataTypeDto("nvarchar(100)")),
-      ColumnDto.withNameAndDataType("WeightInKilogram", new DataTypeDto("Float")));
+      ColumnDto.withNameAndDataType("Name", DataTypeDto.withNameAndParameter("nvarchar", "100")),
+      ColumnDto.withNameAndDataType("WeightInKilogram", DataTypeDto.withName("Float")));
     final var testUnit = new SchemaStatementCreator();
 
     //execution

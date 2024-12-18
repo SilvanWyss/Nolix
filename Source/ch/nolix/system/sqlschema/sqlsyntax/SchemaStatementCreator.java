@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlschema.sqlsyntax;
 
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
@@ -75,12 +75,14 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return ("(" + constraint.getParameters().toStringWithSeparator(",") + ")");
   }
 
-  private String getDataTypeAsSql(final IDataTypeDto dataType) {
+  private String getDataTypeAsSql(final DataTypeDto dataType) {
 
-    if (!dataType.hasParameter()) {
-      return dataType.getName();
+    final var optionalParameter = dataType.optionalParameter();
+
+    if (optionalParameter.isPresent()) {
+      return (dataType.name() + "(" + optionalParameter.get() + ")");
     }
 
-    return (dataType.getName() + "(" + dataType.getParameter() + ")");
+    return dataType.name();
   }
 }

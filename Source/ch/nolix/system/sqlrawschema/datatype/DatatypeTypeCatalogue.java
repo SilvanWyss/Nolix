@@ -1,12 +1,12 @@
 package ch.nolix.system.sqlrawschema.datatype;
 
-import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 
 public final class DatatypeTypeCatalogue {
 
-  public static final DataTypeDto INTEGER = new DataTypeDto("INT");
+  public static final DataTypeDto INTEGER = DataTypeDto.withName("INT");
 
-  public static final DataTypeDto TEXT = new DataTypeDto("NVARCHAR", "MAX");
+  public static final DataTypeDto TEXT = DataTypeDto.withNameAndParameter("NVARCHAR", "MAX");
 
   private DatatypeTypeCatalogue() {
   }
