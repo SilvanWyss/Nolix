@@ -14,7 +14,6 @@ import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -254,27 +253,6 @@ final class DatabaseUpdater {
     final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
     multiValueNode.addChildNode(Node.withHeader(entry));
-  }
-
-  public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDto entity) {
-
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
-
-    final var entityNode = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode, entity.getId());
-
-    if (entityNode.isEmpty()) {
-      throw ResourceWasChangedInTheMeanwhileException.forResource("data");
-    }
-
-    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode.get());
-
-    final var saveStamp = saveStampNode.getHeader();
-    if (!saveStamp.equals(entity.getSaveStamp())) {
-      throw ResourceWasChangedInTheMeanwhileException.forResource("data");
-    }
-
-    final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
-    saveStampNode.setHeader(newSaveStamp);
   }
 
   public void updateEntityOnTable(

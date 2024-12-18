@@ -8,7 +8,6 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -202,11 +201,6 @@ public final class DataWriter implements IDataWriter {
   @Override
   public void saveChanges() {
     internalDataWriter.saveChangesAndReset();
-  }
-
-  @Override
-  public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-    internalDataWriter.setEntityAsUpdated(tableName, entity);
   }
 
   @Override

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
@@ -249,11 +248,6 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   @Override
   public final void saveChanges() {
     dataAdapter.saveChanges();
-  }
-
-  @Override
-  public final void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-    dataAdapter.setEntityAsUpdated(tableName, entity);
   }
 
   @Override

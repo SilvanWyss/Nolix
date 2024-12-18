@@ -9,7 +9,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -160,10 +159,6 @@ final class InternalDataWriter {
     } finally {
       reset();
     }
-  }
-
-  public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-    addChangeAction(d -> DATABASE_UPDATER.setEntityAsUpdated(d, tableName, entity));
   }
 
   public void updateEntityOnTable(final ITableInfo tableInfo, EntityUpdateDto entityUpdate) {

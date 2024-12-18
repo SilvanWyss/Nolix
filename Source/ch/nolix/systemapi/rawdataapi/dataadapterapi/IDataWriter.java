@@ -4,7 +4,6 @@ import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -152,15 +151,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param entry
    */
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
-
-  /**
-   * Sets the concerned entity as updated. Will cause an error if the concerned
-   * entity was deleted or changed in the meanwhile.
-   * 
-   * @param tableName
-   * @param entity
-   */
-  void setEntityAsUpdated(String tableName, IEntityHeadDto entity);
 
   /**
    * There is not asserted that the concerned entity was not changed in the

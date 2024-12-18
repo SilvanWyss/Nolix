@@ -11,7 +11,6 @@ import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -100,20 +99,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ", "
     + STRING_TOOL.getInSingleQuotes(entityId)
     + ");";
-  }
-
-  @Override
-  public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-    return "UPDATE"
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
-    + " SET SaveStamp = '"
-    + (Integer.valueOf(entity.getSaveStamp()) + 1)
-    + " WHERE Id = '"
-    + entity.getId()
-    + " AND SaveStamp = "
-    + entity.getSaveStamp()
-    + ";"
-    + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
   @Override

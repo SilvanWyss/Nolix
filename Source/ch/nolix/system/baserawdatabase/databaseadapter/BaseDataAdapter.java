@@ -10,7 +10,6 @@ import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class BaseDataAdapter implements IDataAdapter {
@@ -190,11 +189,6 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   @Override
   public final void saveChanges() {
     dataWriter.saveChanges();
-  }
-
-  @Override
-  public final void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-    dataWriter.setEntityAsUpdated(tableName, entity);
   }
 
   @Override
