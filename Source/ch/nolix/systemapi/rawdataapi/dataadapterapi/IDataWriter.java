@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -109,7 +109,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param tableName
    * @param newEntity
    */
-  void insertEntity(String tableName, INewEntityDto newEntity);
+  void insertEntity(String tableName, EntityCreationDto newEntity);
 
   /**
    * There is not asserted that the concerned entity was not changed in the

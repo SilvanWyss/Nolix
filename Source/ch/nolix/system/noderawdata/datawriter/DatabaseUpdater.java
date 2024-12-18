@@ -11,9 +11,9 @@ import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -180,17 +180,17 @@ final class DatabaseUpdater {
   public void insertEntityIntoTable(
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
-    final INewEntityDto newEntity) {
+    final EntityCreationDto newEntity) {
 
     insertEntityHeadIntoDatabase(nodeDatabase, tableInfo, newEntity);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
-    if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
+    if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.id())) {
       throw ArgumentHasAttributeException.forArgumentAndAttributeName(
         "table " + tableInfo.getTableNameInQuotes(),
-        "entity with the id '" + newEntity.getId() + "'");
+        "entity with the id '" + newEntity.id() + "'");
     }
 
     final var entityNode = ENTITY_NODE_MAPPER.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
@@ -315,7 +315,7 @@ final class DatabaseUpdater {
   private void insertEntityHeadIntoDatabase(
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
-    final INewEntityDto newEntity) {
+    final EntityCreationDto newEntity) {
 
     final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromNodeDatabase(nodeDatabase);
 

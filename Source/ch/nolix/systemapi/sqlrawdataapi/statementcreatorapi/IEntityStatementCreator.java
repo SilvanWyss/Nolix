@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IEntityStatementCreator {
@@ -15,7 +15,7 @@ public interface IEntityStatementCreator {
 
   String createStatementToExpectTableContainsEntity(String tableName, String entityId);
 
-  String createStatementToInsertEntity(String tableName, INewEntityDto newEntity);
+  String createStatementToInsertEntity(String tableName, EntityCreationDto newEntity);
 
   String createStatementToInsertEntityHead(String tableId, String entityId);
 

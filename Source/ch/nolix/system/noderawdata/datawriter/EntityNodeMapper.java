@@ -4,14 +4,14 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 final class EntityNodeMapper {
 
   public Node createNodeFromEntityWithSaveStamp(
     final ITableInfo tableInfo,
-    final INewEntityDto newEntity,
+    final EntityCreationDto newEntity,
     final long saveStamp) {
     return Node.withHeaderAndChildNodes(
       SubNodeHeaderCatalogue.ENTITY,
@@ -19,7 +19,7 @@ final class EntityNodeMapper {
   }
 
   private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
-    final INewEntityDto newEntity,
+    final EntityCreationDto newEntity,
     final long saveStamp,
     final ITableInfo tableInfo) {
 
@@ -28,7 +28,7 @@ final class EntityNodeMapper {
     attributes[0] = createIdAttributeFrom(newEntity);
     attributes[1] = createSaveStampAttribute(saveStamp);
 
-    for (final var f : newEntity.getContentFields()) {
+    for (final var f : newEntity.contentFields()) {
 
       final var columnInfo = tableInfo.getColumnInfoByColumnName(f.columnName());
       final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
@@ -44,8 +44,8 @@ final class EntityNodeMapper {
     return ContainerView.forArray(attributes);
   }
 
-  private Node createIdAttributeFrom(final INewEntityDto newEntity) {
-    return Node.withHeader(newEntity.getId());
+  private Node createIdAttributeFrom(final EntityCreationDto newEntity) {
+    return Node.withHeader(newEntity.id());
   }
 
   private Node createSaveStampAttribute(final long saveStamp) {

@@ -8,9 +8,9 @@ import ch.nolix.system.sqlrawschema.structure.IndexTableType;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -72,17 +72,17 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   }
 
   @Override
-  public String createStatementToInsertEntity(final String tableName, final INewEntityDto newEntity) {
+  public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
     return "INSERT INTO "
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " (Id, SaveStamp, "
-    + newEntity.getContentFields().to(ContentFieldDto::columnName).toStringWithSeparator(", ")
+    + newEntity.contentFields().to(ContentFieldDto::columnName).toStringWithSeparator(", ")
     + ") VALUES ('"
-    + newEntity.getId()
+    + newEntity.id()
     + "', '"
     + 1
     + "', "
-    + newEntity.getContentFields().to(this::getSqlValueRepresentationOfContentField).toStringWithSeparator(", ")
+    + newEntity.contentFields().to(this::getSqlValueRepresentationOfContentField).toStringWithSeparator(", ")
     + ");";
   }
 

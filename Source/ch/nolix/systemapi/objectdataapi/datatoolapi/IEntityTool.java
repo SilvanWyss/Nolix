@@ -8,9 +8,9 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 
 public interface IEntityTool extends IDatabaseObjectTool {
 
@@ -26,7 +26,7 @@ public interface IEntityTool extends IDatabaseObjectTool {
 
   IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity);
 
-  INewEntityDto createNewEntityDtoForEntity(IEntity entity);
+  EntityCreationDto createNewEntityDtoForEntity(IEntity entity);
 
   Optional<? extends IBaseBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(

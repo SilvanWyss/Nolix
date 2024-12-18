@@ -4,9 +4,9 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
@@ -114,10 +114,9 @@ public final class InternalDataWriter {
     return sqlCollector.containsAny();
   }
 
-  public void insertEntity(final String tableName, final INewEntityDto newEntity) {
+  public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
 
-    sqlCollector.addSqlStatement(
-      entityStatementCreator.createStatementToInsertEntityHead(tableName, newEntity.getId()));
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToInsertEntityHead(tableName, newEntity.id()));
 
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToInsertEntity(tableName, newEntity));
   }
