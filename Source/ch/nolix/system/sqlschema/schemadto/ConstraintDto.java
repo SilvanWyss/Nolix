@@ -3,7 +3,7 @@ package ch.nolix.system.sqlschema.schemadto;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ConstraintType;
+import ch.nolix.systemapi.sqlschemaapi.columnconstaintproperty.ConstraintType;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
 
 public record ConstraintDto(ConstraintType type, ImmutableList<String> parameters) implements IConstraintDto {
