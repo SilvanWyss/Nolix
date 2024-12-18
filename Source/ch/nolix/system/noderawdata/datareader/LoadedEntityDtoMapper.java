@@ -30,11 +30,13 @@ public final class LoadedEntityDtoMapper {
     final ITableInfo tableInfo) {
 
     final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
-    for (final var ci : tableInfo.getColumnInfos()) {
 
-      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
+    for (final var c : tableInfo.getColumnInfos()) {
 
-      contentFields.addAtEnd(CONTENT_FIELD_DTO_MAPPER.createContentFieldDtoFromContentFieldNode(contentFieldNode, ci));
+      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.getColumnIndexOnEntityNode());
+      final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapContentFieldNodeToContentFieldDto(contentFieldNode, c);
+
+      contentFields.addAtEnd(contentFieldDto);
     }
 
     return contentFields;
