@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlschema.sqlsyntax;
 
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.ConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
@@ -56,11 +56,11 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return sql;
   }
 
-  private String getConstraintAsSql(final IConstraintDto constraint) {
+  private String getConstraintAsSql(final ConstraintDto constraint) {
 
-    var sql = constraint.getType().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
+    var sql = constraint.type().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
 
-    if (constraint.getParameters().containsAny()) {
+    if (constraint.parameters().containsAny()) {
       getConstraintParametersAsSql(constraint);
     }
 
@@ -71,8 +71,8 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return column.getConstraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
   }
 
-  private String getConstraintParametersAsSql(final IConstraintDto constraint) {
-    return ("(" + constraint.getParameters().toStringWithSeparator(",") + ")");
+  private String getConstraintParametersAsSql(final ConstraintDto constraint) {
+    return ("(" + constraint.parameters().toStringWithSeparator(",") + ")");
   }
 
   private String getDataTypeAsSql(final DataTypeDto dataType) {

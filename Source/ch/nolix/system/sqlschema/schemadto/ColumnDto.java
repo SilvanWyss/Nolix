@@ -6,21 +6,21 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.ConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
 
 public final class ColumnDto implements IColumnDto {
 
-  private static final IContainer<IConstraintDto> EMPTY_CONSTRAINTS_LIST = ImmutableList.createEmpty();
+  private static final IContainer<ConstraintDto> EMPTY_CONSTRAINTS_LIST = ImmutableList.createEmpty();
 
   private final String name;
 
   private final DataTypeDto dataType;
 
-  private final IContainer<IConstraintDto> constraints;
+  private final IContainer<ConstraintDto> constraints;
 
-  private ColumnDto(final String name, final DataTypeDto dataType, final IContainer<IConstraintDto> constraints) {
+  private ColumnDto(final String name, final DataTypeDto dataType, final IContainer<ConstraintDto> constraints) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotNull();
     GlobalValidator.assertThat(dataType).thatIsNamed(LowerCaseVariableCatalogue.DATA_TYPE).isNotNull();
@@ -38,8 +38,8 @@ public final class ColumnDto implements IColumnDto {
   public static ColumnDto withNameAndDataTypeAndConstraint(
     final String name,
     final DataTypeDto dataType,
-    final IConstraintDto constraint,
-    final IConstraintDto... constraints) {
+    final ConstraintDto constraint,
+    final ConstraintDto... constraints) {
 
     final var allConstraints = ContainerView.forElementAndArray(constraint, constraints);
 
@@ -49,12 +49,12 @@ public final class ColumnDto implements IColumnDto {
   public static ColumnDto withNameAndDataTypeAndConstraints(
     final String name,
     final DataTypeDto dataType,
-    final IContainer<IConstraintDto> constraints) {
+    final IContainer<ConstraintDto> constraints) {
     return new ColumnDto(name, dataType, constraints);
   }
 
   @Override
-  public IContainer<IConstraintDto> getConstraints() {
+  public IContainer<ConstraintDto> getConstraints() {
     return constraints;
   }
 
