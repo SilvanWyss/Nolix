@@ -1,16 +1,16 @@
 package ch.nolix.system.sqlschema.sqlsyntax;
 
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
   @Override
-  public String createStatementToAddColumn(final String tabbleName, final IColumnDto column) {
+  public String createStatementToAddColumn(final String tabbleName, final ColumnDto column) {
     return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column) + ";");
   }
 
@@ -45,11 +45,11 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return ("ALTER TABLE " + tableName + " RENAME TO " + newTableName + ";");
   }
 
-  private String getColumnAsSql(final IColumnDto column) {
+  private String getColumnAsSql(final ColumnDto column) {
 
-    var sql = column.getName() + " " + getDataTypeAsSql(column.getDataType());
+    var sql = column.name() + " " + getDataTypeAsSql(column.dataType());
 
-    if (column.getConstraints().containsAny()) {
+    if (column.constraints().containsAny()) {
       sql += getConstraintsAsSql(column);
     }
 
@@ -67,8 +67,8 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return sql;
   }
 
-  private String getConstraintsAsSql(final IColumnDto column) {
-    return column.getConstraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
+  private String getConstraintsAsSql(final ColumnDto column) {
+    return column.constraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
   }
 
   private String getConstraintParametersAsSql(final ConstraintDto constraint) {

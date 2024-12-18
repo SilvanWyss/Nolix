@@ -6,19 +6,19 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.system.sqlschema.schemadto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 
 final class SchemaDtoMapper {
 
   private static final //
-  ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto SQL_ID_COLUMN_DTO = //
+  ColumnDto SQL_ID_COLUMN_DTO = //
   ColumnDto.withNameAndDataType(PascalCaseVariableCatalogue.ID, DatatypeTypeCatalogue.TEXT);
 
   private static final //
-  ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
+  ColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
   ColumnDto.withNameAndDataType(PascalCaseVariableCatalogue.SAVE_STAMP, DatatypeTypeCatalogue.INTEGER);
 
-  public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto createSqlColumnDtoFrom(
+  public ColumnDto createSqlColumnDtoFrom(
     final ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto column) {
     return ColumnDto.withNameAndDataType(column.name(), DatatypeTypeCatalogue.TEXT);
   }
@@ -31,10 +31,10 @@ final class SchemaDtoMapper {
       createSqlColumnDtosFrom(table));
   }
 
-  private IContainer<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> createSqlColumnDtosFrom(
+  private IContainer<ColumnDto> createSqlColumnDtosFrom(
     final ch.nolix.systemapi.rawschemaapi.schemadto.TableDto table) {
 
-    final ILinkedList<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> columns = LinkedList.createEmpty();
+    final ILinkedList<ColumnDto> columns = LinkedList.createEmpty();
 
     columns.addAtEnd(SQL_ID_COLUMN_DTO);
 

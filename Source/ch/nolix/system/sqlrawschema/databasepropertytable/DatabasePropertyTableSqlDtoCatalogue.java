@@ -2,8 +2,8 @@ package ch.nolix.system.sqlrawschema.databasepropertytable;
 
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
-import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 
 public final class DatabasePropertyTableSqlDtoCatalogue {
 

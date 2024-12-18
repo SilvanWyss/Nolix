@@ -3,21 +3,20 @@ package ch.nolix.system.sqlrawschema.multivalueentrytable;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
-import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 
 public final class MultiValueEntryTableSqlDtoCatalogue {
 
-  private static final IColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
+  private static final ColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName(),
     DatatypeTypeCatalogue.TEXT);
 
-  private static final IColumnDto ENTITY_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
+  private static final ColumnDto ENTITY_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiReferenceEntryTableColumn.ENTITY_ID.getName(), DatatypeTypeCatalogue.TEXT);
 
-  private static final IColumnDto VALUE_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
+  private static final ColumnDto VALUE_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiValueEntryTableColumn.VALUE.getName(),
     DatatypeTypeCatalogue.TEXT);
 
