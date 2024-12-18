@@ -1,12 +1,9 @@
 package ch.nolix.system.objectschema.contentmodel;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -21,21 +18,6 @@ public abstract class AbstractBackReferenceModel implements IAbstractBackReferen
     assertIsAnyReferenceColumn(backReferencedColumn);
 
     this.backReferencedColumn = backReferencedColumn;
-  }
-
-  @Override
-  public final IAbstractBackReferenceModel asBaseParameterizedBackReferenceType() {
-    return this;
-  }
-
-  @Override
-  public final IAbstractReferenceModel asBaseParameterizedReferenceType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
-  }
-
-  @Override
-  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
   @Override

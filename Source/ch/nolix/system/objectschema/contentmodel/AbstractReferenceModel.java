@@ -1,12 +1,9 @@
 package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -18,21 +15,6 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
 
   protected AbstractReferenceModel(final IContainer<ITable> referencedTables) {
     this.referencedTables = ImmutableList.forIterable(referencedTables);
-  }
-
-  @Override
-  public final IAbstractBackReferenceModel asBaseParameterizedBackReferenceType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
-  }
-
-  @Override
-  public final IAbstractReferenceModel asBaseParameterizedReferenceType() {
-    return this;
-  }
-
-  @Override
-  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
   @Override

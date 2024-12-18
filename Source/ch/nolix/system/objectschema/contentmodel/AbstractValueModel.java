@@ -1,10 +1,7 @@
 package ch.nolix.system.objectschema.contentmodel;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -18,21 +15,6 @@ public abstract class AbstractValueModel<V> implements IAbstractValueModel<V> {
     GlobalValidator.assertThat(dataType).thatIsNamed(DataType.class).isNotNull();
 
     this.dataType = dataType;
-  }
-
-  @Override
-  public final IAbstractBackReferenceModel asBaseParameterizedBackReferenceType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
-  }
-
-  @Override
-  public final IAbstractReferenceModel asBaseParameterizedReferenceType() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
-  }
-
-  @Override
-  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
-    return this;
   }
 
   @Override

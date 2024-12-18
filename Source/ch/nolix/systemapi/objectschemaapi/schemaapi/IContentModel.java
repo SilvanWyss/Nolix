@@ -6,19 +6,13 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 
 public interface IContentModel {
 
-  IAbstractBackReferenceModel asBaseParameterizedBackReferenceType();
-
-  IAbstractReferenceModel asBaseParameterizedReferenceType();
-
-  IAbstractValueModel<?> asBaseParameterizedValueType();
+  ContentType getContentType();
 
   DataType getDataType();
 
-  ContentType getContentType();
+  boolean referencesBackColumn(IColumn column);
 
   boolean referencesTable(ITable table);
-
-  boolean referencesBackColumn(IColumn column);
 
   IContentModelDto toDto();
 }
