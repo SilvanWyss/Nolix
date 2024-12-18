@@ -33,12 +33,6 @@ public final class Table extends SchemaObject implements ITable {
 
   private LinkedList<IColumn> columns = LinkedList.createEmpty();
 
-  public Table(final String name) {
-    this(
-      GlobalIdCreator.createIdOf10HexadecimalCharacters(),
-      name);
-  }
-
   public Table(final String id, final String name) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
@@ -49,6 +43,13 @@ public final class Table extends SchemaObject implements ITable {
 
   public static Table fromFlatDto(final FlatTableDto flatTableDto) {
     return new Table(flatTableDto.id(), flatTableDto.name());
+  }
+
+  public static Table withName(final String name) {
+
+    final var id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
+
+    return new Table(id, name);
   }
 
   @Override

@@ -44,6 +44,6 @@ public final class TableMapper implements ITableMapper {
 
     final var name = entityType.getSimpleName();
 
-    return new Table(name);
+    return Table.withName(name);
   }
 }

@@ -46,7 +46,10 @@ public final class Database extends SchemaObject implements IDatabase {
 
   @Override
   public Database createTableWithName(final String name) {
-    return addTable(new Table(name));
+
+    final var table = Table.withName(name);
+
+    return addTable(table);
   }
 
   @Override

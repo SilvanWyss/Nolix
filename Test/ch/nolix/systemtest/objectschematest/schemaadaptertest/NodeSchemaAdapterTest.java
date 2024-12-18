@@ -39,7 +39,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", database);
 
     //execution
-    testUnit.addTable(new Table("MyTable")).saveChanges();
+    testUnit.addTable(Table.withName("MyTable")).saveChanges();
 
     //verification part 1
     expect(testUnit.isChangeFree()).isTrue();
@@ -72,7 +72,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
     //setup
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", MutableNode.createEmpty());
-    testUnit.addTable(new Table("MyTable1"));
+    testUnit.addTable(Table.withName("MyTable1"));
     testUnit.saveChanges();
 
     //execution
@@ -87,9 +87,9 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
     //setup
     final var testUnit = NodeSchemaAdapter.forNodeDatabase("MyDatabase", MutableNode.createEmpty());
-    testUnit.addTable(new Table("MyTable1"));
+    testUnit.addTable(Table.withName("MyTable1"));
     testUnit.saveChanges();
-    testUnit.addTable(new Table("MyTable2"));
+    testUnit.addTable(Table.withName("MyTable2"));
     testUnit.saveChanges();
 
     //execution
