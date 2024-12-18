@@ -2,9 +2,8 @@ package ch.nolix.system.sqlrawschema.multibackreferenceentrytable;
 
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
-import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 
 public final class MultiBackReferenceEntryTableSqlDtoCatalogue {
 
@@ -20,7 +19,7 @@ public final class MultiBackReferenceEntryTableSqlDtoCatalogue {
     MultiBackReferenceEntryTableColumn.BACK_REFERENCED_ENTITY_ID.getName(),
     DatatypeTypeCatalogue.TEXT);
 
-  public static final ITableDto MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO = TableDto.withNameAndColumn(
+  public static final TableDto MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO = TableDto.withNameAndColumn(
     MultiEntryTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName(),
     ENTITY_COLUMN_SQL_DTO,
     MULTI_BACK_REFERENCE_COLUMN_COLUMN_SQL_DTO,

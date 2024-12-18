@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 
 public interface ISchemaReader extends GroupCloseable {
 
@@ -14,7 +14,7 @@ public interface ISchemaReader extends GroupCloseable {
 
   IContainer<FlatTableDto> loadFlatTables();
 
-  IContainer<ITableDto> loadTables();
+  IContainer<TableDto> loadTables();
 
   boolean tableExists(String tableName);
 }

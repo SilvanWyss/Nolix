@@ -7,6 +7,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 
 final class SchemaDtoMapper {
 
@@ -23,12 +24,10 @@ final class SchemaDtoMapper {
     return ColumnDto.withNameAndDataType(column.name(), DatatypeTypeCatalogue.TEXT);
   }
 
-  public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto createSqlTableDtoFrom(
+  public TableDto createSqlTableDtoFrom(
     final ch.nolix.systemapi.rawschemaapi.schemadto.TableDto table) {
     return //
-    ch.nolix.system.sqlschema.schemadto.TableDto.withNameAndColumns(
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + table.name(),
-      createSqlColumnDtosFrom(table));
+    new TableDto(TableType.ENTITY_TABLE.getQualifyingPrefix() + table.name(), createSqlColumnDtosFrom(table));
   }
 
   private IContainer<ColumnDto> createSqlColumnDtosFrom(

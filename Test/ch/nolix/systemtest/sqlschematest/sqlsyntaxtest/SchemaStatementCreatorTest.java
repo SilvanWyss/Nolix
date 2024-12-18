@@ -3,10 +3,10 @@ package ch.nolix.systemtest.sqlschematest.sqlsyntaxtest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 
 final class SchemaStatementCreatorTest extends StandardTest {
 

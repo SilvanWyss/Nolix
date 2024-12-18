@@ -8,7 +8,7 @@ import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
@@ -46,7 +46,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void addTable(final ITableDto table) {
+  public final void addTable(final TableDto table) {
     schemaWriter.addTable(table);
   }
 
@@ -96,7 +96,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final IContainer<ITableDto> loadTables() {
+  public final IContainer<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 

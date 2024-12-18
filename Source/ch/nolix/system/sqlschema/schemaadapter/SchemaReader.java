@@ -5,12 +5,11 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
 final class SchemaReader implements ISchemaReader {
@@ -75,8 +74,8 @@ final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<ITableDto> loadTables() {
-    return loadFlatTables().to(t -> TableDto.withNameAndColumns(t.name(), loadColumns(t.name())));
+  public IContainer<TableDto> loadTables() {
+    return loadFlatTables().to(t -> new TableDto(t.name(), loadColumns(t.name())));
   }
 
   @Override

@@ -4,7 +4,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 public final class SchemaStatementCreator implements ISchemaStatementCreator {
@@ -15,10 +15,10 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   }
 
   @Override
-  public String createStatementToAddTable(ITableDto table) {
+  public String createStatementToAddTable(TableDto table) {
     return "CREATE TABLE "
-    + table.getName()
-    + " (" + table.getColumns().to(this::getColumnAsSql).toStringWithSeparator(",")
+    + table.name()
+    + " (" + table.columns().to(this::getColumnAsSql).toStringWithSeparator(",")
     + ");";
   }
 
