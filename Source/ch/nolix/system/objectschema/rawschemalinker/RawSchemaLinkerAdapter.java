@@ -2,6 +2,8 @@ package ch.nolix.system.objectschema.rawschemalinker;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.system.objectschema.rawschemadtomapper.TableDtoMapper;
+import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi.IRawSchemaLinkerAdapter;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
@@ -12,6 +14,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
+
+  private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private final ISchemaAdapter internalRawSchemaAdapter;
 
@@ -29,7 +33,10 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
 
   @Override
   public void addTable(final ITable table) {
-    internalRawSchemaAdapter.addTable(table.toDto());
+
+    final var tableDto = TABLE_DTO_MAPPER.mapTableToTableDto(table);
+
+    internalRawSchemaAdapter.addTable(tableDto);
   }
 
   @Override

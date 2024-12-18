@@ -12,8 +12,6 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class Table extends SchemaObject implements ITable {
 
@@ -135,11 +133,6 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   @Override
-  public TableDto toDto() {
-    return new TableDto(getId(), getName(), createColumnDtos());
-  }
-
-  @Override
   protected void noteClose() {
 
     //Does not call getStoredColumns method to avoid that the columns need to be
@@ -177,10 +170,6 @@ public final class Table extends SchemaObject implements ITable {
     if (!belongsToDatabase()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Database.class);
     }
-  }
-
-  private IContainer<ColumnDto> createColumnDtos() {
-    return getStoredColumns().to(IColumn::toDto);
   }
 
   private boolean hasLoadedColumnsFromDatabase() {
