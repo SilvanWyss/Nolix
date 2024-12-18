@@ -1,10 +1,9 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class MultiValueTool extends FieldTool implements IMultiValueTool {
 
@@ -31,7 +30,7 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
   }
 
   @Override
-  public <V> IEntityUpdateDto createEntityUpdateDtoForAddedValue(
+  public <V> EntityUpdateDto createEntityUpdateDtoForAddedValue(
     final IMultiValue<V> multiValue,
     final V addedValue) {
 
@@ -45,7 +44,7 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
   }
 
   @Override
-  public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
+  public EntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
 
     final var parentEntity = multiValue.getStoredParentEntity();
 

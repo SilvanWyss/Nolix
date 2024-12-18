@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IEntityStatementCreator {
@@ -21,5 +21,5 @@ public interface IEntityStatementCreator {
 
   String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDto entity);
 
-  String createStatementToUpdateEntityOnTable(String tableName, IEntityUpdateDto entityUpdate);
+  String createStatementToUpdateEntityOnTable(String tableName, EntityUpdateDto entityUpdate);
 }

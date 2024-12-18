@@ -5,8 +5,8 @@ import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
@@ -170,7 +170,7 @@ public final class InternalDataWriter {
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToSetEntityAsUpdated(tableName, entity));
   }
 
-  public void updateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
+  public void updateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate));
   }
 }

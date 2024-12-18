@@ -12,8 +12,8 @@ import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -279,13 +279,13 @@ final class DatabaseUpdater {
   public void updateEntityOnTable(
     final IMutableNode<?> database,
     final ITableInfo tableInfo,
-    final IEntityUpdateDto entityUpdate) {
+    final EntityUpdateDto entityUpdate) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database,
       tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode,
-      entityUpdate.getId());
+      entityUpdate.id());
 
     if (entityNode.isEmpty()) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
@@ -294,7 +294,7 @@ final class DatabaseUpdater {
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode.get());
 
     final var saveStamp = saveStampNode.getHeader();
-    if (!saveStamp.equals(entityUpdate.getSaveStamp())) {
+    if (!saveStamp.equals(entityUpdate.saveStamp())) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
     }
 
@@ -327,8 +327,8 @@ final class DatabaseUpdater {
   private void updateEntityNode(
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo,
-    final IEntityUpdateDto entityUpdate) {
-    for (final var f : entityUpdate.getUpdatedContentFields()) {
+    final EntityUpdateDto entityUpdate) {
+    for (final var f : entityUpdate.updatedContentFields()) {
 
       final var columnInfo = tableInfo.getColumnInfoByColumnName(f.columnName());
       final var columnIndex = columnInfo.getColumnIndexOnEntityNode();

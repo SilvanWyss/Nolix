@@ -9,8 +9,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 public interface IEntityTool extends IDatabaseObjectTool {
 
@@ -22,7 +22,7 @@ public interface IEntityTool extends IDatabaseObjectTool {
 
   boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 
-  IEntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
+  EntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
 
   IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity);
 

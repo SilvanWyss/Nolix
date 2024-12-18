@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public interface IMultiValueTool extends IFieldTool {
 
@@ -11,7 +11,7 @@ public interface IMultiValueTool extends IFieldTool {
 
   <V> boolean canRemoveValue(IMultiValue<V> multiValue, V value);
 
-  <V> IEntityUpdateDto createEntityUpdateDtoForAddedValue(IMultiValue<V> multiValue, V addedValue);
+  <V> EntityUpdateDto createEntityUpdateDtoForAddedValue(IMultiValue<V> multiValue, V addedValue);
 
-  IEntityUpdateDto createEntityUpdateDtoForClear(IMultiValue<?> multiValue);
+  EntityUpdateDto createEntityUpdateDtoForClear(IMultiValue<?> multiValue);
 }

@@ -9,8 +9,8 @@ import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -116,9 +116,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   }
 
   @Override
-  public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
+  public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
 
-    final var contentFieldSets = entityUpdate.getUpdatedContentFields()
+    final var contentFieldSets = entityUpdate.updatedContentFields()
       .to(f -> f.columnName() + " = " + getSqlValueRepresentationOfContentField(f));
 
     var contentFieldSetsPrecessor = " ";
@@ -129,14 +129,14 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "UPDATE "
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " SET SaveStamp = '"
-    + (Integer.valueOf(entityUpdate.getSaveStamp()) + 1)
+    + (Integer.valueOf(entityUpdate.saveStamp()) + 1)
     + "'"
     + contentFieldSetsPrecessor
     + contentFieldSets.toStringWithSeparator(", ")
     + " WHERE Id = '"
-    + entityUpdate.getId()
+    + entityUpdate.id()
     + "' AND SaveStamp = '"
-    + entityUpdate.getSaveStamp()
+    + entityUpdate.saveStamp()
     + "';"
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }

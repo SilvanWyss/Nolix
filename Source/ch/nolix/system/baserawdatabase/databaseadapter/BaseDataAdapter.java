@@ -7,8 +7,8 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -224,7 +224,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
+  public final void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
     dataWriter.updateEntity(tableName, entityUpdate);
   }
 }

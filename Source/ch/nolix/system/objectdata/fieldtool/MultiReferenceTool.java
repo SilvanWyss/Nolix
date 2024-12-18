@@ -1,11 +1,10 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
 
@@ -33,7 +32,7 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
   }
 
   @Override
-  public IEntityUpdateDto createEntityUpdateDtoForAddEntity(
+  public EntityUpdateDto createEntityUpdateDtoForAddEntity(
     final IMultiReference<?> multiReference,
     final IEntity entity) {
 
@@ -46,7 +45,7 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
   }
 
   @Override
-  public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiReference<?> multiReference) {
+  public EntityUpdateDto createEntityUpdateDtoForClear(final IMultiReference<?> multiReference) {
 
     final var parentEntity = multiReference.getStoredParentEntity();
 

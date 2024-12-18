@@ -2,19 +2,18 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import java.util.Optional;
 
-import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
 
   @Override
-  public IEntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(
+  public EntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(
     final IReference<?> reference,
     final IEntity entity) {
 

@@ -2,15 +2,15 @@ package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public interface IMultiReferenceTool extends IFieldTool {
 
   <E extends IEntity> boolean canRemoveEntity(IMultiReference<E> multiReference, E entity);
 
-  IEntityUpdateDto createEntityUpdateDtoForAddEntity(IMultiReference<?> multiReference, IEntity entity);
+  EntityUpdateDto createEntityUpdateDtoForAddEntity(IMultiReference<?> multiReference, IEntity entity);
 
-  IEntityUpdateDto createEntityUpdateDtoForClear(IMultiReference<?> multiReference);
+  EntityUpdateDto createEntityUpdateDtoForClear(IMultiReference<?> multiReference);
 
   boolean canAddGivenEntity(IMultiReference<?> multiReference, IEntity entity);
 

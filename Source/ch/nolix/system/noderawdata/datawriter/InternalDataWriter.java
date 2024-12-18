@@ -7,8 +7,8 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -165,7 +165,7 @@ final class InternalDataWriter {
     addChangeAction(d -> DATABASE_UPDATER.setEntityAsUpdated(d, tableName, entity));
   }
 
-  public void updateEntityOnTable(final ITableInfo tableInfo, IEntityUpdateDto entityUpdate) {
+  public void updateEntityOnTable(final ITableInfo tableInfo, EntityUpdateDto entityUpdate) {
     addChangeAction(d -> DATABASE_UPDATER.updateEntityOnTable(d, tableInfo, entityUpdate));
   }
 

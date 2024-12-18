@@ -1,10 +1,9 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class OptionalValueTool extends FieldTool implements IOptionalValueTool {
 
@@ -15,7 +14,7 @@ public final class OptionalValueTool extends FieldTool implements IOptionalValue
   }
 
   @Override
-  public IEntityUpdateDto createEntityUpdateDtoForSetValue(
+  public EntityUpdateDto createEntityUpdateDtoForSetValue(
     final IOptionalValue<?> optionalValue,
     final Object value) {
 

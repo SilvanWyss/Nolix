@@ -1,10 +1,9 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class ValueTool extends FieldTool implements IValueTool {
 
@@ -16,7 +15,7 @@ public final class ValueTool extends FieldTool implements IValueTool {
   }
 
   @Override
-  public IEntityUpdateDto createEntityUpdateDtoForSetValue(final IValue<?> value, final Object setValue) {
+  public EntityUpdateDto createEntityUpdateDtoForSetValue(final IValue<?> value, final Object setValue) {
 
     final var parentEntity = value.getStoredParentEntity();
 
