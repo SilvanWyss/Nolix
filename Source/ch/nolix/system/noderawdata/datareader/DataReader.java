@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -77,12 +77,12 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
+  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final String tableName) {
     return internalDataReader.loadEntitiesOfTable(getTableInfoByTableName(tableName));
   }
 
   @Override
-  public ILoadedEntityDto loadEntity(final String tableName, final String id) {
+  public EntityLoadingDto loadEntity(final String tableName, final String id) {
     return internalDataReader.loadEntity(getTableInfoByTableName(tableName), id);
   }
 

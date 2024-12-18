@@ -7,9 +7,9 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class BaseDataAdapter implements IDataAdapter {
@@ -167,12 +167,12 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
+  public final IContainer<EntityLoadingDto> loadEntitiesOfTable(final String tableName) {
     return dataReader.loadEntitiesOfTable(tableName);
   }
 
   @Override
-  public final ILoadedEntityDto loadEntity(final String tableName, final String id) {
+  public final EntityLoadingDto loadEntity(final String tableName, final String id) {
     return dataReader.loadEntity(tableName, id);
   }
 

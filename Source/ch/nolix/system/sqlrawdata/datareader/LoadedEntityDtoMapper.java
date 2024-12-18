@@ -3,9 +3,8 @@ package ch.nolix.system.sqlrawdata.datareader;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.system.sqlrawdata.datadto.LoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
@@ -13,10 +12,11 @@ final class LoadedEntityDtoMapper {
 
   private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 
-  public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
+  public EntityLoadingDto createLoadedEntityDtoFrosqlRecord(
     final IContainer<String> sqlRecordValues,
     final ITableInfo tableInfo) {
-    return new LoadedEntityDto(
+    return //
+    new EntityLoadingDto(
       sqlRecordValues.getStoredAt1BasedIndex(1),
       sqlRecordValues.getStoredAt1BasedIndex(2),
       getContentFieldsFromSqlRecord(sqlRecordValues, tableInfo));

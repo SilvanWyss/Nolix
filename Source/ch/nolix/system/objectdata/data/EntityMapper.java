@@ -3,14 +3,14 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 
 final class EntityMapper {
 
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
   public <E extends IEntity> E createLoadedEntityFromDto(
-    final ILoadedEntityDto loadedEntityDto,
+    final EntityLoadingDto loadedEntityDto,
     final ITable<E> table) {
 
     final var loadedEntity = ENTITY_CREATOR.createEmptyEntityForTable(table);
@@ -33,12 +33,12 @@ final class EntityMapper {
     field.internalSetOrClearFromContent(contentField.optionalContent().orElse(null));
   }
 
-  private void addDataToEntityFromLoadedEntityDto(final ILoadedEntityDto loadedEntityDto, final BaseEntity entity) {
+  private void addDataToEntityFromLoadedEntityDto(final EntityLoadingDto loadedEntityDto, final BaseEntity entity) {
 
-    entity.internalSetId(loadedEntityDto.getId());
-    entity.internalSetSaveStamp(loadedEntityDto.getSaveStamp());
+    entity.internalSetId(loadedEntityDto.id());
+    entity.internalSetSaveStamp(loadedEntityDto.saveStamp());
 
-    for (final var cf : loadedEntityDto.getContentFields()) {
+    for (final var cf : loadedEntityDto.contentFields()) {
       addDataFromContentFieldToEntity(cf, entity);
     }
   }

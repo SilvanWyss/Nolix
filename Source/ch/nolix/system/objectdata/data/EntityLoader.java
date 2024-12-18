@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 
 public final class EntityLoader {
 
@@ -19,7 +19,7 @@ public final class EntityLoader {
     return ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntityDto, table);
   }
 
-  private ILoadedEntityDto loadEntityDtoById(
+  private EntityLoadingDto loadEntityDtoById(
     final ITable<? extends IEntity> table,
     final String id,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {

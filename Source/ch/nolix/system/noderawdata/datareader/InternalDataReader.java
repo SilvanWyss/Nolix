@@ -7,7 +7,7 @@ import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -42,7 +42,7 @@ public final class InternalDataReader {
     return DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
   }
 
-  public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
+  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
@@ -105,7 +105,7 @@ public final class InternalDataReader {
       .to(a -> VALUE_MAPPER.createValueFromString(a.getHeader(), multiValueColumnInfo));
   }
 
-  public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
+  public EntityLoadingDto loadEntity(final ITableInfo tableInfo, final String id) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());

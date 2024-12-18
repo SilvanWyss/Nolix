@@ -5,9 +5,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
-import ch.nolix.system.sqlrawdata.datadto.LoadedEntityDto;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 public final class LoadedEntityDtoMapper {
@@ -16,10 +15,11 @@ public final class LoadedEntityDtoMapper {
 
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  public ILoadedEntityDto createLoadedEntityDtoFromEntityNode(
+  public EntityLoadingDto createLoadedEntityDtoFromEntityNode(
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo) {
-    return new LoadedEntityDto(
+    return //
+    new EntityLoadingDto(
       getIdFromEntityNode(entityNode),
       getSaveStampFromEntityNode(entityNode),
       createContentFieldsFromEntityNode(entityNode, tableInfo));

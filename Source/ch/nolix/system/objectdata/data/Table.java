@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 
 public final class Table<E extends IEntity> implements ITable<E> {
 
@@ -243,8 +243,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return internalGetStoredEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
   }
 
-  private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
-    if (!TABLE_TOOL.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
+  private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(EntityLoadingDto loadedEntity) {
+    if (!TABLE_TOOL.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
 
       final var entity = ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntity, this);
 

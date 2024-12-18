@@ -2,14 +2,14 @@ package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IDataReader extends GroupCloseable {
 
   ITime getSchemaTimestamp();
 
-  IContainer<ILoadedEntityDto> loadEntitiesOfTable(String tableName);
+  IContainer<EntityLoadingDto> loadEntitiesOfTable(String tableName);
 
   IContainer<String> loadMultiBackReferenceEntries(
     String tableName,
@@ -26,7 +26,7 @@ public interface IDataReader extends GroupCloseable {
     String entityId,
     String multiValueColumnName);
 
-  ILoadedEntityDto loadEntity(String tableName, String id);
+  EntityLoadingDto loadEntity(String tableName, String id);
 
   boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 

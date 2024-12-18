@@ -6,7 +6,7 @@ import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
@@ -87,13 +87,13 @@ final class InternalDataReader {
       .to(r -> VALUE_MAPPER.createValueFromString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo));
   }
 
-  public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
+  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
     return sqlConnection
       .getRecordsFromQuery(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
       .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
   }
 
-  public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
+  public EntityLoadingDto loadEntity(final ITableInfo tableInfo, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
       sqlConnection.getSingleRecordFromQuery(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
       tableInfo);
