@@ -5,12 +5,11 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
 
@@ -93,13 +92,13 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
+  public ContentFieldDto internalToContentField() {
 
     if (isEmpty()) {
-      return new ContentFieldDto(getName());
+      return ContentFieldDto.withColumnName(getName());
     }
 
-    return new ContentFieldDto(getName(), getStoredValue().toString());
+    return ContentFieldDto.withColumnNameAndContent(getName(), getStoredValue().toString());
   }
 
   @Override

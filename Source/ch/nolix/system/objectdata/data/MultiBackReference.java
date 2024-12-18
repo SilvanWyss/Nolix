@@ -7,16 +7,14 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
-public final class MultiBackReference<E extends IEntity>
-extends BaseBackReference<E>
+public final class MultiBackReference<E extends IEntity> extends BaseBackReference<E>
 implements IMultiBackReference<E> {
 
   private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
@@ -95,8 +93,8 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
-    return new ContentFieldDto(getName());
+  public ContentFieldDto internalToContentField() {
+    return ContentFieldDto.withColumnName(getName());
   }
 
   @Override

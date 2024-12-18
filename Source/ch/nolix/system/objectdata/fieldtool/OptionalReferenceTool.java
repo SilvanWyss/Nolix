@@ -2,12 +2,12 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import java.util.Optional;
 
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 public final class OptionalReferenceTool extends FieldTool implements IOptionalReferenceTool {
@@ -35,7 +35,7 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
     return new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      new ContentFieldDto(optionalReference.getName()));
+      ContentFieldDto.withColumnName(optionalReference.getName()));
   }
 
   @Override
@@ -48,7 +48,7 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
     return new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      new ContentFieldDto(optionalReference.getName(), entity.getId()));
+      ContentFieldDto.withColumnNameAndContent(optionalReference.getName(), entity.getId()));
   }
 
   @Override

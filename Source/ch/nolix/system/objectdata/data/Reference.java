@@ -7,7 +7,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -16,7 +15,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IReferenceValidator;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
 
@@ -77,8 +76,8 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
-    return new ContentFieldDto(getName(), getReferencedEntityId());
+  public ContentFieldDto internalToContentField() {
+    return ContentFieldDto.withColumnNameAndContent(getName(), getReferencedEntityId());
   }
 
   @Override

@@ -10,14 +10,13 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
@@ -112,8 +111,8 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
-    return new ContentFieldDto(getName());
+  public ContentFieldDto internalToContentField() {
+    return ContentFieldDto.withColumnName(getName());
   }
 
   @Override

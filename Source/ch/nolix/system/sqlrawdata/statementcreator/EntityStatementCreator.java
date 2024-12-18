@@ -7,7 +7,7 @@ import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
 import ch.nolix.system.sqlrawschema.structure.IndexTableType;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
@@ -76,7 +76,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "INSERT INTO "
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " (Id, SaveStamp, "
-    + newEntity.getContentFields().to(IContentFieldDto::getColumnName).toStringWithSeparator(", ")
+    + newEntity.getContentFields().to(ContentFieldDto::columnName).toStringWithSeparator(", ")
     + ") VALUES ('"
     + newEntity.getId()
     + "', '"
@@ -119,7 +119,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
 
     final var contentFieldSets = entityUpdate.getUpdatedContentFields()
-      .to(cf -> cf.getColumnName() + " = " + getSqlValueRepresentationOfContentField(cf));
+      .to(f -> f.columnName() + " = " + getSqlValueRepresentationOfContentField(f));
 
     var contentFieldSetsPrecessor = " ";
     if (contentFieldSets.containsAny()) {
@@ -141,9 +141,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  private String getSqlValueRepresentationOfContentField(final IContentFieldDto contentField) {
+  private String getSqlValueRepresentationOfContentField(final ContentFieldDto contentField) {
 
-    final var valueAsString = contentField.getOptionalValueAsString();
+    final var valueAsString = contentField.optionalContent();
 
     if (valueAsString.isEmpty()) {
       return "NULL";

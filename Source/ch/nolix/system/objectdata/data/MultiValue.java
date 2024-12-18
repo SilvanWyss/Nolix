@@ -9,11 +9,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
@@ -70,8 +69,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
-    return new ContentFieldDto(getName());
+  public ContentFieldDto internalToContentField() {
+    return ContentFieldDto.withColumnName(getName());
   }
 
   @Override

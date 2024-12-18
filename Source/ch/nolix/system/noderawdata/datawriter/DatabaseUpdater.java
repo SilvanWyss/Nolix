@@ -9,8 +9,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.INewEntityDto;
@@ -328,13 +328,13 @@ final class DatabaseUpdater {
     final IMutableNode<?> entityNode,
     final ITableInfo tableInfo,
     final IEntityUpdateDto entityUpdate) {
-    for (final var ucf : entityUpdate.getUpdatedContentFields()) {
+    for (final var f : entityUpdate.getUpdatedContentFields()) {
 
-      final var columnInfo = tableInfo.getColumnInfoByColumnName(ucf.getColumnName());
+      final var columnInfo = tableInfo.getColumnInfoByColumnName(f.columnName());
       final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(columnIndex);
 
-      final var valueAsString = ucf.getOptionalValueAsString();
+      final var valueAsString = f.optionalContent();
       if (valueAsString.isEmpty()) {
         contentFieldNode.removeHeader();
       } else {

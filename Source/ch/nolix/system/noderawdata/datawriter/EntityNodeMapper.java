@@ -28,12 +28,12 @@ final class EntityNodeMapper {
     attributes[0] = createIdAttributeFrom(newEntity);
     attributes[1] = createSaveStampAttribute(saveStamp);
 
-    for (final var cf : newEntity.getContentFields()) {
+    for (final var f : newEntity.getContentFields()) {
 
-      final var columnInfo = tableInfo.getColumnInfoByColumnName(cf.getColumnName());
+      final var columnInfo = tableInfo.getColumnInfoByColumnName(f.columnName());
       final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
 
-      final var valueAsString = cf.getOptionalValueAsString();
+      final var valueAsString = f.optionalContent();
       if (valueAsString.isEmpty()) {
         attributes[index] = Node.EMPTY_NODE;
       } else {

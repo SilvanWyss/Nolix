@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.system.sqlrawdata.datadto.NewEntityDto;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 final class EntityStatementCreatorTest extends StandardTest {
 
@@ -68,9 +68,9 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new NewEntityDto(
       "my_id",
       ImmutableList.withElement(
-        new ContentFieldDto("MyColumn1", "my_value1"),
-        new ContentFieldDto("MyColumn2", "my_value2"),
-        new ContentFieldDto("MyColumn3", "my_value3")));
+        ContentFieldDto.withColumnNameAndContent("MyColumn1", "my_value1"),
+        ContentFieldDto.withColumnNameAndContent("MyColumn2", "my_value2"),
+        ContentFieldDto.withColumnNameAndContent("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
@@ -90,9 +90,9 @@ final class EntityStatementCreatorTest extends StandardTest {
       "my_id",
       "100",
       ImmutableList.withElement(
-        new ContentFieldDto("MyColumn1", "my_value1"),
-        new ContentFieldDto("MyColumn2", "my_value2"),
-        new ContentFieldDto("MyColumn3", "my_value3")));
+        ContentFieldDto.withColumnNameAndContent("MyColumn1", "my_value1"),
+        ContentFieldDto.withColumnNameAndContent("MyColumn2", "my_value2"),
+        ContentFieldDto.withColumnNameAndContent("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);

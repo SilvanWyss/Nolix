@@ -3,13 +3,12 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 public final class OptionalBackReference<E extends IEntity> extends BaseBackReference<E>
 implements IOptionalBackReference<E> {
@@ -65,13 +64,13 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
+  public ContentFieldDto internalToContentField() {
 
     if (isEmpty()) {
-      return new ContentFieldDto(getName());
+      return ContentFieldDto.withColumnName(getName());
     }
 
-    return new ContentFieldDto(getName(), getBackReferencedEntityId());
+    return ContentFieldDto.withColumnNameAndContent(getName(), backReferencedEntityId);
   }
 
   @Override

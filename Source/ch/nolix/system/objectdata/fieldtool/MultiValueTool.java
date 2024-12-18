@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.system.sqlrawdata.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityUpdateDto;
 
 public final class MultiValueTool extends FieldTool implements IMultiValueTool {
@@ -41,7 +41,7 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
     new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      new ContentFieldDto(multiValue.getName(), ""));
+      ContentFieldDto.withColumnNameAndContent(multiValue.getName(), ""));
   }
 
   @Override
@@ -53,7 +53,7 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
     new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      new ContentFieldDto(multiValue.getName()));
+      ContentFieldDto.withColumnName(multiValue.getName()));
   }
 
   private boolean canAddValue(final IMultiValue<?> multiValue) {

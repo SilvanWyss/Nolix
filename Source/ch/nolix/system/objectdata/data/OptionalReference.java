@@ -7,7 +7,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDto;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -17,7 +16,7 @@ import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalReferenceValidator;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
 
 public final class OptionalReference<E extends IEntity> extends BaseReference<E> implements IOptionalReference<E> {
 
@@ -87,13 +86,13 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   }
 
   @Override
-  public IContentFieldDto internalToContentField() {
+  public ContentFieldDto internalToContentField() {
 
     if (isEmpty()) {
-      return new ContentFieldDto(getName());
+      return ContentFieldDto.withColumnName(getName());
     }
 
-    return new ContentFieldDto(getName(), getReferencedEntityId());
+    return ContentFieldDto.withColumnNameAndContent(getName(), getReferencedEntityId());
   }
 
   @Override
