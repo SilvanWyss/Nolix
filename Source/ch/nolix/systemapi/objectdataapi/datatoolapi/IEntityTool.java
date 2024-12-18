@@ -9,8 +9,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 
 public interface IEntityTool extends IDatabaseObjectTool {
 
@@ -24,7 +24,7 @@ public interface IEntityTool extends IDatabaseObjectTool {
 
   EntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
 
-  IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity);
+  EntityDeletionDto createEntityHeadDtoForEntity(IEntity entity);
 
   EntityCreationDto createNewEntityDtoForEntity(IEntity entity);
 

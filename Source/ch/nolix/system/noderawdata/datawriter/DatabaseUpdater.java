@@ -12,6 +12,7 @@ import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -110,17 +111,17 @@ final class DatabaseUpdater {
   public void deleteEntityFromTable(
     final IMutableNode<?> database,
     final String tableName,
-    final IEntityHeadDto entity) {
+    final EntityDeletionDto entity) {
 
     deleteEntityHeadFromDatabase(database, entity);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
 
-    final var entityNode = TABLE_NODE_SEARCHER.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.getId());
+    final var entityNode = TABLE_NODE_SEARCHER.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.id());
 
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
 
-    if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
+    if (!saveStampNode.hasHeader(entity.saveStamp())) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
     }
   }
@@ -304,9 +305,9 @@ final class DatabaseUpdater {
     updateEntityNode(entityNode.get(), tableInfo, entityUpdate);
   }
 
-  private void deleteEntityHeadFromDatabase(final IMutableNode<?> nodeDatabase, final IEntityHeadDto entity) {
+  private void deleteEntityHeadFromDatabase(final IMutableNode<?> nodeDatabase, final EntityDeletionDto entity) {
 
-    final var entityId = entity.getId();
+    final var entityId = entity.id();
     final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromNodeDatabase(nodeDatabase);
 
     entityHeadsNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));

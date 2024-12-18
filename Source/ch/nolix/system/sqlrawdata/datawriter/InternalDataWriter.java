@@ -5,6 +5,7 @@ import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
@@ -46,8 +47,8 @@ public final class InternalDataWriter {
     sqlConnection.executeStatement("USE " + databaseName);
   }
 
-  public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToDeleteEntityHead(entity.getId()));
+  public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
+    sqlCollector.addSqlStatement(entityStatementCreator.createStatementToDeleteEntityHead(entity.id()));
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToDeleteEntity(tableName, entity));
   }
 

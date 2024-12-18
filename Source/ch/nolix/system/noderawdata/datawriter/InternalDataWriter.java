@@ -7,6 +7,7 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -69,7 +70,7 @@ final class InternalDataWriter {
       d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
   }
 
-  public void deleteEntityFromTable(final String tableName, final IEntityHeadDto entity) {
+  public void deleteEntityFromTable(final String tableName, final EntityDeletionDto entity) {
     addChangeAction(d -> DATABASE_UPDATER.deleteEntityFromTable(d, tableName, entity));
   }
 

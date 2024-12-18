@@ -1,13 +1,14 @@
 package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IEntityStatementCreator {
 
-  String createStatementToDeleteEntity(String tableName, IEntityHeadDto entity);
+  String createStatementToDeleteEntity(String tableName, EntityDeletionDto entity);
 
   String createStatementToDeleteEntityHead(String entityId);
 

@@ -7,6 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -46,7 +47,7 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
+  public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
     internalDataWriter.deleteEntity(tableName, entity);
   }
 

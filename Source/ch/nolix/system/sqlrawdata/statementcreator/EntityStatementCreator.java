@@ -9,6 +9,7 @@ import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
@@ -22,13 +23,13 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToDeleteEntity(
     final String tableName,
-    final IEntityHeadDto entity) {
+    final EntityDeletionDto entity) {
     return "DELETE FROM "
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " WHERE Id = '"
-    + entity.getId()
+    + entity.id()
     + "' AND SaveStamp = '"
-    + entity.getSaveStamp()
+    + entity.saveStamp()
     + "';"
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }

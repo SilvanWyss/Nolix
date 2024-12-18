@@ -6,6 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
@@ -43,7 +44,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   }
 
   @Override
-  public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
+  public final void deleteEntity(final String tableName, final EntityDeletionDto entity) {
     dataAdapter.deleteEntity(tableName, entity);
   }
 

@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 final class EntityStatementCreatorTest extends StandardTest {
@@ -17,7 +17,7 @@ final class EntityStatementCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityStatementCreator();
-    final var entityHeadDto = new EntityHeadDto("my_id", "100");
+    final var entityHeadDto = new EntityDeletionDto("my_id", "100");
 
     //execution
     final var result = testUnit.createStatementToDeleteEntity("MyTable", entityHeadDto);

@@ -5,7 +5,6 @@ import java.util.Optional;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -14,8 +13,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
 
 public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
 
@@ -61,8 +60,8 @@ public final class EntityTool extends DatabaseObjectTool implements IEntityTool 
   }
 
   @Override
-  public IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity) {
-    return new EntityHeadDto(entity.getId(), entity.getSaveStamp());
+  public EntityDeletionDto createEntityHeadDtoForEntity(IEntity entity) {
+    return new EntityDeletionDto(entity.getId(), entity.getSaveStamp());
   }
 
   @Override
