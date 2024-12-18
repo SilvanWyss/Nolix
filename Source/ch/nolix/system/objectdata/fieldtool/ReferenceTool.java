@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
@@ -23,7 +23,7 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
     new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnNameAndContent(reference.getName(), entity.getId()));
+      ContentFieldWithContentAsStringDto.withColumnNameAndContent(reference.getName(), entity.getId()));
   }
 
   @Override

@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
@@ -69,8 +69,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   @Override
-  public ContentFieldDto internalToContentField() {
-    return ContentFieldDto.withColumnName(getName());
+  public ContentFieldWithContentAsStringDto internalToContentField() {
+    return ContentFieldWithContentAsStringDto.withColumnName(getName());
   }
 
   @Override

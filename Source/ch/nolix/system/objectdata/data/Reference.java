@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IReferenceValidator;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 
 public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
 
@@ -76,8 +76,8 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   @Override
-  public ContentFieldDto internalToContentField() {
-    return ContentFieldDto.withColumnNameAndContent(getName(), getReferencedEntityId());
+  public ContentFieldWithContentAsStringDto internalToContentField() {
+    return ContentFieldWithContentAsStringDto.withColumnNameAndContent(getName(), getReferencedEntityId());
   }
 
   @Override

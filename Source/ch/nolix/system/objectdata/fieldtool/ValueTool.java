@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class ValueTool extends FieldTool implements IValueTool {
@@ -23,7 +23,7 @@ public final class ValueTool extends FieldTool implements IValueTool {
     new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnNameAndContent(value.getName(), setValue.toString()));
+      ContentFieldWithContentAsStringDto.withColumnNameAndContent(value.getName(), setValue.toString()));
   }
 
   private boolean canSetValue(final IValue<?> value) {

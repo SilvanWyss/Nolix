@@ -7,7 +7,7 @@ import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
 import ch.nolix.system.sqlrawschema.structure.IndexTableType;
 import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDto;
@@ -76,7 +76,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "INSERT INTO "
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " (Id, SaveStamp, "
-    + newEntity.contentFields().to(ContentFieldDto::columnName).toStringWithSeparator(", ")
+    + newEntity.contentFields().to(ContentFieldWithContentAsStringDto::columnName).toStringWithSeparator(", ")
     + ") VALUES ('"
     + newEntity.id()
     + "', '"
@@ -141,7 +141,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  private String getSqlValueRepresentationOfContentField(final ContentFieldDto contentField) {
+  private String getSqlValueRepresentationOfContentField(final ContentFieldWithContentAsStringDto contentField) {
 
     final var valueAsString = contentField.optionalContent();
 

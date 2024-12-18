@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
@@ -111,8 +111,8 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   }
 
   @Override
-  public ContentFieldDto internalToContentField() {
-    return ContentFieldDto.withColumnName(getName());
+  public ContentFieldWithContentAsStringDto internalToContentField() {
+    return ContentFieldWithContentAsStringDto.withColumnName(getName());
   }
 
   @Override

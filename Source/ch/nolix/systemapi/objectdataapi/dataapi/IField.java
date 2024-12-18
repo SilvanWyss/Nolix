@@ -6,7 +6,7 @@ import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, MandatorynessRequestable {
@@ -19,7 +19,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, Ma
 
   ContentType getType();
 
-  ContentFieldDto internalToContentField();
+  ContentFieldWithContentAsStringDto internalToContentField();
 
   boolean knowsParentColumn();
 

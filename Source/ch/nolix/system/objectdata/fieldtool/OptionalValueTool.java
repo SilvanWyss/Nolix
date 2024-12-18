@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class OptionalValueTool extends FieldTool implements IOptionalValueTool {
@@ -23,7 +23,7 @@ public final class OptionalValueTool extends FieldTool implements IOptionalValue
     return new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnNameAndContent(optionalValue.getName(), value.toString()));
+      ContentFieldWithContentAsStringDto.withColumnNameAndContent(optionalValue.getName(), value.toString()));
   }
 
   private boolean canSetValue(final IOptionalValue<?> optionalValue) {

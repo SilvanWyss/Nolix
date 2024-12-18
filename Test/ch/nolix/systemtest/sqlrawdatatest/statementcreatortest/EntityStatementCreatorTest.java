@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlrawdata.datadto.EntityHeadDto;
 import ch.nolix.system.sqlrawdata.statementcreator.EntityStatementCreator;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
@@ -68,9 +68,9 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new EntityCreationDto(
       "my_id",
       ImmutableList.withElement(
-        ContentFieldDto.withColumnNameAndContent("MyColumn1", "my_value1"),
-        ContentFieldDto.withColumnNameAndContent("MyColumn2", "my_value2"),
-        ContentFieldDto.withColumnNameAndContent("MyColumn3", "my_value3")));
+        ContentFieldWithContentAsStringDto.withColumnNameAndContent("MyColumn1", "my_value1"),
+        ContentFieldWithContentAsStringDto.withColumnNameAndContent("MyColumn2", "my_value2"),
+        ContentFieldWithContentAsStringDto.withColumnNameAndContent("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
@@ -90,9 +90,9 @@ final class EntityStatementCreatorTest extends StandardTest {
       "my_id",
       "100",
       ImmutableList.withElement(
-        ContentFieldDto.withColumnNameAndContent("MyColumn1", "my_value1"),
-        ContentFieldDto.withColumnNameAndContent("MyColumn2", "my_value2"),
-        ContentFieldDto.withColumnNameAndContent("MyColumn3", "my_value3")));
+        ContentFieldWithContentAsStringDto.withColumnNameAndContent("MyColumn1", "my_value1"),
+        ContentFieldWithContentAsStringDto.withColumnNameAndContent("MyColumn2", "my_value2"),
+        ContentFieldWithContentAsStringDto.withColumnNameAndContent("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);

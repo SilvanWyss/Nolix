@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 
 public final class MultiBackReference<E extends IEntity> extends BaseBackReference<E>
 implements IMultiBackReference<E> {
@@ -93,8 +93,8 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public ContentFieldDto internalToContentField() {
-    return ContentFieldDto.withColumnName(getName());
+  public ContentFieldWithContentAsStringDto internalToContentField() {
+    return ContentFieldWithContentAsStringDto.withColumnName(getName());
   }
 
   @Override

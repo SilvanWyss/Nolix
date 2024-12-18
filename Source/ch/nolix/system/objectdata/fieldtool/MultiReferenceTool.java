@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.fieldtool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
@@ -41,7 +41,7 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
     return new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnName(multiReference.getName()));
+      ContentFieldWithContentAsStringDto.withColumnName(multiReference.getName()));
   }
 
   @Override
@@ -52,7 +52,7 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
     return new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnName(multiReference.getName()));
+      ContentFieldWithContentAsStringDto.withColumnName(multiReference.getName()));
   }
 
   private boolean canAddEntity(final IMultiReference<?> multiReference) {

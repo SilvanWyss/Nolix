@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class MultiValueTool extends FieldTool implements IMultiValueTool {
@@ -40,7 +40,7 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
     new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnNameAndContent(multiValue.getName(), ""));
+      ContentFieldWithContentAsStringDto.withColumnNameAndContent(multiValue.getName(), ""));
   }
 
   @Override
@@ -52,7 +52,7 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
     new EntityUpdateDto(
       parentEntity.getId(),
       parentEntity.getSaveStamp(),
-      ContentFieldDto.withColumnName(multiValue.getName()));
+      ContentFieldWithContentAsStringDto.withColumnName(multiValue.getName()));
   }
 
   private boolean canAddValue(final IMultiValue<?> multiValue) {
