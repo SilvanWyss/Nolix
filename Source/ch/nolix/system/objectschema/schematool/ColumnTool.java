@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -83,22 +84,21 @@ public final class ColumnTool extends DatabaseObjectTool implements IColumnTool 
   @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
 
-    if (!isABackReferenceColumn(column)) {
-      return false;
+    final var contentModel = column.getContentModel();
+
+    if (contentModel instanceof IAbstractBackReferenceModel abstractBackReferenceModel) {
+
+      final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
+      final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
+
+      if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(backReferencedColumnContentModel)) {
+        return false;
+      }
+
+      return referencesGivenTable(backReferencedColumn, column.getStoredParentTable());
     }
 
-    final var parameterizedFieldType = column.getContentModel();
-
-    final var backReferencedColumn = parameterizedFieldType.asBaseParameterizedBackReferenceType()
-      .getBackReferencedColumn();
-
-    final var backReferencedColumnParameterizedFieldType = backReferencedColumn.getContentModel();
-
-    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(backReferencedColumnParameterizedFieldType)) {
-      return false;
-    }
-
-    return referencesGivenTable(backReferencedColumn, column.getStoredParentTable());
+    return false;
   }
 
   @Override
