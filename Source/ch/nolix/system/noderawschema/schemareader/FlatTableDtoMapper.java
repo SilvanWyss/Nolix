@@ -2,7 +2,7 @@ package ch.nolix.system.noderawschema.schemareader;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 
 final class FlatTableDtoMapper {
 

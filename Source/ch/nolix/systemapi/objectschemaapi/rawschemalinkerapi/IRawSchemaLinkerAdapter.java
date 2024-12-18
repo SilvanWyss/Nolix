@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -24,7 +24,7 @@ public interface IRawSchemaLinkerAdapter {
 
   IContainer<ColumnDto> loadColumnsOfTable(ITable table);
 
-  IContainer<IFlatTableDto> loadFlatTables();
+  IContainer<FlatTableDto> loadFlatTables();
 
   ITime loadSchemaTimestamp();
 

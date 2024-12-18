@@ -9,7 +9,7 @@ import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
@@ -197,17 +197,17 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   }
 
   @Override
-  public final IFlatTableDto loadFlatTableById(String id) {
+  public final FlatTableDto loadFlatTableById(String id) {
     return schemaReader.loadFlatTableById(id);
   }
 
   @Override
-  public final IFlatTableDto loadFlatTableByName(final String name) {
+  public final FlatTableDto loadFlatTableByName(final String name) {
     return schemaReader.loadFlatTableByName(name);
   }
 
   @Override
-  public final IContainer<IFlatTableDto> loadFlatTables() {
+  public final IContainer<FlatTableDto> loadFlatTables() {
     return schemaReader.loadFlatTables();
   }
 

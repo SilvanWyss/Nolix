@@ -6,13 +6,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
@@ -48,8 +47,8 @@ public final class Table extends SchemaObject implements ITable {
     setName(name);
   }
 
-  public static Table fromFlatDto(final IFlatTableDto flatTableDto) {
-    return new Table(flatTableDto.getId(), flatTableDto.getName());
+  public static Table fromFlatDto(final FlatTableDto flatTableDto) {
+    return new Table(flatTableDto.id(), flatTableDto.name());
   }
 
   @Override
@@ -80,7 +79,7 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   @Override
-  public IFlatTableDto getFlatDto() {
+  public FlatTableDto getFlatDto() {
     return new FlatTableDto(getId(), getName());
   }
 

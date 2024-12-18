@@ -10,7 +10,7 @@ import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableFlatDtoMapper;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
@@ -87,19 +87,19 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IFlatTableDto loadFlatTableById(final String id) {
+  public FlatTableDto loadFlatTableById(final String id) {
     return TABLE_DTO_MAPPER.createTableDto(
       sqlConnection.getSingleRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableById(id)));
   }
 
   @Override
-  public IFlatTableDto loadFlatTableByName(final String name) {
+  public FlatTableDto loadFlatTableByName(final String name) {
     return TABLE_DTO_MAPPER.createTableDto(
       sqlConnection.getSingleRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableByName(name)));
   }
 
   @Override
-  public IContainer<IFlatTableDto> loadFlatTables() {
+  public IContainer<FlatTableDto> loadFlatTables() {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadFlatTables())
       .to(TABLE_DTO_MAPPER::createTableDto);
@@ -126,7 +126,7 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<TableDto> loadTables() {
-    return loadFlatTables().to(t -> loadTableById(t.getId()));
+    return loadFlatTables().to(t -> loadTableById(t.id()));
   }
 
   @Override
@@ -134,10 +134,10 @@ public final class SchemaReader implements ISchemaReader {
     //Does nothing.
   }
 
-  private TableDto loadTable(final IFlatTableDto flatTable) {
+  private TableDto loadTable(final FlatTableDto flatTable) {
     return new TableDto(
-      flatTable.getId(),
-      flatTable.getName(),
-      loadColumnsByTableId(flatTable.getId()));
+      flatTable.id(),
+      flatTable.name(),
+      loadColumnsByTableId(flatTable.id()));
   }
 }

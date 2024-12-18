@@ -8,7 +8,7 @@ import ch.nolix.system.noderawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.noderawschema.schemareader.SchemaReader;
 import ch.nolix.system.noderawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -99,17 +99,17 @@ public final class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public IFlatTableDto loadFlatTableById(final String id) {
+  public FlatTableDto loadFlatTableById(final String id) {
     return schemaReader.loadFlatTableById(id);
   }
 
   @Override
-  public IFlatTableDto loadFlatTableByName(final String name) {
+  public FlatTableDto loadFlatTableByName(final String name) {
     return schemaReader.loadFlatTableById(name);
   }
 
   @Override
-  public IContainer<IFlatTableDto> loadFlatTables() {
+  public IContainer<FlatTableDto> loadFlatTables() {
     return schemaReader.loadFlatTables();
   }
 

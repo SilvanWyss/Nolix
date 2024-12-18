@@ -9,7 +9,7 @@ import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
@@ -83,19 +83,19 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IFlatTableDto loadFlatTableById(final String id) {
+  public FlatTableDto loadFlatTableById(final String id) {
     return FLAT_TABLE_DTO_MAPPER.createFlatTableDtoFromTableNode(
       DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, id));
   }
 
   @Override
-  public IFlatTableDto loadFlatTableByName(final String name) {
+  public FlatTableDto loadFlatTableByName(final String name) {
     return FLAT_TABLE_DTO_MAPPER.createFlatTableDtoFromTableNode(
       DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name));
   }
 
   @Override
-  public IContainer<IFlatTableDto> loadFlatTables() {
+  public IContainer<FlatTableDto> loadFlatTables() {
     return DATABASE_NODE_SEARCHER
       .getStoredTableNodesFromNodeDatabase(nodeDatabase)
       .to(FLAT_TABLE_DTO_MAPPER::createFlatTableDtoFromTableNode);

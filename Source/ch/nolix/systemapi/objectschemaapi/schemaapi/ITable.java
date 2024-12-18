@@ -6,7 +6,7 @@ import ch.nolix.coreapi.componentapi.datamodelcomponentapi.IDatabaseComponent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public interface ITable
@@ -23,7 +23,7 @@ IIdHolder {
     String name,
     IContentModel contentModel);
 
-  IFlatTableDto getFlatDto();
+  FlatTableDto getFlatDto();
 
   IContainer<IColumn> getStoredColumns();
 
