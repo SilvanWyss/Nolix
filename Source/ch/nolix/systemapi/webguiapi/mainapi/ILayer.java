@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+import ch.nolix.coreapi.componentapi.guicomponentapi.IGuiComponent;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -8,12 +9,11 @@ import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 
 public interface ILayer<L extends ILayer<L>>
 extends
-IHtmlGetter,
 ICanvas<L>,
-IStylableElement<L>,
-IRootControlOwner<L> {
-
-  boolean belongsToGui();
+IGuiComponent<IWebGui<?>>,
+IHtmlGetter,
+IRootControlOwner<L>,
+IStylableElement<L> {
 
   boolean containsControl(IControl<?, ?> control);
 
@@ -24,8 +24,6 @@ IRootControlOwner<L> {
   String getInternalId();
 
   double getOpacity();
-
-  IWebGui<?> getStoredParentGui();
 
   LayerRole getRole();
 
