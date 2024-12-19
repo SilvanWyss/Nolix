@@ -6,15 +6,19 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.endpoint3api.IServer;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
+import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 
 /**
  * @author Silvan Wyss
  * @version 2017-06-16
  */
 public abstract class BaseServer implements IServer {
+
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -145,7 +149,7 @@ public abstract class BaseServer implements IServer {
    */
   final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
 
-    assertIsOpen(endPoint);
+    RESOURCE_VALIDATOR.assertIsOpen(endPoint);
 
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultSlot().takeBackendEndPoint(endPoint);
@@ -192,16 +196,6 @@ public abstract class BaseServer implements IServer {
     if (containsSlotWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         this, "contains already a slot with the name '" + name + "'");
-    }
-  }
-
-  /**
-   * @param endPoint
-   * @throws ClosedArgumentException if the given endPoint is closed.
-   */
-  private void assertIsOpen(final IEndPoint endPoint) {
-    if (endPoint.isClosed()) {
-      throw ClosedArgumentException.forArgument(endPoint);
     }
   }
 
