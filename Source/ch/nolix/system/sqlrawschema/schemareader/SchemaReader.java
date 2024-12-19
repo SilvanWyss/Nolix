@@ -7,6 +7,7 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
+import ch.nolix.system.sqlrawschema.querycreator.QueryCreator;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableFlatDtoMapper;
 import ch.nolix.system.time.moment.Time;

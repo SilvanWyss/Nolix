@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.schemareader;
+package ch.nolix.system.sqlrawschema.querycreator;
 
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
@@ -8,7 +8,7 @@ import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 
-final class QueryCreator {
+public final class QueryCreator {
 
   public String createQueryToGetTableCount() {
     return "SELECT COUNT("
