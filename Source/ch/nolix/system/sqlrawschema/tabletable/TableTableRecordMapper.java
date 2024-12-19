@@ -4,9 +4,9 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class TableTableRecordMapper {
 
-  public TableTableRecord createTableSystemTableRecordFrom(final TableDto table) {
+  public TableTableRecordDto createTableSystemTableRecordFrom(final TableDto table) {
     return //
-    new TableTableRecord(
+    new TableTableRecordDto(
       "'" + table.id() + "'",
       "'" + table.name() + "'");
   }

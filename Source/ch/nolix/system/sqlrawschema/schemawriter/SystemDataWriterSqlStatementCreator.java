@@ -198,9 +198,9 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + ", "
     + TableTableColumn.NAME.getName()
     + ") VALUES ("
-    + tableSystemTableRecord.getIdValue()
+    + tableSystemTableRecord.id()
     + ", "
-    + tableSystemTableRecord.getNameValue()
+    + tableSystemTableRecord.name()
     + ")";
   }
 }
