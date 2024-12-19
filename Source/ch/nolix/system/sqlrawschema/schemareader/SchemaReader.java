@@ -15,13 +15,15 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.tabletableapi.ITableFlatDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class SchemaReader implements ISchemaReader {
 
-  private static final QueryCreator QUERY_CREATOR = new QueryCreator();
+  private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
 
-  private static final TableFlatDtoMapper TABLE_DTO_MAPPER = new TableFlatDtoMapper();
+  private static final ITableFlatDtoMapper TABLE_DTO_MAPPER = new TableFlatDtoMapper();
 
   private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 

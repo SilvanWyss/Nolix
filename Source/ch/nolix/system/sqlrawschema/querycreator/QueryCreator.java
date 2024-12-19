@@ -7,19 +7,34 @@ import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 
-public final class QueryCreator {
+/**
+ * @author Silvan Wyss
+ * @version 2021-09-02
+ */
+public final class QueryCreator implements IQueryCreator {
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToGetTableCount() {
-    return "SELECT COUNT("
+    return //
+    "SELECT COUNT("
     + TableTableColumn.ID.getName()
     + ") FROM "
     + SchemaTableType.TABLE.getQualifiedName()
     + ";";
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToLoadCoumnsByTableId(final String tableId) {
-    return "SELECT "
+    return //
+    "SELECT "
     + ColumnTableColumn.ID.getName()
     + ", "
     + ColumnTableColumn.NAME.getName()
@@ -42,8 +57,13 @@ public final class QueryCreator {
     + "'";
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToLoadCoumnsByTableName(final String tableName) {
-    return "SELECT "
+    return //
+    "SELECT "
     + ColumnTableColumn.ID.getName()
     + ", "
     + ColumnTableColumn.NAME.getName()
@@ -66,8 +86,13 @@ public final class QueryCreator {
     + "'";
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToLoadFlatTableById(final String id) {
-    return "SELECT "
+    return //
+    "SELECT "
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
@@ -80,8 +105,13 @@ public final class QueryCreator {
     + "'";
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToLoadFlatTableByName(final String name) {
-    return "SELECT "
+    return //
+    "SELECT "
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
@@ -94,8 +124,13 @@ public final class QueryCreator {
     + "'";
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToLoadFlatTables() {
-    return "SELECT "
+    return //
+    "SELECT "
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
@@ -103,8 +138,13 @@ public final class QueryCreator {
     + SchemaTableType.TABLE.getQualifiedName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String createQueryToLoadSchemaTimestamp() {
-    return "SELECT "
+    return //
+    "SELECT "
     + DatabasePropertyTableColumn.VALUE.getLabel()
     + SpaceEnclosedSqlKeywordCatalogue.FROM
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
