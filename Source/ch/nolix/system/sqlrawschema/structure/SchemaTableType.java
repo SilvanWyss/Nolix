@@ -7,7 +7,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 
 public enum SchemaTableType implements IQualifiedNameHolder {
   TABLE(PascalCaseVariableCatalogue.TABLE),
-  COLUMN(PascalCaseVariableCatalogue.COLUMN);
+  COLUMN(PascalCaseVariableCatalogue.COLUMN),
+  TABLE_REFERENCE("TableReference");
 
   private static final String QUALIFYING_PREFIX = TableType.SCHEMA_TABLE.getQualifyingPrefix();
 
