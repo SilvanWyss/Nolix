@@ -7,15 +7,17 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
+import ch.nolix.system.objectschema.schemamutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemamutationvalidatorapi.ITableMutationValidator;
 import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 
 public final class Table extends SchemaObject implements ITable {
 
-  private static final TableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
+  private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
   private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
 

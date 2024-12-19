@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.schemamutationvalidator;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
@@ -10,12 +10,19 @@ import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.system.objectschema.schemavalidator.DatabaseValidator;
 import ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi.IDatabaseObjectValidator;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemamutationvalidatorapi.ITableMutationValidator;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 import ch.nolix.systemapi.objectschemaapi.schemavalidatorapi.IDatabaseValidator;
 
-final class TableMutationValidator {
+/**
+ * @author Silvan Wyss
+ * @version 2021-07-11
+ */
+public final class TableMutationValidator implements ITableMutationValidator {
 
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
@@ -27,7 +34,11 @@ final class TableMutationValidator {
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
-  public void assertCanAddColumnToTable(final Table table, final Column column) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanAddColumnToTable(final ITable table, final IColumn column) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
     TABLE_TOOL.assertDoesNotContainColumnWithGivenName(table, column.getName());
@@ -54,14 +65,22 @@ final class TableMutationValidator {
     }
   }
 
-  public void assertCanDeleteTable(final Table table) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanDeleteTable(final ITable table) {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
     DATABASE_OBJECT_VALIDATOR.assertIsNotNew(table);
     DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(table);
     TABLE_TOOL.assertIsNotReferenced(table);
   }
 
-  public void assertCanSetNameToTable(final Table table, final String name) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanSetNameToTable(final ITable table, final String name) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
 
