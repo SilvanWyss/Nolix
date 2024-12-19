@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.data;
 
+import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
