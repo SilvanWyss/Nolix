@@ -63,13 +63,6 @@ public abstract class BaseEntity implements IEntity {
     updateStateForDelete();
   }
 
-  public final void deleteWithoutReferenceCheck() {
-
-    updateBackReferencingFieldsForDeletion();
-
-    updateStateForDelete();
-  }
-
   @Override
   public final String getId() {
     return id;
