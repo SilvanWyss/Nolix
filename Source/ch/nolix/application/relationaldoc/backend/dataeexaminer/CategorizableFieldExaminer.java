@@ -1,51 +1,51 @@
 package ch.nolix.application.relationaldoc.backend.dataeexaminer;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.dataexaminerapi.IAbstractableFieldExaminer;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.dataexaminerapi.ICategorizableFieldExaminer;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 
-public final class AbstractableFieldExaminer implements IAbstractableFieldExaminer {
+public final class CategorizableFieldExaminer implements ICategorizableFieldExaminer {
 
   @Override
-  public boolean allRealisingFieldsAreEmpty(final IAbstractableField field) {
+  public boolean allRealisingFieldsAreEmpty(final ICategorizableField field) {
 
     final var realisingFields = getStoredRealisingFields(field);
 
-    return realisingFields.containsOnly(IAbstractableField::isEmpty);
+    return realisingFields.containsOnly(ICategorizableField::isEmpty);
   }
 
   @Override
-  public boolean canBeSetAsAbstract(final IAbstractableField field) {
+  public boolean canBeSetAsAbstract(final ICategorizableField field) {
     return //
     field != null
     && canBeSetAsAbstractWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canBeSetAsConcrete(final IAbstractableField field) {
+  public boolean canBeSetAsConcrete(final ICategorizableField field) {
     return //
     field != null
     && canBeSetAsConcreteWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canBeSetForReferences(final IAbstractableField field) {
+  public boolean canBeSetForReferences(final ICategorizableField field) {
     return //
     field != null
     && canBeSetForReferencesWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canBeSetForValues(final IAbstractableField field) {
+  public boolean canBeSetForValues(final ICategorizableField field) {
     return //
     field != null
     && canBeSetForValuesWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canSetCardinality(final IAbstractableField field, final Cardinality cardinality) {
+  public boolean canSetCardinality(final ICategorizableField field, final Cardinality cardinality) {
     return //
     field != null
     && cardinality != null
@@ -53,7 +53,7 @@ public final class AbstractableFieldExaminer implements IAbstractableFieldExamin
   }
 
   @Override
-  public boolean canSetName(final IAbstractableField field, final String name) {
+  public boolean canSetName(final ICategorizableField field, final String name) {
     return //
     field != null
     && canSetName(name)
@@ -61,7 +61,7 @@ public final class AbstractableFieldExaminer implements IAbstractableFieldExamin
   }
 
   @Override
-  public IContainer<? extends IAbstractableField> getStoredRealisingFields(final IAbstractableField field) {
+  public IContainer<? extends ICategorizableField> getStoredRealisingFields(final ICategorizableField field) {
 
     if (field == null || field.isConcrete()) {
       return ImmutableList.createEmpty();
@@ -71,43 +71,43 @@ public final class AbstractableFieldExaminer implements IAbstractableFieldExamin
   }
 
   @Override
-  public boolean hasRealisingFields(final IAbstractableField field) {
+  public boolean hasRealisingFields(final ICategorizableField field) {
     return //
     field != null
     && hasRealisingFieldsWhenIsNotNull(field);
   }
 
-  private boolean canBeSetAsAbstractBecauseOfParentObject(final IAbstractableField field) {
+  private boolean canBeSetAsAbstractBecauseOfParentObject(final ICategorizableField field) {
     return //
     field != null
     && field.getStoredParentObject().isAbstract();
   }
 
-  private boolean canBeSetAsAbstractWhenIsNotNull(final IAbstractableField field) {
+  private boolean canBeSetAsAbstractWhenIsNotNull(final ICategorizableField field) {
     return //
     !field.inheritsFromBaseField()
     && canBeSetAsAbstractBecauseOfParentObject(field);
   }
 
-  private boolean canBeSetAsConcreteWhenIsNotNull(final IAbstractableField field) {
+  private boolean canBeSetAsConcreteWhenIsNotNull(final ICategorizableField field) {
     return allRealisingFieldsAreEmpty(field);
   }
 
-  private boolean canBeSetForReferencesWhenIsNotNull(final IAbstractableField field) {
+  private boolean canBeSetForReferencesWhenIsNotNull(final ICategorizableField field) {
     return //
     field.isForReferences()
     || hasRealisingFields(field);
   }
 
-  private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final IAbstractableField field) {
+  private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final ICategorizableField field) {
     return allRealisingFieldsAreEmpty(field);
   }
 
-  private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final IAbstractableField field) {
+  private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final ICategorizableField field) {
     return !field.inheritsFromBaseField();
   }
 
-  private boolean canBeSetForValuesWhenIsForReferences(final IAbstractableField field) {
+  private boolean canBeSetForValuesWhenIsForReferences(final ICategorizableField field) {
 
     if (field.isAbstract()) {
       return canBeSetForValuesWhenIsAbstractAndForReferences(field);
@@ -116,13 +116,13 @@ public final class AbstractableFieldExaminer implements IAbstractableFieldExamin
     return canBeSetForValuesWhenIsConcreteAndForReferences(field);
   }
 
-  private boolean canBeSetForValuesWhenIsNotNull(final IAbstractableField field) {
+  private boolean canBeSetForValuesWhenIsNotNull(final ICategorizableField field) {
     return //
     field.isForValues()
     || canBeSetForValuesWhenIsForReferences(field);
   }
 
-  private boolean canSetCardinalityWhenIsNotNull(final IAbstractableField field, final Cardinality cardinality) {
+  private boolean canSetCardinalityWhenIsNotNull(final ICategorizableField field, final Cardinality cardinality) {
 
     if (field.getCardinality() == cardinality || cardinality == Cardinality.TO_MANY) {
       return true;
@@ -142,21 +142,21 @@ public final class AbstractableFieldExaminer implements IAbstractableFieldExamin
   }
 
   private boolean canSetNameBecauseOfSubTypesOfParentObject(
-    final IAbstractableField field,
+    final ICategorizableField field,
     final String name) {
     return //
     field != null
     && field.getStoredParentObject().getStoredSubTypes().containsNone(cst -> cst.hasName(name));
   }
 
-  private boolean canSetNameWhenIsNotNull(final IAbstractableField field, final String name) {
+  private boolean canSetNameWhenIsNotNull(final ICategorizableField field, final String name) {
     return //
     field.getStoredParentObject().getStoredFields().containsNone(f -> f.hasName(name))
     && canSetNameBecauseOfSubTypesOfParentObject(field, name);
   }
 
-  private IContainer<? extends IAbstractableField> getStoredRealisingFieldsWhenIsAbstract(
-    final IAbstractableField field) {
+  private IContainer<? extends ICategorizableField> getStoredRealisingFieldsWhenIsAbstract(
+    final ICategorizableField field) {
     return //
     field
       .getStoredParentObject()
@@ -164,7 +164,7 @@ public final class AbstractableFieldExaminer implements IAbstractableFieldExamin
       .toMultiple(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
   }
 
-  private boolean hasRealisingFieldsWhenIsNotNull(final IAbstractableField field) {
+  private boolean hasRealisingFieldsWhenIsNotNull(final ICategorizableField field) {
 
     final var realisingFields = getStoredRealisingFields(field);
 

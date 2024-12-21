@@ -1,24 +1,24 @@
 package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.Abstractable;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.CATEGORIZABLE;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.ContentTypeAssignable;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableCardinalityHolder;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
-public interface IAbstractableField
+public interface ICategorizableField
 extends
-Abstractable<IAbstractableField>,
-ContentTypeAssignable<IAbstractableField>,
+CATEGORIZABLE<ICategorizableField>,
+ContentTypeAssignable<ICategorizableField>,
 EmptinessRequestable,
-IFluentMutableNameHolder<IAbstractableField>,
-IFluentMutableCardinalityHolder<IAbstractableField>,
+IFluentMutableNameHolder<ICategorizableField>,
+IFluentMutableCardinalityHolder<ICategorizableField>,
 MandatorynessRequestable {
 
-  IAbstractableField getStoredBaseField();
+  ICategorizableField getStoredBaseField();
 
-  IAbstractableObject getStoredParentObject();
+  ICategorizableObject getStoredParentObject();
 
   IContent getStoredContent();
 

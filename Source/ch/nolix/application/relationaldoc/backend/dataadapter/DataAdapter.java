@@ -1,10 +1,10 @@
 package ch.nolix.application.relationaldoc.backend.dataadapter;
 
-import ch.nolix.application.relationaldoc.backend.dataeexaminer.AbstractableObjectExaminer;
-import ch.nolix.application.relationaldoc.backend.datamodel.AbstractableObject;
+import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableObjectExaminer;
+import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
 import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalogue;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.dataadapterapi.IDataAdapter;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -13,7 +13,7 @@ import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
 
 public final class DataAdapter implements IDataAdapter {
 
-  private static final AbstractableObjectExaminer ABSTRACTABLE_OBJECT_EXAMINER = new AbstractableObjectExaminer();
+  private static final CategorizableObjectExaminer CATEGORIZABLE_OBJECT_EXAMINER = new CategorizableObjectExaminer();
 
   private final ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter internalDataAdapter;
 
@@ -41,9 +41,9 @@ public final class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public IAbstractableObject createObject() {
+  public ICategorizableObject createObject() {
 
-    final var object = new AbstractableObject();
+    final var object = new CategorizableObject();
 
     internalDataAdapter.insertEntity(object);
 
@@ -56,12 +56,12 @@ public final class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public IContainer<? extends IAbstractableObject> getStoredTopLevelObjects() {
+  public IContainer<? extends ICategorizableObject> getStoredTopLevelObjects() {
 
-    final var objectTable = internalDataAdapter.getStoredTableByEntityType(AbstractableObject.class);
+    final var objectTable = internalDataAdapter.getStoredTableByEntityType(CategorizableObject.class);
     final var objects = objectTable.getStoredEntities();
 
-    return objects.getStoredOthers(ABSTRACTABLE_OBJECT_EXAMINER::hasBaseTypes);
+    return objects.getStoredOthers(CATEGORIZABLE_OBJECT_EXAMINER::hasBaseTypes);
   }
 
   @Override

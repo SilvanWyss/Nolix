@@ -2,7 +2,7 @@ package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.ConcreteValueContentValidator;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteValueContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IValueContent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -15,8 +15,8 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
   private static final ConcreteValueContentValidator CONCRETE_VALUE_CONTENT_VALIDATOR = //
   new ConcreteValueContentValidator();
 
-  private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(AbstractableField.class, "concreteValueContent");
+  private final BackReference<CategorizableField> parentField = BackReference
+    .forEntityAndBackReferencedFieldName(CategorizableField.class, "concreteValueContent");
 
   private final OptionalValue<String> dataType = OptionalValue.withValueType(String.class);
 
@@ -45,7 +45,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
   }
 
   @Override
-  public IAbstractableField getStoredParentField() {
+  public ICategorizableField getStoredParentField() {
     return parentField.getStoredBackReferencedEntity();
   }
 

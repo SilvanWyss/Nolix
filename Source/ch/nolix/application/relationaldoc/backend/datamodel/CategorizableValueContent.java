@@ -1,26 +1,26 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
-import ch.nolix.application.relationaldoc.backend.datavalidator.AbstractValueContentValidator;
+import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableValueContentValidator;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractValueContent;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteValueContent;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Value;
 
-public final class AbstractValueContent extends ValueContent implements IAbstractValueContent {
+public final class CategorizableValueContent extends ValueContent implements ICategorizableValueContent {
 
   public static final DataType DEFAULT_DATA_TYPE = DataType.TEXT;
 
-  private static final AbstractValueContentValidator ABSTRACT_VALUE_CONTENT_VALIDATOR = //
-  new AbstractValueContentValidator();
+  private static final CategorizableValueContentValidator ABSTRACT_VALUE_CONTENT_VALIDATOR = //
+  new CategorizableValueContentValidator();
 
-  private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(AbstractableField.class, "abstractValueContent");
+  private final BackReference<CategorizableField> parentField = BackReference
+    .forEntityAndBackReferencedFieldName(CategorizableField.class, "abstractValueContent");
 
   private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());
 
-  public AbstractValueContent() {
+  public CategorizableValueContent() {
     initialize();
   }
 
@@ -30,7 +30,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
   }
 
   @Override
-  public IAbstractableField getStoredParentField() {
+  public ICategorizableField getStoredParentField() {
     return parentField.getStoredBackReferencedEntity();
   }
 
@@ -45,7 +45,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
   }
 
   @Override
-  public IAbstractValueContent setDataType(final DataType dataType) {
+  public ICategorizableValueContent setDataType(final DataType dataType) {
 
     ABSTRACT_VALUE_CONTENT_VALIDATOR.assertCanSetDataType(this, dataType);
 

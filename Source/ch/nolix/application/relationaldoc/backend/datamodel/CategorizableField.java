@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
-import ch.nolix.application.relationaldoc.backend.datavalidator.AbstractableFieldValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableObject;
+import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableFieldValidator;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IContent;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
@@ -12,16 +12,16 @@ import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.OptionalReference;
 import ch.nolix.system.objectdata.data.Value;
 
-public final class AbstractableField extends Entity implements IAbstractableField {
+public final class CategorizableField extends Entity implements ICategorizableField {
 
   public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalogue.FIELD;
 
   public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
 
-  private static final AbstractableFieldValidator ABSTRACTABLE_FIELD_VALIDATOR = new AbstractableFieldValidator();
+  private static final CategorizableFieldValidator CATEGORIZABLE_FIELD_VALIDATOR = new CategorizableFieldValidator();
 
-  private final BackReference<AbstractableObject> parentObject = BackReference
-    .forEntityAndBackReferencedFieldName(AbstractableObject.class, "declaredFields");
+  private final BackReference<CategorizableObject> parentObject = BackReference
+    .forEntityAndBackReferencedFieldName(CategorizableObject.class, "declaredFields");
 
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 
@@ -29,13 +29,13 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
   //TODO: Enable BaseReference to reference base types
 
-  private final OptionalReference<AbstractValueContent> abstractValueContent = OptionalReference
-    .forEntity(AbstractValueContent.class);
+  private final OptionalReference<CategorizableValueContent> categorizableValueContent = OptionalReference
+    .forEntity(CategorizableValueContent.class);
 
   //TODO: Enable BaseReference to reference base types
 
-  private final OptionalReference<AbstractReferenceContent> abstractReferenceContent = OptionalReference
-    .forEntity(AbstractReferenceContent.class);
+  private final OptionalReference<CategorizableReferenceContent> categorizableReferenceContent = OptionalReference
+    .forEntity(CategorizableReferenceContent.class);
 
   //TODO: Enable BaseReference to reference base types
 
@@ -47,7 +47,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   private final OptionalReference<ConcreteReferenceContent> concreteReferenceContent = OptionalReference
     .forEntity(ConcreteReferenceContent.class);
 
-  public AbstractableField() {
+  public CategorizableField() {
     initialize();
   }
 
@@ -77,22 +77,22 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField getStoredBaseField() {
+  public ICategorizableField getStoredBaseField() {
     return getStoredParentObject()
       .getStoredDirectBaseTypes()
-      .toMultiple(IAbstractableObject::getStoredFields)
+      .toMultiple(ICategorizableObject::getStoredFields)
       .getStoredFirst(f -> f.hasSameNameAs(this));
   }
 
   @Override
   public IContent getStoredContent() {
 
-    if (abstractValueContent.containsAny()) {
-      return abstractValueContent.getReferencedEntity();
+    if (categorizableValueContent.containsAny()) {
+      return categorizableValueContent.getReferencedEntity();
     }
 
-    if (abstractReferenceContent.containsAny()) {
-      return abstractValueContent.getReferencedEntity();
+    if (categorizableReferenceContent.containsAny()) {
+      return categorizableValueContent.getReferencedEntity();
     }
 
     if (concreteValueContent.containsAny()) {
@@ -111,7 +111,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableObject getStoredParentObject() {
+  public ICategorizableObject getStoredParentObject() {
     return parentObject.getStoredBackReferencedEntity();
   }
 
@@ -143,9 +143,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField setAsAbstract() {
+  public ICategorizableField setAsAbstract() {
 
-    ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsAbstract(this);
+    CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetAsAbstract(this);
 
     setAsAbstractIfIsConcreteAndWhenAllowed();
 
@@ -153,9 +153,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField setAsConcrete() {
+  public ICategorizableField setAsConcrete() {
 
-    ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsConcrete(this);
+    CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetAsConcrete(this);
 
     setAsConcreteIfItIsAbstractAndWhenAllowed();
 
@@ -163,9 +163,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField setCardinality(final Cardinality cardinality) {
+  public ICategorizableField setCardinality(final Cardinality cardinality) {
 
-    ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetCardinality(this, cardinality);
+    CATEGORIZABLE_FIELD_VALIDATOR.assertCanSetCardinality(this, cardinality);
 
     this.cardinality.setValue(cardinality.toString());
 
@@ -173,9 +173,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField setForReferences() {
+  public ICategorizableField setForReferences() {
 
-    ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetForReferences(this);
+    CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetForReferences(this);
 
     setForReferencesWhenAllowed();
 
@@ -183,9 +183,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField setForValues() {
+  public ICategorizableField setForValues() {
 
-    ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetForValues(this);
+    CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetForValues(this);
 
     setForValuesWhenAllowed();
 
@@ -193,13 +193,13 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   @Override
-  public IAbstractableField setName(final String name) {
+  public ICategorizableField setName(final String name) {
 
     if (inheritsFromBaseField()) {
       getStoredBaseField().setName(name);
     } else {
 
-      ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetName(this, name);
+      CATEGORIZABLE_FIELD_VALIDATOR.assertCanSetName(this, name);
 
       this.name.setValue(name);
     }
@@ -208,8 +208,8 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   }
 
   private void removeContent() {
-    abstractValueContent.clear();
-    abstractReferenceContent.clear();
+    categorizableValueContent.clear();
+    categorizableReferenceContent.clear();
     concreteValueContent.clear();
     concreteReferenceContent.clear();
   }
@@ -224,9 +224,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
     removeContent();
 
-    final var newAbstractReferenceContent = new AbstractReferenceContent();
+    final var newAbstractReferenceContent = new CategorizableReferenceContent();
     getStoredParentDatabase().insertEntity(newAbstractReferenceContent);
-    abstractReferenceContent.setEntity(newAbstractReferenceContent);
+    categorizableReferenceContent.setEntity(newAbstractReferenceContent);
   }
 
   private void setAsConcreteIfItIsAbstractAndWhenAllowed() {
@@ -239,9 +239,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
     removeContent();
 
-    final var newAbstractValueContent = new AbstractValueContent();
+    final var newAbstractValueContent = new CategorizableValueContent();
     getStoredParentDatabase().insertEntity(newAbstractValueContent);
-    abstractValueContent.setEntity(newAbstractValueContent);
+    categorizableValueContent.setEntity(newAbstractValueContent);
   }
 
   //mehtod
@@ -297,9 +297,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
     removeContent();
 
-    final var newAbstractReferenceContent = new AbstractReferenceContent();
+    final var newAbstractReferenceContent = new CategorizableReferenceContent();
     getStoredParentDatabase().insertEntity(newAbstractReferenceContent);
-    abstractReferenceContent.setEntity(newAbstractReferenceContent);
+    categorizableReferenceContent.setEntity(newAbstractReferenceContent);
   }
 
   private void setForReferencesWhenIsConcreteAndForValuesAndAllowed() {
@@ -321,9 +321,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
     removeContent();
 
-    final var newAbstractValueContent = new AbstractValueContent();
+    final var newAbstractValueContent = new CategorizableValueContent();
     getStoredParentDatabase().insertEntity(newAbstractValueContent);
-    abstractValueContent.setEntity(newAbstractValueContent);
+    categorizableValueContent.setEntity(newAbstractValueContent);
   }
 
   private void setForValuesWhenIsConcreteAndForReferencesAndAllowed() {

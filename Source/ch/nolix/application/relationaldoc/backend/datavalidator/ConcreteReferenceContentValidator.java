@@ -2,7 +2,7 @@ package ch.nolix.application.relationaldoc.backend.datavalidator;
 
 import ch.nolix.application.relationaldoc.backend.dataeexaminer.ConcreteReferenceContentExaminer;
 import ch.nolix.application.relationaldoc.backend.datamodel.ConcreteReferenceContent;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
@@ -11,7 +11,7 @@ public final class ConcreteReferenceContentValidator {
   private static final ConcreteReferenceContentExaminer CONCRETE_REFERENCE_CONTENT_EVALUATOR = //
   new ConcreteReferenceContentExaminer();
 
-  public void assertCanAddObject(ConcreteReferenceContent concreteReferenceContent, IAbstractableObject object) {
+  public void assertCanAddObject(ConcreteReferenceContent concreteReferenceContent, ICategorizableObject object) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canAddObject(concreteReferenceContent, object)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         concreteReferenceContent.getStoredParentField(),

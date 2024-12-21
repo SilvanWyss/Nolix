@@ -2,8 +2,8 @@ package ch.nolix.applicationtest.relationaldoctest.backendtest.datamodeltest;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.application.relationaldoc.backend.datamodel.AbstractableField;
-import ch.nolix.application.relationaldoc.backend.datamodel.AbstractableObject;
+import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableField;
+import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
 import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalogue;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -24,7 +24,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     dataAdapter.insertEntity(testUnit);
 
     //execution
@@ -47,19 +47,19 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create baseType1.
-    final var baseType1 = new AbstractableObject();
+    final var baseType1 = new CategorizableObject();
     dataAdapter.insertEntity(baseType1);
     baseType1.setName("base_type_1");
     baseType1.setAsAbstract();
 
     //setup part 4: Create baseType2.
-    final var baseType2 = new AbstractableObject();
+    final var baseType2 = new CategorizableObject();
     dataAdapter.insertEntity(baseType2);
     baseType2.setName("base_type_2");
     baseType2.setAsAbstract();
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     dataAdapter.insertEntity(testUnit);
     testUnit.setName("test_unit");
     testUnit.addBaseType(baseType1);
@@ -85,20 +85,20 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create level1Type.
-    final var level1Oject = new AbstractableObject();
+    final var level1Oject = new CategorizableObject();
     dataAdapter.insertEntity(level1Oject);
     level1Oject.setName("level_1_object");
     level1Oject.setAsAbstract();
 
     //setup part 4: Create level2Type.
-    final var level2Oject = new AbstractableObject();
+    final var level2Oject = new CategorizableObject();
     dataAdapter.insertEntity(level2Oject);
     level2Oject.setName("level_2_object");
     level2Oject.setAsAbstract();
     level2Oject.addBaseType(level1Oject);
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     dataAdapter.insertEntity(testUnit);
     testUnit.setName("test_unit");
     testUnit.addBaseType(level2Oject);
@@ -123,17 +123,17 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create subType1.
-    final var subType1 = new AbstractableObject();
+    final var subType1 = new CategorizableObject();
     dataAdapter.insertEntity(subType1);
     subType1.setName("sub_type_1");
 
     //setup part 4: Create subType2.
-    final var subType2 = new AbstractableObject();
+    final var subType2 = new CategorizableObject();
     dataAdapter.insertEntity(subType2);
     subType2.setName("sub_type_2");
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     testUnit.setName("test_unit");
     testUnit.setAsAbstract();
     subType1.addBaseType(testUnit);
@@ -159,7 +159,7 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     dataAdapter.insertEntity(testUnit);
 
     //execution
@@ -182,17 +182,17 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create subType1.
-    final var subType1 = new AbstractableObject();
+    final var subType1 = new CategorizableObject();
     dataAdapter.insertEntity(subType1);
     subType1.setName("sub_type_1");
 
     //setup part 4: Create subType2.
-    final var subType2 = new AbstractableObject();
+    final var subType2 = new CategorizableObject();
     dataAdapter.insertEntity(subType2);
     subType2.setName("sub_type_2");
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     dataAdapter.insertEntity(testUnit);
     testUnit.setName("test_unit");
     testUnit.setAsAbstract();
@@ -219,9 +219,9 @@ final class AbstractableObjectOnDatabaseTest extends StandardTest {
       .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
-    final var testUnit = new AbstractableObject();
+    final var testUnit = new CategorizableObject();
     dataAdapter.insertEntity(testUnit);
-    final var field = new AbstractableField();
+    final var field = new CategorizableField();
     dataAdapter.insertEntity(field);
     testUnit.addField(field);
 

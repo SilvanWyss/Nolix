@@ -2,9 +2,9 @@ package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi;
 
 import ch.nolix.coreapi.datamodelapi.entityrequestapi.AbstractnessRequestable;
 
-public interface Abstractable<A extends Abstractable<A>> extends AbstractnessRequestable {
+public interface CATEGORIZABLE<C extends CATEGORIZABLE<C>> extends AbstractnessRequestable {
 
-  A setAsAbstract();
+  C setAsAbstract();
 
-  A setAsConcrete();
+  C setAsConcrete();
 }

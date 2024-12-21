@@ -6,10 +6,10 @@ import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 public final class SchemaCatalogue {
 
   public static final ISchema RELATIONAL_DOC_SCHEMA = Schema.withEntityType(
-    AbstractableField.class,
-    AbstractableObject.class,
-    AbstractReferenceContent.class,
-    AbstractValueContent.class,
+    CategorizableField.class,
+    CategorizableObject.class,
+    CategorizableReferenceContent.class,
+    CategorizableValueContent.class,
     ConcreteReferenceContent.class,
     ConcreteValueContent.class);
 

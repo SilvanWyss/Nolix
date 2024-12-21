@@ -1,9 +1,9 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.ConcreteReferenceContentValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractReferenceContent;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IAbstractableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.data.BackReference;
@@ -14,18 +14,18 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = //
   new ConcreteReferenceContentValidator();
 
-  private final BackReference<AbstractableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(AbstractableField.class, "concreteReferenceContent");
+  private final BackReference<CategorizableField> parentField = BackReference
+    .forEntityAndBackReferencedFieldName(CategorizableField.class, "concreteReferenceContent");
 
-  private final MultiReference<AbstractableObject> referencedObjects = MultiReference
-    .forReferencedEntityType(AbstractableObject.class);
+  private final MultiReference<CategorizableObject> referencedObjects = MultiReference
+    .forReferencedEntityType(CategorizableObject.class);
 
   public ConcreteReferenceContent() {
     initialize();
   }
 
   @Override
-  public IConcreteReferenceContent addObject(final IAbstractableObject object) {
+  public IConcreteReferenceContent addObject(final ICategorizableObject object) {
 
     CONCRETE_REFERENCE_CONTENT_VALIDATOR.assertCanAddObject(this, object);
 
@@ -35,21 +35,21 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   }
 
   @Override
-  public IAbstractableField getStoredParentField() {
+  public ICategorizableField getStoredParentField() {
     return parentField.getStoredBackReferencedEntity();
   }
 
   @Override
-  public IContainer<? extends IAbstractableObject> getStoredReferencedObjects() {
+  public IContainer<? extends ICategorizableObject> getStoredReferencedObjects() {
     return referencedObjects.getAllStoredReferencedEntities();
   }
 
   @Override
-  public IAbstractableObject getStoredReferencedType() {
+  public ICategorizableObject getStoredReferencedType() {
 
     final var baseField = getStoredParentField().getStoredBaseField();
 
-    final var abstractReferenceContent = (IAbstractReferenceContent) baseField.getStoredContent();
+    final var abstractReferenceContent = (ICategorizableReferenceContent) baseField.getStoredContent();
 
     return abstractReferenceContent.getStoredReferencedType();
   }
@@ -65,7 +65,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   }
 
   @Override
-  public void removeObject(final IAbstractableObject object) {
+  public void removeObject(final ICategorizableObject object) {
 
     CONCRETE_REFERENCE_CONTENT_VALIDATOR.assertCanRemoveOneObject(this);
 

@@ -4,11 +4,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public interface IConcreteReferenceContent extends IReferenceContent {
 
-  IConcreteReferenceContent addObject(IAbstractableObject object);
+  IConcreteReferenceContent addObject(ICategorizableObject object);
 
-  IContainer<? extends IAbstractableObject> getStoredReferencedObjects();
+  IContainer<? extends ICategorizableObject> getStoredReferencedObjects();
 
-  void removeObject(IAbstractableObject object);
+  void removeObject(ICategorizableObject object);
 
   void removeObjects();
 }
