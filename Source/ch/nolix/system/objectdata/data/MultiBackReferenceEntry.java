@@ -87,8 +87,8 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
-    return getStoredParentMultiBackReference().isLinkedWithRealDatabase();
+  public boolean isConnectedWithRealDatabase() {
+    return getStoredParentMultiBackReference().isConnectedWithRealDatabase();
   }
 
   @Override

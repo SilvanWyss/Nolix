@@ -22,7 +22,7 @@ final class ColumnMutationExecutor {
 
     column.setNameAttribute(name);
 
-    if (column.isLinkedWithRealDatabase()) {
+    if (column.isConnectedWithRealDatabase()) {
       column.internalGetRefRawSchemaAdapter().setColumnName(column, oldName, name);
     }
 
@@ -39,7 +39,7 @@ final class ColumnMutationExecutor {
 
     column.setParameterizedFieldTypeAttribute(contentModel);
 
-    if (column.isLinkedWithRealDatabase()) {
+    if (column.isConnectedWithRealDatabase()) {
       column
         .internalGetRefRawSchemaAdapter()
         .setColumnParameterizedFieldType(column, contentModel);

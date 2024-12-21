@@ -106,7 +106,7 @@ public final class Database implements IDatabase {
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
+  public boolean isConnectedWithRealDatabase() {
     return true;
   }
 

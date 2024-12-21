@@ -121,8 +121,8 @@ public final class Table extends SchemaObject implements ITable {
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
-    return (belongsToDatabase() && getStoredParentDatabase().isLinkedWithRealDatabase());
+  public boolean isConnectedWithRealDatabase() {
+    return (belongsToDatabase() && getStoredParentDatabase().isConnectedWithRealDatabase());
   }
 
   @Override

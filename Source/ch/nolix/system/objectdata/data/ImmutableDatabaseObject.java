@@ -30,7 +30,7 @@ abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObjec
   }
 
   @Override
-  public final boolean isLinkedWithRealDatabase() {
+  public final boolean isConnectedWithRealDatabase() {
     return true;
   }
 

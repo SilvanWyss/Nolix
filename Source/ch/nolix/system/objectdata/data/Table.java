@@ -182,8 +182,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
-    return parentDatabase.isLinkedWithRealDatabase();
+  public boolean isConnectedWithRealDatabase() {
+    return parentDatabase.isConnectedWithRealDatabase();
   }
 
   @Override

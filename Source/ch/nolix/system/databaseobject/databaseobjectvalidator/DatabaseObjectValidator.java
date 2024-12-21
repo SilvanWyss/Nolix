@@ -10,7 +10,7 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
 
   @Override
   public final void assertIsLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
-    if (!databaseObject.isLinkedWithRealDatabase()) {
+    if (!databaseObject.isConnectedWithRealDatabase()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not linked with a real database");
     }
   }
@@ -38,7 +38,7 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
 
   @Override
   public final void assertIsNotLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
-    if (databaseObject.isLinkedWithRealDatabase()) {
+    if (databaseObject.isConnectedWithRealDatabase()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
     }
   }

@@ -12,7 +12,7 @@ final class TableMutationExecutor {
     table.addColumnAttribute(column);
     column.setParentTableAttribute(table);
 
-    if (table.isLinkedWithRealDatabase()) {
+    if (table.isConnectedWithRealDatabase()) {
       table.internalgetStoredRawSchemaAdapter().addColumnToTable(table, column);
     }
 
@@ -38,7 +38,7 @@ final class TableMutationExecutor {
 
     table.setNameAttribute(name);
 
-    if (table.isLinkedWithRealDatabase()) {
+    if (table.isConnectedWithRealDatabase()) {
 
       table.internalgetStoredRawSchemaAdapter().setTableName(oldTableName, name);
 

@@ -31,7 +31,7 @@ final class OptionalValueTest extends StandardTest {
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
     expect(result.isOpen()).isTrue();
     expect(result.isDeleted()).isFalse();
-    expect(result.isLinkedWithRealDatabase()).isFalse();
+    expect(result.isConnectedWithRealDatabase()).isFalse();
     expect(result.isOptional()).isTrue();
     expect(result.isEmpty()).isTrue();
   }

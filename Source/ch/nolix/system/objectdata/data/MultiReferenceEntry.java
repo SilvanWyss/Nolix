@@ -98,8 +98,8 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
-    return getStoredParentMultiReference().isLinkedWithRealDatabase();
+  public boolean isConnectedWithRealDatabase() {
+    return getStoredParentMultiReference().isConnectedWithRealDatabase();
   }
 
   @Override

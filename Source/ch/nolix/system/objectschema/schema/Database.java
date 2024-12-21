@@ -68,7 +68,7 @@ public final class Database extends SchemaObject implements IDatabase {
   @Override
   public int getTableCount() {
 
-    if (!isLinkedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
+    if (!isConnectedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
       return tables.getCount();
     }
 
@@ -76,7 +76,7 @@ public final class Database extends SchemaObject implements IDatabase {
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
+  public boolean isConnectedWithRealDatabase() {
     return (rawSchemaLinkerAdapter != null);
   }
 

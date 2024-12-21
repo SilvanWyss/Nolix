@@ -20,7 +20,7 @@ public final class DatabaseTool extends DatabaseObjectTool implements IDatabaseT
   @Override
   public boolean canSaveChanges(final IDatabase database) {
     return database.isOpen()
-    && database.isLinkedWithRealDatabase()
+    && database.isConnectedWithRealDatabase()
     && allNewAndEditedMandatoryFieldsAreSet(database);
   }
 

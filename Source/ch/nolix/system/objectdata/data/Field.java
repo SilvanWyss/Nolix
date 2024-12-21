@@ -96,8 +96,8 @@ public abstract class Field implements IField {
   }
 
   @Override
-  public final boolean isLinkedWithRealDatabase() {
-    return (belongsToEntity() && getStoredParentEntity().isLinkedWithRealDatabase());
+  public final boolean isConnectedWithRealDatabase() {
+    return (belongsToEntity() && getStoredParentEntity().isConnectedWithRealDatabase());
   }
 
   @Override

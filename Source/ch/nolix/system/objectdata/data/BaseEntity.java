@@ -125,9 +125,9 @@ public abstract class BaseEntity implements IEntity {
   }
 
   @Override
-  public final boolean isLinkedWithRealDatabase() {
+  public final boolean isConnectedWithRealDatabase() {
     return belongsToTable()
-    && getStoredParentTable().isLinkedWithRealDatabase();
+    && getStoredParentTable().isConnectedWithRealDatabase();
   }
 
   @Override

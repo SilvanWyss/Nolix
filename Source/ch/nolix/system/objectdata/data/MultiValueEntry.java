@@ -81,8 +81,8 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
-    return getStoredParentMultiValue().isLinkedWithRealDatabase();
+  public boolean isConnectedWithRealDatabase() {
+    return getStoredParentMultiValue().isConnectedWithRealDatabase();
   }
 
   @Override

@@ -9,7 +9,7 @@ final class DatabaseMutationExecutor {
     database.addTableAttribute(table);
     table.setParentDatabase(database);
 
-    if (database.isLinkedWithRealDatabase()) {
+    if (database.isConnectedWithRealDatabase()) {
       database.internalGetRefRawSchemaAdapter().addTable(table);
     }
 

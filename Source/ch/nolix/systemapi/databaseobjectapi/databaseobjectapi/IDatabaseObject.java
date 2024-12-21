@@ -12,5 +12,5 @@ extends CloseStateRequestable, DeletionRequestable, EditingRequestable, LoadingR
 
   DatabaseObjectState getState();
 
-  boolean isLinkedWithRealDatabase();
+  boolean isConnectedWithRealDatabase();
 }

@@ -23,7 +23,7 @@ final class EntityTest extends StandardTest {
     expect(result.isDeleted()).isFalse();
     expect(result.getId()).hasLength(10);
     expect(result.getShortDescription()).startsWith("Thing");
-    expect(result.isLinkedWithRealDatabase()).isFalse();
+    expect(result.isConnectedWithRealDatabase()).isFalse();
     expect(result.belongsToTable()).isFalse();
   }
 

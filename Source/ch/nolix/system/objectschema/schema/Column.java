@@ -111,8 +111,8 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   @Override
-  public boolean isLinkedWithRealDatabase() {
-    return (belongsToTable() && getStoredParentTable().isLinkedWithRealDatabase());
+  public boolean isConnectedWithRealDatabase() {
+    return (belongsToTable() && getStoredParentTable().isConnectedWithRealDatabase());
   }
 
   @Override
