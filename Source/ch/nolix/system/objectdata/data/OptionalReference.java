@@ -86,6 +86,15 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   }
 
   @Override
+  public void internalSetOrClearContent(final Object content) {
+    if (content == null) {
+      referencedEntityId = null;
+    } else {
+      referencedEntityId = (String) content;
+    }
+  }
+
+  @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
 
     if (isEmpty()) {
@@ -130,15 +139,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     final var entity = getReferencedTable().getStoredEntityById(id);
 
     setEntity(entity);
-  }
-
-  @Override
-  void internalSetOrClearFromContent(final Object content) {
-    if (content == null) {
-      referencedEntityId = null;
-    } else {
-      referencedEntityId = (String) content;
-    }
   }
 
   @Override

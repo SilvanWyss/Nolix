@@ -76,6 +76,11 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   }
 
   @Override
+  public void internalSetOrClearContent(final Object content) {
+    referencedEntityId = (String) content;
+  }
+
+  @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
     return ContentFieldWithContentAsStringDto.withColumnNameAndContent(getName(), getReferencedEntityId());
   }
@@ -115,11 +120,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     final var entity = getReferencedTable().getStoredEntityById(id);
 
     setEntity(entity);
-  }
-
-  @Override
-  void internalSetOrClearFromContent(final Object content) {
-    referencedEntityId = (String) content;
   }
 
   @Override

@@ -64,6 +64,11 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
+  public void internalSetOrClearContent(final Object content) {
+    backReferencedEntityId = (String) content;
+  }
+
+  @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
 
     if (isEmpty()) {
@@ -102,10 +107,5 @@ implements IOptionalBackReference<E> {
 
   void internalSetDirectlyBackReferencedEntityId(final String backReferencedEntityId) {
     this.backReferencedEntityId = backReferencedEntityId;
-  }
-
-  @Override
-  void internalSetOrClearFromContent(final Object content) {
-    backReferencedEntityId = (String) content;
   }
 }

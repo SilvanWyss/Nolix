@@ -134,8 +134,6 @@ public abstract class AbstractField implements IField {
     return ((BaseEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
   }
 
-  abstract void internalSetOrClearFromContent(Object content);
-
   final void internalSetParentColumn(final IColumn parentColumn) {
 
     GlobalValidator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();

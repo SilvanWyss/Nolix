@@ -93,6 +93,11 @@ implements IMultiBackReference<E> {
   }
 
   @Override
+  public void internalSetOrClearContent(final Object content) {
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
+  }
+
+  @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
     return ContentFieldWithContentAsStringDto.withColumnName(getName());
   }
@@ -149,11 +154,6 @@ implements IMultiBackReference<E> {
     final var entry = localEntries.getStoredFirst(e -> e.getBackReferencedEntityId().equals(backReferencedEntityId));
 
     entry.internalDelete();
-  }
-
-  @Override
-  void internalSetOrClearFromContent(final Object content) {
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
   private boolean isEmptyWhenDoesNotHaveLocalEntries() {

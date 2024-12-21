@@ -66,6 +66,16 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
   }
 
   @Override
+  @SuppressWarnings("unchecked")
+  public void internalSetOrClearContent(final Object content) {
+    if (content == null) {
+      internalValue = null;
+    } else {
+      internalValue = (V) content;
+    }
+  }
+
+  @Override
   public boolean isMandatory() {
     return false;
   }
@@ -99,16 +109,6 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     }
 
     return ContentFieldWithContentAsStringDto.withColumnNameAndContent(getName(), getStoredValue().toString());
-  }
-
-  @Override
-  @SuppressWarnings("unchecked")
-  void internalSetOrClearFromContent(final Object content) {
-    if (content == null) {
-      internalValue = null;
-    } else {
-      internalValue = (V) content;
-    }
   }
 
   private void updateStateForSetValue(final V value) {

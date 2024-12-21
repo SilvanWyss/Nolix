@@ -19,7 +19,10 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, Ma
 
   ContentType getType();
 
+  //TODO: Create DtoMapper
   ContentFieldWithContentAsStringDto internalToContentField();
+
+  void internalSetOrClearContent(Object content);
 
   boolean knowsParentColumn();
 

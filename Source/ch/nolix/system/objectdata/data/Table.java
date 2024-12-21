@@ -7,6 +7,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.objectdata.datafiller.EntityFiller;
+import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.datatool.TableTool;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
@@ -14,6 +16,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datafillerapi.IEntityFiller;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
@@ -24,9 +27,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private static final ITableTool TABLE_TOOL = new TableTool();
 
+  private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
+
   private static final EntityLoader ENTITY_LOADER = new EntityLoader();
 
-  private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
+  private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
 
   private final Database parentDatabase;
 
@@ -246,7 +251,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(EntityLoadingDto loadedEntity) {
     if (!TABLE_TOOL.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
 
-      final var entity = ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntity, this);
+      final var entity = ENTITY_CREATOR.createEmptyEntityForTable(this);
+      entity.internalSetParentTable(this);
+      entity.internalSetLoaded();
+
+      ENTITY_FILLER.fillUpEntityFromEntityLoadingDto(entity, loadedEntity);
 
       entitiesInLocalData.addAtEnd(entity);
     }

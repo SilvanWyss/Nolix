@@ -69,6 +69,11 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   }
 
   @Override
+  public void internalSetOrClearContent(final Object content) {
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
+  }
+
+  @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
     return ContentFieldWithContentAsStringDto.withColumnName(getName());
   }
@@ -105,11 +110,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     updateStateForLoadAllPersistedValuesIfNotLoaded();
 
     updateStateForRemoveValue(value);
-  }
-
-  @Override
-  void internalSetOrClearFromContent(final Object content) {
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
   private void assertCanAddValue(final V value) {

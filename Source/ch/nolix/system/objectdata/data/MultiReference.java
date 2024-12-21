@@ -111,6 +111,11 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   }
 
   @Override
+  public void internalSetOrClearContent(final Object content) {
+    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
+  }
+
+  @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
     return ContentFieldWithContentAsStringDto.withColumnName(getName());
   }
@@ -157,11 +162,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     final var entity = getAllStoredReferencedEntities().getOptionalStoredFirst(selector);
 
     entity.ifPresent(this::removeEntity);
-  }
-
-  @Override
-  void internalSetOrClearFromContent(final Object content) {
-    GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
   }
 
   @Override

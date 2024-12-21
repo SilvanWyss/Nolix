@@ -1,28 +1,28 @@
 package ch.nolix.system.objectdata.data;
 
+import ch.nolix.system.objectdata.datafiller.EntityFiller;
+import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
+import ch.nolix.systemapi.objectdataapi.datafillerapi.IEntityFiller;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 
 public final class EntityLoader {
 
-  private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
+  private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  public <E extends IEntity> E loadEntityById(
-    final ITable<E> table,
-    final String id,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
 
-    final var loadedEntityDto = loadEntityDtoById(table, id, dataAndSchemaAdapter);
+  public <E extends IEntity> E loadEntityById(final ITable<E> table, final String id, final IDataReader dataReader) {
 
-    return ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntityDto, table);
-  }
+    final var entity = ENTITY_CREATOR.createEmptyEntityForTable(table);
+    entity.internalSetParentTable(table);
+    entity.internalSetLoaded();
 
-  private EntityLoadingDto loadEntityDtoById(
-    final ITable<? extends IEntity> table,
-    final String id,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-    return dataAndSchemaAdapter.loadEntity(table.getName(), id);
+    final var tableName = table.getName();
+    final var entityLoadingDto = dataReader.loadEntity(tableName, id);
+    ENTITY_FILLER.fillUpEntityFromEntityLoadingDto(entity, entityLoadingDto);
+
+    return entity;
   }
 }

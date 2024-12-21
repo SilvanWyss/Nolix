@@ -51,6 +51,12 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   }
 
   @Override
+  @SuppressWarnings("unchecked")
+  public void internalSetOrClearContent(final Object content) {
+    internalValue = (V) content;
+  }
+
+  @Override
   public boolean isEmpty() {
     return (internalValue == null);
   }
@@ -84,12 +90,6 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   @Override
   public ContentFieldWithContentAsStringDto internalToContentField() {
     return ContentFieldWithContentAsStringDto.withColumnNameAndContent(getName(), getStoredValue().toString());
-  }
-
-  @Override
-  @SuppressWarnings("unchecked")
-  void internalSetOrClearFromContent(final Object content) {
-    internalValue = (V) content;
   }
 
   private void updateStateForSetValue(final V value) {
