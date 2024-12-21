@@ -38,7 +38,9 @@ public final class CategorizableObjectExaminer {
     && categorizableObject.getStoredSubTypes().containsNone(ao -> ao.hasName(name));
   }
 
-  public boolean hasBaseType(final ICategorizableObject categorizableObject, final ICategorizableObject probableBaseType) {
+  public boolean hasBaseType(
+    final ICategorizableObject categorizableObject,
+    final ICategorizableObject probableBaseType) {
     return categorizableObject != null
     && !categorizableObject.getStoredBaseTypes().contains(probableBaseType);
   }

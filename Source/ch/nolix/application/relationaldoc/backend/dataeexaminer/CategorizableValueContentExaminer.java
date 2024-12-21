@@ -11,7 +11,9 @@ public final class CategorizableValueContentExaminer {
     && canSetDataTypeBecauseOfCardinality(categorizableValueContent, dataType);
   }
 
-  private boolean canSetDataTypeBecauseOfCardinality(ICategorizableValueContent categorizableValueContent, DataType dataType) {
+  private boolean canSetDataTypeBecauseOfCardinality(
+    final ICategorizableValueContent categorizableValueContent,
+    final DataType dataType) {
     return categorizableValueContent != null
     && (categorizableValueContent.getDataType() == dataType
     || categorizableValueContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE);
