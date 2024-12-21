@@ -55,7 +55,7 @@ public final class Table extends SchemaObject implements ITable {
   @Override
   public Table addColumn(final IColumn column) {
 
-    MUTATION_VALIDATOR.assertCanAddColumnToTable(this, (Column) column);
+    MUTATION_VALIDATOR.assertCanAddColumnToTable(this, column);
     MUTATION_EXECUTOR.addColumnToTable(this, (Column) column);
 
     return this;
