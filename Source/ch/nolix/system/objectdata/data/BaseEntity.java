@@ -34,6 +34,8 @@ public abstract class BaseEntity implements IEntity {
 
   private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
 
+  private boolean gotExternalId;
+
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
   private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
@@ -107,6 +109,19 @@ public abstract class BaseEntity implements IEntity {
   @Override
   public final IContainer<? extends IField> internalGetStoredFields() {
     return getStoredFields();
+  }
+
+  @Override
+  public final void internalSetId(final String id) {
+
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+
+    if (gotExternalId) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "got already an external id");
+    }
+
+    this.id = id;
+    gotExternalId = true;
   }
 
   @Override
@@ -202,13 +217,6 @@ public abstract class BaseEntity implements IEntity {
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
     }
-  }
-
-  final void internalSetId(final String id) {
-
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
-
-    this.id = id;
   }
 
   final void internalSetLoaded() {

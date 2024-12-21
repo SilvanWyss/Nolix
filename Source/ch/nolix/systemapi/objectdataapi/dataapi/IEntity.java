@@ -18,6 +18,8 @@ extends Deletable, IDatabaseObject, IIdHolder, IOptionalSaveStampHolder, ITableC
 
   IContainer<? extends IField> internalGetStoredFields();
 
+  void internalSetId(String id);
+
   boolean isReferencedInPersistedData();
 
   boolean isReferencedInPersistedDataIgnoringGivenEntities(IContainer<String> entitiesToIgnoreIds);
