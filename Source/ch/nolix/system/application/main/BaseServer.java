@@ -87,9 +87,9 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * @param initialSessionClass
    * @param applicationContext
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @param <U>                is the type of the given applicationContext.
+   * @param <U>                 is the type of the given applicationContext.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -121,7 +121,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given name is null.
@@ -152,9 +152,9 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * target.
    * 
    * @param defaultApplication
-   * @param <C>               is the type of the {@link BackendClient} of the
+   * @param <C>                is the type of the {@link BackendClient} of the
    *                           given defaultApplication.
-   * @param <U>               is the type of the context of the given
+   * @param <U>                is the type of the context of the given
    *                           defaultApplication.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException if the given defaultApplication is null.
@@ -180,9 +180,9 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * @param initialSessionClass
    * @param applicationContext
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @param <U>                is the type of the given applicationContext.
+   * @param <U>                 is the type of the given applicationContext.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -216,7 +216,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
    * @return the current {@link BaseServer}.
    * @throws ArgumentIsNullException  if the given name is null.

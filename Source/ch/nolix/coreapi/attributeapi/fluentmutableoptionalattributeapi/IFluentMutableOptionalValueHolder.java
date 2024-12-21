@@ -9,8 +9,8 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
  * @author Silvan Wyss
  * @version 2023-02-03
  * @param <H> is the type of a {@link IFluentMutableOptionalValueHolder}.
- * @param <V>     is the type of the value of a
- *                {@link IFluentMutableOptionalValueHolder}.
+ * @param <V> is the type of the value of a
+ *            {@link IFluentMutableOptionalValueHolder}.
  */
 public interface IFluentMutableOptionalValueHolder<H extends IFluentMutableOptionalValueHolder<H, V>, V>
 extends IOptionalValueHolder<V> {

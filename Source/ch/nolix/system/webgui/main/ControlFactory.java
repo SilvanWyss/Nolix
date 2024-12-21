@@ -1,7 +1,6 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;

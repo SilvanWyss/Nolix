@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.itemmenu;
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

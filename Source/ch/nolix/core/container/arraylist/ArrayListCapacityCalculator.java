@@ -2,7 +2,6 @@ package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 

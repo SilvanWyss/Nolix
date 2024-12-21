@@ -1,7 +1,6 @@
 package ch.nolix.system.graphic.color;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.document.node.Node;

@@ -5,7 +5,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;

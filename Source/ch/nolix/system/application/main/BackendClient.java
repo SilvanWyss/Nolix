@@ -11,7 +11,7 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * @version 2022-03-18
  * @param <C> is the type of a {@link BackendClient}.
  * @param <S> is the type of the context of the parent {@link Application} of a
- *             {@link BackendClient}.
+ *            {@link BackendClient}.
  */
 public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Client<C> {
 
