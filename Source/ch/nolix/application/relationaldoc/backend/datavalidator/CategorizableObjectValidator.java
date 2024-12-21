@@ -12,7 +12,8 @@ public final class CategorizableObjectValidator implements ICategorizableObjectV
   private static final CategorizableObjectExaminer CATEGORIZABLE_OBJECT_EVALUATOR = new CategorizableObjectExaminer();
 
   @Override
-  public void assertCanAddBaseType(final ICategorizableObject categorizableObject,
+  public void assertCanAddBaseType(
+    final ICategorizableObject categorizableObject,
     final ICategorizableObject baseType) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canAddBaseType(categorizableObject, baseType)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(

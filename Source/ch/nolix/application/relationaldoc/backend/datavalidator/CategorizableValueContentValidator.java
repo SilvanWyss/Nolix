@@ -11,7 +11,9 @@ public final class CategorizableValueContentValidator {
   private static final CategorizableValueContentExaminer ABSTRACT_VALUE_CONTENT_EVALUATOR = //
   new CategorizableValueContentExaminer();
 
-  public void assertCanSetDataType(final ICategorizableValueContent categorizableValueContent, final DataType dataType) {
+  public void assertCanSetDataType(
+    final ICategorizableValueContent categorizableValueContent,
+    final DataType dataType) {
     if (!ABSTRACT_VALUE_CONTENT_EVALUATOR.canSetDataType(categorizableValueContent, dataType)) {
       throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.DATA_TYPE, dataType);
     }
