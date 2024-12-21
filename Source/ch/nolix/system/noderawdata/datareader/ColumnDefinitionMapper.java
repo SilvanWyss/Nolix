@@ -12,8 +12,7 @@ public final class ColumnDefinitionMapper {
 
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  private static final ContentModelNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
-  new ContentModelNodeSearcher();
+  private static final ContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   public IColumnInfo createColumnDefinitionFromColumnNode(
     final IMutableNode<?> columnNode,
@@ -38,7 +37,7 @@ public final class ColumnDefinitionMapper {
 
   private DataType getDataTypeFromContentModelNode(IMutableNode<?> contentModelNode) {
     return getDataTypeFromDataTypeNode(
-      PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromContentModelNode(
+      CONTENT_MODEL_NODE_SEARCHER.getStoredDataTypeNodeFromContentModelNode(
         contentModelNode));
   }
 }
