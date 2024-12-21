@@ -8,25 +8,25 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
 
   @Override
   public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromContentModelNode(
-    final IMutableNode<?> parameterizedFieldTypeNode) {
-    return parameterizedFieldTypeNode
+    final IMutableNode<?> contentModelNode) {
+    return contentModelNode
       .getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
   }
 
   @Override
   public IMutableNode<?> getStoredContentTypeNodeFromContentModelNode(
-    final IMutableNode<?> parameterizedFieldTypeNode) {
-    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.FIELD_TYPE);
+    final IMutableNode<?> contentModelNode) {
+    return contentModelNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.FIELD_TYPE);
   }
 
   @Override
-  public IMutableNode<?> getStoredDataTypeNodeFromContentModelNode(final IMutableNode<?> parameterizedFieldTypeNode) {
-    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.DATA_TYPE);
+  public IMutableNode<?> getStoredDataTypeNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+    return contentModelNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.DATA_TYPE);
   }
 
   @Override
   public IMutableNode<?> getStoredReferencedTableIdNodeFromContentModelNode(
-    final IMutableNode<?> parameterizedFieldTypeNode) {
-    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
+    final IMutableNode<?> contentModelNode) {
+    return contentModelNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
   }
 }

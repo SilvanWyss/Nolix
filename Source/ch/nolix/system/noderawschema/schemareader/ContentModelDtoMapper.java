@@ -70,40 +70,40 @@ public class ContentModelDtoMapper {
   }
 
   private String getBackReferencedColumnIdFromParameterizedFieldTypeNode(
-    final IMutableNode<?> parameterizedFieldTypeNode) {
+    final IMutableNode<?> contentModelNode) {
 
     final var backReferencedColumnNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredBackReferencedColumnIdNodeFromContentModelNode(
-        parameterizedFieldTypeNode);
+        contentModelNode);
 
     return backReferencedColumnNode.getSingleChildNodeHeader();
   }
 
-  private DataType getDataTypeFromParameterizedFieldTypeNode(final IMutableNode<?> parameterizedFieldTypeNode) {
+  private DataType getDataTypeFromParameterizedFieldTypeNode(final IMutableNode<?> contentModelNode) {
 
     final var dataTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredDataTypeNodeFromContentModelNode(
-        parameterizedFieldTypeNode);
+        contentModelNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
   private ContentType getPropertyTypeFromParameterizedFieldTypeNode(
-    final IMutableNode<?> parameterizedFieldTypeNode) {
+    final IMutableNode<?> contentModelNode) {
 
     final var fieldTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredContentTypeNodeFromContentModelNode(
-        parameterizedFieldTypeNode);
+        contentModelNode);
 
     return ContentType.fromSpecification(fieldTypeNode);
   }
 
   private String getReferencedTableIdFromParameterizedFieldTypeNode(
-    final IMutableNode<?> parameterizedFieldTypeNode) {
+    final IMutableNode<?> contentModelNode) {
 
     final var referencedTableIdNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
       .getStoredReferencedTableIdNodeFromContentModelNode(
-        parameterizedFieldTypeNode);
+        contentModelNode);
 
     return referencedTableIdNode.getSingleChildNodeHeader();
   }

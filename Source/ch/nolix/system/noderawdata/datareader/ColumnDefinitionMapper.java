@@ -36,9 +36,9 @@ public final class ColumnDefinitionMapper {
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
-  private DataType getDataTypeFromParameterizedFieldTypeNode(IMutableNode<?> parameterizedFieldTypeNode) {
+  private DataType getDataTypeFromParameterizedFieldTypeNode(IMutableNode<?> contentModelNode) {
     return getDataTypeFromDataTypeNode(
       PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromContentModelNode(
-        parameterizedFieldTypeNode));
+        contentModelNode));
   }
 }

@@ -28,10 +28,10 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   @Override
   public ContentType getContentTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
-    final var parameterizedFieldTypeNode = getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
+    final var contentModelNode = getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
 
     final var fieldTypeNode = //
-    CONTENT_MODEL_NODE_SEARCHER.getStoredContentTypeNodeFromContentModelNode(parameterizedFieldTypeNode);
+    CONTENT_MODEL_NODE_SEARCHER.getStoredContentTypeNodeFromContentModelNode(contentModelNode);
 
     return ContentType.fromSpecification(fieldTypeNode);
   }

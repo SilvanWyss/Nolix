@@ -33,7 +33,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
 
-  private static final ParameterizedFieldTypeNodeMapper parameterizedFieldTypeNodeMapper = //
+  private static final ParameterizedFieldTypeNodeMapper contentModelNodeMapper = //
   new ParameterizedFieldTypeNodeMapper();
 
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
@@ -169,7 +169,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
-      parameterizedFieldTypeNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedFieldType));
+      contentModelNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedFieldType));
 
     hasChanges = true;
   }

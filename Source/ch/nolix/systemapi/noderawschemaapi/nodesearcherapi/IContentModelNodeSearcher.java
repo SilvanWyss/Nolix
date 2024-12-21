@@ -4,11 +4,11 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface IContentModelNodeSearcher {
 
-  IMutableNode<?> getStoredBackReferencedColumnIdNodeFromContentModelNode(IMutableNode<?> parameterizedFieldTypeNode);
+  IMutableNode<?> getStoredBackReferencedColumnIdNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  IMutableNode<?> getStoredContentTypeNodeFromContentModelNode(IMutableNode<?> parameterizedFieldTypeNode);
+  IMutableNode<?> getStoredContentTypeNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  IMutableNode<?> getStoredDataTypeNodeFromContentModelNode(IMutableNode<?> parameterizedFieldTypeNode);
+  IMutableNode<?> getStoredDataTypeNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  IMutableNode<?> getStoredReferencedTableIdNodeFromContentModelNode(IMutableNode<?> parameterizedFieldTypeNode);
+  IMutableNode<?> getStoredReferencedTableIdNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 }
