@@ -6,11 +6,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
@@ -26,6 +28,8 @@ final class DatabaseUpdater {
   new DatabasePropertiesNodeSearcher();
 
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+
+  private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
 
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
@@ -116,7 +120,7 @@ final class DatabaseUpdater {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
 
-    final var entityNode = TABLE_NODE_SEARCHER.removeAndGetStoredEntityNodeById(tableNode, entity.id());
+    final var entityNode = TABLE_NODE_EDITOR.removeAndGetStoredEntityNodeById(tableNode, entity.id());
 
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
 
