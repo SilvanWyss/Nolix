@@ -1,19 +1,27 @@
-package ch.nolix.system.noderawschema.schemawriter;
+package ch.nolix.system.noderawschema.nodemapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.noderawschema.nodemapper.ColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
+import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.ITableNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
-public final class TableNodeMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2021-09-12
+ */
+public final class TableNodeMapper implements ITableNodeMapper {
 
   private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
-  public INode<?> createTableNodeFrom(final TableDto table) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public INode<?> mapTableDtoToNode(final TableDto table) {
 
     @SuppressWarnings("unchecked")
     final var childNodes = LinkedList.withElement(createIdNodeFrom(table), createNameNodeFrom(table));
