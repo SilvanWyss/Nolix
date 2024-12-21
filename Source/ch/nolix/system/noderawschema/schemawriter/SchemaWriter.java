@@ -5,6 +5,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.noderawschema.nodemapper.ColumnNodeMapper;
 import ch.nolix.system.noderawschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
@@ -12,6 +13,7 @@ import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
@@ -33,7 +35,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private static final TableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
 
-  private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
+  private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
   private static final IContentModelNodeMapper CONTENT_MODEL_NODE_MAPPER = new ContentModelNodeMapper();
 
@@ -69,7 +71,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
-    tableNode.addChildNode(columnNodeMapper.createColumnNodeFrom(column));
+    tableNode.addChildNode(COLUMN_NODE_MAPPER.mapColumnDtoToNode(column));
 
     hasChanges = true;
   }

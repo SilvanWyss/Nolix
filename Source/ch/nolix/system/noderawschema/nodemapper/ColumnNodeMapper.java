@@ -1,23 +1,31 @@
-package ch.nolix.system.noderawschema.schemawriter;
+package ch.nolix.system.noderawschema.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.noderawschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
-public final class ColumnNodeMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2021-09-12
+ */
+public final class ColumnNodeMapper implements IColumnNodeMapper {
 
   private static final IContentModelNodeMapper CONTENT_MODEL_NODE_MAPPER = new ContentModelNodeMapper();
 
-  public Node createColumnNodeFrom(final ColumnDto column) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public INode<?> mapColumnDtoToNode(final ColumnDto columnDto) {
     return //
     Node.withHeaderAndChildNode(
       NodeHeaderCatalogue.COLUMN,
-      createIdNodeFrom(column),
-      createNameNodeFrom(column),
-      createParameterizedFieldTypeNodeFrom(column));
+      createIdNodeFrom(columnDto),
+      createNameNodeFrom(columnDto),
+      createParameterizedFieldTypeNodeFrom(columnDto));
   }
 
   private Node createIdNodeFrom(final ColumnDto column) {
