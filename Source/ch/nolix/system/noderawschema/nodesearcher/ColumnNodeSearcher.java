@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
-  private final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
+  private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   @Override
   public boolean columnNodeContainsEntityNode(final IMutableNode<?> columnNode) {
