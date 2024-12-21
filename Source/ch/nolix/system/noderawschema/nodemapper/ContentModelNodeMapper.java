@@ -1,8 +1,10 @@
-package ch.nolix.system.noderawschema.schemawriter;
+package ch.nolix.system.noderawschema.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.MultiBackReferenceModelDto;
@@ -14,11 +16,19 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
-public final class ParameterizedFieldTypeNodeMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2024-09-12
+ */
+public final class ContentModelNodeMapper implements IContentModelNodeMapper {
 
-  public Node createParameterizedFieldTypeNodeFrom(final IContentModelDto parameterizedFieldType) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public INode<?> mapContentModelDtoToNode(final IContentModelDto contentModelDto) {
 
-    if (parameterizedFieldType instanceof ValueModelDto valueModelDto) {
+    if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -30,7 +40,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           valueModelDto.dataType().name()));
     }
 
-    if (parameterizedFieldType instanceof OptionalValueModelDto optionalValueModelDto) {
+    if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -42,7 +52,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           optionalValueModelDto.dataType().name()));
     }
 
-    if (parameterizedFieldType instanceof MultiValueModelDto multiValueModelDto) {
+    if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -54,7 +64,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           multiValueModelDto.dataType().name()));
     }
 
-    if (parameterizedFieldType instanceof ReferenceModelDto referenceModelDto) {
+    if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -69,7 +79,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           referenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
-    if (parameterizedFieldType instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
+    if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -84,7 +94,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           optionalReferenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
-    if (parameterizedFieldType instanceof MultiReferenceModelDto multiReferenceModelDto) {
+    if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -99,7 +109,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           multiReferenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
-    if (parameterizedFieldType instanceof BackReferenceModelDto backReferenceModelDto) {
+    if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -114,7 +124,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           backReferenceModelDto.backReferencedColumnId()));
     }
 
-    if (parameterizedFieldType instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
+    if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -129,7 +139,7 @@ public final class ParameterizedFieldTypeNodeMapper {
           optionalBackReferenceModelDto.backReferencedColumnId()));
     }
 
-    if (parameterizedFieldType instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
+    if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
         NodeHeaderCatalogue.CONTENT_MODEL,
@@ -144,6 +154,6 @@ public final class ParameterizedFieldTypeNodeMapper {
           multiBackReferenceModelDto.backReferencedColumnId()));
     }
 
-    throw InvalidArgumentException.forArgument(parameterizedFieldType);
+    throw InvalidArgumentException.forArgument(contentModelDto);
   }
 }

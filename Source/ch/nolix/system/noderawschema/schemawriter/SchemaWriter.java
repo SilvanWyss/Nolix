@@ -5,12 +5,14 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.noderawschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -33,8 +35,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
 
-  private static final ParameterizedFieldTypeNodeMapper contentModelNodeMapper = //
-  new ParameterizedFieldTypeNodeMapper();
+  private static final IContentModelNodeMapper CONTENT_MODEL_NODE_MAPPER = new ContentModelNodeMapper();
 
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();
@@ -169,7 +170,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       NodeHeaderCatalogue.CONTENT_MODEL,
-      contentModelNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedFieldType));
+      CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(parameterizedFieldType));
 
     hasChanges = true;
   }
