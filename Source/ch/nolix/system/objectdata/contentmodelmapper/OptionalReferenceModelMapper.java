@@ -12,7 +12,7 @@ public final class OptionalReferenceModelMapper
 implements IContentModelMapper<OptionalReferenceModelDto> {
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     final OptionalReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

@@ -12,7 +12,7 @@ public final class MultiValueModelMapper
 implements IContentModelMapper<MultiValueModelDto> {
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     final MultiValueModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

@@ -12,7 +12,7 @@ public final class BackReferenceModelMapper
 implements IContentModelMapper<BackReferenceModelDto> {
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     final BackReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

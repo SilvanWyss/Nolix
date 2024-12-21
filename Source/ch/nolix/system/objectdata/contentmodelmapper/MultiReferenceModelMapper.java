@@ -12,7 +12,7 @@ public final class MultiReferenceModelMapper
 implements IContentModelMapper<MultiReferenceModelDto> {
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     MultiReferenceModelDto contentModelDto,
     IContainer<? extends ITable<IEntity>> referencableTables) {
 

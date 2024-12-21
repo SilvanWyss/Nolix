@@ -19,7 +19,7 @@ final class ColumnMapper {
     return Column.withNameAndIdAndParameterizedFieldTypeAndParentTable(
       columnDto.name(),
       columnDto.id(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedFieldTypeFromDto(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.mapContentModelDtoToContentModel(
         columnDto.contentModel(),
         referencableTables),
       parentTable);

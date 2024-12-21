@@ -46,52 +46,52 @@ public final class ContentModelMapper {
   private static final MultiBackReferenceModelMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
   new MultiBackReferenceModelMapper();
 
-  public IContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
-      return PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(valueModelDto, referencableTables);
+      return PARAMETERIZED_VALUE_TYPE_MAPPER.mapContentModelDtoToContentModel(valueModelDto, referencableTables);
     }
 
     if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
-      return PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(optionalValueModelDto,
+      return PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.mapContentModelDtoToContentModel(optionalValueModelDto,
         referencableTables);
     }
 
     if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
-      return PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(multiValueModelDto,
+      return PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.mapContentModelDtoToContentModel(multiValueModelDto,
         referencableTables);
     }
 
     if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
-      return PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(referenceModelDto,
+      return PARAMETERIZED_REFERENCE_TYPE_MAPPER.mapContentModelDtoToContentModel(referenceModelDto,
         referencableTables);
     }
 
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
-      return PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(optionalReferenceModelDto,
+      return PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.mapContentModelDtoToContentModel(optionalReferenceModelDto,
         referencableTables);
     }
 
     if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
-      return PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(multiReferenceModelDto,
+      return PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.mapContentModelDtoToContentModel(multiReferenceModelDto,
         referencableTables);
     }
 
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
-      return PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromDto(backReferenceModelDto,
+      return PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.mapContentModelDtoToContentModel(backReferenceModelDto,
         referencableTables);
     }
 
     if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
       return PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER
-        .createParameterizedFieldTypeFromDto(optionalBackReferenceModelDto, referencableTables);
+        .mapContentModelDtoToContentModel(optionalBackReferenceModelDto, referencableTables);
     }
 
     if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
       return PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER
-        .createParameterizedFieldTypeFromDto(multiBackReferenceModelDto, referencableTables);
+        .mapContentModelDtoToContentModel(multiBackReferenceModelDto, referencableTables);
     }
 
     throw InvalidArgumentException.forArgument(contentModelDto);

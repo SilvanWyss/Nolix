@@ -12,7 +12,7 @@ public final class ParameterizedValueTypeMapper
 implements IContentModelMapper<ValueModelDto> {
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     final ValueModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
