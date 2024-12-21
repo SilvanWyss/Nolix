@@ -1,10 +1,19 @@
 package ch.nolix.system.noderawschema.nodesearcher;
 
+import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
 
 public final class ContentModelNodeSearcher implements IContentModelNodeSearcher {
+
+  @Override
+  public DataType getDataTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+
+    final var dataTypeNode = getStoredDataTypeNodeFromContentModelNode(contentModelNode);
+
+    return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
+  }
 
   @Override
   public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromContentModelNode(

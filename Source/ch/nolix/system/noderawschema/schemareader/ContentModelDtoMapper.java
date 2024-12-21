@@ -2,9 +2,9 @@ package ch.nolix.system.noderawschema.schemareader;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -19,8 +19,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
 public class ContentModelDtoMapper {
 
-  private static final ContentModelNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
-  new ContentModelNodeSearcher();
+  private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   public IContentModelDto createContentModelDtoFromContentModelNode(final IMutableNode<?> contentModelNode) {
 
@@ -29,40 +28,40 @@ public class ContentModelDtoMapper {
     return //
     switch (contentType) {
       case VALUE ->
-        new ValueModelDto(getDataTypeFromParameterizedFieldTypeNode(contentModelNode));
+        new ValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
       case OPTIONAL_VALUE ->
-        new OptionalValueModelDto(getDataTypeFromParameterizedFieldTypeNode(contentModelNode));
+        new OptionalValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
       case MULTI_VALUE ->
-        new MultiValueModelDto(getDataTypeFromParameterizedFieldTypeNode(contentModelNode));
+        new MultiValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
       case REFERENCE ->
 
         //TODO: Handle multiple referenced table ids
         new ReferenceModelDto(
-          getDataTypeFromParameterizedFieldTypeNode(contentModelNode),
+          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           ImmutableList.withElement(getReferencedTableIdFromParameterizedFieldTypeNode(contentModelNode)));
       case OPTIONAL_REFERENCE ->
 
         //TODO: Handle multiple referenced table ids
         new OptionalReferenceModelDto(
-          getDataTypeFromParameterizedFieldTypeNode(contentModelNode),
+          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           ImmutableList.withElement(getReferencedTableIdFromParameterizedFieldTypeNode(contentModelNode)));
       case MULTI_REFERENCE ->
 
         //TODO: Handle multiple referenced table ids
         new MultiReferenceModelDto(
-          getDataTypeFromParameterizedFieldTypeNode(contentModelNode),
+          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           ImmutableList.withElement(getReferencedTableIdFromParameterizedFieldTypeNode(contentModelNode)));
       case BACK_REFERENCE ->
         new BackReferenceModelDto(
-          getDataTypeFromParameterizedFieldTypeNode(contentModelNode),
+          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           getBackReferencedColumnIdFromParameterizedFieldTypeNode(contentModelNode));
       case OPTIONAL_BACK_REFERENCE ->
         new OptionalBackReferenceModelDto(
-          getDataTypeFromParameterizedFieldTypeNode(contentModelNode),
+          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           getBackReferencedColumnIdFromParameterizedFieldTypeNode(contentModelNode));
       case MULTI_BACK_REFERENCE ->
         new MultiBackReferenceModelDto(
-          getDataTypeFromParameterizedFieldTypeNode(contentModelNode),
+          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           getBackReferencedColumnIdFromParameterizedFieldTypeNode(contentModelNode));
       default ->
         throw InvalidArgumentException.forArgument(contentType);
@@ -72,26 +71,17 @@ public class ContentModelDtoMapper {
   private String getBackReferencedColumnIdFromParameterizedFieldTypeNode(
     final IMutableNode<?> contentModelNode) {
 
-    final var backReferencedColumnNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
+    final var backReferencedColumnNode = CONTENT_MODEL_NODE_SEARCHER
       .getStoredBackReferencedColumnIdNodeFromContentModelNode(
         contentModelNode);
 
     return backReferencedColumnNode.getSingleChildNodeHeader();
   }
 
-  private DataType getDataTypeFromParameterizedFieldTypeNode(final IMutableNode<?> contentModelNode) {
-
-    final var dataTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
-      .getStoredDataTypeNodeFromContentModelNode(
-        contentModelNode);
-
-    return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
-  }
-
   private ContentType getPropertyTypeFromParameterizedFieldTypeNode(
     final IMutableNode<?> contentModelNode) {
 
-    final var fieldTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
+    final var fieldTypeNode = CONTENT_MODEL_NODE_SEARCHER
       .getStoredContentTypeNodeFromContentModelNode(
         contentModelNode);
 
@@ -101,7 +91,7 @@ public class ContentModelDtoMapper {
   private String getReferencedTableIdFromParameterizedFieldTypeNode(
     final IMutableNode<?> contentModelNode) {
 
-    final var referencedTableIdNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
+    final var referencedTableIdNode = CONTENT_MODEL_NODE_SEARCHER
       .getStoredReferencedTableIdNodeFromContentModelNode(
         contentModelNode);
 
