@@ -17,6 +17,10 @@ import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalo
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.ITableNodeMapper;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -26,14 +30,14 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
 
-  private static final NodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
+  private static final INodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
 
-  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   private static final ITableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
 
