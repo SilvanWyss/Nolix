@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.parameterizedfieldtypemapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -46,7 +46,7 @@ public final class ParameterizedFieldTypeMapper {
   private static final ParameterizedMultiBackReferenceTypeMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
   new ParameterizedMultiBackReferenceTypeMapper();
 
-  public IParameterizedFieldType createParameterizedFieldTypeFromDto(
+  public IContentModel createParameterizedFieldTypeFromDto(
     final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

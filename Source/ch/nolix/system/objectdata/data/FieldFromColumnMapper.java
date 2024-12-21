@@ -13,7 +13,7 @@ public final class FieldFromColumnMapper {
   }
 
   private Field createEmptyFieldFromColumn(final IColumn column) {
-    return switch (column.getParameterizedFieldType().getFieldType()) {
+    return switch (column.getParameterizedFieldType().getContentType()) {
       case VALUE ->
         Value.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
       case OPTIONAL_VALUE ->

@@ -1,21 +1,21 @@
-package ch.nolix.system.objectdata.parameterizedfieldtype;
+package ch.nolix.system.objectdata.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParameterizedReferenceType;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParameterizedValueType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public abstract class BaseParameterizedReferenceType<
+public abstract class AbstractReferenceModel<
 
 E extends IEntity>
-implements IBaseParameterizedReferenceType<E> {
+implements IAbstractReferenceModel<E> {
 
   private final ITable<E> referencedTable;
 
-  protected BaseParameterizedReferenceType(final ITable<E> referencedTable) {
+  protected AbstractReferenceModel(final ITable<E> referencedTable) {
 
     GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 
@@ -23,17 +23,17 @@ implements IBaseParameterizedReferenceType<E> {
   }
 
   @Override
-  public final IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType() {
+  public final IAbstractBackReferenceModel<?> asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
+  public final IAbstractReferenceModel<?> asBaseParameterizedReferenceType() {
     return this;
   }
 
   @Override
-  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 

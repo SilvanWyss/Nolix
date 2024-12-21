@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.parameterizedfieldtypemapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.parameterizedfieldtype.ParameterizedOptionalBackReferenceType;
+import ch.nolix.system.objectdata.contentmodel.OptionalBackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IParameterizedFieldType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalBackReferenceModelDto;
@@ -12,7 +12,7 @@ public final class ParameterizedOptionalBackReferenceTypeMapper
 implements IParameterizedFieldTypeMapper<OptionalBackReferenceModelDto> {
 
   @Override
-  public IParameterizedFieldType createParameterizedFieldTypeFromDto(
+  public IContentModel createParameterizedFieldTypeFromDto(
     final OptionalBackReferenceModelDto parameterizedFieldTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
@@ -20,6 +20,6 @@ implements IParameterizedFieldTypeMapper<OptionalBackReferenceModelDto> {
     final var referencableColumns = referencableTables.toMultiple(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
-    return ParameterizedOptionalBackReferenceType.forBackReferencedColumn(backReferencedColumn);
+    return OptionalBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
   }
 }

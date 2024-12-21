@@ -1,21 +1,21 @@
-package ch.nolix.system.objectdata.parameterizedfieldtype;
+package ch.nolix.system.objectdata.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParameterizedReferenceType;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParameterizedValueType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public abstract class BaseParameterizedValueType<
+public abstract class AbstractValueModel<
 
 V>
-implements IBaseParameterizedValueType<V> {
+implements IAbstractValueModel<V> {
 
   private final Class<V> valueType;
 
-  protected BaseParameterizedValueType(final Class<V> valueType) {
+  protected AbstractValueModel(final Class<V> valueType) {
 
     GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalogue.VALUE_TYPE).isNotNull();
 
@@ -23,17 +23,17 @@ implements IBaseParameterizedValueType<V> {
   }
 
   @Override
-  public final IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType() {
+  public final IAbstractBackReferenceModel<?> asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
+  public final IAbstractReferenceModel<?> asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
     return this;
   }
 

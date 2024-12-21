@@ -7,7 +7,7 @@ import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
 public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
 
-  IParameterizedFieldType getParameterizedFieldType();
+  IContentModel getParameterizedFieldType();
 
   ITable<IEntity> getStoredParentTable();
 
