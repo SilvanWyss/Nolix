@@ -1,11 +1,29 @@
 package ch.nolix.system.noderawschema.nodesearcher;
 
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
+import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public final class ContentModelNodeSearcher implements IContentModelNodeSearcher {
+
+  @Override
+  public String getBackReferencedColumnIdFromContentModelNode(final IMutableNode<?> contentModelNode) {
+
+    final var backReferencedColumnIdNode = getStoredBackReferencedColumnIdNodeFromContentModelNode(contentModelNode);
+
+    return backReferencedColumnIdNode.getSingleChildNodeHeader();
+  }
+
+  @Override
+  public ContentType getContentTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+
+    final var contentTypeNode = getStoredContentTypeNodeFromContentModelNode(contentModelNode);
+
+    return ContentType.fromSpecification(contentTypeNode);
+  }
 
   @Override
   public DataType getDataTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
@@ -13,6 +31,14 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
     final var dataTypeNode = getStoredDataTypeNodeFromContentModelNode(contentModelNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
+  }
+
+  @Override
+  public IContainer<String> getReferencedTableIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
+
+    final var referencedTableIdsNode = getStoredReferencedTableIdsNodeFromContentModelNode(contentModelNode);
+
+    return referencedTableIdsNode.getChildNodesHeaders();
   }
 
   @Override
