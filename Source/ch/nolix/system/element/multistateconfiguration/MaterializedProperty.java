@@ -14,7 +14,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
-public abstract class MaterializedProperty<S extends Enum<S>, V> extends Property<S> {
+public abstract class MaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
 
   private static final String NONE_HEADER = "None";
 
@@ -163,7 +163,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 
   @Override
   @SuppressWarnings("unchecked")
-  protected void setFrom(Property<S> property) {
+  protected void setFrom(AbstractProperty<S> property) {
     setFrom((MaterializedProperty<S, V>) property);
   }
 

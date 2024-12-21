@@ -22,7 +22,7 @@ implements IMultiStateConfiguration<C, S> {
 
   private final IContainer<State<S>> availableStates;
 
-  private IContainer<Property<S>> properties;
+  private IContainer<AbstractProperty<S>> abstractProperties;
 
   protected MultiStateConfiguration(final S baseState) {
 
@@ -33,7 +33,7 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   private static boolean fieldStoresProperty(final Field field) {
-    return Property.class.isAssignableFrom(field.getType());
+    return AbstractProperty.class.isAssignableFrom(field.getType());
   }
 
   @Override
@@ -89,7 +89,7 @@ implements IMultiStateConfiguration<C, S> {
 
   @Override
   public final void reset() {
-    getStoredProperties().forEach(Property::setUndefined);
+    getStoredProperties().forEach(AbstractProperty::setUndefined);
   }
 
   public final void setFrom(final C element) {
@@ -131,11 +131,11 @@ implements IMultiStateConfiguration<C, S> {
     return baseState;
   }
 
-  final IContainer<Property<S>> getStoredProperties() {
+  final IContainer<AbstractProperty<S>> getStoredProperties() {
 
     extractPropertiesIfNotExtracted();
 
-    return properties;
+    return abstractProperties;
   }
 
   final State<S> getStateObjectFor(final S state) {
@@ -157,21 +157,21 @@ implements IMultiStateConfiguration<C, S> {
 
   private void extractPropertiesWhenNotExtracted() {
 
-    final ILinkedList<Property<S>> lProperties = LinkedList.createEmpty();
+    final ILinkedList<AbstractProperty<S>> lProperties = LinkedList.createEmpty();
     fillUpPropertiesIntoList(lProperties);
 
-    properties = lProperties;
+    abstractProperties = lProperties;
 
     setItselsAsParentToProperties();
   }
 
-  private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final ILinkedList<Property<S>> list) {
+  private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final ILinkedList<AbstractProperty<S>> list) {
     if (fieldStoresProperty(field)) {
       list.addAtEnd(getPropertyFromField(field));
     }
   }
 
-  private void fillUpPropertiesIntoList(final ILinkedList<Property<S>> list) {
+  private void fillUpPropertiesIntoList(final ILinkedList<AbstractProperty<S>> list) {
     Class<?> lClass = getClass();
     while (lClass != null) {
       fillUpPropertiesFromClassIntoList(lClass, list);
@@ -179,21 +179,21 @@ implements IMultiStateConfiguration<C, S> {
     }
   }
 
-  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<Property<S>> list) {
+  private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final ILinkedList<AbstractProperty<S>> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialPropertyFromFieldIntoList(f, list);
     }
   }
 
-  private Property<S> getPropertyFromField(final Field field) {
+  private AbstractProperty<S> getPropertyFromField(final Field field) {
     try {
 
       field.setAccessible(true);
 
       @SuppressWarnings("unchecked")
-      final var property = (Property<S>) (field.get(this));
+      final var property = (AbstractProperty<S>) (field.get(this));
 
-      GlobalValidator.assertThat(property).isOfType(Property.class);
+      GlobalValidator.assertThat(property).isOfType(AbstractProperty.class);
 
       return property;
     } catch (final IllegalAccessException illegalAccessException) {
@@ -207,7 +207,7 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   private boolean propertiesAreExtracted() {
-    return (properties != null);
+    return (abstractProperties != null);
   }
 
   private void setItselsAsParentToProperties() {

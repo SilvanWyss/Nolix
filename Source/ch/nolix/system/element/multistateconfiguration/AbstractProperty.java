@@ -6,13 +6,13 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-public abstract class Property<S extends Enum<S>> implements INameHolder {
+public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder {
 
   private final String name;
 
   protected MultiStateConfiguration<?, S> parent;
 
-  protected Property(final String name) {
+  protected AbstractProperty(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
 
@@ -26,7 +26,7 @@ public abstract class Property<S extends Enum<S>> implements INameHolder {
 
   protected abstract void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list);
 
-  protected abstract void setFrom(Property<S> property);
+  protected abstract void setFrom(AbstractProperty<S> property);
 
   protected abstract void setUndefined();
 

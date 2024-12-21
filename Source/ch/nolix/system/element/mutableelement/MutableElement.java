@@ -10,7 +10,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.base.SpecificationCreator;
-import ch.nolix.system.element.multistateconfiguration.Property;
+import ch.nolix.system.element.multistateconfiguration.AbstractProperty;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
@@ -144,8 +144,8 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Lets the current {@link MutableElement} extract the {@link Property} from the
-   * given field if the given field stores a {@link Property}.
+   * Lets the current {@link MutableElement} extract the {@link AbstractProperty} from the
+   * given field if the given field stores a {@link AbstractProperty}.
    * 
    * @param field
    */
@@ -173,7 +173,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link Property}s of the {@link MutableElement} that are from
+   * Extracts the {@link AbstractProperty}s of the {@link MutableElement} that are from
    * the given pClass.
    * 
    * @param pClass
@@ -187,7 +187,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link Property}s of the current {@link MutableElement} if they
+   * Extracts the {@link AbstractProperty}s of the current {@link MutableElement} if they
    * are not extracted yet.
    */
   private void extractPropertiesIfNotExtracted() {
@@ -197,7 +197,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link Property} of the {@link MutableElement} that is from the
+   * Extracts the {@link AbstractProperty} of the {@link MutableElement} that is from the
    * given field.
    * 
    * @param field
@@ -220,7 +220,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * @return the {@link Property}s of the current {@link MutableElement}.
+   * @return the {@link AbstractProperty}s of the current {@link MutableElement}.
    */
   private IContainer<IProperty> getStoredProperties() {
 
@@ -230,7 +230,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * @return true if the {@link Property}s of the current {@link MutableElement}
+   * @return true if the {@link AbstractProperty}s of the current {@link MutableElement}
    *         are extracted.
    */
   private boolean hasExtractedProperties() {

@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
-public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> {
+public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
 
   private final IContainer<MaterializedProperty<S, V>> materializedProperties;
 
@@ -50,7 +50,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
   }
 
   @Override
-  protected void setFrom(Property<S> property) {
+  protected void setFrom(AbstractProperty<S> property) {
     //Does nothing.
   }
 
