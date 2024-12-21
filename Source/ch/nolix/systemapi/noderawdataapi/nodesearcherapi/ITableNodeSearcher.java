@@ -21,7 +21,7 @@ public interface ITableNodeSearcher {
 
   IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
 
-  IMutableNode<?> removeAndGetRefEntityNodeFromTableNode(IMutableNode<?> tableNode, String id);
+  IMutableNode<?> removeAndGetStoredEntityNodeById(IMutableNode<?> tableNode, String id);
 
   boolean tableNodeContainsEntityNodeWithGivenId(IMutableNode<?> tableNode, String id);
 

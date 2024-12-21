@@ -116,7 +116,7 @@ final class DatabaseUpdater {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
 
-    final var entityNode = TABLE_NODE_SEARCHER.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.id());
+    final var entityNode = TABLE_NODE_SEARCHER.removeAndGetStoredEntityNodeById(tableNode, entity.id());
 
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
 

@@ -46,7 +46,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   }
 
   @Override
-  public IMutableNode<?> removeAndGetRefEntityNodeFromTableNode(IMutableNode<?> tableNode, String id) {
+  public IMutableNode<?> removeAndGetStoredEntityNodeById(IMutableNode<?> tableNode, String id) {
     return tableNode.removeAndGetStoredFirstChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
