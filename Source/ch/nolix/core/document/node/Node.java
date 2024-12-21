@@ -269,17 +269,6 @@ public final class Node extends BaseNode<Node> {
 
   /**
    * @param header
-   * @param childNodes
-   * @return a new {@link Node} with the given childNodes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   */
-  public static Node withHeaderAndChildNodes(final String header, final Iterable<? extends INode<?>> childNodes) {
-    return new Node(header, childNodes);
-  }
-
-  /**
-   * @param header
    * @param childNode
    * @return a new {@link Node} with the given childNode.
    * @throws ArgumentIsNullException  if the given header is null.
@@ -304,6 +293,17 @@ public final class Node extends BaseNode<Node> {
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
 
     return withHeaderAndChildNodes(header, allChildNodes);
+  }
+
+  /**
+   * @param header
+   * @param childNodes
+   * @return a new {@link Node} with the given childNodes.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   */
+  public static Node withHeaderAndChildNodes(final String header, final Iterable<? extends INode<?>> childNodes) {
+    return new Node(header, childNodes);
   }
 
   /**
