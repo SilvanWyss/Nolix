@@ -25,7 +25,7 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
       NodeHeaderCatalogue.COLUMN,
       createIdNodeFrom(columnDto),
       createNameNodeFrom(columnDto),
-      createParameterizedFieldTypeNodeFrom(columnDto));
+      mapContentModelDtoToNode(columnDto));
   }
 
   private Node createIdNodeFrom(final ColumnDto column) {
@@ -36,7 +36,7 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
     return Node.withHeaderAndChildNode(NodeHeaderCatalogue.NAME, column.name());
   }
 
-  private INode<?> createParameterizedFieldTypeNodeFrom(final ColumnDto column) {
+  private INode<?> mapContentModelDtoToNode(final ColumnDto column) {
     return CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(column.contentModel());
   }
 }
