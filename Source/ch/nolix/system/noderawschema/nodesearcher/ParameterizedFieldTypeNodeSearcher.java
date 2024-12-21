@@ -9,8 +9,8 @@ public final class ParameterizedFieldTypeNodeSearcher implements IParameterizedF
   @Override
   public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
     final IMutableNode<?> parameterizedFieldTypeNode) {
-    return parameterizedFieldTypeNode.getStoredFirstChildNodeWithHeader(
-      StructureHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
+    return parameterizedFieldTypeNode
+      .getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
   }
 
   @Override
