@@ -5,7 +5,7 @@ import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedFieldTypeMapper;
+import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -13,8 +13,8 @@ public final class ColumnMapper implements IColumnMapper {
 
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  private static final IParameterizedFieldTypeMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
-  new ParameterizedFieldTypeMapper();
+  private static final IContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
+  new ContentModelMapper();
 
   @Override
   public IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
@@ -22,7 +22,7 @@ public final class ColumnMapper implements IColumnMapper {
     final IContainer<ITable> referencableTables) {
     return new Column(
       field.getName(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.createParameterizedFieldTypeFromField(
+      PARAMETERIZED_FIELD_TYPE_MAPPER.mapFieldToContentModel(
         field,
         referencableTables));
   }

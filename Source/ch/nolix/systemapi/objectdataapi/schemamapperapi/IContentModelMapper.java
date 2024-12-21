@@ -5,9 +5,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public interface IParameterizedFieldTypeMapper {
+public interface IContentModelMapper {
 
-  IContentModel createParameterizedFieldTypeFromField(
-    IField field,
-    IContainer<ITable> referencedTables);
+  IContentModel mapFieldToContentModel(IField field, IContainer<ITable> referencedTables);
 }

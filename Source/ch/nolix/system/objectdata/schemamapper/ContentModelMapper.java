@@ -22,12 +22,11 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IParameterizedFieldTypeMapper;
+import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public final class ParameterizedFieldTypeMapper //NOSONAR: A ParameterizedFieldTypeMapper is a principal object thus it has many dependencies.
-implements IParameterizedFieldTypeMapper {
+public final class ContentModelMapper implements IContentModelMapper {
 
   private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
   new ParameterizedValueTypeMapper();
@@ -59,7 +58,7 @@ implements IParameterizedFieldTypeMapper {
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContentModel createParameterizedFieldTypeFromField(
+  public IContentModel mapFieldToContentModel(
     final IField field,
     IContainer<ITable> referencedTables) {
 
