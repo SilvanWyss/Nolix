@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -19,8 +19,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
 public class ContentModelDtoMapper {
 
-  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
-  new ParameterizedFieldTypeNodeSearcher();
+  private static final ContentModelNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
+  new ContentModelNodeSearcher();
 
   public IContentModelDto createContentModelDtoFromContentModelNode(final IMutableNode<?> contentModelNode) {
 
@@ -73,7 +73,7 @@ public class ContentModelDtoMapper {
     final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var backReferencedColumnNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
-      .getStoredBackReferencedColumnIdNodeFromFieldTypeNode(
+      .getStoredBackReferencedColumnIdNodeFromContentModelNode(
         parameterizedFieldTypeNode);
 
     return backReferencedColumnNode.getSingleChildNodeHeader();
@@ -82,7 +82,7 @@ public class ContentModelDtoMapper {
   private DataType getDataTypeFromParameterizedFieldTypeNode(final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var dataTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
-      .getStoredDataTypeNodeFromParameterizedFieldTypeNode(
+      .getStoredDataTypeNodeFromContentModelNode(
         parameterizedFieldTypeNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
@@ -92,7 +92,7 @@ public class ContentModelDtoMapper {
     final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var fieldTypeNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
-      .getStoredFieldTypeNodeFromParameterizedFieldTypeNode(
+      .getStoredContentTypeNodeFromContentModelNode(
         parameterizedFieldTypeNode);
 
     return ContentType.fromSpecification(fieldTypeNode);
@@ -102,7 +102,7 @@ public class ContentModelDtoMapper {
     final IMutableNode<?> parameterizedFieldTypeNode) {
 
     final var referencedTableIdNode = PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER
-      .getStoredReferencedTableIdNodeFromParameterizedFieldTypeNode(
+      .getStoredReferencedTableIdNodeFromContentModelNode(
         parameterizedFieldTypeNode);
 
     return referencedTableIdNode.getSingleChildNodeHeader();

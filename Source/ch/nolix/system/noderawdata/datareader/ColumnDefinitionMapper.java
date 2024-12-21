@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datareader;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.ParameterizedFieldTypeNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -12,8 +12,8 @@ public final class ColumnDefinitionMapper {
 
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  private static final ParameterizedFieldTypeNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
-  new ParameterizedFieldTypeNodeSearcher();
+  private static final ContentModelNodeSearcher PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER = //
+  new ContentModelNodeSearcher();
 
   public IColumnInfo createColumnDefinitionFromColumnNode(
     final IMutableNode<?> columnNode,
@@ -38,7 +38,7 @@ public final class ColumnDefinitionMapper {
 
   private DataType getDataTypeFromParameterizedFieldTypeNode(IMutableNode<?> parameterizedFieldTypeNode) {
     return getDataTypeFromDataTypeNode(
-      PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedFieldTypeNode(
+      PARAMETERIZED_FIELD_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromContentModelNode(
         parameterizedFieldTypeNode));
   }
 }
