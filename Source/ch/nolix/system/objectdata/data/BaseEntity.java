@@ -126,6 +126,14 @@ public abstract class BaseEntity implements IEntity {
   }
 
   @Override
+  public final void internalSetLoaded() {
+
+    DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
+
+    state = DatabaseObjectState.LOADED;
+  }
+
+  @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
 
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
@@ -231,13 +239,6 @@ public abstract class BaseEntity implements IEntity {
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
     }
-  }
-
-  final void internalSetLoaded() {
-
-    DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
-
-    state = DatabaseObjectState.LOADED;
   }
 
   final void internalSetSaveStamp(final String saveStamp) {

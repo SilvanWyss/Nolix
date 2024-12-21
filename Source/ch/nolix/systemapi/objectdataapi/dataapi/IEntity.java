@@ -20,6 +20,8 @@ extends Deletable, IDatabaseObject, IIdHolder, IOptionalSaveStampHolder, ITableC
 
   void internalSetId(String id);
 
+  void internalSetLoaded();
+
   void internalSetParentTable(ITable<? extends IEntity> parentTable);
 
   boolean isReferencedInPersistedData();
