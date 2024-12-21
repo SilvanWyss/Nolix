@@ -2,14 +2,14 @@ package ch.nolix.system.objectschema.schemamutationvalidator;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.contentmodel.AbstractBackReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.AbstractReferenceModel;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.system.objectschema.schemavalidator.DatabaseValidator;
-import ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi.IDatabaseObjectValidator;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemamutationvalidatorapi.ITableMutationValidator;

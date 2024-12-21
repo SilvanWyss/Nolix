@@ -5,13 +5,15 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequesta
 /**
  * @author Silvan Wyss
  * @version 2024-12-19
+ * @param <R> is the type of the {@link CloseStateRequestable}s a
+ *            {@link IResourceValidator} can handle.
  */
-public interface IResourceValidator {
+public interface IResourceValidator<R extends CloseStateRequestable> {
 
   /**
    * @param resource
    * @throws RuntimeException if the given resource is null.
    * @throws RuntimeException if the given resource is closed.
    */
-  void assertIsOpen(CloseStateRequestable resource);
+  void assertIsOpen(R resource);
 }

@@ -18,7 +18,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
  */
 public abstract class BaseServer implements IServer {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+  private static final IResourceValidator<IEndPoint> RESOURCE_VALIDATOR = new ResourceValidator<>();
 
   private final CloseController closeController = CloseController.forElement(this);
 

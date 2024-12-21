@@ -2,7 +2,7 @@ package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.databaseobject.databaseobjectvalidator.DatabaseObjectValidator;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
@@ -96,7 +96,7 @@ public final class Database extends SchemaObject implements IDatabase {
 
   RawSchemaLinkerAdapter internalGetRefRawSchemaAdapter() {
 
-    DATABASE_OBJECT_VALIDATOR.assertIsLinkedWithRealDatabase(this);
+    DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
     return rawSchemaLinkerAdapter;
   }

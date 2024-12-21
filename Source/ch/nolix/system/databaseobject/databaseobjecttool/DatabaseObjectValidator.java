@@ -1,15 +1,15 @@
-package ch.nolix.system.databaseobject.databaseobjectvalidator;
+package ch.nolix.system.databaseobject.databaseobjecttool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.databaseobjectapi.databasevalidatorapi.IDatabaseObjectValidator;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectValidator;
 
 public class DatabaseObjectValidator implements IDatabaseObjectValidator {
 
   @Override
-  public final void assertIsLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
+  public final void assertIsConnectedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (!databaseObject.isConnectedWithRealDatabase()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not linked with a real database");
     }
@@ -37,7 +37,7 @@ public class DatabaseObjectValidator implements IDatabaseObjectValidator {
   }
 
   @Override
-  public final void assertIsNotLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
+  public final void assertIsNotConnectedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (databaseObject.isConnectedWithRealDatabase()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
     }

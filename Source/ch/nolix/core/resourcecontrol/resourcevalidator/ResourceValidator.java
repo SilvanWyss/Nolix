@@ -7,14 +7,16 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
 /**
  * @author Silvan Wyss
  * @version 2024-12-19
+ * @param <R> is the type of the {@link CloseStateRequestable}s a
+ *            {@link IResourceValidator} can handle.
  */
-public final class ResourceValidator implements IResourceValidator {
+public final class ResourceValidator<R extends CloseStateRequestable> implements IResourceValidator<R> {
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void assertIsOpen(final CloseStateRequestable resource) {
+  public void assertIsOpen(final R resource) {
     if (resource.isClosed()) {
       throw ClosedArgumentException.forArgument(resource);
     }
