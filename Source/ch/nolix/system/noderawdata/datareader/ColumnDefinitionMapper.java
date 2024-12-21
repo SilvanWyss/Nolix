@@ -28,7 +28,7 @@ public final class ColumnDefinitionMapper {
 
   private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
     return getDataTypeFromContentModelNode(
-      COLUMN_NODE_SEARCHER.getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode));
+      COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode));
   }
 
   private DataType getDataTypeFromDataTypeNode(final IMutableNode<?> dataTypeNode) {

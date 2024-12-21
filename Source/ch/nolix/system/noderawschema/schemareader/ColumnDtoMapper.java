@@ -30,7 +30,7 @@ final class ColumnDtoMapper {
   private IContentModelDto createParameterizedFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var contentModelNode = COLUMN_NODE_SEARCHER
-      .getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
+      .getStoredContentModelNodeFromColumnNode(columnNode);
 
     return PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER.createContentModelDtoFromContentModelNode(
       contentModelNode);

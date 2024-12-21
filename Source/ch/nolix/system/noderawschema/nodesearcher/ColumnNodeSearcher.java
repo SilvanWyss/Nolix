@@ -28,7 +28,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   @Override
   public ContentType getContentTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
-    final var contentModelNode = getStoredParameterizedFieldTypeNodeFromColumnNode(columnNode);
+    final var contentModelNode = getStoredContentModelNodeFromColumnNode(columnNode);
 
     final var fieldTypeNode = //
     CONTENT_MODEL_NODE_SEARCHER.getStoredContentTypeNodeFromContentModelNode(contentModelNode);
@@ -47,7 +47,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   }
 
   @Override
-  public IMutableNode<?> getStoredParameterizedFieldTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
+  public IMutableNode<?> getStoredContentModelNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.CONTENT_MODEL);
   }
 }
