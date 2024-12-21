@@ -178,7 +178,7 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   void setParameterizedFieldTypeToDatabase() {
-    internalGetRefRawSchemaAdapter().setColumnParameterizedFieldType(this, contentModel);
+    internalGetRefRawSchemaAdapter().setColumnContentModel(this, contentModel);
   }
 
   void setParentTableAttribute(final Table parentTable) {

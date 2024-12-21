@@ -32,7 +32,7 @@ public interface IRawSchemaLinkerAdapter {
 
   void setColumnName(IColumn column, String columnName, String newColumnName);
 
-  void setColumnParameterizedFieldType(IColumn column, IContentModel contentModel);
+  void setColumnContentModel(IColumn column, IContentModel contentModel);
 
   void setTableName(String tableName, String newTableName);
 }

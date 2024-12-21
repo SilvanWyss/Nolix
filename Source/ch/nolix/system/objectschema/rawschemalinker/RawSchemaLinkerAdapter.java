@@ -96,10 +96,10 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   }
 
   @Override
-  public void setColumnParameterizedFieldType(
+  public void setColumnContentModel(
     final IColumn column,
     final IContentModel contentModel) {
-    internalRawSchemaAdapter.setColumnParameterizedFieldType(
+    internalRawSchemaAdapter.setColumnContentModel(
       column.getId(),
       contentModel.toDto());
   }

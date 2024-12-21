@@ -42,7 +42,7 @@ final class ColumnMutationExecutor {
     if (column.isConnectedWithRealDatabase()) {
       column
         .internalGetRefRawSchemaAdapter()
-        .setColumnParameterizedFieldType(column, contentModel);
+        .setColumnContentModel(column, contentModel);
     }
 
     column.internalSetEdited();

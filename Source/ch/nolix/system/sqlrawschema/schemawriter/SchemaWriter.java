@@ -127,10 +127,10 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setColumnParameterizedFieldType(
+  public void setColumnContentModel(
     final String columnId,
     final IContentModelDto contentModel) {
-    systemDataWriter.setColumnParameterizedFieldType(columnId, contentModel);
+    systemDataWriter.setColumnContentModel(columnId, contentModel);
   }
 
   @Override

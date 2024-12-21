@@ -53,7 +53,7 @@ final class SystemDataWriter implements ChangeRequestable {
         newColumnName));
   }
 
-  public void setColumnParameterizedFieldType(
+  public void setColumnContentModel(
     final String columnId,
     final IContentModelDto contentModel) {
     sqlCollector.addSqlStatement(
