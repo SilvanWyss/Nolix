@@ -2,9 +2,9 @@ package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableFieldExaminer;
 import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableReferenceContentValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Reference;
@@ -17,7 +17,7 @@ public final class CategorizableReferenceContent extends ReferenceContent implem
   new CategorizableReferenceContentValidator();
 
   private final BackReference<CategorizableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(CategorizableField.class, "abstractReferenceContent");
+    .forEntityAndBackReferencedFieldName(CategorizableField.class, "categorizableReferenceContent");
 
   private final Reference<CategorizableObject> referencedType = Reference.forEntity(CategorizableObject.class);
 

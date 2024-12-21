@@ -2,8 +2,8 @@ package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableValueContentValidator;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteValueContent;
 import ch.nolix.system.objectdata.data.BackReference;
 import ch.nolix.system.objectdata.data.Value;
@@ -16,7 +16,7 @@ public final class CategorizableValueContent extends ValueContent implements ICa
   new CategorizableValueContentValidator();
 
   private final BackReference<CategorizableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(CategorizableField.class, "abstractValueContent");
+    .forEntityAndBackReferencedFieldName(CategorizableField.class, "categorizableValueContent");
 
   private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());
 
