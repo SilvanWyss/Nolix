@@ -46,7 +46,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     final ILinkedList<IColumn> columns = LinkedList.createEmpty();
     for (final var t : table.getStoredParentDatabase().getStoredTables()) {
       for (final var c : t.getStoredColumns()) {
-        if (c.getParameterizedFieldType().referencesTable(table)) {
+        if (c.getContentModel().referencesTable(table)) {
           columns.addAtEnd(c);
         }
       }

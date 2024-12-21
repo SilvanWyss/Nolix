@@ -55,7 +55,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   }
 
   @Override
-  public IContentModel getParameterizedFieldType() {
+  public IContentModel getContentModel() {
     return contentModel;
   }
 

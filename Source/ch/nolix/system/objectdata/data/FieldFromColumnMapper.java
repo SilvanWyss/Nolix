@@ -13,14 +13,14 @@ public final class FieldFromColumnMapper {
   }
 
   private AbstractField createEmptyFieldFromColumn(final IColumn column) {
-    return switch (column.getParameterizedFieldType().getContentType()) {
+    return switch (column.getContentModel().getContentType()) {
       case VALUE ->
-        Value.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
+        Value.withValueType(column.getContentModel().asBaseParameterizedValueType().getValueType());
       case OPTIONAL_VALUE ->
         OptionalValue
-          .withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
+          .withValueType(column.getContentModel().asBaseParameterizedValueType().getValueType());
       case MULTI_VALUE ->
-        MultiValue.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
+        MultiValue.withValueType(column.getContentModel().asBaseParameterizedValueType().getValueType());
       case REFERENCE ->
         createEmptyReferenceFromReferenceColumn(column);
       case OPTIONAL_REFERENCE ->
@@ -39,7 +39,7 @@ public final class FieldFromColumnMapper {
   private AbstractField createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
 
     final var referencedtableName = referenceColumn
-      .getParameterizedFieldType()
+      .getContentModel()
       .asBaseParameterizedReferenceType()
       .getStoredencedTable()
       .getName();
@@ -50,7 +50,7 @@ public final class FieldFromColumnMapper {
   private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
-      .getParameterizedFieldType()
+      .getContentModel()
       .asBaseParameterizedReferenceType()
       .getStoredencedTable()
       .getName();
@@ -61,7 +61,7 @@ public final class FieldFromColumnMapper {
   private AbstractField createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
 
     final var referencedtableName = multiReferenceColumn
-      .getParameterizedFieldType()
+      .getContentModel()
       .asBaseParameterizedReferenceType()
       .getStoredencedTable()
       .getName();
@@ -72,7 +72,7 @@ public final class FieldFromColumnMapper {
   private AbstractField createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
 
     final var backReferencedColumn = backReferenceColumn
-      .getParameterizedFieldType()
+      .getContentModel()
       .asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
@@ -88,7 +88,7 @@ public final class FieldFromColumnMapper {
     final IColumn optionalBackReferenceColumn) {
 
     final var backReferencedColumn = optionalBackReferenceColumn
-      .getParameterizedFieldType()
+      .getContentModel()
       .asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
@@ -104,7 +104,7 @@ public final class FieldFromColumnMapper {
     final IColumn multiBackReferenceColumn) {
 
     final var backReferencedColumn = multiBackReferenceColumn
-      .getParameterizedFieldType()
+      .getContentModel()
       .asBaseParameterizedBackReferenceType()
       .getBackReferencedColumn();
 
