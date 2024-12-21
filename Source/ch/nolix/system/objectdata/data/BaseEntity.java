@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.data;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -125,6 +126,19 @@ public abstract class BaseEntity implements IEntity {
   }
 
   @Override
+  public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
+
+    GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+
+    if (belongsToTable()) {
+      throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentTable());
+    }
+
+    this.parentTable = parentTable;
+    getStoredFields().forEach(AbstractField::internalSetParentColumnFromParentTable);
+  }
+
+  @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
@@ -224,15 +238,6 @@ public abstract class BaseEntity implements IEntity {
     DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
 
     state = DatabaseObjectState.LOADED;
-  }
-
-  final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
-
-    GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
-
-    this.parentTable = parentTable;
-
-    getStoredFields().forEach(AbstractField::internalSetParentColumnFromParentTable);
   }
 
   final void internalSetSaveStamp(final String saveStamp) {

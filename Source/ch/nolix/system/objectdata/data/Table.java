@@ -157,7 +157,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   public ITable<E> insertEntity(final E entity) {
 
     //The Entity must know its Table that it can be inserted into the Table.
-    ((BaseEntity) entity).internalSetParentTable(this);
+    entity.internalSetParentTable(this);
 
     TABLE_VALIDATOR.assertCanInsertEntity(this, entity);
 
