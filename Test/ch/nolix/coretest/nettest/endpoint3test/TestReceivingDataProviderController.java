@@ -1,7 +1,6 @@
 package ch.nolix.coretest.nettest.endpoint3test;
 
 import ch.nolix.core.container.containerview.ContainerView;
-
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
