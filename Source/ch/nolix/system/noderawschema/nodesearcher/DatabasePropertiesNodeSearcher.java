@@ -1,8 +1,8 @@
 package ch.nolix.system.noderawschema.nodesearcher;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -19,6 +19,6 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
   @Override
   public IMutableNode<?> getStoredSchemaTimestampNodeFromDatabasePropertiesNode(
     final IMutableNode<?> databasePropertiesNode) {
-    return databasePropertiesNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.SCHEMA_TIMESTAMP);
+    return databasePropertiesNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.SCHEMA_TIMESTAMP);
   }
 }

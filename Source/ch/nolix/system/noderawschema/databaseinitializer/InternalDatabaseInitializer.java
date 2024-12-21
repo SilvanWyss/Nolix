@@ -6,24 +6,25 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.noderawschemaapi.databaseinitializingapi.IDatabaseInitializer;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 
 final class InternalDatabaseInitializer implements IDatabaseInitializer {
 
   @Override
   public void initializeDatabase(final IMutableNode<?> nodeDatabase) {
     nodeDatabase
-      .setHeader(StructureHeaderCatalogue.DATABASE)
+      .setHeader(NodeHeaderCatalogue.DATABASE)
       .addChildNode(createDatabasePropertiesNode(), createEntityHeadsNode());
   }
 
   private Node createDatabasePropertiesNode() {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.DATABASE_PROPERTIES, createSchemaTimestampNode());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.DATABASE_PROPERTIES, createSchemaTimestampNode());
   }
 
   private Node createSchemaTimestampNode() {
     return //
     Node.withHeaderAndChildNode(
-      StructureHeaderCatalogue.SCHEMA_TIMESTAMP,
+      NodeHeaderCatalogue.SCHEMA_TIMESTAMP,
       Time.ofNow().getSpecification().getStoredSingleChildNode());
   }
 

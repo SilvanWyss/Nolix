@@ -2,7 +2,7 @@ package ch.nolix.system.noderawschema.schemawriter;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class TableNodeMapper {
@@ -14,15 +14,15 @@ public final class TableNodeMapper {
     final var childNodes = LinkedList.withElement(createIdNodeFrom(table), createNameNodeFrom(table));
     childNodes.addAtEnd(createColumnNodesFrom(table));
 
-    return Node.withHeaderAndChildNodes(StructureHeaderCatalogue.TABLE, childNodes);
+    return Node.withHeaderAndChildNodes(NodeHeaderCatalogue.TABLE, childNodes);
   }
 
   private Node createIdNodeFrom(final TableDto table) {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.ID, table.id());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.ID, table.id());
   }
 
   private Node createNameNodeFrom(final TableDto table) {
-    return Node.withHeaderAndChildNode(StructureHeaderCatalogue.NAME, table.name());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.NAME, table.name());
   }
 
   private Iterable<Node> createColumnNodesFrom(final TableDto table) {

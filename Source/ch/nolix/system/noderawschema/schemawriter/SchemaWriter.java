@@ -9,8 +9,8 @@ import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -88,7 +88,7 @@ public final class SchemaWriter implements ISchemaWriter {
       tableName);
 
     tableNode.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(StructureHeaderCatalogue.COLUMN)
+      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalogue.COLUMN)
       && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(columnName));
 
@@ -99,7 +99,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteTable(final String tableName) {
 
     editedNodeDatabase.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(StructureHeaderCatalogue.TABLE)
+      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalogue.TABLE)
       && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(tableName));
 
@@ -168,7 +168,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-      StructureHeaderCatalogue.PARAMETERIZED_FIELD_TYPE,
+      NodeHeaderCatalogue.CONTENT_MODEL,
       contentModelNodeMapper.createParameterizedFieldTypeNodeFrom(parameterizedFieldType));
 
     hasChanges = true;

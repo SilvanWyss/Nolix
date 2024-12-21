@@ -2,7 +2,7 @@ package ch.nolix.system.noderawschema.nodesearcher;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
@@ -20,17 +20,17 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredChildNodesWithHeader(StructureHeaderCatalogue.COLUMN);
+    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalogue.COLUMN);
   }
 
   @Override
   public IMutableNode<?> getStoredIdNodeFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.ID);
+    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.ID);
   }
 
   @Override
   public IMutableNode<?> getStoredNameNodeFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.NAME);
+    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.NAME);
   }
 
   @Override
