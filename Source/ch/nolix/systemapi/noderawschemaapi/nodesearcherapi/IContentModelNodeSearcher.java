@@ -13,5 +13,5 @@ public interface IContentModelNodeSearcher {
 
   IMutableNode<?> getStoredDataTypeNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  IMutableNode<?> getStoredReferencedTableIdNodeFromContentModelNode(IMutableNode<?> contentModelNode);
+  IMutableNode<?> getStoredReferencedTableIdsNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 }

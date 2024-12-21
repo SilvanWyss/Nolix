@@ -2,7 +2,6 @@ package ch.nolix.system.noderawschema.schemawriter;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -65,11 +64,9 @@ public final class ParameterizedFieldTypeNodeMapper {
         Node.withHeaderAndChildNode(
           NodeHeaderCatalogue.DATA_TYPE,
           referenceModelDto.dataType().name()),
-        Node.withHeaderAndChildNode(
-          StructureHeaderCatalogue.REFERENCED_TABLE_ID,
-
-          //TODO: Handle multiple referenced table ids
-          referenceModelDto.referencedTableIds().getStoredOne()));
+        Node.withHeaderAndChildNodes(
+          NodeHeaderCatalogue.REFERENCED_TABLE_IDS,
+          referenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
     if (parameterizedFieldType instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
@@ -82,11 +79,9 @@ public final class ParameterizedFieldTypeNodeMapper {
         Node.withHeaderAndChildNode(
           NodeHeaderCatalogue.DATA_TYPE,
           optionalReferenceModelDto.dataType().name()),
-        Node.withHeaderAndChildNode(
-          StructureHeaderCatalogue.REFERENCED_TABLE_ID,
-
-          //TODO: Handle multiple referenced table ids
-          optionalReferenceModelDto.referencedTableIds().getStoredOne()));
+        Node.withHeaderAndChildNodes(
+          NodeHeaderCatalogue.REFERENCED_TABLE_IDS,
+          optionalReferenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
     if (parameterizedFieldType instanceof MultiReferenceModelDto multiReferenceModelDto) {
@@ -99,11 +94,9 @@ public final class ParameterizedFieldTypeNodeMapper {
         Node.withHeaderAndChildNode(
           NodeHeaderCatalogue.DATA_TYPE,
           multiReferenceModelDto.dataType().name()),
-        Node.withHeaderAndChildNode(
-          StructureHeaderCatalogue.REFERENCED_TABLE_ID,
-
-          //TODO: Handle multiple referenced table ids
-          multiReferenceModelDto.referencedTableIds().getStoredOne()));
+        Node.withHeaderAndChildNodes(
+          NodeHeaderCatalogue.REFERENCED_TABLE_IDS,
+          multiReferenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
     if (parameterizedFieldType instanceof BackReferenceModelDto backReferenceModelDto) {

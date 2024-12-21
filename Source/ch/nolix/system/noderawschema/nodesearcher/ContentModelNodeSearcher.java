@@ -2,7 +2,6 @@ package ch.nolix.system.noderawschema.nodesearcher;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
 
@@ -34,8 +33,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public IMutableNode<?> getStoredReferencedTableIdNodeFromContentModelNode(
-    final IMutableNode<?> contentModelNode) {
-    return contentModelNode.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.REFERENCED_TABLE_ID);
+  public IMutableNode<?> getStoredReferencedTableIdsNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.REFERENCED_TABLE_IDS);
   }
 }

@@ -28,6 +28,8 @@ public final class NodeHeaderCatalogue {
 
   public static final String NAME = PascalCaseVariableCatalogue.NAME;
 
+  public static final String REFERENCED_TABLE_IDS = "ReferencedTableIds";
+
   public static final String SCHEMA_TIMESTAMP = "SchemaTimestamp";
 
   public static final String TABLE = PascalCaseVariableCatalogue.TABLE;

@@ -1,7 +1,7 @@
 package ch.nolix.system.noderawschema.schemareader;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
@@ -34,23 +34,17 @@ public class ContentModelDtoMapper {
       case MULTI_VALUE ->
         new MultiValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
       case REFERENCE ->
-
-        //TODO: Handle multiple referenced table ids
         new ReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          ImmutableList.withElement(getReferencedTableIdFromParameterizedFieldTypeNode(contentModelNode)));
+          getReferencedTableIdsFromContentModelNode(contentModelNode));
       case OPTIONAL_REFERENCE ->
-
-        //TODO: Handle multiple referenced table ids
         new OptionalReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          ImmutableList.withElement(getReferencedTableIdFromParameterizedFieldTypeNode(contentModelNode)));
+          getReferencedTableIdsFromContentModelNode(contentModelNode));
       case MULTI_REFERENCE ->
-
-        //TODO: Handle multiple referenced table ids
         new MultiReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          ImmutableList.withElement(getReferencedTableIdFromParameterizedFieldTypeNode(contentModelNode)));
+          getReferencedTableIdsFromContentModelNode(contentModelNode));
       case BACK_REFERENCE ->
         new BackReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
@@ -88,13 +82,11 @@ public class ContentModelDtoMapper {
     return ContentType.fromSpecification(fieldTypeNode);
   }
 
-  private String getReferencedTableIdFromParameterizedFieldTypeNode(
-    final IMutableNode<?> contentModelNode) {
+  private IContainer<String> getReferencedTableIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
 
-    final var referencedTableIdNode = CONTENT_MODEL_NODE_SEARCHER
-      .getStoredReferencedTableIdNodeFromContentModelNode(
-        contentModelNode);
+    final var referencedTableIdsNode = //
+    CONTENT_MODEL_NODE_SEARCHER.getStoredReferencedTableIdsNodeFromContentModelNode(contentModelNode);
 
-    return referencedTableIdNode.getSingleChildNodeHeader();
+    return referencedTableIdsNode.getChildNodesHeaders();
   }
 }
