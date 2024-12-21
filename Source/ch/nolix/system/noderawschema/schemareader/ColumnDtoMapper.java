@@ -9,8 +9,7 @@ final class ColumnDtoMapper {
 
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  private static final ContentModelDtoMapper PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER = //
-  new ContentModelDtoMapper();
+  private static final ContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   public ColumnDto createColumnDtoFromColumnNode(final IMutableNode<?> columnNode) {
     return new ColumnDto(
@@ -32,7 +31,6 @@ final class ColumnDtoMapper {
     final var contentModelNode = COLUMN_NODE_SEARCHER
       .getStoredContentModelNodeFromColumnNode(columnNode);
 
-    return PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER.createContentModelDtoFromContentModelNode(
-      contentModelNode);
+    return CONTENT_MODEL_DTO_MAPPER.createContentModelDtoFromContentModelNode(contentModelNode);
   }
 }
