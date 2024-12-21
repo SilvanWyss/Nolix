@@ -8,7 +8,7 @@ public final class FieldFromTableMapper {
 
   private static final FieldFromColumnMapper FIELD_FROM_COLUMN_MAPPER = new FieldFromColumnMapper();
 
-  public IContainer<Field> createFieldsFromTable(final ITable<? extends IEntity> table) {
+  public IContainer<AbstractField> createFieldsFromTable(final ITable<? extends IEntity> table) {
     return table.getStoredColumns().to(FIELD_FROM_COLUMN_MAPPER::createFieldFromColumn);
   }
 }

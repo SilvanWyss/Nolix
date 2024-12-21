@@ -22,7 +22,7 @@ public final class GeneralEntity extends BaseEntity {
   }
 
   @Override
-  IContainer<Field> internalLoadFields() {
+  IContainer<AbstractField> internalLoadFields() {
     return FIELD_FROM_TABLE_EXTRACTOR.createFieldsFromTable(getStoredParentTable());
   }
 }

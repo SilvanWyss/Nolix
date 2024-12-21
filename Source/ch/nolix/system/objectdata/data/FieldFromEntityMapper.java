@@ -7,9 +7,9 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
 final class FieldFromEntityMapper {
 
-  public ILinkedList<Field> getStoredFieldsFrom(final Object entity) {
+  public ILinkedList<AbstractField> getStoredFieldsFrom(final Object entity) {
 
-    final ILinkedList<Field> fields = LinkedList.createEmpty();
+    final ILinkedList<AbstractField> fields = LinkedList.createEmpty();
 
     fillUpFieldsFromObjectIntoList(entity, fields);
 
@@ -18,7 +18,7 @@ final class FieldFromEntityMapper {
 
   private void fillUpFieldsFromObjectIntoList(
     final Object object,
-    final ILinkedList<Field> list) {
+    final ILinkedList<AbstractField> list) {
     Class<?> lClass = object.getClass();
     while (lClass != null) {
       fillUpFieldsFromGivenObjectAndForGivenClassIntoGivenList(object, lClass, list);
@@ -29,7 +29,7 @@ final class FieldFromEntityMapper {
   private void fillUpFieldsFromGivenObjectAndForGivenClassIntoGivenList(
     final Object object,
     final Class<?> pClass,
-    final ILinkedList<Field> list) {
+    final ILinkedList<AbstractField> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialFieldFromObjectForFieldIntoList(object, f, list);
     }
@@ -38,25 +38,25 @@ final class FieldFromEntityMapper {
   private void fillUpPotentialFieldFromObjectForFieldIntoList(
     final Object object,
     final java.lang.reflect.Field field,
-    final ILinkedList<Field> list) {
+    final ILinkedList<AbstractField> list) {
     if (isField(field)) {
       fillUpFieldFromObjectForFieldIntoList(object, field, list);
     }
   }
 
   private boolean isField(final java.lang.reflect.Field field) {
-    return GlobalReflectionTool.hasGivenTypeOrSuperType(field, Field.class);
+    return GlobalReflectionTool.hasGivenTypeOrSuperType(field, AbstractField.class);
   }
 
   private void fillUpFieldFromObjectForFieldIntoList(
     final Object object,
     final java.lang.reflect.Field field,
-    final ILinkedList<Field> list) {
+    final ILinkedList<AbstractField> list) {
 
     field.setAccessible(true);
 
     try {
-      list.addAtEnd((Field) field.get(object));
+      list.addAtEnd((AbstractField) field.get(object));
     } catch (final IllegalArgumentException | IllegalAccessException exception) {
       throw WrapperException.forError(exception);
     }

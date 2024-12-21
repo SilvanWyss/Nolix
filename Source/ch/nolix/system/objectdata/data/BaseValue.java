@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
-public abstract class BaseValue<V> extends Field implements IBaseValue<V> {
+public abstract class BaseValue<V> extends AbstractField implements IBaseValue<V> {
 
   private final Class<V> valueType;
 

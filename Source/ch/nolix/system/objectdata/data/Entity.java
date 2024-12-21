@@ -12,7 +12,7 @@ public abstract class Entity extends BaseEntity {
   }
 
   @Override
-  final IContainer<Field> internalLoadFields() {
+  final IContainer<AbstractField> internalLoadFields() {
     return FIELD_FROM_ENTITY_MAPPER.getStoredFieldsFrom(this);
   }
 }

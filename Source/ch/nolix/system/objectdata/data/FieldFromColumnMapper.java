@@ -4,7 +4,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 
 public final class FieldFromColumnMapper {
 
-  public Field createFieldFromColumn(final IColumn column) {
+  public AbstractField createFieldFromColumn(final IColumn column) {
 
     final var field = createEmptyFieldFromColumn(column);
     field.internalSetParentColumn(column);
@@ -12,7 +12,7 @@ public final class FieldFromColumnMapper {
     return field;
   }
 
-  private Field createEmptyFieldFromColumn(final IColumn column) {
+  private AbstractField createEmptyFieldFromColumn(final IColumn column) {
     return switch (column.getParameterizedFieldType().getContentType()) {
       case VALUE ->
         Value.withValueType(column.getParameterizedFieldType().asBaseParameterizedValueType().getValueType());
@@ -36,7 +36,7 @@ public final class FieldFromColumnMapper {
     };
   }
 
-  private Field createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
+  private AbstractField createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
 
     final var referencedtableName = referenceColumn
       .getParameterizedFieldType()
@@ -47,7 +47,7 @@ public final class FieldFromColumnMapper {
     return Reference.forEntityWithTableName(referencedtableName);
   }
 
-  private Field createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
+  private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
       .getParameterizedFieldType()
@@ -58,7 +58,7 @@ public final class FieldFromColumnMapper {
     return OptionalReference.forEntityWithTableName(referencedtableName);
   }
 
-  private Field createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
+  private AbstractField createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
 
     final var referencedtableName = multiReferenceColumn
       .getParameterizedFieldType()
@@ -69,7 +69,7 @@ public final class FieldFromColumnMapper {
     return MultiReference.forReferencedTable(referencedtableName);
   }
 
-  private Field createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
+  private AbstractField createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
 
     final var backReferencedColumn = backReferenceColumn
       .getParameterizedFieldType()
@@ -84,7 +84,7 @@ public final class FieldFromColumnMapper {
       backReferencedFieldName);
   }
 
-  private Field createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
+  private AbstractField createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
     final IColumn optionalBackReferenceColumn) {
 
     final var backReferencedColumn = optionalBackReferenceColumn
@@ -100,7 +100,7 @@ public final class FieldFromColumnMapper {
       backReferencedFieldName);
   }
 
-  private Field createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
+  private AbstractField createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
     final IColumn multiBackReferenceColumn) {
 
     final var backReferencedColumn = multiBackReferenceColumn

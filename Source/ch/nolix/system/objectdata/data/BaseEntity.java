@@ -42,7 +42,7 @@ public abstract class BaseEntity implements IEntity {
 
   private String saveStamp;
 
-  private IContainer<Field> fields;
+  private IContainer<AbstractField> fields;
 
   @Override
   public final boolean belongsToTable() {
@@ -175,11 +175,11 @@ public abstract class BaseEntity implements IEntity {
     return ((Table<?>) getStoredParentTable()).internalGetStoredDataAndSchemaAdapter();
   }
 
-  final Field internalGetStoredFieldByName(final String name) {
+  final AbstractField internalGetStoredFieldByName(final String name) {
     return getStoredFields().getStoredFirst(p -> p.hasName(name));
   }
 
-  abstract IContainer<Field> internalLoadFields();
+  abstract IContainer<AbstractField> internalLoadFields();
 
   final void internalNoteInsertIntoDatabase() {
 
@@ -224,7 +224,7 @@ public abstract class BaseEntity implements IEntity {
 
     this.parentTable = parentTable;
 
-    getStoredFields().forEach(Field::internalSetParentColumnFromParentTable);
+    getStoredFields().forEach(AbstractField::internalSetParentColumnFromParentTable);
   }
 
   final void internalSetSaveStamp(final String saveStamp) {
@@ -251,7 +251,7 @@ public abstract class BaseEntity implements IEntity {
     fields.forEach(p -> p.internalSetParentEntity(this));
   }
 
-  private IContainer<Field> getStoredFields() {
+  private IContainer<AbstractField> getStoredFields() {
 
     extractFieldsIfNotExtracted();
 
@@ -309,7 +309,7 @@ public abstract class BaseEntity implements IEntity {
   }
 
   private void updateBaseBackReferencesWhenIsInsertedIntoDatabase() {
-    getStoredFields().forEach(Field::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
+    getStoredFields().forEach(AbstractField::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
   }
 
   private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {

@@ -30,7 +30,7 @@ final class EntityMapper {
       entity.internalGetStoredFieldByName(contentField.columnName()));
   }
 
-  private void addDataFromContentFieldToProperty(final ContentFieldDto<Object> contentField, final Field field) {
+  private void addDataFromContentFieldToProperty(final ContentFieldDto<Object> contentField, final AbstractField field) {
     field.internalSetOrClearFromContent(contentField.optionalContent().orElse(null));
   }
 

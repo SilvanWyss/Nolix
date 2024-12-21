@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
-public abstract class Field implements IField {
+public abstract class AbstractField implements IField {
 
   private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
 

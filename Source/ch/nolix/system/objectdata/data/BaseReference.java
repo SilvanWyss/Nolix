@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public abstract class BaseReference<E extends IEntity> extends Field
+public abstract class BaseReference<E extends IEntity> extends AbstractField
 implements IBaseReference<E> {
 
   private final String referencedTableName;

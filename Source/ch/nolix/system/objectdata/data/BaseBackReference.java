@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public abstract class BaseBackReference<E extends IEntity> extends Field implements IBaseBackReference<E> {
+public abstract class BaseBackReference<E extends IEntity> extends AbstractField implements IBaseBackReference<E> {
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
