@@ -6,7 +6,7 @@ import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlrawschema.columntable.ColumnDtoMapper;
+import ch.nolix.system.sqlrawschema.dtomapper.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.querycreator.QueryCreator;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableFlatDtoMapper;
@@ -79,14 +79,14 @@ public final class SchemaReader implements ISchemaReader {
   public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
-      .to(COLUMN_DTO_MAPPER::createColumnDtoFromSchemaColumnTableSqlRecord);
+      .to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
   }
 
   @Override
   public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
     return sqlConnection
       .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
-      .to(COLUMN_DTO_MAPPER::createColumnDtoFromSchemaColumnTableSqlRecord);
+      .to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
   }
 
   @Override
