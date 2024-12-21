@@ -20,13 +20,13 @@ public abstract class AbstractField implements IField {
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
-  private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
-
-  private boolean edited;
-
   private IEntity parentEntity;
 
   private IColumn parentColumn;
+
+  private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
+
+  private boolean edited;
 
   @Override
   public final boolean belongsToEntity() {
@@ -44,7 +44,7 @@ public abstract class AbstractField implements IField {
       return GlobalReflectionTool.getNameOfFirstFieldOfObjectThatStoresValue(getStoredParentEntity(), this);
     }
 
-    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");
+    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate name");
   }
 
   @Override
@@ -82,12 +82,9 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final boolean isDeleted() {
-
-    if (!belongsToEntity()) {
-      return false;
-    }
-
-    return getStoredParentEntity().isDeleted();
+    return //
+    belongsToEntity()
+    && getStoredParentEntity().isDeleted();
   }
 
   @Override
@@ -107,12 +104,9 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final boolean isNew() {
-
-    if (!belongsToEntity()) {
-      return true;
-    }
-
-    return getStoredParentEntity().isNew();
+    return //
+    !belongsToEntity()
+    || getStoredParentEntity().isDeleted();
   }
 
   @Override
