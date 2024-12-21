@@ -3,13 +3,13 @@ package ch.nolix.system.objectdata.datatool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 
-public final class TableTool extends DatabaseObjectTool implements ITableTool {
+public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
 
   private static final EntityTool ENTITY_TOOL = new EntityTool();
 

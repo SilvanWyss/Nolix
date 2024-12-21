@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
-public interface IFieldTool extends IDatabaseObjectTool {
+public interface IFieldTool extends IDatabaseObjectExaminer {
 
   boolean belongsToEntity(IField field);
 

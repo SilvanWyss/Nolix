@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.datatoolapi;
 import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
-public interface IEntityTool extends IDatabaseObjectTool {
+public interface IEntityTool extends IDatabaseObjectExaminer {
 
   boolean allNewAndEditedMandatoryFieldsAreSet(IEntity entity);
 

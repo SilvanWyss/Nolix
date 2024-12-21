@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
-  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
+  private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 
   private static final MultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 

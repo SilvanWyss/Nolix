@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schematool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 
-public final class ColumnTool extends DatabaseObjectTool implements IColumnTool {
+public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
 
   private static final IParameterizedFieldTypeTool PARAMETERIZED_FIELD_TYPE_TOOL = //
   new ParameterizedFieldTypeTool();

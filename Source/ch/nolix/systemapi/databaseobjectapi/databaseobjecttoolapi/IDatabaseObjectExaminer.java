@@ -2,7 +2,7 @@ package ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi;
 
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
-public interface IDatabaseObjectTool {
+public interface IDatabaseObjectExaminer {
 
   boolean isNewOrDeleted(IDatabaseObject databaseObject);
 

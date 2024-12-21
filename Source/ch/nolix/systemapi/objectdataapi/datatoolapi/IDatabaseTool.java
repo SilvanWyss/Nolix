@@ -1,12 +1,12 @@
 package ch.nolix.systemapi.objectdataapi.datatoolapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public interface IDatabaseTool extends IDatabaseObjectTool {
+public interface IDatabaseTool extends IDatabaseObjectExaminer {
 
   boolean allNewAndEditedMandatoryFieldsAreSet(IDatabase database);
 

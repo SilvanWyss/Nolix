@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
 public final class MultiBackReference<E extends IEntity> extends BaseBackReference<E>
 implements IMultiBackReference<E> {
 
-  private static final DatabaseObjectTool DATABASE_OBJECT_TOOL = new DatabaseObjectTool();
+  private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 

@@ -1,13 +1,13 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public interface IColumnTool extends IDatabaseObjectTool {
+public interface IColumnTool extends IDatabaseObjectExaminer {
 
   void assertBelongsToTable(IColumn column);
 

@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.datatool;
 import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
-public final class EntityTool extends DatabaseObjectTool implements IEntityTool {
+public final class EntityTool extends DatabaseObjectExaminer implements IEntityTool {
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 

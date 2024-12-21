@@ -1,11 +1,11 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public interface ITableTool extends IDatabaseObjectTool {
+public interface ITableTool extends IDatabaseObjectExaminer {
 
   void assertContainsGivenColumn(ITable table, IColumn column);
 

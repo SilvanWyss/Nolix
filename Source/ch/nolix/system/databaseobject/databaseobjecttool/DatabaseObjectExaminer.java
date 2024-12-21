@@ -2,9 +2,9 @@ package ch.nolix.system.databaseobject.databaseobjecttool;
 
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 
-public class DatabaseObjectTool implements IDatabaseObjectTool {
+public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
   @Override
   public boolean isNewOrDeleted(IDatabaseObject databaseObject) {

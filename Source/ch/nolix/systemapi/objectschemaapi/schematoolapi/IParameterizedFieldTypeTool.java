@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 
-public interface IParameterizedFieldTypeTool extends IDatabaseObjectTool {
+public interface IParameterizedFieldTypeTool extends IDatabaseObjectExaminer {
 
   boolean isABaseBackReferenceType(IContentModel contentModel);
 

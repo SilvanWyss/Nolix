@@ -5,14 +5,14 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectTool;
+import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 
-public class FieldTool extends DatabaseObjectTool implements IFieldTool {
+public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
 
   @Override
   public boolean belongsToEntity(final IField field) {

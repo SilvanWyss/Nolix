@@ -1,12 +1,12 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectTool;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public interface IDatabaseTool extends IDatabaseObjectTool {
+public interface IDatabaseTool extends IDatabaseObjectExaminer {
 
   boolean allBackReferencesAreValid(IDatabase database);
 
