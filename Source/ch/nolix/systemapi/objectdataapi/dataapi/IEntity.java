@@ -24,6 +24,8 @@ extends Deletable, IDatabaseObject, IIdHolder, IOptionalSaveStampHolder, ITableC
 
   void internalSetParentTable(ITable<? extends IEntity> parentTable);
 
+  void internalSetSaveStamp(final String saveStamp);
+
   boolean isReferencedInPersistedData();
 
   boolean isReferencedInPersistedDataIgnoringGivenEntities(IContainer<String> entitiesToIgnoreIds);

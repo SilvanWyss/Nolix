@@ -147,6 +147,14 @@ public abstract class BaseEntity implements IEntity {
   }
 
   @Override
+  public final void internalSetSaveStamp(final String saveStamp) {
+
+    GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalogue.SAVE_STAMP).isNotBlank();
+
+    this.saveStamp = saveStamp;
+  }
+
+  @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
@@ -239,13 +247,6 @@ public abstract class BaseEntity implements IEntity {
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
     }
-  }
-
-  final void internalSetSaveStamp(final String saveStamp) {
-
-    GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalogue.SAVE_STAMP).isNotNull();
-
-    this.saveStamp = saveStamp;
   }
 
   private boolean extractedFields() {
