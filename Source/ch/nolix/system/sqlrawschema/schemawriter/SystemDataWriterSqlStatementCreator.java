@@ -27,7 +27,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   @Override
   public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
 
-    final var parameterizedFieldTypeRecord = //
+    final var contentModelRecord = //
     PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.createParameterizedFieldTypeRecordFrom(column.contentModel());
 
     return "INSERT INTO "
@@ -53,13 +53,13 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + ", '"
     + column.name()
     + "', "
-    + parameterizedFieldTypeRecord.getFieldTypeValue()
+    + contentModelRecord.getFieldTypeValue()
     + ", "
-    + parameterizedFieldTypeRecord.getDataTypeValue()
+    + contentModelRecord.getDataTypeValue()
     + ", "
-    + parameterizedFieldTypeRecord.getReferencedTableIdValue()
+    + contentModelRecord.getReferencedTableIdValue()
     + ", "
-    + parameterizedFieldTypeRecord.getBackReferencedColumnIdValue()
+    + contentModelRecord.getBackReferencedColumnIdValue()
     + " FROM "
     + SchemaTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.WHERE
@@ -132,25 +132,25 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   @Override
   public String createStatementToSetColumnParameterizedFieldType(
     final String columnID,
-    final IContentModelDto parameterizedFieldType) {
+    final IContentModelDto contentModel) {
 
-    final var parameterizedFieldTypeRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
-      .createParameterizedFieldTypeRecordFrom(parameterizedFieldType);
+    final var contentModelRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
+      .createParameterizedFieldTypeRecordFrom(contentModel);
 
     return "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
-    + parameterizedFieldTypeRecord.getDataTypeValue()
+    + contentModelRecord.getDataTypeValue()
     + ", "
     + ColumnTableColumn.REFERENCED_TABLE_ID
     + " = "
-    + parameterizedFieldTypeRecord.getReferencedTableIdValue()
+    + contentModelRecord.getReferencedTableIdValue()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
     + " = "
-    + parameterizedFieldTypeRecord.getBackReferencedColumnIdValue()
+    + contentModelRecord.getBackReferencedColumnIdValue()
     + "WHERE"
     + ColumnTableColumn.ID
     + " = '"

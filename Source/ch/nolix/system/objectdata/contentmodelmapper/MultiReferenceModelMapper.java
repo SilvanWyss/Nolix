@@ -13,10 +13,10 @@ implements IContentModelMapper<MultiReferenceModelDto> {
 
   @Override
   public IContentModel createParameterizedFieldTypeFromDto(
-    MultiReferenceModelDto parameterizedFieldTypeDto,
+    MultiReferenceModelDto contentModelDto,
     IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var tableIds = parameterizedFieldTypeDto.referencedTableIds();
+    final var tableIds = contentModelDto.referencedTableIds();
     final var tables = referencableTables.getStoredSelected(t -> tableIds.containsEqualing(t.getId()));
 
     //TODO: Handle multiple referenced tables

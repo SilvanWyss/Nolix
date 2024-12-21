@@ -55,11 +55,11 @@ final class SystemDataWriter implements ChangeRequestable {
 
   public void setColumnParameterizedFieldType(
     final String columnId,
-    final IContentModelDto parameterizedFieldType) {
+    final IContentModelDto contentModel) {
     sqlCollector.addSqlStatement(
       SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnParameterizedFieldType(
         columnId,
-        parameterizedFieldType));
+        contentModel));
   }
 
   public void setSchemaTimestamp(ITime schemaTimestamp) {

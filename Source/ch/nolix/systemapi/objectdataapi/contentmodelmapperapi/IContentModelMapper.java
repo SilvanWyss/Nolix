@@ -9,6 +9,6 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 public interface IContentModelMapper<T extends IContentModelDto> {
 
   IContentModel createParameterizedFieldTypeFromDto(
-    T parameterizedFieldTypeDto,
+    T contentModelDto,
     IContainer<? extends ITable<IEntity>> referencableTables);
 }

@@ -13,10 +13,10 @@ implements IContentModelMapper<OptionalValueModelDto> {
 
   @Override
   public IContentModel createParameterizedFieldTypeFromDto(
-    final OptionalValueModelDto parameterizedFieldTypeDto,
+    final OptionalValueModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var valueType = parameterizedFieldTypeDto.dataType().getDataTypeClass();
+    final var valueType = contentModelDto.dataType().getDataTypeClass();
 
     return OptionalValueModel.forValueType(valueType);
   }

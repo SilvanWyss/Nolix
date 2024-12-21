@@ -20,7 +20,7 @@ public interface ISystemDataWriterSqlStatementCreator {
 
   String createStatementToSetColumnParameterizedFieldType(
     String columnID,
-    IContentModelDto parameterizedFieldType);
+    IContentModelDto contentModel);
 
   String createStatementToSetSchemaTimestamp(ITime schemaTimestamp);
 

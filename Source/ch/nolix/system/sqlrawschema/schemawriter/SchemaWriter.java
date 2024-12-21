@@ -129,8 +129,8 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnParameterizedFieldType(
     final String columnId,
-    final IContentModelDto parameterizedFieldType) {
-    systemDataWriter.setColumnParameterizedFieldType(columnId, parameterizedFieldType);
+    final IContentModelDto contentModel) {
+    systemDataWriter.setColumnParameterizedFieldType(columnId, contentModel);
   }
 
   @Override

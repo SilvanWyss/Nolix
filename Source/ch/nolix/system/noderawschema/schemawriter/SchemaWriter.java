@@ -172,13 +172,13 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnParameterizedFieldType(
     final String columnId,
-    final IContentModelDto parameterizedFieldType) {
+    final IContentModelDto contentModel) {
 
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       NodeHeaderCatalogue.CONTENT_MODEL,
-      CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(parameterizedFieldType));
+      CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(contentModel));
 
     hasChanges = true;
   }

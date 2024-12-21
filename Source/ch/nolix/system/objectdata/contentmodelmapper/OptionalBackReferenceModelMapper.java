@@ -13,10 +13,10 @@ implements IContentModelMapper<OptionalBackReferenceModelDto> {
 
   @Override
   public IContentModel createParameterizedFieldTypeFromDto(
-    final OptionalBackReferenceModelDto parameterizedFieldTypeDto,
+    final OptionalBackReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var backReferencedColumnId = parameterizedFieldTypeDto.backReferencedColumnId();
+    final var backReferencedColumnId = contentModelDto.backReferencedColumnId();
     final var referencableColumns = referencableTables.toMultiple(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 

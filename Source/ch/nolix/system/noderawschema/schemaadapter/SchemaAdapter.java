@@ -156,8 +156,8 @@ public final class SchemaAdapter implements ISchemaAdapter {
   @Override
   public void setColumnParameterizedFieldType(
     final String columnId,
-    final IContentModelDto parameterizedFieldType) {
-    schemaWriter.setColumnParameterizedFieldType(columnId, parameterizedFieldType);
+    final IContentModelDto contentModel) {
+    schemaWriter.setColumnParameterizedFieldType(columnId, contentModel);
   }
 
   @Override

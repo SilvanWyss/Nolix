@@ -13,10 +13,10 @@ implements IContentModelMapper<ValueModelDto> {
 
   @Override
   public IContentModel createParameterizedFieldTypeFromDto(
-    final ValueModelDto parameterizedFieldTypeDto,
+    final ValueModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var valueType = parameterizedFieldTypeDto.dataType().getDataTypeClass();
+    final var valueType = contentModelDto.dataType().getDataTypeClass();
 
     return ValueModel.forValueType(valueType);
   }
