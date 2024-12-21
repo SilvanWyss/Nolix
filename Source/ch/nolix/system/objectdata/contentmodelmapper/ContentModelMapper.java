@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.parameterizedfieldtypemapper;
+package ch.nolix.system.objectdata.contentmodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -16,35 +16,35 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
-public final class ParameterizedFieldTypeMapper {
+public final class ContentModelMapper {
 
   private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
   new ParameterizedValueTypeMapper();
 
-  private static final ParameterizedOptionalValueTypeMapper PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER = //
-  new ParameterizedOptionalValueTypeMapper();
+  private static final OptionalValueModelMapper PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER = //
+  new OptionalValueModelMapper();
 
-  private static final ParameterizedMultiValueTypeMapper PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER = //
-  new ParameterizedMultiValueTypeMapper();
+  private static final MultiValueModelMapper PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER = //
+  new MultiValueModelMapper();
 
-  private static final ParameterizedReferenceTypeMapper PARAMETERIZED_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedReferenceTypeMapper();
+  private static final ReferenceModelMapper PARAMETERIZED_REFERENCE_TYPE_MAPPER = //
+  new ReferenceModelMapper();
 
-  private static final ParameterizedOptionalReferenceTypeMapper PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedOptionalReferenceTypeMapper();
+  private static final OptionalReferenceModelMapper PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER = //
+  new OptionalReferenceModelMapper();
 
-  private static final ParameterizedMultiReferenceTypeMapper PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedMultiReferenceTypeMapper();
+  private static final MultiReferenceModelMapper PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER = //
+  new MultiReferenceModelMapper();
 
-  private static final ParameterizedBackReferenceTypeMapper PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedBackReferenceTypeMapper();
+  private static final BackReferenceModelMapper PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER = //
+  new BackReferenceModelMapper();
 
-  private static final ParameterizedOptionalBackReferenceTypeMapper //
+  private static final OptionalBackReferenceModelMapper //
   PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedOptionalBackReferenceTypeMapper();
+  new OptionalBackReferenceModelMapper();
 
-  private static final ParameterizedMultiBackReferenceTypeMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedMultiBackReferenceTypeMapper();
+  private static final MultiBackReferenceModelMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
+  new MultiBackReferenceModelMapper();
 
   public IContentModel createParameterizedFieldTypeFromDto(
     final IContentModelDto contentModelDto,

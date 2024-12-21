@@ -1,15 +1,15 @@
-package ch.nolix.system.objectdata.parameterizedfieldtypemapper;
+package ch.nolix.system.objectdata.contentmodelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.contentmodel.MultiReferenceModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapperapi.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadto.MultiReferenceModelDto;
 
-public final class ParameterizedMultiReferenceTypeMapper
-implements IParameterizedFieldTypeMapper<MultiReferenceModelDto> {
+public final class MultiReferenceModelMapper
+implements IContentModelMapper<MultiReferenceModelDto> {
 
   @Override
   public IContentModel createParameterizedFieldTypeFromDto(
