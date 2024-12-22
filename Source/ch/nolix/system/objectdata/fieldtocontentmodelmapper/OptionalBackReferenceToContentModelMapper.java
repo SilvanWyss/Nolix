@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.schemamapper;
+package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.contentmodel.OptionalBackReferenceModel;

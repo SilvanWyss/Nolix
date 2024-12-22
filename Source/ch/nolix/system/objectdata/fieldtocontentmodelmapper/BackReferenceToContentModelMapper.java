@@ -1,18 +1,17 @@
-package ch.nolix.system.objectdata.schemamapper;
+package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.contentmodel.MultiBackReferenceModel;
+import ch.nolix.system.objectschema.contentmodel.BackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IFieldToContentModelMapper;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public final class MultiBackReferenceToContentModelMapper
-implements IFieldToContentModelMapper<IMultiBackReference<?>> {
+public final class BackReferenceToContentModelMapper implements IFieldToContentModelMapper<IBackReference<?>> {
 
   @Override
   public IContentModel mapFieldToContentModel(
-    final IMultiBackReference<?> field,
+    final IBackReference<?> field,
     final IContainer<ITable> referencedTables) {
 
     final var backReferencedTableName = field.getBackReferencedTableName();
@@ -21,6 +20,6 @@ implements IFieldToContentModelMapper<IMultiBackReference<?>> {
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 
-    return MultiBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
+    return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
   }
 }

@@ -2,6 +2,15 @@ package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.BackReferenceToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.MultiBackReferenceToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.MultiReferenceToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.MultiValueTypeToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.OptionalBackReferenceToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.OptionalReferenceToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.OptionalValueToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.ReferenceToContentModelMapper;
+import ch.nolix.system.objectdata.fieldtocontentmodelmapper.ValueToContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
