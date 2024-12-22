@@ -165,7 +165,9 @@ implements IMultiStateConfiguration<C, S> {
     setItselsAsParentToProperties();
   }
 
-  private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final ILinkedList<AbstractProperty<S>> list) {
+  private void fillUpPotentialPropertyFromFieldIntoList(
+    final Field field,
+    final ILinkedList<AbstractProperty<S>> list) {
     if (fieldStoresProperty(field)) {
       list.addAtEnd(getPropertyFromField(field));
     }
