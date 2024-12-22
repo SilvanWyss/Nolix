@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 
-public interface IContentModelMapper<T extends IContentModelDto> {
+public interface IContentModelDtoToContentModelMapper<T extends IContentModelDto> {
 
   IContentModel mapContentModelDtoToContentModel(
     T contentModelDto,
