@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.system.noderawschema.dtomapper.ColumnDtoMapper;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
@@ -70,7 +71,7 @@ public final class SchemaReader implements ISchemaReader {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
 
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
-      .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
+      .to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   @Override
@@ -79,7 +80,7 @@ public final class SchemaReader implements ISchemaReader {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
-      .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
+      .to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   @Override
@@ -143,7 +144,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private IContainer<ColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
-      .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
+      .to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   private TableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
