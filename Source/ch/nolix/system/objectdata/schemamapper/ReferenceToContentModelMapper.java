@@ -1,21 +1,20 @@
-package ch.nolix.system.objectdata.parameterizedfieldtypemapper2;
+package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.contentmodel.ReferenceModel;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IFieldToContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
-import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public final class ParameterizedReferenceTypeMapper implements IParameterizedFieldTypeMapper<IReference<IEntity>> {
+public final class ReferenceToContentModelMapper implements IFieldToContentModelMapper<IReference<?>> {
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromField(
-    final IReference<IEntity> property,
+  public IContentModel mapFieldToContentModel(
+    final IReference<?> field,
     final IContainer<ITable> referencedTables) {
 
-    final var referencedTableName = property.getReferencedTableName();
+    final var referencedTableName = field.getReferencedTableName();
     final var referencedTable = referencedTables.getStoredFirst(t -> t.hasName(referencedTableName));
 
     return ReferenceModel.forReferencedTable(referencedTable);

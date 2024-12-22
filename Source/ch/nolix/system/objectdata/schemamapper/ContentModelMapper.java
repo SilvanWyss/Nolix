@@ -2,17 +2,7 @@ package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedBackReferenceTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedMultiBackReferenceTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedMultiReferenceTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedMultiValueTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedOptionalBackReferenceTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedOptionalReferenceTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedOptionalValueTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedReferenceTypeMapper;
-import ch.nolix.system.objectdata.parameterizedfieldtypemapper2.ParameterizedValueTypeMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
@@ -26,83 +16,83 @@ import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public final class ContentModelMapper implements IContentModelMapper {
+public final class ContentModelMapper //NOSONAR: A ContentModelMapper is a principal object thus it has many dependencies.
+implements IContentModelMapper {
 
-  private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
-  new ParameterizedValueTypeMapper();
+  private static final ValueToContentModelMapper VALUE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new ValueToContentModelMapper();
 
-  private static final ParameterizedOptionalValueTypeMapper PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER = //
-  new ParameterizedOptionalValueTypeMapper();
+  private static final OptionalValueToContentModelMapper OPTIONAL_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new OptionalValueToContentModelMapper();
 
-  private static final ParameterizedMultiValueTypeMapper PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER = //
-  new ParameterizedMultiValueTypeMapper();
+  private static final MultiValueTypeToContentModelMapper MULTI_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new MultiValueTypeToContentModelMapper();
 
-  private static final ParameterizedReferenceTypeMapper PARAMETERIZED_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedReferenceTypeMapper();
+  private static final ReferenceToContentModelMapper REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new ReferenceToContentModelMapper();
 
-  private static final ParameterizedOptionalReferenceTypeMapper PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedOptionalReferenceTypeMapper();
+  private static final OptionalReferenceToContentModelMapper OPTIONAL_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new OptionalReferenceToContentModelMapper();
 
-  private static final ParameterizedMultiReferenceTypeMapper PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedMultiReferenceTypeMapper();
+  private static final MultiReferenceToContentModelMapper MULTI_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new MultiReferenceToContentModelMapper();
 
-  private static final ParameterizedBackReferenceTypeMapper PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedBackReferenceTypeMapper();
+  private static final BackReferenceToContentModelMapper BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new BackReferenceToContentModelMapper();
 
-  private static final ParameterizedOptionalBackReferenceTypeMapper //
-  PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedOptionalBackReferenceTypeMapper();
+  private static final OptionalBackReferenceToContentModelMapper //
+  OPTIONAL_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new OptionalBackReferenceToContentModelMapper();
 
-  private static final ParameterizedMultiBackReferenceTypeMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
-  new ParameterizedMultiBackReferenceTypeMapper();
+  private static final MultiBackReferenceToContentModelMapper MULTI_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER = //
+  new MultiBackReferenceToContentModelMapper();
 
   @Override
-  @SuppressWarnings("unchecked")
-  public IContentModel mapFieldToContentModel(
-    final IField field,
-    IContainer<ITable> referencedTables) {
+  public IContentModel mapFieldToContentModel(final IField field, final IContainer<ITable> referencedTables) {
 
-    final var fieldType = field.getType();
+    if (field instanceof IValue<?> value) {
+      return VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(value, referencedTables);
+    }
 
-    return switch (fieldType) {
-      case VALUE ->
-        PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IValue<?>) field,
-          referencedTables);
-      case OPTIONAL_VALUE ->
-        PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IOptionalValue<?>) field,
-          referencedTables);
-      case MULTI_VALUE ->
-        PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IMultiValue<?>) field,
-          referencedTables);
-      case REFERENCE ->
-        PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IReference<IEntity>) field,
-          referencedTables);
-      case OPTIONAL_REFERENCE ->
-        PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IOptionalReference<IEntity>) field,
-          referencedTables);
-      case MULTI_REFERENCE ->
-        PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IMultiReference<IEntity>) field,
-          referencedTables);
-      case BACK_REFERENCE ->
-        PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IBackReference<IEntity>) field,
-          referencedTables);
-      case OPTIONAL_BACK_REFERENCE ->
-        PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IOptionalBackReference<IEntity>) field,
-          referencedTables);
-      case MULTI_BACK_REFERENCE ->
-        PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedFieldTypeFromField(
-          (IMultiBackReference<IEntity>) field,
-          referencedTables);
-      default ->
-        throw InvalidArgumentException.forArgument(field);
-    };
+    if (field instanceof IOptionalValue<?> optionalValue) {
+      return //
+      OPTIONAL_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(optionalValue, referencedTables);
+    }
+
+    if (field instanceof IMultiValue<?> multiValue) {
+      return MULTI_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiValue, referencedTables);
+    }
+
+    if (field instanceof IReference<?> reference) {
+      return REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(reference, referencedTables);
+    }
+
+    if (field instanceof IOptionalReference<?> optionalReference) {
+      return //
+      OPTIONAL_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(optionalReference,
+        referencedTables);
+    }
+
+    if (field instanceof IMultiReference<?> multiReference) {
+      return //
+      MULTI_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiReference, referencedTables);
+    }
+
+    if (field instanceof IBackReference<?> backReference) {
+      return BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(backReference,
+        referencedTables);
+    }
+
+    if (field instanceof IOptionalBackReference<?> optionalBackReference) {
+      return OPTIONAL_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER
+        .mapFieldToContentModel(optionalBackReference, referencedTables);
+    }
+
+    if (field instanceof IMultiBackReference<?> multiBackReference) {
+      return MULTI_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiBackReference,
+        referencedTables);
+    }
+
+    throw InvalidArgumentException.forArgument(field);
   }
 }

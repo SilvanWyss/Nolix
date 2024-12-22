@@ -1,26 +1,26 @@
-package ch.nolix.system.objectdata.parameterizedfieldtypemapper2;
+package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.system.objectschema.contentmodel.MultiValueModel;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
+import ch.nolix.system.objectschema.contentmodel.OptionalValueModel;
+import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IFieldToContentModelMapper;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.parameterizedfieldtypemapper2api.IParameterizedFieldTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
-public final class ParameterizedMultiValueTypeMapper implements IParameterizedFieldTypeMapper<IMultiValue<?>> {
+public final class OptionalValueToContentModelMapper implements IFieldToContentModelMapper<IOptionalValue<?>> {
 
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   @Override
-  public IContentModel createParameterizedFieldTypeFromField(
-    final IMultiValue<?> field,
+  public IContentModel mapFieldToContentModel(
+    final IOptionalValue<?> field,
     final IContainer<ITable> referencedTables) {
 
     final var dataType = DataType.forType(FIELD_TOOL.getDataType(field));
 
-    return MultiValueModel.forDataType(dataType);
+    return OptionalValueModel.forDataType(dataType);
   }
 }
