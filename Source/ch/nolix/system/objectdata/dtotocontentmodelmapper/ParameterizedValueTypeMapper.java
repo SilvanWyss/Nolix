@@ -1,23 +1,23 @@
-package ch.nolix.system.objectdata.contentmodelmapper;
+package ch.nolix.system.objectdata.dtotocontentmodelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.contentmodel.OptionalValueModel;
+import ch.nolix.system.objectdata.contentmodel.ValueModel;
 import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IContentModelDtoToContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
-public final class OptionalValueModelMapper
-implements IContentModelDtoToContentModelMapper<OptionalValueModelDto> {
+public final class ParameterizedValueTypeMapper
+implements IContentModelDtoToContentModelMapper<ValueModelDto> {
 
   @Override
   public IContentModel mapContentModelDtoToContentModel(
-    final OptionalValueModelDto contentModelDto,
+    final ValueModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
     final var valueType = contentModelDto.dataType().getDataTypeClass();
 
-    return OptionalValueModel.forValueType(valueType);
+    return ValueModel.forValueType(valueType);
   }
 }

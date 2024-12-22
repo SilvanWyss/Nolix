@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.contentmodelmapper;
+package ch.nolix.system.objectdata.dtotocontentmodelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.contentmodel.MultiReferenceModel;
