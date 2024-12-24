@@ -24,6 +24,11 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   }
 
   @Override
+  public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
+    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalogue.ENTITY);
+  }
+
+  @Override
   public IMutableNode<?> getStoredIdNodeFromTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.ID);
   }
