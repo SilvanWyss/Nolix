@@ -7,24 +7,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
-
-  @Override
-  public EntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(
-    final IReference<?> reference,
-    final IEntity entity) {
-
-    final var parentEntity = reference.getStoredParentEntity();
-
-    return //
-    new EntityUpdateDto(
-      parentEntity.getId(),
-      parentEntity.getSaveStamp(),
-      StringContentFieldDto.withColumnNameAndContent(reference.getName(), entity.getId()));
-  }
 
   @Override
   public Optional<IAbstractBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
