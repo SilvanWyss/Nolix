@@ -49,7 +49,7 @@ public final class DarkStyleSubStyleCatalogue {
       "BaseBackground(Color(0x202020E0))",
       "BasePadding(20)");
 
-  public static final ISelectingStyleWithSelectors FOOTER_HORIZONTAL_STACK_STYLE = //
+  public static final ISelectingStyleWithSelectors FOOTER_CONTAINER_STYLE = //
   new DeepSelectingStyle()
     .withSelectorType(HorizontalStack.class)
     .withSelectorRole(ContainerRole.FOOTER_CONTAINER)
@@ -65,7 +65,7 @@ public final class DarkStyleSubStyleCatalogue {
       "BaseChildControlMargin(10)",
       "BaseGridThickness(0)");
 
-  public static final ISelectingStyleWithSelectors HEADER_HORIZONTAL_STACK_STYLE = //
+  public static final ISelectingStyleWithSelectors HEADER_CONTAINER_STYLE = //
   new DeepSelectingStyle()
     .withSelectorType(HorizontalStack.class)
     .withSelectorRole(ContainerRole.HEADER_CONTAINER)
@@ -83,7 +83,7 @@ public final class DarkStyleSubStyleCatalogue {
     .withSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
     .withAttachingAttribute("MinHeight(500)");
 
-  public static final ISelectingStyleWithSelectors OVERALL_CONTAINER_VERTICAL_STACK_STYLE = //
+  public static final ISelectingStyleWithSelectors OVERALL_CONTAINER_STYLE = //
   new DeepSelectingStyle()
     .withSelectorType(VerticalStack.class)
     .withSelectorRole(ContainerRole.OVERALL_CONTAINER)
