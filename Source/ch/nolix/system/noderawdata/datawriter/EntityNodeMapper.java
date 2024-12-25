@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datawriter;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
@@ -13,8 +13,9 @@ final class EntityNodeMapper {
     final ITableInfo tableInfo,
     final EntityCreationDto newEntity,
     final long saveStamp) {
-    return Node.withHeaderAndChildNodes(
-      SubNodeHeaderCatalogue.ENTITY,
+    return //
+    Node.withHeaderAndChildNodes(
+      NodeHeaderCatalogue.ENTITY,
       createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo));
   }
 

@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
@@ -18,7 +18,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     tableNode.containsChildNodeThat(
-      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(param1BasedIndex).hasHeader(value)
       && !entitiesToIgnoreIds
         .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader()));
@@ -29,20 +29,20 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     final IMutableNode<?> tableNode,
     final String id) {
     return tableNode.getOptionalStoredFirstChildNodeThat(
-      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
   @Override
   public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
     return tableNode.getStoredFirstChildNodeThat(
-      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.ENTITY);
+    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalogue.ENTITY);
   }
 
   @Override
@@ -58,7 +58,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     return tableNode.containsChildNodeThat(
       (final var a) -> {
 
-        if (!a.hasHeader(SubNodeHeaderCatalogue.ENTITY)) {
+        if (!a.hasHeader(NodeHeaderCatalogue.ENTITY)) {
           return false;
         }
 
@@ -74,7 +74,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     final String header) {
     return //
     tableNode.containsChildNodeThat(
-      a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
+      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
   }
 }
