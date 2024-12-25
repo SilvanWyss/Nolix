@@ -107,36 +107,6 @@ public final class ArrayTool {
 
   // method
   /**
-   * Creates a new iterable object with the given elements.
-   * 
-   * @param elements
-   * @param additionalElement
-   * @param <E>               is the type of the given elements and
-   *                          additionalElement.
-   * @return a new iterable object with the given elements and additional element.
-   * @throws IllegalArgumentException if the given elements is null.
-   */
-  public <E> Iterable<E> createIterable(final Iterable<E> elements, final E additionalElement) {
-
-    //Asserts that the given elements is not null.
-    if (elements == null) {
-      throw new IllegalArgumentException("The given elements is null.");
-    }
-
-    final List<E> elementList = new List<>();
-
-    //Iterates the given elements.
-    for (final var e : elements) {
-      elementList.addAtEnd(e);
-    }
-
-    elementList.addAtEnd(additionalElement);
-
-    return elementList;
-  }
-
-  // method
-  /**
    * Creates a new iterable object with the given values.
    * 
    * @param values
