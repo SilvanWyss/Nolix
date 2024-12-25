@@ -3,6 +3,7 @@ package ch.nolix.system.noderawschema.nodemapper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
@@ -21,25 +22,28 @@ public final class TableNodeMapper implements ITableNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapTableDtoToNode(final TableDto table) {
+  public INode<?> mapTableDtoToNode(final TableDto tableDto) {
 
-    @SuppressWarnings("unchecked")
-    final var childNodes = LinkedList.withElement(createIdNodeFrom(table), createNameNodeFrom(table));
-
-    childNodes.addAtEnd(createColumnNodesFrom(table));
+    final ILinkedList<INode<?>> childNodes = LinkedList.createEmpty();
+    childNodes.addAtEnd(createIdNodeFromTableDto(tableDto));
+    childNodes.addAtEnd(createNameNodeFromTableDto(tableDto));
+    childNodes.addAtEnd(createColumnNodesFromTableDto(tableDto));
 
     return Node.withHeaderAndChildNodes(NodeHeaderCatalogue.TABLE, childNodes);
   }
 
-  private INode<?> createIdNodeFrom(final TableDto table) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.ID, table.id());
+  private INode<?> createIdNodeFromTableDto( //NOSONAR: This method is an instance method.
+    final TableDto tableDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.ID, tableDto.id());
   }
 
-  private INode<?> createNameNodeFrom(final TableDto table) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.NAME, table.name());
+  private INode<?> createNameNodeFromTableDto( //NOSONAR: This method is an instance method.
+    final TableDto tableDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.NAME, tableDto.name());
   }
 
-  private IContainer<INode<?>> createColumnNodesFrom(final TableDto table) {
-    return table.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToNode);
+  private IContainer<INode<?>> createColumnNodesFromTableDto( //NOSONAR: This method is an instance method.
+    final TableDto tableDto) {
+    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToNode);
   }
 }
