@@ -8,7 +8,7 @@ import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
@@ -63,7 +63,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
+  public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
@@ -73,7 +73,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
       .getOptionalStoredFirst(p -> p.referencesBackField(this));
 
     if (backReferencingField.isPresent()) {
-      return ImmutableList.withElement((IBaseBackReference<IEntity>) backReferencingField.get());
+      return ImmutableList.withElement((IAbstractBackReference<IEntity>) backReferencingField.get());
     }
 
     return ImmutableList.createEmpty();

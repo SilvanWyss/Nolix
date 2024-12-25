@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 
-public final class OptionalBackReference<E extends IEntity> extends BaseBackReference<E>
+public final class OptionalBackReference<E extends IEntity> extends AbstractBackReference<E>
 implements IOptionalBackReference<E> {
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();

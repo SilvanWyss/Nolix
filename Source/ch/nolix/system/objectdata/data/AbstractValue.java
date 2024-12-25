@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -20,7 +20,7 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
   }
 
   @Override
-  public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
+  public final IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
     return ImmutableList.createEmpty();
   }
 

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, MandatorynessRequestable {
 
-  IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences();
+  IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences();
 
   IColumn getStoredParentColumn();
 

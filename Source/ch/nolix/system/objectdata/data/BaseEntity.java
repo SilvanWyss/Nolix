@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.entityflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.entityflyweight.VoidEntityFlyWeight;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -304,7 +304,7 @@ public abstract class BaseEntity implements IEntity {
   }
 
   private void updateBackReferencingFieldsForDeletion(
-    final IBaseBackReference<?> baseBackReference) {
+    final IAbstractBackReference<?> baseBackReference) {
     switch (baseBackReference.getType()) {
       case BACK_REFERENCE:
         updateBackReferenceForDeletion((BackReference<?>) baseBackReference);

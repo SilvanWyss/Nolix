@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -49,13 +49,13 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
   }
 
   @Override
-  public Optional<? extends IBaseBackReference<?>> //
+  public Optional<? extends IAbstractBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
     final IEntity entity,
     final IAbstractReference<? extends IEntity> baseReference) {
 
     for (final var p : entity.internalGetStoredFields()) {
-      if (p instanceof final IBaseBackReference<?> baseBackReference
+      if (p instanceof final IAbstractBackReference<?> baseBackReference
       && baseBackReferenceWouldReferenceBackBaseReference(baseBackReference, baseReference)) {
         return Optional.of(baseBackReference);
       }
@@ -65,7 +65,7 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
   }
 
   @Override
-  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
+  public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
     return entity.internalGetStoredFields().toMultiple(IField::getStoredBaseBackReferences);
   }
 
@@ -120,7 +120,7 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
   }
 
   private boolean baseBackReferenceWouldReferenceBackBaseReference(
-    final IBaseBackReference<?> baseBackReference,
+    final IAbstractBackReference<?> baseBackReference,
     final IAbstractReference<? extends IEntity> baseReference) {
     return //
     baseBackReference.getBackReferencedTableName().equals(baseReference.getStoredParentEntity().getParentTableName())

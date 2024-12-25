@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-public interface IMultiBackReference<E extends IEntity> extends IBaseBackReference<E> {
+public interface IMultiBackReference<E extends IEntity> extends IAbstractBackReference<E> {
 
   IContainer<String> getAllBackReferencedEntityIds();
 

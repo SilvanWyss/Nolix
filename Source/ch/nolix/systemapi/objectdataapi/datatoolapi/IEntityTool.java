@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
@@ -19,12 +19,12 @@ public interface IEntityTool extends IDatabaseObjectExaminer {
 
   boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 
-  Optional<? extends IBaseBackReference<?>> //
+  Optional<? extends IAbstractBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
     IEntity entity,
     IAbstractReference<? extends IEntity> baseReference);
 
-  IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences(IEntity entity);
+  IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences(IEntity entity);
 
   IContainer<? extends IField> getStoredEditedFields(IEntity entity);
 

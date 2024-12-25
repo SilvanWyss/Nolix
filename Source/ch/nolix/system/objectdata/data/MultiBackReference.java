@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public final class MultiBackReference<E extends IEntity> extends BaseBackReference<E>
+public final class MultiBackReference<E extends IEntity> extends AbstractBackReference<E>
 implements IMultiBackReference<E> {
 
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();

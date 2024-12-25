@@ -4,12 +4,14 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public abstract class BaseBackReference<E extends IEntity> extends AbstractField implements IBaseBackReference<E> {
+public abstract class AbstractBackReference<E extends IEntity>
+extends AbstractField
+implements IAbstractBackReference<E> {
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
@@ -19,7 +21,7 @@ public abstract class BaseBackReference<E extends IEntity> extends AbstractField
 
   private Table<E> backReferencedTable;
 
-  protected BaseBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
+  protected AbstractBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
 
     GlobalValidator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
 
@@ -51,7 +53,7 @@ public abstract class BaseBackReference<E extends IEntity> extends AbstractField
   }
 
   @Override
-  public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferences() {
+  public final IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
     return ImmutableList.createEmpty();
   }
 
