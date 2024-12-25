@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
+import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class OptionalBackReference<E extends IEntity> extends BaseBackReference<E>
 implements IOptionalBackReference<E> {
@@ -69,13 +69,13 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  public ContentFieldWithContentAsStringDto internalToContentField() {
+  public StringContentFieldDto internalToContentField() {
 
     if (isEmpty()) {
-      return ContentFieldWithContentAsStringDto.withColumnName(getName());
+      return StringContentFieldDto.withColumnName(getName());
     }
 
-    return ContentFieldWithContentAsStringDto.withColumnNameAndContent(getName(), backReferencedEntityId);
+    return StringContentFieldDto.withColumnNameAndContent(getName(), backReferencedEntityId);
   }
 
   @Override

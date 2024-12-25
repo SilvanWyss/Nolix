@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public record EntityUpdateDto(
 String id,
 String saveStamp,
-IContainer<ContentFieldWithContentAsStringDto> updatedContentFields) {
+IContainer<StringContentFieldDto> updatedContentFields) {
 
-  public EntityUpdateDto(String id, String saveStamp, ContentFieldWithContentAsStringDto updatedContentField) {
+  public EntityUpdateDto(String id, String saveStamp, StringContentFieldDto updatedContentField) {
     this(id, saveStamp, ImmutableList.withElement(updatedContentField));
   }
 }

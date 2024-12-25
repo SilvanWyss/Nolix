@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldWithContentAsStringDto;
+import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
@@ -88,8 +88,8 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   }
 
   @Override
-  public ContentFieldWithContentAsStringDto internalToContentField() {
-    return ContentFieldWithContentAsStringDto.withColumnNameAndContent(getName(), getStoredValue().toString());
+  public StringContentFieldDto internalToContentField() {
+    return StringContentFieldDto.withColumnNameAndContent(getName(), getStoredValue().toString());
   }
 
   private void updateStateForSetValue(final V value) {
