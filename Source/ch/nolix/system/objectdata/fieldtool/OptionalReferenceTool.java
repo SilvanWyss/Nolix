@@ -6,8 +6,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class OptionalReferenceTool extends FieldTool implements IOptionalReferenceTool {
 
@@ -24,17 +22,6 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
     && entity != null
     && entity.isOpen()
     && optionalReference.getReferencedTableName().equals(entity.getParentTableName());
-  }
-
-  @Override
-  public EntityUpdateDto createEntityUpdateDtoForClear(final IOptionalReference<?> optionalReference) {
-
-    final var parentEntity = optionalReference.getStoredParentEntity();
-
-    return new EntityUpdateDto(
-      parentEntity.getId(),
-      parentEntity.getSaveStamp(),
-      StringContentFieldDto.withColumnName(optionalReference.getName()));
   }
 
   @Override
