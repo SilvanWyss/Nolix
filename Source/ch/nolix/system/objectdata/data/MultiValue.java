@@ -12,7 +12,6 @@ import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
@@ -71,11 +70,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   @Override
   public void internalSetOrClearContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
-  }
-
-  @Override
-  public StringContentFieldDto internalToContentField() {
-    return StringContentFieldDto.withColumnName(getName());
   }
 
   @Override

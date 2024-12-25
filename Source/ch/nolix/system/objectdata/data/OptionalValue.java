@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
 
@@ -99,16 +98,6 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
       string);
 
     setValue(value);
-  }
-
-  @Override
-  public StringContentFieldDto internalToContentField() {
-
-    if (isEmpty()) {
-      return StringContentFieldDto.withColumnName(getName());
-    }
-
-    return StringContentFieldDto.withColumnNameAndContent(getName(), getStoredValue().toString());
   }
 
   private void updateStateForSetValue(final V value) {

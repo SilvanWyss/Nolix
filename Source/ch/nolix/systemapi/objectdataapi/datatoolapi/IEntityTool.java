@@ -22,10 +22,13 @@ public interface IEntityTool extends IDatabaseObjectExaminer {
 
   boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 
+  //TODO: Create DtoMapper
   EntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
 
+  //TODO: Create DtoMapper
   EntityDeletionDto createEntityHeadDtoForEntity(IEntity entity);
 
+  //TODO: Create DtoMapper
   EntityCreationDto createNewEntityDtoForEntity(IEntity entity);
 
   Optional<? extends IBaseBackReference<?>> //

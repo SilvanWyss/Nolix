@@ -16,7 +16,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
@@ -113,11 +112,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   @Override
   public void internalSetOrClearContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalogue.CONTENT).isNull();
-  }
-
-  @Override
-  public StringContentFieldDto internalToContentField() {
-    return StringContentFieldDto.withColumnName(getName());
   }
 
   @Override

@@ -4,12 +4,14 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
+import ch.nolix.system.objectdata.datadtomapper.StringContentFieldDtoMapper;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datadtomapperapi.IStringContentFieldDtoMapper;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
@@ -17,6 +19,8 @@ import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public final class EntityTool extends DatabaseObjectExaminer implements IEntityTool {
+
+  private static final IStringContentFieldDtoMapper STRING_CONTENT_FIELD_DTO_MAPPER = new StringContentFieldDtoMapper();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
@@ -56,7 +60,7 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
     return new EntityUpdateDto(
       entity.getId(),
       entity.getSaveStamp(),
-      getStoredEditedFields(entity).to(IField::internalToContentField));
+      getStoredEditedFields(entity).to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringContentFieldDto));
   }
 
   @Override
@@ -67,7 +71,9 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
   @Override
   public EntityCreationDto createNewEntityDtoForEntity(final IEntity entity) {
     return //
-    new EntityCreationDto(entity.getId(), entity.internalGetStoredFields().to(IField::internalToContentField));
+    new EntityCreationDto(
+      entity.getId(),
+      entity.internalGetStoredFields().to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringContentFieldDto));
   }
 
   @Override

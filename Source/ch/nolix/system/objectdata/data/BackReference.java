@@ -8,10 +8,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
-public final class BackReference<E extends IEntity> extends BaseBackReference<E>
-implements IBackReference<E> {
+public final class BackReference<E extends IEntity> extends BaseBackReference<E> implements IBackReference<E> {
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
@@ -71,16 +69,6 @@ implements IBackReference<E> {
   @Override
   public void internalSetOrClearContent(final Object content) {
     backReferencedEntityId = (String) content;
-  }
-
-  @Override
-  public StringContentFieldDto internalToContentField() {
-
-    if (isEmpty()) {
-      return StringContentFieldDto.withColumnName(getName());
-    }
-
-    return StringContentFieldDto.withColumnNameAndContent(getName(), getBackReferencedEntityId());
   }
 
   @Override
