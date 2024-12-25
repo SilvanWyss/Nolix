@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalReferenceValidator;
 
-public final class OptionalReference<E extends IEntity> extends BaseReference<E> implements IOptionalReference<E> {
+public final class OptionalReference<E extends IEntity> extends AbstractReference<E> implements IOptionalReference<E> {
 
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 

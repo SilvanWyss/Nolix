@@ -3,19 +3,18 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
-public abstract class BaseReference<E extends IEntity> extends AbstractField
-implements IBaseReference<E> {
+public abstract class AbstractReference<E extends IEntity> extends AbstractField implements IAbstractReference<E> {
 
   private final String referencedTableName;
 
   private Table<E> referencedTable;
 
-  protected BaseReference(final String referencedTableName) {
+  protected AbstractReference(final String referencedTableName) {
 
     GlobalValidator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 

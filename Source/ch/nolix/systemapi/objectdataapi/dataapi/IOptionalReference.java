@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseReference<E> {
+public interface IOptionalReference<E extends IEntity> extends Clearable, IAbstractReference<E> {
 
   E getReferencedEntity();
 

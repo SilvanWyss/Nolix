@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
@@ -52,7 +52,7 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
   public Optional<? extends IBaseBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
     final IEntity entity,
-    final IBaseReference<? extends IEntity> baseReference) {
+    final IAbstractReference<? extends IEntity> baseReference) {
 
     for (final var p : entity.internalGetStoredFields()) {
       if (p instanceof final IBaseBackReference<?> baseBackReference
@@ -121,7 +121,7 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
 
   private boolean baseBackReferenceWouldReferenceBackBaseReference(
     final IBaseBackReference<?> baseBackReference,
-    final IBaseReference<? extends IEntity> baseReference) {
+    final IAbstractReference<? extends IEntity> baseReference) {
     return //
     baseBackReference.getBackReferencedTableName().equals(baseReference.getStoredParentEntity().getParentTableName())
     && baseBackReference.getBackReferencedFieldName().equals(baseReference.getName());

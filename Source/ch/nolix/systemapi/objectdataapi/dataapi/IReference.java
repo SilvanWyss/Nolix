@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-public interface IReference<E extends IEntity> extends IBaseReference<E> {
+public interface IReference<E extends IEntity> extends IAbstractReference<E> {
 
   String getReferencedEntityId();
 

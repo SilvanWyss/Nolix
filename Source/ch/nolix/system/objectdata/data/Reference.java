@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IReferenceValidator;
 
-public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
+public final class Reference<E extends IEntity> extends AbstractReference<E> implements IReference<E> {
 
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 

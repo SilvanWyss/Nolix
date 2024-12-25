@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
+public final class MultiReference<E extends IEntity> extends AbstractReference<E> implements IMultiReference<E> {
 
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 

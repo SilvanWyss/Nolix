@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 
 public final class BaseReferenceUpdater {
@@ -11,7 +11,7 @@ public final class BaseReferenceUpdater {
   private static final EntityTool ENTITY_TOOL = new EntityTool();
 
   public <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
-    final IBaseReference<E> baseReference,
+    final IAbstractReference<E> baseReference,
     final E entity) {
 
     final var baseBackReference = //
