@@ -16,6 +16,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
 /**
  * A {@link AbstractClient} is an end point with comfortable functionalities.
@@ -26,7 +27,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
  */
 public abstract class AbstractClient<C extends AbstractClient<C>> implements GroupCloseable {
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private IEndPoint endPoint;
 
@@ -34,8 +35,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
 
   /**
    * @param key
-   * @return true if the current {@link AbstractClient} contains a session variable with
-   *         the given key, false otherwise.
+   * @return true if the current {@link AbstractClient} contains a session
+   *         variable with the given key, false otherwise.
    */
   public final boolean containsSessionVariableWithKey(final String key) {
     return sessionVariables.containsKey(key);
@@ -45,7 +46,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
    * {@inheritDoc}
    */
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
@@ -60,9 +61,10 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
    * @param key
    * @return the value of the session variable with the given key from the current
    *         {@link AbstractClient}.
-   * @throws ArgumentDoesNotContainElementException if the current {@link AbstractClient}
-   *                                                does not contain a session
-   *                                                variable with the given key.
+   * @throws ArgumentDoesNotContainElementException if the current
+   *                                                {@link AbstractClient} does
+   *                                                not contain a session variable
+   *                                                with the given key.
    */
   public final String getSessionVariableValueByKey(final String key) {
 
@@ -86,7 +88,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return true if the current {@link AbstractClient} has requested the connection.
+   * @return true if the current {@link AbstractClient} has requested the
+   *         connection.
    */
   public final boolean hasRequestedConnection() {
     return getStoredEndPoint().isFrontendEndPoint();
@@ -100,7 +103,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return true if the current {@link AbstractClient} is a backend {@link AbstractClient}.
+   * @return true if the current {@link AbstractClient} is a backend
+   *         {@link AbstractClient}.
    */
   public abstract boolean isBackendClient();
 
@@ -117,28 +121,32 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return true if the current {@link AbstractClient} is a frontend {@link AbstractClient}.
+   * @return true if the current {@link AbstractClient} is a frontend
+   *         {@link AbstractClient}.
    */
   public abstract boolean isFrontendClient();
 
   /**
-   * @return true if the current {@link AbstractClient} is a local {@link AbstractClient}.
+   * @return true if the current {@link AbstractClient} is a local
+   *         {@link AbstractClient}.
    */
   public final boolean isLocalClient() {
     return getStoredEndPoint().isLocalEndPoint();
   }
 
   /**
-   * @return true if the current {@link AbstractClient} is a net {@link AbstractClient}.
+   * @return true if the current {@link AbstractClient} is a net
+   *         {@link AbstractClient}.
    */
   public final boolean isNetClient() {
     return getStoredEndPoint().isSocketEndPoint();
   }
 
   /**
-   * @return true if the current {@link AbstractClient} is a web {@link AbstractClient}.
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @return true if the current {@link AbstractClient} is a web
+   *         {@link AbstractClient}.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   public final boolean isWebClient() {
     return getStoredEndPoint().isWebSocketEndPoint();
@@ -148,8 +156,9 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
    * Sets a session variable with the given key and value to the current
    * {@link AbstractClient}.
    * 
-   * Will overwrite a previous session variable if the current {@link AbstractClient}
-   * contains already a session variable with the given key.
+   * Will overwrite a previous session variable if the current
+   * {@link AbstractClient} contains already a session variable with the given
+   * key.
    * 
    * @param key
    * @param value
@@ -159,7 +168,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return the current {@link AbstractClient} as concrete {@link AbstractClient}.
+   * @return the current {@link AbstractClient} as concrete
+   *         {@link AbstractClient}.
    */
   @SuppressWarnings("unchecked")
   protected final C asConcrete() {
@@ -170,8 +180,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
    * @param request
    * @return the data the given request requests from the counterpart of the
    *         current {@link AbstractClient}.
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   protected final INode<?> getDataFromCounterpart(final IChainedNode request) {
     return getStoredEndPoint().getDataForRequest(request);
@@ -179,7 +189,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
 
   /**
    * @param request
-   * @return the data the given request requests from the current {@link AbstractClient}.
+   * @return the data the given request requests from the current
+   *         {@link AbstractClient}.
    */
   protected abstract INode<?> getDataFromHere(IChainedNode request);
 
@@ -198,41 +209,45 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   protected abstract void runHere(IChainedNode command);
 
   /**
-   * Runs the given command on the counterpart of the current {@link AbstractClient}.
+   * Runs the given command on the counterpart of the current
+   * {@link AbstractClient}.
    * 
    * @param command
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   protected final void runOnCounterpart(final IChainedNode command) {
     getStoredEndPoint().runCommand(command);
   }
 
   /**
-   * Runs the given commands on the counterpart of the current {@link AbstractClient}.
+   * Runs the given commands on the counterpart of the current
+   * {@link AbstractClient}.
    * 
    * @param command
    * @param commands
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   protected final void runOnCounterpart(final ChainedNode command, final ChainedNode... commands) {
     getStoredEndPoint().runCommands(command, commands);
   }
 
   /**
-   * Runs the given commands on the counterpart of the current {@link AbstractClient}.
+   * Runs the given commands on the counterpart of the current
+   * {@link AbstractClient}.
    * 
    * @param commands
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   protected final void runOnCounterpart(final Iterable<? extends IChainedNode> commands) {
     getStoredEndPoint().runCommands(commands);
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link AbstractClient} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractClient} is
+   *                                 closed.
    */
   void internalAssertIsOpen() {
     if (isClosed()) {
@@ -245,8 +260,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
    * 
    * @param endPoint
    * @throws ArgumentIsNullException  if the given endPoint is null.
-   * @throws InvalidArgumentException if the current {@link AbstractClient} is already
-   *                                  connected.
+   * @throws InvalidArgumentException if the current {@link AbstractClient} is
+   *                                  already connected.
    */
   final void internalSetEndPoint(final IEndPoint endPoint) {
 
@@ -267,8 +282,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   private void assertIsConnected() {
     if (!isConnected()) {
@@ -277,8 +292,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractClient} is already
-   *                                  connected.
+   * @throws InvalidArgumentException if the current {@link AbstractClient} is
+   *                                  already connected.
    */
   private void assertIsNotConnected() {
     if (isConnected()) {
@@ -288,8 +303,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
 
   /**
    * @return the {@link EndPoint} of the current {@link AbstractClient}.
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
-   *                                      connected.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   *                                      not connected.
    */
   private IEndPoint getStoredEndPoint() {
 

@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
@@ -14,7 +15,7 @@ import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 public final class DataReader implements IDataReader {
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private final InternalDataReader internalDataReader;
 
@@ -44,7 +45,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public CloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 

@@ -10,6 +10,7 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
@@ -23,7 +24,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IServer;
  */
 public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private Application<?, ?> defaultApplication;
 
@@ -148,8 +149,8 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds the given defaultApplication to the current {@link BaseServer}. A
-   * default {@link Application} takes all {@link AbstractClient}s that do not have a
-   * target.
+   * default {@link Application} takes all {@link AbstractClient}s that do not
+   * have a target.
    * 
    * @param defaultApplication
    * @param <C>                is the type of the {@link BackendClient} of the
@@ -300,7 +301,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * {@inheritDoc}
    */
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

@@ -3,6 +3,7 @@ package ch.nolix.system.sqlschema.schemaadapter;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
@@ -18,7 +19,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   private final ISchemaWriter schemaWriter;
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   protected SchemaAdapter(
     final String databaseName,
@@ -66,7 +67,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

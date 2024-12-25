@@ -3,6 +3,7 @@ package ch.nolix.system.baserawschema.databaseandschemaadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
@@ -17,7 +18,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter {
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private final IDataAdapter dataAdapter;
 
@@ -101,7 +102,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   }
 
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

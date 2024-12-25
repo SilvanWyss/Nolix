@@ -5,6 +5,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawschema.dtomapper.ColumnDtoMapper;
 import ch.nolix.system.sqlrawschema.querycreator.QueryCreator;
@@ -27,7 +28,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISqlConnection sqlConnection;
 
@@ -63,7 +64,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public CloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 

@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;
@@ -30,7 +31,7 @@ public abstract class DataAdapter implements IDataAdapter {
 
   private int saveCount;
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   protected DataAdapter(
     final String databaseName,
@@ -54,7 +55,7 @@ public abstract class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

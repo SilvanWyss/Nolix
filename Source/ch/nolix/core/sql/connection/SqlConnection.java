@@ -16,6 +16,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
@@ -25,7 +26,7 @@ public abstract class SqlConnection implements ISqlConnection {
 
   private final Connection connection;
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 
@@ -138,7 +139,7 @@ public abstract class SqlConnection implements ISqlConnection {
   }
 
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

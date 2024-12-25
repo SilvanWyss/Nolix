@@ -5,6 +5,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
@@ -21,7 +22,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private final ISchemaStatementCreator schemaStatementCreator;
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private SchemaWriter(
     final String databaseName,
@@ -68,7 +69,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public CloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 

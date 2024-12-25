@@ -9,7 +9,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
 public abstract class BaseEndPoint implements IBaseEndPoint {
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   @Override
   public final ICloseController getStoredCloseController() {

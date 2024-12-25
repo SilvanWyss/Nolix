@@ -10,6 +10,7 @@ import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.IServer;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 
 /**
@@ -20,7 +21,7 @@ public abstract class BaseServer implements IServer {
 
   private static final IResourceValidator<IEndPoint> RESOURCE_VALIDATOR = new ResourceValidator<>();
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private ISlot defaultSlot;
 
@@ -79,7 +80,7 @@ public abstract class BaseServer implements IServer {
    * {@inheritDoc}
    */
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

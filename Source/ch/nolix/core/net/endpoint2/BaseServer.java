@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.netapi.endpoint2api.IServer;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
 /**
  * @author Silvan Wyss
@@ -15,7 +16,7 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
  */
 public abstract class BaseServer implements IServer {
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private ISlot defaultSlot;
 
@@ -73,7 +74,7 @@ public abstract class BaseServer implements IServer {
    * {@inheritDoc}
    */
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

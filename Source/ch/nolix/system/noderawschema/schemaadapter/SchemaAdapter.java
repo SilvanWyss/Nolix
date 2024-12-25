@@ -4,6 +4,7 @@ import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.noderawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.noderawschema.schemareader.SchemaReader;
 import ch.nolix.system.noderawschema.schemawriter.SchemaWriter;
@@ -18,7 +19,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 
   private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private final SchemaReader schemaReader;
 
@@ -69,7 +70,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public CloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 

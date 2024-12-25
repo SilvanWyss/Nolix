@@ -3,6 +3,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -14,7 +15,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private IDatabase database;
 
@@ -47,7 +48,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final CloseController getStoredCloseController() {
+  public final ICloseController getStoredCloseController() {
     return closeController;
   }
 

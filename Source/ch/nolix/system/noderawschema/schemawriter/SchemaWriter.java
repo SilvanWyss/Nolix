@@ -5,6 +5,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.noderawschema.nodemapper.ColumnNodeMapper;
 import ch.nolix.system.noderawschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.system.noderawschema.nodemapper.TableNodeMapper;
@@ -48,7 +49,7 @@ public final class SchemaWriter implements ISchemaWriter {
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private int saveCount;
 
@@ -116,7 +117,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public CloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 
