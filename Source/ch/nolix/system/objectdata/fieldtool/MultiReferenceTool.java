@@ -3,8 +3,8 @@ package ch.nolix.system.objectdata.fieldtool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
 

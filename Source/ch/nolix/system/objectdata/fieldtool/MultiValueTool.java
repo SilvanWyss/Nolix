@@ -2,8 +2,8 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class MultiValueTool extends FieldTool implements IMultiValueTool {
 

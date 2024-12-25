@@ -9,8 +9,8 @@ import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 /**
- * A {@link Server} is a {@link BaseServer} that listens to net {@link AbstractClient}s
- * on a specific port.
+ * A {@link Server} is a {@link BaseServer} that listens to net
+ * {@link AbstractClient}s on a specific port.
  * 
  * @author Silvan Wyss
  * @version 2017-09-10
@@ -22,8 +22,8 @@ public final class Server extends BaseServer<Server> {
   private ch.nolix.core.net.endpoint3.Server internalServer;
 
   /**
-   * Creates a new {@link Server} that will listen to net {@link AbstractClient}s on the
-   * given port.
+   * Creates a new {@link Server} that will listen to net {@link AbstractClient}s
+   * on the given port.
    * 
    * @param port
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
@@ -40,8 +40,8 @@ public final class Server extends BaseServer<Server> {
   }
 
   /**
-   * @return a new {@link Server} that will listen to net {@link AbstractClient}s on the
-   *         HTTP port (80).
+   * @return a new {@link Server} that will listen to net {@link AbstractClient}s
+   *         on the HTTP port (80).
    */
   public static Server forHttpPort() {
     return forPort(PortCatalogue.HTTP);
@@ -49,8 +49,8 @@ public final class Server extends BaseServer<Server> {
 
   /**
    * @param port
-   * @return a new {@link Server} that will listen to net {@link AbstractClient}s on the
-   *         given port.
+   * @return a new {@link Server} that will listen to net {@link AbstractClient}s
+   *         on the given port.
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public static Server forPort(final int port) {

@@ -23,7 +23,8 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
   private Object result;
 
   /**
-   * @return true if the current {@link Session} belongs to a {@link AbstractClient}.
+   * @return true if the current {@link Session} belongs to a
+   *         {@link AbstractClient}.
    */
   public final boolean belongsToClient() {
     return (parentClient != null);
@@ -80,8 +81,8 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
   }
 
   /**
-   * Pops the current {@link Session} from its parent {@link AbstractClient} with the
-   * given result.
+   * Pops the current {@link Session} from its parent {@link AbstractClient} with
+   * the given result.
    * 
    * @param result
    * @throws ArgumentIsNullException if the given result is null.
@@ -117,8 +118,8 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
   /**
    * Sets the next session of the parent {@link AbstractClient} of the current
    * {@link Session}. That means the current {@link Session} will be popped from
-   * its parent {@link AbstractClient} and the given session is pushed to the parent
-   * {@link AbstractClient} of the current {@link Session}.
+   * its parent {@link AbstractClient} and the given session is pushed to the
+   * parent {@link AbstractClient} of the current {@link Session}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
@@ -205,8 +206,8 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
   }
 
   /**
-   * @return the parent {@link Application} of the parent {@link AbstractClient} of the
-   *         current {@link Session}.
+   * @return the parent {@link Application} of the parent {@link AbstractClient}
+   *         of the current {@link Session}.
    */
   private Application<C, S> getStoredParentApplication() {
     return getStoredParentClient().getStoredParentApplication();

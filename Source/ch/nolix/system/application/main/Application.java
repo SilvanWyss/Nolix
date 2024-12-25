@@ -73,7 +73,8 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return the class of the {@link AbstractClient}s of the current {@link Application}.
+   * @return the class of the {@link AbstractClient}s of the current
+   *         {@link Application}.
    */
   @SuppressWarnings("unchecked")
   public final Class<C> getClientClass() {
@@ -169,8 +170,8 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return a new initial {@link Session} for a {@link AbstractClient} of the current
-   *         {@link Application}.
+   * @return a new initial {@link Session} for a {@link AbstractClient} of the
+   *         current {@link Application}.
    */
   @SuppressWarnings("unchecked")
   protected final Session<C, S> createInitialSession() {
@@ -303,7 +304,8 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * Removes the closed {@link AbstractClient}s of the current {@link Application}.
+   * Removes the closed {@link AbstractClient}s of the current
+   * {@link Application}.
    */
   private void removeClosedClients() {
     clients.removeAll(AbstractClient::isClosed);

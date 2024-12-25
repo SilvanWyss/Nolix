@@ -144,8 +144,8 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Lets the current {@link MutableElement} extract the {@link AbstractProperty} from the
-   * given field if the given field stores a {@link AbstractProperty}.
+   * Lets the current {@link MutableElement} extract the {@link AbstractProperty}
+   * from the given field if the given field stores a {@link AbstractProperty}.
    * 
    * @param field
    */
@@ -173,8 +173,8 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the {@link MutableElement} that are from
-   * the given pClass.
+   * Extracts the {@link AbstractProperty}s of the {@link MutableElement} that are
+   * from the given pClass.
    * 
    * @param pClass
    */
@@ -187,8 +187,8 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the current {@link MutableElement} if they
-   * are not extracted yet.
+   * Extracts the {@link AbstractProperty}s of the current {@link MutableElement}
+   * if they are not extracted yet.
    */
   private void extractPropertiesIfNotExtracted() {
     if (!hasExtractedProperties()) {
@@ -197,8 +197,8 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty} of the {@link MutableElement} that is from the
-   * given field.
+   * Extracts the {@link AbstractProperty} of the {@link MutableElement} that is
+   * from the given field.
    * 
    * @param field
    * @throws IllegalAccessError if the given field is not accessible.
@@ -230,8 +230,8 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * @return true if the {@link AbstractProperty}s of the current {@link MutableElement}
-   *         are extracted.
+   * @return true if the {@link AbstractProperty}s of the current
+   *         {@link MutableElement} are extracted.
    */
   private boolean hasExtractedProperties() {
     return (properties != null);
