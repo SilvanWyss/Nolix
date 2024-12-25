@@ -2,7 +2,6 @@ package ch.nolix.system.noderawschema.dtomapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.noderawschema.schemareader.ContentModelDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
 
@@ -25,7 +24,7 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var columnId = COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
     final var columnName = COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
     final var contentModelNode = COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode);
-    final var contentModel = CONTENT_MODEL_DTO_MAPPER.createContentModelDtoFromContentModelNode(contentModelNode);
+    final var contentModel = CONTENT_MODEL_DTO_MAPPER.mapContentModelNodeToContentModelDto(contentModelNode);
 
     return new ColumnDto(columnId, columnName, contentModel);
   }

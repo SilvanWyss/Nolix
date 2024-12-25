@@ -1,8 +1,9 @@
-package ch.nolix.system.noderawschema.schemareader;
+package ch.nolix.system.noderawschema.dtomapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
@@ -15,11 +16,19 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
-public class ContentModelDtoMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2024-12-25
+ */
+public final class ContentModelDtoMapper implements IContentModelDtoMapper {
 
   private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
-  public IContentModelDto createContentModelDtoFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContentModelDto mapContentModelNodeToContentModelDto(final IMutableNode<?> contentModelNode) {
 
     final var contentType = CONTENT_MODEL_NODE_SEARCHER.getContentTypeFromContentModelNode(contentModelNode);
 
