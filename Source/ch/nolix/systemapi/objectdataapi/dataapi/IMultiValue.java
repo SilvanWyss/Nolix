@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-public interface IMultiValue<V> extends Clearable, IBaseValue<V> {
+public interface IMultiValue<V> extends Clearable, IAbstractValue<V> {
 
   void addValue(V value);
 

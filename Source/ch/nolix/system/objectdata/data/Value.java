@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
 
-public final class Value<V> extends BaseValue<V> implements IValue<V> {
+public final class Value<V> extends AbstractValue<V> implements IValue<V> {
 
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 

@@ -4,15 +4,15 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBaseValue;
+import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 
-public abstract class BaseValue<V> extends AbstractField implements IBaseValue<V> {
+public abstract class AbstractValue<V> extends AbstractField implements IAbstractValue<V> {
 
   private final Class<V> valueType;
 
-  protected BaseValue(final Class<V> valueType) {
+  protected AbstractValue(final Class<V> valueType) {
 
     GlobalValidator.assertThat(valueType).thatIsNamed("value type").isNotNull();
 

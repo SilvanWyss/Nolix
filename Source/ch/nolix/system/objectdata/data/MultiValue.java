@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
+public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue<V> {
 
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
 
-public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
+public final class OptionalValue<V> extends AbstractValue<V> implements IOptionalValue<V> {
 
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 

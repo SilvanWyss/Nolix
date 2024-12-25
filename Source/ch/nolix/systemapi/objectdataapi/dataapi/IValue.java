@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-public interface IValue<V> extends IBaseValue<V> {
+public interface IValue<V> extends IAbstractValue<V> {
 
   V getStoredValue();
 
