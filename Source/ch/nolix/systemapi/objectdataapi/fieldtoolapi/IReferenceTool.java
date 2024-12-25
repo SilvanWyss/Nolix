@@ -11,7 +11,8 @@ public interface IReferenceTool extends IFieldTool {
 
   EntityUpdateDto forReferenceCreateEntityUpdateDtoForSetEntity(IReference<?> reference, IEntity entity);
 
-  Optional<IAbstractBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(IReference<IEntity> reference);
+  Optional<IAbstractBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
+    IReference<IEntity> reference);
 
   boolean toReferenceCanSetEntity(final IReference<?> reference, IEntity entity);
 }

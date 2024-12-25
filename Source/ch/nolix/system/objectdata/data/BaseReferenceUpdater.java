@@ -20,7 +20,9 @@ public final class BaseReferenceUpdater {
     baseBackReference.ifPresent(bbr -> toBaseBackReferenceAddOrSetEntity(bbr, baseReference.getStoredParentEntity()));
   }
 
-  private void toBaseBackReferenceAddOrSetEntity(final IAbstractBackReference<?> baseBackReference, final IEntity entity) {
+  private void toBaseBackReferenceAddOrSetEntity(
+    final IAbstractBackReference<?> baseBackReference,
+    final IEntity entity) {
 
     final var type = baseBackReference.getType();
 
