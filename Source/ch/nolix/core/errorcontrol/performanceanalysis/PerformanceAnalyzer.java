@@ -64,7 +64,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
     var latestTimeComplexityInvariant = 0.0;
 
-    for (var runCount = 5; runCount <= maxRunCount; runCount *= 5) {
+    for (var runCount = 25; runCount <= maxRunCount; runCount *= 5) {
 
       final var optionalTimeComplexityInvariant = //
       getOpionalTimeComplexityInvariantOfActionOnObjectFromObjectSupplierByRunCountAndTimeComplexityFunction(
