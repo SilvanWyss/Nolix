@@ -4,12 +4,16 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.noderawschema.dtomapper.ColumnDtoMapper;
-import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
@@ -17,20 +21,18 @@ import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 
 public final class SchemaReader implements ISchemaReader {
 
-  private static final NodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
+  private static final INodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
 
-  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
-
-  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
   private static final FlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
-  private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
-  private final CloseController closeController = CloseController.forElement(this);
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private final IMutableNode<?> nodeDatabase;
 
@@ -50,13 +52,11 @@ public final class SchemaReader implements ISchemaReader {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
-
-    return COLUMN_NODE_SEARCHER.columnNodeContainsEntityNode(columnNode);
+    return TABLE_NODE_SEARCHER.columnOfTableNodeIsEmptyByColumnName(tableNode, columnName);
   }
 
   @Override
-  public CloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 
