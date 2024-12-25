@@ -38,19 +38,6 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
   }
 
   @Override
-  public EntityUpdateDto createEntityUpdateDtoForSetEntity(
-    final IOptionalReference<?> optionalReference,
-    final IEntity entity) {
-
-    final var parentEntity = optionalReference.getStoredParentEntity();
-
-    return new EntityUpdateDto(
-      parentEntity.getId(),
-      parentEntity.getSaveStamp(),
-      StringContentFieldDto.withColumnNameAndContent(optionalReference.getName(), entity.getId()));
-  }
-
-  @Override
   public Optional<? extends IField> getOptionalStoredBackReferencingField(
     final IOptionalReference<?> optionalReference) {
     return optionalReference

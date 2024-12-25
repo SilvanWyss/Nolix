@@ -15,7 +15,5 @@ public interface IOptionalReferenceTool {
 
   EntityUpdateDto createEntityUpdateDtoForClear(IOptionalReference<?> optionalReference);
 
-  EntityUpdateDto createEntityUpdateDtoForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
-
   Optional<? extends IField> getOptionalStoredBackReferencingField(IOptionalReference<?> optionalReference);
 }
