@@ -32,19 +32,6 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
   }
 
   @Override
-  public EntityUpdateDto createEntityUpdateDtoForAddEntity(
-    final IMultiReference<?> multiReference,
-    final IEntity entity) {
-
-    final var parentEntity = multiReference.getStoredParentEntity();
-
-    return new EntityUpdateDto(
-      parentEntity.getId(),
-      parentEntity.getSaveStamp(),
-      StringContentFieldDto.withColumnName(multiReference.getName()));
-  }
-
-  @Override
   public EntityUpdateDto createEntityUpdateDtoForClear(final IMultiReference<?> multiReference) {
 
     final var parentEntity = multiReference.getStoredParentEntity();
