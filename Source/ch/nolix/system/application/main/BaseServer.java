@@ -148,7 +148,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds the given defaultApplication to the current {@link BaseServer}. A
-   * default {@link Application} takes all {@link Client}s that do not have a
+   * default {@link Application} takes all {@link AbstractClient}s that do not have a
    * target.
    * 
    * @param defaultApplication
@@ -328,7 +328,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * @return true if the current {@link BaseServer} has a {@link Client}
+   * @return true if the current {@link BaseServer} has a {@link AbstractClient}
    *         connected.
    */
   public final boolean hasClientConnected() {

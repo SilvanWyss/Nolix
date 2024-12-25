@@ -18,13 +18,13 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
 /**
- * A {@link Client} is an end point with comfortable functionalities.
+ * A {@link AbstractClient} is an end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <C> is the type of a {@link Client}.
+ * @param <C> is the type of a {@link AbstractClient}.
  */
-public abstract class Client<C extends Client<C>> implements GroupCloseable {
+public abstract class AbstractClient<C extends AbstractClient<C>> implements GroupCloseable {
 
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -34,7 +34,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
   /**
    * @param key
-   * @return true if the current {@link Client} contains a session variable with
+   * @return true if the current {@link AbstractClient} contains a session variable with
    *         the given key, false otherwise.
    */
   public final boolean containsSessionVariableWithKey(final String key) {
@@ -50,7 +50,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @return the {@link SecurityMode} of the current {@link Client}.
+   * @return the {@link SecurityMode} of the current {@link AbstractClient}.
    */
   public SecurityMode getSecurityMode() {
     return endPoint.getSecurityMode();
@@ -59,8 +59,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   /**
    * @param key
    * @return the value of the session variable with the given key from the current
-   *         {@link Client}.
-   * @throws ArgumentDoesNotContainElementException if the current {@link Client}
+   *         {@link AbstractClient}.
+   * @throws ArgumentDoesNotContainElementException if the current {@link AbstractClient}
    *                                                does not contain a session
    *                                                variable with the given key.
    */
@@ -79,28 +79,28 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
   /**
    * @return the name of the target {@link Application} of the current
-   *         {@link Client}.
+   *         {@link AbstractClient}.
    */
   public final String getTarget() {
     return getStoredEndPoint().getCustomTargetSlot();
   }
 
   /**
-   * @return true if the current {@link Client} has requested the connection.
+   * @return true if the current {@link AbstractClient} has requested the connection.
    */
   public final boolean hasRequestedConnection() {
     return getStoredEndPoint().isFrontendEndPoint();
   }
 
   /**
-   * @return true if the current {@link Client} has a target.
+   * @return true if the current {@link AbstractClient} has a target.
    */
   public final boolean hasTarget() {
     return getStoredEndPoint().hasCustomTargetSlot();
   }
 
   /**
-   * @return true if the current {@link Client} is a backend {@link Client}.
+   * @return true if the current {@link AbstractClient} is a backend {@link AbstractClient}.
    */
   public abstract boolean isBackendClient();
 
@@ -117,27 +117,27 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @return true if the current {@link Client} is a frontend {@link Client}.
+   * @return true if the current {@link AbstractClient} is a frontend {@link AbstractClient}.
    */
   public abstract boolean isFrontendClient();
 
   /**
-   * @return true if the current {@link Client} is a local {@link Client}.
+   * @return true if the current {@link AbstractClient} is a local {@link AbstractClient}.
    */
   public final boolean isLocalClient() {
     return getStoredEndPoint().isLocalEndPoint();
   }
 
   /**
-   * @return true if the current {@link Client} is a net {@link Client}.
+   * @return true if the current {@link AbstractClient} is a net {@link AbstractClient}.
    */
   public final boolean isNetClient() {
     return getStoredEndPoint().isSocketEndPoint();
   }
 
   /**
-   * @return true if the current {@link Client} is a web {@link Client}.
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   * @return true if the current {@link AbstractClient} is a web {@link AbstractClient}.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   public final boolean isWebClient() {
@@ -146,9 +146,9 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
   /**
    * Sets a session variable with the given key and value to the current
-   * {@link Client}.
+   * {@link AbstractClient}.
    * 
-   * Will overwrite a previous session variable if the current {@link Client}
+   * Will overwrite a previous session variable if the current {@link AbstractClient}
    * contains already a session variable with the given key.
    * 
    * @param key
@@ -159,7 +159,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @return the current {@link Client} as concrete {@link Client}.
+   * @return the current {@link AbstractClient} as concrete {@link AbstractClient}.
    */
   @SuppressWarnings("unchecked")
   protected final C asConcrete() {
@@ -169,8 +169,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   /**
    * @param request
    * @return the data the given request requests from the counterpart of the
-   *         current {@link Client}.
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   *         current {@link AbstractClient}.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   protected final INode<?> getDataFromCounterpart(final IChainedNode request) {
@@ -179,29 +179,29 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
   /**
    * @param request
-   * @return the data the given request requests from the current {@link Client}.
+   * @return the data the given request requests from the current {@link AbstractClient}.
    */
   protected abstract INode<?> getDataFromHere(IChainedNode request);
 
   /**
-   * @return true if the current {@link Client} is connected.
+   * @return true if the current {@link AbstractClient} is connected.
    */
   protected final boolean isConnected() {
     return (endPoint != null);
   }
 
   /**
-   * Lets the current {@link Client} run the given command.
+   * Lets the current {@link AbstractClient} run the given command.
    * 
    * @param command
    */
   protected abstract void runHere(IChainedNode command);
 
   /**
-   * Runs the given command on the counterpart of the current {@link Client}.
+   * Runs the given command on the counterpart of the current {@link AbstractClient}.
    * 
    * @param command
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   protected final void runOnCounterpart(final IChainedNode command) {
@@ -209,11 +209,11 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * Runs the given commands on the counterpart of the current {@link Client}.
+   * Runs the given commands on the counterpart of the current {@link AbstractClient}.
    * 
    * @param command
    * @param commands
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   protected final void runOnCounterpart(final ChainedNode command, final ChainedNode... commands) {
@@ -221,10 +221,10 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * Runs the given commands on the counterpart of the current {@link Client}.
+   * Runs the given commands on the counterpart of the current {@link AbstractClient}.
    * 
    * @param commands
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   protected final void runOnCounterpart(final Iterable<? extends IChainedNode> commands) {
@@ -232,7 +232,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link Client} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractClient} is closed.
    */
   void internalAssertIsOpen() {
     if (isClosed()) {
@@ -241,11 +241,11 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * Sets the {@link EndPoint} of the current {@link Client}.
+   * Sets the {@link EndPoint} of the current {@link AbstractClient}.
    * 
    * @param endPoint
    * @throws ArgumentIsNullException  if the given endPoint is null.
-   * @throws InvalidArgumentException if the current {@link Client} is already
+   * @throws InvalidArgumentException if the current {@link AbstractClient} is already
    *                                  connected.
    */
   final void internalSetEndPoint(final IEndPoint endPoint) {
@@ -267,7 +267,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   private void assertIsConnected() {
@@ -277,7 +277,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link Client} is already
+   * @throws InvalidArgumentException if the current {@link AbstractClient} is already
    *                                  connected.
    */
   private void assertIsNotConnected() {
@@ -287,8 +287,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
   }
 
   /**
-   * @return the {@link EndPoint} of the current {@link Client}.
-   * @throws UnconnectedArgumentException if the current {@link Client} is not
+   * @return the {@link EndPoint} of the current {@link AbstractClient}.
+   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is not
    *                                      connected.
    */
   private IEndPoint getStoredEndPoint() {

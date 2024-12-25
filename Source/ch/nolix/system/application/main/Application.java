@@ -73,7 +73,7 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return the class of the {@link Client}s of the current {@link Application}.
+   * @return the class of the {@link AbstractClient}s of the current {@link Application}.
    */
   @SuppressWarnings("unchecked")
   public final Class<C> getClientClass() {
@@ -113,7 +113,7 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return the {@link Client}s of the current {@link Application}.
+   * @return the {@link AbstractClient}s of the current {@link Application}.
    */
   public final IContainer<C> getStoredClients() {
 
@@ -131,7 +131,7 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return true if the current {@link Application} has a {@link Client}
+   * @return true if the current {@link Application} has a {@link AbstractClient}
    *         connected.
    */
   public final boolean hasClientConnected() {
@@ -169,7 +169,7 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return a new initial {@link Session} for a {@link Client} of the current
+   * @return a new initial {@link Session} for a {@link AbstractClient} of the current
    *         {@link Application}.
    */
   @SuppressWarnings("unchecked")
@@ -303,9 +303,9 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * Removes the closed {@link Client}s of the current {@link Application}.
+   * Removes the closed {@link AbstractClient}s of the current {@link Application}.
    */
   private void removeClosedClients() {
-    clients.removeAll(Client::isClosed);
+    clients.removeAll(AbstractClient::isClosed);
   }
 }

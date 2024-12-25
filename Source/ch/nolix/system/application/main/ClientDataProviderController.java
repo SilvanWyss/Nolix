@@ -12,14 +12,14 @@ import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 
 /**
  * A {@link ClientDataProviderController} is a {@link IDataProviderController}
- * for the {@link EndPoint} of a {@link Client}.
+ * for the {@link EndPoint} of a {@link AbstractClient}.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
  */
 final class ClientDataProviderController implements IDataProviderController {
 
-  private final Client<?> parentClient;
+  private final AbstractClient<?> parentClient;
 
   /**
    * Creates a new {@link ClientDataProviderController} with the given
@@ -28,7 +28,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * @param parentClient
    * @throws ArgumentIsNullException if the given parentClient is null.
    */
-  public ClientDataProviderController(final Client<?> parentClient) {
+  public ClientDataProviderController(final AbstractClient<?> parentClient) {
 
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 

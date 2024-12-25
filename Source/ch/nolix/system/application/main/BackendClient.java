@@ -13,7 +13,7 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * @param <S> is the type of the context of the parent {@link Application} of a
  *            {@link BackendClient}.
  */
-public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Client<C> {
+public abstract class BackendClient<C extends BackendClient<C, S>, S> extends AbstractClient<C> {
 
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
