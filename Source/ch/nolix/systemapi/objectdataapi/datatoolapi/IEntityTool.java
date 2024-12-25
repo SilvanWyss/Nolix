@@ -8,9 +8,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
 
 public interface IEntityTool extends IDatabaseObjectExaminer {
 
@@ -21,15 +18,6 @@ public interface IEntityTool extends IDatabaseObjectExaminer {
   boolean canBeInsertedIntoTable(IEntity entity);
 
   boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
-
-  //TODO: Create DtoMapper
-  EntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
-
-  //TODO: Create DtoMapper
-  EntityDeletionDto createEntityHeadDtoForEntity(IEntity entity);
-
-  //TODO: Create DtoMapper
-  EntityCreationDto createNewEntityDtoForEntity(IEntity entity);
 
   Optional<? extends IBaseBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(

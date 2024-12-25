@@ -1,19 +1,19 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
-import ch.nolix.system.objectdata.datatool.EntityTool;
+import ch.nolix.system.objectdata.datadtomapper.EntityDtoMapper;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IField;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
+import ch.nolix.systemapi.objectdataapi.datadtomapperapi.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 public final class EntitySaver {
 
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
 
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
@@ -47,7 +47,7 @@ public final class EntitySaver {
 
     dataAndSchemaAdapter.insertEntity(
       newEntity.getParentTableName(),
-      ENTITY_TOOL.createNewEntityDtoForEntity(newEntity));
+      ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity));
 
     saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
   }
@@ -58,7 +58,7 @@ public final class EntitySaver {
 
     dataAndSchemaAdapter.updateEntity(
       editedEntity.getParentTableName(),
-      ENTITY_TOOL.createEntityUpdateDtoForEntity(editedEntity));
+      ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity));
 
     saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
   }
@@ -68,7 +68,7 @@ public final class EntitySaver {
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
     dataAndSchemaAdapter.deleteEntity(
       deletedEntity.getStoredParentTable().getName(),
-      ENTITY_TOOL.createEntityHeadDtoForEntity(deletedEntity));
+      ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(deletedEntity));
   }
 
   private void saveMultiPropertyChangesOfEntity(
