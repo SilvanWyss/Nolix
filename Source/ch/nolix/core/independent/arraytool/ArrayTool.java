@@ -1,23 +1,18 @@
 package ch.nolix.core.independent.arraytool;
 
 import ch.nolix.core.independent.list.List;
+import ch.nolix.coreapi.independentapi.arraytoolapi.IArrayTool;
 
 /**
- * The {@link ArrayTool} provides functions to handle arrays.
- * 
  * @author Silvan Wyss
  * @version 2017-08-14
  */
-public final class ArrayTool {
+public final class ArrayTool implements IArrayTool {
 
-  // method
   /**
-   * @param element
-   * @param elements
-   * @param <E>      is the type of the given firstElement and of the given
-   *                 elements.
-   * @return a new array with the given firstElement and elements.
+   * {@inheritDoc}
    */
+  @Override
   public <E> E[] createArrayWithElement(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
@@ -29,14 +24,10 @@ public final class ArrayTool {
     return array;
   }
 
-  // method
   /**
-   * Creates a new iterable object with the given values.
-   * 
-   * @param values
-   * @return a new iterable object with the given values.
-   * @throws IllegalArgumentException if the given values is null.
+   * {@inheritDoc}
    */
+  @Override
   public Iterable<Byte> createIterable(final byte[] values) {
 
     //Asserts that the given values is not null.
@@ -54,14 +45,10 @@ public final class ArrayTool {
     return valueList;
   }
 
-  // method
   /**
-   * Creates a new iterable object with the given values.
-   * 
-   * @param values
-   * @return a new iterable object with the given values.
-   * @throws IllegalArgumentException if the given values is null.
+   * {@inheritDoc}
    */
+  @Override
   public Iterable<Double> createIterable(final double[] values) {
 
     //Asserts that the given values is not null.
@@ -79,15 +66,10 @@ public final class ArrayTool {
     return valueList;
   }
 
-  // method
   /**
-   * Creates a new iterable object with the given elements.
-   * 
-   * @param elements
-   * @param <E>      is the type of the given elements.
-   * @return a new iterable object with the given elements.
-   * @throws IllegalArgumentException if the given elements is null.
+   * {@inheritDoc}
    */
+  @Override
   public <E> Iterable<E> createIterable(final E[] elements) {
 
     //Asserts that the given elements is not null.
@@ -105,14 +87,10 @@ public final class ArrayTool {
     return elementList;
   }
 
-  // method
   /**
-   * Creates a new iterable object with the given values.
-   * 
-   * @param values
-   * @return a new iterable object with the given values.
-   * @throws IllegalArgumentException if the given values is null.
+   * {@inheritDoc}
    */
+  @Override
   public Iterable<Long> createIterable(final int[] values) {
 
     //Asserts that the given values is not null.
@@ -130,14 +108,10 @@ public final class ArrayTool {
     return valueList;
   }
 
-  // method
   /**
-   * Creates a new iterable object with the given values.
-   * 
-   * @param values
-   * @return a new iterable object with the given values.
-   * @throws IllegalArgumentException if the given values is null.
+   * {@inheritDoc}
    */
+  @Override
   public Iterable<Long> createIterable(final long[] values) {
 
     //Asserts that the given values is not null.
@@ -156,10 +130,9 @@ public final class ArrayTool {
   }
 
   /**
-   * @param values
-   * @return a {@link String} representation of the given values.
-   * @throws IllegalArgumentException if the given values is null.
+   * {@inheritDoc}
    */
+  @Override
   public String createString(final long[] values) {
 
     //Asserts that the given values is not null.
