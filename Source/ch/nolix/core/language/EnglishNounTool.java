@@ -3,12 +3,9 @@ package ch.nolix.core.language;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.wordapi.EnglishArticleCatalogue;
 
 public final class EnglishNounTool {
-
-  private static final String ARTICLE_A = "a";
-
-  private static final String ARTICLE_AN = "an";
 
   private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
 
@@ -61,9 +58,9 @@ public final class EnglishNounTool {
       'o',
       'U',
       'u' ->
-        ARTICLE_AN;
+        EnglishArticleCatalogue.AN;
       default ->
-        ARTICLE_A;
+        EnglishArticleCatalogue.A;
     };
   }
 
