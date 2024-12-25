@@ -155,32 +155,6 @@ public final class ArrayTool {
     return valueList;
   }
 
-  /**
-   * @param values
-   * @return a {@link String} representation of the given values.
-   * @throws IllegalArgumentException if the given values is null.
-   */
-  public String createString(final double[] values) {
-
-    //Asserts that the given values is not null.
-    if (values == null) {
-      throw new IllegalArgumentException("The given values is null.");
-    }
-
-    final var stringBuilder = new StringBuilder();
-
-    //Iterates the given values.
-    for (var i = 0; i < values.length; i++) {
-      if (i < values.length - 1) {
-        stringBuilder.append(values[i] + ", ");
-      } else {
-        stringBuilder.append(values[i]);
-      }
-    }
-
-    return stringBuilder.toString();
-  }
-
   // method
   /**
    * @param values
