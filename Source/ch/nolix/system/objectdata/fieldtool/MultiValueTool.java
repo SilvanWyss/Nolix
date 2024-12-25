@@ -2,8 +2,6 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 public final class MultiValueTool extends FieldTool implements IMultiValueTool {
 
@@ -27,18 +25,6 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
     return //
     canRemoveValue(multiValue)
     && value != null;
-  }
-
-  @Override
-  public EntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
-
-    final var parentEntity = multiValue.getStoredParentEntity();
-
-    return //
-    new EntityUpdateDto(
-      parentEntity.getId(),
-      parentEntity.getSaveStamp(),
-      StringContentFieldDto.withColumnName(multiValue.getName()));
   }
 
   private boolean canAddValue(final IMultiValue<?> multiValue) {
