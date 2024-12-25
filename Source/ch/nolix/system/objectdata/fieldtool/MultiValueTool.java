@@ -30,20 +30,6 @@ public final class MultiValueTool extends FieldTool implements IMultiValueTool {
   }
 
   @Override
-  public <V> EntityUpdateDto createEntityUpdateDtoForAddedValue(
-    final IMultiValue<V> multiValue,
-    final V addedValue) {
-
-    final var parentEntity = multiValue.getStoredParentEntity();
-
-    return //
-    new EntityUpdateDto(
-      parentEntity.getId(),
-      parentEntity.getSaveStamp(),
-      StringContentFieldDto.withColumnNameAndContent(multiValue.getName(), ""));
-  }
-
-  @Override
   public EntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
 
     final var parentEntity = multiValue.getStoredParentEntity();

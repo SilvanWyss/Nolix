@@ -11,7 +11,5 @@ public interface IMultiValueTool extends IFieldTool {
 
   <V> boolean canRemoveValue(IMultiValue<V> multiValue, V value);
 
-  <V> EntityUpdateDto createEntityUpdateDtoForAddedValue(IMultiValue<V> multiValue, V addedValue);
-
   EntityUpdateDto createEntityUpdateDtoForClear(IMultiValue<?> multiValue);
 }
