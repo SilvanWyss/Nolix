@@ -1,13 +1,50 @@
 package ch.nolix.system.noderawschema.nodesearcher;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
-  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+
+  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+
+  @Override
+  public boolean columnOfTableNodeIsEmptyByColumnName(final IMutableNode<?> tableNode, final String columnName) {
+
+    final var local1BasedColumnIndex = get1BasedIndexOfColumnInTableNodeByColumnName(tableNode, columnName);
+    final var entityNodes = getStoredEntityNodesFromTableNode(tableNode);
+
+    for (final var e : entityNodes) {
+      if (ENTITY_NODE_SEARCHER.fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(e, local1BasedColumnIndex)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  @Override
+  public int get1BasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
+
+    var local1BasedColumnIndex = 3;
+
+    for (final var c : getStoredColumnNodesFromTableNode(tableNode)) {
+
+      if (COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(c).equals(columnName)) {
+        return local1BasedColumnIndex;
+      }
+
+      local1BasedColumnIndex++;
+    }
+
+    throw InvalidArgumentException.forArgumentNameAndArgument("column name", columnName);
+  }
 
   @Override
   public IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnName(

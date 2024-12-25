@@ -5,6 +5,10 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface ITableNodeSearcher {
 
+  boolean columnOfTableNodeIsEmptyByColumnName(IMutableNode<?> tableNode, String columnName);
+
+  int get1BasedIndexOfColumnInTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
+
   IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
 
   IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
