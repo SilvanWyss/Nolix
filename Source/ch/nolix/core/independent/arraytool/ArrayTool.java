@@ -31,21 +31,6 @@ public final class ArrayTool {
 
   // method
   /**
-   * @param value
-   * @param values
-   * @return a new array with the given values.
-   */
-  public double[] createArrayWithValue(final double value, final double... values) {
-
-    final var array = new double[1 + values.length];
-    array[0] = value;
-    System.arraycopy(values, 0, array, 1, values.length);
-
-    return array;
-  }
-
-  // method
-  /**
    * Creates a new iterable object with the given values.
    * 
    * @param values
