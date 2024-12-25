@@ -29,7 +29,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
             new FloatContainer()
               .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
               .addControls(createApplicationComponents())))
-      .setStyle(StyleCatalogue.STYLE);
+      .setStyle(StyleCatalogue.SERVER_DASHBOARD_STYLE);
   }
 
   private IContainer<IComponent> createApplicationComponents() {
