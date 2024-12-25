@@ -11,11 +11,6 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   @Override
-  public boolean columnNodeContainsEntityNode(final IMutableNode<?> columnNode) {
-    return columnNode.containsChildNodeWithHeader(NodeHeaderCatalogue.ENTITY);
-  }
-
-  @Override
   public String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
     return getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
   }

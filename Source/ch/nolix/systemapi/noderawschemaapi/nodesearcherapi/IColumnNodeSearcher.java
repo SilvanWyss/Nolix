@@ -5,8 +5,6 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public interface IColumnNodeSearcher {
 
-  boolean columnNodeContainsEntityNode(IMutableNode<?> columnNode);
-
   String getColumnIdFromColumnNode(IMutableNode<?> columnNode);
 
   String getColumnNameFromColumnNode(IMutableNode<?> columnNode);
