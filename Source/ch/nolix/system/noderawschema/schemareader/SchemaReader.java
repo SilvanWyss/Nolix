@@ -6,11 +6,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.noderawschema.dtomapper.ColumnDtoMapper;
+import ch.nolix.system.noderawschema.flatdtomapper.FlatTableDtoMapper;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.noderawschemaapi.flatdtomapper.IFlatTableDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
@@ -28,7 +30,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final FlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
+  private static final IFlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
@@ -85,21 +87,24 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public FlatTableDto loadFlatTableById(final String id) {
-    return FLAT_TABLE_DTO_MAPPER.createFlatTableDtoFromTableNode(
+    return //
+    FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(
       DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, id));
   }
 
   @Override
   public FlatTableDto loadFlatTableByName(final String name) {
-    return FLAT_TABLE_DTO_MAPPER.createFlatTableDtoFromTableNode(
+    return //
+    FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(
       DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name));
   }
 
   @Override
   public IContainer<FlatTableDto> loadFlatTables() {
-    return DATABASE_NODE_SEARCHER
+    return //
+    DATABASE_NODE_SEARCHER
       .getStoredTableNodesFromNodeDatabase(nodeDatabase)
-      .to(FLAT_TABLE_DTO_MAPPER::createFlatTableDtoFromTableNode);
+      .to(FLAT_TABLE_DTO_MAPPER::mapTableNodeToFlatTableDto);
   }
 
   @Override
