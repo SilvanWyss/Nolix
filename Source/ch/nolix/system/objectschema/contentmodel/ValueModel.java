@@ -2,10 +2,11 @@ package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IValueModel;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
 
-public final class ValueModel<V> extends AbstractValueModel<V> {
+public final class ValueModel<V> extends AbstractValueModel<V> implements IValueModel<V> {
 
   private ValueModel(final DataType dataType) {
     super(dataType);
