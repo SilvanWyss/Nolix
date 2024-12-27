@@ -36,7 +36,7 @@ public final class SchemaInitializer {
     final ISchema schema,
     final ISchemaAdapter schemaAdapter) {
 
-    final var tables = TABLE_MAPPER.createEmptyTablesFromSchema(schema);
+    final var tables = TABLE_MAPPER.mapSchemaToEmptyTables(schema);
 
     tables.forEach(schemaAdapter::addTable);
 

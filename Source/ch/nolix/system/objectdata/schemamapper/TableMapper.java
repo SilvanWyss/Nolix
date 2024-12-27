@@ -15,7 +15,7 @@ public final class TableMapper implements ITableMapper {
   @Override
   public IContainer<ITable> createTablesFromSchema(final ISchema schema) {
 
-    final var tables = createEmptyTablesFromSchema(schema);
+    final var tables = mapSchemaToEmptyTables(schema);
     final var entitTypes = schema.getEntityTypes();
 
     for (final var t : tables) {
@@ -31,18 +31,18 @@ public final class TableMapper implements ITableMapper {
   }
 
   @Override
-  public IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema) {
-
-    final var entityTypes = schema.getEntityTypes();
-
-    return entityTypes.to(this::mapEntityTypeToEmptyTable);
-  }
-
-  @Override
   public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {
 
     final var name = entityType.getSimpleName();
 
     return Table.withName(name);
+  }
+
+  @Override
+  public IContainer<ITable> mapSchemaToEmptyTables(final ISchema schema) {
+
+    final var entityTypes = schema.getEntityTypes();
+
+    return entityTypes.to(this::mapEntityTypeToEmptyTable);
   }
 }

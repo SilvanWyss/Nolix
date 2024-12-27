@@ -7,9 +7,9 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface ITableMapper {
 
-  IContainer<ITable> createEmptyTablesFromSchema(ISchema schema);
-
   IContainer<ITable> createTablesFromSchema(ISchema schema);
 
   ITable mapEntityTypeToEmptyTable(Class<? extends IEntity> entityType);
+
+  IContainer<ITable> mapSchemaToEmptyTables(ISchema schema);
 }
