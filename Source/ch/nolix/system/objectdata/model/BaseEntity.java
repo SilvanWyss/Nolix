@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
+import ch.nolix.system.databaseobject.validator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.entityflyweight.EntityFlyWeight;

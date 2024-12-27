@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
+import ch.nolix.system.databaseobject.validator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;

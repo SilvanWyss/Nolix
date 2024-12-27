@@ -1,10 +1,10 @@
-package ch.nolix.system.databaseobject.databaseobjecttool;
+package ch.nolix.system.databaseobject.validator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.validatorapi.IDatabaseObjectValidator;
 
 public class DatabaseObjectValidator implements IDatabaseObjectValidator {
 
