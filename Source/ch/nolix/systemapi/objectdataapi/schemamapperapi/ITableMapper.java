@@ -10,6 +10,4 @@ public interface ITableMapper {
   ITable mapEntityTypeToEmptyTable(Class<? extends IEntity> entityType);
 
   IContainer<ITable> mapSchemaToEmptyTables(ISchema schema);
-
-  IContainer<ITable> mapSchemaToTables(ISchema schema);
 }

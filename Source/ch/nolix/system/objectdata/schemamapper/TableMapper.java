@@ -4,13 +4,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.model.Table;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class TableMapper implements ITableMapper {
-
-  private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
   @Override
   public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {
@@ -26,23 +23,5 @@ public final class TableMapper implements ITableMapper {
     final var entityTypes = schema.getEntityTypes();
 
     return entityTypes.to(this::mapEntityTypeToEmptyTable);
-  }
-
-  @Override
-  public IContainer<ITable> mapSchemaToTables(final ISchema schema) {
-
-    final var tables = mapSchemaToEmptyTables(schema);
-    final var entitTypes = schema.getEntityTypes();
-
-    for (final var t : tables) {
-
-      final var entityType = entitTypes.getStoredFirst(et -> t.hasName(et.getSimpleName()));
-
-      final var columns = COLUMN_MAPPER.mapEntityTypeToColumns(entityType, tables);
-
-      t.addColumns(columns);
-    }
-
-    return tables;
   }
 }
