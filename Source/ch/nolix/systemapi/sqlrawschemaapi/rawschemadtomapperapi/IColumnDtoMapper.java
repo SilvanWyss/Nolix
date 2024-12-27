@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawschemaapi.dtomapperapi;
+package ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;

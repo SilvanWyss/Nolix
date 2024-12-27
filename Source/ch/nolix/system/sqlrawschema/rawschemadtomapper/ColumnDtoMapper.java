@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.dtomapper;
+package ch.nolix.system.sqlrawschema.rawschemadtomapper;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.OptionalReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;
-import ch.nolix.systemapi.sqlrawschemaapi.dtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 
 /**
  * @author Silvan Wyss
