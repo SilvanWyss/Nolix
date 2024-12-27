@@ -1,9 +1,9 @@
-package ch.nolix.system.noderawschema.flatdtomapper;
+package ch.nolix.system.noderawschema.rawschemaflatdtomapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.flatdtomapper.IFlatTableDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.rawschemaflatdtomapperapi.IFlatTableDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 
 /**

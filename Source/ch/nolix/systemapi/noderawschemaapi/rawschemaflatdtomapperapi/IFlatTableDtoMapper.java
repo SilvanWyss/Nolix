@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.noderawschemaapi.flatdtomapper;
+package ch.nolix.systemapi.noderawschemaapi.rawschemaflatdtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
