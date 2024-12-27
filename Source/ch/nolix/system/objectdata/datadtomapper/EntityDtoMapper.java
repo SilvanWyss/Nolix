@@ -1,10 +1,10 @@
 package ch.nolix.system.objectdata.datadtomapper;
 
 import ch.nolix.system.objectdata.datatool.EntityTool;
-import ch.nolix.systemapi.objectdataapi.datadtomapperapi.IEntityDtoMapper;
-import ch.nolix.systemapi.objectdataapi.datadtomapperapi.IStringContentFieldDtoMapper;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi.IEntityDtoMapper;
+import ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi.IStringContentFieldDtoMapper;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
