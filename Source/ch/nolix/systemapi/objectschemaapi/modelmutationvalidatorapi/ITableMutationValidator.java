@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.schemamutationvalidatorapi;
+package ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi;
 
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
