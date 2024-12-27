@@ -81,12 +81,4 @@ final class ColumnMutationValidator {
         backReferencedColumn);
     }
   }
-
-  public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
-
-    DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
-    COLUMN_TOOL.assertDoesNotBelongToTable(column);
-
-    TABLE_TOOL.assertDoesNotContainGivenColumn(parentTable, column);
-  }
 }
