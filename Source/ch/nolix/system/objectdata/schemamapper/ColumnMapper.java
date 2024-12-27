@@ -2,7 +2,6 @@ package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.model.Column;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
@@ -17,10 +16,5 @@ public final class ColumnMapper implements IColumnMapper {
   @Override
   public IColumn mapFieldToColumn(final IField field, final IContainer<ITable> referencedTables) {
     return new Column(field.getName(), PARAMETERIZED_FIELD_TYPE_MAPPER.mapFieldToContentModel(field, referencedTables));
-  }
-
-  @Override
-  public IContainer<IColumn> mapEntityToColumns(final IEntity entity, final IContainer<ITable> referencedTables) {
-    return entity.internalGetStoredFields().to(p -> mapFieldToColumn(p, referencedTables));
   }
 }
