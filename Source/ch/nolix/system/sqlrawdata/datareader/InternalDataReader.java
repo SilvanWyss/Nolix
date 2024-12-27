@@ -5,6 +5,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
+import ch.nolix.system.sqlrawdata.querycreator.MultiBackReferenceQueryCreator;
+import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
+import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -13,9 +17,17 @@ import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
-import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 final class InternalDataReader {
+
+  private static final IEntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
+
+  private static final IMultiValueQueryCreator MULTI_VALUE_QUERY_CREATOR = new MultiValueQueryCreator();
+
+  private static final IMultiReferenceQueryCreator MULTI_REFERENCE_QUERY_CREATOR = new MultiReferenceQueryCreator();
+
+  private static final IMultiBackReferenceQueryCreator MULTI_BACK_REFERENCE_QUERY_CREATOR = //
+  new MultiBackReferenceQueryCreator();
 
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
@@ -23,26 +35,13 @@ final class InternalDataReader {
 
   private final ISqlConnection sqlConnection;
 
-  private final IEntityQueryCreator entityQueryCreator;
-
-  private final IMultiValueQueryCreator multiValueQueryCreator;
-
-  private final IMultiReferenceQueryCreator multiReferenceQueryCreator;
-
-  private final IMultiBackReferenceQueryCreator multiBackReferenceQueryCreator;
-
   public InternalDataReader(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final ISqlConnection sqlConnection) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 
     this.sqlConnection = sqlConnection;
-    entityQueryCreator = sqlSyntaxProvider.getEntityQueryCreator();
-    multiValueQueryCreator = sqlSyntaxProvider.getMultiValueQueryCreator();
-    multiReferenceQueryCreator = sqlSyntaxProvider.getMultiReferenceQueryCreator();
-    multiBackReferenceQueryCreator = sqlSyntaxProvider.getMultiBackReferenceQueryCreator();
 
     sqlConnection.executeStatement("USE " + databaseName);
   }
@@ -50,7 +49,7 @@ final class InternalDataReader {
   public Time getSchemaTimestamp() {
     return Time.fromString(
       sqlConnection
-        .getSingleRecordFromQuery(entityQueryCreator.createQueryToLoadSchemaTimestamp())
+        .getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadSchemaTimestamp())
         .getStoredAt1BasedIndex(1));
   }
 
@@ -58,7 +57,7 @@ final class InternalDataReader {
     final String entityId,
     final IColumnInfo multiBackReferenceColumnInfo) {
 
-    final var query = multiBackReferenceQueryCreator.createQueryToLoadMultiBackReferenceEntries(
+    final var query = MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(
       entityId,
       multiBackReferenceColumnInfo.getColumnId());
 
@@ -70,7 +69,7 @@ final class InternalDataReader {
     final IColumnInfo multiReferenceColumnInfo) {
     return sqlConnection
       .getRecordsFromQuery(
-        multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
+        MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(
           entityId,
           multiReferenceColumnInfo.getColumnId()))
       .to(r -> r.getStoredAt1BasedIndex(1));
@@ -81,7 +80,7 @@ final class InternalDataReader {
     final IColumnInfo multiValueColumnInfo) {
     return sqlConnection
       .getRecordsFromQuery(
-        multiValueQueryCreator.createQueryToLoadMultiValueEntries(
+        MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
           entityId,
           multiValueColumnInfo.getColumnId()))
       .to(r -> VALUE_MAPPER.createValueFromString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo));
@@ -89,13 +88,13 @@ final class InternalDataReader {
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
     return sqlConnection
-      .getRecordsFromQuery(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
+      .getRecordsFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableInfo))
       .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
   }
 
   public EntityLoadingDto loadEntity(final ITableInfo tableInfo, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
-      sqlConnection.getSingleRecordFromQuery(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
+      sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableInfo)),
       tableInfo);
   }
 
@@ -157,7 +156,7 @@ final class InternalDataReader {
 
     final var entityCount = Integer.valueOf(
       sqlConnection
-        .getSingleRecordFromQuery(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
+        .getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenId(tableName, id))
         .getStoredAt1BasedIndex(1));
 
     return entityCount > 0;
@@ -167,7 +166,7 @@ final class InternalDataReader {
     final String columnId,
     final String referencedEntityId) {
     return sqlConnection.getRecordsFromQuery(
-      multiReferenceQueryCreator
+      MULTI_REFERENCE_QUERY_CREATOR
         .createQueryToLoadOptionalFirstMultiReferenceEntry(
           columnId,
           referencedEntityId))
@@ -180,7 +179,7 @@ final class InternalDataReader {
     final IContainer<String> entitiesToIgnoreIds) {
 
     final var query = //
-    multiReferenceQueryCreator
+    MULTI_REFERENCE_QUERY_CREATOR
       .createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
         columnId,
         referencedEntityId,
@@ -196,7 +195,7 @@ final class InternalDataReader {
     final String columnId,
     final String value) {
     return sqlConnection.getRecordsFromQuery(
-      multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
+      MULTI_VALUE_QUERY_CREATOR.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
         columnId,
         value))
       .containsAny();
@@ -208,7 +207,7 @@ final class InternalDataReader {
     final IContainer<String> entitiesToIgnoreIds) {
 
     final var query = //
-    multiValueQueryCreator.createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
+    MULTI_VALUE_QUERY_CREATOR.createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
       columnId,
       value,
       entitiesToIgnoreIds);
@@ -225,7 +224,7 @@ final class InternalDataReader {
     final String value) {
     return Integer.valueOf(
       sqlConnection.getSingleRecordFromQuery(
-        entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
+        ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
           tableName,
           singleColumnName,
           value))
@@ -239,7 +238,7 @@ final class InternalDataReader {
     final IContainer<String> entitiesToIgnoreIds) {
 
     final var query = //
-    entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
       tableName,
       columnName,
       value,

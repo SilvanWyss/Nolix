@@ -8,7 +8,6 @@ import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 public abstract class DataAdapter extends BaseDataAdapter {
 
@@ -17,14 +16,12 @@ public abstract class DataAdapter extends BaseDataAdapter {
   protected DataAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final ISchemaAdapter schemaAdapter,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final ISchemaAdapter schemaAdapter) {
 
     this(
       databaseName,
       sqlConnectionPool,
-      DATABASE_INSPECTOR.createTableDefinitionsFrom(schemaAdapter),
-      sqlSyntaxProvider);
+      DATABASE_INSPECTOR.createTableDefinitionsFrom(schemaAdapter));
 
     schemaAdapter.close();
   }
@@ -32,18 +29,15 @@ public abstract class DataAdapter extends BaseDataAdapter {
   private DataAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableInfo> tableInfos,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final IContainer<ITableInfo> tableInfos) {
     super(
       DataReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
         databaseName,
         sqlConnectionPool,
-        tableInfos,
-        sqlSyntaxProvider),
+        tableInfos),
       DataWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
         databaseName,
         sqlConnectionPool,
-        tableInfos,
-        sqlSyntaxProvider));
+        tableInfos));
   }
 }

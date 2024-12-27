@@ -12,7 +12,6 @@ import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -26,12 +25,11 @@ public final class DataWriter implements IDataWriter {
   private DataWriter(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<ITableInfo> tableInfos,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final IContainer<ITableInfo> tableInfos) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 
-    internalDataWriter = new InternalDataWriter(databaseName, sqlConnection, sqlSyntaxProvider);
+    internalDataWriter = new InternalDataWriter(databaseName, sqlConnection);
     this.tableInfos = tableInfos;
 
     createCloseDependencyTo(sqlConnection);
@@ -40,10 +38,8 @@ public final class DataWriter implements IDataWriter {
   public static DataWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableInfo> tableInfos,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DataWriter(databaseName, sqlConnectionPool.borrowResource(), tableInfos,
-      sqlSyntaxProvider);
+    final IContainer<ITableInfo> tableInfos) {
+    return new DataWriter(databaseName, sqlConnectionPool.borrowResource(), tableInfos);
   }
 
   @Override

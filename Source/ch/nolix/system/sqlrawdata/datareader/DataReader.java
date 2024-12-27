@@ -11,7 +11,6 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.sqlrawdataapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 public final class DataReader implements IDataReader {
 
@@ -24,12 +23,11 @@ public final class DataReader implements IDataReader {
   private DataReader(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<ITableInfo> tableInfos,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final IContainer<ITableInfo> tableInfos) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 
-    internalDataReader = new InternalDataReader(databaseName, sqlConnection, sqlSyntaxProvider);
+    internalDataReader = new InternalDataReader(databaseName, sqlConnection);
     this.tableInfos = tableInfos;
 
     createCloseDependencyTo(sqlConnection);
@@ -38,10 +36,8 @@ public final class DataReader implements IDataReader {
   public static DataReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableInfo> tableInfos,
-    final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DataReader(databaseName, sqlConnectionPool.borrowResource(), tableInfos,
-      sqlSyntaxProvider);
+    final IContainer<ITableInfo> tableInfos) {
+    return new DataReader(databaseName, sqlConnectionPool.borrowResource(), tableInfos);
   }
 
   @Override

@@ -1,7 +1,6 @@
 package ch.nolix.system.sqlrawdata.dataadapter;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
-import ch.nolix.system.sqlrawdata.sqlsyntax.SqlSyntaxProvider;
 import ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter;
 
 public final class MsSqlDataAdapter extends DataAdapter {
@@ -10,8 +9,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
     super(
       databaseName,
       sqlConnectionPool,
-      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
-      new SqlSyntaxProvider());
+      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool));
   }
 
   public static MsSqlDataAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
