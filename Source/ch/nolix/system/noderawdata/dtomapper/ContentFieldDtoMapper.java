@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.dtomapper;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.dtomapperapi.IContentFieldDtoMapper;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {

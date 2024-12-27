@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawdataapi.datadto;
+package ch.nolix.systemapi.rawdataapi.dto;
 
 import java.util.Optional;
 

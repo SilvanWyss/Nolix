@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
-import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.dto.StringContentFieldDto;
 
 /**
  * @author Silvan Wyss

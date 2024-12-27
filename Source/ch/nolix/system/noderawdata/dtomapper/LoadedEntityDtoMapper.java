@@ -5,8 +5,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 public final class LoadedEntityDtoMapper {

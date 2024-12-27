@@ -4,7 +4,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 final class EntityNodeMapper {

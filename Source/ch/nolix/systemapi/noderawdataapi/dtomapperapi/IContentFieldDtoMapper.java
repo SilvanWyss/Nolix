@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawdataapi.dtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 /**

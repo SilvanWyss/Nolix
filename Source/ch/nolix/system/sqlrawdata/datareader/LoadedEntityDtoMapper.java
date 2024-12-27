@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawdata.datareader;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.systemapi.rawdataapi.datadto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 

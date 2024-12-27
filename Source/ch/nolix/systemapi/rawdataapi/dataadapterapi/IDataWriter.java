@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**

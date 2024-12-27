@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.datadto.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 
 public final class Table<E extends IEntity> implements ITable<E> {
 
