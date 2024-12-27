@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;

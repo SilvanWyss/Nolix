@@ -1,6 +1,6 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 
 final class ColumnMutationExecutor {
 

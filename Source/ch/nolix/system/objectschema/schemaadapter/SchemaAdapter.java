@@ -4,11 +4,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.objectschema.schema.Database;
+import ch.nolix.system.objectschema.model.Database;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {

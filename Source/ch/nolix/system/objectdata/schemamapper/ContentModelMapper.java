@@ -22,8 +22,8 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class ContentModelMapper //NOSONAR: A ContentModelMapper is a principal object thus it has many dependencies.
 implements IContentModelMapper {

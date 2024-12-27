@@ -2,7 +2,7 @@ package ch.nolix.system.objectschema.schematool;
 
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 
 public final class ParameterizedFieldTypeTool extends DatabaseObjectExaminer

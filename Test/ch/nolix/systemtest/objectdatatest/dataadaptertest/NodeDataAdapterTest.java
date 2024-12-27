@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
-import ch.nolix.system.objectschema.schema.Column;
+import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
 final class NodeDataAdapterTest extends StandardTest {

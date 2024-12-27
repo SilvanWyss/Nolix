@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.objectschemaapi.schemavalidatorapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface IDatabaseValidator {
 

@@ -1,12 +1,12 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class Database extends SchemaObject implements IDatabase {

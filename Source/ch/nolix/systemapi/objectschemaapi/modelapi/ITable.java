@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.schemaapi;
+package ch.nolix.systemapi.objectschemaapi.modelapi;
 
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;

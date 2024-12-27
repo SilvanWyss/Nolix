@@ -3,9 +3,9 @@ package ch.nolix.system.objectschema.contentmodel;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public abstract class AbstractReferenceModel implements IAbstractReferenceModel {
 

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi;
 
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
 /**

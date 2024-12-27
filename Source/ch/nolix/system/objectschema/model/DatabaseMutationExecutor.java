@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
 final class DatabaseMutationExecutor {
 

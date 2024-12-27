@@ -7,8 +7,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 

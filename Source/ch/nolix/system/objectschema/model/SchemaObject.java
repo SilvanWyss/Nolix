@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;

@@ -2,8 +2,8 @@ package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface ITableTool extends IDatabaseObjectExaminer {
 

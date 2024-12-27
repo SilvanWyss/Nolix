@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 
 public interface IParameterizedFieldTypeTool extends IDatabaseObjectExaminer {
 

@@ -1,8 +1,8 @@
 package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IBackReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 
 public final class BackReferenceModel extends AbstractBackReferenceModel implements IBackReferenceModel {
 

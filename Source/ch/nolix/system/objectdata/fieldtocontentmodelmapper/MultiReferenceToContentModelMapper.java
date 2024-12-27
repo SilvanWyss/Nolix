@@ -4,8 +4,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.contentmodel.MultiReferenceModel;
 import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IFieldToContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class MultiReferenceToContentModelMapper implements IFieldToContentModelMapper<IMultiReference<?>> {
 

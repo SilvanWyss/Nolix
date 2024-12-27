@@ -7,8 +7,8 @@ import ch.nolix.system.objectschema.contentmodel.OptionalValueModel;
 import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IFieldToContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class OptionalValueToContentModelMapper implements IFieldToContentModelMapper<IOptionalValue<?>> {
 

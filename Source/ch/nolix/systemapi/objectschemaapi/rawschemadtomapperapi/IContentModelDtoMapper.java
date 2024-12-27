@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi;
 
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 
 /**

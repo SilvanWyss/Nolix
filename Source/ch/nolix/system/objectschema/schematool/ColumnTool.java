@@ -6,10 +6,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectschemaapi.schemamutationvalidatorapi;
 
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 /**
  * @author Silvan Wyss

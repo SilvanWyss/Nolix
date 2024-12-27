@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.schemaapi;
+package ch.nolix.systemapi.objectschemaapi.modelapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;

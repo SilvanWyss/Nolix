@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -10,8 +10,8 @@ import ch.nolix.system.objectschema.contentmodel.OptionalBackReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.OptionalReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.ReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.dto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.MultiBackReferenceModelDto;

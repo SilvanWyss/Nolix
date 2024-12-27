@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;

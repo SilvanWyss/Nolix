@@ -9,8 +9,8 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public final class SchemaInitializer {
 

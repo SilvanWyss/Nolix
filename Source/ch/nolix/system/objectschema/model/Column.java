@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schema;
+package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -12,9 +12,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 public final class Column extends SchemaObject implements IColumn {

@@ -3,8 +3,8 @@ package ch.nolix.system.objectschema.schemavalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schemavalidatorapi.IDatabaseValidator;
 
