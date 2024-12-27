@@ -1,16 +1,16 @@
 package ch.nolix.system.sqlrawschema.columntable;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.BackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.MultiBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.MultiReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.MultiValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.OptionalBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.OptionalReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.OptionalValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;
 
 public final class ParameterizedFieldTypeSqlRecordMapper {
 

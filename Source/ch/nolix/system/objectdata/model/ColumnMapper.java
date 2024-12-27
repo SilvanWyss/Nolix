@@ -5,7 +5,7 @@ import ch.nolix.system.objectdata.dtotocontentmodelmapper.ContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 final class ColumnMapper {
 

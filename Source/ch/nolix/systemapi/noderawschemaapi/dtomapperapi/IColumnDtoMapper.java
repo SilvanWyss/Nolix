@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawschemaapi.dtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 /**
  * @author Silvan Wyss

@@ -20,18 +20,18 @@ final class SchemaDtoMapper {
   ColumnDto.withNameAndDataType(PascalCaseVariableCatalogue.SAVE_STAMP, DatatypeTypeCatalogue.INTEGER);
 
   public ColumnDto createSqlColumnDtoFrom(
-    final ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto column) {
+    final ch.nolix.systemapi.rawschemaapi.dto.ColumnDto column) {
     return ColumnDto.withNameAndDataType(column.name(), DatatypeTypeCatalogue.TEXT);
   }
 
   public TableDto createSqlTableDtoFrom(
-    final ch.nolix.systemapi.rawschemaapi.schemadto.TableDto table) {
+    final ch.nolix.systemapi.rawschemaapi.dto.TableDto table) {
     return //
     new TableDto(TableType.ENTITY_TABLE.getQualifyingPrefix() + table.name(), createSqlColumnDtosFrom(table));
   }
 
   private IContainer<ColumnDto> createSqlColumnDtosFrom(
-    final ch.nolix.systemapi.rawschemaapi.schemadto.TableDto table) {
+    final ch.nolix.systemapi.rawschemaapi.dto.TableDto table) {
 
     final ILinkedList<ColumnDto> columns = LinkedList.createEmpty();
 

@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.dtomapper;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IColumnDtoMapper;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 /**
  * @author Silvan Wyss

@@ -10,10 +10,10 @@ import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter {

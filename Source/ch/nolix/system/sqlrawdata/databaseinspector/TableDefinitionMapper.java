@@ -2,7 +2,7 @@ package ch.nolix.system.sqlrawdata.databaseinspector;
 
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
 public final class TableDefinitionMapper {
 

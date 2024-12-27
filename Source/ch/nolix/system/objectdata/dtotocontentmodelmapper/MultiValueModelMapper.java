@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IContentModelDtoTo
 import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadto.MultiValueModelDto;
+import ch.nolix.systemapi.rawschemaapi.dto.MultiValueModelDto;
 
 public final class MultiValueModelMapper
 implements IContentModelDtoToContentModelMapper<MultiValueModelDto> {

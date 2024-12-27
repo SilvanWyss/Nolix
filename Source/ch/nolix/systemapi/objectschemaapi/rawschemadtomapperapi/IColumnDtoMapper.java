@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi;
 
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
 /**
  * @author Silvan Wyss

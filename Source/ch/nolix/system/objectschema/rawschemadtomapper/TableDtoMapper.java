@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.rawschemadtomapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
 /**
  * @author Silvan Wyss

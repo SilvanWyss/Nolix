@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawschema.tabletable;
 
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
 public final class TableTableRecordMapper {
 

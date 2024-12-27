@@ -4,8 +4,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 
 final class InternalSchemaWriter implements ChangeRequestable {

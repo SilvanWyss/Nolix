@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawschemaapi.dtomapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 /**
  * @author Silvan Wyss

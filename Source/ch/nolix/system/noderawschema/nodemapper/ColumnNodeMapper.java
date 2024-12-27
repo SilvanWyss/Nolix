@@ -5,7 +5,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 /**
  * @author Silvan Wyss

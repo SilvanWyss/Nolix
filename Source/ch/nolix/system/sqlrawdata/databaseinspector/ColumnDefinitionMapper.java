@@ -2,7 +2,7 @@ package ch.nolix.system.sqlrawdata.databaseinspector;
 
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 final class ColumnDefinitionMapper {
 

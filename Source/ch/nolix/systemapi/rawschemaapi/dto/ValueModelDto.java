@@ -1,13 +1,13 @@
-package ch.nolix.systemapi.rawschemaapi.schemadto;
+package ch.nolix.systemapi.rawschemaapi.dto;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public record OptionalValueModelDto(DataType dataType) implements IContentModelDto {
+public record ValueModelDto(DataType dataType) implements IContentModelDto {
 
   @Override
   public ContentType getContentType() {
-    return ContentType.OPTIONAL_VALUE;
+    return ContentType.VALUE;
   }
 
   @Override
