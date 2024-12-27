@@ -35,11 +35,11 @@ public final class TableMapper implements ITableMapper {
 
     final var entityTypes = schema.getEntityTypes();
 
-    return entityTypes.to(this::createEmptyTableFromEntityType);
+    return entityTypes.to(this::mapEntityTypeToEmptyTable);
   }
 
   @Override
-  public <E extends IEntity> ITable createEmptyTableFromEntityType(final Class<E> entityType) {
+  public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {
 
     final var name = entityType.getSimpleName();
 
