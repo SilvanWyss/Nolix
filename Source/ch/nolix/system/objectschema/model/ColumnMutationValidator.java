@@ -1,5 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
@@ -11,14 +13,20 @@ import ch.nolix.system.objectschema.schematool.ParameterizedFieldTypeTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.system.objectschema.schemavalidator.DatabaseValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectValidator;
+import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
+import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.IColumnMutationValidator;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 import ch.nolix.systemapi.objectschemaapi.schemavalidatorapi.IDatabaseValidator;
 
-final class ColumnMutationValidator {
+/**
+ * @author Silvan Wyss
+ * @version 2021-07-11
+ */
+public final class ColumnMutationValidator implements IColumnMutationValidator {
 
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
@@ -33,13 +41,25 @@ final class ColumnMutationValidator {
   private static final IParameterizedFieldTypeTool PARAMETERIZED_FIELD_TYPE_TOOL = //
   new ParameterizedFieldTypeTool();
 
-  public void assertCanDeleteColumn(final Column column) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanBeDeleted(final IColumn column) {
+
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(column);
-    column.assertIsNotBackReferenced();
+
+    if (column.isBackReferenced()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is back referenced");
+    }
   }
 
-  public void assertCanSetNameToColumn(final Column column, final String name) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanSetName(final IColumn column, final String name) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
 
@@ -50,12 +70,17 @@ final class ColumnMutationValidator {
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
   }
 
-  public void assertCanSetParameterizedFieldTypeToColumn(
-    final Column column,
-    final IContentModel contentModel) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertCanSetContentModel(final IColumn column, final IContentModel contentModel) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
-    column.assertIsEmpty();
+
+    if (column.containsAny()) {
+      throw NonEmptyArgumentException.forArgument(this);
+    }
 
     if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)
     && COLUMN_TOOL.belongsToDatabase(column)) {
@@ -66,8 +91,8 @@ final class ColumnMutationValidator {
       DATABASE_VALIDATOR.assertContainsTables(COLUMN_TOOL.getParentDatabase(column), referencedTables);
     }
 
-    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel)) {
-      column.assertIsNotBackReferenced();
+    if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(contentModel) && column.isBackReferenced()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is back referenced");
     }
 
     if (PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(contentModel)

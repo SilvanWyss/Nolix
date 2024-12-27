@@ -1,8 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -75,7 +73,7 @@ public final class Column extends SchemaObject implements IColumn {
 
   @Override
   public void delete() {
-    MUTATION_VALIDATOR.assertCanDeleteColumn(this);
+    MUTATION_VALIDATOR.assertCanBeDeleted(this);
     MUTATION_EXECUTOR.deleteColumn(this);
   }
 
@@ -127,7 +125,7 @@ public final class Column extends SchemaObject implements IColumn {
   @Override
   public Column setName(final String name) {
 
-    MUTATION_VALIDATOR.assertCanSetNameToColumn(this, name);
+    MUTATION_VALIDATOR.assertCanSetName(this, name);
     MUTATION_EXECUTOR.setHeaderToColumn(this, name);
 
     return this;
@@ -137,22 +135,10 @@ public final class Column extends SchemaObject implements IColumn {
   public Column setContentModel(
     final IContentModel contentModel) {
 
-    MUTATION_VALIDATOR.assertCanSetParameterizedFieldTypeToColumn(this, contentModel);
+    MUTATION_VALIDATOR.assertCanSetContentModel(this, contentModel);
     MUTATION_EXECUTOR.setParameterizedFieldTypeToColumn(this, contentModel);
 
     return this;
-  }
-
-  void assertIsEmpty() {
-    if (containsAny()) {
-      throw NonEmptyArgumentException.forArgument(this);
-    }
-  }
-
-  void assertIsNotBackReferenced() {
-    if (isBackReferenced()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is back referenced");
-    }
   }
 
   IContainer<IColumn> getStoredBackReferencingColumns() {
