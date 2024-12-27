@@ -7,12 +7,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
+import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
+import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
+import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
+import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
@@ -22,16 +28,18 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class DatabaseUpdater {
 
-  private static final NodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
+  private static final INodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
 
-  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
   private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
 
-  private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+  private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+
+  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
   private static final EntityHeadNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityHeadNodeMapper();
 
@@ -168,7 +176,7 @@ final class DatabaseUpdater {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    final var containsEntity = TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
+    final var containsEntity = TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
       tableNode,
       FieldIndexCatalogue.ID_INDEX,
       entityId);
@@ -191,7 +199,7 @@ final class DatabaseUpdater {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
 
-    if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.id())) {
+    if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.id())) {
       throw ArgumentHasAttributeException.forArgumentAndAttributeName(
         "table " + tableInfo.getTableNameInQuotes(),
         "entity with the id '" + newEntity.id() + "'");

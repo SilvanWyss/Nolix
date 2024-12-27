@@ -20,16 +20,4 @@ public interface ITableNodeSearcher {
   IMutableNode<?> getStoredEntityNodeFromTableNode(IMutableNode<?> tableNode, String id);
 
   IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
-
-  boolean tableNodeContainsEntityNodeWithGivenId(IMutableNode<?> tableNode, String id);
-
-  boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
-    IMutableNode<?> tableNode,
-    int valueIndex,
-    String value);
-
-  boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(
-    IMutableNode<?> tableNode,
-    int index,
-    String header);
 }
