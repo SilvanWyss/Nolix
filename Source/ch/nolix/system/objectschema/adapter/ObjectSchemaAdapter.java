@@ -1,23 +1,23 @@
-package ch.nolix.system.objectschema.rawschemalinker;
+package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.rawschemadtomapper.TableDtoMapper;
+import ch.nolix.systemapi.objectschemaapi.adapterapi.IObjectSchemaAdapter;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.ITableDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi.IRawSchemaLinkerAdapter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
+public final class ObjectSchemaAdapter implements IObjectSchemaAdapter {
 
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
@@ -27,7 +27,7 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
 
   private final ISchemaAdapter internalRawSchemaAdapter;
 
-  public RawSchemaLinkerAdapter(final ISchemaAdapter internalRawSchemaAdapter) {
+  public ObjectSchemaAdapter(final ISchemaAdapter internalRawSchemaAdapter) {
 
     GlobalValidator.assertThat(internalRawSchemaAdapter).thatIsNamed("internal raw schema adapter").isNotNull();
 

@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.model;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectValidator;
-import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
+import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
@@ -21,7 +21,7 @@ public final class Database extends SchemaObject implements IDatabase {
 
   private boolean loadedTablesFromDatabase;
 
-  private final RawSchemaLinkerAdapter rawSchemaLinkerAdapter;
+  private final ObjectSchemaAdapter objectSchemaAdapter;
 
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
@@ -30,7 +30,7 @@ public final class Database extends SchemaObject implements IDatabase {
     DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
     this.name = name;
-    rawSchemaLinkerAdapter = new RawSchemaLinkerAdapter(schemaAdapter);
+    objectSchemaAdapter = new ObjectSchemaAdapter(schemaAdapter);
 
     internalSetLoaded();
   }
@@ -72,12 +72,12 @@ public final class Database extends SchemaObject implements IDatabase {
       return tables.getCount();
     }
 
-    return rawSchemaLinkerAdapter.getTableCount();
+    return objectSchemaAdapter.getTableCount();
   }
 
   @Override
   public boolean isConnectedWithRealDatabase() {
-    return (rawSchemaLinkerAdapter != null);
+    return (objectSchemaAdapter != null);
   }
 
   @Override
@@ -94,11 +94,11 @@ public final class Database extends SchemaObject implements IDatabase {
     tables.addAtEnd(table);
   }
 
-  RawSchemaLinkerAdapter internalGetRefRawSchemaAdapter() {
+  ObjectSchemaAdapter internalGetRefRawSchemaAdapter() {
 
     DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
-    return rawSchemaLinkerAdapter;
+    return objectSchemaAdapter;
   }
 
   void removeTableAttribute(final Table table) {

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi;
+package ch.nolix.systemapi.objectschemaapi.adapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public interface IRawSchemaLinkerAdapter {
+public interface IObjectSchemaAdapter {
 
   void addColumnToTable(ITable table, IColumn column);
 

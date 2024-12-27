@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectschema.rawschemalinker.RawSchemaLinkerAdapter;
+import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
 import ch.nolix.system.objectschema.schemamutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -148,7 +148,7 @@ public final class Table extends SchemaObject implements ITable {
     columns.addAtEnd(column);
   }
 
-  RawSchemaLinkerAdapter internalgetStoredRawSchemaAdapter() {
+  ObjectSchemaAdapter internalgetStoredRawSchemaAdapter() {
     return getStoredParentDatabase().internalGetRefRawSchemaAdapter();
   }
 
