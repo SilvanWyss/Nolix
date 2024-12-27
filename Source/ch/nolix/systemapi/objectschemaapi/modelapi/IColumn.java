@@ -18,5 +18,7 @@ ITableComponent<ITable> {
 
   IContentModel getContentModel();
 
+  boolean isBackReferenced();
+
   IColumn setContentModel(IContentModel contentModel);
 }

@@ -104,15 +104,25 @@ public final class Column extends SchemaObject implements IColumn {
   }
 
   @Override
-  public boolean isEmpty() {
-    return //
-    isNew()
-    || internalGetRefRawSchemaAdapter().columnIsEmpty(this);
+  public boolean isBackReferenced() {
+
+    if (!COLUMN_TOOL.isAReferenceColumn(this)) {
+      return false;
+    }
+
+    return isBackReferencedWhenIsAnyReferenceColumn();
   }
 
   @Override
   public boolean isConnectedWithRealDatabase() {
     return (belongsToTable() && getStoredParentTable().isConnectedWithRealDatabase());
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return //
+    isNew()
+    || internalGetRefRawSchemaAdapter().columnIsEmpty(this);
   }
 
   @Override
@@ -157,15 +167,6 @@ public final class Column extends SchemaObject implements IColumn {
 
   ObjectSchemaAdapter internalGetRefRawSchemaAdapter() {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
-  }
-
-  boolean isBackReferenced() {
-
-    if (!COLUMN_TOOL.isAReferenceColumn(this)) {
-      return false;
-    }
-
-    return isBackReferencedWhenIsAnyReferenceColumn();
   }
 
   void setNameAttribute(final String header) {
