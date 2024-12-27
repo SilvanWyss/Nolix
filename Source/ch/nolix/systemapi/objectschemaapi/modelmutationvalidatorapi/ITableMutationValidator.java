@@ -5,7 +5,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 /**
  * @author Silvan Wyss
- * @version 2024-20-12
+ * @version 2024-12-20
  */
 public interface ITableMutationValidator {
 
