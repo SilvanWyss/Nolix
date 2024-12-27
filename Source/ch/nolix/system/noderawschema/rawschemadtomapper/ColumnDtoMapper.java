@@ -1,8 +1,8 @@
-package ch.nolix.system.noderawschema.dtomapper;
+package ch.nolix.system.noderawschema.rawschemadtomapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.noderawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 /**

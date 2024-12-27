@@ -1,10 +1,10 @@
-package ch.nolix.system.noderawschema.dtomapper;
+package ch.nolix.system.noderawschema.rawschemadtomapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.dtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.dto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.MultiBackReferenceModelDto;
