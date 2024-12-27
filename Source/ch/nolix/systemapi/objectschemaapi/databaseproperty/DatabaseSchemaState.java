@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.schemaapi;
+package ch.nolix.systemapi.objectschemaapi.databaseproperty;
 
 public enum DatabaseSchemaState {
   UNINITIALIZED,

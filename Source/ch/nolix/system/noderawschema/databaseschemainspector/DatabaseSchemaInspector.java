@@ -2,7 +2,7 @@ package ch.nolix.system.noderawschema.databaseschemainspector;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
+import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseSchemaState;
 
 public final class DatabaseSchemaInspector {
 
