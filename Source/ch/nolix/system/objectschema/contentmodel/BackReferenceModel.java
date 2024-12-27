@@ -1,11 +1,12 @@
 package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.rawschemaapi.schemadto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 
-public final class BackReferenceModel extends AbstractBackReferenceModel {
+public final class BackReferenceModel extends AbstractBackReferenceModel implements IBackReferenceModel {
 
   private BackReferenceModel(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
