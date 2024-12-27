@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawschemaapi.tabletableapi;
+package ch.nolix.systemapi.sqlrawschemaapi.rawschemaflatdtomapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
