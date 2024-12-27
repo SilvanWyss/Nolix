@@ -3,8 +3,10 @@ package ch.nolix.system.objectschema.rawschemalinker;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.rawschemadtomapper.ColumnDtoMapper;
+import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.rawschemadtomapper.TableDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemalinkerapi.IRawSchemaLinkerAdapter;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -20,6 +22,8 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
+  private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   private final ISchemaAdapter internalRawSchemaAdapter;
 
@@ -99,9 +103,11 @@ public final class RawSchemaLinkerAdapter implements IRawSchemaLinkerAdapter {
   public void setColumnContentModel(
     final IColumn column,
     final IContentModel contentModel) {
-    internalRawSchemaAdapter.setColumnContentModel(
-      column.getId(),
-      contentModel.toDto());
+
+    final var columnId = column.getId();
+    final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
+
+    internalRawSchemaAdapter.setColumnContentModel(columnId, contentModelDto);
   }
 
   @Override

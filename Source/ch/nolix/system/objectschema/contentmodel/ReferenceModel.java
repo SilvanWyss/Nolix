@@ -5,8 +5,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.ReferenceModelDto;
 
 public final class ReferenceModel extends AbstractReferenceModel implements IReferenceModel {
 
@@ -28,13 +26,5 @@ public final class ReferenceModel extends AbstractReferenceModel implements IRef
   @Override
   public ContentType getContentType() {
     return ContentType.REFERENCE;
-  }
-
-  @Override
-  public IContentModelDto toDto() {
-
-    final var referencedTableIds = getReferencedTables().to(ITable::getId);
-
-    return new ReferenceModelDto(getDataType(), referencedTableIds);
   }
 }

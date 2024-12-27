@@ -3,8 +3,6 @@ package ch.nolix.system.objectschema.contentmodel;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IOptionalValueModel;
-import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.schemadto.OptionalValueModelDto;
 
 public final class OptionalValueModel<V> extends AbstractValueModel<V> implements IOptionalValueModel<V> {
 
@@ -19,10 +17,5 @@ public final class OptionalValueModel<V> extends AbstractValueModel<V> implement
   @Override
   public ContentType getContentType() {
     return ContentType.OPTIONAL_VALUE;
-  }
-
-  @Override
-  public IContentModelDto toDto() {
-    return new OptionalValueModelDto(getDataType());
   }
 }
