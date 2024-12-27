@@ -10,9 +10,7 @@ public interface IColumnMapper {
 
   IColumn mapFieldToColumn(IField field, IContainer<ITable> referencedTables);
 
-  IContainer<IColumn> mapEnityTypeToColumns(Class<? extends IEntity> entityType, IContainer<ITable> referencedTables);
+  IContainer<IColumn> mapEntityToColumns(IEntity entity, IContainer<ITable> referencedTables);
 
-  IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
-    IEntity entity,
-    IContainer<ITable> referencableTables);
+  IContainer<IColumn> mapEntityTypeToColumns(Class<? extends IEntity> entityType, IContainer<ITable> referencedTables);
 }
