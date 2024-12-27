@@ -4,8 +4,8 @@ import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentM
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.componentapi.datamodelcomponentapi.ITableComponent;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.Deletable;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.modelapi.Deletable;
+import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
 public interface IColumn
 extends

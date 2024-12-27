@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.fieldtool;
 
 import java.util.Optional;
 
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IReferenceTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;

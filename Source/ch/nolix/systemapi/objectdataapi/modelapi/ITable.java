@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
 public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, INameHolder {
 

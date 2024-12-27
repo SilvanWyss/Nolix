@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IDatabase extends IDatabaseObject {

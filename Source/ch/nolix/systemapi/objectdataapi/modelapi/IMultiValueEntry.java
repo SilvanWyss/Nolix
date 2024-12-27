@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
 public interface IMultiValueEntry<V> extends IDatabaseObject {
 

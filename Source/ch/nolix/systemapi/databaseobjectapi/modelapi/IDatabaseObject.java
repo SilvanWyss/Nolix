@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.databaseobjectapi.databaseobjectapi;
+package ch.nolix.systemapi.databaseobjectapi.modelapi;
 
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 import ch.nolix.coreapi.structureapi.typerequestapi.StateRequestable;
