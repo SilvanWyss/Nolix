@@ -1,7 +1,7 @@
 package ch.nolix.system.databaseapplication.fieldbinder;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
 public final class FieldBinderFactory {
 

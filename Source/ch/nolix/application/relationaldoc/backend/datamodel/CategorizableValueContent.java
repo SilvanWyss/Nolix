@@ -5,8 +5,8 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.Data
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteValueContent;
-import ch.nolix.system.objectdata.data.BackReference;
-import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.system.objectdata.model.BackReference;
+import ch.nolix.system.objectdata.model.Value;
 
 public final class CategorizableValueContent extends ValueContent implements ICategorizableValueContent {
 

@@ -1,17 +1,17 @@
 package ch.nolix.system.objectdata.datadtomapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.datadtomapperapi.IStringContentFieldDtoMapper;
+import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 import ch.nolix.systemapi.rawdataapi.datadto.StringContentFieldDto;
 
 /**

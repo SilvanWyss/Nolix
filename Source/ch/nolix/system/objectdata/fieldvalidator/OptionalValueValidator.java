@@ -3,9 +3,9 @@ package ch.nolix.system.objectdata.fieldvalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 
 public final class OptionalValueValidator extends FieldValidator implements IOptionalValueValidator {
 

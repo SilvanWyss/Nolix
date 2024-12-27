@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.datavalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdataapi.datavalidatorapi.IDatabaseValidator;
+import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 
 public final class DatabaseValidator implements IDatabaseValidator {
 

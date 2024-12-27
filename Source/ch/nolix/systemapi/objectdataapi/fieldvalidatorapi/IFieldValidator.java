@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.fieldvalidatorapi;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
 public interface IFieldValidator {
 

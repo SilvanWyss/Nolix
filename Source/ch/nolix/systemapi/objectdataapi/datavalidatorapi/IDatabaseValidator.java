@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.datavalidatorapi;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
+import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 
 public interface IDatabaseValidator {
 

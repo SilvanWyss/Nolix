@@ -3,7 +3,7 @@ package ch.nolix.systemtest.objectdatatest.datatest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.system.objectdata.model.Value;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 
 final class ValueTest extends StandardTest {

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.datatoolapi;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 /**
  * @author Silvan Wyss

@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.core.reflection.GlobalReflectionTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 
 final class EntityCreator {
 

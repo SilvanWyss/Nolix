@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.contentmodel;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 
 public final class MultiBackReferenceModel<C extends IColumn>
 extends AbstractBackReferenceModel<C> {

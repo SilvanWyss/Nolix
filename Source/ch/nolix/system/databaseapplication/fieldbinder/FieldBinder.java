@@ -1,6 +1,6 @@
 package ch.nolix.system.databaseapplication.fieldbinder;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public abstract class FieldBinder<F extends IField, W extends IControl<?, ?>> {

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 
 public interface IMultiValueTool extends IFieldTool {
 

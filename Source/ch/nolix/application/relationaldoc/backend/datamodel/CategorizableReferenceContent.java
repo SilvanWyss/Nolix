@@ -6,8 +6,8 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
-import ch.nolix.system.objectdata.data.BackReference;
-import ch.nolix.system.objectdata.data.Reference;
+import ch.nolix.system.objectdata.model.BackReference;
+import ch.nolix.system.objectdata.model.Reference;
 
 public final class CategorizableReferenceContent extends ReferenceContent implements ICategorizableReferenceContent {
 

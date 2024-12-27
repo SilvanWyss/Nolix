@@ -2,8 +2,8 @@ package ch.nolix.systemapi.objectdataapi.dataadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.coreapi.structurecontrolapi.copierapi.EmptyCopyable;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IResettableChangeSaver {
 

@@ -4,10 +4,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
+import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
 

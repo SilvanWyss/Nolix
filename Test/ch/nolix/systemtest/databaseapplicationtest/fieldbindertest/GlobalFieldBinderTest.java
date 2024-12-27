@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.databaseapplication.fieldbinder.GlobalFieldBinder;
-import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.system.objectdata.model.Value;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 

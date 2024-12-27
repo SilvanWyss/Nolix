@@ -6,9 +6,9 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteValueContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IValueContent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.data.BackReference;
-import ch.nolix.system.objectdata.data.MultiValue;
-import ch.nolix.system.objectdata.data.OptionalValue;
+import ch.nolix.system.objectdata.model.BackReference;
+import ch.nolix.system.objectdata.model.MultiValue;
+import ch.nolix.system.objectdata.model.OptionalValue;
 
 public final class ConcreteValueContent extends ValueContent implements IConcreteValueContent {
 

@@ -2,9 +2,9 @@ package ch.nolix.systemapi.objectdataapi.datatoolapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public interface IDatabaseTool extends IDatabaseObjectExaminer {
 

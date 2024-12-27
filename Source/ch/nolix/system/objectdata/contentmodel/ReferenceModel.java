@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.contentmodel;
 
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public final class ReferenceModel<E extends IEntity> extends AbstractReferenceModel<E> {
 

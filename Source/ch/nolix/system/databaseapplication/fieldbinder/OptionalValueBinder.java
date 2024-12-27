@@ -1,7 +1,7 @@
 package ch.nolix.system.databaseapplication.fieldbinder;
 
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
-import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
 public class OptionalValueBinder extends FieldBinder<IOptionalValue<?>, ITextbox> {

@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReferenceEntry;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 public final class MultiReferenceSaver {

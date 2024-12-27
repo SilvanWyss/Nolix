@@ -5,13 +5,13 @@ import java.util.Optional;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public final class EntityTool extends DatabaseObjectExaminer implements IEntityTool {
 

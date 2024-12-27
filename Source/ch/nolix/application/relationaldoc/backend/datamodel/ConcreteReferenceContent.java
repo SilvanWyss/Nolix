@@ -6,8 +6,8 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.data.BackReference;
-import ch.nolix.system.objectdata.data.MultiReference;
+import ch.nolix.system.objectdata.model.BackReference;
+import ch.nolix.system.objectdata.model.MultiReference;
 
 public final class ConcreteReferenceContent extends ReferenceContent implements IConcreteReferenceContent {
 

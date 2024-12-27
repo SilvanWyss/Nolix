@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.contentmodel.MultiBackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.contentmodelmapperapi.IFieldToContentModelMapper;
-import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 

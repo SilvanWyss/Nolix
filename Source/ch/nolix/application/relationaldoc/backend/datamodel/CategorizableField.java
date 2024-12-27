@@ -7,10 +7,10 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IContent
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
-import ch.nolix.system.objectdata.data.BackReference;
-import ch.nolix.system.objectdata.data.Entity;
-import ch.nolix.system.objectdata.data.OptionalReference;
-import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.system.objectdata.model.BackReference;
+import ch.nolix.system.objectdata.model.Entity;
+import ch.nolix.system.objectdata.model.OptionalReference;
+import ch.nolix.system.objectdata.model.Value;
 
 public final class CategorizableField extends Entity implements ICategorizableField {
 

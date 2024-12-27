@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
 public interface IEntityTool extends IDatabaseObjectExaminer {
 

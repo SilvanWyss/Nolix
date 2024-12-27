@@ -2,11 +2,11 @@ package ch.nolix.system.objectdata.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractReferenceModel;
-import ch.nolix.systemapi.objectdataapi.dataapi.IAbstractValueModel;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractValueModel;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public abstract class AbstractReferenceModel<
 

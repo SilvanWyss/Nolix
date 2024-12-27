@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.datatool;
 
 import ch.nolix.core.reflection.GlobalReflectionTool;
-import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityCreator;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 /**
  * @author Silvan Wyss

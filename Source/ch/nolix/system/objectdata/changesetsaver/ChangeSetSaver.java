@@ -2,8 +2,8 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
-import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
+import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 public final class ChangeSetSaver {
