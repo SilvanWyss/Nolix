@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.dataadapterapi;
+package ch.nolix.systemapi.objectdataapi.adapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.coreapi.structurecontrolapi.copierapi.EmptyCopyable;

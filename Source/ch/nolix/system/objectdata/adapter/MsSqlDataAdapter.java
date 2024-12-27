@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.dataadapter;
+package ch.nolix.system.objectdata.adapter;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;

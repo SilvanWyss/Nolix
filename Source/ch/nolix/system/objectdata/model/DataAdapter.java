@@ -7,7 +7,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.system.objectdata.datatool.DatabaseTool;
-import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;

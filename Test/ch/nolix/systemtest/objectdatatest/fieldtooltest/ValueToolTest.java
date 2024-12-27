@@ -3,7 +3,7 @@ package ch.nolix.systemtest.objectdatatest.fieldtooltest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
+import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.Value;

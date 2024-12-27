@@ -7,7 +7,7 @@ import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
 import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalogue;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
+import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 
 final class AbstractableObjectOnDatabaseTest extends StandardTest {
 

@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.objectdata.dataadapter.NodeDataAdapter;
+import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.schema.Schema;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;

@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.dataadapter;
+package ch.nolix.system.objectdata.adapter;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
