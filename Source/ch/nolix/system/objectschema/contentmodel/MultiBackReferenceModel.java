@@ -2,10 +2,11 @@ package ch.nolix.system.objectschema.contentmodel;
 
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IMultiBackReferenceModel;
 import ch.nolix.systemapi.rawschemaapi.schemadto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.schemadto.MultiBackReferenceModelDto;
 
-public final class MultiBackReferenceModel extends AbstractBackReferenceModel {
+public final class MultiBackReferenceModel extends AbstractBackReferenceModel implements IMultiBackReferenceModel {
 
   private MultiBackReferenceModel(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
