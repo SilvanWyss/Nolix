@@ -11,6 +11,4 @@ public interface IColumnMapper {
   IColumn mapFieldToColumn(IField field, IContainer<ITable> referencedTables);
 
   IContainer<IColumn> mapEntityToColumns(IEntity entity, IContainer<ITable> referencedTables);
-
-  IContainer<IColumn> mapEntityTypeToColumns(Class<? extends IEntity> entityType, IContainer<ITable> referencedTables);
 }

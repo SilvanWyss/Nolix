@@ -11,8 +11,6 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class ColumnMapper implements IColumnMapper {
 
-  private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
-
   private static final IContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ContentModelMapper();
 
@@ -24,12 +22,5 @@ public final class ColumnMapper implements IColumnMapper {
   @Override
   public IContainer<IColumn> mapEntityToColumns(final IEntity entity, final IContainer<ITable> referencedTables) {
     return entity.internalGetStoredFields().to(p -> mapFieldToColumn(p, referencedTables));
-  }
-
-  @Override
-  public IContainer<IColumn> mapEntityTypeToColumns(
-    final Class<? extends IEntity> entityType,
-    final IContainer<ITable> referencedTables) {
-    return mapEntityToColumns(ENTITY_CREATOR.createEmptyEntityOf(entityType), referencedTables);
   }
 }
