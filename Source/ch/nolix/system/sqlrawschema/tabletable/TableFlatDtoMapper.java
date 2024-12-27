@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawschema.tabletable;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawschemaapi.flatschemadto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.tabletableapi.ITableFlatDtoMapper;
 
 public final class TableFlatDtoMapper implements ITableFlatDtoMapper {
