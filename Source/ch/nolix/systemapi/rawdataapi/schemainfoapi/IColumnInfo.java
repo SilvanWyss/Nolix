@@ -5,9 +5,9 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public interface IColumnInfo {
 
-  DataType getColumnDataType();
+  ContentType getColumnContentType();
 
-  ContentType getColumnFieldType();
+  DataType getColumnDataType();
 
   String getColumnId();
 

@@ -53,13 +53,13 @@ implements IColumnInfo {
   }
 
   @Override
-  public DataType getColumnDataType() {
-    return columnDataType;
+  public ContentType getColumnContentType() {
+    return columnFieldType;
   }
 
   @Override
-  public ContentType getColumnFieldType() {
-    return columnFieldType;
+  public DataType getColumnDataType() {
+    return columnDataType;
   }
 
   @Override

@@ -104,10 +104,10 @@ final class InternalDataReader {
     final IColumnInfo columnInfo,
     final String value) {
 
-    final var fieldType = columnInfo.getColumnFieldType();
+    final var contentType = columnInfo.getColumnContentType();
 
     return //
-    switch (fieldType) {
+    switch (contentType) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
@@ -118,7 +118,7 @@ final class InternalDataReader {
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
       default ->
-        throw InvalidArgumentException.forArgument(columnInfo.getColumnFieldType());
+        throw InvalidArgumentException.forArgument(contentType);
     };
   }
 
@@ -128,10 +128,10 @@ final class InternalDataReader {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    final var fieldType = columnInfo.getColumnFieldType();
+    final var contentType = columnInfo.getColumnContentType();
 
     return //
-    switch (fieldType) {
+    switch (contentType) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
           tableName,
@@ -149,7 +149,7 @@ final class InternalDataReader {
           value,
           entitiesToIgnoreIds);
       default ->
-        throw InvalidArgumentException.forArgument(columnInfo.getColumnFieldType());
+        throw InvalidArgumentException.forArgument(contentType);
     };
   }
 
