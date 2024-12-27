@@ -68,8 +68,7 @@ public final class SchemaInitializer {
 
     for (final var bv : baseValues) {
 
-      final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bv,
-        ImmutableList.createEmpty());
+      final var column = COLUMN_MAPPER.mapFieldToColumn(bv, ImmutableList.createEmpty());
 
       table.addColumn(column);
     }
@@ -98,8 +97,7 @@ public final class SchemaInitializer {
 
     for (final var br : baseReferences) {
 
-      final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(br,
-        referencableTables);
+      final var column = COLUMN_MAPPER.mapFieldToColumn(br, referencableTables);
 
       table.addColumn(column);
     }
@@ -128,8 +126,7 @@ public final class SchemaInitializer {
 
     for (final var bbr : baseBackReferences) {
 
-      final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bbr,
-        referencableTables);
+      final var column = COLUMN_MAPPER.mapFieldToColumn(bbr, referencableTables);
 
       table.addColumn(column);
     }

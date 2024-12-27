@@ -17,14 +17,8 @@ public final class ColumnMapper implements IColumnMapper {
   new ContentModelMapper();
 
   @Override
-  public IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
-    final IField field,
-    final IContainer<ITable> referencableTables) {
-    return new Column(
-      field.getName(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.mapFieldToContentModel(
-        field,
-        referencableTables));
+  public IColumn mapFieldToColumn(final IField field, final IContainer<ITable> referencedTables) {
+    return new Column(field.getName(), PARAMETERIZED_FIELD_TYPE_MAPPER.mapFieldToContentModel(field, referencedTables));
   }
 
   @Override
@@ -42,6 +36,6 @@ public final class ColumnMapper implements IColumnMapper {
     final IContainer<ITable> referencableTables) {
     return entity
       .internalGetStoredFields()
-      .to(p -> createColumnFromGivenPropertyUsingGivenReferencableTables(p, referencableTables));
+      .to(p -> mapFieldToColumn(p, referencableTables));
   }
 }

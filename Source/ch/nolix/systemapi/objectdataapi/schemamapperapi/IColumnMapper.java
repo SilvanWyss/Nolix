@@ -8,9 +8,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 public interface IColumnMapper {
 
-  IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
-    IField field,
-    IContainer<ITable> referencableTables);
+  IColumn mapFieldToColumn(IField field, IContainer<ITable> referencedTables);
 
   <E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
     Class<E> entityType,
