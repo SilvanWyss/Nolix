@@ -73,7 +73,6 @@ public final class Column extends SchemaObject implements IColumn {
     return (parentTable != null);
   }
 
-  //metod
   @Override
   public void delete() {
     MUTATION_VALIDATOR.assertCanDeleteColumn(this);
