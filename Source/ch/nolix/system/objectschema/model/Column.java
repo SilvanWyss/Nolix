@@ -9,7 +9,6 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
-import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
@@ -26,9 +25,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   private static final ContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ContentModelMapper();
 
-  private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
-
-  private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
+  private static final ColumnEditor COLUMN_EDITOR = new ColumnEditor();
 
   private static final ColumnTool COLUMN_TOOL = new ColumnTool();
 
@@ -74,8 +71,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   @Override
   public void delete() {
-    MUTATION_VALIDATOR.assertCanBeDeleted(this);
-    MUTATION_EXECUTOR.deleteColumn(this);
+    COLUMN_EDITOR.deleteColumn(this);
   }
 
   @Override
@@ -124,20 +120,18 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
-  public Column setName(final String name) {
+  public Column setContentModel(
+    final IContentModel contentModel) {
 
-    MUTATION_VALIDATOR.assertCanSetName(this, name);
-    MUTATION_EXECUTOR.setHeaderToColumn(this, name);
+    COLUMN_EDITOR.setContentModelToColumn(this, contentModel);
 
     return this;
   }
 
   @Override
-  public Column setContentModel(
-    final IContentModel contentModel) {
+  public Column setName(final String name) {
 
-    MUTATION_VALIDATOR.assertCanSetContentModel(this, contentModel);
-    MUTATION_EXECUTOR.setParameterizedFieldTypeToColumn(this, contentModel);
+    COLUMN_EDITOR.setNameToColumn(this, name);
 
     return this;
   }
