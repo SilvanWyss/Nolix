@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.schemavalidatorapi;
+package ch.nolix.systemapi.objectschemaapi.modelvalidatorapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;

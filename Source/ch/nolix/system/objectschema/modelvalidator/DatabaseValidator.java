@@ -1,12 +1,12 @@
-package ch.nolix.system.objectschema.schemavalidator;
+package ch.nolix.system.objectschema.modelvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.IDatabaseValidator;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.schemavalidatorapi.IDatabaseValidator;
 
 public final class DatabaseValidator implements IDatabaseValidator {
 

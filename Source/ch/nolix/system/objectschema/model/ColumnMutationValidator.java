@@ -7,20 +7,20 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.validator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.contentmodel.AbstractBackReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.AbstractReferenceModel;
+import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.system.objectschema.schematool.ParameterizedFieldTypeTool;
 import ch.nolix.system.objectschema.schematool.TableTool;
-import ch.nolix.system.objectschema.schemavalidator.DatabaseValidator;
 import ch.nolix.systemapi.databaseobjectapi.validatorapi.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.IColumnMutationValidator;
+import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.IDatabaseValidator;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
-import ch.nolix.systemapi.objectschemaapi.schemavalidatorapi.IDatabaseValidator;
 
 /**
  * @author Silvan Wyss
