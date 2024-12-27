@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
-public final class Database extends SchemaObject implements IDatabase {
+public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private static final DatabaseTool DATABASE_TOOL = new DatabaseTool();
 

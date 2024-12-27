@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
-abstract class SchemaObject implements IDatabaseObject {
+abstract class AbstractSchemaObject implements IDatabaseObject {
 
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 

@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
-public final class Column extends SchemaObject implements IColumn {
+public final class Column extends AbstractSchemaObject implements IColumn {
 
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 

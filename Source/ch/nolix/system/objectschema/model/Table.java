@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.ITableMutationValidator;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 
-public final class Table extends SchemaObject implements ITable {
+public final class Table extends AbstractSchemaObject implements ITable {
 
   private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
