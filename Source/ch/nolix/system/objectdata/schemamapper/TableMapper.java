@@ -22,8 +22,7 @@ public final class TableMapper implements ITableMapper {
 
       final var entityType = entitTypes.getStoredFirst(et -> t.hasName(et.getSimpleName()));
 
-      final var columns = //
-      COLUMN_MAPPER.createColumnsFromGivenEntityTypeUsingGivenReferencableTables(entityType, tables);
+      final var columns = COLUMN_MAPPER.mapEnityTypeToColumns(entityType, tables);
 
       t.addColumns(columns);
     }

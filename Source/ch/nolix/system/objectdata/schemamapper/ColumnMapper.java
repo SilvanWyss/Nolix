@@ -22,12 +22,13 @@ public final class ColumnMapper implements IColumnMapper {
   }
 
   @Override
-  public <E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
-    final Class<E> entityType,
-    final IContainer<ITable> referencableTables) {
-    return createColumnsFromGivenEntityUsingGivenReferencableTables(
+  public IContainer<IColumn> mapEnityTypeToColumns(
+    final Class<? extends IEntity> entityType,
+    final IContainer<ITable> referencedTables) {
+    return //
+    createColumnsFromGivenEntityUsingGivenReferencableTables(
       ENTITY_CREATOR.createEmptyEntityOf(entityType),
-      referencableTables);
+      referencedTables);
   }
 
   @Override
