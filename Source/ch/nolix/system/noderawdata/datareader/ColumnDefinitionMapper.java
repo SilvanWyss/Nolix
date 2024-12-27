@@ -4,9 +4,9 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
-import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
+import ch.nolix.system.sqlrawdata.schemaview.ColumnInfo;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
 
 public final class ColumnDefinitionMapper {
 

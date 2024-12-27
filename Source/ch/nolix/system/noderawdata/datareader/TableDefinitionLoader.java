@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datareader;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 
 public final class TableDefinitionLoader {
 

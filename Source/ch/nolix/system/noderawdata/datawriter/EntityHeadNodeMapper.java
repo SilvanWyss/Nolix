@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datawriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 
 public final class EntityHeadNodeMapper {
 

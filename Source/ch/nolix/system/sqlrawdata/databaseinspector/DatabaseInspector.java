@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.databaseinspector;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 
 public final class DatabaseInspector {

@@ -6,7 +6,7 @@ import ch.nolix.system.baserawdatabase.databaseadapter.BaseDataAdapter;
 import ch.nolix.system.noderawdata.datareader.DataReader;
 import ch.nolix.system.noderawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.noderawdata.datawriter.DataWriter;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 
 public final class DataAdapter extends BaseDataAdapter {
 

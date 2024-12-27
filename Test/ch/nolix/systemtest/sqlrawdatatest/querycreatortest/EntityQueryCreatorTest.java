@@ -6,8 +6,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
-import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
-import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
+import ch.nolix.system.sqlrawdata.schemaview.ColumnInfo;
+import ch.nolix.system.sqlrawdata.schemaview.TableInfo;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 final class EntityQueryCreatorTest extends StandardTest {

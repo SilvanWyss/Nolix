@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
 
 public final class ContentFieldMapper {
 
