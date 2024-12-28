@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 /**
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class Color extends Element implements IColor {
+public final class Color extends AbstractElement implements IColor {
 
   public static final int ALICE_BLUE_INT = 0xF0F8FF;
 

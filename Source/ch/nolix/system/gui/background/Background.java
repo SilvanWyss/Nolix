@@ -15,7 +15,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.image.Image;
@@ -27,7 +27,7 @@ import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
-public final class Background extends Element implements IBackground {
+public final class Background extends AbstractElement implements IBackground {
 
   public static final Background TRANSPARENT_BACKGROUND = new Background();
 

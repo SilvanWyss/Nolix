@@ -7,7 +7,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
  * @author Silvan Wyss
  * @version 2022-07-08
  */
-public abstract class Element implements IElement {
+public abstract class AbstractElement implements IElement {
 
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
@@ -18,7 +18,7 @@ public abstract class Element implements IElement {
   public final boolean equals(final Object object) {
     return object != null
     && getClass() == object.getClass()
-    && hasSameSpecificationAs((Element) object);
+    && hasSameSpecificationAs((AbstractElement) object);
   }
 
   /**
@@ -46,11 +46,11 @@ public abstract class Element implements IElement {
   }
 
   /**
-   * @param element
-   * @return true if the current {@link Element} has the same specification as the
+   * @param abstractElement
+   * @return true if the current {@link AbstractElement} has the same specification as the
    *         given element.
    */
-  private boolean hasSameSpecificationAs(final Element element) {
-    return getSpecification().equals(element.getSpecification());
+  private boolean hasSameSpecificationAs(final AbstractElement abstractElement) {
+    return getSpecification().equals(abstractElement.getSpecification());
   }
 }

@@ -11,11 +11,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 
 public abstract class MultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
-extends Element
+extends AbstractElement
 implements IMultiStateConfiguration<C, S> {
 
   private final State<S> baseState;

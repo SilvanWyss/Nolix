@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
  * @author Silvan Wyss
  * @version 2016-08-01
  */
-public final class ColorGradient extends Element implements IColorGradient {
+public final class ColorGradient extends AbstractElement implements IColorGradient {
 
   public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
 

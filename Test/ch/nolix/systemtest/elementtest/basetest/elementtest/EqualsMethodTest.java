@@ -8,7 +8,7 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 
 final class EqualsMethodTest extends StandardTest {
 
@@ -16,7 +16,7 @@ final class EqualsMethodTest extends StandardTest {
   void testCase_equals_whenTheGivenObjectIsNull() {
 
     //setup
-    final var testUnit = new Element() {
+    final var testUnit = new AbstractElement() {
 
       @Override
       public IContainer<INode<?>> getAttributes() {
@@ -36,7 +36,7 @@ final class EqualsMethodTest extends StandardTest {
 
     //setup
     final Object object = new VoidObject();
-    final var testUnit = new Element() {
+    final var testUnit = new AbstractElement() {
 
       @Override
       public IContainer<INode<?>> getAttributes() {
@@ -55,7 +55,7 @@ final class EqualsMethodTest extends StandardTest {
   void testCase_equals_whenTheGivenObjectIsTheSame() {
 
     //setup
-    final var testUnit = new Element() {
+    final var testUnit = new AbstractElement() {
 
       @Override
       public IContainer<INode<?>> getAttributes() {

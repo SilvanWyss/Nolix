@@ -7,12 +7,12 @@ import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
-public final class Image extends Element implements IImage {
+public final class Image extends AbstractElement implements IImage {
 
   private final MutableImage internalImage;
 

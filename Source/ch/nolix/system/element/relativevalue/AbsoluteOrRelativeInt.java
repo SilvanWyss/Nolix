@@ -12,7 +12,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 
 /**
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
  * @author Silvan Wyss
  * @version 2022-10-15
  */
-public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrRelativeInt {
+public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbsoluteOrRelativeInt {
 
   private final boolean isAbsolute;
 

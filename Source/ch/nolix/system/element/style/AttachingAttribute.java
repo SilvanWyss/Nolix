@@ -9,11 +9,11 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttributeValidator;
 
-public final class AttachingAttribute extends Element implements IAttachingAttribute {
+public final class AttachingAttribute extends AbstractElement implements IAttachingAttribute {
 
   private static final IAttachingAttributeValidator ATTACHING_ATTRIBUTE_VALIDATOR = new AttachingAttributeValidator();
 

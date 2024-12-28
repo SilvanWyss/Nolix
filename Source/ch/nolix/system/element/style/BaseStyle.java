@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  * @version 2016-01-01
  * @param <S> is the type of a {@link BaseStyle}.
  */
-abstract class BaseStyle<S extends IBaseStyle<S>> extends Element implements IBaseStyle<S> {
+abstract class BaseStyle<S extends IBaseStyle<S>> extends AbstractElement implements IBaseStyle<S> {
 
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 

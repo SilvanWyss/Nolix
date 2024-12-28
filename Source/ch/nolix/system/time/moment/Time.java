@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructureapi.Month;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
@@ -26,7 +26,7 @@ import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
  * @version 2016-09-01
  */
 public final class Time //NOSONAR: A Time is a principal object thus it has many methods.
-extends Element implements ITime {
+extends AbstractElement implements ITime {
 
   public static final int DEFAULT_YEAR = 2000;
 

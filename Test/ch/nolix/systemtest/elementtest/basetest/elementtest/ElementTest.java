@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.base.Element;
+import ch.nolix.system.element.base.AbstractElement;
 
 final class ElementTest extends StandardTest {
 
@@ -15,7 +15,7 @@ final class ElementTest extends StandardTest {
   void testCase_hashCode() {
 
     //setup
-    final var testUnit = new Element() {
+    final var testUnit = new AbstractElement() {
 
       @Override
       public IContainer<INode<?>> getAttributes() {
