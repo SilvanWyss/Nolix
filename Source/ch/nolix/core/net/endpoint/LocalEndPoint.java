@@ -33,7 +33,7 @@ public final class LocalEndPoint extends EndPoint {
    * @throws ArgumentIsNullException  if the given slot is null.
    * @throws InvalidArgumentException if the given slot is blank.
    */
-  private LocalEndPoint(final BaseServer server, final String slot) {
+  private LocalEndPoint(final AbstractServer server, final String slot) {
 
     //Sets the peerType of the current LocalEndPoint.
     peerType = PeerType.FRONTEND;
@@ -113,7 +113,7 @@ public final class LocalEndPoint extends EndPoint {
    * @throws ArgumentIsNullException  if the given targetSlot is null.
    * @throws InvalidArgumentException if the given targetSlot is blank.
    */
-  public static LocalEndPoint toTargetSlotOnServer(final BaseServer server, final String targetSlot) {
+  public static LocalEndPoint toTargetSlotOnServer(final AbstractServer server, final String targetSlot) {
     return new LocalEndPoint(server, targetSlot);
   }
 

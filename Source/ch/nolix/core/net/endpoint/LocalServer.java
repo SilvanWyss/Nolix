@@ -6,7 +6,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  * @author Silvan Wyss
  * @version 2021-06-17
  */
-public final class LocalServer extends BaseServer {
+public final class LocalServer extends AbstractServer {
 
   /**
    * {@inheritDoc}

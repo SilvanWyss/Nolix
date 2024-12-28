@@ -17,7 +17,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
  * @author Silvan Wyss
  * @version 2017-05-06
  */
-public abstract class BaseServer implements IServer {
+public abstract class AbstractServer implements IServer {
 
   private static final IResourceValidator<IEndPoint> RESOURCE_VALIDATOR = new ResourceValidator<>();
 
@@ -101,19 +101,19 @@ public abstract class BaseServer implements IServer {
   }
 
   /**
-   * Lets the current {@link BaseServer} take the given endPoint.
+   * Lets the current {@link AbstractServer} take the given endPoint.
    * 
    * @param endPoint
    * @throws ClosedArgumentException               if the given endPoint is
    *                                               closed.
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
    *                                               have a target and the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a default
    *                                               {@link ISlot}.
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a {@link ISlot} with a
    *                                               name that equals the target of
    *                                               the given endPoint.
@@ -135,7 +135,7 @@ public abstract class BaseServer implements IServer {
 
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a default
    *                                               {@link ISlot}.
    */
@@ -147,7 +147,7 @@ public abstract class BaseServer implements IServer {
 
   /**
    * @param name
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link ISlot} with the given name.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
@@ -159,9 +159,9 @@ public abstract class BaseServer implements IServer {
   }
 
   /**
-   * @return the default {@link ISlot} of the current {@link BaseServer}.
+   * @return the default {@link ISlot} of the current {@link AbstractServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a default
    *                                               {@link ISlot}.
    */
@@ -176,9 +176,9 @@ public abstract class BaseServer implements IServer {
    * 
    * @param name
    * @return the {@link ISlot} with the given name from the current
-   *         {@link BaseServer}.
+   *         {@link AbstractServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a {@link ISlot} with
    *                                               the given name.
    */
@@ -187,11 +187,11 @@ public abstract class BaseServer implements IServer {
   }
 
   /**
-   * Removes the given slot from the current {@link BaseServer}.
+   * Removes the given slot from the current {@link AbstractServer}.
    * 
    * @param slot
    * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link BaseServer} does not
+   *                                                {@link AbstractServer} does not
    *                                                contain the given slot.
    */
   private void removeSlot(final ISlot slot) {

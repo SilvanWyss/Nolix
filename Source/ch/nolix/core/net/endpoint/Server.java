@@ -13,7 +13,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 /**
- * A {@link Server} is a {@link BaseServer} that listens to {@link NetEndPoint}
+ * A {@link Server} is a {@link AbstractServer} that listens to {@link NetEndPoint}
  * on a specific port.
  * 
  * A {@link Server} supports the WebSocket protocol and can communicate with a
@@ -22,7 +22,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class Server extends BaseServer {
+public final class Server extends AbstractServer {
 
   public static final String DEFAULT_INITIAL_HTTP_MESSAGE = //
   """
