@@ -9,7 +9,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @author Silvan Wyss
  * @version 2021-06-29
  */
-public final class LocalServer extends BaseServer<LocalServer> {
+public final class LocalServer extends AbstractServer<LocalServer> {
 
   @Override
   public IServerTarget asTarget() {

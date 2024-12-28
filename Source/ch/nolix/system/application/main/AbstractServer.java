@@ -15,14 +15,14 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
 /**
- * A {@link BaseServer} can contain {@link Application}s. A {@link BaseServer}
+ * A {@link AbstractServer} can contain {@link Application}s. A {@link AbstractServer}
  * is closable.
  * 
- * @param <S> is the type of a {@link BaseServer}.
+ * @param <S> is the type of a {@link AbstractServer}.
  * @author Silvan Wyss
  * @version 2016-11-01
  */
-public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
+public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -31,14 +31,14 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   private final LinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
 
   /**
-   * Adds the given application to the current {@link BaseServer}.
+   * Adds the given application to the current {@link AbstractServer}.
    * 
    * @param application
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given application is null.
    * @throws ArgumentIsNullException  if the given instanceName is null
    * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with the given
    *                                  instanceName.
    */
@@ -54,17 +54,17 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds the given application with the given instanceName to the current
-   * {@link BaseServer}.
+   * {@link AbstractServer}.
    * 
    * @param application
    * @param nameAddendum
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException          if the given application is null.
    * @throws ArgumentBelongsToParentException if the given application belongs
-   *                                          already to a {@link BaseServer}.
+   *                                          already to a {@link AbstractServer}.
    * @throws ArgumentIsNullException          if the given instanceName is null
    * @throws InvalidArgumentException         if the given instanceName is blank.
-   * @throws InvalidArgumentException         if the current {@link BaseServer}
+   * @throws InvalidArgumentException         if the current {@link AbstractServer}
    *                                          contains already a
    *                                          {@link Application} with the given
    *                                          instanceName.
@@ -82,7 +82,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds a new {@link Application} with the given instanceName,
-   * initialSessionClass and applicationService to the current {@link BaseServer}.
+   * initialSessionClass and applicationService to the current {@link AbstractServer}.
    * 
    * @param applicationName
    * @param initialSessionClass
@@ -91,10 +91,10 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
    * @param <U>                 is the type of the given applicationContext.
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with the given
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
@@ -117,17 +117,17 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
-   * void context to the current {@link BaseServer}.
+   * void context to the current {@link AbstractServer}.
    * 
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
    * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with an
    *                                  instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
@@ -148,7 +148,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * Adds the given defaultApplication to the current {@link BaseServer}. A
+   * Adds the given defaultApplication to the current {@link AbstractServer}. A
    * default {@link Application} takes all {@link AbstractClient}s that do not
    * have a target.
    * 
@@ -157,7 +157,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    *                           given defaultApplication.
    * @param <U>                is the type of the context of the given
    *                           defaultApplication.
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException if the given defaultApplication is null.
    */
   public final <C extends BackendClient<C, U>, U> S addDefaultApplication(
@@ -175,7 +175,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds a new default {@link Application} with the given name,
-   * initialSessionClass and applicationService to the current {@link BaseServer}.
+   * initialSessionClass and applicationService to the current {@link AbstractServer}.
    * 
    * @param applicationName
    * @param initialSessionClass
@@ -184,12 +184,12 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
    * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
    * @param <U>                 is the type of the given applicationContext.
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a default {@link Application}.
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with the given
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
@@ -212,17 +212,17 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
-   * void context as default {@link Application} the current {@link BaseServer}.
+   * void context as default {@link Application} the current {@link AbstractServer}.
    * 
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
    * @param <C>                 is the type of the {@link BackendClient} of the
    *                            given initialSessionClass.
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with an
    *                                  instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
@@ -248,7 +248,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * @return true if the current {@link BaseServer} contains a default
+   * @return true if the current {@link AbstractServer} contains a default
    *         {@link Application}.
    */
   public final boolean containsDefaultApplication() {
@@ -257,7 +257,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * @param name
-   * @return true if the current {@link BaseServer} contains a {@link Application}
+   * @return true if the current {@link AbstractServer} contains a {@link Application}
    *         with the given name.
    */
   public final boolean containsApplicationWithName(final String name) {
@@ -267,9 +267,9 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   /**
    * @param instanceName
    * @return the {@link Application} with the given instanceName from the current
-   *         {@link BaseServer}.
+   *         {@link AbstractServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a {@link Application}
    *                                               with the given instanceName.
    */
@@ -280,9 +280,9 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   /**
    * @param urlInstanceName
    * @return the {@link Application} with the given urlInstanceName from the
-   *         current {@link BaseServer}.
+   *         current {@link AbstractServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a {@link Application}
    *                                               with the given urlInstanceName.
    */
@@ -291,7 +291,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * @return the {@link Application}s of the current {@link BaseServer}.
+   * @return the {@link Application}s of the current {@link AbstractServer}.
    */
   public final IContainer<Application<?, ?>> getStoredApplications() {
     return applications;
@@ -306,9 +306,9 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * @return the default {@link Application} of the current {@link BaseServer}.
+   * @return the default {@link Application} of the current {@link AbstractServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a default
    *                                               {@link Application}.
    */
@@ -329,7 +329,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * @return true if the current {@link BaseServer} has a {@link AbstractClient}
+   * @return true if the current {@link AbstractServer} has a {@link AbstractClient}
    *         connected.
    */
   public final boolean hasClientConnected() {
@@ -355,17 +355,17 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * Lets the current {@link BaseServer} take the given client.
+   * Lets the current {@link AbstractServer} take the given client.
    * 
    * @param client
    * @throws ArgumentDoesNotHaveAttributeException if the given client does not
    *                                               have a target and the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a default
    *                                               {@link Application}.
    * @throws ArgumentDoesNotHaveAttributeException if the given client has a
    *                                               target and the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a {@link Application}
    *                                               with a name that equals the
    *                                               given target.
@@ -383,13 +383,13 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * @return the current {@link BaseServer}.
+   * @return the current {@link AbstractServer}.
    */
   protected abstract S asConcrete();
 
   /**
    * Notes that the given application has been added to the current
-   * {@link BaseServer}.
+   * {@link AbstractServer}.
    * 
    * @param application
    */
@@ -397,7 +397,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Notes that the given defaultApplication has been added to the current
-   * {@link BaseServer}.
+   * {@link AbstractServer}.
    * 
    * @param defaultApplication
    */
@@ -405,7 +405,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Notes that the given application has been removed fromt the current
-   * {@link BaseServer}.
+   * {@link AbstractServer}.
    * 
    * @param application
    */
@@ -430,10 +430,10 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * Adds the given application to the list of {@link Application}s of the current
-   * {@link BaseServer}.
+   * {@link AbstractServer}.
    * 
    * @param application
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with the same
    *                                  name as one of the given applications.
    */
@@ -450,7 +450,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BaseServer} does not
+   *                                               {@link AbstractServer} does not
    *                                               contain a default
    *                                               {@link Application}.
    */
@@ -462,7 +462,7 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
 
   /**
    * @param name
-   * @throws InvalidArgumentException if the current {@link BaseServer} contains
+   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
    *                                  already a {@link Application} with the same
    *                                  name as one of the given applications.
    */
@@ -475,11 +475,11 @@ public abstract class BaseServer<S extends BaseServer<S>> implements IServer {
   }
 
   /**
-   * Removes the given application from the current {@link BaseServer}
+   * Removes the given application from the current {@link AbstractServer}
    * 
    * @param application
    * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link BaseServer} does not
+   *                                                {@link AbstractServer} does not
    *                                                contain the given application.
    */
   private void removeApplication(final IApplication<?> application) {

@@ -3,7 +3,7 @@ package ch.nolix.application.serverdashboard.frontend.main;
 import ch.nolix.application.serverdashboard.frontend.session.ServerDashboardSession;
 import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDashboardService;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.main.BaseServer;
+import ch.nolix.system.application.main.AbstractServer;
 import ch.nolix.system.application.webapplication.WebClient;
 
 public final class ServerDashboardApplication
@@ -15,7 +15,7 @@ extends Application<WebClient<IServerDashboardService>, IServerDashboardService>
     super(serverDashboardService);
   }
 
-  public static ServerDashboardApplication forServer(final BaseServer<?> server) {
+  public static ServerDashboardApplication forServer(final AbstractServer<?> server) {
     return new ServerDashboardApplication(ServerDashboardService.forServer(server));
   }
 

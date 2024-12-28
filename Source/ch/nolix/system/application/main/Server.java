@@ -9,13 +9,13 @@ import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 /**
- * A {@link Server} is a {@link BaseServer} that listens to net
+ * A {@link Server} is a {@link AbstractServer} that listens to net
  * {@link AbstractClient}s on a specific port.
  * 
  * @author Silvan Wyss
  * @version 2017-09-10
  */
-public final class Server extends BaseServer<Server> {
+public final class Server extends AbstractServer<Server> {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 

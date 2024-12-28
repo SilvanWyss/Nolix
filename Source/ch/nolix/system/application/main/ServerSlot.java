@@ -15,7 +15,7 @@ final class ServerSlot implements ISlot {
 
   private final String name;
 
-  private final BaseServer<?> parentServer;
+  private final AbstractServer<?> parentServer;
 
   /**
    * Creates a new {@ServerClientTaker} with the given name that will belong to
@@ -27,7 +27,7 @@ final class ServerSlot implements ISlot {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given parentServer is null.
    */
-  public ServerSlot(final String name, final BaseServer<?> parentServer) {
+  public ServerSlot(final String name, final AbstractServer<?> parentServer) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();

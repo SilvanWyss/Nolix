@@ -8,7 +8,7 @@ import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
-public final class SslServer extends BaseServer<SslServer> {
+public final class SslServer extends AbstractServer<SslServer> {
 
   public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
 

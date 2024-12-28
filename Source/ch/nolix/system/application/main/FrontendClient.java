@@ -54,7 +54,7 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
    * @throws InvalidArgumentException if the current {@link FrontendClient} is
    *                                  already connected.
    */
-  protected final void connectTo(final BaseServer<?> server) {
+  protected final void connectTo(final AbstractServer<?> server) {
 
     final var endPoint = new LocalEndPoint();
 
@@ -103,7 +103,7 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
    * @throws InvalidArgumentException if the current {@link FrontendClient} is
    *                                  already connected.
    */
-  protected final void connectTo(final BaseServer<?> server, final String instanceName) {
+  protected final void connectTo(final AbstractServer<?> server, final String instanceName) {
 
     final var endPoint = new LocalEndPoint();
 

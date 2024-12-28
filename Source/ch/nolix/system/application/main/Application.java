@@ -36,7 +36,7 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
 
   private String nameAddendum;
 
-  private BaseServer<?> parentServer;
+  private AbstractServer<?> parentServer;
 
   private final LinkedList<C> clients = LinkedList.createEmpty();
 
@@ -202,14 +202,14 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * Sets the parent {@link BaseServer} of the current {@link Application}.
+   * Sets the parent {@link AbstractServer} of the current {@link Application}.
    * 
    * @param parentServer
    * @throws ArgumentBelongsToParentException if the current {@link Application}
    *                                          belongs already to a
-   *                                          {@link BaseServer}.
+   *                                          {@link AbstractServer}.
    */
-  final void internalSetParentServer(final BaseServer<?> parentServer) {
+  final void internalSetParentServer(final AbstractServer<?> parentServer) {
 
     GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
     assertDoesNotBelongToServer();
@@ -221,18 +221,18 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
    * @throws ArgumentDoesNotBelongToParentException if the current
    *                                                {@link Application} does not
    *                                                belong to a
-   *                                                {@link BaseServer}.
+   *                                                {@link AbstractServer}.
    */
   private void assertBelongsToServer() {
     if (!belongsToServer()) {
-      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, BaseServer.class);
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, AbstractServer.class);
     }
   }
 
   /**
    * @throws ArgumentBelongsToParentException if the current {@link Application}
    *                                          belongs already to a
-   *                                          {@link BaseServer}.
+   *                                          {@link AbstractServer}.
    */
   @SuppressWarnings("resource")
   private void assertDoesNotBelongToServer() {
@@ -290,13 +290,13 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
   }
 
   /**
-   * @return the parent {@link BaseServer} of the current {@link Application}.
+   * @return the parent {@link AbstractServer} of the current {@link Application}.
    * @throws ArgumentDoesNotBelongToParentException if the current
    *                                                {@link Application} does not
    *                                                belong to a
-   *                                                {@link BaseServer}.
+   *                                                {@link AbstractServer}.
    */
-  private BaseServer<?> getStoredParentServer() {
+  private AbstractServer<?> getStoredParentServer() {
 
     assertBelongsToServer();
 
