@@ -1,14 +1,15 @@
 package ch.nolix.system.noderawdata.dtomapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
+import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.dtomapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
-  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   @Override
   public ContentFieldDto<Object> mapContentFieldNodeToContentFieldDto(
@@ -25,6 +26,6 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
     return ContentFieldDto.withColumnNameAndContent(
       columnInfo.getColumnName(),
-      VALUE_MAPPER.createValueFromString(contentFieldNode.getHeader(), columnInfo));
+      VALUE_MAPPER.mapValueToString(contentFieldNode.getHeader(), columnInfo.getColumnDataType()));
   }
 }

@@ -5,6 +5,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
@@ -13,6 +14,7 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
@@ -31,7 +33,7 @@ final class InternalDataReader {
 
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
-  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   private final ISqlConnection sqlConnection;
 
@@ -83,7 +85,7 @@ final class InternalDataReader {
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
           entityId,
           multiValueColumnInfo.getColumnId()))
-      .to(r -> VALUE_MAPPER.createValueFromString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo));
+      .to(r -> VALUE_MAPPER.mapValueToString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.getColumnDataType()));
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableView tableView) {

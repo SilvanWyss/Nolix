@@ -8,7 +8,7 @@ import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
-import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
+import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
@@ -16,6 +16,7 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class InternalDataReader {
@@ -31,7 +32,7 @@ public final class InternalDataReader {
 
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
-  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   private final IMutableNode<?> nodeDatabase;
 
@@ -110,7 +111,7 @@ public final class InternalDataReader {
 
     return multiValueNode
       .getStoredChildNodes()
-      .to(a -> VALUE_MAPPER.createValueFromString(a.getHeader(), multiValueColumnInfo));
+      .to(a -> VALUE_MAPPER.mapValueToString(a.getHeader(), multiValueColumnInfo.getColumnDataType()));
   }
 
   public EntityLoadingDto loadEntity(final ITableView tableView, final String id) {

@@ -1,17 +1,19 @@
-package ch.nolix.system.sqlrawdata.datareader;
+package ch.nolix.system.sqlrawdata.datamapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 
-public final class ValueMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2021-11-05
+ */
+public final class ValueMapper implements IValueMapper {
 
-  public Object createValueFromString(final String string, final IColumnView contentColumnDefinition) {
-    return createValueFromString(string, contentColumnDefinition.getColumnDataType());
-  }
-
-  private Object createValueFromString(final String string, final DataType dataType) {
-    return switch (dataType) {
+  @Override
+  public Object mapValueToString(final String string, final DataType dataType) {
+    return //
+    switch (dataType) {
       case INTEGER_1BYTE ->
         Byte.valueOf(string);
       case INTEGER_2BYTE ->
