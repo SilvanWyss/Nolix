@@ -13,5 +13,5 @@ public interface ISqlValueMapper {
    * @return a SQL value from the given stringContentFieldDto
    * @throws RuntimeException if the given stringContentFieldDto is not valid.
    */
-  String mapStringContentFieldDtoToSqlValue(final StringContentFieldDto stringContentFieldDto);
+  String mapStringContentFieldDtoToSqlValue(StringContentFieldDto stringContentFieldDto);
 }
