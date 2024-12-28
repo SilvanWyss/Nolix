@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.dataandschemaadapter;
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.baserawschema.databaseandschemaadapter.BaseDataAndSchemaAdapter;
-import ch.nolix.system.noderawdata.dataadapter.DataAdapter;
+import ch.nolix.system.noderawdata.adapter.DataAdapter;
 import ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter;
 
 public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {

@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawdata.dataadapter;
+package ch.nolix.system.noderawdata.adapter;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
