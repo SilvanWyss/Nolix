@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 
 final class LoadedEntityDtoMapper {
@@ -30,7 +30,7 @@ final class LoadedEntityDtoMapper {
 
   private IContainer<ContentFieldDto<Object>> getContentFieldsFromSqlRecord(
     final IContainer<String> sqlRecordValues,
-    final IContainer<IColumnInfo> contentColumnDefinitions) {
+    final IContainer<IColumnView> contentColumnDefinitions) {
 
     final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecordValues.iterator();

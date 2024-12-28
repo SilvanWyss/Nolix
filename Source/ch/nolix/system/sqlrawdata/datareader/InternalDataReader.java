@@ -11,7 +11,7 @@ import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
@@ -55,7 +55,7 @@ final class InternalDataReader {
 
   public IContainer<String> loadMultiBackReferenceEntries(
     final String entityId,
-    final IColumnInfo multiBackReferenceColumnInfo) {
+    final IColumnView multiBackReferenceColumnInfo) {
 
     final var query = MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(
       entityId,
@@ -66,7 +66,7 @@ final class InternalDataReader {
 
   public IContainer<String> loadMultiReferenceEntries(
     final String entityId,
-    final IColumnInfo multiReferenceColumnInfo) {
+    final IColumnView multiReferenceColumnInfo) {
     return sqlConnection
       .getRecordsFromQuery(
         MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(
@@ -77,7 +77,7 @@ final class InternalDataReader {
 
   public IContainer<Object> loadMultiValueEntries(
     final String entityId,
-    final IColumnInfo multiValueColumnInfo) {
+    final IColumnView multiValueColumnInfo) {
     return sqlConnection
       .getRecordsFromQuery(
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
@@ -100,7 +100,7 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
-    final IColumnInfo columnInfo,
+    final IColumnView columnInfo,
     final String value) {
 
     final var contentType = columnInfo.getColumnContentType();
@@ -123,7 +123,7 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
-    final IColumnInfo columnInfo,
+    final IColumnView columnInfo,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 

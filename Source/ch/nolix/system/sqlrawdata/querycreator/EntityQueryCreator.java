@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.querycreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
@@ -64,7 +64,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
-    + tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
+    + tableInfo.getColumnInfos().to(IColumnView::getColumnName).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalogue.FROM
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
     + ";";
@@ -73,7 +73,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
-    + tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
+    + tableInfo.getColumnInfos().to(IColumnView::getColumnName).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalogue.FROM
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
     + " WHERE Id = '"

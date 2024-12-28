@@ -4,11 +4,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public interface ITableInfo {
 
-  IColumnInfo getColumnInfoByColumnId(String columnId);
+  IColumnView getColumnInfoByColumnId(String columnId);
 
-  IColumnInfo getColumnInfoByColumnName(String columnName);
+  IColumnView getColumnInfoByColumnName(String columnName);
 
-  IContainer<IColumnInfo> getColumnInfos();
+  IContainer<IColumnView> getColumnInfos();
 
   String getTableId();
 

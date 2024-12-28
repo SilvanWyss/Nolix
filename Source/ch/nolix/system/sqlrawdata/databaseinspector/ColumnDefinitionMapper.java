@@ -1,17 +1,17 @@
 package ch.nolix.system.sqlrawdata.databaseinspector;
 
-import ch.nolix.system.sqlrawdata.schemaview.ColumnInfo;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.system.sqlrawdata.schemaview.ColumnView;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 
 final class ColumnDefinitionMapper {
 
-  public IColumnInfo createColumnDefinitionFrom(final ColumnDto column) {
+  public IColumnView createColumnDefinitionFrom(final ColumnDto column) {
 
     final var contentModel = column.contentModel();
 
     return //
-    new ColumnInfo(
+    new ColumnView(
       column.id(),
       column.name(),
       contentModel.getContentType(),

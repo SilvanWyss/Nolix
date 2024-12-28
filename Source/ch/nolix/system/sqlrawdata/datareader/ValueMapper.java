@@ -2,11 +2,11 @@ package ch.nolix.system.sqlrawdata.datareader;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 
 public final class ValueMapper {
 
-  public Object createValueFromString(final String string, final IColumnInfo contentColumnDefinition) {
+  public Object createValueFromString(final String string, final IColumnView contentColumnDefinition) {
     return createValueFromString(string, contentColumnDefinition.getColumnDataType());
   }
 

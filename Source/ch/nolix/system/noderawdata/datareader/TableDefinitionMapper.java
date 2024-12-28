@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemaview.TableInfo;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 
 final class TableDefinitionMapper {
@@ -22,9 +22,9 @@ final class TableDefinitionMapper {
       getContentColumnDefinitionsFromTableNode(tableNode));
   }
 
-  private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
+  private IContainer<IColumnView> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 
-    final ILinkedList<IColumnInfo> columnInfos = LinkedList.createEmpty();
+    final ILinkedList<IColumnView> columnInfos = LinkedList.createEmpty();
     var columnIndexOnEntityNode = 3;
     for (final var cn : getStoredColumnNodesInOrderFromTableNode(tableNode)) {
 

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 
 public final class DataReader implements IDataReader {
@@ -130,7 +130,7 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  private IColumnInfo getColumnInfoByTableNameAndColumnName(
+  private IColumnView getColumnInfoByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
     return getTableInfoByTableName(tableName).getColumnInfoByColumnName(columnName);

@@ -4,9 +4,9 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
-import ch.nolix.system.sqlrawdata.schemaview.ColumnInfo;
+import ch.nolix.system.sqlrawdata.schemaview.ColumnView;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 
 public final class ColumnDefinitionMapper {
 
@@ -14,11 +14,11 @@ public final class ColumnDefinitionMapper {
 
   private static final ContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
-  public IColumnInfo createColumnDefinitionFromColumnNode(
+  public IColumnView createColumnDefinitionFromColumnNode(
     final IMutableNode<?> columnNode,
     final int columnIndexOnEntityNode) {
     return //
-    new ColumnInfo(
+    new ColumnView(
       COLUMN_NODE_SEARCHER.getColumnIdFromColumnNode(columnNode),
       COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(columnNode),
       COLUMN_NODE_SEARCHER.getContentTypeFromColumnNode(columnNode),

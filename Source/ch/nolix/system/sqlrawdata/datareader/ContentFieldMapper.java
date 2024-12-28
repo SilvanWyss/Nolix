@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 
 public final class ContentFieldMapper {
 
@@ -9,7 +9,7 @@ public final class ContentFieldMapper {
 
   public ContentFieldDto<Object> createContentFieldFromString(
     final String string,
-    final IColumnInfo contentColumnDefinition) {
+    final IColumnView contentColumnDefinition) {
     return //
     ContentFieldDto.withColumnNameAndContent(
       contentColumnDefinition.getColumnName(),

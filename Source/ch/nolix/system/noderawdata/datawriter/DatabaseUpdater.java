@@ -22,7 +22,7 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -49,7 +49,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiReferenceColumnInfo) {
+    final IColumnView multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
@@ -67,7 +67,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiValueColumnInfo) {
+    final IColumnView multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableInfo.getTableName());
@@ -85,7 +85,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiReferenceColumnInfo,
+    final IColumnView multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -104,7 +104,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiValueColumnInfo,
+    final IColumnView multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -141,7 +141,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiBackReferenceColumnInfo,
+    final IColumnView multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -214,7 +214,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiBackReferenceColumnInfo,
+    final IColumnView multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase,
@@ -233,7 +233,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiReferenceColumnInfo,
+    final IColumnView multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -252,7 +252,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableInfo tableInfo,
     final String entityId,
-    final IColumnInfo multiValueColumnInfo,
+    final IColumnView multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,

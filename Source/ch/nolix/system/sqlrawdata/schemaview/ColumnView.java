@@ -5,18 +5,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 
-public record ColumnInfo(
+public record ColumnView(
 String columnId,
 String columnName,
 ContentType columnFieldType,
 DataType columnDataType,
 int columnIndexOnEntityNode)
-implements IColumnInfo {
+implements IColumnView {
 
   //For a better performance, this implementation does not use all comfortable methods.
-  public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
+  public ColumnView( //NOSONAR: This implementations checks the given arguments.
     final String columnId,
     final String columnName,
     final ContentType columnFieldType,
