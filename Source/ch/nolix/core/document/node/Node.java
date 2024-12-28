@@ -19,7 +19,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class Node extends BaseNode<Node> {
+public final class Node extends AbstractNode<Node> {
 
   public static final Node EMPTY_NODE = new Node();
 

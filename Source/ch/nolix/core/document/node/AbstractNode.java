@@ -19,9 +19,9 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 /**
  * @author Silvan Wyss
  * @version 2017-06-24
- * @param <N> is the type of a {@link BaseNode}.
+ * @param <N> is the type of a {@link AbstractNode}.
  */
-public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
+public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N> {
 
   public static final String COMMA_CODE = "$M";
 
@@ -230,7 +230,7 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
   }
 
   /**
-   * Saves the current {@link BaseNode} to the file with the given file path.
+   * Saves the current {@link AbstractNode} to the file with the given file path.
    * 
    * @param path
    * @throws ArgumentIsNullException  if the given path is null.
@@ -245,7 +245,7 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
   }
 
   /**
-   * Saves the current {@link BaseNode} to the file with the given path.
+   * Saves the current {@link AbstractNode} to the file with the given path.
    * 
    * @param path
    * @param writeMode
@@ -335,7 +335,7 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
     final var xmlNode = new MutableXmlNode().setName(getHeader());
 
     //Iterates the child nodes of the current BaseNode.
-    for (final BaseNode<?> cn : getStoredChildNodes()) {
+    for (final AbstractNode<?> cn : getStoredChildNodes()) {
 
       //Handles the case that the current child node itself does not contain child nodes.
       if (!cn.containsChildNodes()) {
@@ -352,9 +352,9 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
 
   /**
    * @param node
-   * @return true if the current {@link BaseNode} equals the given node.
+   * @return true if the current {@link AbstractNode} equals the given node.
    */
-  protected final boolean equalsNode(final BaseNode<?> node) {
+  protected final boolean equalsNode(final AbstractNode<?> node) {
     return hasEqualHeaderSettingLikeNode(node)
     && hasEqualChildNodeSettingLikeNode(node);
   }
@@ -382,7 +382,7 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
       //Iterates the child nodes of the current BaseNode.
       final var attributeCount = getChildNodeCount();
       var index = 1;
-      for (final BaseNode<?> cn : getStoredChildNodes()) {
+      for (final AbstractNode<?> cn : getStoredChildNodes()) {
 
         stringBuilder.append(cn.toFormattedString(leadingTabulators + 1));
 
@@ -403,7 +403,7 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
 
   /**
    * @return a reproducing {@link String} representation of the header of the
-   *         current {@link BaseNode}.
+   *         current {@link AbstractNode}.
    */
   private String getReproducingHeader() {
     return getEscapeStringFor(getHeader());
@@ -437,7 +437,7 @@ public abstract class BaseNode<N extends BaseNode<N>> implements INode<N> {
   /**
    * @param leadingTabulators
    * @return a formated {@link String} representation of the current
-   *         {@link BaseNode} with as many leading tabulators as the given leading
+   *         {@link AbstractNode} with as many leading tabulators as the given leading
    *         tabulator count says.
    */
   private String toFormattedString(final int leadingTabulators) {

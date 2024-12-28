@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-public abstract class BaseMutableNode<N extends BaseMutableNode<N>> extends BaseNode<N> implements IMutableNode<N> {
+public abstract class BaseMutableNode<N extends BaseMutableNode<N>> extends AbstractNode<N> implements IMutableNode<N> {
 
   /**
    * {@inheritDoc}

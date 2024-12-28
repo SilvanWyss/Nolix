@@ -5,12 +5,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.AbstractNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-abstract class BaseNodeTest<N extends BaseNode<N>> extends StandardTest {
+abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {

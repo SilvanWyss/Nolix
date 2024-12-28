@@ -5,7 +5,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.AbstractNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -275,7 +275,7 @@ public final class NetEndPoint extends EndPoint {
         return MessageHeaderCatalogue.ERROR_HEADER;
       }
 
-      return (MessageHeaderCatalogue.ERROR_HEADER + '(' + BaseNode.getEscapeStringFor(error.getMessage()) + ')');
+      return (MessageHeaderCatalogue.ERROR_HEADER + '(' + AbstractNode.getEscapeStringFor(error.getMessage()) + ')');
     }
   }
 
