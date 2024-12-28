@@ -1,7 +1,7 @@
-package ch.nolix.system.objectdata.fieldflyweight;
+package ch.nolix.system.objectdata.modelflyweight;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IFieldFlyWeight;
+import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IFieldFlyWeight;
 
 public final class FieldFlyWeight implements IFieldFlyWeight {
 

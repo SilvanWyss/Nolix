@@ -5,7 +5,7 @@ import org.mockito.Mockito;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.objectdata.entityflyweight.EntityFlyWeight;
+import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 
 final class EntityFlyWeightTest extends StandardTest {
 

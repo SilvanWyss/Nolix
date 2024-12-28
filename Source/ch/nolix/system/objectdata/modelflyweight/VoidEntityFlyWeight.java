@@ -1,6 +1,6 @@
-package ch.nolix.system.objectdata.entityflyweight;
+package ch.nolix.system.objectdata.modelflyweight;
 
-import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IEntityFlyWeight;
+import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
 
 public final class VoidEntityFlyWeight implements IEntityFlyWeight {
 
