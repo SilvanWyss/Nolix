@@ -34,7 +34,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
     return new Reference<>(type.getSimpleName());
   }
 
-  public static Reference<BaseEntity> forEntityWithTableName(final String tableName) {
+  public static Reference<AbstractEntity> forEntityWithTableName(final String tableName) {
     return new Reference<>(tableName);
   }
 

@@ -25,7 +25,7 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
     return new BackReference<>(type.getSimpleName(), backReferencedFieldName);
   }
 
-  public static BackReference<BaseEntity> forEntityWithTableNameAndBackReferencedFieldName(
+  public static BackReference<AbstractEntity> forEntityWithTableNameAndBackReferencedFieldName(
     final String tableName,
     final String backReferencedFieldName) {
     return new BackReference<>(tableName, backReferencedFieldName);

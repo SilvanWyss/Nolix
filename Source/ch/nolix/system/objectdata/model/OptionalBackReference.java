@@ -26,7 +26,7 @@ implements IOptionalBackReference<E> {
     return new OptionalBackReference<>(type.getSimpleName(), backReferencedFieldName);
   }
 
-  public static OptionalBackReference<BaseEntity> forEntityWithTableNameAndBackReferencedFieldName(
+  public static OptionalBackReference<AbstractEntity> forEntityWithTableNameAndBackReferencedFieldName(
     final String tableName,
     final String backReferencedFieldName) {
     return new OptionalBackReference<>(tableName, backReferencedFieldName);

@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-public abstract class Entity extends BaseEntity {
+public abstract class Entity extends AbstractEntity {
 
   private static final FieldFromEntityMapper FIELD_FROM_ENTITY_MAPPER = new FieldFromEntityMapper();
 

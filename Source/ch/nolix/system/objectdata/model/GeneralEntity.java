@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-public final class GeneralEntity extends BaseEntity {
+public final class GeneralEntity extends AbstractEntity {
 
   private static final FieldFromTableMapper FIELD_FROM_TABLE_EXTRACTOR = new FieldFromTableMapper();
 

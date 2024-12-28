@@ -122,7 +122,7 @@ public abstract class AbstractField implements IField {
   protected final void setAsEditedAndRunPotentialUpdateAction() {
 
     if (belongsToEntity()) {
-      ((BaseEntity) getStoredParentEntity()).internalSetEdited();
+      ((AbstractEntity) getStoredParentEntity()).internalSetEdited();
     }
 
     edited = true;
@@ -131,7 +131,7 @@ public abstract class AbstractField implements IField {
   }
 
   final IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
-    return ((BaseEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
+    return ((AbstractEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
   }
 
   final void internalSetParentColumn(final IColumn parentColumn) {
@@ -147,7 +147,7 @@ public abstract class AbstractField implements IField {
       .getStoredFirst(c -> c.hasName(name));
   }
 
-  final void internalSetParentEntity(final BaseEntity parentEntity) {
+  final void internalSetParentEntity(final AbstractEntity parentEntity) {
 
     GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
     FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
@@ -189,7 +189,7 @@ public abstract class AbstractField implements IField {
     return DatabaseObjectState.EDITED;
   }
 
-  private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final BaseEntity parentEntity) {
+  private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final AbstractEntity parentEntity) {
     if (parentEntity.belongsToTable()) {
       internalSetParentColumnFromParentTable();
     }

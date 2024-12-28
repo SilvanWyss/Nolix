@@ -37,7 +37,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
     return new OptionalReference<>(type.getSimpleName());
   }
 
-  public static OptionalReference<BaseEntity> forEntityWithTableName(final String tableName) {
+  public static OptionalReference<AbstractEntity> forEntityWithTableName(final String tableName) {
     return new OptionalReference<>(tableName);
   }
 
