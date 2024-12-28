@@ -7,13 +7,13 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 /**
- * A {@link Server} is a {@link BaseServer} that listens to {@link NetEndPoint}
+ * A {@link Server} is a {@link AbstractServer} that listens to {@link NetEndPoint}
  * on a specific port.
  * 
  * @author Silvan Wyss
  * @version 2016-06-01
  */
-public final class Server extends BaseServer {
+public final class Server extends AbstractServer {
 
   private final ch.nolix.core.net.endpoint.Server internalServer;
 

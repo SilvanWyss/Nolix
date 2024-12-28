@@ -62,10 +62,10 @@ public final class LocalEndPoint extends EndPoint {
    * Creates a new local end point that will connect to the given target on the
    * given server.
    * 
-   * @param baseServer
+   * @param abstractServer
    * @param target
    */
-  public LocalEndPoint(final BaseServer baseServer, final String target) {
+  public LocalEndPoint(final AbstractServer abstractServer, final String target) {
 
     peerType = PeerType.FRONTEND;
 
@@ -75,7 +75,7 @@ public final class LocalEndPoint extends EndPoint {
     this.target = target;
 
     //Lets the given server take the counterpart of this lcoal end point.
-    baseServer.internalTakeBackendEndPoint(getStoredCounterpart());
+    abstractServer.internalTakeBackendEndPoint(getStoredCounterpart());
   }
 
   /**

@@ -5,7 +5,7 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 
-public final class SslServer extends BaseServer {
+public final class SslServer extends AbstractServer {
 
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();
