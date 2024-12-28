@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
+import ch.nolix.core.sql.model.Record;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
@@ -10,6 +11,7 @@ import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
+import ch.nolix.system.sqlrawdata.rawdatadtomapper.LoadedEntityDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
@@ -91,12 +93,13 @@ final class InternalDataReader {
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableView tableView) {
     return sqlConnection
       .getRecordsFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView))
-      .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableView));
+      .to(r -> LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(Record.withValues(r), tableView));
   }
 
   public EntityLoadingDto loadEntity(final ITableView tableView, final String id) {
-    return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
-      sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView)),
+    return LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(
+      Record.withValues(
+        sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView))),
       tableView);
   }
 
