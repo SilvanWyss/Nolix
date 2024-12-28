@@ -1,4 +1,4 @@
-package ch.nolix.system.baserawschema.databaseandschemaadapter;
+package ch.nolix.system.rawdata.adapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter {
+public abstract class AbstractDataAdapterAndSchemaReader implements IDataAndSchemaAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -24,7 +24,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   private final ISchemaReader schemaReader;
 
-  protected BaseDataAndSchemaAdapter(
+  protected AbstractDataAdapterAndSchemaReader(
     final IDataAdapter dataAdapter,
     final ISchemaReader schemaReader) {
 
