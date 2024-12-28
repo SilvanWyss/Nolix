@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.datatool;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.databaseobject.databaseobjecttool.DatabaseObjectExaminer;
+import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.databaseobjectapi.databaseobjecttoolapi;
+package ch.nolix.systemapi.databaseobjectapi.modelexaminerapi;
 
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 

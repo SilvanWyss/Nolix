@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.databaseobjectapi.validatorapi;
+package ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi;
 
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
