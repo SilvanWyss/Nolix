@@ -6,14 +6,14 @@ import java.util.function.UnaryOperator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.baseendpoint.BaseEndPoint;
+import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
 import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
 
 /**
  * @author Silvan Wyss
  * @version 2017-05-21
  */
-public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
+public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
 
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 

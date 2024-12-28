@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint3;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.baseendpoint.BaseEndPoint;
+import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
+public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
 
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
