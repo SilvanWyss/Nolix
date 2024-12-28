@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
-import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
 
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {

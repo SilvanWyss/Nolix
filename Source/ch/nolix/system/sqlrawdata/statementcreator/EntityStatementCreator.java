@@ -4,14 +4,14 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
-import ch.nolix.system.sqlrawschema.structure.IndexTableType;
-import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
-import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.dto.StringContentFieldDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.IndexTableType;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.querycreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
-import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {

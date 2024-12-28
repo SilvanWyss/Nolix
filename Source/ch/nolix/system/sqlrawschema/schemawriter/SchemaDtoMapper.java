@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
-import ch.nolix.system.sqlrawschema.structure.TableType;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 

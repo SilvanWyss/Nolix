@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawschema.databaseschemainspector;
 
-import ch.nolix.system.sqlrawschema.structure.MetaDataTableType;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseSchemaState;
+import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 
 public final class DatabaseSchemaInspector {
