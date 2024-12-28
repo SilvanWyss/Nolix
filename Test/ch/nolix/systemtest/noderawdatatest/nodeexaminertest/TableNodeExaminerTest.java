@@ -1,4 +1,4 @@
-package ch.nolix.systemtest.noderawdatatest.nodesearchertest;
+package ch.nolix.systemtest.noderawdatatest.nodeexaminertest;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -7,9 +7,9 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
+import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 
-final class TableNodeSearcherTest extends StandardTest {
+final class TableNodeExaminerTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
@@ -25,7 +25,7 @@ final class TableNodeSearcherTest extends StandardTest {
   "4, Duck, id2, true",
   "4, Duck, id3, true"
   })
-  void testCase_containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+  void testCase_tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
     final int param1BasedColumnIndex,
     final String value,
     final String ingoredEntityId,
@@ -53,11 +53,11 @@ final class TableNodeSearcherTest extends StandardTest {
           Node.withHeader("Duck")));
 
     //setup of testUnit
-    final var testUnit = new TableNodeSearcher();
+    final var testUnit = new TableNodeExaminer();
 
     //execution
     final var result = //
-    testUnit.containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    testUnit.tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
       tableNode,
       param1BasedColumnIndex,
       value,

@@ -1,11 +1,26 @@
 package ch.nolix.system.noderawdata.nodeexaminer;
 
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 
 public final class TableNodeExaminer implements ITableNodeExaminer {
+
+  @Override
+  public boolean tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    final IMutableNode<?> tableNode,
+    final int param1BasedIndex,
+    final String value,
+    final IContainer<String> entitiesToIgnoreIds) {
+    return //
+    tableNode.containsChildNodeThat(
+      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
+      && a.getStoredChildNodeAt1BasedIndex(param1BasedIndex).hasHeader(value)
+      && !entitiesToIgnoreIds
+        .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader()));
+  }
 
   @Override
   public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {

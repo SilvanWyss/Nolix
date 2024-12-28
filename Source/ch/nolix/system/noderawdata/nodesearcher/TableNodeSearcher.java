@@ -11,20 +11,6 @@ import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalo
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
-  public boolean containsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
-    final IMutableNode<?> tableNode,
-    final int param1BasedIndex,
-    final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
-    return //
-    tableNode.containsChildNodeThat(
-      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(param1BasedIndex).hasHeader(value)
-      && !entitiesToIgnoreIds
-        .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader()));
-  }
-
-  @Override
   public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     final IMutableNode<?> tableNode,
     final String id) {
