@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
 public final class LoadedEntityDtoMapper {
 
@@ -17,21 +17,21 @@ public final class LoadedEntityDtoMapper {
 
   public EntityLoadingDto createLoadedEntityDtoFromEntityNode(
     final IMutableNode<?> entityNode,
-    final ITableInfo tableInfo) {
+    final ITableView tableView) {
     return //
     new EntityLoadingDto(
       getIdFromEntityNode(entityNode),
       getSaveStampFromEntityNode(entityNode),
-      createContentFieldsFromEntityNode(entityNode, tableInfo));
+      createContentFieldsFromEntityNode(entityNode, tableView));
   }
 
   private IContainer<ContentFieldDto<Object>> createContentFieldsFromEntityNode(
     final IMutableNode<?> entityNode,
-    final ITableInfo tableInfo) {
+    final ITableView tableView) {
 
     final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
 
-    for (final var c : tableInfo.getColumnInfos()) {
+    for (final var c : tableView.getColumnInfos()) {
 
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.getColumnIndexOnEntityNode());
       final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapContentFieldNodeToContentFieldDto(contentFieldNode, c);

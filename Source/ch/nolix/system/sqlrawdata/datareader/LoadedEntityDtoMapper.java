@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
 final class LoadedEntityDtoMapper {
 
@@ -14,18 +14,18 @@ final class LoadedEntityDtoMapper {
 
   public EntityLoadingDto createLoadedEntityDtoFrosqlRecord(
     final IContainer<String> sqlRecordValues,
-    final ITableInfo tableInfo) {
+    final ITableView tableView) {
     return //
     new EntityLoadingDto(
       sqlRecordValues.getStoredAt1BasedIndex(1),
       sqlRecordValues.getStoredAt1BasedIndex(2),
-      getContentFieldsFromSqlRecord(sqlRecordValues, tableInfo));
+      getContentFieldsFromSqlRecord(sqlRecordValues, tableView));
   }
 
   private IContainer<ContentFieldDto<Object>> getContentFieldsFromSqlRecord(
     final IContainer<String> sqlRecordValues,
-    final ITableInfo tableInfo) {
-    return getContentFieldsFromSqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
+    final ITableView tableView) {
+    return getContentFieldsFromSqlRecord(sqlRecordValues, tableView.getColumnInfos());
   }
 
   private IContainer<ContentFieldDto<Object>> getContentFieldsFromSqlRecord(

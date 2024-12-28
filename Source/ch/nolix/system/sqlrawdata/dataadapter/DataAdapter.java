@@ -6,7 +6,7 @@ import ch.nolix.system.baserawdatabase.databaseadapter.BaseDataAdapter;
 import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public abstract class DataAdapter extends BaseDataAdapter {
@@ -29,15 +29,15 @@ public abstract class DataAdapter extends BaseDataAdapter {
   private DataAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableInfo> tableInfos) {
+    final IContainer<ITableView> tableViews) {
     super(
       DataReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
         databaseName,
         sqlConnectionPool,
-        tableInfos),
+        tableViews),
       DataWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
         databaseName,
         sqlConnectionPool,
-        tableInfos));
+        tableViews));
   }
 }

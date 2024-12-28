@@ -5,33 +5,33 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
 final class EntityNodeMapper {
 
   public Node createNodeFromEntityWithSaveStamp(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final EntityCreationDto newEntity,
     final long saveStamp) {
     return //
     Node.withHeaderAndChildNodes(
       NodeHeaderCatalogue.ENTITY,
-      createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo));
+      createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableView));
   }
 
   private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
     final EntityCreationDto newEntity,
     final long saveStamp,
-    final ITableInfo tableInfo) {
+    final ITableView tableView) {
 
-    final var attributes = new Node[2 + tableInfo.getColumnInfos().getCount()];
+    final var attributes = new Node[2 + tableView.getColumnInfos().getCount()];
 
     attributes[0] = createIdAttributeFrom(newEntity);
     attributes[1] = createSaveStampAttribute(saveStamp);
 
     for (final var f : newEntity.contentFields()) {
 
-      final var columnInfo = tableInfo.getColumnInfoByColumnName(f.columnName());
+      final var columnInfo = tableView.getColumnInfoByColumnName(f.columnName());
       final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
 
       final var valueAsString = f.optionalContent();

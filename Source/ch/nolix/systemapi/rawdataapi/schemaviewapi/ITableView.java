@@ -2,7 +2,7 @@ package ch.nolix.systemapi.rawdataapi.schemaviewapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-public interface ITableInfo {
+public interface ITableView {
 
   IColumnView getColumnInfoByColumnId(String columnId);
 

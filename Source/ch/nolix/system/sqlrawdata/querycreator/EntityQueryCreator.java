@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
@@ -62,20 +62,20 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   }
 
   @Override
-  public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
+  public String createQueryToLoadEntitiesOfTable(final ITableView tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableInfo.getColumnInfos().to(IColumnView::getColumnName).toStringWithSeparator(", ")
+    + tableView.getColumnInfos().to(IColumnView::getColumnName).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalogue.FROM
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableView.getTableName()
     + ";";
   }
 
   @Override
-  public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
+  public String createQueryToLoadEntity(String id, ITableView tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableInfo.getColumnInfos().to(IColumnView::getColumnName).toStringWithSeparator(", ")
+    + tableView.getColumnInfos().to(IColumnView::getColumnName).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalogue.FROM
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableView.getTableName()
     + " WHERE Id = '"
     + id
     + "';";

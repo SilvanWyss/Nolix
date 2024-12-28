@@ -10,7 +10,7 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
 public final class DataReader implements IDataReader {
 
@@ -18,17 +18,17 @@ public final class DataReader implements IDataReader {
 
   private final InternalDataReader internalDataReader;
 
-  private final IContainer<ITableInfo> tableInfos;
+  private final IContainer<ITableView> tableViews;
 
   private DataReader(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<ITableInfo> tableInfos) {
+    final IContainer<ITableView> tableViews) {
 
-    GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
     internalDataReader = new InternalDataReader(databaseName, sqlConnection);
-    this.tableInfos = tableInfos;
+    this.tableViews = tableViews;
 
     createCloseDependencyTo(sqlConnection);
   }
@@ -36,8 +36,8 @@ public final class DataReader implements IDataReader {
   public static DataReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableInfo> tableInfos) {
-    return new DataReader(databaseName, sqlConnectionPool.borrowResource(), tableInfos);
+    final IContainer<ITableView> tableViews) {
+    return new DataReader(databaseName, sqlConnectionPool.borrowResource(), tableViews);
   }
 
   @Override
@@ -136,7 +136,7 @@ public final class DataReader implements IDataReader {
     return getTableInfoByTableName(tableName).getColumnInfoByColumnName(columnName);
   }
 
-  private ITableInfo getTableInfoByTableName(final String tableName) {
-    return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
+  private ITableView getTableInfoByTableName(final String tableName) {
+    return tableViews.getStoredFirst(td -> td.getTableName().equals(tableName));
   }
 }

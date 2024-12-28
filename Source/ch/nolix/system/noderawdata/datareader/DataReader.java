@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataReader implements IDataReader {
@@ -16,15 +16,15 @@ public final class DataReader implements IDataReader {
 
   private final InternalDataReader internalDataReader;
 
-  private final IContainer<ITableInfo> tableInfos;
+  private final IContainer<ITableView> tableViews;
 
-  public DataReader(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
+  public DataReader(final IMutableNode<?> nodeDatabase, final IContainer<ITableView> tableViews) {
 
-    GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
-    GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
+    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
     internalDataReader = new InternalDataReader(nodeDatabase);
-    this.tableInfos = tableInfos;
+    this.tableViews = tableViews;
   }
 
   @Override
@@ -128,7 +128,7 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  private ITableInfo getTableInfoByTableName(final String tableName) {
-    return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
+  private ITableView getTableInfoByTableName(final String tableName) {
+    return tableViews.getStoredFirst(td -> td.getTableName().equals(tableName));
   }
 }

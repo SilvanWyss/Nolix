@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class InternalDataWriter {
@@ -31,42 +31,42 @@ final class InternalDataWriter {
   }
 
   public void deleteEntriesFromMultiReference(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiReferenceColumnInfo) {
     addChangeAction(
-      d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo));
+      d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableView, entityId, multiReferenceColumnInfo));
   }
 
   public void deleteEntriesFromMultiValue(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiValueColumnInfo) {
     addChangeAction(
-      d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo));
+      d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableView, entityId, multiValueColumnInfo));
   }
 
   public void deleteEntryFromMultiReference(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiReferenceColumnInfo,
     final String referencedEntityId) {
     addChangeAction(
       d -> DATABASE_UPDATER.deleteEntryFromMultiReference(
         d,
-        tableInfo,
+        tableView,
         entityId,
         multiReferenceColumnInfo,
         referencedEntityId));
   }
 
   public void deleteEntryFromMultiValue(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiValueColumnInfo,
     final String entry) {
     addChangeAction(
-      d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
+      d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableView, entityId, multiValueColumnInfo, entry));
   }
 
   public void deleteEntityFromTable(final String tableName, final EntityDeletionDto entity) {
@@ -74,14 +74,14 @@ final class InternalDataWriter {
   }
 
   public void deleteMultiBackReferenceEntry(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final Consumer<IMutableNode<?>> changeAction = d -> DATABASE_UPDATER.deleteMultiBackReferenceEntry(
       d,
-      tableInfo,
+      tableView,
       entityId,
       multiBackReferenceColumnInfo,
       backReferencedEntityId);
@@ -106,14 +106,14 @@ final class InternalDataWriter {
   }
 
   public void insertEntryIntoMultiBackReference(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final Consumer<IMutableNode<?>> changeAction = d -> DATABASE_UPDATER.insertEntryIntoMultiBackReference(
       d,
-      tableInfo,
+      tableView,
       entityId,
       multiBackReferenceColumnInfo,
       backReferencedEntityId);
@@ -122,30 +122,30 @@ final class InternalDataWriter {
   }
 
   public void insertEntryIntoMultiReference(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiReferenceColumnInfo,
     final String referencedEntityId) {
     addChangeAction(
       d -> DATABASE_UPDATER.insertEntryIntoMultiReference(
         d,
-        tableInfo,
+        tableView,
         entityId,
         multiReferenceColumnInfo,
         referencedEntityId));
   }
 
   public void insertEntryIntoMultiValue(
-    final ITableInfo tableInfo,
+    final ITableView tableView,
     final String entityId,
     final IColumnView multiValueColumnInfo,
     final String entry) {
     addChangeAction(
-      d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
+      d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableView, entityId, multiValueColumnInfo, entry));
   }
 
-  public void insertEntityIntoTable(final ITableInfo tableInfo, final EntityCreationDto newEntity) {
-    addChangeAction(d -> DATABASE_UPDATER.insertEntityIntoTable(d, tableInfo, newEntity));
+  public void insertEntityIntoTable(final ITableView tableView, final EntityCreationDto newEntity) {
+    addChangeAction(d -> DATABASE_UPDATER.insertEntityIntoTable(d, tableView, newEntity));
   }
 
   public void reset() {
@@ -161,8 +161,8 @@ final class InternalDataWriter {
     }
   }
 
-  public void updateEntityOnTable(final ITableInfo tableInfo, EntityUpdateDto entityUpdate) {
-    addChangeAction(d -> DATABASE_UPDATER.updateEntityOnTable(d, tableInfo, entityUpdate));
+  public void updateEntityOnTable(final ITableView tableView, EntityUpdateDto entityUpdate) {
+    addChangeAction(d -> DATABASE_UPDATER.updateEntityOnTable(d, tableView, entityUpdate));
   }
 
   private void addChangeAction(final Consumer<IMutableNode<?>> changeAction) {

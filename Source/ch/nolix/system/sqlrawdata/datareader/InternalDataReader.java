@@ -12,7 +12,7 @@ import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
@@ -86,16 +86,16 @@ final class InternalDataReader {
       .to(r -> VALUE_MAPPER.createValueFromString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo));
   }
 
-  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
+  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableView tableView) {
     return sqlConnection
-      .getRecordsFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableInfo))
-      .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
+      .getRecordsFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView))
+      .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableView));
   }
 
-  public EntityLoadingDto loadEntity(final ITableInfo tableInfo, final String id) {
+  public EntityLoadingDto loadEntity(final ITableView tableView, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
-      sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableInfo)),
-      tableInfo);
+      sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView)),
+      tableView);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(

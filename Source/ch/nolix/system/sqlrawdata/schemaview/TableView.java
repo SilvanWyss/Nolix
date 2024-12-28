@@ -6,21 +6,21 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
-public record TableInfo(String tableId, String tableName, ImmutableList<IColumnView> columnInfos)
-implements ITableInfo {
+public record TableView(String tableId, String tableName, ImmutableList<IColumnView> columnInfos)
+implements ITableView {
 
   private static final IStringTool STRING_TOOL = new StringTool();
 
-  public TableInfo(
+  public TableView(
     final String tableId,
     final String tableName,
     final IContainer<IColumnView> columnInfos) {
     this(tableId, tableName, ImmutableList.forIterable(columnInfos));
   }
 
-  public TableInfo( //NOSONAR: This implementations checks the given arguments.
+  public TableView( //NOSONAR: This implementations checks the given arguments.
     final String tableId,
     final String tableName,
     final ImmutableList<IColumnView> columnInfos) {

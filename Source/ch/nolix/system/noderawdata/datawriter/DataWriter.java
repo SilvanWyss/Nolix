@@ -9,7 +9,7 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -18,14 +18,14 @@ public final class DataWriter implements IDataWriter {
 
   private final InternalDataWriter internalDataWriter;
 
-  private final IContainer<ITableInfo> tableInfos;
+  private final IContainer<ITableView> tableViews;
 
-  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
+  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableView> tableViews) {
 
-    GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
     internalDataWriter = new InternalDataWriter(nodeDatabase);
-    this.tableInfos = tableInfos;
+    this.tableViews = tableViews;
   }
 
   @Override
@@ -209,7 +209,7 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
   }
 
-  private ITableInfo getTableInfoByTableName(final String tableName) {
-    return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
+  private ITableView getTableInfoByTableName(final String tableName) {
+    return tableViews.getStoredFirst(td -> td.getTableName().equals(tableName));
   }
 }

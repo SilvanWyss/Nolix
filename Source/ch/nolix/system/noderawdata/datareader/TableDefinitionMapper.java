@@ -5,9 +5,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.sqlrawdata.schemaview.TableInfo;
+import ch.nolix.system.sqlrawdata.schemaview.TableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
 final class TableDefinitionMapper {
 
@@ -15,8 +15,8 @@ final class TableDefinitionMapper {
 
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  public ITableInfo createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
-    return new TableInfo(
+  public ITableView createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
+    return new TableView(
       getTableIdFromTableNode(tableNode),
       getTableNameFromTableNode(tableNode),
       getContentColumnDefinitionsFromTableNode(tableNode));

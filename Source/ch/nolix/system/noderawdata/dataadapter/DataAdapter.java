@@ -6,7 +6,7 @@ import ch.nolix.system.baserawdatabase.databaseadapter.BaseDataAdapter;
 import ch.nolix.system.noderawdata.datareader.DataReader;
 import ch.nolix.system.noderawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.noderawdata.datawriter.DataWriter;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableInfo;
+import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
 public final class DataAdapter extends BaseDataAdapter {
 
@@ -18,10 +18,10 @@ public final class DataAdapter extends BaseDataAdapter {
 
   private DataAdapter(
     final IMutableNode<?> nodeDatabase,
-    final IContainer<ITableInfo> tableInfos) {
+    final IContainer<ITableView> tableViews) {
     super(
-      new DataReader(nodeDatabase, tableInfos),
-      new DataWriter(nodeDatabase, tableInfos));
+      new DataReader(nodeDatabase, tableViews),
+      new DataWriter(nodeDatabase, tableViews));
   }
 
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {

@@ -7,7 +7,7 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlrawdata.schemaview.ColumnView;
-import ch.nolix.system.sqlrawdata.schemaview.TableInfo;
+import ch.nolix.system.sqlrawdata.schemaview.TableView;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 final class EntityQueryCreatorTest extends StandardTest {
@@ -32,7 +32,7 @@ final class EntityQueryCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableInfo = new TableInfo(
+    final var tableInfo = new TableView(
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
@@ -52,7 +52,7 @@ final class EntityQueryCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableInfo = new TableInfo(
+    final var tableInfo = new TableView(
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
