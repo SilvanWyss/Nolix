@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-public final class MutableNode extends BaseMutableNode<MutableNode> {
+public final class MutableNode extends AbstractMutableNode<MutableNode> {
 
   private String header;
 

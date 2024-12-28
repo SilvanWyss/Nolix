@@ -9,7 +9,9 @@ import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 
-public abstract class BaseMutableNode<N extends BaseMutableNode<N>> extends AbstractNode<N> implements IMutableNode<N> {
+public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
+extends AbstractNode<N>
+implements IMutableNode<N> {
 
   /**
    * {@inheritDoc}
@@ -94,7 +96,7 @@ public abstract class BaseMutableNode<N extends BaseMutableNode<N>> extends Abst
   }
 
   /**
-   * @return the current {@link BaseMutableNode}.
+   * @return the current {@link AbstractMutableNode}.
    */
   protected abstract N asConcrete();
 

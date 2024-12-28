@@ -16,7 +16,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @author Silvan Wyss
  * @version 2017-07-14
  */
-public final class FileNode extends BaseMutableNode<FileNode> {
+public final class FileNode extends AbstractMutableNode<FileNode> {
 
   private final IMutableNode<?> internalSpecification;
 
