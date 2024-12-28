@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
@@ -39,11 +38,23 @@ public final class Record extends Container<String> implements IRecord {
   }
 
   /**
+   * @param value
+   * @return a new {@link Record} with the given value.
+   * @throws ArgumentIsNullException if the given value is null.
+   */
+  public static Record withValue(final String value) {
+
+    final var values = ImmutableList.withElement(value);
+
+    return withValues(values);
+  }
+
+  /**
    * @param values
    * @return a new {@link Record} with the given values.
-   * @throws ArgumentIsNullException if the given values is null.
+   * @throws ArgumentIsNullException if the given values is not valid.
    */
-  public static Record withValues(final IArrayList<String> values) {
+  public static Record withValues(final Iterable<String> values) {
     return new Record(ImmutableList.forIterable(values));
   }
 
