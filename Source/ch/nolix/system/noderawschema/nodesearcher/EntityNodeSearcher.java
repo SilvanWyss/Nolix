@@ -13,19 +13,6 @@ public final class EntityNodeSearcher implements IEntityNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public boolean fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(
-    final IMutableNode<?> entityNode,
-    final int param1BasedColumnIndex) {
-
-    final var fieldNode = getStoredFieldNodeFromEntityNodeAt1BasedColumnIndex(entityNode, param1BasedColumnIndex);
-
-    return fieldNode.isBlank();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public IMutableNode<?> getStoredFieldNodeFromEntityNodeAt1BasedColumnIndex(
     final IMutableNode<?> entityNode,
     final int param1BasedColumnIndex) {

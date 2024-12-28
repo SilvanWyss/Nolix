@@ -3,16 +3,17 @@ package ch.nolix.system.noderawschema.nodesearcher;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.system.noderawschema.nodeexaminer.EntityNodeExaminer;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.nodeexaminerapi.IEntityNodeExaminer;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+  private static final IEntityNodeExaminer ENTITY_NODE_EXAMINER = new EntityNodeExaminer();
 
   @Override
   public boolean columnOfTableNodeIsEmptyByColumnName(final IMutableNode<?> tableNode, final String columnName) {
@@ -21,7 +22,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     final var entityNodes = getStoredEntityNodesFromTableNode(tableNode);
 
     for (final var e : entityNodes) {
-      if (ENTITY_NODE_SEARCHER.fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(e, local1BasedColumnIndex)) {
+      if (ENTITY_NODE_EXAMINER.fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(e, local1BasedColumnIndex)) {
         return false;
       }
     }

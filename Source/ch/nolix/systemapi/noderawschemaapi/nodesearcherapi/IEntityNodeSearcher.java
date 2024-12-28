@@ -11,14 +11,6 @@ public interface IEntityNodeSearcher {
   /**
    * @param entityNode
    * @param param1BasedColumnIndex
-   * @return true if the field node of the given entity node at the given
-   *         param1BasedColumnIndex is empty, false otherwise.
-   */
-  boolean fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(IMutableNode<?> entityNode, int param1BasedColumnIndex);
-
-  /**
-   * @param entityNode
-   * @param param1BasedColumnIndex
    * @return the field node of the given entityNode at the given
    *         param1BasedColumnIndex.
    * @throws RuntimeException if given entityNode does not contain a field node
