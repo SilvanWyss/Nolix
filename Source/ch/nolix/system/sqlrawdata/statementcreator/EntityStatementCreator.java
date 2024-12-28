@@ -2,6 +2,7 @@ package ch.nolix.system.sqlrawdata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
+import ch.nolix.system.sqlrawdata.sqlmapper.SqlValueMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
@@ -12,12 +13,15 @@ import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.databasestructure.IndexTableType;
 import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
 
   private static final IStringTool STRING_TOOL = new StringTool();
+
+  private static final ISqlValueMapper SQL_VALUE_MAPPER = new SqlValueMapper();
 
   @Override
   public String createStatementToDeleteEntity(
@@ -82,7 +86,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "', '"
     + 1
     + "', "
-    + newEntity.contentFields().to(this::getSqlValueRepresentationOfContentField).toStringWithSeparator(", ")
+    + newEntity.contentFields().to(SQL_VALUE_MAPPER::mapStringContentFieldDtoToSqlValue).toStringWithSeparator(", ")
     + ");";
   }
 
@@ -105,7 +109,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
 
     final var contentFieldSets = entityUpdate.updatedContentFields()
-      .to(f -> f.columnName() + " = " + getSqlValueRepresentationOfContentField(f));
+      .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapStringContentFieldDtoToSqlValue(f));
 
     var contentFieldSetsPrecessor = " ";
     if (contentFieldSets.containsAny()) {
@@ -125,16 +129,5 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + entityUpdate.saveStamp()
     + "';"
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
-  }
-
-  private String getSqlValueRepresentationOfContentField(final StringContentFieldDto contentField) {
-
-    final var valueAsString = contentField.optionalContent();
-
-    if (valueAsString.isEmpty()) {
-      return "NULL";
-    }
-
-    return "'" + valueAsString.get() + "'";
   }
 }
