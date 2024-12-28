@@ -1,4 +1,4 @@
-package ch.nolix.system.baserawdatabase.databaseadapter;
+package ch.nolix.system.rawdata.adapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public abstract class BaseDataAdapter implements IDataAdapter {
+public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -21,7 +21,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   private final IDataWriter dataWriter;
 
-  protected BaseDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
+  protected AbstractDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
 
     GlobalValidator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
     GlobalValidator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
