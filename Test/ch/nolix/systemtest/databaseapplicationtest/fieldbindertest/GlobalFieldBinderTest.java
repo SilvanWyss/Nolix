@@ -2,8 +2,8 @@ package ch.nolix.systemtest.databaseapplicationtest.fieldbindertest;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.application.databaseapplication.frontend.fieldbinder.GlobalFieldBinder;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.databaseapplication.fieldbinder.GlobalFieldBinder;
 import ch.nolix.system.objectdata.model.Value;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;

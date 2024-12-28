@@ -1,4 +1,4 @@
-package ch.nolix.system.databaseapplication.fieldbinder;
+package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;

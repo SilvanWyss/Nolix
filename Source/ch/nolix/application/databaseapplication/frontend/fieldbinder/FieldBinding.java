@@ -1,4 +1,4 @@
-package ch.nolix.system.databaseapplication.fieldbinder;
+package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
 import java.util.Optional;
 
