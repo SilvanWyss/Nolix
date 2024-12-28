@@ -244,13 +244,16 @@ public final class Polynom {
    */
   public String toString(final String parameterSymbol) {
 
-    //Handles the case that the current Polynom is a zero Polynom.
-    if (isZeroPolynom()) {
-      return toStringWhenIsZeroPolynom(parameterSymbol);
-    }
+    GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
 
-    //Handles the case that the current Polynom is not a zero Polynom.
-    return toStringWhenIsNotZeroPolynom(parameterSymbol);
+    final var stringBuilder = new StringBuilder();
+
+    stringBuilder.append(parameterSymbol + "->");
+    appendHigherCoefficientsTo(stringBuilder, parameterSymbol);
+    appendLinearCoefficientTo(stringBuilder, parameterSymbol);
+    appendConstantTo(stringBuilder);
+
+    return stringBuilder.toString();
   }
 
   /**
@@ -315,29 +318,10 @@ public final class Polynom {
     return value;
   }
 
-  private String toStringWhenIsZeroPolynom(final String parameterSymbol) {
-
-    GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
-
-    return (parameterSymbol + "->0.0");
-  }
-
-  private String toStringWhenIsNotZeroPolynom(final String parameterSymbol) {
-
-    GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
-
-    final var stringBuilder = new StringBuilder();
-
-    stringBuilder.append(parameterSymbol + "->");
-    appendHigherCoefficientsTo(stringBuilder, parameterSymbol);
-    appendLinearCoefficientTo(stringBuilder, parameterSymbol);
-    appendConstantTo(stringBuilder);
-
-    return stringBuilder.toString();
-  }
-
   private void appendConstantTo(final StringBuilder stringBuilder) {
-    if (coefficients.length > 0) {
+    if (coefficients.length == 0) {
+      stringBuilder.append("0.0");
+    } else {
 
       final var constant = coefficients[coefficients.length - 1];
 
