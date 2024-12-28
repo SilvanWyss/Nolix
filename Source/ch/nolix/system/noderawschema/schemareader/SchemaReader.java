@@ -6,13 +6,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.noderawschema.rawschemaflatdtomapper.FlatTableDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.rawschemaflatdtomapperapi.IFlatTableDtoMapper;
@@ -23,7 +23,7 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 
 public final class SchemaReader implements ISchemaReader {
 
-  private static final INodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
+  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();

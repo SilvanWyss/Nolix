@@ -7,12 +7,12 @@ import ch.nolix.system.noderawdata.dtomapper.LoadedEntityDtoMapper;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class InternalDataReader {
 
-  private static final INodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
+  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();

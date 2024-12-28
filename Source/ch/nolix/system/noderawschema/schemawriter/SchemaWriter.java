@@ -11,7 +11,7 @@ import ch.nolix.system.noderawschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.system.noderawschema.nodemapper.TableNodeMapper;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.noderawschema.nodesearcher.NodeDatabaseSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.ITableNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
@@ -31,7 +31,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
 
-  private static final INodeDatabaseSearcher DATABASE_NODE_SEARCHER = new NodeDatabaseSearcher();
+  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();

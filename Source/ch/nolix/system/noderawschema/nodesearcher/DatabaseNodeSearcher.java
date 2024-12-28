@@ -4,9 +4,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.INodeDatabaseSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 
-public final class NodeDatabaseSearcher implements INodeDatabaseSearcher {
+public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
 
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 

@@ -3,7 +3,7 @@ package ch.nolix.systemapi.noderawschemaapi.nodesearcherapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
-public interface INodeDatabaseSearcher {
+public interface IDatabaseNodeSearcher {
 
   IMutableNode<?> getStoredColumnNodeByColumnIdFromNodeDatabase(IMutableNode<?> nodeDatabase, String columnId);
 
