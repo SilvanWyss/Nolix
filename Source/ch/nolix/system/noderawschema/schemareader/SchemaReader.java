@@ -5,14 +5,16 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.system.noderawschema.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.noderawschema.rawschemaflatdtomapper.FlatTableDtoMapper;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.rawschemaflatdtomapperapi.IFlatTableDtoMapper;
@@ -29,6 +31,8 @@ public final class SchemaReader implements ISchemaReader {
   new DatabasePropertiesNodeSearcher();
 
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+
+  private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
   private static final IFlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
@@ -54,7 +58,7 @@ public final class SchemaReader implements ISchemaReader {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    return TABLE_NODE_SEARCHER.columnOfTableNodeIsEmptyByColumnName(tableNode, columnName);
+    return TABLE_NODE_EXAMINER.columnOfTableNodeIsEmptyByColumnName(tableNode, columnName);
   }
 
   @Override
