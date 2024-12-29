@@ -30,12 +30,4 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && database.isConnectedWithRealDatabase()
     && allNewAndEditedMandatoryFieldsAreSet(database);
   }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean hasChanges(final IDatabase database) {
-    return database.getStoredTables().containsAny(TABLE_TOOL::hasChanges);
-  }
 }

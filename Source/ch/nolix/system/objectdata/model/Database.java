@@ -41,6 +41,20 @@ public final class Database implements IDatabase {
   }
 
   @Override
+  public DatabaseObjectState getState() {
+
+    if (internalGetStoredDataAndSchemaAdapter().isClosed()) {
+      return DatabaseObjectState.CLOSED;
+    }
+
+    if (getStoredTables().containsAny(ITable::isEdited) || internalGetStoredDataAndSchemaAdapter().hasChanges()) {
+      return DatabaseObjectState.EDITED;
+    }
+
+    return DatabaseObjectState.LOADED;
+  }
+
+  @Override
   public <E extends IEntity> IContainer<E> getStoredEntitiesByType(final Class<E> type) {
     return getStoredTableByEntityType(type).getStoredEntities();
   }
@@ -65,20 +79,6 @@ public final class Database implements IDatabase {
   @Override
   public ITime getSchemaTimestamp() {
     return schemaTimestamp;
-  }
-
-  @Override
-  public DatabaseObjectState getState() {
-
-    if (isClosed()) {
-      return DatabaseObjectState.CLOSED;
-    }
-
-    if (internalGetStoredDataAndSchemaAdapter().hasChanges()) {
-      return DatabaseObjectState.EDITED;
-    }
-
-    return DatabaseObjectState.LOADED;
   }
 
   @Override

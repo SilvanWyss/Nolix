@@ -20,7 +20,4 @@ public interface IDatabaseExaminer {
    * @return true if the given database can save its chances.
    */
   boolean canSaveChanges(IDatabase database);
-
-  @Deprecated
-  boolean hasChanges(IDatabase database);
 }

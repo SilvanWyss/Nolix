@@ -61,11 +61,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   }
 
   @Override
-  public boolean hasChanges(final ITable<?> table) {
-    return table.internalGetStoredEntitiesInLocalData().containsAny(e -> !e.isLoaded());
-  }
-
-  @Override
   public boolean hasInsertedGivenEntityInLocalData(final ITable<?> table, final IEntity entity) {
     return containsEntityWithGivenIdInLocalData(table, entity.getId());
   }

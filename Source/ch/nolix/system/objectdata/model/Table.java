@@ -8,10 +8,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
+import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datatool.TableTool;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
@@ -32,6 +34,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private static final EntityLoader ENTITY_LOADER = new EntityLoader();
 
   private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
+
+  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   private final Database parentDatabase;
 
@@ -155,7 +159,16 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public DatabaseObjectState getState() {
-    return parentDatabase.getState();
+
+    if (parentDatabase.isClosed()) {
+      return DatabaseObjectState.CLOSED;
+    }
+
+    if (internalGetStoredEntitiesInLocalData().containsAny(ENTITY_TOOL::isNewOrEditedOrDeleted)) {
+      return DatabaseObjectState.EDITED;
+    }
+
+    return DatabaseObjectState.LOADED;
   }
 
   @Override

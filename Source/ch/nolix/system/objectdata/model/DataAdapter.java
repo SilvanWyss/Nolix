@@ -6,18 +6,14 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
-import ch.nolix.system.objectdata.modelexaminer.DatabaseExaminer;
 import ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IDatabaseExaminer;
 import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 public abstract class DataAdapter implements IDataAdapter {
-
-  private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
@@ -72,7 +68,7 @@ public abstract class DataAdapter implements IDataAdapter {
 
   @Override
   public final boolean hasChanges() {
-    return DATABASE_EXAMINER.hasChanges(database);
+    return database.isEdited();
   }
 
   @Override

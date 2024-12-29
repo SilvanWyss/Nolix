@@ -20,7 +20,5 @@ public interface ITableTool extends IDatabaseObjectExaminer {
 
   IContainer<String> getLocallyDeletedEntities(final ITable<?> table);
 
-  boolean hasChanges(ITable<?> table);
-
   boolean hasInsertedGivenEntityInLocalData(ITable<?> table, IEntity entity);
 }
