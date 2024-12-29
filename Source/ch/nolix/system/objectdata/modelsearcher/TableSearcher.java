@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.datatool;
+package ch.nolix.system.objectdata.modelsearcher;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
