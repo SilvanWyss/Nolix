@@ -1,9 +1,8 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
-import ch.nolix.system.objectdata.datatool.DatabaseTool;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IDatabaseTool;
+import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
@@ -12,11 +11,12 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 public final class ChangeSetSaveValidator {
 
-  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
@@ -26,7 +26,7 @@ public final class ChangeSetSaveValidator {
     final IDatabase database,
     final IDataAndSchemaAdapter dataAndSchemaAdapter) {
 
-    final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
+    final var entitiesInLocalData = DATABASE_SEARCHER.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExist(e, dataAndSchemaAdapter);
