@@ -72,8 +72,11 @@ implements IMultiBackReference<E> {
     return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public IContainer<IField> getStoredReferencingFields() {
+  public IContainer<IField> getStoredBackReferencedFields() {
 
     final ILinkedList<IField> referencingFields = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();

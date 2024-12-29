@@ -35,8 +35,11 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
     return new BackReference<>(tableName, backReferencedFieldName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public IContainer<IField> getStoredReferencingFields() {
+  public IContainer<IField> getStoredBackReferencedFields() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();

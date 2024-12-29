@@ -49,15 +49,18 @@ implements IOptionalBackReference<E> {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public IContainer<IField> getStoredReferencingFields() {
+  public IContainer<IField> getStoredBackReferencedFields() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
-    final var backReferencedField = ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
-      getBackReferencedFieldName());
+    final var backReferencedField = //
+    ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);
   }

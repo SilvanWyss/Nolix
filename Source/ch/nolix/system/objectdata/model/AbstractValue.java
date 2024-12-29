@@ -24,8 +24,11 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public final IContainer<IField> getStoredReferencingFields() {
+  public final IContainer<IField> getStoredBackReferencedFields() {
     return ImmutableList.createEmpty();
   }
 

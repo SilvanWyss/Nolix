@@ -14,7 +14,10 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, Ma
 
   IColumn getStoredParentColumn();
 
-  IContainer<IField> getStoredReferencingFields();
+  /**
+   * @return the {@link IField}s the current {@link IField} references back.
+   */
+  IContainer<IField> getStoredBackReferencedFields();
 
   ContentType getType();
 

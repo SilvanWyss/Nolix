@@ -57,7 +57,7 @@ public final class EntitySearcher implements IEntitySearcher {
 
   @Override
   public IContainer<? extends IField> getStoredReferencingFields(final IEntity entity) {
-    return entity.internalGetStoredFields().toMultiple(IField::getStoredReferencingFields);
+    return entity.internalGetStoredFields().toMultiple(IField::getStoredBackReferencedFields);
   }
 
   private boolean baseBackReferenceWouldReferenceBackBaseReference(
