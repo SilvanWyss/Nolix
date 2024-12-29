@@ -17,8 +17,6 @@ public interface IEntityTool extends IDatabaseObjectExaminer {
 
   boolean canBeInsertedIntoTable(IEntity entity);
 
-  boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
-
   Optional<? extends IAbstractBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
     IEntity entity,

@@ -6,7 +6,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -41,11 +40,6 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
     entity != null
     && entity.isNew()
     && entity.belongsToTable();
-  }
-
-  @Override
-  public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity entity) {
-    return entity.internalGetStoredFields().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
   }
 
   @Override
@@ -125,19 +119,6 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
     return //
     baseBackReference.getBackReferencedTableName().equals(baseReference.getStoredParentEntity().getParentTableName())
     && baseBackReference.getBackReferencedFieldName().equals(baseReference.getName());
-  }
-
-  private boolean isBaseValueOrBaseReference(final IField field) {
-
-    final var baseType = field.getType().getBaseType();
-
-    return baseType == BaseContentType.BASE_VALUE
-    || baseType == BaseContentType.BASE_REFERENCE;
-  }
-
-  private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IField field) {
-    return isBaseValueOrBaseReference(field)
-    && FIELD_TOOL.isMandatoryAndEmptyBoth(field);
   }
 
   private boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
