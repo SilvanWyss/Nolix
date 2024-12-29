@@ -7,16 +7,20 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
+import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity> extends AbstractBackReference<E>
 implements IMultiBackReference<E> {
 
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
+
+  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
@@ -75,12 +79,10 @@ implements IMultiBackReference<E> {
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
-      for (final var f : e.internalGetStoredFields()) {
-        if (f.hasName(backReferencedBaseReferenceName)) {
-          referencingFields.addAtEnd(f);
-          break;
-        }
-      }
+
+      final var backReferencedField = ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
+
+      referencingFields.addAtEnd(backReferencedField);
     }
 
     return referencingFields;

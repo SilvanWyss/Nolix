@@ -36,9 +36,23 @@ public final class EntitySearcher implements IEntitySearcher {
     return entity.internalGetStoredFields().toMultiple(IField::getStoredBaseBackReferences);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IField> getStoredEditedFields(final IEntity entity) {
     return entity.internalGetStoredFields().getStoredSelected(IField::isEdited);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IField getStoredFieldByName(final IEntity entity, final String name) {
+
+    final var fields = entity.internalGetStoredFields();
+
+    return fields.getStoredFirst(f -> f.hasName(name));
   }
 
   @Override

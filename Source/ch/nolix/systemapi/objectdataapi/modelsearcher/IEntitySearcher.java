@@ -29,6 +29,15 @@ public interface IEntitySearcher {
    */
   IContainer<? extends IField> getStoredEditedFields(IEntity entity);
 
+  /**
+   * @param entity
+   * @param name
+   * @return the {@link IField} with the given name from the given entity.
+   * @throws RuntimeException if the given entity does not have a field with the
+   *                          given name.
+   */
+  IField getStoredFieldByName(IEntity entity, String name);
+
   @Deprecated
   IContainer<? extends IField> getStoredReferencingFields(IEntity entity);
 }

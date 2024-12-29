@@ -3,13 +3,17 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
+import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 public final class BackReference<E extends IEntity> extends AbstractBackReference<E> implements IBackReference<E> {
+
+  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
@@ -38,9 +42,10 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
       return ImmutableList.createEmpty();
     }
 
-    return ImmutableList.withElement(
-      getStoredBackReferencedEntity().internalGetStoredFields()
-        .getStoredFirst(p -> p.hasName(getBackReferencedFieldName())));
+    final var backReferencedField = //
+    ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
+
+    return ImmutableList.withElement(backReferencedField);
   }
 
   @Override
