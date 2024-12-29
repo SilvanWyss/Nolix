@@ -35,6 +35,4 @@ public interface IEntityTool extends IDatabaseObjectExaminer {
   boolean isReferencedInLocalData(IEntity entity);
 
   boolean referencesGivenEntity(IEntity sourceEntity, IEntity entity);
-
-  boolean referencesUninsertedEntity(IEntity entity);
 }

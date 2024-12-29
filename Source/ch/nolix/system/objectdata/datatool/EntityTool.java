@@ -108,11 +108,6 @@ public final class EntityTool extends DatabaseObjectExaminer implements IEntityT
     return sourceEntity.internalGetStoredFields().containsAny(p -> p.referencesEntity(entity));
   }
 
-  @Override
-  public boolean referencesUninsertedEntity(final IEntity entity) {
-    return entity.internalGetStoredFields().containsAny(IField::referencesUninsertedEntity);
-  }
-
   private boolean baseBackReferenceWouldReferenceBackBaseReference(
     final IAbstractBackReference<?> baseBackReference,
     final IAbstractReference<? extends IEntity> baseReference) {
