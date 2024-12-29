@@ -7,7 +7,7 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
-import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
 public final class MsSqlDataAdapterBuilder
 extends

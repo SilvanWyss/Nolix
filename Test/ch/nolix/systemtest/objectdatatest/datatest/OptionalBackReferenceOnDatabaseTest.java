@@ -8,7 +8,7 @@ import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.OptionalBackReference;
 import ch.nolix.system.objectdata.model.OptionalReference;
-import ch.nolix.system.objectdata.schema.Schema;
+import ch.nolix.system.objectdata.schemamodel.Schema;
 
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 

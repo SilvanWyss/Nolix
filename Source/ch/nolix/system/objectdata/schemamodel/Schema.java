@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.schema;
+package ch.nolix.system.objectdata.schemamodel;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
 public final class Schema implements ISchema {
 

@@ -6,7 +6,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.dataandschemaadapter.DataAndSchemaAdapter;
 import ch.nolix.system.objectdata.model.DataAdapter;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
 public final class NodeDataAdapter extends DataAdapter {
 

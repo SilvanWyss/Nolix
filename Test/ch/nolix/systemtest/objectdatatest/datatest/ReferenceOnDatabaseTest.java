@@ -7,7 +7,7 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.Reference;
-import ch.nolix.system.objectdata.schema.Schema;
+import ch.nolix.system.objectdata.schemamodel.Schema;
 
 final class ReferenceOnDatabaseTest extends StandardTest {
 

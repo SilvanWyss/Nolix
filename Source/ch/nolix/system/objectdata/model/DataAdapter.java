@@ -9,7 +9,7 @@ import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 

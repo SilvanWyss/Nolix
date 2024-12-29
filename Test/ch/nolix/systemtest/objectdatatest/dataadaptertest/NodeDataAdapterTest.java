@@ -8,7 +8,7 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
-import ch.nolix.system.objectdata.schema.Schema;
+import ch.nolix.system.objectdata.schemamodel.Schema;
 import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;

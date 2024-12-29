@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.adapter;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
-import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
 public final class NodeDataAdapterBuilder
 extends ForNodeDatabaseCaptor<WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAdapter>>> {

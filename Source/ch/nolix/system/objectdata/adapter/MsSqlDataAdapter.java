@@ -6,7 +6,7 @@ import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 import ch.nolix.system.objectdata.model.DataAdapter;
 import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataandschemaadapter.MsSqlDataAndSchemaAdapter;
-import ch.nolix.systemapi.objectdataapi.schemaapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
 public final class MsSqlDataAdapter extends DataAdapter {
 
