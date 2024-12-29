@@ -145,7 +145,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
     return //
     ENTITY_SEARCHER
-      .getStoredReferencingFields(entity)
+      .getStoredFieldsThatAreBackReferencedFrom(entity)
       .getOptionalStoredFirst(rp -> rp.hasName(getName()));
   }
 

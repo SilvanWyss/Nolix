@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.modelsearcher;
 
 import java.util.Optional;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
@@ -55,9 +56,19 @@ public final class EntitySearcher implements IEntitySearcher {
     return fields.getStoredFirst(f -> f.hasName(name));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public IContainer<? extends IField> getStoredReferencingFields(final IEntity entity) {
-    return entity.internalGetStoredFields().toMultiple(IField::getStoredBackReferencedFields);
+  public IContainer<? extends IField> getStoredFieldsThatAreBackReferencedFrom(final IEntity entity) {
+
+    if (entity == null) {
+      return ImmutableList.createEmpty();
+    }
+
+    final var fields = entity.internalGetStoredFields();
+
+    return fields.toMultiple(IField::getStoredBackReferencedFieldsFrom);
   }
 
   private boolean baseBackReferenceWouldReferenceBackBaseReference(

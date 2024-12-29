@@ -38,6 +38,9 @@ public interface IEntitySearcher {
    */
   IField getStoredFieldByName(IEntity entity, String name);
 
-  @Deprecated
-  IContainer<? extends IField> getStoredReferencingFields(IEntity entity);
+  /**
+   * @param entity
+   * @return the {@link IField}s the given entity references back.
+   */
+  IContainer<? extends IField> getStoredFieldsThatAreBackReferencedFrom(IEntity entity);
 }

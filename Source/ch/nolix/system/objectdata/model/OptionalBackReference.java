@@ -53,7 +53,7 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IField> getStoredBackReferencedFields() {
+  public IContainer<IField> getStoredBackReferencedFieldsFrom() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();

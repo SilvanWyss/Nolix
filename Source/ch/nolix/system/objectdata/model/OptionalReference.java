@@ -157,7 +157,10 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   }
 
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
-    return ENTITY_SEARCHER.getStoredReferencingFields(entity).getOptionalStoredFirst(rp -> rp.hasName(getName()));
+    return //
+    ENTITY_SEARCHER
+      .getStoredFieldsThatAreBackReferencedFrom(entity)
+      .getOptionalStoredFirst(f -> f.hasName(getName()));
   }
 
   private void insertEntityIntoDatabaseIfPossible(final E entity) {

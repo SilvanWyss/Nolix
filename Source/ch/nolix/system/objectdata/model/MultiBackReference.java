@@ -76,7 +76,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IField> getStoredBackReferencedFields() {
+  public IContainer<IField> getStoredBackReferencedFieldsFrom() {
 
     final ILinkedList<IField> referencingFields = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
