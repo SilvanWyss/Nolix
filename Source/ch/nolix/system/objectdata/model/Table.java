@@ -9,19 +9,19 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.datatool.EntityTool;
-import ch.nolix.system.objectdata.datatool.TableTool;
+import ch.nolix.system.objectdata.datatool.TableSearcher;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 
@@ -29,7 +29,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
-  private static final ITableTool TABLE_TOOL = new TableTool();
+  private static final ITableSearcher TABLE_TOOL = new TableSearcher();
 
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
@@ -50,7 +50,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private final Class<E> entityClass;
 
   private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable = new CachingProperty<>(
-    () -> TABLE_TOOL.getColumsThatReferenceGivenTable(this));
+    () -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 
