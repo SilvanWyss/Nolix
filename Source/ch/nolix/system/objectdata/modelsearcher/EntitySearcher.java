@@ -1,16 +1,19 @@
-package ch.nolix.system.objectdata.datatool;
+package ch.nolix.system.objectdata.modelsearcher;
 
 import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
-public final class EntityTool extends DatabaseObjectExaminer implements IEntityTool {
+/**
+ * @author Silvan Wyss
+ * @version 2024-12-29
+ */
+public final class EntitySearcher implements IEntitySearcher {
 
   @Override
   public Optional<? extends IAbstractBackReference<?>> //

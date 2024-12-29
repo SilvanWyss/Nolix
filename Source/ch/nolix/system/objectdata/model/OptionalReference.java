@@ -4,11 +4,10 @@ import java.util.Optional;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
+import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalReferenceValidator;
@@ -16,14 +15,15 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 public final class OptionalReference<E extends IEntity> extends AbstractReference<E> implements IOptionalReference<E> {
+
+  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
   private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
-
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
 
   private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();
 
@@ -157,9 +157,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   }
 
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
-    return ENTITY_TOOL
-      .getStoredReferencingFields(entity)
-      .getOptionalStoredFirst(rp -> rp.hasName(getName()));
+    return ENTITY_SEARCHER.getStoredReferencingFields(entity).getOptionalStoredFirst(rp -> rp.hasName(getName()));
   }
 
   private void insertEntityIntoDatabaseIfPossible(final E entity) {

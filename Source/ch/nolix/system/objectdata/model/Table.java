@@ -8,17 +8,18 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
-import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
+import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.system.objectdata.modelsearcher.TableSearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
+import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityCreator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
@@ -33,13 +34,13 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
-  private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
+  private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
 
   private static final EntityLoader ENTITY_LOADER = new EntityLoader();
 
-  private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
+  private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
 
   private final Database parentDatabase;
 
@@ -168,7 +169,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
       return DatabaseObjectState.CLOSED;
     }
 
-    if (internalGetStoredEntitiesInLocalData().containsAny(ENTITY_TOOL::isNewOrEditedOrDeleted)) {
+    if (internalGetStoredEntitiesInLocalData().containsAny(ENTITY_EXAMINER::isNewOrEditedOrDeleted)) {
       return DatabaseObjectState.EDITED;
     }
 

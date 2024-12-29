@@ -9,18 +9,18 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
+import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 public abstract class AbstractEntity implements IEntity {
@@ -29,9 +29,9 @@ public abstract class AbstractEntity implements IEntity {
 
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
+  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
   private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
 
@@ -300,7 +300,7 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   private void updateBackReferencingFieldsForDeletion() {
-    ENTITY_TOOL.getStoredBaseBackReferences(this).forEach(this::updateBackReferencingFieldsForDeletion);
+    ENTITY_SEARCHER.getStoredBaseBackReferences(this).forEach(this::updateBackReferencingFieldsForDeletion);
   }
 
   private void updateBackReferencingFieldsForDeletion(

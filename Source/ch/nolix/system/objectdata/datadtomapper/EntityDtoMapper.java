@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.datadtomapper;
 
-import ch.nolix.system.objectdata.datatool.EntityTool;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
+import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi.IStringContentFieldDtoMapper;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
  */
 public final class EntityDtoMapper implements IEntityDtoMapper {
 
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IStringContentFieldDtoMapper STRING_CONTENT_FIELD_DTO_MAPPER = new StringContentFieldDtoMapper();
 
@@ -47,6 +47,8 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
     new EntityUpdateDto(
       entity.getId(),
       entity.getSaveStamp(),
-      ENTITY_TOOL.getStoredEditedFields(entity).to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringContentFieldDto));
+      ENTITY_SEARCHER
+        .getStoredEditedFields(entity)
+        .to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringContentFieldDto));
   }
 }

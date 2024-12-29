@@ -1,21 +1,24 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.datatool.EntityTool;
+import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 public final class BaseReferenceUpdater {
 
-  private static final EntityTool ENTITY_TOOL = new EntityTool();
+  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   public <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
     final IAbstractReference<E> baseReference,
     final E entity) {
 
     final var baseBackReference = //
-    ENTITY_TOOL.getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(entity, baseReference);
+    ENTITY_SEARCHER.getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
+      entity,
+      baseReference);
 
     baseBackReference.ifPresent(bbr -> toBaseBackReferenceAddOrSetEntity(bbr, baseReference.getStoredParentEntity()));
   }
