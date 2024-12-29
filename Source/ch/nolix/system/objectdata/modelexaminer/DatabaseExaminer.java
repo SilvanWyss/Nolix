@@ -1,9 +1,8 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.system.objectdata.datatool.TableTool;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.ITableTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IDatabaseExaminer;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 
 /**
  * @author Silvan Wyss
@@ -11,14 +10,14 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IDatabaseExaminer;
  */
 public final class DatabaseExaminer implements IDatabaseExaminer {
 
-  private static final ITableTool TABLE_TOOL = new TableTool();
+  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   /**
    * {@inheritDoc}
    */
   @Override
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IDatabase database) {
-    return database.getStoredTables().containsOnly(TABLE_TOOL::allNewAndEditedMandatoryFieldsAreSet);
+    return database.getStoredTables().containsOnly(TABLE_EXAMINER::allNewAndEditedMandatoryFieldsAreSet);
   }
 
   /**

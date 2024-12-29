@@ -8,17 +8,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public interface ITableTool extends IDatabaseObjectExaminer {
 
-  boolean allNewAndEditedMandatoryFieldsAreSet(ITable<?> table);
-
-  boolean canInsertEntity(ITable<?> table);
-
-  boolean canInsertGivenEntity(ITable<?> table, IEntity entity);
-
-  boolean containsEntityWithGivenIdInLocalData(ITable<?> table, String id);
-
   <E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(ITable<E> table);
 
   IContainer<String> getLocallyDeletedEntities(final ITable<?> table);
-
-  boolean hasInsertedGivenEntityInLocalData(ITable<?> table, IEntity entity);
 }

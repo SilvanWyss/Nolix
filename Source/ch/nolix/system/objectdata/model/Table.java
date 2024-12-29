@@ -11,6 +11,7 @@ import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.datatool.EntityTool;
 import ch.nolix.system.objectdata.datatool.TableTool;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
+import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
@@ -19,6 +20,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
@@ -28,6 +30,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
   private static final ITableTool TABLE_TOOL = new TableTool();
+
+  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
@@ -262,7 +266,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(EntityLoadingDto loadedEntity) {
-    if (!TABLE_TOOL.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
+    if (!TABLE_EXAMINER.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
 
       final var entity = ENTITY_CREATOR.createEmptyEntityForTable(this);
       entity.internalSetParentTable(this);
