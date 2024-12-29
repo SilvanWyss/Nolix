@@ -45,7 +45,7 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  public E getBackReferencedEntity() {
+  public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
@@ -56,7 +56,7 @@ implements IOptionalBackReference<E> {
       return ImmutableList.createEmpty();
     }
 
-    final var backReferencedField = ENTITY_SEARCHER.getStoredFieldByName(getBackReferencedEntity(),
+    final var backReferencedField = ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
       getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);
