@@ -8,13 +8,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public interface IDatabaseTool extends IDatabaseObjectExaminer {
 
-  boolean allNewAndEditedMandatoryFieldsAreSet(IDatabase database);
-
-  boolean canSaveChanges(IDatabase database);
-
   IContainer<IEntity> getStoredEntitiesInLocalData(IDatabase database);
 
   <E extends IEntity> ITable<E> getStoredTableForGivenEntity(IDatabase database, E entity);
-
-  boolean hasChanges(IDatabase database);
 }
