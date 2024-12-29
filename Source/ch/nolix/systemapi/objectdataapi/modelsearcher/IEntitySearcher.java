@@ -20,8 +20,12 @@ public interface IEntitySearcher {
     IEntity entity,
     IAbstractReference<? extends IEntity> baseReference);
 
-  @Deprecated
-  IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences(IEntity entity);
+  /**
+   * @param entity
+   * @return the {@link IAbstractBackReference}s that reference back the given
+   *         entity.
+   */
+  IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(IEntity entity);
 
   /**
    * @param entity

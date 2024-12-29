@@ -32,9 +32,20 @@ public final class EntitySearcher implements IEntitySearcher {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
-    return entity.internalGetStoredFields().toMultiple(IField::getStoredAbstractBackReferencesThatReferencesBackThis);
+  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(
+    final IEntity entity) {
+
+    if (entity == null) {
+      return ImmutableList.createEmpty();
+    }
+
+    final var fields = entity.internalGetStoredFields();
+
+    return fields.toMultiple(IField::getStoredAbstractBackReferencesThatReferencesBackThis);
   }
 
   /**
