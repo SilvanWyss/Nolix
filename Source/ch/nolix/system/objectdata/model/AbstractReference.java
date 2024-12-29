@@ -38,7 +38,7 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<IField> getStoredBackReferencedFieldsFrom() {
+  public final IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom() {
     return ImmutableList.createEmpty();
   }
 

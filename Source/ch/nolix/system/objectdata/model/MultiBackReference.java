@@ -9,8 +9,8 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
@@ -76,14 +76,16 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IField> getStoredBackReferencedFieldsFrom() {
+  public IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom() {
 
-    final ILinkedList<IField> referencingFields = LinkedList.createEmpty();
+    final ILinkedList<IAbstractReference<IEntity>> referencingFields = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
 
-      final var backReferencedField = ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
+      @SuppressWarnings("unchecked")
+      final var backReferencedField = //
+      (IAbstractReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
 
       referencingFields.addAtEnd(backReferencedField);
     }

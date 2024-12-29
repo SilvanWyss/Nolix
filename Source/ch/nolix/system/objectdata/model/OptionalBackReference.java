@@ -6,8 +6,8 @@ import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
@@ -53,14 +53,16 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IField> getStoredBackReferencedFieldsFrom() {
+  @SuppressWarnings("unchecked")
+  public IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
     final var backReferencedField = //
-    ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
+    (IAbstractReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
+      getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);
   }

@@ -42,5 +42,5 @@ public interface IEntitySearcher {
    * @param entity
    * @return the {@link IField}s the given entity references back.
    */
-  IContainer<? extends IField> getStoredFieldsThatAreBackReferencedFrom(IEntity entity);
+  IContainer<IAbstractReference<IEntity>> getStoredFieldsThatAreBackReferencedFrom(IEntity entity);
 }

@@ -17,7 +17,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, Ma
   /**
    * @return the {@link IField}s the current {@link IField} references back.
    */
-  IContainer<IField> getStoredBackReferencedFieldsFrom();
+  IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom();
 
   ContentType getType();
 

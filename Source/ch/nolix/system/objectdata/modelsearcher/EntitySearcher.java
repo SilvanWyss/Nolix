@@ -60,7 +60,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IField> getStoredFieldsThatAreBackReferencedFrom(final IEntity entity) {
+  public IContainer<IAbstractReference<IEntity>> getStoredFieldsThatAreBackReferencedFrom(final IEntity entity) {
 
     if (entity == null) {
       return ImmutableList.createEmpty();
