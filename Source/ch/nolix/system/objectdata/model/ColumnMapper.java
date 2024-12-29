@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.dtotocontentmodelmapper.ContentModelMapper;
+import ch.nolix.system.objectdata.modelmapper.ContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;

@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.dtotocontentmodelmapper;
+package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

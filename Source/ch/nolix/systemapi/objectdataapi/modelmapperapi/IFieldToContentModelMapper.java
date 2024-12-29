@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.contentmodelmapperapi;
+package ch.nolix.systemapi.objectdataapi.modelmapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
