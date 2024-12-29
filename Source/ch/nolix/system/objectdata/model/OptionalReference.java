@@ -63,17 +63,20 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
+  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
-    final var backReferencingField = getReferencedEntity().internalGetStoredFields()
-      .getOptionalStoredFirst(p -> p.referencesBackField(this));
+    final var fields = getReferencedEntity().internalGetStoredFields();
+    final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
-    if (backReferencingField.isPresent()) {
-      return ImmutableList.withElement((IAbstractBackReference<IEntity>) backReferencingField.get());
+    if (abstractBackReferenceContainer.isPresent()) {
+
+      final var abstractBackReference = (IAbstractBackReference<IEntity>) abstractBackReferenceContainer.get();
+
+      return ImmutableList.withElement(abstractBackReference);
     }
 
     return ImmutableList.createEmpty();

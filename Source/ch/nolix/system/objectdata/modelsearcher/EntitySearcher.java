@@ -34,7 +34,7 @@ public final class EntitySearcher implements IEntitySearcher {
 
   @Override
   public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences(final IEntity entity) {
-    return entity.internalGetStoredFields().toMultiple(IField::getStoredBaseBackReferences);
+    return entity.internalGetStoredFields().toMultiple(IField::getStoredAbstractBackReferencesThatReferencesBackThis);
   }
 
   /**
@@ -68,7 +68,7 @@ public final class EntitySearcher implements IEntitySearcher {
 
     final var fields = entity.internalGetStoredFields();
 
-    return fields.toMultiple(IField::getStoredBackReferencedFieldsFrom);
+    return fields.toMultiple(IField::getStoredAbstractReferencesThatAreBackReferencedFromThis);
   }
 
   private boolean baseBackReferenceWouldReferenceBackBaseReference(

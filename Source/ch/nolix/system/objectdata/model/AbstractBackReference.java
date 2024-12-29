@@ -53,7 +53,7 @@ implements IAbstractBackReference<E> {
   }
 
   @Override
-  public final IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
+  public final IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 

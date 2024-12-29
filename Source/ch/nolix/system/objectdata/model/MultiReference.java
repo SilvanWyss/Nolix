@@ -80,23 +80,30 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
       .to(IMultiReferenceEntry::getStoredReferencedEntity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
+  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
 
-    final ILinkedList<IAbstractBackReference<IEntity>> backReferencingFields = LinkedList.createEmpty();
+    final ILinkedList<IAbstractBackReference<IEntity>> abstractBackReferences = LinkedList.createEmpty();
 
-    for (final var re : getAllStoredReferencedEntities()) {
+    for (final var e : getAllStoredReferencedEntities()) {
 
-      final var backReferencingField = re.internalGetStoredFields()
-        .getOptionalStoredFirst(p -> p.referencesBackField(this));
+      final var fields = e.internalGetStoredFields();
 
-      if (backReferencingField.isPresent()) {
-        backReferencingFields.addAtEnd((IAbstractBackReference<IEntity>) backReferencingField.get());
+      final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
+
+      if (abstractBackReferenceContainer.isPresent()) {
+
+        final var abstractBackReference = (IAbstractBackReference<IEntity>) abstractBackReferenceContainer.get();
+
+        abstractBackReferences.addAtEnd(abstractBackReference);
       }
     }
 
-    return backReferencingFields;
+    return abstractBackReferences;
   }
 
   @Override

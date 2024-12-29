@@ -54,7 +54,7 @@ implements IOptionalBackReference<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom() {
+  public IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();

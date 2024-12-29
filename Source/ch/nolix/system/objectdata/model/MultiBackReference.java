@@ -76,9 +76,9 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom() {
+  public IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
 
-    final ILinkedList<IAbstractReference<IEntity>> referencingFields = LinkedList.createEmpty();
+    final ILinkedList<IAbstractReference<IEntity>> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
@@ -87,10 +87,10 @@ implements IMultiBackReference<E> {
       final var backReferencedField = //
       (IAbstractReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
 
-      referencingFields.addAtEnd(backReferencedField);
+      abstractReferences.addAtEnd(backReferencedField);
     }
 
-    return referencingFields;
+    return abstractReferences;
   }
 
   @Override

@@ -48,17 +48,20 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
+  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
-    final var backReferencingField = getStoredReferencedEntity().internalGetStoredFields()
-      .getOptionalStoredFirst(p -> p.referencesBackField(this));
+    final var fields = getStoredReferencedEntity().internalGetStoredFields();
+    final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
-    if (backReferencingField.isPresent()) {
-      return ImmutableList.withElement((IAbstractBackReference<IEntity>) backReferencingField.get());
+    if (abstractBackReferenceContainer.isPresent()) {
+
+      final var abstractBackReference = (IAbstractBackReference<IEntity>) abstractBackReferenceContainer.get();
+
+      return ImmutableList.withElement(abstractBackReference);
     }
 
     return ImmutableList.createEmpty();
@@ -203,14 +206,14 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   }
 
   private void updateProbableBackReferencingFieldForClear() {
-    for (final var brp : getStoredBaseBackReferences()) {
+    for (final var brp : getStoredAbstractBackReferencesThatReferencesBackThis()) {
       updateBackReferencingFieldForClear(brp);
     }
   }
 
   private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
 
-    for (final var bbr : getStoredBaseBackReferences()) {
+    for (final var bbr : getStoredAbstractBackReferencesThatReferencesBackThis()) {
       if (new FieldTool().isForSingleContent(bbr)) {
         final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 

@@ -10,14 +10,19 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, MandatorynessRequestable {
 
-  IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences();
-
-  IColumn getStoredParentColumn();
+  /**
+   * @return the {@link IAbstractBackReference}s that reference back the current
+   *         {@link IField}.
+   */
+  IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis();
 
   /**
-   * @return the {@link IField}s the current {@link IField} references back.
+   * @return the {@link IAbstractReference}s the current {@link IField} references
+   *         back.
    */
-  IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom();
+  IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis();
+
+  IColumn getStoredParentColumn();
 
   ContentType getType();
 

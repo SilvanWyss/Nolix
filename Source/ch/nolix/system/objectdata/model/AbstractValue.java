@@ -21,7 +21,7 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
   }
 
   @Override
-  public final IContainer<IAbstractBackReference<IEntity>> getStoredBaseBackReferences() {
+  public final IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 
@@ -29,7 +29,7 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<IAbstractReference<IEntity>> getStoredBackReferencedFieldsFrom() {
+  public final IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
     return ImmutableList.createEmpty();
   }
 
