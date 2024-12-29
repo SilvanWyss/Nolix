@@ -35,6 +35,20 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
   }
 
   @Override
+  public boolean isNewOrEditedOrDeleted(final IDatabaseObject databaseObject) {
+
+    if (databaseObject == null) {
+      return false;
+    }
+
+    return //
+    switch (databaseObject.getState()) {
+      case NEW, EDITED, DELETED -> true;
+      default -> false;
+    };
+  }
+
+  @Override
   public boolean isNewOrLoaded(final IDatabaseObject databaseObject) {
 
     if (databaseObject == null) {

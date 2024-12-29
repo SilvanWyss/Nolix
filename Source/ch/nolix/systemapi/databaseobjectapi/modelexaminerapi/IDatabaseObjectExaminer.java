@@ -8,6 +8,8 @@ public interface IDatabaseObjectExaminer {
 
   boolean isNewOrEdited(IDatabaseObject databaseObject);
 
+  boolean isNewOrEditedOrDeleted(IDatabaseObject databaseObject);
+
   boolean isNewOrLoaded(IDatabaseObject databaseObject);
 
   boolean isNewOrLoadedOrEdited(IDatabaseObject databaseObject);
