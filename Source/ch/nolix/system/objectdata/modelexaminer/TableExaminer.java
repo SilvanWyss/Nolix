@@ -1,9 +1,8 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.system.objectdata.datatool.EntityTool;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 
 /**
@@ -12,7 +11,7 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
  */
 public final class TableExaminer implements ITableExaminer {
 
-  private static final IEntityTool ENTITY_TOOL = new EntityTool();
+  private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   /**
    * {@inheritDoc}
@@ -22,7 +21,7 @@ public final class TableExaminer implements ITableExaminer {
     return table
       .internalGetStoredEntitiesInLocalData()
       .containsOnly(
-        e -> ENTITY_TOOL.allNewAndEditedMandatoryFieldsAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
+        e -> ENTITY_EXAMINER.allNewAndEditedMandatoryFieldsAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
       );
   }
 
@@ -40,7 +39,7 @@ public final class TableExaminer implements ITableExaminer {
   @Override
   public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
     return canInsertEntity(table)
-    && ENTITY_TOOL.canBeInsertedIntoTable(entity)
+    && ENTITY_EXAMINER.canBeInsertedIntoTable(entity)
     && !hasInsertedGivenEntityInLocalData(table, entity);
   }
 

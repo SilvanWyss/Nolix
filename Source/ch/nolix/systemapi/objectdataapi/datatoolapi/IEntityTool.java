@@ -11,12 +11,6 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
 public interface IEntityTool extends IDatabaseObjectExaminer {
 
-  boolean allNewAndEditedMandatoryFieldsAreSet(IEntity entity);
-
-  boolean canBeDeleted(IEntity entity);
-
-  boolean canBeInsertedIntoTable(IEntity entity);
-
   Optional<? extends IAbstractBackReference<?>> //
   getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
     IEntity entity,
@@ -28,11 +22,4 @@ public interface IEntityTool extends IDatabaseObjectExaminer {
 
   IContainer<? extends IField> getStoredReferencingFields(IEntity entity);
 
-  boolean isReferenced(IEntity entity);
-
-  boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity);
-
-  boolean isReferencedInLocalData(IEntity entity);
-
-  boolean referencesGivenEntity(IEntity sourceEntity, IEntity entity);
 }
