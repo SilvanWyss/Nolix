@@ -22,6 +22,12 @@ public interface IEntitySearcher {
 
   /**
    * @param entity
+   * @return the {@link IAbstractBackReference} of the given entity.
+   */
+  IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferences(IEntity entity);
+
+  /**
+   * @param entity
    * @return the {@link IAbstractBackReference}s that reference back the given
    *         entity.
    */
