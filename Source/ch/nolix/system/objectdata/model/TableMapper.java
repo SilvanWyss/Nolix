@@ -1,11 +1,15 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.schemamodelsearcherapi.ISchemaSearcher;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
 final class TableMapper {
+
+  private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 
   private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
@@ -17,7 +21,7 @@ final class TableMapper {
       database,
       tableDto.name(),
       tableDto.id(),
-      (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.name()));
+      (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(database.internalGetSchema(), tableDto.name())));
   }
 
   public ITable<IEntity> createTableFromTableDtoForDatabaseUsingGivenReferencableTables(

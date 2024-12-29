@@ -5,7 +5,5 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 
 public interface ISchema {
 
-  Class<? extends IEntity> getEntityTypeByName(String name);
-
   IContainer<Class<? extends IEntity>> getEntityTypes();
 }

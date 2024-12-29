@@ -42,11 +42,6 @@ public final class Schema implements ISchema {
   }
 
   @Override
-  public Class<? extends IEntity> getEntityTypeByName(final String name) {
-    return getEntityTypes().getStoredFirst(et -> et.getSimpleName().equals(name));
-  }
-
-  @Override
   public IContainer<Class<? extends IEntity>> getEntityTypes() {
     return entityTypes;
   }

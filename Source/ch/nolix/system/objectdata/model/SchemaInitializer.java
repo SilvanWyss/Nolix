@@ -4,15 +4,19 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
+import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.schemamodelsearcherapi.ISchemaSearcher;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class SchemaInitializer {
+
+  private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 
   private static final ITableMapper TABLE_MAPPER = new ch.nolix.system.objectdata.schemamapper.TableMapper();
 
@@ -51,7 +55,7 @@ public final class SchemaInitializer {
     final IContainer<ITable> tables,
     final ISchema schema) {
     for (final var t : tables) {
-      final var entityType = schema.getEntityTypeByName(t.getName());
+      final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(schema, t.getName());
       addBaseValueColumnsToTableFromEntityType(t, entityType);
     }
   }
@@ -79,7 +83,7 @@ public final class SchemaInitializer {
     final ISchema schema,
     final IContainer<ITable> referencableTables) {
     for (final var t : tables) {
-      final var entityType = schema.getEntityTypeByName(t.getName());
+      final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(schema, t.getName());
       addBaseReferenceColumnsToTableFromEntityType(t, entityType, referencableTables);
     }
   }
@@ -108,7 +112,7 @@ public final class SchemaInitializer {
     final ISchema schema,
     final IContainer<ITable> referencableTables) {
     for (final var t : tables) {
-      final var entityType = schema.getEntityTypeByName(t.getName());
+      final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(schema, t.getName());
       addBaseBackReferenceColumnsToTableFromEntityType(t, entityType, referencableTables);
     }
   }
