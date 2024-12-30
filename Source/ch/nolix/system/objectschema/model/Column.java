@@ -115,7 +115,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   public boolean isEmpty() {
     return //
     isNew()
-    || internalGetRefRawSchemaAdapter().columnIsEmpty(this);
+    || internalGetStoredRawSchemaAdapter().columnIsEmpty(this);
   }
 
   @Override
@@ -144,7 +144,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
   }
 
-  ObjectSchemaAdapter internalGetRefRawSchemaAdapter() {
+  ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
   }
 
@@ -158,7 +158,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   void setParameterizedFieldTypeToDatabase() {
-    internalGetRefRawSchemaAdapter().setColumnContentModel(this, contentModel);
+    internalGetStoredRawSchemaAdapter().setColumnContentModel(this, contentModel);
   }
 
   void setParentTableAttribute(final Table parentTable) {

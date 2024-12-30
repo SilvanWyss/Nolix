@@ -24,7 +24,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       column.getStoredParentTable().removeColumnAttribute(column);
     }
 
-    column.internalGetRefRawSchemaAdapter().deleteColumn(column);
+    column.internalGetStoredRawSchemaAdapter().deleteColumn(column);
 
     column.internalSetDeleted();
   }
@@ -41,7 +41,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
     if (column.isConnectedWithRealDatabase()) {
       column
-        .internalGetRefRawSchemaAdapter()
+        .internalGetStoredRawSchemaAdapter()
         .setColumnContentModel(column, contentModel);
     }
 
@@ -62,7 +62,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     column.setNameAttribute(name);
 
     if (column.isConnectedWithRealDatabase()) {
-      column.internalGetRefRawSchemaAdapter().setColumnName(column, oldName, name);
+      column.internalGetStoredRawSchemaAdapter().setColumnName(column, oldName, name);
     }
 
     for (final var brc : backReferencingColumns) {
