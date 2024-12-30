@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schemaadapter;
+package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 
-public abstract class SchemaAdapter implements ISchemaAdapter {
+public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
@@ -23,7 +23,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   private int saveCount;
 
-  protected SchemaAdapter(
+  protected AbstractSchemaAdapter(
     final String databaseName,
     final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter) {
 

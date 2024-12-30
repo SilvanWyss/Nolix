@@ -4,9 +4,8 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
-import ch.nolix.system.objectschema.schemaadapter.SchemaAdapter;
 
-public final class NodeSchemaAdapter extends SchemaAdapter {
+public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
 
   private NodeSchemaAdapter(final String databaseName, final IMutableNode<?> nodeDatabase) {
     super(databaseName, ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter.forNodeDatabase(nodeDatabase));
