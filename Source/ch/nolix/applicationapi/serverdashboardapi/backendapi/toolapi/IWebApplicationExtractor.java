@@ -14,6 +14,7 @@ public interface IWebApplicationExtractor {
   /**
    * @param server
    * @return the web {@link Application}s of the given server.
+   * @throws RuntimeException if the given server is null.
    */
   IContainer<Application<WebClient<Object>, Object>> getStoredWebApplicationsOfServer(AbstractServer<?> server);
 }
