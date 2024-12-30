@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.atomiccontrol;
+package ch.nolix.system.webgui.atomiccontrol.link;
 
 import java.util.Optional;
 

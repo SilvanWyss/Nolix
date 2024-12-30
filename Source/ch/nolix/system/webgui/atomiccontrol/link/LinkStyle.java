@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.atomiccontrol;
+package ch.nolix.system.webgui.atomiccontrol.link;
 
 import ch.nolix.system.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILinkStyle;
