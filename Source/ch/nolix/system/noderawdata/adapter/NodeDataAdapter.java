@@ -8,15 +8,15 @@ import ch.nolix.system.noderawdata.datawriter.DataWriter;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 
-public final class DataAdapter extends AbstractDataAdapter {
+public final class NodeDataAdapter extends AbstractDataAdapter {
 
   private static final TableDefinitionLoader TABLE_DEFINITION_LOADER = new TableDefinitionLoader();
 
-  private DataAdapter(final IMutableNode<?> nodeDatabase) {
+  private NodeDataAdapter(final IMutableNode<?> nodeDatabase) {
     this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableDefinitionsFromNodeDatabase(nodeDatabase));
   }
 
-  private DataAdapter(
+  private NodeDataAdapter(
     final IMutableNode<?> nodeDatabase,
     final IContainer<ITableView> tableViews) {
     super(
@@ -24,7 +24,7 @@ public final class DataAdapter extends AbstractDataAdapter {
       new DataWriter(nodeDatabase, tableViews));
   }
 
-  public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return new DataAdapter(nodeDatabase);
+  public static NodeDataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new NodeDataAdapter(nodeDatabase);
   }
 }
