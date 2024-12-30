@@ -1,7 +1,7 @@
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
-import ch.nolix.system.webgui.atomiccontrol.ValidationLabelHtmlBuilder;
+import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
+import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabelHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 

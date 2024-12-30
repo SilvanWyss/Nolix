@@ -1,11 +1,11 @@
 package ch.nolix.template.webgui.style;
 
 import ch.nolix.system.element.style.DeepSelectingStyle;
-import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.atomiccontrol.link.Link;
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
+import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
