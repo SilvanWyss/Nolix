@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.atomiccontrol;
+package ch.nolix.system.webgui.atomiccontrol.button;
 
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 

@@ -1,6 +1,6 @@
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
