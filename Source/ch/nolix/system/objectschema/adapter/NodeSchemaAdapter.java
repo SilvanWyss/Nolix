@@ -1,9 +1,10 @@
-package ch.nolix.system.objectschema.schemaadapter;
+package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
+import ch.nolix.system.objectschema.schemaadapter.SchemaAdapter;
 
 public final class NodeSchemaAdapter extends SchemaAdapter {
 
