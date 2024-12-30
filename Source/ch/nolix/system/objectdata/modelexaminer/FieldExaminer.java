@@ -39,7 +39,7 @@ public final class FieldExaminer implements IFieldExaminer {
    * @param abstractReference
    * @return true if the given abstractBackReference can reference back the given
    *         abstractReference, false otherwise, for the case that the given
-   *         abstractBackReference and abstractReference is not null.
+   *         abstractBackReference and abstractReference are not null.
    */
   private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull( //NOSONAR: This method is an instance method.
     final IAbstractBackReference<IEntity> abstractBackReference,

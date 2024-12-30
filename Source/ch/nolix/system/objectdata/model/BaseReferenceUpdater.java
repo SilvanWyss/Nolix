@@ -16,7 +16,7 @@ public final class BaseReferenceUpdater {
     final E entity) {
 
     final var baseBackReference = //
-    ENTITY_SEARCHER.getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
+    ENTITY_SEARCHER.getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
       entity,
       baseReference);
 

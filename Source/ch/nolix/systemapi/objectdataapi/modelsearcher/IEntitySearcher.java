@@ -14,11 +14,17 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IField;
  */
 public interface IEntitySearcher {
 
-  @Deprecated
-  Optional<? extends IAbstractBackReference<?>> //
-  getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
+  /**
+   * @param entity
+   * @param abstractReference
+   * @return a {@link Optional} with the {@link IAbstractBackReference} of the
+   *         given entity that can reference back the given abstractReference, an
+   *         empty {@link Optional} otherwise.
+   */
+  Optional<IAbstractBackReference<IEntity>> //
+  getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
     IEntity entity,
-    IAbstractReference<? extends IEntity> baseReference);
+    IAbstractReference<? extends IEntity> abstractReference);
 
   /**
    * @param entity

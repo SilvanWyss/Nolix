@@ -6,10 +6,12 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 /**
@@ -18,15 +20,26 @@ import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
  */
 public final class EntitySearcher implements IEntitySearcher {
 
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public Optional<? extends IAbstractBackReference<?>> //
-  getOptionalStoredBaseBackReferenceOfEntityThatWouldBackReferenceBaseReference(
+  @SuppressWarnings("unchecked")
+  public Optional<IAbstractBackReference<IEntity>> //
+  getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
     final IEntity entity,
     final IAbstractReference<? extends IEntity> baseReference) {
 
-    for (final var b : getStoredAbstractBackReferences(entity)) {
-      if (baseBackReferenceWouldReferenceBackBaseReference(b, baseReference)) {
-        return Optional.of(b);
+    if (entity != null && baseReference != null) {
+
+      final var fields = entity.internalGetStoredFields();
+
+      for (final var f : fields) {
+        if (FIELD_EXAMINER.canReferenceBackAbstractReference(f, baseReference)) {
+          return Optional.of((IAbstractBackReference<IEntity>) f);
+        }
       }
     }
 
@@ -107,13 +120,5 @@ public final class EntitySearcher implements IEntitySearcher {
     final var fields = entity.internalGetStoredFields();
 
     return fields.toMultiple(IField::getStoredAbstractReferencesThatAreBackReferencedFromThis);
-  }
-
-  private boolean baseBackReferenceWouldReferenceBackBaseReference(
-    final IAbstractBackReference<?> baseBackReference,
-    final IAbstractReference<? extends IEntity> baseReference) {
-    return //
-    baseBackReference.getBackReferencedTableName().equals(baseReference.getStoredParentEntity().getParentTableName())
-    && baseBackReference.getBackReferencedFieldName().equals(baseReference.getName());
   }
 }
