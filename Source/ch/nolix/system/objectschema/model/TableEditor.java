@@ -3,7 +3,11 @@ package ch.nolix.system.objectschema.model;
 import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
-final class TableMutationExecutor {
+/**
+ * @author Silvan Wyss
+ * @version 2021-07-11
+ */
+public final class TableEditor {
 
   private static final ITableTool TABLE_TOOL = new TableTool();
 

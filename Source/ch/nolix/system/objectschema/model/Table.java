@@ -19,7 +19,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
-  private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
+  private static final TableEditor MUTATION_EXECUTOR = new TableEditor();
 
   private static final TableTool TABLE_TOOL = new TableTool();
 
