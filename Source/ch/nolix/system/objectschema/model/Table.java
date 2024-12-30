@@ -150,7 +150,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   ObjectSchemaAdapter internalgetStoredRawSchemaAdapter() {
-    return getStoredParentDatabase().internalGetRefRawSchemaAdapter();
+    return getStoredParentDatabase().internalGetStoredRawSchemaAdapter();
   }
 
   void removeColumnAttribute(final Column column) {

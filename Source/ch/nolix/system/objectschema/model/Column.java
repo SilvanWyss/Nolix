@@ -145,7 +145,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
-    return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
+    return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetStoredRawSchemaAdapter();
   }
 
   void setNameAttribute(final String header) {

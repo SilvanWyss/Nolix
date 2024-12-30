@@ -94,7 +94,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     tables.addAtEnd(table);
   }
 
-  ObjectSchemaAdapter internalGetRefRawSchemaAdapter() {
+  ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
 
     DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
@@ -111,7 +111,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private void loadTablesFromDatabase() {
 
-    tables = LinkedList.fromIterable(internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
+    tables = LinkedList.fromIterable(internalGetStoredRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
     for (final var t : tables) {
       final var table = (Table) t;
       table.internalSetLoaded();
