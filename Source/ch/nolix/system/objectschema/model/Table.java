@@ -149,7 +149,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
     columns.addAtEnd(column);
   }
 
-  ObjectSchemaAdapter internalgetStoredRawSchemaAdapter() {
+  ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
     return getStoredParentDatabase().internalGetStoredRawSchemaAdapter();
   }
 
@@ -186,7 +186,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final var tables = getStoredParentDatabase().getStoredTables();
 
     columns = LinkedList.fromIterable(
-      internalgetStoredRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables)));
+      internalGetStoredRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables)));
 
     for (final var c : columns) {
       final var column = (Column) c;

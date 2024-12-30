@@ -17,7 +17,7 @@ public final class TableEditor {
     column.setParentTableAttribute(table);
 
     if (table.isConnectedWithRealDatabase()) {
-      table.internalgetStoredRawSchemaAdapter().addColumnToTable(table, column);
+      table.internalGetStoredRawSchemaAdapter().addColumnToTable(table, column);
     }
 
     table.internalSetEdited();
@@ -29,7 +29,7 @@ public final class TableEditor {
       table.getStoredParentDatabase().removeTableAttribute(table);
     }
 
-    table.internalgetStoredRawSchemaAdapter().deleteTable(table);
+    table.internalGetStoredRawSchemaAdapter().deleteTable(table);
 
     table.internalSetDeleted();
   }
@@ -44,7 +44,7 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
 
-      table.internalgetStoredRawSchemaAdapter().setTableName(oldTableName, name);
+      table.internalGetStoredRawSchemaAdapter().setTableName(oldTableName, name);
 
       for (final var rc : referencingColumns) {
         ((Column) rc).setParameterizedFieldTypeToDatabase();
