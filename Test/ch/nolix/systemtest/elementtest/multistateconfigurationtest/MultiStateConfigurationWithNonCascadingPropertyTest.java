@@ -7,6 +7,7 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 
 final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
 
@@ -24,7 +25,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
       CustomState.class,
       Color::fromSpecification,
       Color::getSpecification,
-      Color.WHITE);
+      X11ColorCatalogue.WHITE);
 
     CustomFormatElement() {
 
@@ -44,7 +45,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     testUnit.addOrChangeAttribute(Node.fromString("AColor(0xFF0000)"));
 
     //verification
-    expect(testUnit.color.getValueOfState(CustomState.A)).isEqualTo(Color.RED);
+    expect(testUnit.color.getValueOfState(CustomState.A)).isEqualTo(X11ColorCatalogue.RED);
   }
 
   @Test
@@ -57,7 +58,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     testUnit.addOrChangeAttribute(Node.fromString("BColor(0xFF0000)"));
 
     //verification
-    expect(testUnit.color.getValueOfState(CustomState.B)).isEqualTo(Color.RED);
+    expect(testUnit.color.getValueOfState(CustomState.B)).isEqualTo(X11ColorCatalogue.RED);
   }
 
   @Test
@@ -70,7 +71,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     testUnit.addOrChangeAttribute(Node.fromString("CColor(0xFF0000)"));
 
     //verification
-    expect(testUnit.color.getValueOfState(CustomState.C)).isEqualTo(Color.RED);
+    expect(testUnit.color.getValueOfState(CustomState.C)).isEqualTo(X11ColorCatalogue.RED);
   }
 
   @Test
@@ -83,7 +84,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     testUnit.addOrChangeAttribute(Node.fromString("DColor(0xFF0000)"));
 
     //verification
-    expect(testUnit.color.getValueOfState(CustomState.D)).isEqualTo(Color.RED);
+    expect(testUnit.color.getValueOfState(CustomState.D)).isEqualTo(X11ColorCatalogue.RED);
   }
 
   @Test
@@ -101,10 +102,10 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
     //setup
     final var testUnit = new CustomFormatElement();
-    testUnit.color.setValueForState(CustomState.A, Color.BLACK);
-    testUnit.color.setValueForState(CustomState.B, Color.BLUE);
-    testUnit.color.setValueForState(CustomState.C, Color.RED);
-    testUnit.color.setValueForState(CustomState.D, Color.GREEN);
+    testUnit.color.setValueForState(CustomState.A, X11ColorCatalogue.BLACK);
+    testUnit.color.setValueForState(CustomState.B, X11ColorCatalogue.BLUE);
+    testUnit.color.setValueForState(CustomState.C, X11ColorCatalogue.RED);
+    testUnit.color.setValueForState(CustomState.D, X11ColorCatalogue.GREEN);
 
     //execution
     final var result = testUnit.getSpecification();

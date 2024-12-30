@@ -17,6 +17,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.frontend.LocalFrontEndReader;
@@ -45,7 +46,7 @@ implements IWebGui<WebGui> {
 
   public static final Image DEFAULT_ICON = IconCatalogue.NOLIX_ICON;
 
-  public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+  public static final Color DEFAULT_BACKGROUND_COLOR = X11ColorCatalogue.WHITE;
 
   private static final String TITLE_HEADER = PascalCaseVariableCatalogue.TITLE;
 

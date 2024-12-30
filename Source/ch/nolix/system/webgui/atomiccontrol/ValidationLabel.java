@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelStyle;
@@ -114,6 +114,6 @@ implements IValidationLabel {
 
     clear();
 
-    getStoredStyle().setTextColorForState(ControlState.BASE, Color.RED);
+    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalogue.RED);
   }
 }

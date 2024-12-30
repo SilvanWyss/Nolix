@@ -7,6 +7,7 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
@@ -25,7 +26,7 @@ implements IControlStyle<S> {
 
   public static final int DEFAULT_BORDER_THICKNESS = 0;
 
-  public static final IColor DEFAULT_BORDER_COLOR = Color.BLACK;
+  public static final IColor DEFAULT_BORDER_COLOR = X11ColorCatalogue.BLACK;
 
   public static final IBackground DEFAULT_BACKGROUND = Background.TRANSPARENT_BACKGROUND;
 

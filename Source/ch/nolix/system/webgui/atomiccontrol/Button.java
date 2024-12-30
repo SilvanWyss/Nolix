@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -60,9 +60,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     getStoredStyle()
       .setLeftPaddingForState(ControlState.BASE, 20)
       .setRightPaddingForState(ControlState.BASE, 20)
-      .setBackgroundColorForState(ControlState.BASE, Color.LIGHT_GREY)
-      .setBackgroundColorForState(ControlState.HOVER, Color.DARK_GREY)
-      .setBackgroundColorForState(ControlState.FOCUS, Color.DARK_GREY);
+      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.LIGHT_GREY)
+      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalogue.DARK_GREY)
+      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalogue.DARK_GREY);
   }
 
   @Override

@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.itemmenu;
 import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
@@ -24,9 +24,9 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
     reset();
 
     getStoredStyle()
-      .setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
-      .setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
-      .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
+      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.AQUAMARINE)
+      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalogue.MEDIUM_AQUA_MARINE)
+      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalogue.MEDIUM_AQUA_MARINE);
   }
 
   @Override

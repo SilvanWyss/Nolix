@@ -7,8 +7,8 @@ import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDas
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.AbstractServer;
+import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
 
 public final class ServerDashboardService implements IServerDashboardService {

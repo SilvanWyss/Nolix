@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -20,11 +20,11 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     final var testUnit = createTestUnit();
 
     //execution
-    testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, Color.DARK_CYAN));
+    testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, X11ColorCatalogue.DARK_CYAN));
 
     //verification
     final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);
-    expect(actualBaseTextColor).isEqualTo(Color.DARK_CYAN);
+    expect(actualBaseTextColor).isEqualTo(X11ColorCatalogue.DARK_CYAN);
   }
 
   @Test

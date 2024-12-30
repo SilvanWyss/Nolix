@@ -16,7 +16,7 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StylableElement;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
@@ -39,7 +39,7 @@ implements ILayer<Layer> {
 
   public static final double DEFAULT_OPACITY = 1.0;
 
-  public static final IColor DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+  public static final IColor DEFAULT_BACKGROUND_COLOR = X11ColorCatalogue.WHITE;
 
   public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 

@@ -26,6 +26,7 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.property.Value;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
@@ -156,7 +157,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   }
 
   public static MutableImage withWidthAndHeightAndWhiteColor(final int width, final int height) {
-    return withWidthAndHeightAndColor(width, height, Color.WHITE);
+    return withWidthAndHeightAndColor(width, height, X11ColorCatalogue.WHITE);
   }
 
   @Override
@@ -241,7 +242,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
     final var pixelCount = getPixelCount();
     for (var i = 1; i <= pixelCount; i++) {
-      pixels.setAt(i, Color.WHITE);
+      pixels.setAt(i, X11ColorCatalogue.WHITE);
     }
   }
 

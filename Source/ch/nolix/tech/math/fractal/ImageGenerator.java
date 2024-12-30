@@ -16,6 +16,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
@@ -46,7 +47,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 
     squaredMinMagnitudeForDivergence = FRACTAL_TOOL.getSquaredMinMagnitudeForDivergence(fractal);
 
-    image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
+    image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), X11ColorCatalogue.WHITE);
 
     futures = startFillImageAndGetFutures();
   }

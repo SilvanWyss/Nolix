@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
@@ -35,7 +35,7 @@ final class ImageControlTest extends ControlTest<IImageControl> {
   void testCase_getStoredImage_whenContainsMutableImage() {
 
     //setup
-    final var mutableImage = MutableImage.withWidthAndHeightAndColor(16, 16, Color.WHITE);
+    final var mutableImage = MutableImage.withWidthAndHeightAndColor(16, 16, X11ColorCatalogue.WHITE);
     final var testUnit = new ImageControl();
     testUnit.setImage(mutableImage);
 

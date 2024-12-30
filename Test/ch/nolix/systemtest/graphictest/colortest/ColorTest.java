@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 
 final class ColorTest extends StandardTest {
 
@@ -101,7 +102,7 @@ final class ColorTest extends StandardTest {
   void testCase_getColorNameOrHexadecimalString_1A() {
 
     //setup
-    final var testUnit = Color.ALICE_BLUE;
+    final var testUnit = X11ColorCatalogue.ALICE_BLUE;
 
     //execution
     final var result = testUnit.getColorNameOrHexadecimalString();
@@ -114,7 +115,7 @@ final class ColorTest extends StandardTest {
   void testCase_getColorNameOrHexadecimalString_1B() {
 
     //setup
-    final var testUnit = Color.YELLOW_GREEN;
+    final var testUnit = X11ColorCatalogue.YELLOW_GREEN;
 
     //execution
     final var result = testUnit.getColorNameOrHexadecimalString();

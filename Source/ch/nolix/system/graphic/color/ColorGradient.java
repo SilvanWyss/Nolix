@@ -22,9 +22,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
 
   public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
 
-  public static final Color DEFAULT_COLOR1 = Color.BLACK;
+  public static final Color DEFAULT_COLOR1 = X11ColorCatalogue.BLACK;
 
-  public static final Color DEFAULT_COLOR2 = Color.WHITE;
+  public static final Color DEFAULT_COLOR2 = X11ColorCatalogue.WHITE;
 
   private final DirectionInCanvas direction;
 

@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
@@ -57,9 +57,9 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
     getStoredStyle()
       .setBorderThicknessForState(ControlState.BASE, 1)
-      .setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
-      .setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
-      .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
+      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.AQUAMARINE)
+      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalogue.MEDIUM_AQUA_MARINE)
+      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalogue.MEDIUM_AQUA_MARINE);
   }
 
   @Override

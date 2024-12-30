@@ -6,6 +6,7 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 
 final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
 
@@ -26,7 +27,7 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
       CustomState.class,
       Color::fromSpecification,
       Color::getSpecification,
-      Color.WHITE);
+      X11ColorCatalogue.WHITE);
 
     CustomMultiStateConfiguration() {
 
@@ -51,7 +52,7 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
     //verification
-    expect(result).is(Color.WHITE);
+    expect(result).is(X11ColorCatalogue.WHITE);
   }
 
   @Test
@@ -59,14 +60,14 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
-    multiStateConfiguration.testUnit.setValueForState(CustomState.A, Color.RED);
+    multiStateConfiguration.testUnit.setValueForState(CustomState.A, X11ColorCatalogue.RED);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
     //execution
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
     //verification
-    expect(result).is(Color.RED);
+    expect(result).is(X11ColorCatalogue.RED);
   }
 
   @Test
@@ -74,7 +75,7 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
     //setup
     final var parentMultiStateConfiguration = new CustomMultiStateConfiguration();
-    parentMultiStateConfiguration.testUnit.setValueForState(CustomState.C, Color.RED);
+    parentMultiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalogue.RED);
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     parentMultiStateConfiguration.addChild(multiStateConfiguration);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
@@ -83,7 +84,7 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
     //verification
-    expect(result).is(Color.RED);
+    expect(result).is(X11ColorCatalogue.RED);
   }
 
   @Test
@@ -91,12 +92,12 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
-    multiStateConfiguration.testUnit.setValueForState(CustomState.C, Color.RED);
+    multiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalogue.RED);
 
     //execution
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
     //verification
-    expect(result).is(Color.RED);
+    expect(result).is(X11ColorCatalogue.RED);
   }
 }

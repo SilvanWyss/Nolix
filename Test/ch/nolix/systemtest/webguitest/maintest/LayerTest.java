@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webguitest.maintest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
@@ -86,7 +86,7 @@ final class LayerTest extends StandardTest {
       .setId("id")
       .setRole(LayerRole.MAIN_LAYER)
       .setOpacity(0.5)
-      .setBackgroundColor(Color.AQUA)
+      .setBackgroundColor(X11ColorCatalogue.AQUA)
       .setContentAlignment(ContentAlignment.BOTTOM_RIGHT)
       .setRootControl(new Label());
 

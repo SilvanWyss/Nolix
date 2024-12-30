@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -47,7 +47,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
-    getStoredStyle().setBackgroundColorForState(ControlState.BASE, Color.LIGHT_GREY);
+    getStoredStyle().setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.LIGHT_GREY);
   }
 
   @Override

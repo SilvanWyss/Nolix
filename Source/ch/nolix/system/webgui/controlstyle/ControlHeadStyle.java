@@ -7,6 +7,7 @@ import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
@@ -27,7 +28,7 @@ implements IControlHeadStyle<C> {
 
   public static final LineDecoration DEFAULT_TEXT_LINE_DECORATION = LineDecoration.UNDERLINE;
 
-  public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
+  public static final Color DEFAULT_TEXT_COLOR = X11ColorCatalogue.BLACK;
 
   private final NonCascadingProperty<ControlState, Double> opacity = //
   new NonCascadingProperty<>(

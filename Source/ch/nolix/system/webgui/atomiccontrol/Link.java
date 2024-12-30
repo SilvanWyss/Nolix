@@ -16,7 +16,7 @@ import ch.nolix.coreapi.webapi.urlapi.IUrlTool;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -65,7 +65,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
     getStoredStyle()
       .setTextLineDecorationForState(ControlState.HOVER, LineDecoration.UNDERLINE)
-      .setTextColorForState(ControlState.BASE, Color.BLUE);
+      .setTextColorForState(ControlState.BASE, X11ColorCatalogue.BLUE);
   }
 
   @Override
@@ -189,6 +189,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     removeUrl();
 
     setCursorIcon(CursorIcon.HAND);
-    getStoredStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
+    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalogue.BLUE);
   }
 }
