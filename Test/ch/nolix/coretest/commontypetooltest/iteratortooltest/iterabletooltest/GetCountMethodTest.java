@@ -15,11 +15,8 @@ final class GetCountMethodTest extends StandardTest {
     final Iterable<Object> iterable = null;
     final var testUnit = new IterableTool();
 
-    //execution
-    final var result = testUnit.getCount(iterable);
-
-    //verification
-    expect(result).isEqualTo(0);
+    //execution & verification
+    expectRunning(() -> testUnit.getCount(iterable)).throwsException();
   }
 
   @Test

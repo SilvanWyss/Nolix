@@ -14,22 +14,6 @@ public final class IterableTool implements IIterableTool {
   @Override
   public int getCount(final Iterable<?> iterable) {
 
-    if (iterable != null) {
-      return getCountWhenIsNotNull(iterable);
-    }
-
-    return 0;
-  }
-
-  @Override
-  public boolean isEmpty(final Iterable<?> iterable) {
-    return //
-    iterable == null
-    || !iterable.iterator().hasNext();
-  }
-
-  private int getCountWhenIsNotNull(final Iterable<?> iterable) {
-
     final var iterator = iterable.iterator();
     var elementCount = 0;
 
@@ -39,5 +23,12 @@ public final class IterableTool implements IIterableTool {
     }
 
     return elementCount;
+  }
+
+  @Override
+  public boolean isEmpty(final Iterable<?> iterable) {
+    return //
+    iterable == null
+    || !iterable.iterator().hasNext();
   }
 }
