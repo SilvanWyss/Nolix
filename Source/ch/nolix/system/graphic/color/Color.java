@@ -32,9 +32,6 @@ public final class Color extends AbstractElement implements IColor {
 
   public static final short MAX_COLOR_COMPONENT = 255;
 
-  //TODO: Beautify
-  private static IContainer<Pair<String, Color>> WEB_COLORS_AND_NAMES;
-
   private final short redValue;
 
   private final short greenValue;
@@ -42,6 +39,8 @@ public final class Color extends AbstractElement implements IColor {
   private final short blueValue;
 
   private final short alphaValue;
+
+  private static IContainer<Pair<String, Color>> webColorsAndNames;
 
   /**
    * Creates a new {@link Color} with the given redValue, greenValue and
@@ -235,13 +234,6 @@ public final class Color extends AbstractElement implements IColor {
     return webColorAndName.get().getStoredElement2();
   }
 
-  private static IContainer<Pair<String, Color>> getWebColorsAndNames() {
-    if (WEB_COLORS_AND_NAMES == null) {
-      WEB_COLORS_AND_NAMES = new ColorNameConstantExtractor().getWebColorsAndNames();
-    }
-    return WEB_COLORS_AND_NAMES;
-  }
-
   /**
    * @param redValue
    * @param greenValue
@@ -308,6 +300,14 @@ public final class Color extends AbstractElement implements IColor {
     }
 
     return value;
+  }
+
+  //TODO: Beautify
+  private static IContainer<Pair<String, Color>> getWebColorsAndNames() {
+    if (webColorsAndNames == null) {
+      webColorsAndNames = new ColorNameConstantExtractor().getWebColorsAndNames();
+    }
+    return webColorsAndNames;
   }
 
   /**
@@ -406,7 +406,7 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public String getColorNameOrHexadecimalString() {
 
-    final var webColorAndName = WEB_COLORS_AND_NAMES.getOptionalStoredFirst(wc -> wc.getStoredElement2().equals(this));
+    final var webColorAndName = webColorsAndNames.getOptionalStoredFirst(wc -> wc.getStoredElement2().equals(this));
 
     //Handles the case that the current Color has a color name.
     if (webColorAndName.isPresent()) {
