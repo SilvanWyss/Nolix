@@ -12,47 +12,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   @Override
-  public boolean containsGivenColumn(final ITable table, final IColumn column) {
-    return table.getStoredColumns().contains(column);
-  }
-
-  @Override
-  public boolean containsColumnBackReferencedByGivenColumn(final ITable table, final IColumn column) {
-
-    //This check is theoretically not necessary, but provides a better performance
-    //for some cases.
-    if (!COLUMN_TOOL.isABackReferenceColumn(column)) {
-      return false;
-    }
-
-    return table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
-  }
-
-  @Override
-  public boolean containsColumnThatReferencesBackGivenColumn(final ITable table, final IColumn column) {
-
-    //This check is theoretically not necessary, but provides a better performance
-    //for some cases.
-    if (!COLUMN_TOOL.isAReferenceColumn(column)) {
-      return false;
-    }
-
-    return table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
-  }
-
-  @Override
-  public boolean containsColumnThatReferencesGivenTable(
-    final ITable table,
-    final ITable probableReferencedTable) {
-    return table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesGivenTable(c, table));
-  }
-
-  @Override
-  public boolean containsColumnWithGivenName(final ITable table, final String name) {
-    return table.getStoredColumns().containsAny(c -> c.hasName(name));
-  }
-
-  @Override
   public int getColumnCount(final ITable table) {
     return table.getStoredColumns().getCount();
   }
@@ -80,13 +39,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     }
 
     return getStoredReferencingColumnsWhenBelongsToDatabase(table);
-  }
-
-  @Override
-  public boolean isReferenced(final ITable table) {
-    return table.belongsToDatabase()
-    && table.getStoredParentDatabase().getStoredTables()
-      .containsAny(t -> containsColumnThatReferencesGivenTable(t, table));
   }
 
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(

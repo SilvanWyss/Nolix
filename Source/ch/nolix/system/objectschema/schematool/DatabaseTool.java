@@ -6,10 +6,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
 import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectschemaapi.modelmutationexaminer.ITableMutationExaminer;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
@@ -20,6 +22,8 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
 
   private static final ITableTool TABLE_TOOL = new TableTool();
+
+  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
@@ -147,12 +151,12 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
     }
 
     return database.getStoredTables()
-      .containsAny(t -> TABLE_TOOL.containsColumnBackReferencedByGivenColumn(t, column));
+      .containsAny(t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
   }
 
   @Override
   public boolean containsTableWithGivenColumn(final IDatabase database, final IColumn column) {
-    return database.getStoredTables().containsAny(t -> TABLE_TOOL.containsGivenColumn(t, column));
+    return database.getStoredTables().containsAny(t -> TABLE_EXAMINER.containsColumn(t, column));
   }
 
   @Override
