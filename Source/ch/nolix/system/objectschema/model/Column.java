@@ -7,12 +7,14 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
+import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
 
@@ -20,6 +22,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private static final IContentModel INITIAL_FIELD_TYPE = //
   ValueModel.forDataType(DataType.INTEGER_4BYTE);
+
+  private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   private static final ContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ContentModelMapper();
@@ -115,7 +119,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   public boolean isEmpty() {
     return //
     isNew()
-    || internalGetStoredRawSchemaAdapter().columnIsEmpty(this);
+    || internalGetStoredRawSchemaAdapter().columnIsEmpty(getStoredParentTable().getName(), getName());
   }
 
   @Override
@@ -144,7 +148,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
   }
 
-  ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
+  ISchemaAdapter internalGetStoredRawSchemaAdapter() {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetStoredRawSchemaAdapter();
   }
 
@@ -158,7 +162,10 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   void setParameterizedFieldTypeToDatabase() {
-    internalGetStoredRawSchemaAdapter().setColumnContentModel(this, contentModel);
+
+    final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
+
+    internalGetStoredRawSchemaAdapter().setColumnContentModel(getId(), contentModelDto);
   }
 
   void setParentTableAttribute(final Table parentTable) {

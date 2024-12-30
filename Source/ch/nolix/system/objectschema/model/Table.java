@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -15,6 +14,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.ITableMutationValidator;
 import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.ITableValidator;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class Table extends AbstractSchemaObject implements ITable {
 
@@ -149,7 +149,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
     columns.addAtEnd(column);
   }
 
-  ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
+  ISchemaAdapter internalGetStoredRawSchemaAdapter() {
     return getStoredParentDatabase().internalGetStoredRawSchemaAdapter();
   }
 
@@ -186,7 +186,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final var tables = getStoredParentDatabase().getStoredTables();
 
     columns = LinkedList.fromIterable(
-      internalGetStoredRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables)));
+      internalGetStoredRawSchemaAdapter().loadColumnsByTableId(getId()).to(c -> Column.fromDto(c, tables)));
 
     for (final var c : columns) {
       final var column = (Column) c;

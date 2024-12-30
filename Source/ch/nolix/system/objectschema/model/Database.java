@@ -1,9 +1,9 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
@@ -21,16 +21,18 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private boolean loadedTablesFromDatabase;
 
-  private final ObjectSchemaAdapter objectSchemaAdapter;
+  private final ISchemaAdapter rawSchemaAdapter;
 
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
-  public Database(final String name, final ISchemaAdapter schemaAdapter) {
+  public Database(final String name, final ISchemaAdapter rawSchemaAdapter) {
 
     DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
+    GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed("raw schema adapter").isNotNull();
+
     this.name = name;
-    objectSchemaAdapter = new ObjectSchemaAdapter(schemaAdapter);
+    this.rawSchemaAdapter = rawSchemaAdapter;
 
     internalSetLoaded();
   }
@@ -72,12 +74,12 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
       return tables.getCount();
     }
 
-    return objectSchemaAdapter.getTableCount();
+    return rawSchemaAdapter.getTableCount();
   }
 
   @Override
   public boolean isConnectedWithRealDatabase() {
-    return (objectSchemaAdapter != null);
+    return (rawSchemaAdapter != null);
   }
 
   @Override
@@ -94,11 +96,11 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     tables.addAtEnd(table);
   }
 
-  ObjectSchemaAdapter internalGetStoredRawSchemaAdapter() {
+  ISchemaAdapter internalGetStoredRawSchemaAdapter() {
 
     DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
-    return objectSchemaAdapter;
+    return rawSchemaAdapter;
   }
 
   void removeTableAttribute(final Table table) {

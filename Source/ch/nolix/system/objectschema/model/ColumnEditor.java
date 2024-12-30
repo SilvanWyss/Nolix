@@ -1,8 +1,10 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
+import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modeleditorapi.IColumnEditor;
+import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 
 /**
  * @author Silvan Wyss
@@ -11,6 +13,8 @@ import ch.nolix.systemapi.objectschemaapi.modeleditorapi.IColumnEditor;
 public final class ColumnEditor implements IColumnEditor<Column> {
 
   private static final ColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();
+
+  private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   /**
    * {@inheritDoc}
@@ -24,7 +28,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       column.getStoredParentTable().removeColumnAttribute(column);
     }
 
-    column.internalGetStoredRawSchemaAdapter().deleteColumn(column);
+    column.internalGetStoredRawSchemaAdapter().deleteColumn(column.getStoredParentTable().getName(), column.getName());
 
     column.internalSetDeleted();
   }
@@ -40,9 +44,11 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     column.setParameterizedFieldTypeAttribute(contentModel);
 
     if (column.isConnectedWithRealDatabase()) {
-      column
-        .internalGetStoredRawSchemaAdapter()
-        .setColumnContentModel(column, contentModel);
+
+      final var columnId = column.getId();
+      final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
+
+      column.internalGetStoredRawSchemaAdapter().setColumnContentModel(columnId, contentModelDto);
     }
 
     column.internalSetEdited();
@@ -62,7 +68,10 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     column.setNameAttribute(name);
 
     if (column.isConnectedWithRealDatabase()) {
-      column.internalGetStoredRawSchemaAdapter().setColumnName(column, oldName, name);
+
+      final var tableName = column.getStoredParentTable().getName();
+
+      column.internalGetStoredRawSchemaAdapter().setColumnName(tableName, oldName, name);
     }
 
     for (final var brc : backReferencingColumns) {

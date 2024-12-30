@@ -1,6 +1,8 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.system.objectschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.objectschema.schematool.TableTool;
+import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 /**
@@ -11,13 +13,19 @@ public final class TableEditor {
 
   private static final ITableTool TABLE_TOOL = new TableTool();
 
+  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
   public void addColumnToTable(final Table table, final Column column) {
 
     table.addColumnAttribute(column);
     column.setParentTableAttribute(table);
 
     if (table.isConnectedWithRealDatabase()) {
-      table.internalGetStoredRawSchemaAdapter().addColumnToTable(table, column);
+
+      final var tableName = table.getName();
+      final var columnDto = COLUMN_DTO_MAPPER.mapColumnToColumnDto(column);
+
+      table.internalGetStoredRawSchemaAdapter().addColumn(tableName, columnDto);
     }
 
     table.internalSetEdited();
@@ -29,7 +37,9 @@ public final class TableEditor {
       table.getStoredParentDatabase().removeTableAttribute(table);
     }
 
-    table.internalGetStoredRawSchemaAdapter().deleteTable(table);
+    final var tableName = table.getName();
+
+    table.internalGetStoredRawSchemaAdapter().deleteTable(tableName);
 
     table.internalSetDeleted();
   }
