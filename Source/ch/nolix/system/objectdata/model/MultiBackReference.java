@@ -8,6 +8,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
+import ch.nolix.systemapi.databaseobjectapi.modelexaminerapi.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -16,10 +17,11 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
-public final class MultiBackReference<E extends IEntity> extends AbstractBackReference<E>
+public final class MultiBackReference<E extends IEntity>
+extends AbstractBackReference<E>
 implements IMultiBackReference<E> {
 
-  private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
+  private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
@@ -27,7 +29,7 @@ implements IMultiBackReference<E> {
 
   private boolean loadedAllPersistedBackReferencedEntityIds;
 
-  private final LinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
+  private final ILinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
   private MultiBackReference(final String backReferencedTableName, final String backReferencedBaseReferenceName) {
     super(backReferencedTableName, backReferencedBaseReferenceName);
@@ -53,9 +55,8 @@ implements IMultiBackReference<E> {
 
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
-    //TODO: Create MultiBackReferenceEntryExaminer
     return localEntries
-      .getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrLoadedOrEdited)
+      .getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
       .to(IMultiBackReferenceEntry::getBackReferencedEntityId);
   }
 
@@ -65,13 +66,13 @@ implements IMultiBackReference<E> {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
     return localEntries
-      .getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrLoadedOrEdited)
+      .getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
       .to(IMultiBackReferenceEntry::getStoredBackReferencedEntity);
   }
 
   @Override
   public IContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
-    return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
+    return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
   /**
