@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.atomiccontrol;
+package ch.nolix.system.webgui.atomiccontrol.uploader;
 
 import java.util.Optional;
 
