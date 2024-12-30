@@ -2,7 +2,7 @@ package ch.nolix.applicationtest.serverdashboardtest.backendtest.datatooltest;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.application.serverdashboard.backend.datatool.WebApplicationExtractor;
+import ch.nolix.application.serverdashboard.backend.tool.WebApplicationExtractor;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.LocalServer;
 

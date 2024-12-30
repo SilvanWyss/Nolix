@@ -1,4 +1,4 @@
-package ch.nolix.application.serverdashboard.backend.datatool;
+package ch.nolix.application.serverdashboard.backend.tool;
 
 import ch.nolix.application.serverdashboard.backend.examiner.ApplicationExaminer;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.examinerapi.IApplicationExaminer;
