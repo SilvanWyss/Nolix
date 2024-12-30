@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schemaadapter;
+package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
