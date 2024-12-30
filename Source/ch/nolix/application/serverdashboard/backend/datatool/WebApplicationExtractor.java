@@ -1,5 +1,7 @@
 package ch.nolix.application.serverdashboard.backend.datatool;
 
+import ch.nolix.application.serverdashboard.backend.examiner.ApplicationExaminer;
+import ch.nolix.applicationapi.serverdashboardapi.backendapi.examinerapi.IApplicationExaminer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -9,13 +11,15 @@ import ch.nolix.system.application.webapplication.WebClient;
 
 public final class WebApplicationExtractor {
 
+  private static final IApplicationExaminer APPLICATION_EXAMINER = new ApplicationExaminer();
+
   public IContainer<Application<WebClient<Object>, Object>> getStoredWebApplicationsOfServer(
     final AbstractServer<?> server) {
 
     final ILinkedList<Application<WebClient<Object>, Object>> webApplications = LinkedList.createEmpty();
 
     for (final var a : server.getStoredApplications()) {
-      if (isWebApplication(a)) {
+      if (APPLICATION_EXAMINER.isWebApplication(a)) {
 
         @SuppressWarnings("unchecked")
         final var webApplication = (Application<WebClient<Object>, Object>) a;
@@ -25,10 +29,5 @@ public final class WebApplicationExtractor {
     }
 
     return webApplications;
-  }
-
-  private boolean isWebApplication(final Application<?, ?> application) {
-    return application != null
-    && application.getClientClass() == WebClient.class;
   }
 }
