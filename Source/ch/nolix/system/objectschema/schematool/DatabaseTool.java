@@ -6,14 +6,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelmutationexaminer.ITableMutationExaminer;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 public final class DatabaseTool extends DatabaseObjectExaminer implements IDatabaseTool {
+
+  private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
 
   private static final ITableTool TABLE_TOOL = new TableTool();
 
@@ -96,7 +100,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   @Override
   public boolean canAddGivenTable(final IDatabase database, final ITable table) {
     return canAddTable(database)
-    && TABLE_TOOL.canBeAddedToDatabase(table)
+    && TABLE_MUTATION_EXAMINER.canBeAddedToDatabase(table)
     && !containsTableWithGivenName(database, table.getName())
     && canAddGivenTableBecauseOfColumns(database, table);
   }

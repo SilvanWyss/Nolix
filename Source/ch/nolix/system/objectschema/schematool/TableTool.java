@@ -12,13 +12,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   @Override
-  public boolean canBeAddedToDatabase(final ITable table) {
-    return table != null
-    && table.isOpen()
-    && !table.belongsToDatabase();
-  }
-
-  @Override
   public boolean containsGivenColumn(final ITable table, final IColumn column) {
     return table.getStoredColumns().contains(column);
   }

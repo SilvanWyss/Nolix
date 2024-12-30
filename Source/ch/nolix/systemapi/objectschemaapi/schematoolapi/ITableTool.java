@@ -7,8 +7,6 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface ITableTool extends IDatabaseObjectExaminer {
 
-  boolean canBeAddedToDatabase(ITable table);
-
   boolean containsGivenColumn(ITable table, IColumn column);
 
   boolean containsColumnBackReferencedByGivenColumn(ITable table, IColumn column);
