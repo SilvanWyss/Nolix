@@ -1,8 +1,8 @@
 package ch.nolix.application.serverdashboard.frontend.style;
 
 import ch.nolix.system.element.style.DeepSelectingStyle;
-import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;

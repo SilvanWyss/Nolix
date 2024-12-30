@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webguitest.maintest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.LayerStack;
 import ch.nolix.system.webgui.main.WebGui;

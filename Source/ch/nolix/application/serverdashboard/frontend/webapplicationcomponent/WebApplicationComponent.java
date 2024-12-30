@@ -5,8 +5,8 @@ import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDas
 import ch.nolix.system.application.component.Component;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;

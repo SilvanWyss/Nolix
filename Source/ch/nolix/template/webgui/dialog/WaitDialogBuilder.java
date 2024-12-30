@@ -3,7 +3,7 @@ package ch.nolix.template.webgui.dialog;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
-import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
