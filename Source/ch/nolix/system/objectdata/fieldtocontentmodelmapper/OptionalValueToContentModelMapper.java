@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.system.objectschema.contentmodel.OptionalValueModel;
+import ch.nolix.system.objectschema.model.OptionalValueModel;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IFieldToContentModelMapper;

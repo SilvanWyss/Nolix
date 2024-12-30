@@ -8,7 +8,6 @@ import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectschema.adapter.ObjectSchemaAdapter;
-import ch.nolix.system.objectschema.contentmodel.ValueModel;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;

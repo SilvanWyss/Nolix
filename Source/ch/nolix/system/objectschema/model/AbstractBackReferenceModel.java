@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.contentmodel;
+package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
