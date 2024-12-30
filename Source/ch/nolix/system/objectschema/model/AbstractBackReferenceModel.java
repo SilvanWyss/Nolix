@@ -2,14 +2,17 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IColumnExaminer;
 
 public abstract class AbstractBackReferenceModel implements IAbstractBackReferenceModel {
 
   private static final DataType DATA_TYPE = DataType.STRING;
+
+  private static final IColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   private final IColumn backReferencedColumn;
 
@@ -41,16 +44,11 @@ public abstract class AbstractBackReferenceModel implements IAbstractBackReferen
   }
 
   private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
-    if (!isAnyReferenceColumn(backReferencedColumn)) {
+    if (!COLUMN_EXAMINER.isAbstractReferenceColumn(backReferencedColumn)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         "back referenced column",
         backReferencedColumn,
         "is not any refence column");
     }
-  }
-
-  private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
-    return backReferencedColumn.getContentModel().getContentType()
-      .getBaseType() == BaseContentType.BASE_REFERENCE;
   }
 }
