@@ -4,7 +4,6 @@ import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
@@ -13,20 +12,6 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 
 public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
-
-  @Override
-  public boolean belongsToEntity(final IField field) {
-    return //
-    field != null
-    && field.belongsToEntity();
-  }
-
-  @Override
-  public final boolean belongsToLoadedEntity(final IField field) {
-    return //
-    field.belongsToEntity()
-    && field.getStoredParentEntity().isLoaded();
-  }
 
   @Override
   public final Class<?> getDataType(final IField field) {
@@ -38,29 +23,6 @@ public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
       default ->
         throw InvalidArgumentException.forArgument(field);
     };
-  }
-
-  @Override
-  public final boolean isForMultiContent(final IField field) {
-    return (field.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
-  }
-
-  @Override
-  public final boolean isForSingleContent(final IField field) {
-    return (field.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
-  }
-
-  @Override
-  public final boolean isMandatoryAndEmptyBoth(final IField field) {
-    return field.isMandatory()
-    && field.isEmpty();
-  }
-
-  @Override
-  public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IField field) {
-    return !field.isMandatory()
-    || !isNewOrEdited(field)
-    || field.containsAny();
   }
 
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?> multiValue) {

@@ -1,5 +1,7 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
+import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -10,7 +12,27 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
  * @author Silvan Wyss
  * @version 2024-12-30
  */
-public final class FieldExaminer implements IFieldExaminer {
+public final class FieldExaminer extends DatabaseObjectExaminer implements IFieldExaminer {
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean belongsToEntity(final IField field) {
+    return //
+    field != null
+    && field.belongsToEntity();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean belongsToLoadedEntity(final IField field) {
+    return //
+    belongsToEntity(field)
+    && field.getStoredParentEntity().isLoaded();
+  }
 
   /**
    * {@inheritDoc}
@@ -56,5 +78,48 @@ public final class FieldExaminer implements IFieldExaminer {
     }
 
     return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isForMultiContent(final IField field) {
+    return //
+    field != null &&
+    field.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isForSingleContent(final IField field) {
+    return //
+    field != null
+    && field.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isMandatoryButEmpty(final IField field) {
+    return //
+    field != null
+    && field.isMandatory()
+    && field.isEmpty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isSetForCaseWhenIsMandatoryAndNewOrEdited(final IField field) {
+    return //
+    field != null
+    && (!field.isMandatory()
+    || !isNewOrEdited(field)
+    || field.containsAny());
   }
 }

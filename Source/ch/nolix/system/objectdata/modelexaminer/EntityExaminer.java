@@ -2,11 +2,10 @@ package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 
 /**
  * @author Silvan Wyss
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
  */
 public final class EntityExaminer extends DatabaseObjectExaminer implements IEntityExaminer {
 
-  private static final IFieldTool FIELD_TOOL = new FieldTool();
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   /**
    * {@inheritDoc}
@@ -23,7 +22,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IEntity entity) {
 
     if (isNewOrEdited(entity)) {
-      return entity.internalGetStoredFields().containsOnly(FIELD_TOOL::isSetForCaseIsNewOrEditedAndMandatory);
+      return entity.internalGetStoredFields().containsOnly(FIELD_EXAMINER::isSetForCaseWhenIsMandatoryAndNewOrEdited);
     }
 
     return true;

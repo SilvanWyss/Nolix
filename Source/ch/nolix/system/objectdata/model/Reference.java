@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
+import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
@@ -14,11 +14,14 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 public final class Reference<E extends IEntity> extends AbstractReference<E> implements IReference<E> {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
+
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
 
@@ -214,7 +217,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
 
     for (final var bbr : getStoredAbstractBackReferencesThatReferencesBackThis()) {
-      if (new FieldTool().isForSingleContent(bbr)) {
+      if (FIELD_EXAMINER.isForSingleContent(bbr)) {
         final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
         if (pendantReferencingField.isPresent()) {

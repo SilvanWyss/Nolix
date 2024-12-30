@@ -4,15 +4,15 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
+import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 
 public class FieldValidator implements IFieldValidator {
 
-  private static final IFieldTool FIELD_TOOL = new FieldTool();
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @Override
   public final void assertBelongsToEntity(final IField field) {
@@ -37,7 +37,7 @@ public class FieldValidator implements IFieldValidator {
 
   @Override
   public final void assertIsNotMandatoryAndEmptyBoth(final IField field) {
-    if (FIELD_TOOL.isMandatoryAndEmptyBoth(field)) {
+    if (FIELD_EXAMINER.isMandatoryButEmpty(field)) {
       throw EmptyArgumentException.forArgument(field);
     }
   }

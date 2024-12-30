@@ -10,12 +10,14 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
+import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 
 public final class MultiReference<E extends IEntity> extends AbstractReference<E> implements IMultiReference<E> {
 
@@ -26,6 +28,8 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
   private static final MultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 
   private static final MultiReferenceEntryTool MULTI_REFERENCE_ENTRY_TOOL = new MultiReferenceEntryTool();
+
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private boolean loadedAllPersistedReferencedEntityIds;
 
@@ -210,7 +214,7 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
 
   private boolean needsToLoadAllPersistedReferencedEntityIds() {
     return !loadedAllPersistedReferencedEntityIds()
-    && MULTI_REFERENCE_TOOL.belongsToLoadedEntity(this);
+    && FIELD_EXAMINER.belongsToLoadedEntity(this);
   }
 
   private void removeCastedEntity(final E entity) {

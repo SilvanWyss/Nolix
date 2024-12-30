@@ -3,17 +3,18 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
+import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 
 public abstract class AbstractBackReference<E extends IEntity>
 extends AbstractField
 implements IAbstractBackReference<E> {
 
-  private static final FieldTool FIELD_TOOL = new FieldTool();
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private final String backReferencedTableName;
 
@@ -84,7 +85,7 @@ implements IAbstractBackReference<E> {
   private boolean canReferenceBackFieldBecauseOfName(final IField field) {
     return //
     belongsToEntity()
-    && FIELD_TOOL.belongsToEntity(field)
+    && FIELD_EXAMINER.belongsToEntity(field)
     && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
     && getBackReferencedFieldName().equals(field.getName());
   }

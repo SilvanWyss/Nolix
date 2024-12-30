@@ -6,13 +6,14 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
+import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
+import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity> extends AbstractBackReference<E>
@@ -22,7 +23,7 @@ implements IMultiBackReference<E> {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final FieldTool FIELD_TOOL = new FieldTool();
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private boolean loadedAllPersistedBackReferencedEntityIds;
 
@@ -52,6 +53,7 @@ implements IMultiBackReference<E> {
 
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
+    //TODO: Create MultiBackReferenceEntryExaminer
     return localEntries
       .getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrLoadedOrEdited)
       .to(IMultiBackReferenceEntry::getBackReferencedEntityId);
@@ -173,8 +175,9 @@ implements IMultiBackReference<E> {
   }
 
   private boolean needsToLoadAllPersistedBackReferencedEntityIds() {
-    return !loadedAllPersistedReferencedEntityIds()
-    && FIELD_TOOL.belongsToLoadedEntity(this);
+    return //
+    !loadedAllPersistedReferencedEntityIds()
+    && FIELD_EXAMINER.belongsToLoadedEntity(this);
   }
 
   private void updateStateLoadingAllPersistedBackReferencedEntityIds() {
