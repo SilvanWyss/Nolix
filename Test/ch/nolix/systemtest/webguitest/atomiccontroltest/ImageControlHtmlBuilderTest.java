@@ -1,7 +1,7 @@
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-import ch.nolix.system.webgui.atomiccontrol.ImageControl;
-import ch.nolix.system.webgui.atomiccontrol.ImageControlHtmlBuilder;
+import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 

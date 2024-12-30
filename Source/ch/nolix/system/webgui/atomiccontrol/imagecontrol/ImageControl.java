@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.atomiccontrol;
+package ch.nolix.system.webgui.atomiccontrol.imagecontrol;
 
 import java.util.Optional;
 import java.util.function.Consumer;

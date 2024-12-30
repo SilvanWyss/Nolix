@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.atomiccontrol;
+package ch.nolix.system.webgui.atomiccontrol.imagecontrol;
 
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
