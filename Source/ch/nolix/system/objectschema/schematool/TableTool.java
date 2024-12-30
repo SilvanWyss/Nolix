@@ -1,10 +1,5 @@
 package ch.nolix.system.objectschema.schematool;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -15,43 +10,6 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
-
-  @Override
-  public void assertContainsGivenColumn(final ITable table, final IColumn column) {
-    if (!containsGivenColumn(table, column)) {
-      throw ArgumentDoesNotContainElementException.forArgumentAndElement(table, column);
-    }
-  }
-
-  @Override
-  public void assertDoesNotBelongToDatabase(final ITable table) {
-    if (table.belongsToDatabase()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(table, table.getStoredParentDatabase());
-    }
-  }
-
-  @Override
-  public void assertDoesNotContainGivenColumn(final ITable table, final IColumn column) {
-    if (containsGivenColumn(table, column)) {
-      throw ArgumentContainsElementException.forArgumentAndElement(table, column);
-    }
-  }
-
-  @Override
-  public void assertDoesNotContainColumnWithGivenName(final ITable table, final String name) {
-    if (containsColumnWithGivenName(table, name)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        table,
-        "contains already a column with the given name '" + name + "'");
-    }
-  }
-
-  @Override
-  public void assertIsNotReferenced(final ITable table) {
-    if (isReferenced(table)) {
-      throw ReferencedArgumentException.forArgument(table);
-    }
-  }
 
   @Override
   public boolean canBeAddedToDatabase(final ITable table) {

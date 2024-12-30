@@ -6,17 +6,17 @@ import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.contentmodel.AbstractBackReferenceModel;
 import ch.nolix.system.objectschema.contentmodel.AbstractReferenceModel;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
+import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.system.objectschema.schematool.TableTool;
 import ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.ITableMutationValidator;
 import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.IDatabaseValidator;
+import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.ITableValidator;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 /**
  * @author Silvan Wyss
@@ -30,7 +30,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
 
   private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
-  private static final ITableTool TABLE_TOOL = new TableTool();
+  private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
@@ -41,7 +41,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
   public void assertCanAddColumnToTable(final ITable table, final IColumn column) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
-    TABLE_TOOL.assertDoesNotContainColumnWithGivenName(table, column.getName());
+    TABLE_VALIDATOR.assertDoesNotContainColumnWithName(table, column.getName());
 
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(column);
     DATABASE_OBJECT_VALIDATOR.assertIsNew(column);
@@ -73,7 +73,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
     DATABASE_OBJECT_VALIDATOR.assertIsNotNew(table);
     DATABASE_OBJECT_VALIDATOR.assertIsNotDeleted(table);
-    TABLE_TOOL.assertIsNotReferenced(table);
+    TABLE_VALIDATOR.assertIsNotReferenced(table);
   }
 
   /**

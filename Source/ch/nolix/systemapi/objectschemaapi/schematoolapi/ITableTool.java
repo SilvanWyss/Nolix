@@ -7,16 +7,6 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface ITableTool extends IDatabaseObjectExaminer {
 
-  void assertContainsGivenColumn(ITable table, IColumn column);
-
-  void assertDoesNotBelongToDatabase(ITable table);
-
-  void assertDoesNotContainGivenColumn(ITable table, IColumn column);
-
-  void assertDoesNotContainColumnWithGivenName(ITable table, String name);
-
-  void assertIsNotReferenced(ITable table);
-
   boolean canBeAddedToDatabase(ITable table);
 
   boolean containsGivenColumn(ITable table, IColumn column);
