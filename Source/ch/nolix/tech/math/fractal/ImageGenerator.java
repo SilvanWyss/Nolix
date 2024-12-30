@@ -47,7 +47,11 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 
     squaredMinMagnitudeForDivergence = FRACTAL_TOOL.getSquaredMinMagnitudeForDivergence(fractal);
 
-    image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), X11ColorCatalogue.WHITE);
+    image = //
+    MutableImage.withWidthAndHeightAndColor(
+      fractal.getWidthInPixel(),
+      fractal.getHeightInPixel(),
+      X11ColorCatalogue.WHITE);
 
     futures = startFillImageAndGetFutures();
   }
