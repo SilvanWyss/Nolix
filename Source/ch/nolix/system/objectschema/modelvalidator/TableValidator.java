@@ -43,7 +43,8 @@ public final class TableValidator implements ITableValidator {
   @Override
   public void assertDoesNotContainColumnWithName(final ITable table, final String name) {
     if (TABLE_EXAMINER.containsColumnWithName(table, name)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
         table,
         "contains already a column with the given name '" + name + "'");
     }
