@@ -88,26 +88,26 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   public IContent getStoredContent() {
 
     if (categorizableValueContent.containsAny()) {
-      return categorizableValueContent.getReferencedEntity();
+      return categorizableValueContent.getStoredReferencedEntity();
     }
 
     if (categorizableReferenceContent.containsAny()) {
-      return categorizableValueContent.getReferencedEntity();
+      return categorizableValueContent.getStoredReferencedEntity();
     }
 
     if (concreteValueContent.containsAny()) {
-      return concreteValueContent.getReferencedEntity();
+      return concreteValueContent.getStoredReferencedEntity();
     }
 
     if (concreteReferenceContent.containsAny()) {
-      concreteReferenceContent.getReferencedEntity();
+      concreteReferenceContent.getStoredReferencedEntity();
     }
 
     final var initialContent = new ConcreteValueContent();
     getStoredParentDatabase().insertEntity(initialContent);
     concreteValueContent.setEntity(initialContent);
 
-    return concreteValueContent.getReferencedEntity();
+    return concreteValueContent.getStoredReferencedEntity();
   }
 
   @Override

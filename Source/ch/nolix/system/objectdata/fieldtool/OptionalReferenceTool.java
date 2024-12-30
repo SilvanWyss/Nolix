@@ -28,7 +28,7 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
   public Optional<? extends IField> getOptionalStoredBackReferencingField(
     final IOptionalReference<?> optionalReference) {
     return optionalReference
-      .getReferencedEntity()
+      .getStoredReferencedEntity()
       .internalGetStoredFields()
       .getOptionalStoredFirst(p -> p.referencesBackField(optionalReference));
   }

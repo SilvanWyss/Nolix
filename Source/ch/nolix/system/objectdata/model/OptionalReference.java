@@ -49,11 +49,6 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   }
 
   @Override
-  public E getReferencedEntity() {
-    return getReferencedTable().getStoredEntityById(getReferencedEntityId());
-  }
-
-  @Override
   public String getReferencedEntityId() {
 
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
@@ -69,7 +64,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
       return ImmutableList.createEmpty();
     }
 
-    final var fields = getReferencedEntity().internalGetStoredFields();
+    final var fields = getStoredReferencedEntity().internalGetStoredFields();
     final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
     if (abstractBackReferenceContainer.isPresent()) {
@@ -80,6 +75,11 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
     }
 
     return ImmutableList.createEmpty();
+  }
+
+  @Override
+  public E getStoredReferencedEntity() {
+    return getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
   @Override
@@ -116,7 +116,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
-    && !getReferencedEntity().belongsToTable();
+    && !getStoredReferencedEntity().belongsToTable();
   }
 
   @Override
@@ -136,7 +136,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   @Override
   void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
-      updateProbableBackReferenceForSetOrAddedEntity(getReferencedEntity());
+      updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
   }
 

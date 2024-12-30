@@ -4,10 +4,9 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 public interface IOptionalReference<E extends IEntity> extends Clearable, IAbstractReference<E> {
 
-  //TODO: Rename method
-  E getReferencedEntity();
-
   String getReferencedEntityId();
+
+  E getStoredReferencedEntity();
 
   void setEntity(Object entity);
 

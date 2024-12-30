@@ -175,7 +175,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
 
     //setup part 1 verification
-    expect(john.pet.getReferencedEntity()).is(garfield);
+    expect(john.pet.getStoredReferencedEntity()).is(garfield);
     expect(garfield.owner.getStoredBackReferencedEntity()).is(john);
     expect(odie.owner.isEmpty()).isTrue();
 
@@ -192,7 +192,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
     //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
-    expect(loadedJohn.pet.getReferencedEntity()).is(loadedOdie);
+    expect(loadedJohn.pet.getStoredReferencedEntity()).is(loadedOdie);
     expect(loadedGarfield.owner.isEmpty());
     expect(loadedOdie.owner.getStoredBackReferencedEntity()).is(loadedJohn);
   }
