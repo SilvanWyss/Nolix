@@ -1,6 +1,6 @@
 package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
-import ch.nolix.system.webgui.atomiccontrol.Textbox;
+import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 
