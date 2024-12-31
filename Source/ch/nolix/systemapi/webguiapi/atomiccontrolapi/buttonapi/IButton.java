@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
+package ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi;
 
 import java.util.function.Consumer;
 

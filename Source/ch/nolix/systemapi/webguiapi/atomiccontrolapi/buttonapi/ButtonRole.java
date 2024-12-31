@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
+package ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 

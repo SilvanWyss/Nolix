@@ -4,8 +4,8 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButtonStyle;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButtonStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonStyle> {
