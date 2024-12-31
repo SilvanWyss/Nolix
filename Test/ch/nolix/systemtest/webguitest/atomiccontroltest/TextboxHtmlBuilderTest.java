@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.webgui.atomiccontrol.textbox.TextboxHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 
 final class TextboxHtmlBuilderTest extends ControlHtmlBuilderTest<TextboxHtmlBuilder, ITextbox> {
