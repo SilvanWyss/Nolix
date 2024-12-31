@@ -11,7 +11,7 @@ import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi.ILink;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {

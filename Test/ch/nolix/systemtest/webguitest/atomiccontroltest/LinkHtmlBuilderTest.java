@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 import ch.nolix.system.webgui.atomiccontrol.link.Link;
 import ch.nolix.system.webgui.atomiccontrol.link.LinkHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi.ILink;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 
 final class LinkHtmlBuilderTest extends ControlHtmlBuilderTest<LinkHtmlBuilder, ILink> {

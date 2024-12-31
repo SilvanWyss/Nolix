@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
+package ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi;
 
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;

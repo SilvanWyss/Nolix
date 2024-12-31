@@ -5,8 +5,8 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILinkStyle;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi.ILink;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi.ILinkStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
