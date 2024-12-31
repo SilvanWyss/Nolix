@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlAttributeNameCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {

@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 final class ImageControlTest extends ControlTest<IImageControl> {
