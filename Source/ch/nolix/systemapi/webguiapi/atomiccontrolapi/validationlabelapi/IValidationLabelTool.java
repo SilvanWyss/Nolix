@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
+package ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi;
 
 import java.util.Optional;
 import java.util.function.Consumer;

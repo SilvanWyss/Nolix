@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
+package ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi;
 
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
