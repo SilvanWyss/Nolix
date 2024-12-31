@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 import ch.nolix.system.webgui.atomiccontrol.uploader.Uploader;
 import ch.nolix.system.webgui.atomiccontrol.uploader.UploaderHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 
 final class UploaderHtmlBuilderTest extends ControlHtmlBuilderTest<UploaderHtmlBuilder, IUploader> {

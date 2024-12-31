@@ -14,7 +14,7 @@ import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.applicationapi.webapplicationprotocol.CommandProtocol;
 import ch.nolix.systemapi.applicationapi.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.systemapi.applicationapi.webapplicationprotocol.ObjectProtocol;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
