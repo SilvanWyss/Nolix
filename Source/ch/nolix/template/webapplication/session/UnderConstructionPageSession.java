@@ -8,7 +8,7 @@ import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 

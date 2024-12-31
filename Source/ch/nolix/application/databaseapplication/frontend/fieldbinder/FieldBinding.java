@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public final class FieldBinding {

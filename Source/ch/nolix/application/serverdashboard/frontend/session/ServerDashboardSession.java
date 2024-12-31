@@ -11,7 +11,7 @@ import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardService> {

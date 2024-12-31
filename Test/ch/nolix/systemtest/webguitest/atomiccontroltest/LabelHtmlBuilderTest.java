@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.atomiccontrol.label.LabelHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
 import ch.nolix.systemtest.webguitest.basecontroltooltest.ControlHtmlBuilderTest;
 
 final class LabelHtmlBuilderTest extends ControlHtmlBuilderTest<LabelHtmlBuilder, ILabel> {

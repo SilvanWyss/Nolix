@@ -3,8 +3,8 @@ package ch.nolix.templatetest.webguitest.dialogtest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;

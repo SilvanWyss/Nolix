@@ -10,7 +10,7 @@ import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public final class WebApplicationComponent //NOSONAR: A WebApplicationComponent is a Component.
