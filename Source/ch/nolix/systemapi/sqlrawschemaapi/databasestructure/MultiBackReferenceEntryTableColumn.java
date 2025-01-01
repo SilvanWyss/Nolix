@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.multibackreferenceentrytable;
+package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
