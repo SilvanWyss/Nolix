@@ -145,19 +145,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public boolean equals(final Object object) {
-
-    if (!(object instanceof final MutableNode)) {
-      return false;
-    }
-
-    return equalsNode((MutableNode) object);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public IContainer<MutableNode> getStoredChildNodes() {
     return childNodes;
   }
@@ -179,14 +166,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   @Override
   public boolean hasHeader() {
     return (header != null);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public int hashCode() {
-    return toString().hashCode();
   }
 
   /**

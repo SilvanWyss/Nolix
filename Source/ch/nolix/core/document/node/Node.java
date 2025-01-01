@@ -351,19 +351,6 @@ public final class Node extends AbstractNode<Node> {
     return withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean equals(final Object object) {
-
-    if (!(object instanceof final Node)) {
-      return false;
-    }
-
-    return equalsNode((Node) object);
-  }
-
   //For a better performance, this implementation does not use all comfortable methods.
   /**
    * {@inheritDoc}
@@ -384,14 +371,6 @@ public final class Node extends AbstractNode<Node> {
   @Override
   public IContainer<Node> getStoredChildNodes() {
     return childNodes;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public int hashCode() {
-    return toString().hashCode();
   }
 
   /**

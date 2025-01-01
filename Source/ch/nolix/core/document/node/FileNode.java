@@ -141,19 +141,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public boolean equals(final Object object) {
-
-    if (!(object instanceof final FileNode)) {
-      return false;
-    }
-
-    return equalsNode((FileNode) object);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String getHeader() {
     return internalSpecification.getHeader();
   }
@@ -166,14 +153,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
     return ContainerView.forIterable(
       internalSpecification.getStoredChildNodes().to(
         a -> new FileNode(getStoredRootFileNode(), a)));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public int hashCode() {
-    return toString().hashCode();
   }
 
   /**

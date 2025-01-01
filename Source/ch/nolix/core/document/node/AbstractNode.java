@@ -112,6 +112,17 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     return getStoredChildNodes().containsOne();
   }
 
+  //TODO: Create NodeComparator
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean equals(Object object) {
+    return //
+    object instanceof final INode<?> node
+    && equalsNode(node);
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -219,6 +230,14 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   @Override
   public final String getSingleChildNodeHeader() {
     return getStoredSingleChildNode().getHeader();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int hashCode() {
+    return toString().hashCode();
   }
 
   /**
@@ -350,15 +369,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     return xmlNode;
   }
 
-  /**
-   * @param node
-   * @return true if the current {@link AbstractNode} equals the given node.
-   */
-  protected final boolean equalsNode(final AbstractNode<?> node) {
-    return hasEqualHeaderSettingLikeNode(node)
-    && hasEqualChildNodeSettingLikeNode(node);
-  }
-
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
     final int leadingTabulators,
     final StringBuilder stringBuilder) {
@@ -402,6 +412,17 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   }
 
   /**
+   * @param node
+   * @return true if the current {@link AbstractNode} equals the given node, false
+   *         otherwise.
+   */
+  private boolean equalsNode(final INode<?> node) {
+    return //
+    hasEqualHeaderConstellationLikeNode(node)
+    && hasEqualChildNodesConstellationLikeNodes(node);
+  }
+
+  /**
    * @return a reproducing {@link String} representation of the header of the
    *         current {@link AbstractNode}.
    */
@@ -409,16 +430,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     return getEscapeStringFor(getHeader());
   }
 
-  private boolean hasEqualHeaderSettingLikeNode(final INode<?> node) {
-
-    if (!hasHeader()) {
-      return !node.hasHeader();
-    }
-
-    return node.hasHeader(getHeader());
-  }
-
-  private boolean hasEqualChildNodeSettingLikeNode(final INode<?> node) {
+  private boolean hasEqualChildNodesConstellationLikeNodes(final INode<?> node) {
 
     if (getChildNodeCount() != node.getChildNodeCount()) {
       return false;
@@ -434,11 +446,20 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     return true;
   }
 
+  private boolean hasEqualHeaderConstellationLikeNode(final INode<?> node) {
+
+    if (!hasHeader()) {
+      return !node.hasHeader();
+    }
+
+    return node.hasHeader(getHeader());
+  }
+
   /**
    * @param leadingTabulators
    * @return a formated {@link String} representation of the current
-   *         {@link AbstractNode} with as many leading tabulators as the given leading
-   *         tabulator count says.
+   *         {@link AbstractNode} with as many leading tabulators as the given
+   *         leading tabulator count says.
    */
   private String toFormattedString(final int leadingTabulators) {
 
