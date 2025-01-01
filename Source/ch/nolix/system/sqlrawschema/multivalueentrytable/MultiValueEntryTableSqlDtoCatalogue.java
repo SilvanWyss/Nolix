@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawschema.multivalueentrytable;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiValueEntryTableColumn;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 

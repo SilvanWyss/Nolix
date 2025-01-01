@@ -1,11 +1,10 @@
-package ch.nolix.system.sqlrawschema.multivalueentrytable;
+package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
 
 public enum MultiValueEntryTableColumn implements INameHolder {
   ENTITY_ID("EntityId"),
