@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschemaapi.databaseproperty;
 
-public enum DatabaseSchemaState {
+public enum DatabaseState {
   UNINITIALIZED,
   INITIALIZED,
   INVALID

@@ -2,21 +2,21 @@ package ch.nolix.system.noderawschema.databaseschemainspector;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
-import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseSchemaState;
+import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 
 public final class DatabaseSchemaInspector {
 
-  public DatabaseSchemaState getDatabaseSchemaState(final IMutableNode<?> nodeDatabase) {
+  public DatabaseState getDatabaseSchemaState(final IMutableNode<?> nodeDatabase) {
 
     if (databaseIsInitialized(nodeDatabase)) {
-      return DatabaseSchemaState.INITIALIZED;
+      return DatabaseState.INITIALIZED;
     }
 
     if (databaseIsUnitialized(nodeDatabase)) {
-      return DatabaseSchemaState.UNINITIALIZED;
+      return DatabaseState.UNINITIALIZED;
     }
 
-    return DatabaseSchemaState.INVALID;
+    return DatabaseState.INVALID;
   }
 
   private boolean databaseIsInitialized(final IMutableNode<?> nodeDatabase) {
