@@ -6,7 +6,6 @@ import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParameterizedFieldTypeSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
-import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
@@ -14,6 +13,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
