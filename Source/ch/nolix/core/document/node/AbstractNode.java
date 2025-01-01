@@ -12,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.documentapi.nodeapi.INodeComparator;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
@@ -30,6 +31,8 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   public static final String OPEN_BRACKET_CODE = "$O";
 
   public static final String CLOSED_BRACKET_CODE = "$C";
+
+  private static final INodeComparator NODE_COMPARATOR = new NodeComparator();
 
   private static final IStringTool STRING_TOOL = new StringTool();
 
@@ -112,7 +115,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     return getStoredChildNodes().containsOne();
   }
 
-  //TODO: Create NodeComparator
   /**
    * {@inheritDoc}
    */
@@ -120,7 +122,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   public final boolean equals(Object object) {
     return //
     object instanceof final INode<?> node
-    && equalsNode(node);
+    && NODE_COMPARATOR.areEqual(this, node);
   }
 
   /**
@@ -412,47 +414,11 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   }
 
   /**
-   * @param node
-   * @return true if the current {@link AbstractNode} equals the given node, false
-   *         otherwise.
-   */
-  private boolean equalsNode(final INode<?> node) {
-    return //
-    hasEqualHeaderConstellationLikeNode(node)
-    && hasEqualChildNodesConstellationLikeNodes(node);
-  }
-
-  /**
    * @return a reproducing {@link String} representation of the header of the
    *         current {@link AbstractNode}.
    */
   private String getReproducingHeader() {
     return getEscapeStringFor(getHeader());
-  }
-
-  private boolean hasEqualChildNodesConstellationLikeNodes(final INode<?> node) {
-
-    if (getChildNodeCount() != node.getChildNodeCount()) {
-      return false;
-    }
-
-    final var iterator = node.getStoredChildNodes().iterator();
-    for (final N cn : getStoredChildNodes()) {
-      if (!cn.equals(iterator.next())) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  private boolean hasEqualHeaderConstellationLikeNode(final INode<?> node) {
-
-    if (!hasHeader()) {
-      return !node.hasHeader();
-    }
-
-    return node.hasHeader(getHeader());
   }
 
   /**
