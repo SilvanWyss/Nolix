@@ -5,7 +5,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
 
 public enum TableTableColumn implements INameHolder {
   ID(PascalCaseVariableCatalogue.ID),

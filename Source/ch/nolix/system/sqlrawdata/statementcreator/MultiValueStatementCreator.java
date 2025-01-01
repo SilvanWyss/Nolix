@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiValueStatementCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
 
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
 

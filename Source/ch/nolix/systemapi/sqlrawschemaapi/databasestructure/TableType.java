@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawdataapi.databasestructure;
+package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 

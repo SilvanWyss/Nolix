@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.system.sqlrawschema.multibackreferenceentrytable.MultiBackReferenceEntryTableColumn;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
 
 public final class MultiBackReferenceQueryCreator implements IMultiBackReferenceQueryCreator {
 

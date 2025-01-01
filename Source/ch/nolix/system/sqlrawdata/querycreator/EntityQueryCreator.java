@@ -6,9 +6,9 @@ import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableC
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
 
 public final class EntityQueryCreator implements IEntityQueryCreator {
 

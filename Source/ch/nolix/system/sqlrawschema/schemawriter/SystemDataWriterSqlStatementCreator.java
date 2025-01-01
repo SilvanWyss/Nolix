@@ -12,8 +12,8 @@ import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

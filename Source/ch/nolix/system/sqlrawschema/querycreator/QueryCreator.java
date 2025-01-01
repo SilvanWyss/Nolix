@@ -5,8 +5,8 @@ import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 
 /**

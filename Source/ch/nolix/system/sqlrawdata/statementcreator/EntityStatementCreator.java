@@ -10,11 +10,11 @@ import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.dto.StringContentFieldDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.IndexTableType;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MetaDataTableType;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.IndexTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {

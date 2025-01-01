@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawdata.querycreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
 
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 

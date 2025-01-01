@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlrawdataapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemaflatdtomapperapi.ITableFlatDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
