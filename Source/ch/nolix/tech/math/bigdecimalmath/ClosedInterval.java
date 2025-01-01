@@ -52,15 +52,9 @@ public final class ClosedInterval implements IClosedInterval {
 
   @Override
   public boolean equals(final Object object) {
-
-    if (!(object instanceof final ClosedInterval)) {
-      return false;
-    }
-
-    final var closedInterval = (ClosedInterval) object;
-
-    return min.equals(closedInterval.min)
-    && max.equals(closedInterval.max);
+    return //
+    object instanceof final IClosedInterval closedInterval
+    && equalsClosedIntervall(closedInterval);
   }
 
   @Override
@@ -118,5 +112,13 @@ public final class ClosedInterval implements IClosedInterval {
   @Override
   public String toString() {
     return ("[" + min + ", " + max + "]");
+  }
+
+  //For a better performance, this implementation does not use all comfortable methods.
+  private boolean equalsClosedIntervall(final IClosedInterval closedInterval) {
+    return //
+    closedInterval != null
+    && min.equals(closedInterval.getMin())
+    && max.equals(closedInterval.getMax());
   }
 }
