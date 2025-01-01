@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.tabletable;
+package ch.nolix.systemapi.sqlrawschemaapi.databasedto;
 
 public record TableTableRecordDto(String id, String name) {
 }
