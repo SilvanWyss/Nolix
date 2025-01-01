@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi.IEntityDtoMapper;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public final class EntitySaver {
 
@@ -25,7 +25,7 @@ public final class EntitySaver {
 
   public void saveChangesOfEntity(
     final IEntity entity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (entity.getState()) {
       case NEW:
         saveNewEntity(entity, dataAndSchemaAdapter);
@@ -43,7 +43,7 @@ public final class EntitySaver {
 
   private void saveNewEntity(
     final IEntity newEntity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     dataAndSchemaAdapter.insertEntity(
       newEntity.getParentTableName(),
@@ -54,7 +54,7 @@ public final class EntitySaver {
 
   private void saveChangesOfEditedEntity(
     final IEntity editedEntity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     dataAndSchemaAdapter.updateEntity(
       editedEntity.getParentTableName(),
@@ -65,7 +65,7 @@ public final class EntitySaver {
 
   private void saveEntityDeletion(
     final IEntity deletedEntity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     dataAndSchemaAdapter.deleteEntity(
       deletedEntity.getStoredParentTable().getName(),
       ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(deletedEntity));
@@ -73,7 +73,7 @@ public final class EntitySaver {
 
   private void saveMultiPropertyChangesOfEntity(
     final IEntity entity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var p : entity.internalGetStoredFields()) {
       saveChangesOfPotentialMultiProperty(p, dataAndSchemaAdapter);
     }
@@ -81,7 +81,7 @@ public final class EntitySaver {
 
   private void saveChangesOfPotentialMultiProperty(
     final IField p,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (FIELD_TOOL.isNewOrEdited(p)) {
       saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(p, dataAndSchemaAdapter);
     }
@@ -89,7 +89,7 @@ public final class EntitySaver {
 
   private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(
     final IField field,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field.getType()) {
       case MULTI_VALUE:
         MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) field, dataAndSchemaAdapter);

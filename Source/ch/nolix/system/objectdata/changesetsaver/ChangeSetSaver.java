@@ -4,7 +4,7 @@ import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IDatabaseSearcher;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public final class ChangeSetSaver {
 
@@ -18,13 +18,13 @@ public final class ChangeSetSaver {
 
   public void saveChangesOfDatabaseSynchronously(
     final IDatabase database,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     synchronized (ChangeSetSaver.class) {
       saveChangesOfDatabase(database, dataAndSchemaAdapter);
     }
   }
 
-  private void saveChangesOfDatabase(final IDatabase database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private void saveChangesOfDatabase(final IDatabase database, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     assertCanSaveChangesOfDatabase(database);
 
@@ -41,7 +41,8 @@ public final class ChangeSetSaver {
     DATABASE_VALIDATOR.assertCanSaveChanges(database);
   }
 
-  private void prepareChangesOfDatabase(final IDatabase database, final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private void prepareChangesOfDatabase(final IDatabase database,
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
@@ -52,17 +53,17 @@ public final class ChangeSetSaver {
 
   private void addExpectionThatDatabaseHasInitialSchemaTimestamp(
     final IDatabase database,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     dataAndSchemaAdapter.expectGivenSchemaTimestamp(database.getSchemaTimestamp());
   }
 
   private void assertNewlyReferencedEntitiesExists(
     final IDatabase database,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     DATABASE_SAVE_VALIDATOR.addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, dataAndSchemaAdapter);
   }
 
-  private void commitChangesToDatabase(final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+  private void commitChangesToDatabase(final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     dataAndSchemaAdapter.saveChanges();
   }
 }

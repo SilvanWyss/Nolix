@@ -23,7 +23,7 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
 
 public final class Table<E extends IEntity> implements ITable<E> {
@@ -237,7 +237,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return columnsThatReferenceCurrentTable.getValue();
   }
 
-  IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+  IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
     return parentDatabase.internalGetStoredDataAndSchemaAdapter();
   }
 

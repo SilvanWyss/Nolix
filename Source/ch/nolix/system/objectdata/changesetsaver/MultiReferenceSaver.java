@@ -3,13 +3,13 @@ package ch.nolix.system.objectdata.changesetsaver;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public final class MultiReferenceSaver {
 
   public void saveMultiReference(
     final IMultiReference<?> multiReference,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var le : multiReference.getStoredNewAndDeletedEntries()) {
       saveMultiReferenceEntry(le, dataAndSchemaAdapter);
     }
@@ -17,7 +17,7 @@ public final class MultiReferenceSaver {
 
   private void saveMultiReferenceEntry(
     final IMultiReferenceEntry<?> multiReferenceEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var state = multiReferenceEntry.getState();
 
@@ -37,7 +37,7 @@ public final class MultiReferenceSaver {
 
   private void insertMultiReferenceEntry(
     final IMultiReferenceEntry<?> multiReferenceEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();
@@ -51,7 +51,7 @@ public final class MultiReferenceSaver {
 
   private void deleteMultiReferenceEntry(
     final IMultiReferenceEntry<?> multiReferenceEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();

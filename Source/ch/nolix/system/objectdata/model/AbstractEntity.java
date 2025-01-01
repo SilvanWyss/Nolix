@@ -21,7 +21,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class AbstractEntity implements IEntity {
 
@@ -216,7 +216,7 @@ public abstract class AbstractEntity implements IEntity {
     state = DatabaseObjectState.CLOSED;
   }
 
-  final IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+  final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
     return ((Table<?>) getStoredParentTable()).internalGetStoredDataAndSchemaAdapter();
   }
 

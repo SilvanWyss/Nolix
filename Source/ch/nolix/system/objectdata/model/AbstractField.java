@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IFieldFlyWeight;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class AbstractField implements IField {
 
@@ -130,7 +130,7 @@ public abstract class AbstractField implements IField {
     fieldFlyWeight.noteUpdate();
   }
 
-  final IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+  final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
     return ((AbstractEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
   }
 

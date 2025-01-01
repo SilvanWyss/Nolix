@@ -4,13 +4,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public final class MultiBackReferenceSaver {
 
   public void saveMultiBackReference(
     final IMultiBackReference<? extends IEntity> multiBackReference,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var le : multiBackReference.getStoredNewAndDeletedEntries()) {
       saveMultiBackReferenceEntry(le, dataAndSchemaAdapter);
     }
@@ -18,7 +18,7 @@ public final class MultiBackReferenceSaver {
 
   private void saveMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiReferenceEntryState = multiBackReferenceEntry.getState();
 
@@ -40,7 +40,7 @@ public final class MultiBackReferenceSaver {
 
   private void insertMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiBackReference = multiBackReferenceEntry.getStoredParentMultiBackReference();
     final var multiBackReferenceColumn = multiBackReference.getStoredParentColumn();
@@ -55,7 +55,7 @@ public final class MultiBackReferenceSaver {
 
   private void deleteMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiBackReference = multiBackReferenceEntry.getStoredParentMultiBackReference();
     final var multiBackReferenceColumn = multiBackReference.getStoredParentColumn();

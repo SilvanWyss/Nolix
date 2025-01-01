@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
@@ -16,7 +16,12 @@ import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public abstract class AbstractDataAdapterAndSchemaReader implements IDataAndSchemaAdapter {
+/**
+ * @author Silvan Wyss
+ * @version 2022-02-25
+ */
+public abstract class AbstractDataAdapterAndSchemaReader //NOSONAR: A A. is a principal object thus it has many methods.
+implements IDataAdapterAndSchemaReader {
 
   private final ICloseController closeController = CloseController.forElement(this);
 

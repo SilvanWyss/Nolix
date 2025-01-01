@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class DataAdapter implements IDataAdapter {
 
@@ -33,7 +33,7 @@ public abstract class DataAdapter implements IDataAdapter {
     final String databaseName,
     final ISchemaAdapter schemaAdapter,
     final ISchema schema,
-    final Supplier<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator) {
+    final Supplier<IDataAdapterAndSchemaReader> dataAndSchemaAdapterCreator) {
 
     GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     GlobalValidator.assertThat(schema).thatIsNamed("schema").isNotNull();

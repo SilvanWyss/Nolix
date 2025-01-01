@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class Database implements IDatabase {
@@ -17,15 +17,15 @@ public final class Database implements IDatabase {
 
   private final ITime schemaTimestamp;
 
-  private final IDataAndSchemaAdapter dataAndSchemaAdapter;
+  private final IDataAdapterAndSchemaReader dataAndSchemaAdapter;
 
   private final ISchema schema;
 
   private final LinkedList<? extends ITable<IEntity>> tables;
 
-  private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema schema) {
+  private Database(final IDataAdapterAndSchemaReader dataAndSchemaAdapter, final ISchema schema) {
 
-    GlobalValidator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
+    GlobalValidator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAdapterAndSchemaReader.class).isNotNull();
     GlobalValidator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 
     schemaTimestamp = dataAndSchemaAdapter.getSchemaTimestamp();
@@ -35,7 +35,7 @@ public final class Database implements IDatabase {
   }
 
   public static Database withDataAndSchemaAdapterAndSchema(
-    final IDataAndSchemaAdapter dataAndSchemaAdapter,
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter,
     final ISchema schema) {
     return new Database(dataAndSchemaAdapter, schema);
   }
@@ -126,7 +126,7 @@ public final class Database implements IDatabase {
     }
   }
 
-  IDataAndSchemaAdapter internalGetStoredDataAndSchemaAdapter() {
+  IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
     return dataAndSchemaAdapter;
   }
 

@@ -3,13 +3,13 @@ package ch.nolix.system.objectdata.changesetsaver;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 final class MultiValueSaver {
 
   public void saveChangesOfMultiValue(
     final IMultiValue<?> multiValue,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var e : multiValue.getStoredNewAndDeletedEntries()) {
       saveChangeOfMultiValueEntry(e, dataAndSchemaAdapter);
     }
@@ -17,7 +17,7 @@ final class MultiValueSaver {
 
   private void saveChangeOfMultiValueEntry(
     final IMultiValueEntry<?> multiValueEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiValueEntryState = multiValueEntry.getState();
 
@@ -37,7 +37,7 @@ final class MultiValueSaver {
 
   private void saveMultiValueEntryCreation(
     final IMultiValueEntry<?> multiValueEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
 
@@ -50,7 +50,7 @@ final class MultiValueSaver {
 
   private void saveMultiValueEntryDeletion(
     final IMultiValueEntry<?> multiValueEntry,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
 

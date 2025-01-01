@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public final class Column extends ImmutableDatabaseObject implements IColumn {
 
@@ -85,7 +85,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
       entitiesToIgnoreIds);
   }
 
-  private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
+  private IDataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
     return parentTable.internalGetStoredDataAndSchemaAdapter();
   }
 }

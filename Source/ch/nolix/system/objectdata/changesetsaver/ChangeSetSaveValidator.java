@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IDatabaseSearcher;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
 
 public final class ChangeSetSaveValidator {
 
@@ -24,7 +24,7 @@ public final class ChangeSetSaveValidator {
 
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IDatabase database,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var entitiesInLocalData = DATABASE_SEARCHER.getStoredEntitiesInLocalData(database);
 
@@ -35,7 +35,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IEntity entity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (ENTITY_EXAMINER.isNewOrEdited(entity)) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(entity, dataAndSchemaAdapter);
     }
@@ -43,7 +43,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var p : entity.internalGetStoredFields()) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExist(p, dataAndSchemaAdapter);
     }
@@ -51,7 +51,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IField field,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (FIELD_TOOL.isNewOrEdited(field)) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenFieldIsNewOrEdited(field,
         dataAndSchemaAdapter);
@@ -60,7 +60,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenFieldIsNewOrEdited(
     final IField field,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field.getType()) {
       case REFERENCE:
 
@@ -95,7 +95,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
     final IMultiReference<?> multiReference,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var referencedTableName = multiReference.getReferencedTableName();
 
@@ -110,7 +110,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
     final IOptionalReference<?> optionalReference,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (optionalReference.containsAny()) {
       dataAndSchemaAdapter.expectTableContainsEntity(
         optionalReference.getReferencedTableName(),
@@ -120,7 +120,7 @@ public final class ChangeSetSaveValidator {
 
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(
     final IReference<?> reference,
-    final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     dataAndSchemaAdapter.expectTableContainsEntity(
       reference.getReferencedTableName(),
       reference.getReferencedEntityId());
