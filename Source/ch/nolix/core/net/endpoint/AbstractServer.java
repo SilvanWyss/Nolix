@@ -19,7 +19,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
  */
 public abstract class AbstractServer implements IServer {
 
-  private static final IResourceValidator<IEndPoint> RESOURCE_VALIDATOR = new ResourceValidator<>();
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -147,8 +147,9 @@ public abstract class AbstractServer implements IServer {
 
   /**
    * @param name
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link ISlot} with the given name.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link ISlot} with the
+   *                                  given name.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
@@ -191,8 +192,8 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param slot
    * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link AbstractServer} does not
-   *                                                contain the given slot.
+   *                                                {@link AbstractServer} does
+   *                                                not contain the given slot.
    */
   private void removeSlot(final ISlot slot) {
 
