@@ -2,9 +2,11 @@ package ch.nolix.system.sqlschema.schemaadapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.resourceclosing.ResourceManager;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IResourceManager;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
@@ -13,9 +15,9 @@ import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
-final class SchemaReader implements ISchemaReader {
+public final class SchemaReader implements ISchemaReader {
 
-  private final ISqlConnection sqlConnection;
+  private final IResourceManager<ISqlConnection> sqlConnection;
 
   private final ISchemaQueryCreator schemaQueryCreator;
 
@@ -28,7 +30,7 @@ final class SchemaReader implements ISchemaReader {
 
     GlobalValidator.assertThat(schemaQueryCreator).thatIsNamed(ISchemaQueryCreator.class).isNotNull();
 
-    this.sqlConnection = sqlConnection;
+    this.sqlConnection = ResourceManager.forResource(sqlConnection);
     this.schemaQueryCreator = schemaQueryCreator;
 
     createCloseDependencyTo(sqlConnection);
@@ -47,7 +49,8 @@ final class SchemaReader implements ISchemaReader {
 
   @Override
   public boolean columnsIsEmpty(final String tableName, final String columnName) {
-    return sqlConnection
+    return //
+    getSqlConnection()
       .getRecordsFromQuery(
         schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
       .isEmpty();
@@ -60,7 +63,8 @@ final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<ColumnDto> loadColumns(final String tableName) {
-    return sqlConnection
+    return //
+    getSqlConnection()
       .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
       .to(
         r -> ColumnDto.withNameAndDataType(r.getStoredAt1BasedIndex(1),
@@ -69,7 +73,8 @@ final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<FlatTableDto> loadFlatTables() {
-    return sqlConnection
+    return //
+    getSqlConnection()
       .getRecordsHavingSinlgeEntryFromQuery(schemaQueryCreator.createQueryToLoadNameOfTables())
       .to(FlatTableDto::new);
   }
@@ -81,13 +86,18 @@ final class SchemaReader implements ISchemaReader {
 
   @Override
   public void noteClose() {
-    //Does nothing.
+    sqlConnection.close();
   }
 
   @Override
   public boolean tableExists(String tableName) {
-    return sqlConnection
+    return //
+    getSqlConnection()
       .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadTable(tableName))
       .containsAny();
+  }
+
+  private ISqlConnection getSqlConnection() {
+    return sqlConnection.get();
   }
 }
