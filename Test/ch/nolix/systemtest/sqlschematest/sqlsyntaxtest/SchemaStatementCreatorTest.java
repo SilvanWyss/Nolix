@@ -3,7 +3,7 @@ package ch.nolix.systemtest.sqlschematest.sqlsyntaxtest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
+import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
@@ -16,7 +16,7 @@ final class SchemaStatementCreatorTest extends StandardTest {
     //setup
     final var dataTypeDto = DataTypeDto.withNameAndParameter("nvarchar", "100");
     final var columnDto = ColumnDto.withNameAndDataType("Name", dataTypeDto);
-    final var testUnit = new SchemaStatementCreator();
+    final var testUnit = new StatementCreator();
 
     //execution
     final var result = testUnit.createStatementToAddColumn("Pet", columnDto);
@@ -33,7 +33,7 @@ final class SchemaStatementCreatorTest extends StandardTest {
       "Pet",
       ColumnDto.withNameAndDataType("Name", DataTypeDto.withNameAndParameter("nvarchar", "100")),
       ColumnDto.withNameAndDataType("WeightInKilogram", DataTypeDto.withName("Float")));
-    final var testUnit = new SchemaStatementCreator();
+    final var testUnit = new StatementCreator();
 
     //execution
     final var result = testUnit.createStatementToAddTable(tableDto);

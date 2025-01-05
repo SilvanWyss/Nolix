@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlschema.sqlsyntax;
+package ch.nolix.system.sqlschema.statementcreator;
 
 import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
@@ -7,7 +7,7 @@ import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
-public final class SchemaStatementCreator implements ISchemaStatementCreator {
+public final class StatementCreator implements ISchemaStatementCreator {
 
   @Override
   public String createStatementToAddColumn(final String tabbleName, final ColumnDto column) {
