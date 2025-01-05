@@ -13,12 +13,11 @@ import ch.nolix.systemapi.rawschemaapi.dto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;
 import ch.nolix.systemapi.sqlrawschemaapi.modelsqlrecord.ContentModelSqlRecord;
 
-public final class ParameterizedFieldTypeSqlRecordMapper {
+public final class ContentModelSqlRecordMapper {
 
   private static final String NULL = "NULL";
 
-  public ContentModelSqlRecord createParameterizedFieldTypeRecordFrom(
-    final IContentModelDto contentModelDto) {
+  public ContentModelSqlRecord mapContentModelDtoToContentModelSqlRecord(final IContentModelDto contentModelDto) {
 
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //

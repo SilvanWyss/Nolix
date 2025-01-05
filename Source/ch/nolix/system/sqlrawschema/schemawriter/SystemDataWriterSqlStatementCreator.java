@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
-import ch.nolix.system.sqlrawschema.columntable.ParameterizedFieldTypeSqlRecordMapper;
+import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
@@ -19,8 +19,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class SystemDataWriterSqlStatementCreator implements ISystemDataWriterSqlStatementCreator {
 
-  private static final ParameterizedFieldTypeSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
-  new ParameterizedFieldTypeSqlRecordMapper();
+  private static final ContentModelSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
+  new ContentModelSqlRecordMapper();
 
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
 
@@ -28,7 +28,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
 
     final var contentModelRecord = //
-    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.createParameterizedFieldTypeRecordFrom(column.contentModel());
+    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlRecord(column.contentModel());
 
     return "INSERT INTO "
     + SchemaTableType.COLUMN.getQualifiedName()
@@ -135,7 +135,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     final IContentModelDto contentModel) {
 
     final var contentModelRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
-      .createParameterizedFieldTypeRecordFrom(contentModel);
+      .mapContentModelDtoToContentModelSqlRecord(contentModel);
 
     return "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
