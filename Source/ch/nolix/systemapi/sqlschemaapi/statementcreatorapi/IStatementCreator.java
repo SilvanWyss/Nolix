@@ -1,9 +1,9 @@
-package ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi;
+package ch.nolix.systemapi.sqlschemaapi.statementcreatorapi;
 
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 
-public interface ISchemaStatementCreator {
+public interface IStatementCreator {
 
   String createStatementToAddColumn(String tableName, ColumnDto column);
 

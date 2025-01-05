@@ -10,7 +10,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
 
@@ -20,19 +20,19 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private final ISqlConnection sqlConnection;
 
-  private final ISchemaStatementCreator schemaStatementCreator;
+  private final IStatementCreator statementCreator;
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private SchemaWriter(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final ISchemaStatementCreator schemaStatementCreator) {
+    final IStatementCreator statementCreator) {
 
-    GlobalValidator.assertThat(schemaStatementCreator).thatIsNamed(ISchemaStatementCreator.class).isNotNull();
+    GlobalValidator.assertThat(statementCreator).thatIsNamed(IStatementCreator.class).isNotNull();
 
     this.sqlConnection = sqlConnection;
-    this.schemaStatementCreator = schemaStatementCreator;
+    this.statementCreator = statementCreator;
 
     getStoredCloseController().createCloseDependencyTo(sqlConnection);
     sqlCollector.addSqlStatement("USE " + databaseName);
@@ -41,31 +41,31 @@ public final class SchemaWriter implements ISchemaWriter {
   public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final ISchemaStatementCreator schemaStatementCreator) {
+    final IStatementCreator statementCreator) {
     return new SchemaWriter(
       databaseName,
       sqlConnectionPool.borrowResource(),
-      schemaStatementCreator);
+      statementCreator);
   }
 
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
-    sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
+    sqlCollector.addSqlStatement(statementCreator.createStatementToAddColumn(tableName, column));
   }
 
   @Override
   public void addTable(final TableDto table) {
-    sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToAddTable(table));
+    sqlCollector.addSqlStatement(statementCreator.createStatementToAddTable(table));
   }
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
-    sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToDeleteColumn(tableName, columnName));
+    sqlCollector.addSqlStatement(statementCreator.createStatementToDeleteColumn(tableName, columnName));
   }
 
   @Override
   public void deleteTable(final String tableName) {
-    sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
+    sqlCollector.addSqlStatement(statementCreator.createStatementToDeleteTable(tableName));
   }
 
   @Override
@@ -96,12 +96,12 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     sqlCollector.addSqlStatement(
-      schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName));
+      statementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName));
   }
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-    sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
+    sqlCollector.addSqlStatement(statementCreator.createStatementToRenameTable(tableName, newTableName));
   }
 
   @Override

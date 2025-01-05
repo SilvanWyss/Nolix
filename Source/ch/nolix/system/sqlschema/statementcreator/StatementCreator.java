@@ -5,9 +5,9 @@ import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
-public final class StatementCreator implements ISchemaStatementCreator {
+public final class StatementCreator implements IStatementCreator {
 
   @Override
   public String createStatementToAddColumn(final String tabbleName, final ColumnDto column) {

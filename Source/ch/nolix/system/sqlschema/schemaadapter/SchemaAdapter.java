@@ -11,7 +11,7 @@ import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {
 
@@ -25,7 +25,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final IQueryCreator queryCreator,
-    final ISchemaStatementCreator schemaStatementCreator) {
+    final IStatementCreator statementCreator) {
 
     schemaReader = SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
       databaseName,
@@ -35,7 +35,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     schemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
       databaseName,
       sqlConnectionPool,
-      schemaStatementCreator);
+      statementCreator);
 
     getStoredCloseController().createCloseDependencyTo(schemaReader);
     getStoredCloseController().createCloseDependencyTo(schemaWriter);
