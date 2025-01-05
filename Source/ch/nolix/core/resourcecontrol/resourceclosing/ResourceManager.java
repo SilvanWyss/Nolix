@@ -73,7 +73,7 @@ public final class ResourceManager<R extends AutoCloseable> implements IResource
    * @throws RuntimeException if the given resourcePool is null.
    */
   public static <R2 extends AutoCloseable> ResourceManager<R2> forResourceFromResourcePool(
-    final IResourcePool<R2> resourcePool) {
+    final IResourcePool<? extends R2> resourcePool) {
     return new ResourceManager<>(resourcePool);
   }
 
