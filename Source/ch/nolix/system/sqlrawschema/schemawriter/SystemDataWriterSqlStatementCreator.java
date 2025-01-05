@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
-import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
+import ch.nolix.system.sqlrawschema.sqlrecordmapper.TableTableSqlRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
@@ -22,7 +22,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   private static final ContentModelSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
   new ContentModelSqlRecordMapper();
 
-  private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
+  private static final TableTableSqlRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableSqlRecordMapper();
 
   @Override
   public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
@@ -189,7 +189,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
   private String createStatementToAddTableIgnoringColumns(final TableDto table) {
 
-    final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);
+    final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.mapTableDtoToTableTableSqlRecord(table);
 
     return "INSERT INTO "
     + SchemaTableType.TABLE.getQualifiedName()
