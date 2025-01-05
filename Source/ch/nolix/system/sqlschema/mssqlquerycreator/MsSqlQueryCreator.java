@@ -1,8 +1,8 @@
-package ch.nolix.system.sqlschema.sqlsyntax;
+package ch.nolix.system.sqlschema.mssqlquerycreator;
 
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
-public final class SchemaQueryCreator implements ISchemaQueryCreator {
+public final class MsSqlQueryCreator implements ISchemaQueryCreator {
 
   @Override
   public String createQueryToLoadNameAndDataTypeOfColumns(final String tableName) {
