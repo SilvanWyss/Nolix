@@ -1,9 +1,9 @@
 package ch.nolix.core.resourcecontrol.resourcevalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.core.resourcecontrol.resourceexaminer.ResourceExaminer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrolapi.resourceexaminerapi.IResourceExaminer;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 
 /**
@@ -12,18 +12,14 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
  */
 public class ResourceValidator implements IResourceValidator {
 
-  //TODO: Create ResourceExaminer
+  private static final IResourceExaminer RESOURCE_EXAMINER = new ResourceExaminer();
+
   /**
    * {@inheritDoc}
    */
   @Override
   public final void assertIsOpen(final CloseStateRequestable resource) {
-
-    if (resource == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.RESOURCE);
-    }
-
-    if (resource.isClosed()) {
+    if (!RESOURCE_EXAMINER.isOpen(resource)) {
       throw ClosedArgumentException.forArgument(resource);
     }
   }
