@@ -13,6 +13,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {
 
@@ -27,9 +28,14 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   protected SchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter sqlSchemaAdapter) {
+    final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter sqlSchemaAdapter,
+    final IQueryCreator queryCreator) {
 
-    DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(databaseName, sqlSchemaAdapter, sqlConnectionPool);
+    DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(
+      databaseName,
+      sqlSchemaAdapter,
+      sqlConnectionPool,
+      queryCreator);
 
     rawSchemaReader = SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
       databaseName,
