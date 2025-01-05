@@ -5,12 +5,12 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
+import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {
@@ -24,13 +24,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   protected SchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final ISchemaQueryCreator schemaQueryCreator,
+    final IQueryCreator queryCreator,
     final ISchemaStatementCreator schemaStatementCreator) {
 
     schemaReader = SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
       databaseName,
       sqlConnectionPool,
-      schemaQueryCreator);
+      queryCreator);
 
     schemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
       databaseName,

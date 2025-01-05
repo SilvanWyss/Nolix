@@ -1,6 +1,6 @@
-package ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi;
+package ch.nolix.systemapi.sqlschemaapi.querycreatorapi;
 
-public interface ISchemaQueryCreator {
+public interface IQueryCreator {
 
   String createQueryToLoadNameAndDataTypeOfColumns(String tableName);
 

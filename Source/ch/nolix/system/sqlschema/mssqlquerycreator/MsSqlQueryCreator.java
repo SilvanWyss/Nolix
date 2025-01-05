@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlschema.mssqlquerycreator;
 
-import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
+import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public final class MsSqlQueryCreator implements ISchemaQueryCreator {
+public final class MsSqlQueryCreator implements IQueryCreator {
 
   @Override
   public String createQueryToLoadNameAndDataTypeOfColumns(final String tableName) {
