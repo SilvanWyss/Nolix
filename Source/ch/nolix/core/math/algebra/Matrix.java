@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
  * @author Silvan Wyss
  * @version 2016-02-01
  */
-public final class Matrix {
+public final class Matrix { //NOSONAR: A Matrix is a principal object thus it has many methods.
 
   private static final IArrayTool ARRAY_TOOL = new ArrayTool();
 
