@@ -31,19 +31,45 @@ public final class SchemaReader implements ISchemaReader {
     GlobalValidator.assertThat(queryCreator).thatIsNamed(IQueryCreator.class).isNotNull();
 
     this.sqlConnection = ResourceManager.forResource(sqlConnection);
+    createCloseDependencyTo(sqlConnection);
     this.queryCreator = queryCreator;
 
-    createCloseDependencyTo(sqlConnection);
-    sqlConnection.executeStatement("USE " + databaseName);
+    getSqlConnection().executeStatement("USE " + databaseName);
   }
 
-  public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
+  private SchemaReader(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final IQueryCreator queryCreator) {
-    return new SchemaReader(
+
+    GlobalValidator.assertThat(queryCreator).thatIsNamed(IQueryCreator.class).isNotNull();
+
+    sqlConnection = ResourceManager.forResourceFromResourcePool(sqlConnectionPool);
+    createCloseDependencyTo(sqlConnection);
+    this.queryCreator = queryCreator;
+
+    getSqlConnection().executeStatement("USE " + databaseName);
+  }
+
+  public static SchemaReader forDatabaseWithNameAndSqlConnectionAndQueryCreator(
+    final String databaseName,
+    final ISqlConnection sqlConnection,
+    final IQueryCreator queryCreator) {
+    return //
+    new SchemaReader(
       databaseName,
-      sqlConnectionPool.borrowResource(),
+      sqlConnection,
+      queryCreator);
+  }
+
+  public static SchemaReader forDatabaseWithNameAndSqlConnectionFromSqlConnectionPoolAndQueryCreator(
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final IQueryCreator queryCreator) {
+    return //
+    new SchemaReader(
+      databaseName,
+      sqlConnectionPool,
       queryCreator);
   }
 
