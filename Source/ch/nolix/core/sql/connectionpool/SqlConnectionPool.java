@@ -11,7 +11,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
-public final class SqlConnectionPool extends ResourcePool<WrapperSqlConnection, SqlConnection>
+public final class SqlConnectionPool
+extends ResourcePool<WrapperSqlConnection, SqlConnection>
 implements ISqlDatabaseTarget {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
