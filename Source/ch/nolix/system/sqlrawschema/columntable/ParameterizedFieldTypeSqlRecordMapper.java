@@ -11,17 +11,18 @@ import ch.nolix.systemapi.rawschemaapi.dto.OptionalReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;
+import ch.nolix.systemapi.sqlrawschemaapi.modelsqlrecord.ContentModelSqlRecord;
 
 public final class ParameterizedFieldTypeSqlRecordMapper {
 
   private static final String NULL = "NULL";
 
-  public ParameterizedFieldTypeSqlRecord createParameterizedFieldTypeRecordFrom(
+  public ContentModelSqlRecord createParameterizedFieldTypeRecordFrom(
     final IContentModelDto contentModelDto) {
 
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + valueModelDto.getContentType().name() + "'",
         "'" + valueModelDto.dataType().name() + "'",
         NULL,
@@ -30,7 +31,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + optionalValueModelDto.getContentType().name() + "'",
         "'" + optionalValueModelDto.dataType().name() + "'",
         NULL,
@@ -39,7 +40,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + multiValueModelDto.getContentType().name() + "'",
         "'" + multiValueModelDto.dataType().name() + "'",
         NULL,
@@ -48,7 +49,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + referenceModelDto.getContentType().name() + "'",
         "'" + referenceModelDto.dataType().name() + "'",
 
@@ -59,7 +60,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + optionalReferenceModelDto.getContentType().name() + "'",
         "'" + optionalReferenceModelDto.dataType().name() + "'",
 
@@ -70,7 +71,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + multiReferenceModelDto.getContentType().name() + "'",
         "'" + multiReferenceModelDto.dataType().name() + "'",
 
@@ -81,7 +82,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + backReferenceModelDto.getContentType().name() + "'",
         "'" + backReferenceModelDto.dataType().name() + "'",
         NULL,
@@ -90,7 +91,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + optionalBackReferenceModelDto.getContentType().name() + "'",
         "'" + optionalBackReferenceModelDto.dataType().name() + "'",
         NULL,
@@ -99,7 +100,7 @@ public final class ParameterizedFieldTypeSqlRecordMapper {
 
     if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
       return //
-      new ParameterizedFieldTypeSqlRecord(
+      new ContentModelSqlRecord(
         "'" + multiBackReferenceModelDto.getContentType().name() + "'",
         "'" + multiBackReferenceModelDto.dataType().name() + "'",
         NULL,

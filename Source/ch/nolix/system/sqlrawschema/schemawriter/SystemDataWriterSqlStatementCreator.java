@@ -53,13 +53,13 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + ", '"
     + column.name()
     + "', "
-    + contentModelRecord.getFieldTypeValue()
+    + contentModelRecord.contentTypeValue()
     + ", "
-    + contentModelRecord.getDataTypeValue()
+    + contentModelRecord.dataTypeValue()
     + ", "
-    + contentModelRecord.getReferencedTableIdValue()
+    + contentModelRecord.referencedTableIdValue()
     + ", "
-    + contentModelRecord.getBackReferencedColumnIdValue()
+    + contentModelRecord.backReferencedColumnIdValue()
     + " FROM "
     + SchemaTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.WHERE
@@ -142,15 +142,15 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + SpaceEnclosedSqlKeywordCatalogue.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
-    + contentModelRecord.getDataTypeValue()
+    + contentModelRecord.dataTypeValue()
     + ", "
     + ColumnTableColumn.REFERENCED_TABLE_ID
     + " = "
-    + contentModelRecord.getReferencedTableIdValue()
+    + contentModelRecord.referencedTableIdValue()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
     + " = "
-    + contentModelRecord.getBackReferencedColumnIdValue()
+    + contentModelRecord.backReferencedColumnIdValue()
     + "WHERE"
     + ColumnTableColumn.ID
     + " = '"
