@@ -24,11 +24,11 @@ final class InternalSchemaWriter implements ChangeRequestable {
   public void addColumn(final String tableName, final ColumnDto column) {
     sqlSchemaWriter.addColumn(
       TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName,
-      SCHEMA_DTO_MAPPER.createSqlColumnDtoFrom(column));
+      SCHEMA_DTO_MAPPER.mapColumnDtoToSqlColumnDto(column));
   }
 
   public void addTable(final TableDto table) {
-    sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.createSqlTableDtoFrom(table));
+    sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.mapTableDtoToSqlSchemaTableDto(table));
   }
 
   public void deleteColumn(final String tableName, final String columnName) {
