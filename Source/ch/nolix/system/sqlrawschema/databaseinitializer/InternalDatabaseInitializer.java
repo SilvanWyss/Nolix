@@ -9,7 +9,7 @@ import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntry
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 
 final class InternalDatabaseInitializer {
 

@@ -4,8 +4,8 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlrawschema.databaseschemainspector.DatabaseInspector;
 import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInspector;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class DatabaseInitializer {
 

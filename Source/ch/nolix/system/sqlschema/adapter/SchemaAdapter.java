@@ -1,14 +1,14 @@
-package ch.nolix.system.sqlschema.schemaadapter;
+package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;

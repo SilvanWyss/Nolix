@@ -1,12 +1,12 @@
 package ch.nolix.system.sqlrawschema.databaseschemainspector;
 
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlschema.schemaadapter.SchemaReader;
+import ch.nolix.system.sqlschema.adapter.SchemaReader;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInspector;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 
 /**
  * @author Silvan Wyss

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
@@ -35,7 +35,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public SchemaWriter(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter) {
+    final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter schemaWriter) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 

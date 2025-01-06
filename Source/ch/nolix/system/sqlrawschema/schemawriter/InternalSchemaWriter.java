@@ -6,7 +6,7 @@ import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 
 final class InternalSchemaWriter implements ChangeRequestable {
 

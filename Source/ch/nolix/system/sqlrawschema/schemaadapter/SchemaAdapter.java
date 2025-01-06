@@ -28,7 +28,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   protected SchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter sqlSchemaAdapter,
+    final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter sqlSchemaAdapter,
     final IQueryCreator queryCreator) {
 
     DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(
