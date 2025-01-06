@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.schemawriter;
+package ch.nolix.system.sqlrawschema.sqlschemadtomapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -9,7 +9,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
 
-public final class SchemaDtoMapper {
+public final class SqlSchemaDtoMapper {
 
   private static final ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto SQL_ID_COLUMN_DTO = //
   ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto.withNameAndDataType(
