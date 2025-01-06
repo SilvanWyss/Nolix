@@ -6,8 +6,8 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 
 final class SchemaDtoMapper {
 

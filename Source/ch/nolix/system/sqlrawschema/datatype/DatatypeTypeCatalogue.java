@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawschema.datatype;
 
-import ch.nolix.systemapi.sqlschemaapi.schemadto.DataTypeDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.DataTypeDto;
 
 public final class DatatypeTypeCatalogue {
 

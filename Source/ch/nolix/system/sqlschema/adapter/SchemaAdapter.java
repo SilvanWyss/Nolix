@@ -7,10 +7,10 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
+import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {

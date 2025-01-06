@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlschemaapi.schemadto;
+package ch.nolix.systemapi.sqlschemaapi.dto;
 
 import java.util.Optional;
 

@@ -2,9 +2,9 @@ package ch.nolix.systemapi.sqlschemaapi.adapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadto.FlatTableDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
 
 public interface ISchemaReader extends GroupCloseable {
 

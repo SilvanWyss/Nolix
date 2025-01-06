@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlschemaapi.schemadto;
+package ch.nolix.systemapi.sqlschemaapi.dto;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

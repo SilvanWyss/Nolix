@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawschema.multibackreferenceentrytable;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalogue;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiBackReferenceEntryTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.schemadto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 
 public final class MultiBackReferenceEntryTableSqlDtoCatalogue {
 
