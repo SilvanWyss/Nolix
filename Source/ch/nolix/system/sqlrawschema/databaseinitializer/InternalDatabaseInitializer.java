@@ -7,8 +7,8 @@ import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multibackreferenceentrytable.MultiBackReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
-import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalogue.TableTableSqlSchemaDtoCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 
 final class InternalDatabaseInitializer {
@@ -32,7 +32,7 @@ final class InternalDatabaseInitializer {
     schemaAdapter.addTable(DatabasePropertyTableSqlDtoCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
 
     //Adds schema tables.
-    schemaAdapter.addTable(TableTableSqlDtoCatalogue.TABLE_TABLE_SQL_DTO);
+    schemaAdapter.addTable(TableTableSqlSchemaDtoCatalogue.TABLE_TABLE_SQL_DTO);
     schemaAdapter.addTable(ColumnTableSqlDtoCatalogue.COLUMN_TABLE_SQL_DTO);
 
     //Adds index tables.
