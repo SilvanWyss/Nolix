@@ -5,7 +5,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
 import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
-import ch.nolix.system.sqlrawschema.sqlrecordmapper.TableTableSqlRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
@@ -22,15 +21,14 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   private static final ContentModelSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
   new ContentModelSqlRecordMapper();
 
-  private static final TableTableSqlRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableSqlRecordMapper();
-
   @Override
   public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
 
     final var contentModelRecord = //
     PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlRecord(column.contentModel());
 
-    return "INSERT INTO "
+    return //
+    "INSERT INTO "
     + SchemaTableType.COLUMN.getQualifiedName()
     + " ("
     + ColumnTableColumn.ID.getName()
@@ -85,7 +83,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
   @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + SchemaTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
@@ -100,7 +99,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
   @Override
   public String createStatementToDeleteTable(final String tableName) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + SchemaTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.WHERE
     + TableTableColumn.NAME
@@ -112,7 +112,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   @Override
   public String createStatementToSetColumnName(final String tableName, final String columnName,
     final String newColumnName) {
-    return "UPDATE "
+    return //
+    "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.SET
     + ColumnTableColumn.NAME
@@ -134,10 +135,11 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     final String columnID,
     final IContentModelDto contentModel) {
 
-    final var contentModelRecord = PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER
-      .mapContentModelDtoToContentModelSqlRecord(contentModel);
+    final var contentModelRecord = //
+    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlRecord(contentModel);
 
-    return "UPDATE "
+    return //
+    "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.SET
     + ColumnTableColumn.DATA_TYPE
@@ -160,7 +162,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
   @Override
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
-    return "UPDATE "
+    return //
+    "UPDATE "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.SET
     + DatabasePropertyTableColumn.VALUE.getLabel()
@@ -174,7 +177,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
 
   @Override
   public String createStatementToSetTableName(final String tableName, final String newTableName) {
-    return "UPDATE "
+    return //
+    "UPDATE "
     + SchemaTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalogue.SET
     + TableTableColumn.NAME.getName()
@@ -187,20 +191,18 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "'";
   }
 
-  private String createStatementToAddTableIgnoringColumns(final TableDto table) {
-
-    final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.mapTableDtoToTableTableSqlRecord(table);
-
-    return "INSERT INTO "
+  private String createStatementToAddTableIgnoringColumns(final TableDto tableDto) {
+    return //
+    "INSERT INTO "
     + SchemaTableType.TABLE.getQualifiedName()
     + " ("
     + TableTableColumn.ID.getName()
     + ", "
     + TableTableColumn.NAME.getName()
-    + ") VALUES ("
-    + tableSystemTableRecord.id()
-    + ", "
-    + tableSystemTableRecord.name()
-    + ")";
+    + ") VALUES ('"
+    + tableDto.id()
+    + "', '"
+    + tableDto.name()
+    + "')";
   }
 }
