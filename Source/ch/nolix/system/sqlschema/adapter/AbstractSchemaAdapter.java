@@ -13,7 +13,7 @@ import ch.nolix.systemapi.sqlschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
-public abstract class SchemaAdapter implements ISchemaAdapter {
+public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private final ISchemaReader schemaReader;
 
@@ -21,7 +21,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  protected SchemaAdapter(
+  protected AbstractSchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final IQueryCreator queryCreator,
