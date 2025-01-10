@@ -32,6 +32,8 @@ public final class Color extends AbstractElement implements IColor {
 
   public static final short MAX_COLOR_COMPONENT = 255;
 
+  private static IContainer<Pair<String, Color>> webColorsAndNames;
+
   private final short redValue;
 
   private final short greenValue;
@@ -39,8 +41,6 @@ public final class Color extends AbstractElement implements IColor {
   private final short blueValue;
 
   private final short alphaValue;
-
-  private static IContainer<Pair<String, Color>> webColorsAndNames;
 
   /**
    * Creates a new {@link Color} with the given redValue, greenValue and
