@@ -125,18 +125,8 @@ public abstract class SqlConnection implements ISqlConnection {
   }
 
   @Override
-  public final IContainer<String> getRecordsHavingSinlgeEntryFromQuery(final String query) {
-    return getRecordsFromQuery(query).to(IContainer::getStoredOne);
-  }
-
-  @Override
   public final IRecord getSingleRecordFromQuery(final String query) {
     return getRecordsFromQuery(query).getStoredOne();
-  }
-
-  @Override
-  public String getSingleRecordHavingSingleEntryFromQuery(final String query) {
-    return getRecordsFromQuery(query).getStoredOne().getStoredOne();
   }
 
   @Override

@@ -15,10 +15,5 @@ public interface ISqlConnection extends GroupCloseable {
 
   IContainer<IRecord> getRecordsFromQuery(String query);
 
-  //TODO: Delete this method
-  IContainer<String> getRecordsHavingSinlgeEntryFromQuery(String query);
-
   IRecord getSingleRecordFromQuery(String query);
-
-  String getSingleRecordHavingSingleEntryFromQuery(String query);
 }

@@ -79,10 +79,10 @@ public final class SchemaReader implements ISchemaReader {
   public IContainer<FlatTableDto> loadFlatTables() {
 
     final var query = queryCreator.createQueryToLoadNameOfTables();
-    final var records = sqlConnection.getRecordsHavingSinlgeEntryFromQuery(query);
+    final var records = sqlConnection.getRecordsFromQuery(query);
 
     //TODO: Create FlatTableDtoMapper
-    return records.to(FlatTableDto::new);
+    return records.to(r -> new FlatTableDto(r.getStoredOne()));
   }
 
   @Override

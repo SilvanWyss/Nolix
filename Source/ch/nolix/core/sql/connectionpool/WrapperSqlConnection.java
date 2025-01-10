@@ -40,17 +40,7 @@ implements ISqlConnection {
   }
 
   @Override
-  public IContainer<String> getRecordsHavingSinlgeEntryFromQuery(final String query) {
-    return getStoredResource().getRecordsHavingSinlgeEntryFromQuery(query);
-  }
-
-  @Override
   public IRecord getSingleRecordFromQuery(final String query) {
     return getStoredResource().getSingleRecordFromQuery(query);
-  }
-
-  @Override
-  public String getSingleRecordHavingSingleEntryFromQuery(final String query) {
-    return getStoredResource().getSingleRecordHavingSingleEntryFromQuery(query);
   }
 }
