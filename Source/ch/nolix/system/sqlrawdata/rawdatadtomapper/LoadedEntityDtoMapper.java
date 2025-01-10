@@ -7,8 +7,8 @@ import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.system.sqlrawdata.datareader.ContentFieldMapper;
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.ILoadedEntityDtoMapper;
 
 /**
@@ -20,12 +20,12 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 
   @Override
-  public EntityLoadingDto mapRecordToEntityLoadingDto(final ISqlRecord paramRecord, final ITableView tableView) {
+  public EntityLoadingDto mapRecordToEntityLoadingDto(final ISqlRecord paramRecord, final TableViewDto tableView) {
     return //
     new EntityLoadingDto(
       paramRecord.getStoredAt1BasedIndex(1),
       paramRecord.getStoredAt1BasedIndex(2),
-      mapRecordToContentFieldDtos(paramRecord, tableView.getColumnInfos()));
+      mapRecordToContentFieldDtos(paramRecord, tableView.columnViews()));
   }
 
   @Override

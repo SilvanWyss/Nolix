@@ -5,22 +5,26 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
+
+  private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final InternalDataWriter internalDataWriter;
 
-  private final IContainer<ITableView> tableViews;
+  private final IContainer<TableViewDto> tableViews;
 
-  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableView> tableViews) {
+  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<TableViewDto> tableViews) {
 
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
@@ -41,7 +45,8 @@ public final class DataWriter implements IDataWriter {
     final String backReferencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
-    final var multiBackReferenceColumnInfo = tableInfo.getColumnInfoByColumnId(multiBackReferenceColumnId);
+    final var multiBackReferenceColumnInfo = //
+    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
 
     internalDataWriter.deleteMultiBackReferenceEntry(
       tableInfo,
@@ -57,11 +62,9 @@ public final class DataWriter implements IDataWriter {
     final String multiReferenceColumnName) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiReferenceColumnName);
 
-    internalDataWriter.deleteEntriesFromMultiReference(
-      tableInfo,
-      entityId,
-      tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
+    internalDataWriter.deleteEntriesFromMultiReference(tableInfo, entityId, columnView);
   }
 
   @Override
@@ -72,12 +75,9 @@ public final class DataWriter implements IDataWriter {
     final String referencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiRefereceColumnName);
 
-    internalDataWriter.deleteEntryFromMultiReference(
-      tableInfo,
-      entityId,
-      tableInfo.getColumnInfoByColumnName(multiRefereceColumnName),
-      referencedEntityId);
+    internalDataWriter.deleteEntryFromMultiReference(tableInfo, entityId, columnView, referencedEntityId);
   }
 
   @Override
@@ -87,11 +87,9 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
-    internalDataWriter.deleteEntriesFromMultiValue(
-      tableInfo,
-      entityId,
-      tableInfo.getColumnInfoByColumnName(multiValueColumnName));
+    internalDataWriter.deleteEntriesFromMultiValue(tableInfo, entityId, columnView);
   }
 
   @Override
@@ -102,12 +100,9 @@ public final class DataWriter implements IDataWriter {
     final String entry) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
-    internalDataWriter.deleteEntryFromMultiValue(
-      tableInfo,
-      entityId,
-      tableInfo.getColumnInfoByColumnName(multiValueColumnName),
-      entry);
+    internalDataWriter.deleteEntryFromMultiValue(tableInfo, entityId, columnView, entry);
   }
 
   @Override
@@ -143,7 +138,9 @@ public final class DataWriter implements IDataWriter {
     final String backReferencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
-    final var multiBackReferenceColumnInfo = tableInfo.getColumnInfoByColumnId(multiBackReferenceColumnId);
+
+    final var multiBackReferenceColumnInfo = //
+    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
 
     internalDataWriter.insertEntryIntoMultiBackReference(
       tableInfo,
@@ -160,11 +157,12 @@ public final class DataWriter implements IDataWriter {
     final String referencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiReferenceColumnId);
 
     internalDataWriter.insertEntryIntoMultiReference(
       tableInfo,
       entityId,
-      tableInfo.getColumnInfoByColumnId(multiReferenceColumnId),
+      columnView,
       referencedEntityId);
   }
 
@@ -176,12 +174,9 @@ public final class DataWriter implements IDataWriter {
     final String entry) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
-    internalDataWriter.insertEntryIntoMultiValue(
-      tableInfo,
-      entityId,
-      tableInfo.getColumnInfoByColumnName(multiValueColumnName),
-      entry);
+    internalDataWriter.insertEntryIntoMultiValue(tableInfo, entityId, columnView, entry);
   }
 
   @Override
@@ -209,7 +204,7 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
   }
 
-  private ITableView getTableInfoByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.getTableName().equals(tableName));
+  private TableViewDto getTableInfoByTableName(final String tableName) {
+    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
   }
 }

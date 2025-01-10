@@ -6,24 +6,28 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 
 public final class DataReader implements IDataReader {
+
+  private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final InternalDataReader internalDataReader;
 
-  private final IContainer<ITableView> tableViews;
+  private final IContainer<TableViewDto> tableViews;
 
   private DataReader(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<ITableView> tableViews) {
+    final IContainer<TableViewDto> tableViews) {
 
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
@@ -36,7 +40,7 @@ public final class DataReader implements IDataReader {
   public static DataReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableView> tableViews) {
+    final IContainer<TableViewDto> tableViews) {
     return new DataReader(databaseName, sqlConnectionPool.borrowResource(), tableViews);
   }
 
@@ -133,10 +137,13 @@ public final class DataReader implements IDataReader {
   private ColumnViewDto getColumnInfoByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
-    return getTableInfoByTableName(tableName).getColumnInfoByColumnName(columnName);
+
+    final var tableView = getTableInfoByTableName(tableName);
+
+    return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, columnName);
   }
 
-  private ITableView getTableInfoByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.getTableName().equals(tableName));
+  private TableViewDto getTableInfoByTableName(final String tableName) {
+    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
   }
 }

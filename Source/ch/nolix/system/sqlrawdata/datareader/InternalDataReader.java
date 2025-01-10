@@ -16,8 +16,8 @@ import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.rawdatadtomapper.LoadedEntityDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
@@ -92,7 +92,7 @@ final class InternalDataReader {
       .to(r -> VALUE_MAPPER.mapValueToString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.dataType()));
   }
 
-  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableView tableView) {
+  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {
 
     //TODO: Create EntityLoadingDtoMapper
     final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView);
@@ -114,7 +114,7 @@ final class InternalDataReader {
     return entities;
   }
 
-  public EntityLoadingDto loadEntity(final ITableView tableView, final String id) {
+  public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {
 
     //TODO: Create EntityLoadingDtoMapper
     return LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(

@@ -6,26 +6,30 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
+
+  private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final InternalDataWriter internalDataWriter;
 
-  private final IContainer<ITableView> tableViews;
+  private final IContainer<TableViewDto> tableViews;
 
   private DataWriter(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<ITableView> tableViews) {
+    final IContainer<TableViewDto> tableViews) {
 
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
@@ -38,7 +42,7 @@ public final class DataWriter implements IDataWriter {
   public static DataWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IContainer<ITableView> tableViews) {
+    final IContainer<TableViewDto> tableViews) {
     return new DataWriter(databaseName, sqlConnectionPool.borrowResource(), tableViews);
   }
 
@@ -186,10 +190,13 @@ public final class DataWriter implements IDataWriter {
   private ColumnViewDto getColumnDefinitionByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
-    return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
+
+    final var tableView = getTableDefinitionByTableName(tableName);
+
+    return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, columnName);
   }
 
-  private ITableView getTableDefinitionByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.getTableName().equals(tableName));
+  private TableViewDto getTableDefinitionByTableName(final String tableName) {
+    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
   }
 }

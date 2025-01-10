@@ -6,10 +6,9 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.schemaviewdtomapper.ColumnViewDtoMapper;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.sqlrawdata.schemaview.TableView;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnViewDtoMapper;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 
 final class TableDefinitionMapper {
 
@@ -17,8 +16,8 @@ final class TableDefinitionMapper {
 
   private static final IColumnViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnViewDtoMapper();
 
-  public ITableView createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
-    return new TableView(
+  public TableViewDto createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
+    return new TableViewDto(
       getTableIdFromTableNode(tableNode),
       getTableNameFromTableNode(tableNode),
       getContentColumnDefinitionsFromTableNode(tableNode));

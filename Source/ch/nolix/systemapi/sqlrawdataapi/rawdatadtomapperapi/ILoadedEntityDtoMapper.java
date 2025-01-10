@@ -4,8 +4,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 
 /**
  * @author Silvan Wyss
@@ -31,6 +31,6 @@ public interface ILoadedEntityDtoMapper {
    * @throws RuntimeException if the given paramRecord is not valid.
    * @throws RuntimeException if the given tableView is not valid.
    */
-  EntityLoadingDto mapRecordToEntityLoadingDto(ISqlRecord paramRecord, ITableView tableView);
+  EntityLoadingDto mapRecordToEntityLoadingDto(ISqlRecord paramRecord, TableViewDto tableView);
 
 }
