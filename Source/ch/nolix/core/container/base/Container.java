@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
@@ -1698,8 +1699,11 @@ implements IContainer<E> {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
       }
 
-      //Adds the current element at the end of the list.
-      list.addAtEnd(mapper.apply(e));
+      //Lets the given given mapper create mappingElement from the current element.
+      final var mappingElement = mapper.apply(e);
+
+      //Adds the mappingElement at the end of the list.
+      list.addAtEnd(mappingElement);
     }
 
     //Returns list.
@@ -2098,6 +2102,46 @@ implements IContainer<E> {
       default ->
         toStringWhenContainsSeveralElements(separator);
     };
+  }
+
+  //For a better performance, this implementation does not use all comfortable methods.
+  /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Container} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final <E2> IContainer<E2> toWithOneBasedIndex(final BiFunction<Integer, E, E2> mapper) {
+
+    //Asserts that the given mapper is not null.
+    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalogue.MAPPER).isNotNull();
+
+    //Creates list.
+    final var list = createEmptyMutableList(new Marker<E2>());
+
+    //Declares index.
+    var index = 1;
+
+    //Iterates the current Container.
+    for (final var e : this) {
+
+      //Asserts that the current element is not null.
+      if (e == null) {
+
+        //Creates and throws a ArgumentIsNullException.
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
+      }
+
+      //Lets the given mapper create mappingElement from the current element.
+      final var mappingElement = mapper.apply(index, e);
+
+      //Adds the mappingElement at the end of the list.
+      list.addAtEnd(mappingElement);
+    }
+
+    //Returns list.
+    return list;
   }
 
   /**

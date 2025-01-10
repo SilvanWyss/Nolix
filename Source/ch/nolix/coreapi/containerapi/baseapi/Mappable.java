@@ -1,5 +1,6 @@
 package ch.nolix.coreapi.containerapi.baseapi;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -51,4 +52,18 @@ public interface Mappable<E> {
    *         the elements of the current {@link IContainer}.
    */
   IContainer<String> toStrings();
+
+  /**
+   * @param mapper
+   * @param <E2>   is the type of the elements the given mapper maps from the
+   *               elements of the current {@link Mappable} and from the one-based
+   *               index of these elements.
+   * @return a new {@link IContainer} with the elements the given mapper maps from
+   *         the elements of the current {@link Mappable} and from the one-based
+   *         index of these elements.
+   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if one of the elements of the current
+   *                          {@link Mappable} is null.
+   */
+  <E2> IContainer<E2> toWithOneBasedIndex(BiFunction<Integer, E, E2> mapper);
 }
