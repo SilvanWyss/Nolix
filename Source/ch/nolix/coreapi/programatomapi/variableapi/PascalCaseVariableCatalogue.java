@@ -258,6 +258,8 @@ public final class PascalCaseVariableCatalogue {
 
   public static final String OBJECT = "Object";
 
+  public static final String ONE_BASED_INDEX = "OneBasedIndex";
+
   public static final String OPACITY = "Opacity";
 
   public static final String OPCODE = "Opcode";
@@ -431,6 +433,8 @@ public final class PascalCaseVariableCatalogue {
   public static final String WIDTH = "Width";
 
   public static final String YEAR = "Year";
+
+  public static final String ZERO_BASED_INDEX = "ZeroBasedIndex";
 
   /**
    * Prevents that an instance of the {@link PascalCaseVariableCatalogue} can be

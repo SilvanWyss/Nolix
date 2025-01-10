@@ -258,6 +258,8 @@ public final class LowerCaseVariableCatalogue {
 
   public static final String OBJECT = "object";
 
+  public static final String ONE_BASED_INDEX = "one-based index";
+
   public static final String OPACITY = "opacity";
 
   public static final String OPCODE = "opcode";
@@ -431,6 +433,8 @@ public final class LowerCaseVariableCatalogue {
   public static final String WIDTH = "width";
 
   public static final String YEAR = "year";
+
+  public static final String ZERO_BASED_INDEX = "zero-based index";
 
   /**
    * Prevents that an instance of the {@link LowerCaseVariableCatalogue} can be

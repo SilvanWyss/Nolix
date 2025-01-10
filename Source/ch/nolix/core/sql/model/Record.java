@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
 import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
 
@@ -42,8 +43,10 @@ public final class Record extends Container<String> implements IRecord {
     if (oneBasedIndex < 1) {
 
       //TODO: Rename Catalogues to Catalogs
-      //TODO: Add ZERO_BASED_INDEX and ONE_BASED_INDEX constant to variable catalogs
-      throw NonPositiveArgumentException.forArgumentNameAndArgument("one-based index", oneBasedIndex);
+      throw //
+      NonPositiveArgumentException.forArgumentNameAndArgument(
+        LowerCaseVariableCatalogue.ONE_BASED_INDEX,
+        oneBasedIndex);
     }
 
     if (values == null) {

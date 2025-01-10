@@ -259,6 +259,8 @@ public final class PluralLowerCaseVariableCatalogue {
 
   public static final String OBJECTS = "objects";
 
+  public static final String ONE_BASED_INDEXES = "one-based indexes";
+
   public static final String OPACITIES = "opacities";
 
   public static final String OPCODES = "opcodes";
@@ -432,6 +434,8 @@ public final class PluralLowerCaseVariableCatalogue {
   public static final String WIDTHS = "widths";
 
   public static final String YEARS = "years";
+
+  public static final String ZERO_BASED_INDEXES = "zero-based indexes";
 
   /**
    * Prevents that an instance of the {@link PluralLowerCaseVariableCatalogue} can

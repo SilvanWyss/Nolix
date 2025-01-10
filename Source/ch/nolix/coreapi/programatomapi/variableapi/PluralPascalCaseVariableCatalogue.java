@@ -259,6 +259,8 @@ public final class PluralPascalCaseVariableCatalogue {
 
   public static final String OBJECTS = "Objects";
 
+  public static final String ONE_BASED_INDEXES = "OneBasedIndex";
+
   public static final String OPACITIES = "Opacities";
 
   public static final String OPCODES = "Opcodes";
@@ -432,6 +434,8 @@ public final class PluralPascalCaseVariableCatalogue {
   public static final String WIDTHS = "Widths";
 
   public static final String YEARS = "Years";
+
+  public static final String ZERO_BASED_INDEXES = "ZeroBasedIndex";
 
   /**
    * Prevents that an instance of the {@link PluralPascalCaseVariableCatalogue}
