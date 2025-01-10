@@ -98,8 +98,7 @@ final class InternalDataReader {
     final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView);
     final var records = sqlConnection.getRecordsFromQuery(query);
 
-    //TODO: Add withInitialCapacityFromCountOfContainer static method to ArrayList
-    final IArrayList<EntityLoadingDto> entities = ArrayList.withInitialCapacity(records.getCount());
+    final IArrayList<EntityLoadingDto> entities = ArrayList.withInitialCapacityFromSizeOfContainer(records);
 
     var index = 1;
 

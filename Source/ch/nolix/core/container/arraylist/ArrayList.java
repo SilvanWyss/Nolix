@@ -102,6 +102,23 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * @param container
+   * @param <E2>      is the type of the elements of the created
+   *                  {@link ArrayList}.
+   * @return a new {@link ArrayList} with a initialCapacity that is the size of
+   *         the given container.
+   * @throws NullPointerException if the given container is null.
+   */
+  public static <E2> ArrayList<E2> withInitialCapacityFromSizeOfContainer(final IContainer<?> container) {
+
+    final var initialCapacity = container.getCount();
+
+    return withInitialCapacity(initialCapacity);
+  }
+
+  /**
    * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
    * 

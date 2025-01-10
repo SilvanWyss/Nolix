@@ -15,7 +15,8 @@ public final class AttributeReplacer implements IAttributeReplacer {
     final IContainer<? extends IAttachingAttribute> attributes,
     final IContainer<IPair<String, String>> attributeReplacements) {
 
-    final IArrayList<IAttachingAttribute> replacedAttributes = ArrayList.withInitialCapacity(attributes.getCount());
+    final IArrayList<IAttachingAttribute> replacedAttributes = //
+    ArrayList.withInitialCapacityFromSizeOfContainer(attributes);
 
     for (final var a : attributes) {
 
@@ -42,7 +43,8 @@ public final class AttributeReplacer implements IAttributeReplacer {
     final IContainer<? extends IAttachingAttribute> attributes,
     final IContainer<IPair<Enum<?>, String>> attributeReplacements) {
 
-    final IArrayList<IAttachingAttribute> replacedAttributes = ArrayList.withInitialCapacity(attributes.getCount());
+    final IArrayList<IAttachingAttribute> replacedAttributes = //
+    ArrayList.withInitialCapacityFromSizeOfContainer(attributes);
 
     final var localAttributeReplacements = //
     attributeReplacements.to(r -> new Pair<>(r.getStoredElement1().toString(), r.getStoredElement2()));
