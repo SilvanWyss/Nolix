@@ -7,10 +7,10 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {

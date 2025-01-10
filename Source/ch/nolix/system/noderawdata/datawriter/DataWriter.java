@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

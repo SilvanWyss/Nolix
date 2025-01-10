@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.modelfiller;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
-import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 
 /**
  * @author Silvan Wyss

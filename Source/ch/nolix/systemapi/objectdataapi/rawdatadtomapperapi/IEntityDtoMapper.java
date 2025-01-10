@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
+import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
 
 /**
  * @author Silvan Wyss

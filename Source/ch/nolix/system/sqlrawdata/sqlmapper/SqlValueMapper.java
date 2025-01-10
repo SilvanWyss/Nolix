@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.sqlmapper;
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SqlKeywordCatalogue;
-import ch.nolix.systemapi.rawdataapi.dto.StringContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.model.StringContentFieldDto;
 import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
 
 /**
