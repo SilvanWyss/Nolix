@@ -8,16 +8,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.sqlschema.dtomapper.ColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.dtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 
   private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+
+  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -69,10 +72,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = queryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName);
     final var records = sqlConnection.getRecordsFromQuery(query);
 
-    //TODO: Create ColumnDtoMapper
-    return //
-    records.to(r -> ColumnDto.withNameAndDataType(r.getStoredAt1BasedIndex(1),
-      DataTypeDto.withName(r.getStoredAt1BasedIndex(2))));
+    return records.to(COLUMN_DTO_MAPPER::mapSqlRecordToColumnDto);
   }
 
   @Override
