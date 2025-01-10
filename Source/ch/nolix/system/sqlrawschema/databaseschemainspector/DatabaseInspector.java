@@ -41,7 +41,7 @@ public final class DatabaseInspector implements IDatabaseInspector {
     final IQueryCreator queryCreator) {
 
     final var schemaReader = //
-    SchemaReader.forDatabaseWithNameAndSqlConnectionAndQueryCreator(databaseName, sqlConnection, queryCreator);
+    SchemaReader.forDatabaseNameAndSqlConnectionAndQueryCreator(databaseName, sqlConnection, queryCreator);
 
     return getDatabaseSchemaState(schemaReader);
   }
