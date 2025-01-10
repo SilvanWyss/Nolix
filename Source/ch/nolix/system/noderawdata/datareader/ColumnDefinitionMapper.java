@@ -21,7 +21,7 @@ public final class ColumnDefinitionMapper {
     new ColumnView(
       COLUMN_NODE_SEARCHER.getColumnIdFromColumnNode(columnNode),
       COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(columnNode),
-      COLUMN_NODE_SEARCHER.getContentTypeFromColumnNode(columnNode),
+      COLUMN_NODE_SEARCHER.getColumnContentTypeFromColumnNode(columnNode),
       getColumnDataTypeFromColumnNode(columnNode),
       columnIndexOnEntityNode);
   }
