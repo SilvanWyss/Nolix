@@ -2,7 +2,7 @@ package ch.nolix.coreapi.sqlapi.connectionapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
+import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 public interface ISqlConnection extends GroupCloseable {
@@ -13,7 +13,7 @@ public interface ISqlConnection extends GroupCloseable {
 
   SqlDatabaseEngine getDatabaseEngine();
 
-  IContainer<IRecord> getRecordsFromQuery(String query);
+  IContainer<ISqlRecord> getRecordsFromQuery(String query);
 
-  IRecord getSingleRecordFromQuery(String query);
+  ISqlRecord getSingleRecordFromQuery(String query);
 }

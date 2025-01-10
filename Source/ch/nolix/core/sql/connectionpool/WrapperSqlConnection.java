@@ -4,7 +4,7 @@ import ch.nolix.core.resourcecontrol.resourcepool.WrapperResource;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
+import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 public final class WrapperSqlConnection
@@ -35,12 +35,12 @@ implements ISqlConnection {
   }
 
   @Override
-  public IContainer<IRecord> getRecordsFromQuery(final String query) {
+  public IContainer<ISqlRecord> getRecordsFromQuery(final String query) {
     return getStoredResource().getRecordsFromQuery(query);
   }
 
   @Override
-  public IRecord getSingleRecordFromQuery(final String query) {
+  public ISqlRecord getSingleRecordFromQuery(final String query) {
     return getStoredResource().getSingleRecordFromQuery(query);
   }
 }

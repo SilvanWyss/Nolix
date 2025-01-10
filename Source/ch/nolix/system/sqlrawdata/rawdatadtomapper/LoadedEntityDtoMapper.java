@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.rawdatadtomapper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
+import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.system.sqlrawdata.datareader.ContentFieldMapper;
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
@@ -20,7 +20,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 
   @Override
-  public EntityLoadingDto mapRecordToEntityLoadingDto(final IRecord paramRecord, final ITableView tableView) {
+  public EntityLoadingDto mapRecordToEntityLoadingDto(final ISqlRecord paramRecord, final ITableView tableView) {
     return //
     new EntityLoadingDto(
       paramRecord.getStoredAt1BasedIndex(1),
@@ -30,7 +30,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
 
   @Override
   public IContainer<ContentFieldDto<Object>> mapRecordToContentFieldDtos(
-    final IRecord paramRecord,
+    final ISqlRecord paramRecord,
     final IContainer<IColumnView> columnViews) {
 
     final ILinkedList<ContentFieldDto<Object>> contentFieldDtos = LinkedList.createEmpty();

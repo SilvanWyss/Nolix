@@ -4,7 +4,7 @@ import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
-import ch.nolix.core.sql.model.Record;
+import ch.nolix.core.sql.model.SqlRecord;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -106,7 +106,7 @@ final class InternalDataReader {
     for (final var r : records) {
 
       final var entity = //
-      LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(Record.withOneBasedIndexAndValues(index, r), tableView);
+      LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(SqlRecord.withOneBasedIndexAndValues(index, r), tableView);
 
       entities.addAtEnd(entity);
     }
@@ -118,7 +118,7 @@ final class InternalDataReader {
 
     //TODO: Create EntityLoadingDtoMapper
     return LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(
-      Record.withOneBasedIndexAndValues(1,
+      SqlRecord.withOneBasedIndexAndValues(1,
         sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView))),
       tableView);
   }

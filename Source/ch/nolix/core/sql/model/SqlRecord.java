@@ -13,15 +13,15 @@ import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
-import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
+import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 
 /**
- * A {@link Record} is not mutable.
+ * A {@link SqlRecord} is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2024-12-28
  */
-public final class Record extends Container<String> implements IRecord {
+public final class SqlRecord extends Container<String> implements ISqlRecord {
 
   private final int oneBasedIndex;
 
@@ -30,7 +30,7 @@ public final class Record extends Container<String> implements IRecord {
   //TODO: Say available comfort methods instead of comfortable methods 
   //For a better performance, this implementation does not use all comfortable methods.
   /**
-   * Creates a new {@link Record} with the given values.
+   * Creates a new {@link SqlRecord} with the given values.
    * 
    * @param oneBasedIndex
    * @param values
@@ -38,7 +38,7 @@ public final class Record extends Container<String> implements IRecord {
    *                                      positive.
    * @throws ArgumentIsNullException      if the given values is null.
    */
-  private Record(final int oneBasedIndex, final ImmutableList<String> values) {
+  private SqlRecord(final int oneBasedIndex, final ImmutableList<String> values) {
 
     if (oneBasedIndex < 1) {
 
@@ -60,12 +60,12 @@ public final class Record extends Container<String> implements IRecord {
   /**
    * @param oneBasedIndex
    * @param value
-   * @return a new {@link Record} with the given oneBasedIndex and value.
+   * @return a new {@link SqlRecord} with the given oneBasedIndex and value.
    * @throws NonPositiveArgumentException if the given oneBasedIndex is not
    *                                      positive.
    * @throws ArgumentIsNullException      if the given value is null.
    */
-  public static Record withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
+  public static SqlRecord withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
 
     final var values = ImmutableList.withElement(value);
 
@@ -75,14 +75,14 @@ public final class Record extends Container<String> implements IRecord {
   /**
    * @param oneBasedIndex
    * @param values
-   * @return a new {@link Record} with the oneBasedIndex and given values.
+   * @return a new {@link SqlRecord} with the oneBasedIndex and given values.
    * @throws NonPositiveArgumentException if the given oneBasedIndex is not
    *                                      positive.
    * @throws ArgumentIsNullException      if the given values is null.
    * @throws ArgumentIsNullException      if one of the given values is null.
    */
-  public static Record withOneBasedIndexAndValues(final int oneBasedIndex, final Iterable<String> values) {
-    return new Record(oneBasedIndex, ImmutableList.forIterable(values));
+  public static SqlRecord withOneBasedIndexAndValues(final int oneBasedIndex, final Iterable<String> values) {
+    return new SqlRecord(oneBasedIndex, ImmutableList.forIterable(values));
   }
 
   /**
