@@ -18,6 +18,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 public abstract class SqlConnection implements ISqlConnection {
@@ -115,7 +116,7 @@ public abstract class SqlConnection implements ISqlConnection {
   }
 
   @Override
-  public final IContainer<? extends IContainer<String>> getRecordsFromQuery(final String query) {
+  public final IContainer<IRecord> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
       return getRecordsFromStatement(query, statement);
     } catch (final SQLException sqlException) {
@@ -154,7 +155,7 @@ public abstract class SqlConnection implements ISqlConnection {
 
   protected abstract String getSqlDatabaseEngineDriverClass();
 
-  private IContainer<? extends IContainer<String>> getRecordsFromStatement(
+  private IContainer<IRecord> getRecordsFromStatement(
     final String query,
     final Statement statement)
   throws SQLException {
@@ -163,12 +164,12 @@ public abstract class SqlConnection implements ISqlConnection {
     }
   }
 
-  private final IContainer<? extends IContainer<String>> getRecordsFromResultSet(final ResultSet resultSet)
+  private final IContainer<IRecord> getRecordsFromResultSet(final ResultSet resultSet)
   throws SQLException {
 
-    final ILinkedList<IContainer<String>> records = LinkedList.createEmpty();
-
+    final ILinkedList<IRecord> records = LinkedList.createEmpty();
     final var columnCount = resultSet.getMetaData().getColumnCount();
+    var index = 1;
 
     while (resultSet.next()) {
 
@@ -185,7 +186,10 @@ public abstract class SqlConnection implements ISqlConnection {
         }
       }
 
-      records.addAtEnd(entries);
+      final var record = ch.nolix.core.sql.model.Record.withOneBasedIndexAndValues(index, entries);
+
+      records.addAtEnd(record);
+      index++;
     }
 
     return records;

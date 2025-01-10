@@ -2,6 +2,7 @@ package ch.nolix.coreapi.sqlapi.connectionapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 public interface ISqlConnection extends GroupCloseable {
@@ -12,7 +13,7 @@ public interface ISqlConnection extends GroupCloseable {
 
   SqlDatabaseEngine getDatabaseEngine();
 
-  IContainer<? extends IContainer<String>> getRecordsFromQuery(String query);
+  IContainer<IRecord> getRecordsFromQuery(String query);
 
   //TODO: Delete this method
   IContainer<String> getRecordsHavingSinlgeEntryFromQuery(String query);
