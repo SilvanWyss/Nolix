@@ -16,8 +16,8 @@ import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.rawdatadtomapper.LoadedEntityDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
@@ -61,35 +61,35 @@ final class InternalDataReader {
 
   public IContainer<String> loadMultiBackReferenceEntries(
     final String entityId,
-    final IColumnView multiBackReferenceColumnInfo) {
+    final ColumnViewDto multiBackReferenceColumnInfo) {
 
     final var query = MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(
       entityId,
-      multiBackReferenceColumnInfo.getColumnId());
+      multiBackReferenceColumnInfo.id());
 
     return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAt1BasedIndex(1));
   }
 
   public IContainer<String> loadMultiReferenceEntries(
     final String entityId,
-    final IColumnView multiReferenceColumnInfo) {
+    final ColumnViewDto multiReferenceColumnInfo) {
     return sqlConnection
       .getRecordsFromQuery(
         MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(
           entityId,
-          multiReferenceColumnInfo.getColumnId()))
+          multiReferenceColumnInfo.id()))
       .to(r -> r.getStoredAt1BasedIndex(1));
   }
 
   public IContainer<Object> loadMultiValueEntries(
     final String entityId,
-    final IColumnView multiValueColumnInfo) {
+    final ColumnViewDto multiValueColumnInfo) {
     return sqlConnection
       .getRecordsFromQuery(
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
           entityId,
-          multiValueColumnInfo.getColumnId()))
-      .to(r -> VALUE_MAPPER.mapValueToString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.getColumnDataType()));
+          multiValueColumnInfo.id()))
+      .to(r -> VALUE_MAPPER.mapValueToString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.dataType()));
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableView tableView) {
@@ -125,22 +125,22 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
-    final IColumnView columnInfo,
+    final ColumnViewDto columnInfo,
     final String value) {
 
-    final var contentType = columnInfo.getColumnContentType();
+    final var contentType = columnInfo.contentType();
 
     return //
     switch (contentType) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
-          columnInfo.getColumnName(),
+          columnInfo.name(),
           value);
       case MULTI_VALUE ->
-        multiValueEntryExistsForGivenColumnAndValue(columnInfo.getColumnId(), value);
+        multiValueEntryExistsForGivenColumnAndValue(columnInfo.id(), value);
       case MULTI_REFERENCE ->
-        multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
+        multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.id(), value);
       default ->
         throw InvalidArgumentException.forArgument(contentType);
     };
@@ -148,28 +148,28 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
-    final IColumnView columnInfo,
+    final ColumnViewDto columnInfo,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    final var contentType = columnInfo.getColumnContentType();
+    final var contentType = columnInfo.contentType();
 
     return //
     switch (contentType) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
           tableName,
-          columnInfo.getColumnName(),
+          columnInfo.name(),
           value,
           entitiesToIgnoreIds);
       case MULTI_VALUE ->
         multiValueEntryExistsForGivenColumnAndValueIgnoringGivenEntities(
-          columnInfo.getColumnId(),
+          columnInfo.id(),
           value,
           entitiesToIgnoreIds);
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntityIgnoringGivenEntities(
-          columnInfo.getColumnId(),
+          columnInfo.id(),
           value,
           entitiesToIgnoreIds);
       default ->

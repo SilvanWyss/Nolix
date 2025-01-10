@@ -2,7 +2,7 @@ package ch.nolix.systemapi.noderawdataapi.dtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.rawdataapi.dto.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 
 /**
  * @author Silvan Wyss
@@ -19,5 +19,5 @@ public interface IContentFieldDtoMapper {
    */
   ContentFieldDto<Object> mapContentFieldNodeToContentFieldDto(
     INode<?> contentFieldNode,
-    IColumnView supportingColumnInfo);
+    ColumnViewDto supportingColumnInfo);
 }

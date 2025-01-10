@@ -5,10 +5,10 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 
-public record TableView(String tableId, String tableName, ImmutableList<IColumnView> columnInfos)
+public record TableView(String tableId, String tableName, ImmutableList<ColumnViewDto> columnInfos)
 implements ITableView {
 
   private static final IStringTool STRING_TOOL = new StringTool();
@@ -16,14 +16,14 @@ implements ITableView {
   public TableView(
     final String tableId,
     final String tableName,
-    final IContainer<IColumnView> columnInfos) {
+    final IContainer<ColumnViewDto> columnInfos) {
     this(tableId, tableName, ImmutableList.forIterable(columnInfos));
   }
 
   public TableView( //NOSONAR: This implementations checks the given arguments.
     final String tableId,
     final String tableName,
-    final ImmutableList<IColumnView> columnInfos) {
+    final ImmutableList<ColumnViewDto> columnInfos) {
 
     if (tableId == null) {
       throw ArgumentIsNullException.forArgumentName("table id");
@@ -43,17 +43,17 @@ implements ITableView {
   }
 
   @Override
-  public IColumnView getColumnInfoByColumnId(final String columnId) {
-    return getColumnInfos().getStoredFirst(ci -> ci.getColumnId().equals(columnId));
+  public ColumnViewDto getColumnInfoByColumnId(final String columnId) {
+    return getColumnInfos().getStoredFirst(ci -> ci.id().equals(columnId));
   }
 
   @Override
-  public IColumnView getColumnInfoByColumnName(final String columnName) {
-    return getColumnInfos().getStoredFirst(cd -> cd.getColumnName().equals(columnName));
+  public ColumnViewDto getColumnInfoByColumnName(final String columnName) {
+    return getColumnInfos().getStoredFirst(cd -> cd.name().equals(columnName));
   }
 
   @Override
-  public IContainer<IColumnView> getColumnInfos() {
+  public IContainer<ColumnViewDto> getColumnInfos() {
     return columnInfos;
   }
 

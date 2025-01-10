@@ -33,7 +33,7 @@ public final class LoadedEntityDtoMapper {
 
     for (final var c : tableView.getColumnInfos()) {
 
-      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.getColumnIndexOnEntityNode());
+      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.oneBasedOrdinalIndex());
       final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapContentFieldNodeToContentFieldDto(contentFieldNode, c);
 
       contentFields.addAtEnd(contentFieldDto);

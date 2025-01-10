@@ -14,8 +14,8 @@ import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.dto.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -64,14 +64,14 @@ public final class InternalDataReader {
   public IContainer<String> loadMultiBackReferenceEntries(
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiBackReferenceColumnInfo) {
+    final ColumnViewDto multiBackReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiBackReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
 
@@ -81,14 +81,14 @@ public final class InternalDataReader {
   public IContainer<String> loadMultiReferenceEntries(
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiReferenceColumnInfo) {
+    final ColumnViewDto multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
@@ -98,20 +98,20 @@ public final class InternalDataReader {
   public IContainer<Object> loadMultiValueEntries(
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiValueColumnInfo) {
+    final ColumnViewDto multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
+    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
 
     final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
     return multiValueNode
       .getStoredChildNodes()
-      .to(a -> VALUE_MAPPER.mapValueToString(a.getHeader(), multiValueColumnInfo.getColumnDataType()));
+      .to(a -> VALUE_MAPPER.mapValueToString(a.getHeader(), multiValueColumnInfo.dataType()));
   }
 
   public EntityLoadingDto loadEntity(final ITableView tableView, final String id) {
@@ -126,13 +126,13 @@ public final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final ITableView tableView,
-    final IColumnView columnInfo,
+    final ColumnViewDto columnInfo,
     final String value) {
 
     final var tableNode = //
     DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.getTableName());
 
-    final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
+    final var columnIndex = columnInfo.oneBasedOrdinalIndex();
 
     return //
     TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
@@ -143,14 +143,14 @@ public final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final ITableView tableView,
-    final IColumnView columnInfo,
+    final ColumnViewDto columnInfo,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
     final var tableNode = //
     DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.getTableName());
 
-    final var local1BasedColumnIndex = columnInfo.getColumnIndexOnEntityNode();
+    final var local1BasedColumnIndex = columnInfo.oneBasedOrdinalIndex();
 
     return //
     TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(

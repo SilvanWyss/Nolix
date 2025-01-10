@@ -22,8 +22,8 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNo
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class DatabaseUpdater {
@@ -49,14 +49,14 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiReferenceColumnInfo) {
+    final ColumnViewDto multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
@@ -67,14 +67,14 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiValueColumnInfo) {
+    final ColumnViewDto multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
+    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
 
     final var multiValueColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
@@ -85,7 +85,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiReferenceColumnInfo,
+    final ColumnViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -93,7 +93,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
@@ -104,7 +104,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiValueColumnInfo,
+    final ColumnViewDto multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -112,7 +112,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
+    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
 
     final var multiValueColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
@@ -141,7 +141,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiBackReferenceColumnInfo,
+    final ColumnViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -149,7 +149,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiBackReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
 
@@ -214,7 +214,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiBackReferenceColumnInfo,
+    final ColumnViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase,
@@ -222,7 +222,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiBackReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
 
@@ -233,7 +233,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiReferenceColumnInfo,
+    final ColumnViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -241,7 +241,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
+    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
 
     final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 
@@ -252,7 +252,7 @@ final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final ITableView tableView,
     final String entityId,
-    final IColumnView multiValueColumnInfo,
+    final ColumnViewDto multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -260,7 +260,7 @@ final class DatabaseUpdater {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
+    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
 
     final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
@@ -322,7 +322,7 @@ final class DatabaseUpdater {
     for (final var f : entityUpdate.updatedContentFields()) {
 
       final var columnInfo = tableView.getColumnInfoByColumnName(f.columnName());
-      final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
+      final var columnIndex = columnInfo.oneBasedOrdinalIndex();
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(columnIndex);
 
       final var valueAsString = f.optionalContent();

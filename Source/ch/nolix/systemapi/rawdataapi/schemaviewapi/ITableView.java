@@ -1,14 +1,15 @@
 package ch.nolix.systemapi.rawdataapi.schemaviewapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 
 public interface ITableView {
 
-  IColumnView getColumnInfoByColumnId(String columnId);
+  ColumnViewDto getColumnInfoByColumnId(String columnId);
 
-  IColumnView getColumnInfoByColumnName(String columnName);
+  ColumnViewDto getColumnInfoByColumnName(String columnName);
 
-  IContainer<IColumnView> getColumnInfos();
+  IContainer<ColumnViewDto> getColumnInfos();
 
   String getTableId();
 

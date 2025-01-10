@@ -32,7 +32,7 @@ final class EntityNodeMapper {
     for (final var f : newEntity.contentFields()) {
 
       final var columnInfo = tableView.getColumnInfoByColumnName(f.columnName());
-      final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
+      final var index = columnInfo.oneBasedOrdinalIndex() - 1;
 
       final var valueAsString = f.optionalContent();
       if (valueAsString.isEmpty()) {

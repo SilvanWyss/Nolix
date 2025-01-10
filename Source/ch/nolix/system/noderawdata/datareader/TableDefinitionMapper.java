@@ -4,16 +4,18 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.system.noderawdata.schemaviewdtomapper.ColumnViewDtoMapper;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemaview.TableView;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 
 final class TableDefinitionMapper {
 
-  private static final ColumnDefinitionMapper COLUMN_DEFINITION_MAPPER = new ColumnDefinitionMapper();
-
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+
+  private static final IColumnViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnViewDtoMapper();
 
   public ITableView createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
     return new TableView(
@@ -22,14 +24,14 @@ final class TableDefinitionMapper {
       getContentColumnDefinitionsFromTableNode(tableNode));
   }
 
-  private IContainer<IColumnView> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
+  private IContainer<ColumnViewDto> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 
-    final ILinkedList<IColumnView> columnInfos = LinkedList.createEmpty();
+    final ILinkedList<ColumnViewDto> columnInfos = LinkedList.createEmpty();
     var columnIndexOnEntityNode = 3;
     for (final var cn : getStoredColumnNodesInOrderFromTableNode(tableNode)) {
 
       columnInfos.addAtEnd(
-        COLUMN_DEFINITION_MAPPER.createColumnDefinitionFromColumnNode(
+        COLUMN_VIEW_DTO_MAPPER.mapColumnNodeToColumnViewDto(
           cn,
           columnIndexOnEntityNode));
 

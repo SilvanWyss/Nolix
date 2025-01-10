@@ -10,8 +10,8 @@ import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.dto.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.dto.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.schemaviewapi.ITableView;
+import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -63,7 +63,7 @@ public final class DataWriter implements IDataWriter {
     final String multiReferenceColumnName) {
     internalDataWriter.deleteEntriesFromMultiReference(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId());
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).id());
   }
 
   @Override
@@ -74,7 +74,7 @@ public final class DataWriter implements IDataWriter {
     final String referencedEntityId) {
     internalDataWriter.deleteEntryFromMultiReference(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).getColumnId(),
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).id(),
       referencedEntityId);
   }
 
@@ -85,7 +85,7 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName) {
     internalDataWriter.deleteEntriesFromMultiValue(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId());
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id());
   }
 
   @Override
@@ -96,7 +96,7 @@ public final class DataWriter implements IDataWriter {
     final String entry) {
     internalDataWriter.deleteEntryFromMultiValue(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id(),
       entry);
   }
 
@@ -147,7 +147,7 @@ public final class DataWriter implements IDataWriter {
     final String referencedEntityId) {
     internalDataWriter.insertEntryIntoMultiReference(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId(),
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).id(),
       referencedEntityId);
   }
 
@@ -159,7 +159,7 @@ public final class DataWriter implements IDataWriter {
     final String entry) {
     internalDataWriter.insertEntryIntoMultiValue(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id(),
       entry);
   }
 
@@ -183,7 +183,7 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  private IColumnView getColumnDefinitionByTableNameAndColumnName(
+  private ColumnViewDto getColumnDefinitionByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
     return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
