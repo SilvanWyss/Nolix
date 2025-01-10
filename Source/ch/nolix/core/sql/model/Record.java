@@ -7,7 +7,7 @@ import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -22,40 +22,64 @@ import ch.nolix.coreapi.sqlapi.modelapi.IRecord;
  */
 public final class Record extends Container<String> implements IRecord {
 
+  private final int oneBasedIndex;
+
   private final ImmutableList<String> values;
 
+  //TODO: Say available comfort methods instead of comfortable methods 
+  //For a better performance, this implementation does not use all comfortable methods.
   /**
    * Creates a new {@link Record} with the given values.
    * 
+   * @param oneBasedIndex
    * @param values
-   * @throws ArgumentIsNullException if the given values is null.
+   * @throws NonPositiveArgumentException if the given oneBasedIndex is not
+   *                                      positive.
+   * @throws ArgumentIsNullException      if the given values is null.
    */
-  private Record(final ImmutableList<String> values) {
+  private Record(final int oneBasedIndex, final ImmutableList<String> values) {
 
-    GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseVariableCatalogue.VALUES).isNotNull();
+    if (oneBasedIndex < 1) {
 
+      //TODO: Rename Catalogues to Catalogs
+      //TODO: Add ZERO_BASED_INDEX and ONE_BASED_INDEX constant to variable catalogs
+      throw NonPositiveArgumentException.forArgumentNameAndArgument("one-based index", oneBasedIndex);
+    }
+
+    if (values == null) {
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.VALUES);
+    }
+
+    this.oneBasedIndex = oneBasedIndex;
     this.values = values;
   }
 
   /**
+   * @param oneBasedIndex
    * @param value
-   * @return a new {@link Record} with the given value.
-   * @throws ArgumentIsNullException if the given value is null.
+   * @return a new {@link Record} with the given oneBasedIndex and value.
+   * @throws NonPositiveArgumentException if the given oneBasedIndex is not
+   *                                      positive.
+   * @throws ArgumentIsNullException      if the given value is null.
    */
-  public static Record withValue(final String value) {
+  public static Record withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
 
     final var values = ImmutableList.withElement(value);
 
-    return withValues(values);
+    return withOneBasedIndexAndValues(oneBasedIndex, values);
   }
 
   /**
+   * @param oneBasedIndex
    * @param values
-   * @return a new {@link Record} with the given values.
-   * @throws ArgumentIsNullException if the given values is not valid.
+   * @return a new {@link Record} with the oneBasedIndex and given values.
+   * @throws NonPositiveArgumentException if the given oneBasedIndex is not
+   *                                      positive.
+   * @throws ArgumentIsNullException      if the given values is null.
+   * @throws ArgumentIsNullException      if one of the given values is null.
    */
-  public static Record withValues(final Iterable<String> values) {
-    return new Record(ImmutableList.forIterable(values));
+  public static Record withOneBasedIndexAndValues(final int oneBasedIndex, final Iterable<String> values) {
+    return new Record(oneBasedIndex, ImmutableList.forIterable(values));
   }
 
   /**
@@ -64,6 +88,14 @@ public final class Record extends Container<String> implements IRecord {
   @Override
   public int getCount() {
     return values.getCount();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getOneBasedIndex() {
+    return oneBasedIndex;
   }
 
   /**

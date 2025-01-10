@@ -1,10 +1,12 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.model.Record;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
@@ -91,14 +93,33 @@ final class InternalDataReader {
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final ITableView tableView) {
-    return sqlConnection
-      .getRecordsFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView))
-      .to(r -> LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(Record.withValues(r), tableView));
+
+    //TODO: Create EntityLoadingDtoMapper
+    final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView);
+    final var records = sqlConnection.getRecordsFromQuery(query);
+
+    //TODO: Add withInitialCapacityFromCountOfContainer static method to ArrayList
+    final IArrayList<EntityLoadingDto> entities = ArrayList.withInitialCapacity(records.getCount());
+
+    var index = 1;
+
+    //TODO Add toUsingOneBasedIndex method to IContainer
+    for (final var r : records) {
+
+      final var entity = //
+      LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(Record.withOneBasedIndexAndValues(index, r), tableView);
+
+      entities.addAtEnd(entity);
+    }
+
+    return entities;
   }
 
   public EntityLoadingDto loadEntity(final ITableView tableView, final String id) {
+
+    //TODO: Create EntityLoadingDtoMapper
     return LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(
-      Record.withValues(
+      Record.withOneBasedIndexAndValues(1,
         sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView))),
       tableView);
   }
