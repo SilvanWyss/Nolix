@@ -32,12 +32,18 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
   public String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
-    return getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+
+    final var idNode = getStoredIdNodeFromColumnNode(columnNode);
+
+    return idNode.getSingleChildNodeHeader();
   }
 
   @Override
   public String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
-    return getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+
+    final var columnNameNode = getStoredNameNodeFromColumnNode(columnNode);
+
+    return columnNameNode.getSingleChildNodeHeader();
   }
 
   @Override
