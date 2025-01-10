@@ -130,7 +130,7 @@ public abstract class SqlConnection implements ISqlConnection {
   }
 
   @Override
-  public final IContainer<String> getSingleRecordFromQuery(final String query) {
+  public final IRecord getSingleRecordFromQuery(final String query) {
     return getRecordsFromQuery(query).getStoredOne();
   }
 

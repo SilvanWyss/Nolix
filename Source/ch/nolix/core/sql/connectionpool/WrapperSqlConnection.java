@@ -45,7 +45,7 @@ implements ISqlConnection {
   }
 
   @Override
-  public IContainer<String> getSingleRecordFromQuery(final String query) {
+  public IRecord getSingleRecordFromQuery(final String query) {
     return getStoredResource().getSingleRecordFromQuery(query);
   }
 
