@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
-import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.EntityHeadTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.IndexTableType;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
