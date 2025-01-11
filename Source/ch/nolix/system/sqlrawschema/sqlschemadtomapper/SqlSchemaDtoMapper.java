@@ -4,25 +4,25 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
-import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
 
 public final class SqlSchemaDtoMapper {
 
   private static final ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto SQL_ID_COLUMN_DTO = //
   ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto.withNameAndDataType(
     PascalCaseVariableCatalog.ID,
-    DatatypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT);
 
   private static final ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
   ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto.withNameAndDataType(
     PascalCaseVariableCatalog.SAVE_STAMP,
-    DatatypeTypeCatalog.INTEGER);
+    DataTypeTypeCatalog.INTEGER);
 
   public ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto mapColumnDtoToSqlColumnDto(final ColumnDto column) {
-    return ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto.withNameAndDataType(column.name(), DatatypeTypeCatalog.TEXT);
+    return ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto.withNameAndDataType(column.name(), DataTypeTypeCatalog.TEXT);
   }
 
   public ch.nolix.systemapi.sqlschemaapi.dto.TableDto mapTableDtoToSqlSchemaTableDto(final TableDto table) {

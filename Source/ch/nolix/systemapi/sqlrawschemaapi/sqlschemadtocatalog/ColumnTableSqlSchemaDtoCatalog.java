@@ -1,37 +1,37 @@
 package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
-import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
+import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 
 public final class ColumnTableSqlSchemaDtoCatalog {
 
   private static final ColumnDto ID_SQL_DTO = ColumnDto.withNameAndDataType(TableTableColumn.ID.getName(),
-    DatatypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto PARENT_TABLE_ID_SQL_DTO = ColumnDto.withNameAndDataType(
     ColumnTableColumn.PARENT_TABLE_ID.getName(),
-    DatatypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto NAME_SQL_DTO = ColumnDto.withNameAndDataType(ColumnTableColumn.NAME.getName(),
-    DatatypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto PROPERTY_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
     ColumnTableColumn.FIELD_TYPE.getName(),
-    DatatypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto DATA_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
     ColumnTableColumn.DATA_TYPE.getName(),
-    DatatypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto REFERENCED_TABLE_SQL_DTO = ColumnDto.withNameAndDataType(
-    ColumnTableColumn.REFERENCED_TABLE_ID.getName(), DatatypeTypeCatalog.TEXT);
+    ColumnTableColumn.REFERENCED_TABLE_ID.getName(), DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto BACK_REFERENCED_COLUMN_ID_SQL_DTO = ColumnDto.withNameAndDataType(
-    ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DatatypeTypeCatalog.TEXT);
+    ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DataTypeTypeCatalog.TEXT);
 
   public static final TableDto COLUMN_TABLE_SQL_DTO = TableDto.withNameAndColumn(
     SchemaTableType.COLUMN.getQualifiedName(),
