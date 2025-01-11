@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawdata.tabledefinition;
+package ch.nolix.systemapi.noderawschemaapi.databasestructureapi;
 
 public final class FieldIndexCatalog {
 
