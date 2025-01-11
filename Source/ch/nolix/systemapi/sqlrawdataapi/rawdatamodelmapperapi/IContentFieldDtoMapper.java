@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi;
+package ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi;
 
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;

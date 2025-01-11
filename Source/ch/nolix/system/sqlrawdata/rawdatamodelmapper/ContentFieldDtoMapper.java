@@ -1,10 +1,10 @@
-package ch.nolix.system.sqlrawdata.rawdatadtomapper;
+package ch.nolix.system.sqlrawdata.rawdatamodelmapper;
 
 import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
-import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.IContentFieldDtoMapper;
+import ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi.IContentFieldDtoMapper;
 
 /**
  * @author Silvan Wyss

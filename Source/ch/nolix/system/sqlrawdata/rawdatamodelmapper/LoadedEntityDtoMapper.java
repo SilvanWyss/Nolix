@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawdata.rawdatadtomapper;
+package ch.nolix.system.sqlrawdata.rawdatamodelmapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -8,8 +8,8 @@ import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
-import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.IContentFieldDtoMapper;
-import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.ILoadedEntityDtoMapper;
+import ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi.IContentFieldDtoMapper;
+import ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi.ILoadedEntityDtoMapper;
 
 /**
  * @author Silvan Wyss
