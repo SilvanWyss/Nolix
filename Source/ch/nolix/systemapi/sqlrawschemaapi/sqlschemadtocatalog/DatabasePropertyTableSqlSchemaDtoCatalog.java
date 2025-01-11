@@ -1,11 +1,12 @@
-package ch.nolix.system.sqlrawschema.databasepropertytable;
+package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 
-public final class DatabasePropertyTableSqlDtoCatalog {
+public final class DatabasePropertyTableSqlSchemaDtoCatalog {
 
   private static final ColumnDto KEY_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     DatabasePropertyTableColumn.KEY.getLabel(),
@@ -19,6 +20,6 @@ public final class DatabasePropertyTableSqlDtoCatalog {
     KEY_COLUMN_SQL_DTO,
     VALUE_COLUMN_SQL_DTO);
 
-  private DatabasePropertyTableSqlDtoCatalog() {
+  private DatabasePropertyTableSqlSchemaDtoCatalog() {
   }
 }

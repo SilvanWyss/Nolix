@@ -2,8 +2,8 @@ package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalog;
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalog;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.EntityHeadTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiBackReferenceEntryTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiReferenceEntryTableSqlSchemaDtoCatalog;
@@ -29,7 +29,7 @@ final class InternalDatabaseInitializer {
   private void createFixTables(final ISchemaAdapter schemaAdapter) {
 
     //Adds metadata tables.
-    schemaAdapter.addTable(DatabasePropertyTableSqlDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
+    schemaAdapter.addTable(DatabasePropertyTableSqlSchemaDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
 
     //Adds schema tables.
     schemaAdapter.addTable(TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO);
