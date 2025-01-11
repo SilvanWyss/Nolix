@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.multivalueentrytable;
+package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
@@ -7,7 +7,7 @@ import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiValueEntryTable
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 
-public final class MultiValueEntryTableSqlDtoCatalog {
+public final class MultiValueEntryTableSqlSchemaDtoCatalog {
 
   private static final ColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
     MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName(),
@@ -26,6 +26,6 @@ public final class MultiValueEntryTableSqlDtoCatalog {
     ENTITY_COLUMN_SQL_DTO,
     VALUE_COLUMN_SQL_DTO);
 
-  private MultiValueEntryTableSqlDtoCatalog() {
+  private MultiValueEntryTableSqlSchemaDtoCatalog() {
   }
 }
