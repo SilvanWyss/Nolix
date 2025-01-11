@@ -5,7 +5,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
 
 /**
  * An as long as mediator is not mutable.
@@ -56,7 +56,7 @@ public final class AsLongAsMediator {
    * @return a new {@link AfterEveryMediator} with a time interval of 1 second.
    */
   public AfterEveryMediator afterEverySecond() {
-    return afterEveryMilliseconds(TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND);
+    return afterEveryMilliseconds(TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND);
   }
 
   /**

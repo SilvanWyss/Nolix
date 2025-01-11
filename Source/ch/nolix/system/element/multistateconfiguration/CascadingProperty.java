@@ -6,7 +6,7 @@ import java.util.function.Function;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 
@@ -23,7 +23,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 
     super(name, stateClass, valueCreator, specificationCreator);
 
-    GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalogue.DEFAULT_VALUE).isNotNull();
+    GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
   }
@@ -38,7 +38,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
-    GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalogue.DEFAULT_VALUE).isNotNull();
+    GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
   }

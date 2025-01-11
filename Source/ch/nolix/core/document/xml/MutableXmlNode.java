@@ -10,8 +10,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class MutableXmlNode implements IMutableXmlNode {
 
@@ -68,10 +68,10 @@ public final class MutableXmlNode implements IMutableXmlNode {
         stringBuilder.append(mutableXmlNode.getValue());
       } else {
         stringBuilder
-          .append(CharacterCatalogue.NEW_LINE)
+          .append(CharacterCatalog.NEW_LINE)
           .append(STRING_TOOL.createTabs(leadingTabulatorCount + 1))
           .append(mutableXmlNode.getValue())
-          .append(CharacterCatalogue.NEW_LINE);
+          .append(CharacterCatalog.NEW_LINE);
 
       }
     }
@@ -80,11 +80,11 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
       for (final var cn : mutableXmlNode.getStoredChildNodes()) {
         stringBuilder
-          .append(CharacterCatalogue.NEW_LINE)
+          .append(CharacterCatalog.NEW_LINE)
           .append(toFormatedString(cn, leadingTabulatorCount + 1));
       }
 
-      stringBuilder.append(CharacterCatalogue.NEW_LINE);
+      stringBuilder.append(CharacterCatalog.NEW_LINE);
     }
 
     if (mutableXmlNode.containsChildNodes()) {
@@ -179,7 +179,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   public String getName() {
 
     if (name == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NAME);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NAME);
     }
 
     return name;
@@ -246,7 +246,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   @Override
   public IMutableXmlNode setName(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
 
@@ -306,7 +306,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   private void supposeHasValue() {
     if (!hasValue()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.VALUE);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.VALUE);
     }
   }
 }

@@ -2,7 +2,7 @@ package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public enum IndexTableType implements IQualifiedNameHolder {
   ENTITY_HEAD("EntityHead");
@@ -13,7 +13,7 @@ public enum IndexTableType implements IQualifiedNameHolder {
 
   IndexTableType(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
   }

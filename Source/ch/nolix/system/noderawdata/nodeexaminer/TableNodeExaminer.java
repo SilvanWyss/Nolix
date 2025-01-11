@@ -2,9 +2,9 @@ package ch.nolix.system.noderawdata.nodeexaminer;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
+import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalog;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 
 public final class TableNodeExaminer implements ITableNodeExaminer {
 
@@ -16,15 +16,15 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     tableNode.containsChildNodeThat(
-      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
+      a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(param1BasedIndex).hasHeader(value)
       && !entitiesToIgnoreIds
-        .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).getHeader()));
+        .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
   }
 
   @Override
   public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
-    return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
+    return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalog.ID_INDEX, id);
   }
 
   @Override
@@ -35,7 +35,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     return tableNode.containsChildNodeThat(
       (final var a) -> {
 
-        if (!a.hasHeader(NodeHeaderCatalogue.ENTITY)) {
+        if (!a.hasHeader(NodeHeaderCatalog.ENTITY)) {
           return false;
         }
 
@@ -51,7 +51,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final String header) {
     return //
     tableNode.containsChildNodeThat(
-      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
+      a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
   }
 }

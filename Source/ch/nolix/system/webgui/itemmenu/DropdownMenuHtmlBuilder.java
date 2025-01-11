@@ -5,7 +5,7 @@ import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
@@ -17,7 +17,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
     return HtmlElement.withTypeAndChildElements(
-      HtmlElementTypeCatalogue.SELECT,
+      HtmlElementTypeCatalog.SELECT,
       createHtmlChildElementsForDropdownMenu(dropdownMenu));
   }
 
@@ -33,7 +33,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
 
   private IHtmlElement createHtmlElementForItem(final IItemMenuItem<?> item) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
-      HtmlElementTypeCatalogue.OPTION,
+      HtmlElementTypeCatalog.OPTION,
       createHtmlAttributesForItem(item),
       item.getText());
   }

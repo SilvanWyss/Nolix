@@ -2,8 +2,8 @@ package ch.nolix.core.language;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.wordapi.EnglishArticleCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.wordapi.EnglishArticleCatalog;
 
 public final class EnglishNounTool {
 
@@ -18,7 +18,7 @@ public final class EnglishNounTool {
 
   public String getPluralOfNoun(final String noun) {
 
-    GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalogue.NOUN).isNotBlank();
+    GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalog.NOUN).isNotBlank();
 
     return switch (noun) {
       case "child" ->
@@ -42,7 +42,7 @@ public final class EnglishNounTool {
     if (firstLetter < 65
     || (firstLetter > 90 && firstLetter < 97)
     || firstLetter > 122) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.LETTER, firstLetter);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.LETTER, firstLetter);
     }
 
     //Enumerates the given letter.
@@ -58,9 +58,9 @@ public final class EnglishNounTool {
       'o',
       'U',
       'u' ->
-        EnglishArticleCatalogue.AN;
+        EnglishArticleCatalog.AN;
       default ->
-        EnglishArticleCatalogue.A;
+        EnglishArticleCatalog.A;
     };
   }
 

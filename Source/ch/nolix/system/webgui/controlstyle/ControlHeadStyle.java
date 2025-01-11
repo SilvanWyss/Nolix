@@ -2,12 +2,12 @@ package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
@@ -28,11 +28,11 @@ implements IControlHeadStyle<C> {
 
   public static final LineDecoration DEFAULT_TEXT_LINE_DECORATION = LineDecoration.UNDERLINE;
 
-  public static final Color DEFAULT_TEXT_COLOR = X11ColorCatalogue.BLACK;
+  public static final Color DEFAULT_TEXT_COLOR = X11ColorCatalog.BLACK;
 
   private final NonCascadingProperty<ControlState, Double> opacity = //
   new NonCascadingProperty<>(
-    ControlHeadStyleAttributeHeaderCatalogue.OPACITY_HEADER,
+    ControlHeadStyleAttributeHeaderCatalog.OPACITY_HEADER,
     ControlState.class,
     s -> getOpacityFromString(s.getSingleChildNodeHeader()),
     Node::withChildNode,
@@ -41,7 +41,7 @@ implements IControlHeadStyle<C> {
 
   private final CascadingProperty<ControlState, Font> font = //
   new CascadingProperty<>(
-    ControlHeadStyleAttributeHeaderCatalogue.FONT_HEADER,
+    ControlHeadStyleAttributeHeaderCatalog.FONT_HEADER,
     ControlState.class,
     Font::fromSpecification,
     Node::fromEnum,
@@ -50,21 +50,21 @@ implements IControlHeadStyle<C> {
   private final CascadingProperty<ControlState, Boolean> boldTextFlag = //
   CascadingProperty
     .forBooleanWithNameAndStateClassAndDefaultValue(
-      ControlHeadStyleAttributeHeaderCatalogue.BOLD_TEXT_FLAG_HEADER,
+      ControlHeadStyleAttributeHeaderCatalog.BOLD_TEXT_FLAG_HEADER,
       ControlState.class,
       DEFAULT_BOLD_TEXT_FLAG);
 
   private final CascadingProperty<ControlState, Integer> textSize = //
   CascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-      ControlHeadStyleAttributeHeaderCatalogue.TEXT_SIZE_HEADER,
+      ControlHeadStyleAttributeHeaderCatalog.TEXT_SIZE_HEADER,
       ControlState.class,
       this::setTextSizeForState,
       DEAULT_TEXT_SIZE);
 
   private final CascadingProperty<ControlState, LineDecoration> textLineDecoration = //
   new CascadingProperty<>(
-    ControlHeadStyleAttributeHeaderCatalogue.TEXT_LINE_DECORATION_HEADER,
+    ControlHeadStyleAttributeHeaderCatalog.TEXT_LINE_DECORATION_HEADER,
     ControlState.class,
     LineDecoration::fromSpecification,
     Node::fromEnum,
@@ -72,7 +72,7 @@ implements IControlHeadStyle<C> {
 
   private final CascadingProperty<ControlState, IColor> textColor = //
   new CascadingProperty<>(
-    ControlHeadStyleAttributeHeaderCatalogue.TEXT_COLOR_HEADER,
+    ControlHeadStyleAttributeHeaderCatalog.TEXT_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
@@ -175,7 +175,7 @@ implements IControlHeadStyle<C> {
   @Override
   public final C setOpacityForState(final ControlState state, final double opacity) {
 
-    GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalogue.OPACITY).isBetween(0.0, 1.0);
+    GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
 
     this.opacity.setValueForState(state, opacity);
 
@@ -201,7 +201,7 @@ implements IControlHeadStyle<C> {
   @Override
   public final C setTextSizeForState(final ControlState state, final int textSize) {
 
-    GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalogue.TEXT_SIZE).isPositive();
+    GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();
 
     this.textSize.setValueForState(state, textSize);
 

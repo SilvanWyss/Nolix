@@ -3,12 +3,12 @@ package ch.nolix.core.errorcontrol.validator;
 import java.lang.reflect.Modifier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 
   protected TypeMediator(final Class<T> argument) {
-    super(LowerCaseVariableCatalogue.TYPE, argument);
+    super(LowerCaseVariableCatalog.TYPE, argument);
   }
 
   protected TypeMediator(final String argumentName, final Class<T> argument) {

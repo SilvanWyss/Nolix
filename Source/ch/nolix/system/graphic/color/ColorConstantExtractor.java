@@ -22,7 +22,7 @@ final class ColorConstantExtractor {
 
     final LinkedList<Color> lColors = LinkedList.createEmpty();
 
-    for (final var f : X11ColorCatalogue.class.getDeclaredFields()) {
+    for (final var f : X11ColorCatalog.class.getDeclaredFields()) {
       if (declaresColor(f)) {
         final Color color = GlobalReflectionTool.getValueFromStaticField(f);
         lColors.addAtEnd(color);

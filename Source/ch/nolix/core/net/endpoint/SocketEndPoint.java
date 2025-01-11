@@ -12,12 +12,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalogue;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalog;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 /**
@@ -42,7 +42,7 @@ public final class SocketEndPoint extends NetEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public SocketEndPoint(final int port) {
-    this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
+    this(IPv6Catalog.LOOP_BACK_ADDRESS, port);
   }
 
   /**
@@ -56,7 +56,7 @@ public final class SocketEndPoint extends NetEndPoint {
    * @throws InvalidArgumentException      if the given target is blank.
    */
   public SocketEndPoint(final int port, final String target) {
-    this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
+    this(IPv6Catalog.LOOP_BACK_ADDRESS, port, target);
   }
 
   /**
@@ -66,7 +66,7 @@ public final class SocketEndPoint extends NetEndPoint {
    * @param ip
    */
   public SocketEndPoint(final String ip) {
-    this(ip, PortCatalogue.HTTP);
+    this(ip, PortCatalog.HTTP);
   }
 
   /**
@@ -83,8 +83,8 @@ public final class SocketEndPoint extends NetEndPoint {
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
-      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .thatIsNamed(LowerCaseVariableCatalog.PORT)
+      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     peerType = PeerType.FRONTEND;
 
@@ -117,8 +117,8 @@ public final class SocketEndPoint extends NetEndPoint {
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
-      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .thatIsNamed(LowerCaseVariableCatalog.PORT)
+      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     peerType = PeerType.FRONTEND;
 

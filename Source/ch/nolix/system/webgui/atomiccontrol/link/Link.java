@@ -9,14 +9,14 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.web.url.UrlTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.urlapi.IUrlTool;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -30,15 +30,15 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
-  public static final String DEFAULT_DISPLAY_TEXT = StringCatalogue.QUESTION_MARK;
+  public static final String DEFAULT_DISPLAY_TEXT = StringCatalog.QUESTION_MARK;
 
   private static final LinkTarget DEFAULT_TARGET = LinkTarget.NEW_TAB;
 
   private static final String DISPLAY_TEXT_HEADER = "DisplayText";
 
-  private static final String TARGET_HEADER = PascalCaseVariableCatalogue.TARGET;
+  private static final String TARGET_HEADER = PascalCaseVariableCatalog.TARGET;
 
-  private static final String URL_HEADER = PascalCaseVariableCatalogue.URL;
+  private static final String URL_HEADER = PascalCaseVariableCatalog.URL;
 
   private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
 
@@ -65,7 +65,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
     getStoredStyle()
       .setTextLineDecorationForState(ControlState.HOVER, LineDecoration.UNDERLINE)
-      .setTextColorForState(ControlState.BASE, X11ColorCatalogue.BLUE);
+      .setTextColorForState(ControlState.BASE, X11ColorCatalog.BLUE);
   }
 
   @Override
@@ -95,7 +95,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   @Override
   public String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override
@@ -144,7 +144,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   @Override
   public ILink setUrl(final String url) {
 
-    GlobalValidator.assertThat(url).thatIsNamed(LowerCaseVariableCatalogue.URL).isNotBlank();
+    GlobalValidator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotBlank();
 
     this.url.setValue(url);
 
@@ -189,6 +189,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     removeUrl();
 
     setCursorIcon(CursorIcon.HAND);
-    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalogue.BLUE);
+    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalog.BLUE);
   }
 }

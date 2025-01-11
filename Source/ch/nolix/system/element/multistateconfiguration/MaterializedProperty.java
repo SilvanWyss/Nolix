@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
 public abstract class MaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
@@ -177,7 +177,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
       }
     }
 
-    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
+    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.SPECIFICATION, specification);
   }
 
   private void extractStateProperties() {

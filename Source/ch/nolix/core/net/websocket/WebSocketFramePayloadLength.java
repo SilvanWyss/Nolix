@@ -5,13 +5,13 @@ import java.math.BigInteger;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public record WebSocketFramePayloadLength(long value) {
 
   public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNegative();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNegative();
 
     this.value = value;
   }

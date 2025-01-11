@@ -11,8 +11,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.ExtensionElement;
@@ -52,7 +52,7 @@ implements IControl<C, S> {
 
   private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 
-  private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalogue.CURSOR_ICON;
+  private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalog.CURSOR_ICON;
 
   private static final ControlTool CONTROL_TOOL = new ControlTool();
 
@@ -493,7 +493,7 @@ implements IControl<C, S> {
 
   private void setParent(final ControlParent parent) {
 
-    GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalogue.PARENT).isNotNull();
+    GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
     assertDoesNotBelongToParent();
 
     this.parent = parent;

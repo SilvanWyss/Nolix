@@ -4,10 +4,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -21,10 +21,10 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> "
-        + HtmlElementTypeCatalogue.DIV,
+        + HtmlElementTypeCatalog.DIV,
         LinkedList.withElement(
           CssProperty.withNameAndValue(
-            CssPropertyNameCatalogue.FLOAT,
+            CssPropertyNameCatalog.FLOAT,
             "left"))));
   }
 
@@ -36,10 +36,10 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "> "
-        + HtmlElementTypeCatalogue.DIV,
+        + HtmlElementTypeCatalog.DIV,
         LinkedList.withElement(
           CssProperty.withNameAndValue(
-            CssPropertyNameCatalogue.MARGIN,
+            CssPropertyNameCatalog.MARGIN,
             floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 

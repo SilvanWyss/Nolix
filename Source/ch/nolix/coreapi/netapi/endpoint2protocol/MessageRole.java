@@ -1,17 +1,17 @@
 package ch.nolix.coreapi.netapi.endpoint2protocol;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  * @version 2016-10-01
  */
 public enum MessageRole {
-  TARGET_APPLICATION_MESSAGE(MessageRolePrefixCatalogue.TARGET_APPLICATION_PREFIX),
-  RESPONSE_EXPECTING_MESSAGE(MessageRolePrefixCatalogue.RESPONSE_EXPECTING_MESSAGE_PREFIX),
-  SUCCESS_RESPONSE(MessageRolePrefixCatalogue.SUCCESS_RESPONSE_PREFIX),
-  ERROR_RESPONSE(MessageRolePrefixCatalogue.ERROR_RESPONSE_PREFIX);
+  TARGET_APPLICATION_MESSAGE(MessageRolePrefixCatalog.TARGET_APPLICATION_PREFIX),
+  RESPONSE_EXPECTING_MESSAGE(MessageRolePrefixCatalog.RESPONSE_EXPECTING_MESSAGE_PREFIX),
+  SUCCESS_RESPONSE(MessageRolePrefixCatalog.SUCCESS_RESPONSE_PREFIX),
+  ERROR_RESPONSE(MessageRolePrefixCatalog.ERROR_RESPONSE_PREFIX);
 
   private final char prefix;
 
@@ -34,13 +34,13 @@ public enum MessageRole {
 
     //Enumerates the given prefix.
     return switch (prefix) {
-      case MessageRolePrefixCatalogue.TARGET_APPLICATION_PREFIX ->
+      case MessageRolePrefixCatalog.TARGET_APPLICATION_PREFIX ->
         TARGET_APPLICATION_MESSAGE;
-      case MessageRolePrefixCatalogue.RESPONSE_EXPECTING_MESSAGE_PREFIX ->
+      case MessageRolePrefixCatalog.RESPONSE_EXPECTING_MESSAGE_PREFIX ->
         RESPONSE_EXPECTING_MESSAGE;
-      case MessageRolePrefixCatalogue.SUCCESS_RESPONSE_PREFIX ->
+      case MessageRolePrefixCatalog.SUCCESS_RESPONSE_PREFIX ->
         SUCCESS_RESPONSE;
-      case MessageRolePrefixCatalogue.ERROR_RESPONSE_PREFIX ->
+      case MessageRolePrefixCatalog.ERROR_RESPONSE_PREFIX ->
         ERROR_RESPONSE;
       default ->
         throw createUnrepresentingArgumentExceptionForPrefix(prefix);
@@ -54,7 +54,7 @@ public enum MessageRole {
    */
   private static UnrepresentingArgumentException createUnrepresentingArgumentExceptionForPrefix(final char prefix) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-      LowerCaseVariableCatalogue.PREFIX,
+      LowerCaseVariableCatalog.PREFIX,
       prefix,
       MessageRole.class);
   }

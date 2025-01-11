@@ -1,15 +1,15 @@
 package ch.nolix.core.commontypetool.stringtool;
 
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 public final class PascalCaseTransformer {
 
   public String toPascalCase(final String string) {
 
     if (string.isEmpty()) {
-      return StringCatalogue.EMPTY_STRING;
+      return StringCatalog.EMPTY_STRING;
     }
 
     return toPascalCaseWhenStringIsNotEmpty(string);
@@ -51,7 +51,7 @@ public final class PascalCaseTransformer {
           stringBuilder.append(character);
           break;
         case OTHER:
-          if (character != CharacterCatalogue.UNDERSCORE) {
+          if (character != CharacterCatalog.UNDERSCORE) {
             stringBuilder.append(character);
           }
           break;
@@ -70,7 +70,7 @@ public final class PascalCaseTransformer {
     final CharacterType previousCharacterType) {
 
     if (previousCharacterType == CharacterType.NUMBER
-    || previousCharacter == CharacterCatalogue.UNDERSCORE
+    || previousCharacter == CharacterCatalog.UNDERSCORE
     || previousCharacterType == CharacterType.OTHER) {
       return Character.toUpperCase(sourceCharacter);
     }
@@ -85,7 +85,7 @@ public final class PascalCaseTransformer {
 
     if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
     || previousCharacterType == CharacterType.NUMBER
-    || previousCharacter == CharacterCatalogue.UNDERSCORE
+    || previousCharacter == CharacterCatalog.UNDERSCORE
     || previousCharacterType == CharacterType.OTHER) {
       return sourceCharacter;
     }

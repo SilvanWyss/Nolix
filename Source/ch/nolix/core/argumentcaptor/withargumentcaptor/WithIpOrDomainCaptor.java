@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.withargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalog;
 
 public class WithIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
 
@@ -25,6 +25,6 @@ public class WithIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N withLocalAddress() {
-    return withIpOrDomain(IPv4Catalogue.LOOP_BACK_ADDRESS);
+    return withIpOrDomain(IPv4Catalog.LOOP_BACK_ADDRESS);
   }
 }

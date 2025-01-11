@@ -1,15 +1,15 @@
 package ch.nolix.core.commontypetool.stringtool;
 
 import ch.nolix.coreapi.programatomapi.characterproperty.CharacterType;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 public final class CapitalSnakeCaseTransformer {
 
   public String toCapitalSnakeCase(final String string) {
 
     if (string.isEmpty()) {
-      return StringCatalogue.EMPTY_STRING;
+      return StringCatalog.EMPTY_STRING;
     }
 
     return toCapitalSnakeCaseWhenStringNotEmpty(string);
@@ -37,7 +37,7 @@ public final class CapitalSnakeCaseTransformer {
         case UPPER_CASE_LETTER:
 
           if (previousCharacterType == CharacterType.LOWER_CASE_LETTER) {
-            stringBuilder.append(CharacterCatalogue.UNDERSCORE);
+            stringBuilder.append(CharacterCatalog.UNDERSCORE);
           }
 
           stringBuilder.append(character);
@@ -74,7 +74,7 @@ public final class CapitalSnakeCaseTransformer {
         stringBuilder.append(firstCharacter);
         break;
       case OTHER:
-        if (firstCharacter != CharacterCatalogue.UNDERSCORE) {
+        if (firstCharacter != CharacterCatalog.UNDERSCORE) {
           stringBuilder.append(firstCharacter);
         }
         break;

@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link ArgumentMediator} is not mutable.
@@ -70,7 +70,7 @@ public class ArgumentMediator<A> extends Mediator {
 
     //Asserts that the given condition is not null.
     if (condition == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.CONDITION);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.CONDITION);
     }
 
     //Asserts that the argument of the current ArgumentMediator fulfills the given

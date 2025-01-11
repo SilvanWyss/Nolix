@@ -8,9 +8,9 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.IPerformanceAnalyzer;
-import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.TimeComplexityFunctionCatalogue;
+import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.TimeComplexityFunctionCatalog;
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IActionMediator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class ActionMediator<O> implements IActionMediator {
 
@@ -23,7 +23,7 @@ public final class ActionMediator<O> implements IActionMediator {
   private ActionMediator(final IntFunction<O> objectSupplier, final Consumer<O> action) {
 
     GlobalValidator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
-    GlobalValidator.assertThat(action).thatIsNamed(LowerCaseVariableCatalogue.ACTION).isNotNull();
+    GlobalValidator.assertThat(action).thatIsNamed(LowerCaseVariableCatalog.ACTION).isNotNull();
 
     this.objectSupplier = objectSupplier;
     this.action = action;
@@ -37,7 +37,7 @@ public final class ActionMediator<O> implements IActionMediator {
 
   @Override
   public void hasConstantOrLowerTimeComplexity() {
-    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalogue.CONSTANT);
+    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalog.CONSTANT);
   }
 
   @Override
@@ -58,11 +58,11 @@ public final class ActionMediator<O> implements IActionMediator {
 
   @Override
   public void hasLinearOrLowerTimeComplexity() {
-    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalogue.LINEAR);
+    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalog.LINEAR);
   }
 
   @Override
   public void hasQuadraticOrLowerTimeComplexity() {
-    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalogue.QUADRATIC);
+    hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalog.QUADRATIC);
   }
 }

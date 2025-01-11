@@ -3,7 +3,7 @@ package ch.nolix.template.webgui.dialog;
 import java.util.function.Consumer;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
@@ -23,11 +23,11 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
 
   private static final String DEFAULT_INFO_TEXT = "Enter value";
 
-  private static final String DEFAULT_ORIGINAL_VALUE = StringCatalogue.EMPTY_STRING;
+  private static final String DEFAULT_ORIGINAL_VALUE = StringCatalog.EMPTY_STRING;
 
-  private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.FAT_CHECK_MARK;
+  private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalog.FAT_CHECK_MARK;
 
-  private static final String DEFAULT_CANCEL_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;
+  private static final String DEFAULT_CANCEL_BUTTON_TEXT = StringCatalog.LONG_LEFT_ARROW;
 
   private static final Consumer<String> DEFAULT_VALUE_TAKER = (String value) -> {
   };

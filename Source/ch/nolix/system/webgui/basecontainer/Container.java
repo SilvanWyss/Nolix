@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 public abstract class Container<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends Control<C, S> implements IContainer<C, S> {
 
-  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
   private final MutableOptionalValue<ContainerRole> role = new MutableOptionalValue<>(
     ROLE_HEADER,
@@ -35,7 +35,7 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override

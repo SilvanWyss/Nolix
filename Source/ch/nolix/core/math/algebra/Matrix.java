@@ -16,7 +16,7 @@ import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link Matrix} represents a mathematical matrix of doubles. A
@@ -49,7 +49,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   private Matrix(final int size) {
 
     //Asserts that the given size is positive.
-    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalogue.SIZE).isPositive();
+    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
 
     values = new double[size][size];
   }
@@ -67,10 +67,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   private Matrix(final int rowCount, final int columnCount) {
 
     //Asserts that the given rowCount is positive.
-    GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalogue.ROW_COUNT).isPositive();
+    GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalog.ROW_COUNT).isPositive();
 
     //Asserts that the given columnCount is positive.
-    GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseVariableCatalogue.COLUMN_COUNT).isPositive();
+    GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT).isPositive();
 
     values = new double[rowCount][columnCount];
   }
@@ -139,7 +139,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public static Matrix createRandomMatrix(final int size) {
 
     //Asserts that the given size is positive.
-    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalogue.SIZE).isPositive();
+    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
 
     return createRandomMatrix(size, size);
   }
@@ -364,7 +364,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     //Asserts that the given column count is valid.
     GlobalValidator
       .assertThat(columnCount)
-      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_COUNT)
+      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT)
       .isBetween(1, getColumnCount());
 
     final var matrix = new Matrix(getRowCount(), columnCount);
@@ -386,7 +386,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     //Asserts that the given column count is valid.
     GlobalValidator
       .assertThat(columnCount)
-      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_COUNT)
+      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT)
       .isBetween(1, getColumnCount());
 
     final var matrix = new Matrix(getRowCount(), columnCount);
@@ -608,14 +608,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     //Asserts that the current Matrix contains a row with the given row index.
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isBetween(1, getRowCount());
 
     //Asserts that the current Matrix contains a column with the given column
     //index.
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isBetween(1, getColumnCount());
 
     return values[rowIndex - 1][columnIndex - 1];
@@ -701,7 +701,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix multiplyRow(final int rowIndex, final double factor) {
 
     //Asserts that the current Matrix contains a row with the given row index.
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     //Iterates the cells of the row with the given row index.
     for (var i = 0; i < getColumnCount(); i++) {
@@ -780,14 +780,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     //Asserts that the current Matrix contains a row with the given row index.
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isBetween(1, getRowCount());
 
     //Asserts that the current Matrix contains a column with the given column
     //index.
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isBetween(1, getColumnCount());
 
     values[rowIndex - 1][columnIndex - 1] = value;
@@ -887,10 +887,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix swapRows(int row1Index, int row2Index) {
 
     //Asserts that the current Matrix has a row with the given row 1 index.
-    GlobalValidator.assertThat(row1Index).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+    GlobalValidator.assertThat(row1Index).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     //Asserts that the current Matrix has a row with the given row 2 index.
-    GlobalValidator.assertThat(row2Index).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+    GlobalValidator.assertThat(row2Index).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     final double[] temp = values[row1Index - 1];
     values[row1Index - 1] = values[row2Index - 1];

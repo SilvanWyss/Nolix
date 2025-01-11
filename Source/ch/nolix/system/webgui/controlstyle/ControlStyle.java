@@ -1,13 +1,13 @@
 package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
@@ -26,15 +26,15 @@ implements IControlStyle<S> {
 
   public static final int DEFAULT_BORDER_THICKNESS = 0;
 
-  public static final IColor DEFAULT_BORDER_COLOR = X11ColorCatalogue.BLACK;
+  public static final IColor DEFAULT_BORDER_COLOR = X11ColorCatalog.BLACK;
 
   public static final IBackground DEFAULT_BACKGROUND = Background.TRANSPARENT_BACKGROUND;
 
   public static final int DEFAULT_PADDING = 0;
 
-  private static final String WIDTH_HEADER = PascalCaseVariableCatalogue.WIDTH;
+  private static final String WIDTH_HEADER = PascalCaseVariableCatalog.WIDTH;
 
-  private static final String HEIGHT_HEADER = PascalCaseVariableCatalogue.HEIGHT;
+  private static final String HEIGHT_HEADER = PascalCaseVariableCatalog.HEIGHT;
 
   private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
 

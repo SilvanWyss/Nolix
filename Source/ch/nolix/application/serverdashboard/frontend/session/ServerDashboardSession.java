@@ -1,6 +1,6 @@
 package ch.nolix.application.serverdashboard.frontend.session;
 
-import ch.nolix.application.serverdashboard.frontend.style.StyleCatalogue;
+import ch.nolix.application.serverdashboard.frontend.style.StyleCatalog;
 import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationComponent;
 import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.WebApplicationController;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
@@ -29,7 +29,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
             new FloatContainer()
               .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
               .addControls(createApplicationComponents())))
-      .setStyle(StyleCatalogue.SERVER_DASHBOARD_STYLE);
+      .setStyle(StyleCatalog.SERVER_DASHBOARD_STYLE);
   }
 
   private IContainer<IComponent> createApplicationComponents() {

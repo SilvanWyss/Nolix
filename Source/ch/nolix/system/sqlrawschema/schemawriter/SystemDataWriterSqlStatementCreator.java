@@ -2,7 +2,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
@@ -60,7 +60,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + contentModelRecord.backReferencedColumnId()
     + " FROM "
     + SchemaTableType.TABLE.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME.getQualifiedName()
     + " = '"
     + parentTableName
@@ -86,7 +86,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return //
     "DELETE FROM "
     + SchemaTableType.COLUMN.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = "
     + tableName
@@ -102,7 +102,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return //
     "DELETE FROM "
     + SchemaTableType.TABLE.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME
     + " = '"
     + tableName
@@ -115,7 +115,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return //
     "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.SET
+    + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.NAME
     + " = '"
     + newColumnName
@@ -141,7 +141,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return //
     "UPDATE "
     + SchemaTableType.COLUMN.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.SET
+    + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
     + contentModelRecord.dataType()
@@ -165,7 +165,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return //
     "UPDATE "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.SET
+    + SpaceEnclosedSqlKeywordCatalog.SET
     + DatabasePropertyTableColumn.VALUE.getLabel()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
@@ -180,7 +180,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     return //
     "UPDATE "
     + SchemaTableType.TABLE.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.SET
+    + SpaceEnclosedSqlKeywordCatalog.SET
     + TableTableColumn.NAME.getName()
     + " = '"
     + newTableName

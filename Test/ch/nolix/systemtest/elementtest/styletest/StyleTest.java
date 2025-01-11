@@ -9,7 +9,7 @@ import ch.nolix.system.element.style.AttachingAttribute;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.SelectingStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.WebGui;
 
 final class StyleTest extends StandardTest {
@@ -71,7 +71,7 @@ final class StyleTest extends StandardTest {
 
     //verification
     expect(webGui.getTitle()).isEqualTo("my_title");
-    expect(webGui.getBackgroundColor()).isEqualTo(X11ColorCatalogue.BLUE);
+    expect(webGui.getBackgroundColor()).isEqualTo(X11ColorCatalog.BLUE);
   }
 
   @Test

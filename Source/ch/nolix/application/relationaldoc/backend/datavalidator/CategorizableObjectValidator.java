@@ -5,7 +5,7 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datavalidatorapi.ICategorizableObjectValidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class CategorizableObjectValidator implements ICategorizableObjectValidator {
 
@@ -17,7 +17,7 @@ public final class CategorizableObjectValidator implements ICategorizableObjectV
     final ICategorizableObject baseType) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canAddBaseType(categorizableObject, baseType)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.BASE_TYPE,
+        LowerCaseVariableCatalog.BASE_TYPE,
         baseType,
         "cannot be added to the CategorizableObject");
     }
@@ -29,7 +29,7 @@ public final class CategorizableObjectValidator implements ICategorizableObjectV
     final ICategorizableField categorizableField) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canAddField(categorizableObject, categorizableField)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.FIELD,
+        LowerCaseVariableCatalog.FIELD,
         categorizableField,
         "cannot be added to the CategorizableObject");
     }
@@ -45,7 +45,7 @@ public final class CategorizableObjectValidator implements ICategorizableObjectV
   @Override
   public void assertCanSetName(final ICategorizableObject categorizableObject, final String name) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canSetName(categorizableObject, name)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.NAME, name);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.NAME, name);
     }
   }
 }

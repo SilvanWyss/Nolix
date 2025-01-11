@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -11,7 +11,7 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
   @Override
   public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {
     return HtmlElement.withTypeAndChildElements(
-      HtmlElementTypeCatalogue.DIV,
+      HtmlElementTypeCatalog.DIV,
       createHtmlElementsForChildControlsOfFloatContainer(floatContainer));
   }
 
@@ -22,7 +22,7 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 
   private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
     return HtmlElement.withTypeAndChildElement(
-      HtmlElementTypeCatalogue.DIV,
+      HtmlElementTypeCatalog.DIV,
       childControl.getHtml());
   }
 }

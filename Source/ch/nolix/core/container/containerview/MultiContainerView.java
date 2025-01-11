@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 public final class MultiContainerView<E> extends Container<E> {
 
@@ -108,7 +108,7 @@ public final class MultiContainerView<E> extends Container<E> {
 
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return toStringWithSeparator(CharacterCatalog.COMMA);
   }
 
   @Override

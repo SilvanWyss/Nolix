@@ -5,7 +5,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
 
 /**
  * A {@link ForMaxMillisecondsMediator} is not mutable.
@@ -60,7 +60,7 @@ public final class ForMaxMillisecondsMediator {
     GlobalValidator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 
     //Creates and returns a new ForMaxMillisecondsMediator.
-    return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND);
+    return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND);
   }
 
   /**

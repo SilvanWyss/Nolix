@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.stateapi.staterequestapi.MutabilityRequestable;
 import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
 
@@ -41,7 +41,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
     GlobalValidator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
 

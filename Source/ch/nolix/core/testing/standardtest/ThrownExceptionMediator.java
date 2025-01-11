@@ -3,7 +3,7 @@ package ch.nolix.core.testing.standardtest;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link ThrownExceptionMediator} is not mutable.
@@ -74,7 +74,7 @@ public class ThrownExceptionMediator {
 
     //Asserts that the given message is not null.
     if (message == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MESSAGE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MESSAGE);
     }
 
     //Handles the case that the current ThrownExceptionMediator has an exception.
@@ -166,7 +166,7 @@ public class ThrownExceptionMediator {
     //Asserts that the current ThrownExceptionMediator has an exception.
     if (exception == null) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.EXCEPTION);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.EXCEPTION);
     }
 
     return exception;

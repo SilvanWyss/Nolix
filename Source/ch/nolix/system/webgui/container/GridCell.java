@@ -2,8 +2,8 @@ package ch.nolix.system.webgui.container;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
@@ -13,9 +13,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public final class GridCell extends MutableElement implements Clearable {
 
-  private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalogue.ROW_INDEX;
+  private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalog.ROW_INDEX;
 
-  private static final String COLUMN_INDEX_HEADER = PascalCaseVariableCatalogue.COLUMN_INDEX;
+  private static final String COLUMN_INDEX_HEADER = PascalCaseVariableCatalog.COLUMN_INDEX;
 
   private static final String CONTROL_HEADER = "Control";
 
@@ -82,14 +82,14 @@ public final class GridCell extends MutableElement implements Clearable {
 
   private void setColumnIndex(final int columnIndex) {
 
-    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX).isPositive();
+    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     this.columnIndex.setValue(columnIndex);
   }
 
   private void setRowIndex(final int rowIndex) {
 
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isPositive();
+    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     this.rowIndex.setValue(rowIndex);
   }

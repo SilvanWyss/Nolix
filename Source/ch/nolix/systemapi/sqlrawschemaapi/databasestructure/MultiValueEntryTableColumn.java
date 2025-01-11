@@ -2,23 +2,23 @@ package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
 public enum MultiValueEntryTableColumn implements INameHolder {
   ENTITY_ID("EntityId"),
   MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
-  VALUE(PascalCaseVariableCatalogue.VALUE);
+  VALUE(PascalCaseVariableCatalog.VALUE);
 
   private static final String NAME_PREFIX = MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
-  + StringCatalogue.DOT;
+  + StringCatalog.DOT;
 
   private final String name;
 
   MultiValueEntryTableColumn(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
   }

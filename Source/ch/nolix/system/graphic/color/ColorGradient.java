@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
@@ -22,9 +22,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
 
   public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
 
-  public static final Color DEFAULT_COLOR1 = X11ColorCatalogue.BLACK;
+  public static final Color DEFAULT_COLOR1 = X11ColorCatalog.BLACK;
 
-  public static final Color DEFAULT_COLOR2 = X11ColorCatalogue.WHITE;
+  public static final Color DEFAULT_COLOR2 = X11ColorCatalog.WHITE;
 
   private final DirectionInCanvas direction;
 
@@ -71,7 +71,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
         from3Attributes(attributes);
       default ->
         throw //
-        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
+        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.SPECIFICATION, specification);
     };
   }
 

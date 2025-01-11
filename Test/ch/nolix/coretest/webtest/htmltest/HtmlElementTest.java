@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 
 final class HtmlElementTest extends StandardTest {
 
@@ -19,7 +19,7 @@ final class HtmlElementTest extends StandardTest {
     final var attribute3 = HtmlAttribute.withNameAndValue("n3", "v3");
     final var attribute4 = HtmlAttribute.withNameAndValue("n4", "v4");
     final var testUnit = HtmlElement.withTypeAndAttributesAndInnerText(
-      HtmlElementTypeCatalogue.DIV,
+      HtmlElementTypeCatalog.DIV,
       ImmutableList.withElement(attribute1, attribute2),
       "my inner text");
 
@@ -27,7 +27,7 @@ final class HtmlElementTest extends StandardTest {
     expect(testUnit)
       .isEqualTo(
         HtmlElement.withTypeAndAttributesAndInnerText(
-          HtmlElementTypeCatalogue.DIV,
+          HtmlElementTypeCatalog.DIV,
           ImmutableList.withElement(attribute1, attribute2),
           "my inner text"));
 
@@ -37,7 +37,7 @@ final class HtmlElementTest extends StandardTest {
     //verification
     expect(result).isEqualTo(
       HtmlElement.withTypeAndAttributesAndInnerText(
-        HtmlElementTypeCatalogue.DIV,
+        HtmlElementTypeCatalog.DIV,
         ImmutableList.withElement(attribute1, attribute2, attribute3, attribute4),
         "my inner text"));
   }

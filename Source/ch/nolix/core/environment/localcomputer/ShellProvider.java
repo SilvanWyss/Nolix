@@ -8,9 +8,9 @@ import java.net.URISyntaxException;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalog;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class ShellProvider {
 
@@ -19,7 +19,7 @@ public final class ShellProvider {
 
   public static void run(final String[] command) {
 
-    GlobalValidator.assertThat(command).thatIsNamed(LowerCaseVariableCatalogue.COMMAND).isNotNull();
+    GlobalValidator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
 
     final var runtimeCommand = createRuntimeCommandFromCommand(command);
 
@@ -27,7 +27,7 @@ public final class ShellProvider {
   }
 
   public static void startDefaultWebBrowserOpeningLoopBackAddress() {
-    startDefaultWebBrowserOpeningUrl(IPv4Catalogue.LOOP_BACK_ADDRESS);
+    startDefaultWebBrowserOpeningUrl(IPv4Catalog.LOOP_BACK_ADDRESS);
   }
 
   public static void startDefaultWebBrowserOpeningUrl(final String url) {
@@ -43,30 +43,30 @@ public final class ShellProvider {
   }
 
   public static void startFirefox(final String url) {
-    startFirefox(url, PortCatalogue.HTTP);
+    startFirefox(url, PortCatalog.HTTP);
   }
 
   public static void startFirefox(final String url, final int port) {
 
     GlobalValidator
       .assertThat(url)
-      .thatIsNamed(LowerCaseVariableCatalogue.URL)
+      .thatIsNamed(LowerCaseVariableCatalog.URL)
       .isNotBlank();
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
-      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .thatIsNamed(LowerCaseVariableCatalog.PORT)
+      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     run(new String[] { "start", "firefox", "--url", url + ":" + port });
   }
 
   public static void startFirefoxOpeningLoopBackAddress() {
-    startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP);
+    startFirefox(IPv4Catalog.LOOP_BACK_ADDRESS, PortCatalog.HTTP);
   }
 
   public static void startFirefoxOpeningLoopBackAddress(final int port) {
-    startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
+    startFirefox(IPv4Catalog.LOOP_BACK_ADDRESS, port);
   }
 
   private static String[] createRuntimeCommandFromCommand(final String[] command) {

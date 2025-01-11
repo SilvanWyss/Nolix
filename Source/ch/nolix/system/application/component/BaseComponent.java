@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
@@ -39,7 +39,7 @@ implements IComponent {
 
   @Override
   public final String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override

@@ -2,7 +2,7 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 public final class SslServer extends AbstractServer<SslServer> {
 
-  public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
+  public static final int DEFAULT_PORT = PortCatalog.HTTPS;
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
@@ -43,7 +43,7 @@ public final class SslServer extends AbstractServer<SslServer> {
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
-    return new SslServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
+    return new SslServer(PortCatalog.HTTPS, domain, paramSSLCertificate);
   }
 
   public static SslServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(

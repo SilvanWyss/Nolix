@@ -1,6 +1,6 @@
 package ch.nolix.core.license;
 
-import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
+import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
 
 /**
  * The {@link LicenseEnvironment} provides information about the Nolix license
@@ -24,6 +24,6 @@ public final class LicenseEnvironment {
    * @return the path of the license folder on the local computer.
    */
   public static String getLocalLicenseFolderPath() {
-    return NolixDirectoryAndFileCatalogue.NOLIX_LICENSES_DIRECTORY_PATH;
+    return NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_PATH;
   }
 }

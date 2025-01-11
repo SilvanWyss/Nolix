@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.nodesearcher;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 
@@ -39,22 +39,22 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalogue.COLUMN);
+    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.COLUMN);
   }
 
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalogue.ENTITY);
+    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.ENTITY);
   }
 
   @Override
   public IMutableNode<?> getStoredIdNodeFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.ID);
+    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ID);
   }
 
   @Override
   public IMutableNode<?> getStoredNameNodeFromTableNode(final IMutableNode<?> tableNode) {
-    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.NAME);
+    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 
   @Override

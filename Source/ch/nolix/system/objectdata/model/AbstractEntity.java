@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
@@ -115,7 +115,7 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final void internalSetId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     if (gotExternalId) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "got already an external id");
@@ -149,7 +149,7 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final void internalSetSaveStamp(final String saveStamp) {
 
-    GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalogue.SAVE_STAMP).isNotBlank();
+    GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
 
     this.saveStamp = saveStamp;
   }

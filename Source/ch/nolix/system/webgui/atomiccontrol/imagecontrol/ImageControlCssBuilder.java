@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.atomiccontrol.imagecontrol;
 
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
@@ -40,6 +40,6 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
     final IImageControl imageControl,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    list.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "block"));
+    list.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalog.DISPLAY, "block"));
   }
 }

@@ -3,8 +3,8 @@ package ch.nolix.core.environment.filesystem;
 import java.io.File;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A file system item accessor can access a given file system item. A file
@@ -34,7 +34,7 @@ public class FileSystemItemAccessor {
     //Asserts that the given file path does not point to a directory.
     if (!internalAccessor.exists()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.PATH,
+        LowerCaseVariableCatalog.PATH,
         path,
         "is not a file system item");
     }
@@ -46,7 +46,7 @@ public class FileSystemItemAccessor {
    */
   public final String getExtension() {
 
-    final var array = RegularExpressionPatternCatalogue.DOT_PATTERN.split(getName());
+    final var array = RegularExpressionPatternCatalog.DOT_PATTERN.split(getName());
 
     return ("." + array[array.length - 1]);
   }

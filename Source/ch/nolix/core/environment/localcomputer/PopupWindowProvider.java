@@ -2,7 +2,7 @@ package ch.nolix.core.environment.localcomputer;
 
 import javax.swing.JOptionPane;
 
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 /**
  * The {@link PopupWindowProvider} provides methods to show small pop-up
@@ -62,7 +62,7 @@ public final class PopupWindowProvider {
       //Handles the case that the given exception has a message.
       if (error.getMessage() != null && !error.getMessage().isEmpty()) {
         textStringBuilder.append(
-          error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE);
+          error.getMessage() + CharacterCatalog.NEW_LINE + CharacterCatalog.NEW_LINE);
       }
 
       //Iterates the stack trace of the given exception.
@@ -75,7 +75,7 @@ public final class PopupWindowProvider {
           textStringBuilder.append(" (line " + ste.getLineNumber() + ")");
         }
 
-        textStringBuilder.append(CharacterCatalogue.NEW_LINE);
+        textStringBuilder.append(CharacterCatalog.NEW_LINE);
       }
     }
 

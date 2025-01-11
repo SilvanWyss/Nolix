@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.programatomapi.characterproperty;
 
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 public enum CharacterType {
   UPPER_CASE_LETTER,
@@ -37,9 +37,9 @@ public enum CharacterType {
       'X',
       'Y',
       'Z',
-      CharacterCatalogue.UPPERCASE_AE,
-      CharacterCatalogue.UPPERCASE_OE,
-      CharacterCatalogue.UPPERCASE_UE ->
+      CharacterCatalog.UPPERCASE_AE,
+      CharacterCatalog.UPPERCASE_OE,
+      CharacterCatalog.UPPERCASE_UE ->
         UPPER_CASE_LETTER;
       case
       'a',
@@ -68,9 +68,9 @@ public enum CharacterType {
       'x',
       'y',
       'z',
-      CharacterCatalogue.LOWER_CASE_AE,
-      CharacterCatalogue.LOWER_CASE_OE,
-      CharacterCatalogue.LOWER_CASE_UE ->
+      CharacterCatalog.LOWER_CASE_AE,
+      CharacterCatalog.LOWER_CASE_OE,
+      CharacterCatalog.LOWER_CASE_UE ->
         LOWER_CASE_LETTER;
       default ->
         ofNonLetterCharacter(character);

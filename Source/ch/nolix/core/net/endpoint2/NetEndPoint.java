@@ -12,7 +12,7 @@ import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link NetEndPoint} is a {@link EndPoint} that can send messages to an
@@ -304,7 +304,7 @@ public final class NetEndPoint extends EndPoint {
       case ERROR_RESPONSE ->
         throw GeneralException.withErrorMessage(response.getStoredContent());
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REPLY, response);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REPLY, response);
     };
   }
 

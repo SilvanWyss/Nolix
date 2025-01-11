@@ -6,7 +6,7 @@ import ch.nolix.core.container.cachingcontainer.CachingProperty;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
@@ -66,8 +66,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
     final Class<E> entityClass) {
 
     GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     GlobalValidator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
 
     this.parentDatabase = parentDatabase;

@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 
@@ -66,7 +66,7 @@ implements IMultiStateConfiguration<C, S> {
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
     if (!addedOrChangedAttribute(attribute)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.ATTRIBUTE, attribute);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.ATTRIBUTE, attribute);
     }
   }
 
@@ -114,7 +114,7 @@ implements IMultiStateConfiguration<C, S> {
   @SuppressWarnings("unchecked")
   protected final void internalAddChild(final C child) {
 
-    GlobalValidator.assertThat(child).thatIsNamed(LowerCaseVariableCatalogue.CHILD).isNotNull();
+    GlobalValidator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
 
     ((MultiStateConfiguration<?, S>) child).setParent(this);
   }

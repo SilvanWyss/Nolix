@@ -4,7 +4,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
@@ -19,7 +19,7 @@ final class EntityNodeMapper {
     final long saveStamp) {
     return //
     Node.withHeaderAndChildNodes(
-      NodeHeaderCatalogue.ENTITY,
+      NodeHeaderCatalog.ENTITY,
       createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableView));
   }
 

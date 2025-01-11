@@ -12,8 +12,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
@@ -128,7 +128,7 @@ public final class Background extends AbstractElement implements IBackground {
   private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
     final INode<?> specification) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-      LowerCaseVariableCatalogue.SPECIFICATION,
+      LowerCaseVariableCatalog.SPECIFICATION,
       specification,
       Background.class);
   }
@@ -290,7 +290,7 @@ public final class Background extends AbstractElement implements IBackground {
   private IContainer<ICssProperty> toCssPropertiesWhenIsColor() {
     final var colorCode = getColorCodeOfColor(color);
 
-    return ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, colorCode));
+    return ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, colorCode));
   }
 
   private IContainer<ICssProperty> toCssPropertiesWhenIsColorGradient() {
@@ -300,7 +300,7 @@ public final class Background extends AbstractElement implements IBackground {
     final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
 
     return ImmutableList.withElement(
-      CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode));
+      CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_IMAGE, linearGradientCode));
   }
 
   private IContainer<ICssProperty> toCssPropertiesWhenIsImage() {
@@ -308,12 +308,12 @@ public final class Background extends AbstractElement implements IBackground {
 
     return ImmutableList.withElement(
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BACKGROUND_IMAGE,
+        CssPropertyNameCatalog.BACKGROUND_IMAGE,
         "url('" + backgroundImage + "')"),
-      CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%"));
+      CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_SIZE, "100% 100%"));
   }
 
   private IContainer<ICssProperty> toCssPropertiesWhenIsTransparent() {
-    return ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, "none"));
+    return ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, "none"));
   }
 }

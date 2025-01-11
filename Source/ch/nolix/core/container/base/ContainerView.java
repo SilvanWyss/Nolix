@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link ContainerView} can iterate over a part of another container.
@@ -51,18 +51,18 @@ public final class ContainerView<E> extends Container<E> {
    */
   private ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
 
-    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalogue.CONTAINER).isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalogue.START_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isPositive();
+    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
+    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
+    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
 
     GlobalValidator
       .assertThat(endIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.END_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isBiggerThanOrEquals(startIndex);
 
     GlobalValidator
       .assertThat(endIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.END_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isNotBiggerThan(container.getCount());
 
     this.container = container;
@@ -108,11 +108,11 @@ public final class ContainerView<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
+    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
 
     GlobalValidator
       .assertThat(param1BasedIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());
 
     return container.getStoredAt1BasedIndex(startIndex + param1BasedIndex - 1);
@@ -150,7 +150,7 @@ public final class ContainerView<E> extends Container<E> {
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return toStringWithSeparator(CharacterCatalog.COMMA);
   }
 
   /**

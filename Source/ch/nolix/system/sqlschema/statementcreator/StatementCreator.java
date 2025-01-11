@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlschema.statementcreator;
 
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.ConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.DataTypeDto;
@@ -58,7 +58,7 @@ public final class StatementCreator implements IStatementCreator {
 
   private String getConstraintAsSql(final ConstraintDto constraint) {
 
-    var sql = constraint.type().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
+    var sql = constraint.type().toString().replace(StringCatalog.UNDERSCORE, StringCatalog.SPACE);
 
     if (constraint.parameters().containsAny()) {
       getConstraintParametersAsSql(constraint);

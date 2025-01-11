@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 
 /**
@@ -141,7 +141,7 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
   final Object internalGetStoredResult() {
 
     if (result == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RESULT);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.RESULT);
     }
 
     return result;
@@ -176,7 +176,7 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
 
   final void internalSetResult(final Object result) {
 
-    GlobalValidator.assertThat(result).thatIsNamed(LowerCaseVariableCatalogue.RESULT).isNotNull();
+    GlobalValidator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
 
     this.result = result;
   }

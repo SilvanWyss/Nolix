@@ -3,7 +3,7 @@ package ch.nolix.core.commontypetool.arraytool;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediatorWithStartIndex;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
 
@@ -17,7 +17,7 @@ public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediator
 
     GlobalValidator
       .assertThat(startIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.START_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.START_INDEX)
       .isBetween(0, byteArray.length);
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.

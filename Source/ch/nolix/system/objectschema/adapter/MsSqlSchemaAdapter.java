@@ -1,11 +1,11 @@
 package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 
 public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
 
-  public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
+  public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 
   MsSqlSchemaAdapter(
     String databaseName,

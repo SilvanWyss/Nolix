@@ -7,7 +7,7 @@ import ch.nolix.core.programcontrol.usercontrol.CredentialBuilder;
 import ch.nolix.core.resourcecontrol.resourcepool.ResourcePool;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
@@ -38,7 +38,7 @@ implements ISqlDatabaseTarget {
     final String loginPassword) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isBetween(0, 65_535);
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isBetween(0, 65_535);
     GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 

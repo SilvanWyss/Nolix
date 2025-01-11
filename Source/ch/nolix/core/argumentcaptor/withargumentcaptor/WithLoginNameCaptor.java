@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.withargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class WithLoginNameCaptor<N> extends ArgumentCaptor<String, N> {
 
@@ -19,7 +19,7 @@ public class WithLoginNameCaptor<N> extends ArgumentCaptor<String, N> {
 
   public final N withLoginName(final String loginName) {
 
-    GlobalValidator.assertThat(loginName).thatIsNamed(LowerCaseVariableCatalogue.LOGIN_NAME).isNotBlank();
+    GlobalValidator.assertThat(loginName).thatIsNamed(LowerCaseVariableCatalog.LOGIN_NAME).isNotBlank();
 
     return setArgumentAndGetNext(loginName);
   }

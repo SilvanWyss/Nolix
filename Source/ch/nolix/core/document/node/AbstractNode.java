@@ -14,7 +14,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.nodeapi.INodeComparator;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 /**
@@ -46,16 +46,16 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
     for (var i = 0; i < string.length(); i++) {
       switch (string.charAt(i)) {
-        case CharacterCatalogue.COMMA:
+        case CharacterCatalog.COMMA:
           stringBuilder.append(COMMA_CODE);
           break;
-        case CharacterCatalogue.DOLLAR:
+        case CharacterCatalog.DOLLAR:
           stringBuilder.append(DOLLAR_SYMBOL_CODE);
           break;
-        case CharacterCatalogue.OPEN_BRACKET:
+        case CharacterCatalog.OPEN_BRACKET:
           stringBuilder.append(OPEN_BRACKET_CODE);
           break;
-        case CharacterCatalogue.CLOSED_BRACKET:
+        case CharacterCatalog.CLOSED_BRACKET:
           stringBuilder.append(CLOSED_BRACKET_CODE);
           break;
         default:
@@ -75,12 +75,12 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
     return //
     escapeString
-      .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+      .replace(COMMA_CODE, String.valueOf(CharacterCatalog.COMMA))
+      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalog.OPEN_BRACKET))
+      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalog.CLOSED_BRACKET))
 
       //It is essential to replace the dollar symbol code at last.
-      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalog.DOLLAR));
   }
 
   /**
@@ -338,9 +338,9 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     //Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       stringBuilder
-        .append(CharacterCatalogue.OPEN_BRACKET)
+        .append(CharacterCatalog.OPEN_BRACKET)
         .append(getStoredChildNodes().toString())
-        .append(CharacterCatalogue.CLOSED_BRACKET);
+        .append(CharacterCatalog.CLOSED_BRACKET);
     }
 
     return stringBuilder.toString();
@@ -379,17 +379,17 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     //not contain child nodes.
     if (getStoredChildNodes().containsNone(INode::containsChildNodes)) {
       stringBuilder
-        .append(CharacterCatalogue.OPEN_BRACKET)
+        .append(CharacterCatalog.OPEN_BRACKET)
         .append(getStoredChildNodes().toString())
-        .append(CharacterCatalogue.CLOSED_BRACKET);
+        .append(CharacterCatalog.CLOSED_BRACKET);
 
       //Handles the case that the current BaseNode contains child nodes that
       //themselves contains child nodes.
     } else {
 
       stringBuilder
-        .append(CharacterCatalogue.OPEN_BRACKET)
-        .append(CharacterCatalogue.NEW_LINE);
+        .append(CharacterCatalog.OPEN_BRACKET)
+        .append(CharacterCatalog.NEW_LINE);
 
       //Iterates the child nodes of the current BaseNode.
       final var attributeCount = getChildNodeCount();
@@ -399,17 +399,17 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
         stringBuilder.append(cn.toFormattedString(leadingTabulators + 1));
 
         if (index < attributeCount) {
-          stringBuilder.append(CharacterCatalogue.COMMA);
+          stringBuilder.append(CharacterCatalog.COMMA);
         }
 
-        stringBuilder.append(CharacterCatalogue.NEW_LINE);
+        stringBuilder.append(CharacterCatalog.NEW_LINE);
 
         index++;
       }
 
       stringBuilder
         .append(STRING_TOOL.createTabs(leadingTabulators))
-        .append(CharacterCatalogue.CLOSED_BRACKET);
+        .append(CharacterCatalog.CLOSED_BRACKET);
     }
   }
 

@@ -6,7 +6,7 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
 public final class MsSqlDataAdapterBuilder
@@ -18,7 +18,7 @@ WithLoginNameCaptor< //
 AndLoginPasswordCaptor< //
 AndSchemaCaptor<ISchema, MsSqlDataAdapter>>>>>> {
 
-  public static final int DEFAULT_PORT = PortCatalogue.MS_SQL;
+  public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 
   private MsSqlDataAdapterBuilder() {
 

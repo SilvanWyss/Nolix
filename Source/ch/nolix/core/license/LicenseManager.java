@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link LicenseManager} contains {@link License}s.
@@ -69,7 +69,7 @@ public final class LicenseManager {
   public LicenseManager addLicense(final License license) {
 
     //Asserts that the given license is not null.
-    GlobalValidator.assertThat(license).thatIsNamed(LowerCaseVariableCatalogue.LICENSE).isNotNull();
+    GlobalValidator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
 
     //Assets thath the given license is actiaved.
     license.assetIsActivated();
@@ -174,7 +174,7 @@ public final class LicenseManager {
   private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 
     //Asserts that the given licenseType is not null.
-    GlobalValidator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
+    GlobalValidator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     return readKeyFromLicenseFile(licenseType.getName());
   }
@@ -188,7 +188,7 @@ public final class LicenseManager {
    */
   private String readKeyFromLicenseFile(final String licenseName) {
     try {
-      return new FolderAccessor(NolixDirectoryAndFileCatalogue.NOLIX_CONFIGURATION_FILE_PATH)
+      return new FolderAccessor(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH)
         .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
     } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       throw GeneralException.withErrorMessage(

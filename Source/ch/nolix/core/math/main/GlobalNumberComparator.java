@@ -1,6 +1,6 @@
 package ch.nolix.core.math.main;
 
-import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalogue;
+import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalog;
 
 /**
  * @author Silvan Wyss
@@ -23,10 +23,10 @@ public final class GlobalNumberComparator {
   public static boolean areEqual(final double value1, final double value2) {
 
     if (value1 < value2) {
-      return (value2 - value1) < ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD;
+      return (value2 - value1) < ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD;
     }
 
-    return (value1 - value2) < ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD;
+    return (value1 - value2) < ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD;
   }
 
   /**
@@ -35,8 +35,8 @@ public final class GlobalNumberComparator {
    */
   public static boolean isOne(final double value) {
     return //
-    value > 1 - ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD
-    && value < 1 + ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD;
+    value > 1 - ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD
+    && value < 1 + ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD;
   }
 
   /**
@@ -45,7 +45,7 @@ public final class GlobalNumberComparator {
    */
   public static boolean isZero(final double value) {
     return //
-    value > -ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD
-    && value < ComparsionThresholdCatalogue.COMMON_DOUBLE_COMPARSION_THRESHOLD;
+    value > -ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD
+    && value < ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD;
   }
 }

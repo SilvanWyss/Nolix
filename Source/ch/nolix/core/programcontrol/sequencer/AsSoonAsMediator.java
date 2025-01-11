@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class AsSoonAsMediator {
 
@@ -11,21 +11,21 @@ public final class AsSoonAsMediator {
 
   AsSoonAsMediator(final BooleanSupplier condition) {
 
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalogue.CONDITION).isNotNull();
+    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.condition = condition;
   }
 
   public Future runInBackground(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     return new Future(new JobRunner(() -> runAsSoonAsConditionIsFulfilled(job), 1));
   }
 
   private void runAsSoonAsConditionIsFulfilled(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     GlobalSequencer.waitUntil(condition);
 

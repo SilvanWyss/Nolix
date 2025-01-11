@@ -48,7 +48,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
     //verification
     expect(testUnit.containsAny()).isTrue();
-    expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogueThrowExceptionMethod());
+    expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogThrowExceptionMethod());
   }
 
   @Override
@@ -56,7 +56,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     return new ValidationLabel();
   }
 
-  private Exception getExceptionOfFunctionsCatalogueThrowExceptionMethod() {
+  private Exception getExceptionOfFunctionsCatalogThrowExceptionMethod() {
 
     try {
       GlobalFunctionService.throwException();
@@ -65,6 +65,6 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     }
 
     throw GeneralException
-      .withErrorMessage("The throwException method of the FunctionCatalogue did not throw an Exception.");
+      .withErrorMessage("The throwException method of the FunctionCatalog did not throw an Exception.");
   }
 }

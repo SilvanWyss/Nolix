@@ -12,8 +12,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -92,7 +92,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
 
     GlobalValidator
       .assertThat(initialCapacity)
-      .thatIsNamed(LowerCaseVariableCatalogue.INITIAL_CAPACITY)
+      .thatIsNamed(LowerCaseVariableCatalog.INITIAL_CAPACITY)
       .isNotNegative();
 
     final var arrayList = new ArrayList<E2>();
@@ -127,7 +127,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @Override
   public void addAtEnd(final E element, @SuppressWarnings("unchecked") final E... elements) {
 
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
+    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
     final var localElementCount = getCount();
@@ -246,7 +246,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return toStringWithSeparator(CharacterCatalog.COMMA);
   }
 
   /**

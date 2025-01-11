@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
@@ -44,7 +44,7 @@ public final class Server extends AbstractServer<Server> {
    *         on the HTTP port (80).
    */
   public static Server forHttpPort() {
-    return forPort(PortCatalogue.HTTP);
+    return forPort(PortCatalog.HTTP);
   }
 
   /**

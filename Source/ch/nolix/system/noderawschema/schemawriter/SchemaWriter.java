@@ -14,7 +14,7 @@ import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.ITableNodeMapper;
@@ -98,7 +98,7 @@ public final class SchemaWriter implements ISchemaWriter {
       tableName);
 
     tableNode.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalogue.COLUMN)
+      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.COLUMN)
       && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(columnName));
 
@@ -109,7 +109,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteTable(final String tableName) {
 
     editedNodeDatabase.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalogue.TABLE)
+      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.TABLE)
       && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
         .hasHeader(tableName));
 
@@ -178,7 +178,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-      NodeHeaderCatalogue.CONTENT_MODEL,
+      NodeHeaderCatalog.CONTENT_MODEL,
       CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(contentModel));
 
     hasChanges = true;

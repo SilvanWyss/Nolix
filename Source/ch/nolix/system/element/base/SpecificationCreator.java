@@ -2,7 +2,7 @@ package ch.nolix.system.element.base;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 public final class SpecificationCreator {
@@ -21,6 +21,6 @@ public final class SpecificationCreator {
       return elementClass.getSimpleName();
     }
 
-    return PascalCaseVariableCatalogue.ELEMENT;
+    return PascalCaseVariableCatalog.ELEMENT;
   }
 }

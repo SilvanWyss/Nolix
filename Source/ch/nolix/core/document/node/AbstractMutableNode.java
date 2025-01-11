@@ -5,9 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
 extends AbstractNode<N>
@@ -20,7 +20,7 @@ implements IMutableNode<N> {
   public final N addPostfixToHeader(final String postfix) {
 
     //Asserts that the given postfix is not blank.
-    GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalogue.POSTFIX).isNotBlank();
+    GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalog.POSTFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
@@ -41,7 +41,7 @@ implements IMutableNode<N> {
   public final N addPrefixToHeader(final String prefix) {
 
     //Asserts that the given prefix is not blank.
-    GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalogue.PREFIX).isNotBlank();
+    GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
@@ -63,8 +63,8 @@ implements IMutableNode<N> {
     resetFromString(
       new FileAccessor(filePath)
         .readFile()
-        .replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
-        .replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING));
+        .replace(String.valueOf(CharacterCatalog.TABULATOR), StringCatalog.EMPTY_STRING)
+        .replace(String.valueOf(CharacterCatalog.NEW_LINE), StringCatalog.EMPTY_STRING));
   }
 
   /**

@@ -12,8 +12,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A file accessor can access a given file.
@@ -40,7 +40,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     //file.
     if (!GlobalFileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.FILE_PATH,
+        LowerCaseVariableCatalog.FILE_PATH,
         filePath,
         "is not a file");
     }
@@ -51,7 +51,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * this file accessor, but not the file itself.
    */
   public void clearFile() {
-    overwriteFile(StringCatalogue.EMPTY_STRING);
+    overwriteFile(StringCatalog.EMPTY_STRING);
   }
 
   /**
@@ -91,7 +91,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * @throws RuntimeException if an error occurs.
    */
   public String readFile() {
-    return new String(readFileToBytes(), StandardCharsets.UTF_8).replace("\r", StringCatalogue.EMPTY_STRING);
+    return new String(readFileToBytes(), StandardCharsets.UTF_8).replace("\r", StringCatalog.EMPTY_STRING);
   }
 
   /**

@@ -16,9 +16,9 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
  * A {@link LinkedList} is a {@link Container} that can add elements at the
@@ -64,7 +64,7 @@ implements ILinkedList<E> {
    */
   public static <E2> LinkedList<E2> fromArray(final E2[] array) {
 
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalogue.ARRAY).isNotNull();
+    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
     final var list = new LinkedList<E2>();
     list.addAtEnd(array);
@@ -158,7 +158,7 @@ implements ILinkedList<E> {
   public void addAtBegin(final Iterable<? extends E> elements) {
 
     //Asserts that the given elements is not null.
-    GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalogue.ELEMENTS).isNotNull();
+    GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalog.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
     if (ITERABLE_TOOL.containsAny(elements)) {
@@ -630,7 +630,7 @@ implements ILinkedList<E> {
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return toStringWithSeparator(CharacterCatalog.COMMA);
   }
 
   /**
@@ -882,7 +882,7 @@ implements ILinkedList<E> {
   private void removeNextNode(final LinkedListNode<E> node) {
 
     //Asserts that the given node is not null.
-    GlobalValidator.assertThat(node).thatIsNamed(LowerCaseVariableCatalogue.NODE).isNotNull();
+    GlobalValidator.assertThat(node).thatIsNamed(LowerCaseVariableCatalog.NODE).isNotNull();
 
     final var nextNode = node.getNextNode();
 

@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class MatrixRow<E> extends Container<E> {
 
@@ -27,7 +27,7 @@ public final class MatrixRow<E> extends Container<E> {
 
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isPositive();
 
     this.parentMatrix = parentMatrix;
@@ -65,7 +65,7 @@ public final class MatrixRow<E> extends Container<E> {
 
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return toStringWithSeparator(CharacterCatalog.COMMA);
   }
 
   @Override

@@ -1,7 +1,7 @@
 package ch.nolix.core.web.css;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 
 public final class CssProperty implements ICssProperty {
@@ -14,11 +14,11 @@ public final class CssProperty implements ICssProperty {
   private CssProperty(final String name, final String value) {
 
     if (name == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.NAME);
     }
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
     }
 
     this.name = name;

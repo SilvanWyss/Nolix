@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
@@ -70,7 +70,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     confirmButton.pressLeftMouseButton();
 
     //verification
-    Mockito.verify(valueTakerMock).accept(StringCatalogue.EMPTY_STRING);
+    Mockito.verify(valueTakerMock).accept(StringCatalog.EMPTY_STRING);
   }
 
   @Test

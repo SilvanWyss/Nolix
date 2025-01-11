@@ -51,7 +51,7 @@ public final class ColorNameConstantExtractor {
 
     final ILinkedList<Field> colorFields = LinkedList.createEmpty();
 
-    for (final var f : X11ColorCatalogue.class.getDeclaredFields()) {
+    for (final var f : X11ColorCatalog.class.getDeclaredFields()) {
       if (declaresColor(f)) {
         colorFields.addAtEnd(f);
       }
@@ -64,7 +64,7 @@ public final class ColorNameConstantExtractor {
 
     final ILinkedList<Field> colorNameConstantFields = LinkedList.createEmpty();
 
-    for (final var f : X11ColorCatalogue.class.getDeclaredFields()) {
+    for (final var f : X11ColorCatalog.class.getDeclaredFields()) {
       if (declaresColorName(f)) {
         colorNameConstantFields.addAtEnd(f);
       }

@@ -6,9 +6,9 @@ import ch.nolix.core.web.css.Css;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
@@ -29,13 +29,13 @@ public final class WebGuiCssBuilder {
 
     cssRules.addAtEnd(
       CssRule.withSelectorAndProperties(
-        HtmlElementTypeCatalogue.BODY,
-        ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"))));
+        HtmlElementTypeCatalog.BODY,
+        ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalog.MARGIN, "0px"))));
 
     cssRules.addAtEnd(
       CssRule.withSelectorAndProperty(
         "#root",
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")));
+        CssProperty.withNameAndValue(CssPropertyNameCatalog.MIN_HEIGHT, "100vh")));
 
     if (webGui.hasBackground()) {
       cssRules.addAtEnd(

@@ -12,8 +12,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.independent.arraytool.ArrayTool;
 import ch.nolix.core.independent.iterabletool.IterableTool;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
  * A named container mediator is an argument mediator for an iterable object
@@ -86,7 +86,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
     //Asserts that the given condition is not null.
     if (condition == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.CONDITION);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.CONDITION);
     }
 
     //Iterates the elements of the argument of this container mediator.
@@ -110,7 +110,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void containsAll(final Object[] elements) {
 
     if (elements == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.ELEMENTS);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ELEMENTS);
     }
 
     for (final var e : elements) {
@@ -121,7 +121,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void containsAll(final Iterable<Object> elements) {
 
     if (elements == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.ELEMENTS);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ELEMENTS);
     }
 
     elements.forEach(this::contains);
@@ -130,7 +130,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void containsAsManyElementsAs(final Object[] array) {
 
     if (array == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ARRAY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ARRAY);
     }
 
     hasElementCount(array.length);
@@ -270,7 +270,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     //Asserts that the given element count is not negative.
     if (elementCount < 0) {
       throw NegativeArgumentException.forArgumentNameAndArgument(
-        LowerCaseVariableCatalogue.ELEMENT_COUNT,
+        LowerCaseVariableCatalog.ELEMENT_COUNT,
         elementCount);
     }
 
@@ -318,7 +318,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
     //Asserts that the given array is not null.
     if (array == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ARRAY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ARRAY);
     }
 
     //Calls other method.

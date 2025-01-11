@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -25,8 +25,8 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     final IContentModel contentModel,
     final Table<IEntity> parentTable) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     GlobalValidator.assertThat(contentModel).thatIsNamed(IContentModel.class).isNotNull();
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 

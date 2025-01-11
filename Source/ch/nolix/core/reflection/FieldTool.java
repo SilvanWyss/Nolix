@@ -6,7 +6,7 @@ import java.lang.reflect.Modifier;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class FieldTool {
 
@@ -41,7 +41,7 @@ public final class FieldTool {
   public boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TYPE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TYPE);
     }
 
     if (!isStatic(field)) {

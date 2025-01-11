@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractValueModel;
@@ -17,7 +17,7 @@ implements IAbstractValueModel<V> {
 
   protected AbstractValueModel(final Class<V> valueType) {
 
-    GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalogue.VALUE_TYPE).isNotNull();
+    GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalog.VALUE_TYPE).isNotNull();
 
     this.valueType = valueType;
   }

@@ -4,10 +4,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
@@ -23,10 +23,10 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
-        "> " + HtmlElementTypeCatalogue.DIV,
+        "> " + HtmlElementTypeCatalog.DIV,
         LinkedList.withElement(
           CssProperty.withNameAndValue(
-            CssPropertyNameCatalogue.FLOAT,
+            CssPropertyNameCatalog.FLOAT,
             "left"))));
   }
 
@@ -37,10 +37,10 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     final ILinkedList<? super ICssRule> list) {
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
-        "> " + HtmlElementTypeCatalogue.DIV,
+        "> " + HtmlElementTypeCatalog.DIV,
         LinkedList.withElement(
           CssProperty.withNameAndValue(
-            CssPropertyNameCatalogue.MARGIN_RIGHT,
+            CssPropertyNameCatalog.MARGIN_RIGHT,
             horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
@@ -65,11 +65,11 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   private CssProperty createCssPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case TOP ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "start");
+        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "start");
       case CENTER ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "center");
+        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "center");
       case BOTTOM ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "end");
+        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "end");
     };
   }
 

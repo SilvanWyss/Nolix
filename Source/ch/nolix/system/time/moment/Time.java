@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalogue;
+import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructureapi.Month;
@@ -51,7 +51,7 @@ extends AbstractElement implements ITime {
     DEFAULT_HOUR_OF_DAY,
     DEFAULT_MINUTE_OF_HOUR,
     DEFAULT_SECOND_OF_MINUTE,
-    TimeUnitConversionCatalogue.MILLISECONDS_PER_SECOND * DEFAULT_MILLISECOND_OF_SECOND,
+    TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND * DEFAULT_MILLISECOND_OF_SECOND,
     ZoneId.systemDefault()));
 
   private final ZonedDateTime internalZonedDateTime;
@@ -253,7 +253,7 @@ extends AbstractElement implements ITime {
     final int secondOfMinute,
     final int millisecondOfSecond) {
 
-    final var nanoSecondsOfSecond = TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond;
+    final var nanoSecondsOfSecond = TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond;
 
     return //
     new Time(
@@ -291,8 +291,8 @@ extends AbstractElement implements ITime {
     final int microsecondsOfMilliSecond) {
 
     final var nanoSecondsOfSecond = //
-    TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond
-    + TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND * microsecondsOfMilliSecond;
+    TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond
+    + TimeUnitConversionCatalog.NANOSECONDS_PER_MICROSECOND * microsecondsOfMilliSecond;
 
     return //
     new Time(
@@ -425,8 +425,8 @@ extends AbstractElement implements ITime {
   @Override
   public int getMicrosecondOfMillisecond() {
     return //
-    (internalZonedDateTime.getNano() / TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND)
-    % TimeUnitConversionCatalogue.MICROSECONDS_PER_MILLISECOND;
+    (internalZonedDateTime.getNano() / TimeUnitConversionCatalog.NANOSECONDS_PER_MICROSECOND)
+    % TimeUnitConversionCatalog.MICROSECONDS_PER_MILLISECOND;
   }
 
   /**
@@ -434,7 +434,7 @@ extends AbstractElement implements ITime {
    */
   @Override
   public int getMillisecondOfSecond() {
-    return (internalZonedDateTime.getNano() / TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND);
+    return (internalZonedDateTime.getNano() / TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND);
   }
 
   /**
@@ -539,7 +539,7 @@ extends AbstractElement implements ITime {
   @Override
   public ITime withAddedOrSubtractedMicroseconds(final long microseconds) {
 
-    final var nanoseconds = TimeUnitConversionCatalogue.NANOSECONDS_PER_MICROSECOND * microseconds;
+    final var nanoseconds = TimeUnitConversionCatalog.NANOSECONDS_PER_MICROSECOND * microseconds;
 
     return forZonedDateTime(internalZonedDateTime.plusNanos(nanoseconds));
   }
@@ -550,7 +550,7 @@ extends AbstractElement implements ITime {
   @Override
   public Time withAddedOrSubtractedMilliseconds(final int milliseconds) {
 
-    final var nanoSeconds = TimeUnitConversionCatalogue.NANOSECONDS_PER_MILLISECOND * milliseconds;
+    final var nanoSeconds = TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND * milliseconds;
 
     return forZonedDateTime(internalZonedDateTime.plusNanos(nanoSeconds));
   }

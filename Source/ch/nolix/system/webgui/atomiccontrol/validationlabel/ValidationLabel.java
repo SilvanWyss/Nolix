@@ -8,10 +8,10 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabelStyle;
@@ -25,7 +25,7 @@ public final class ValidationLabel
 extends Control<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
 
-  private static final String ERROR_HEADER = PascalCaseVariableCatalogue.ERROR;
+  private static final String ERROR_HEADER = PascalCaseVariableCatalog.ERROR;
 
   private final MutableOptionalValue<Throwable> error = new MutableOptionalValue<>(
     ERROR_HEADER,
@@ -61,7 +61,7 @@ implements IValidationLabel {
 
   @Override
   public String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override
@@ -114,6 +114,6 @@ implements IValidationLabel {
 
     clear();
 
-    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalogue.RED);
+    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalog.RED);
   }
 }

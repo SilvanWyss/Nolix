@@ -8,10 +8,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
 
-  private static final String IMAGE_HEADER = PascalCaseVariableCatalogue.IMAGE;
+  private static final String IMAGE_HEADER = PascalCaseVariableCatalog.IMAGE;
 
   private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();
 
@@ -47,7 +47,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
-    getStoredStyle().setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.LIGHT_GREY);
+    getStoredStyle().setBackgroundColorForState(ControlState.BASE, X11ColorCatalog.LIGHT_GREY);
   }
 
   @Override
@@ -77,7 +77,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override

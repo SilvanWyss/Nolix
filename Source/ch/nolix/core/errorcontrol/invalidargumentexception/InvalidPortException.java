@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link InvalidPortException} is a {@link InvalidArgumentException} that is
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
 @SuppressWarnings("serial")
 public final class InvalidPortException extends InvalidArgumentException {
 
-  private static final String ARGUMENT_NAME = LowerCaseVariableCatalogue.PORT;
+  private static final String ARGUMENT_NAME = LowerCaseVariableCatalog.PORT;
 
   private static final String ERROR_PREDICATE = "is not valid";
 

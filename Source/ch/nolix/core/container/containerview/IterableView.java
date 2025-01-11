@@ -11,8 +11,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -45,7 +45,7 @@ public final class IterableView<E> extends Container<E> {
     //Asserts that the given container is not null.
     GlobalValidator
       .assertThat(container)
-      .thatIsNamed(LowerCaseVariableCatalogue.CONTAINER)
+      .thatIsNamed(LowerCaseVariableCatalog.CONTAINER)
       .isNotNull();
 
     //Sets the container of the current IterableView.
@@ -137,7 +137,7 @@ public final class IterableView<E> extends Container<E> {
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalogue.COMMA);
+    return toStringWithSeparator(CharacterCatalog.COMMA);
   }
 
   /**

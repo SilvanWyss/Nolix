@@ -7,8 +7,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class ItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {
 
-  private static final String ITEM_HEADER = PascalCaseVariableCatalogue.ITEM;
+  private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
 
   private final MultiValue<IItemMenuItem<?>> items = new MultiValue<>(
     ITEM_HEADER,
@@ -152,7 +152,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   public final String getUserInput() {
 
     if (isEmpty()) {
-      return StringCatalogue.EMPTY_STRING;
+      return StringCatalog.EMPTY_STRING;
     }
 
     return getStoredItems().getStoredFirst(IItemMenuItem::isSelected).getText();

@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MultiValueExtractor;
@@ -17,12 +17,12 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.frontend.LocalFrontEndReader;
 import ch.nolix.system.gui.frontend.LocalFrontEndWriter;
-import ch.nolix.system.gui.iconresource.IconCatalogue;
+import ch.nolix.system.gui.iconresource.IconCatalog;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
@@ -42,19 +42,19 @@ public final class WebGui //NOSONAR: A WebGui is a principal object thus it has 
 extends StyleElement<WebGui>
 implements IWebGui<WebGui> {
 
-  public static final String DEFAULT_TITLE = PascalCaseVariableCatalogue.GUI;
+  public static final String DEFAULT_TITLE = PascalCaseVariableCatalog.GUI;
 
-  public static final Image DEFAULT_ICON = IconCatalogue.NOLIX_ICON;
+  public static final Image DEFAULT_ICON = IconCatalog.NOLIX_ICON;
 
-  public static final Color DEFAULT_BACKGROUND_COLOR = X11ColorCatalogue.WHITE;
+  public static final Color DEFAULT_BACKGROUND_COLOR = X11ColorCatalog.WHITE;
 
-  private static final String TITLE_HEADER = PascalCaseVariableCatalogue.TITLE;
+  private static final String TITLE_HEADER = PascalCaseVariableCatalog.TITLE;
 
-  private static final String ICON_HEADER = PascalCaseVariableCatalogue.ICON;
+  private static final String ICON_HEADER = PascalCaseVariableCatalog.ICON;
 
-  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalogue.BACKGROUND;
+  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalog.BACKGROUND;
 
-  private static final String LAYER_HEADER = PascalCaseVariableCatalogue.LAYER;
+  private static final String LAYER_HEADER = PascalCaseVariableCatalog.LAYER;
 
   private static final WebGuiHtmlBuilder WEB_GUI_HTML_BUILDER = new WebGuiHtmlBuilder();
 
@@ -323,7 +323,7 @@ implements IWebGui<WebGui> {
   @Override
   public WebGui setTitle(final String title) {
 
-    GlobalValidator.assertThat(title).thatIsNamed(LowerCaseVariableCatalogue.TITLE).isNotBlank();
+    GlobalValidator.assertThat(title).thatIsNamed(LowerCaseVariableCatalog.TITLE).isNotBlank();
 
     this.title.setValue(title);
 

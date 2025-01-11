@@ -2,13 +2,13 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
+import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
 record ServerHttpMessage(String serverIP, int serverPort) {
 
-  private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
+  private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalog.REQUIRE_JS);
 
-  private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
+  private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalog.NOLIX_JS);
 
   public ServerHttpMessage( //NOSONAR: This constructor does more than the default one.
     final String serverIP,

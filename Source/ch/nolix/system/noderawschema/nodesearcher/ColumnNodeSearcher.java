@@ -2,7 +2,7 @@ package ch.nolix.system.noderawschema.nodesearcher;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
@@ -48,16 +48,16 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
   public IMutableNode<?> getStoredContentModelNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.CONTENT_MODEL);
+    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.CONTENT_MODEL);
   }
 
   @Override
   public IMutableNode<?> getStoredIdNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.ID);
+    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ID);
   }
 
   @Override
   public IMutableNode<?> getStoredNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
-    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.NAME);
+    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 }

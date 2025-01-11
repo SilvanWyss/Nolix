@@ -7,8 +7,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttributeValidator;
@@ -23,7 +23,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private AttachingAttribute(final INode<?> value) {
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = null;
     this.value = Node.fromNode(value);
@@ -31,8 +31,8 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private AttachingAttribute(final String tag, final INode<?> value) {
 
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotBlank();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = tag;
     this.value = Node.fromNode(value);
@@ -40,8 +40,8 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private AttachingAttribute(final String tag, final String value) {
 
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalogue.TAG).isNotBlank();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = tag;
     this.value = Node.fromString(value);
@@ -89,7 +89,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
         new AttachingAttribute(attributes.getStoredAt1BasedIndex(1).toString(), attributes.getStoredAt1BasedIndex(2));
       default ->
         throw //
-        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
+        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.SPECIFICATION, specification);
     };
   }
 
@@ -99,7 +99,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (optionalTag != null) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalogue.TAG, optionalTag));
+      attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalog.TAG, optionalTag));
     }
 
     attributes.addAtEnd(value);

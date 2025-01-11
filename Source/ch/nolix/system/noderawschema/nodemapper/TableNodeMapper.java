@@ -5,7 +5,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.ITableNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
@@ -29,17 +29,17 @@ public final class TableNodeMapper implements ITableNodeMapper {
     childNodes.addAtEnd(createNameNodeFromTableDto(tableDto));
     childNodes.addAtEnd(createColumnNodesFromTableDto(tableDto));
 
-    return Node.withHeaderAndChildNodes(NodeHeaderCatalogue.TABLE, childNodes);
+    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.TABLE, childNodes);
   }
 
   private INode<?> createIdNodeFromTableDto( //NOSONAR: This method is an instance method.
     final TableDto tableDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.ID, tableDto.id());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, tableDto.id());
   }
 
   private INode<?> createNameNodeFromTableDto( //NOSONAR: This method is an instance method.
     final TableDto tableDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.NAME, tableDto.name());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, tableDto.name());
   }
 
   private IContainer<INode<?>> createColumnNodesFromTableDto( //NOSONAR: This method is an instance method.

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 final class ApplicationInstanceTargetTest extends StandardTest {
@@ -16,14 +16,14 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     final var result = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
-        PortCatalogue.HTTPS,
+        PortCatalog.HTTPS,
         "Demo Application",
         "demo_application",
         SecurityMode.SSL);
 
     //verification
     expect(result.getIpOrDomain()).isEqualTo("nolix.tech");
-    expect(result.getPort()).isEqualTo(PortCatalogue.HTTPS);
+    expect(result.getPort()).isEqualTo(PortCatalog.HTTPS);
     expect(result.getApplicationInstanceName()).isEqualTo("Demo Application");
     expect(result.getApplicationUrlInstanceName()).isEqualTo("demo_application");
     expect(result.getSecurityModeForConnection()).isEqualTo(SecurityMode.SSL);
@@ -36,7 +36,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
-        PortCatalogue.HTTP,
+        PortCatalog.HTTP,
         "Demo Application",
         "demo_application",
         SecurityMode.NONE);
@@ -55,7 +55,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
-        PortCatalogue.HTTPS,
+        PortCatalog.HTTPS,
         "Demo Application",
         "demo_application",
         SecurityMode.SSL);

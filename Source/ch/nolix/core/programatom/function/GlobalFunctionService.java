@@ -3,7 +3,7 @@ package ch.nolix.core.programatom.function;
 import java.util.Objects;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 /**
  * Of the {@link GlobalFunctionService} an instance cannot be created.
@@ -94,7 +94,7 @@ public final class GlobalFunctionService {
   public static String getStringRepresentationOf(final Object object) {
 
     if (object == null) {
-      return StringCatalogue.NULL_HEADER;
+      return StringCatalog.NULL_HEADER;
     }
 
     return object.toString();

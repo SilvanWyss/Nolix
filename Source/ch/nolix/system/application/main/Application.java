@@ -18,7 +18,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 /**
@@ -128,7 +128,7 @@ public abstract class Application<C extends BackendClient<C, S>, S> implements I
    */
   @Override
   public final String getUrlInstanceName() {
-    return getInstanceName().replace(StringCatalogue.SPACE, StringCatalogue.UNDERSCORE).toLowerCase(Locale.ENGLISH);
+    return getInstanceName().replace(StringCatalog.SPACE, StringCatalog.UNDERSCORE).toLowerCase(Locale.ENGLISH);
   }
 
   /**

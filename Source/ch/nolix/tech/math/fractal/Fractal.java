@@ -6,7 +6,7 @@ import java.util.function.IntFunction;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
@@ -16,7 +16,7 @@ import ch.nolix.techapi.mathapi.fractalapi.IFractal;
 
 public final class Fractal implements IFractal {
 
-  public static final Color CONVERGENCE_COLOR = X11ColorCatalogue.BLACK;
+  public static final Color CONVERGENCE_COLOR = X11ColorCatalog.BLACK;
 
   private final IClosedInterval realComponentInterval;
 

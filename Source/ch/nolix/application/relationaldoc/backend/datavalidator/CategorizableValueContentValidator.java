@@ -4,7 +4,7 @@ import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableVal
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class CategorizableValueContentValidator {
 
@@ -15,7 +15,7 @@ public final class CategorizableValueContentValidator {
     final ICategorizableValueContent categorizableValueContent,
     final DataType dataType) {
     if (!ABSTRACT_VALUE_CONTENT_EVALUATOR.canSetDataType(categorizableValueContent, dataType)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.DATA_TYPE, dataType);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.DATA_TYPE, dataType);
     }
   }
 }

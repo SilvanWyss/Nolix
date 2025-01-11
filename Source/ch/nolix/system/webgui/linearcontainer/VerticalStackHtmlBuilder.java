@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -12,7 +12,7 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVert
   @Override
   public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {
     return HtmlElement.withTypeAndChildElements(
-      HtmlElementTypeCatalogue.DIV,
+      HtmlElementTypeCatalog.DIV,
       createHtmlElementsForChildControlsOfVerticalStack(verticalStack));
   }
 
@@ -22,6 +22,6 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVert
   }
 
   private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
-    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.getHtml());
+    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalog.DIV, childControl.getHtml());
   }
 }

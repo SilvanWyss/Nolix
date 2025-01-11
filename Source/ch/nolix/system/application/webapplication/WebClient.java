@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.application.basewebapplication.BaseWebClient;
 import ch.nolix.system.application.webapplicationrefreshqueue.WebClientRefreshQueue;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
@@ -27,7 +27,7 @@ public final class WebClient<C> extends BaseWebClient<WebClient<C>, C> {
 
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
-    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REQUEST, request);
+    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REQUEST, request);
   }
 
   @Override
@@ -37,7 +37,7 @@ public final class WebClient<C> extends BaseWebClient<WebClient<C>, C> {
         runGuiCommand(command.getNextNode());
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.COMMAND, command);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.COMMAND, command);
     }
   }
 
@@ -95,7 +95,7 @@ public final class WebClient<C> extends BaseWebClient<WebClient<C>, C> {
 
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.COMMAND, command);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.COMMAND, command);
     }
   }
 

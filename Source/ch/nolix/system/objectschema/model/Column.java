@@ -5,8 +5,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
 
-  private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
+  private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
 
   private static final IContentModel INITIAL_FIELD_TYPE = //
   ValueModel.forDataType(DataType.INTEGER_4BYTE);
@@ -51,7 +51,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final String name,
     final IContentModel contentModel) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);

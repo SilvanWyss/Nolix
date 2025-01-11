@@ -5,7 +5,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
@@ -19,7 +19,7 @@ public final class CssRule implements ICssRule {
 
   private CssRule(final String selector, final IContainer<? extends ICssProperty> properties) {
 
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     this.properties = properties.to(CssProperty::fromCssProperty);
     this.selector = selector;

@@ -1,7 +1,7 @@
 package ch.nolix.template.webapplication.session;
 
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
@@ -36,7 +36,7 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
               .editStyle(
                 s -> s
                   .setTextSizeForState(ControlState.BASE, 30)
-                  .setTextColorForState(ControlState.BASE, X11ColorCatalogue.GREY)),
+                  .setTextColorForState(ControlState.BASE, X11ColorCatalog.GREY)),
             new Button()
               .setVisibility(hasParentSession())
               .setText("<-- Go back")

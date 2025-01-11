@@ -4,8 +4,8 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
@@ -28,7 +28,7 @@ public final class HtmlElement implements IHtmlElement {
     final String innerText,
     final IContainer<? extends IHtmlElement> childElements) {
 
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotBlank();
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotBlank();
     GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
     this.type = type;
@@ -51,7 +51,7 @@ public final class HtmlElement implements IHtmlElement {
 
   public static HtmlElement withType(final String type) {
     return //
-    new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
+    new HtmlElement(type, ImmutableList.createEmpty(), StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
   public static HtmlElement withTypeAndAttribute(
@@ -62,7 +62,7 @@ public final class HtmlElement implements IHtmlElement {
     new HtmlElement(
       type,
       ImmutableList.withElement(attribute, attributes),
-      StringCatalogue.EMPTY_STRING,
+      StringCatalog.EMPTY_STRING,
       ImmutableList.createEmpty());
   }
 
@@ -73,14 +73,14 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(
       type,
       ImmutableList.withElement(attribute),
-      StringCatalogue.EMPTY_STRING,
+      StringCatalog.EMPTY_STRING,
       ImmutableList.withElement(childElement));
   }
 
   public static HtmlElement withTypeAndAttributes(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes) {
-    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, ImmutableList.createEmpty());
+    return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
   public static HtmlElement withTypeAndAttributesAndChildElement(
@@ -91,14 +91,14 @@ public final class HtmlElement implements IHtmlElement {
 
     final var allChildElements = ImmutableList.withElement(childElement, childElements);
 
-    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, allChildElements);
+    return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, allChildElements);
   }
 
   public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
     final IContainer<? extends IHtmlElement> childElements) {
-    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
+    return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, childElements);
   }
 
   public static HtmlElement withTypeAndAttributesAndInnerText(
@@ -116,14 +116,14 @@ public final class HtmlElement implements IHtmlElement {
     new HtmlElement(
       type,
       ImmutableList.createEmpty(),
-      StringCatalogue.EMPTY_STRING,
+      StringCatalog.EMPTY_STRING,
       ImmutableList.withElement(childElement, childElements));
   }
 
   public static HtmlElement withTypeAndChildElements(
     final String type,
     final IContainer<? extends IHtmlElement> childElements) {
-    return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalogue.EMPTY_STRING, childElements);
+    return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalog.EMPTY_STRING, childElements);
   }
 
   public static HtmlElement withTypeAndInnerText(final String type, final String innerText) {

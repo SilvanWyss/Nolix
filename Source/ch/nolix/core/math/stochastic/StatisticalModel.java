@@ -2,7 +2,7 @@ package ch.nolix.core.math.stochastic;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -52,11 +52,11 @@ public abstract class StatisticalModel {
 
   protected final double getValueFromBack(final int index) {
 
-    GlobalValidator.assertThat(index).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
+    GlobalValidator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
 
     GlobalValidator
       .assertThat(index)
-      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(inputValues.length + forecasts.getCount());
 
     if (index > forecasts.getCount()) {

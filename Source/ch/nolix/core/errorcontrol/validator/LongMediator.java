@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.independent.arraytool.ArrayTool;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 
 /**
  * A {@link LongMediator} is a {@link Mediator} for a long argument. A
@@ -274,7 +274,7 @@ public class LongMediator extends Mediator {
    *                              {@link LongMediator} is not a port.
    */
   public final void isPort() {
-    if (argument < PortCatalogue.MIN_PORT || argument > PortCatalogue.MAX_PORT) {
+    if (argument < PortCatalog.MIN_PORT || argument > PortCatalog.MAX_PORT) {
       throw InvalidPortException.forPort(argument);
     }
   }

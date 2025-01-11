@@ -1,7 +1,7 @@
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttributeValidator;
 
@@ -13,7 +13,7 @@ public final class AttachingAttributeValidator implements IAttachingAttributeVal
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
         attachingAttribute,
-        LowerCaseVariableCatalogue.TAG);
+        LowerCaseVariableCatalog.TAG);
     }
   }
 }

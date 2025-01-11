@@ -1,7 +1,7 @@
 package ch.nolix.system.noderawschema.databaseschemainspector;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 
 public final class DatabaseSchemaInspector {
@@ -21,8 +21,8 @@ public final class DatabaseSchemaInspector {
 
   private boolean databaseIsInitialized(final IMutableNode<?> nodeDatabase) {
     return //
-    nodeDatabase.hasHeader(NodeHeaderCatalogue.DATABASE)
-    && nodeDatabase.containsChildNodeWithHeader(NodeHeaderCatalogue.DATABASE_PROPERTIES);
+    nodeDatabase.hasHeader(NodeHeaderCatalog.DATABASE)
+    && nodeDatabase.containsChildNodeWithHeader(NodeHeaderCatalog.DATABASE_PROPERTIES);
   }
 
   private boolean databaseIsUnitialized(final IMutableNode<?> nodeDatabase) {

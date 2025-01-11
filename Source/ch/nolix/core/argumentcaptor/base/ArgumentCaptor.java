@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not have abstract methods.
 
@@ -67,7 +67,7 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
 
       assertDoesNotHaveBuilder();
 
-      GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseVariableCatalogue.BUILDER).isNotNull();
+      GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseVariableCatalog.BUILDER).isNotNull();
 
       this.builder = (Supplier<N>) builder;
     }
@@ -75,20 +75,20 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
 
   private void assertDoesNotHaveBuilder() {
     if (hasBuilder()) {
-      throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.BUILDER);
+      throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.BUILDER);
     }
   }
 
   private void assertHasArgument() {
     if (!hasArgument()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this,
-        LowerCaseVariableCatalogue.ARGUMENT);
+        LowerCaseVariableCatalog.ARGUMENT);
     }
   }
 
   private void assertHasBuilder() {
     if (!hasBuilder()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.BUILDER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.BUILDER);
     }
   }
 

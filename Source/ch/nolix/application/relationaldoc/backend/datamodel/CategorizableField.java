@@ -6,7 +6,7 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IContent;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
 import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.OptionalReference;
@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.model.Value;
 
 public final class CategorizableField extends Entity implements ICategorizableField {
 
-  public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalogue.FIELD;
+  public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalog.FIELD;
 
   public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
 

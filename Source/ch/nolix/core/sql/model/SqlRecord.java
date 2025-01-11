@@ -11,8 +11,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 
 /**
@@ -42,15 +42,14 @@ public final class SqlRecord extends Container<String> implements ISqlRecord {
 
     if (oneBasedIndex < 1) {
 
-      //TODO: Rename Catalogues to Catalogs
       throw //
       NonPositiveArgumentException.forArgumentNameAndArgument(
-        LowerCaseVariableCatalogue.ONE_BASED_INDEX,
+        LowerCaseVariableCatalog.ONE_BASED_INDEX,
         oneBasedIndex);
     }
 
     if (values == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.VALUES);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.VALUES);
     }
 
     this.oneBasedIndex = oneBasedIndex;

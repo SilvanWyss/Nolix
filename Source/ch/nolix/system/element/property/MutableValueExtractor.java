@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 public final class MutableValueExtractor<V> implements IProperty, INameHolder {
@@ -30,7 +30,7 @@ public final class MutableValueExtractor<V> implements IProperty, INameHolder {
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
     GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();

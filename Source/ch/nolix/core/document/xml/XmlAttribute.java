@@ -2,8 +2,8 @@ package ch.nolix.core.document.xml;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class XmlAttribute implements IXmlAttribute {
 
@@ -12,13 +12,13 @@ public final class XmlAttribute implements IXmlAttribute {
   private final String value;
 
   public XmlAttribute(final String name) {
-    this(name, StringCatalogue.EMPTY_STRING);
+    this(name, StringCatalog.EMPTY_STRING);
   }
 
   public XmlAttribute(final String name, final String value) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.name = name;
     this.value = value;

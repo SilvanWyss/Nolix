@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.toargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
 
@@ -19,7 +19,7 @@ public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
 
   public final N toDatabase(final String databaseName) {
 
-    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalogue.DATABASE_NAME).isNotBlank();
+    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
 
     return setArgumentAndGetNext(databaseName);
   }

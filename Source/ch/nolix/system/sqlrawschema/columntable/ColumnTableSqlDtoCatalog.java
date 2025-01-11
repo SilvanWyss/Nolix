@@ -1,0 +1,48 @@
+package ch.nolix.system.sqlrawschema.columntable;
+
+import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
+import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
+
+public final class ColumnTableSqlDtoCatalog {
+
+  private static final ColumnDto ID_SQL_DTO = ColumnDto.withNameAndDataType(TableTableColumn.ID.getName(),
+    DatatypeTypeCatalog.TEXT);
+
+  private static final ColumnDto PARENT_TABLE_ID_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.PARENT_TABLE_ID.getName(),
+    DatatypeTypeCatalog.TEXT);
+
+  private static final ColumnDto NAME_SQL_DTO = ColumnDto.withNameAndDataType(ColumnTableColumn.NAME.getName(),
+    DatatypeTypeCatalog.TEXT);
+
+  private static final ColumnDto PROPERTY_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.FIELD_TYPE.getName(),
+    DatatypeTypeCatalog.TEXT);
+
+  private static final ColumnDto DATA_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.DATA_TYPE.getName(),
+    DatatypeTypeCatalog.TEXT);
+
+  private static final ColumnDto REFERENCED_TABLE_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.REFERENCED_TABLE_ID.getName(), DatatypeTypeCatalog.TEXT);
+
+  private static final ColumnDto BACK_REFERENCED_COLUMN_ID_SQL_DTO = ColumnDto.withNameAndDataType(
+    ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DatatypeTypeCatalog.TEXT);
+
+  public static final TableDto COLUMN_TABLE_SQL_DTO = TableDto.withNameAndColumn(
+    SchemaTableType.COLUMN.getQualifiedName(),
+    ID_SQL_DTO,
+    PARENT_TABLE_ID_SQL_DTO,
+    NAME_SQL_DTO,
+    PROPERTY_TYPE_SQL_DTO,
+    DATA_TYPE_SQL_DTO,
+    REFERENCED_TABLE_SQL_DTO,
+    BACK_REFERENCED_COLUMN_ID_SQL_DTO);
+
+  private ColumnTableSqlDtoCatalog() {
+  }
+}

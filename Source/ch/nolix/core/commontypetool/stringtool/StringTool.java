@@ -6,9 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.RegularExpressionPatternCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
  * The {@link StringTool} provides methods to handle {@link String}s.
@@ -43,7 +43,7 @@ public final class StringTool implements IStringTool {
     final var stringBuilder = new StringBuilder();
 
     for (var i = 1; i <= tabCount; i++) {
-      stringBuilder.append(CharacterCatalogue.TABULATOR);
+      stringBuilder.append(CharacterCatalog.TABULATOR);
     }
 
     return stringBuilder.toString();
@@ -75,7 +75,7 @@ public final class StringTool implements IStringTool {
     }
 
     if (objects == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalogue.OBJECTS);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.OBJECTS);
     }
 
     final var stringBuilder = new StringBuilder();
@@ -166,7 +166,7 @@ public final class StringTool implements IStringTool {
   @Override
   public double toDouble(final String string) {
 
-    if (!RegularExpressionPatternCatalogue.DOUBLE_PATTERN.matcher(string).matches()) {
+    if (!RegularExpressionPatternCatalog.DOUBLE_PATTERN.matcher(string).matches()) {
       throw UnrepresentingArgumentException.forArgumentAndType(string, Double.TYPE);
     }
 

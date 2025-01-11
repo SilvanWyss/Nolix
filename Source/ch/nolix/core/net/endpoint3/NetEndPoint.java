@@ -18,12 +18,12 @@ import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.netapi.endpoint3protocol.MessageHeaderCatalogue;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalogue;
+import ch.nolix.coreapi.netapi.endpoint3protocol.MessageHeaderCatalog;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalog;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -45,7 +45,7 @@ public final class NetEndPoint extends EndPoint {
   public NetEndPoint(final int port) {
 
     //Calls other constructor.
-    this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
+    this(IPv6Catalog.LOOP_BACK_ADDRESS, port);
   }
 
   /**
@@ -61,7 +61,7 @@ public final class NetEndPoint extends EndPoint {
   public NetEndPoint(final int port, final String targetSlot) {
 
     //Calls other constructor.
-    this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, targetSlot);
+    this(IPv6Catalog.LOOP_BACK_ADDRESS, port, targetSlot);
   }
 
   /**
@@ -176,19 +176,19 @@ public final class NetEndPoint extends EndPoint {
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
 
     //Creates message.
-    final var message = MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
+    final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
     //Sends message and receives reply.
     final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
 
     //Enumerates the header of the reply.
     return switch (reply.getHeader()) {
-      case MessageHeaderCatalogue.MULTI_DATA_HEADER ->
+      case MessageHeaderCatalog.MULTI_DATA_HEADER ->
         reply.getStoredChildNodes();
-      case MessageHeaderCatalogue.ERROR_HEADER ->
+      case MessageHeaderCatalog.ERROR_HEADER ->
         throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REPLY, reply);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REPLY, reply);
     };
   }
 
@@ -231,7 +231,7 @@ public final class NetEndPoint extends EndPoint {
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
 
     //Creates message.
-    final var message = MessageHeaderCatalogue.COMMANDS_HEADER + '(' + ContainerView.forIterable(commands) + ')';
+    final var message = MessageHeaderCatalog.COMMANDS_HEADER + '(' + ContainerView.forIterable(commands) + ')';
 
     final var replyAsString = internalEndPoint.getReplyForRequest(message);
 
@@ -245,12 +245,12 @@ public final class NetEndPoint extends EndPoint {
 
       //Enumerates the header of the reply.
       switch (reply.getHeader()) {
-        case MessageHeaderCatalogue.DONE_HEADER:
+        case MessageHeaderCatalog.DONE_HEADER:
           break;
-        case MessageHeaderCatalogue.ERROR_HEADER:
+        case MessageHeaderCatalog.ERROR_HEADER:
           throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
         default:
-          throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.REPLY, reply);
+          throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REPLY, reply);
       }
     }
   }
@@ -272,10 +272,10 @@ public final class NetEndPoint extends EndPoint {
       GlobalLogger.logError(error);
 
       if (error.getMessage() == null) {
-        return MessageHeaderCatalogue.ERROR_HEADER;
+        return MessageHeaderCatalog.ERROR_HEADER;
       }
 
-      return (MessageHeaderCatalogue.ERROR_HEADER + '(' + AbstractNode.getEscapeStringFor(error.getMessage()) + ')');
+      return (MessageHeaderCatalog.ERROR_HEADER + '(' + AbstractNode.getEscapeStringFor(error.getMessage()) + ')');
     }
   }
 
@@ -295,19 +295,19 @@ public final class NetEndPoint extends EndPoint {
 
     //Enumerates the header of the given message.
     switch (message.getHeader()) {
-      case MessageHeaderCatalogue.COMMANDS_HEADER:
+      case MessageHeaderCatalog.COMMANDS_HEADER:
 
         for (final var a : message.getChildNodes()) {
           receiverController.runCommand(a);
         }
 
-        return MessageHeaderCatalogue.DONE_HEADER;
-      case MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER:
+        return MessageHeaderCatalog.DONE_HEADER;
+      case MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER:
         return //
-        MessageHeaderCatalogue.MULTI_DATA_HEADER
+        MessageHeaderCatalog.MULTI_DATA_HEADER
         + STRING_TOOL.getInParentheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.MESSAGE, message);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.MESSAGE, message);
     }
   }
 }

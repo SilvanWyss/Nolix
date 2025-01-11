@@ -2,7 +2,7 @@ package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
 final class StateProperty<V> {
@@ -28,7 +28,7 @@ final class StateProperty<V> {
   public V getValue() {
 
     if (!hasValueOrDefinesEmpty || value == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.VALUE);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.VALUE);
     }
 
     return value;
@@ -56,7 +56,7 @@ final class StateProperty<V> {
   public void setValue(final V value) {
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
     }
 
     hasValueOrDefinesEmpty = true;

@@ -5,12 +5,12 @@ import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileExce
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
-import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
+import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalog;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
@@ -182,12 +182,12 @@ final class DatabaseUpdater {
 
     final var containsEntity = TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
       tableNode,
-      FieldIndexCatalogue.ID_INDEX,
+      FieldIndexCatalog.ID_INDEX,
       entityId);
 
     if (!containsEntity) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.DATABASE,
+        LowerCaseVariableCatalog.DATABASE,
         nodeDatabase,
         "does not contain a " + tableName + " with the id " + entityId);
     }

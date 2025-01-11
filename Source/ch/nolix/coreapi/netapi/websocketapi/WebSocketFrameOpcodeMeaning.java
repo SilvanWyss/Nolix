@@ -2,7 +2,7 @@ package ch.nolix.coreapi.netapi.websocketapi;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public enum WebSocketFrameOpcodeMeaning {
   CONTINUATION_FRAME,
@@ -34,7 +34,7 @@ public enum WebSocketFrameOpcodeMeaning {
       default ->
         throw //
         UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-          LowerCaseVariableCatalogue.NUMBER,
+          LowerCaseVariableCatalog.NUMBER,
           number,
           WebSocketFrameOpcodeMeaning.class);
     };

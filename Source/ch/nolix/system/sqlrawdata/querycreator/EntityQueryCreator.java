@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableColumn;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
@@ -33,7 +33,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ") FROM "
     + TableType.ENTITY_TABLE.getQualifyingPrefix()
     + tableName
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + columnName
     + " = '"
     + value
@@ -52,7 +52,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ") FROM "
     + TableType.ENTITY_TABLE.getQualifyingPrefix()
     + tableName
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + columnName
     + " = '"
     + value
@@ -65,7 +65,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadEntitiesOfTable(final TableViewDto tableView) {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
-    + SpaceEnclosedSqlKeywordCatalogue.FROM
+    + SpaceEnclosedSqlKeywordCatalog.FROM
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableView.name()
     + ";";
   }
@@ -74,7 +74,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadEntity(String id, TableViewDto tableView) {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
-    + SpaceEnclosedSqlKeywordCatalogue.FROM
+    + SpaceEnclosedSqlKeywordCatalog.FROM
     + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableView.name()
     + " WHERE Id = '"
     + id
@@ -85,9 +85,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
     + DatabasePropertyTableColumn.VALUE.getLabel()
-    + SpaceEnclosedSqlKeywordCatalogue.FROM
+    + SpaceEnclosedSqlKeywordCatalog.FROM
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getLabel()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()

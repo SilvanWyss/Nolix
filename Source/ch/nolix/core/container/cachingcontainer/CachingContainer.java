@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.cachingcontainerapi.ICachingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class CachingContainer<E> extends Container<E> implements ICachingContainer<E> {
 
@@ -75,7 +75,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public String registerAndGetId(final E element) {
 
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
+    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     assertDoesNotContain(element);
 
@@ -88,8 +88,8 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public void registerAtId(final String id, final E element) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     assertDoesNotContainId(id);
     assertDoesNotContain(element);
@@ -104,7 +104,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
     if (pair.isEmpty()) {
 
-      GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalogue.ELEMENT).isNotNull();
+      GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
       final var id = createNextAutoId();
       elements.addAtEnd(new Pair<>(id, element));
@@ -139,7 +139,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   private void assertDoesNotContainId(final String id) {
     if (containsWithId(id)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.ID,
+        LowerCaseVariableCatalog.ID,
         id,
         "is already used");
     }

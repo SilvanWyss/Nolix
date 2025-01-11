@@ -5,8 +5,8 @@ import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.basecontainer.Container;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
-  private static final String CELL_HEADER = PascalCaseVariableCatalogue.CELL;
+  private static final String CELL_HEADER = PascalCaseVariableCatalog.CELL;
 
   private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
 
@@ -151,7 +151,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
   private void expandColumnsTo(final int columnIndex) {
 
-    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX).isPositive();
+    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
@@ -171,7 +171,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
   private void expandRowsTo(final int rowIndex) {
 
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX).isPositive();
+    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));

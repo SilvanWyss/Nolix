@@ -2,8 +2,8 @@ package ch.nolix.system.noderawschema.nodesearcher;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalogue;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.system.noderawschema.structure.StructureHeaderCatalog;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 
 public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
@@ -25,12 +25,12 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
 
   @Override
   public IMutableNode<?> getStoredDatabasePropertiesNodeFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return nodeDatabase.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.DATABASE_PROPERTIES);
+    return nodeDatabase.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.DATABASE_PROPERTIES);
   }
 
   @Override
   public IMutableNode<?> getStoredEntityHeadsNodeFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return nodeDatabase.getStoredFirstChildNodeWithHeader(StructureHeaderCatalogue.ENTITY_HEADS);
+    return nodeDatabase.getStoredFirstChildNodeWithHeader(StructureHeaderCatalog.ENTITY_HEADS);
   }
 
   @Override
@@ -38,7 +38,7 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
     final IMutableNode<?> nodeDatabase,
     final String tableId) {
     return getStoredTableNodesFromNodeDatabase(nodeDatabase).getStoredFirst(
-      tsn -> tsn.getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.ID).getStoredSingleChildNode()
+      tsn -> tsn.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ID).getStoredSingleChildNode()
         .hasHeader(tableId));
   }
 
@@ -48,18 +48,18 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
     final String tableName) {
     return getStoredTableNodesFromNodeDatabase(nodeDatabase).getStoredFirst(
       tsn -> tsn
-        .getStoredFirstChildNodeWithHeader(NodeHeaderCatalogue.NAME)
+        .getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME)
         .getStoredSingleChildNode()
         .hasHeader(tableName));
   }
 
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return nodeDatabase.getStoredChildNodesWithHeader(NodeHeaderCatalogue.TABLE);
+    return nodeDatabase.getStoredChildNodesWithHeader(NodeHeaderCatalog.TABLE);
   }
 
   @Override
   public int getTableNodeCount(final IMutableNode<?> nodeDatabase) {
-    return nodeDatabase.getStoredChildNodes().getCount(a -> a.hasHeader(NodeHeaderCatalogue.TABLE));
+    return nodeDatabase.getStoredChildNodes().getCount(a -> a.hasHeader(NodeHeaderCatalog.TABLE));
   }
 }

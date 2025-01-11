@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 /**
@@ -114,7 +114,7 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public ComplexNumber getPower(final int exponent) {
 
-    GlobalValidator.assertThat(exponent).thatIsNamed(LowerCaseVariableCatalogue.EXPONENT).isPositive();
+    GlobalValidator.assertThat(exponent).thatIsNamed(LowerCaseVariableCatalog.EXPONENT).isPositive();
 
     var complexNumber = this;
     for (var i = 2; i <= exponent; i++) {

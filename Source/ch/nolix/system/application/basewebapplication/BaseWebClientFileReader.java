@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
 final class BaseWebClientFileReader {
@@ -106,7 +106,7 @@ final class BaseWebClientFileReader {
 
   private void receiveFileFromCounterpart(final byte[] file) {
 
-    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseVariableCatalogue.FILE).isNotNull();
+    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
     assertIsWaitingForFileFromCounterpart();
 
     isWaitingForFileFromCounterpart = false;

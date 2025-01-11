@@ -10,10 +10,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
@@ -27,11 +27,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
 
-  public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
+  public static final String DEFAULT_TEXT = StringCatalog.EMPTY_STRING;
 
   public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
 
-  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableCatalog.TEXT;
 
   private static final String TEXT_MODE_HEADER = "TextMode";
 
@@ -57,14 +57,14 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
     getStoredStyle()
       .setBorderThicknessForState(ControlState.BASE, 1)
-      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.AQUAMARINE)
-      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalogue.MEDIUM_AQUA_MARINE)
-      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalogue.MEDIUM_AQUA_MARINE);
+      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalog.AQUAMARINE)
+      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalog.MEDIUM_AQUA_MARINE)
+      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalog.MEDIUM_AQUA_MARINE);
   }
 
   @Override
   public void emptyText() {
-    setText(StringCatalogue.EMPTY_STRING);
+    setText(StringCatalog.EMPTY_STRING);
   }
 
   @Override

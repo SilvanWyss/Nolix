@@ -10,10 +10,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -30,7 +30,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class Button extends Control<IButton, IButtonStyle> implements IButton {
 
-  public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
+  public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
   private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
 
@@ -40,13 +40,13 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   private final MutableOptionalValue<ButtonRole> role = //
   new MutableOptionalValue<>(
-    ButtonAttributeHeaderCatalogue.ROLE_HEADER,
+    ButtonAttributeHeaderCatalog.ROLE_HEADER,
     this::setRole,
     ButtonRole::fromSpecification,
     Node::fromEnum);
 
   private final MutableValue<String> text = //
-  MutableValue.forString(ButtonAttributeHeaderCatalogue.TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  MutableValue.forString(ButtonAttributeHeaderCatalog.TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   private Consumer<IButton> leftMouseButtonPressAction;
 
@@ -61,9 +61,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     getStoredStyle()
       .setLeftPaddingForState(ControlState.BASE, 20)
       .setRightPaddingForState(ControlState.BASE, 20)
-      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalogue.LIGHT_GREY)
-      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalogue.DARK_GREY)
-      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalogue.DARK_GREY);
+      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalog.LIGHT_GREY)
+      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalog.DARK_GREY)
+      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalog.DARK_GREY);
   }
 
   @Override
@@ -88,7 +88,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override

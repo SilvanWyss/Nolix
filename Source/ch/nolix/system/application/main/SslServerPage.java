@@ -4,14 +4,14 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
 public final class SslServerPage {
 
-  private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
+  private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalog.REQUIRE_JS);
 
-  private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
+  private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalog.NOLIX_JS);
 
   private static final IStringTool STRING_TOOL = new StringTool();
 
@@ -21,8 +21,8 @@ public final class SslServerPage {
 
   private SslServerPage(final String domain, final int port) {
 
-    GlobalValidator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalogue.DOMAIN).isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isPort();
+    GlobalValidator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalog.DOMAIN).isNotBlank();
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 
     this.domain = domain;
     this.port = port;

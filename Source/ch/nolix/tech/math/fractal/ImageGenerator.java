@@ -13,10 +13,10 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
@@ -51,7 +51,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     MutableImage.withWidthAndHeightAndColor(
       fractal.getWidthInPixel(),
       fractal.getHeightInPixel(),
-      X11ColorCatalogue.WHITE);
+      X11ColorCatalog.WHITE);
 
     futures = startFillImageAndGetFutures();
   }
@@ -71,7 +71,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     final var futureWithError = futures.getOptionalStoredFirst(IFuture::caughtError);
 
     if (futureWithError.isEmpty()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.ERROR);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
     }
 
     return futureWithError.get().getError();

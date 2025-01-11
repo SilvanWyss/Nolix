@@ -5,7 +5,7 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datavalidatorapi.ICategorizableFieldValidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class CategorizableFieldValidator implements ICategorizableFieldValidator {
 
@@ -49,7 +49,7 @@ public final class CategorizableFieldValidator implements ICategorizableFieldVal
   @Override
   public void assertCanSetName(final ICategorizableField categorizableField, final String name) {
     if (!CATEGORIZABLE_FIELD_EXAMINER.canSetName(categorizableField, name)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.NAME, name);
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.NAME, name);
     }
   }
 

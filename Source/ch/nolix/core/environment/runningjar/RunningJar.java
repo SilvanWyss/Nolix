@@ -9,7 +9,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 public final class RunningJar {
 
@@ -44,7 +44,7 @@ public final class RunningJar {
   public static IContainer<String> readLinesOfResource(final String path) {
 
     final ILinkedList<String> lines = LinkedList.createEmpty();
-    final var inputStream = RunningJar.class.getResourceAsStream(StringCatalogue.SLASH + path);
+    final var inputStream = RunningJar.class.getResourceAsStream(StringCatalog.SLASH + path);
     final var inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
 
     try (final var bufferedReader = new BufferedReader(inputStreamReader)) {

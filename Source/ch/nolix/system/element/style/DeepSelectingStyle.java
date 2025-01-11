@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.styletool.AttributeMerger;
 import ch.nolix.system.element.styletool.AttributeReplacer;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
@@ -103,7 +103,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
           break;
         default:
           throw InvalidArgumentException.forArgumentNameAndArgument(
-            LowerCaseVariableCatalogue.SPECIFICATION,
+            LowerCaseVariableCatalog.SPECIFICATION,
             specification);
       }
     }

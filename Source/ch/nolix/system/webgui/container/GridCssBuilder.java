@@ -6,7 +6,7 @@ import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
@@ -54,7 +54,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
-        HtmlElementTypeCatalogue.TD,
+        HtmlElementTypeCatalog.TD,
         ImmutableList.withElement(
           CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
   }

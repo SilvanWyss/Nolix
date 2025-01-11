@@ -12,8 +12,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link ChainedNode} has the following attributes. -0 or 1 header -an
@@ -125,12 +125,12 @@ public final class ChainedNode implements IChainedNode {
     return string
 
       //It is essential to replace the dollar symbol at first.
-      .replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+      .replace(String.valueOf(CharacterCatalog.DOLLAR), DOLLAR_SYMBOL_CODE)
 
-      .replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-      .replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
-      .replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-      .replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+      .replace(String.valueOf(CharacterCatalog.DOT), DOT_CODE)
+      .replace(String.valueOf(CharacterCatalog.COMMA), COMMA_CODE)
+      .replace(String.valueOf(CharacterCatalog.OPEN_BRACKET), OPEN_BRACKET_CODE)
+      .replace(String.valueOf(CharacterCatalog.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
   }
 
   /**
@@ -140,13 +140,13 @@ public final class ChainedNode implements IChainedNode {
   public static String getStoredginStringFromEscapeString(final String escapeString) {
 
     return escapeString
-      .replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
-      .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+      .replace(DOT_CODE, String.valueOf(CharacterCatalog.DOT))
+      .replace(COMMA_CODE, String.valueOf(CharacterCatalog.COMMA))
+      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalog.OPEN_BRACKET))
+      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalog.CLOSED_BRACKET))
 
       //It is essential to replace the dollar symbol code at last.
-      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalog.DOLLAR));
   }
 
   /**
@@ -454,7 +454,7 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the current ChainedNode has a header.
     if (header == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
     }
 
     return getEscapeStringFor(header);
@@ -485,7 +485,7 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the current ChainedNode has a header.
     if (header == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
     }
 
     return header;
@@ -896,15 +896,15 @@ public final class ChainedNode implements IChainedNode {
     var nextIndex = startIndex;
     while (nextIndex < string.length()) {
       switch (string.charAt(nextIndex)) {
-        case CharacterCatalogue.OPEN_BRACKET:
+        case CharacterCatalog.OPEN_BRACKET:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(
             nextIndex - startIndex,
             TaskAfterSetHeader.MAP_CHILD_NODES_AND_POTENTIAL_NEXT_NODE);
-        case CharacterCatalogue.COMMA:
+        case CharacterCatalog.COMMA:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
-        case CharacterCatalogue.CLOSED_BRACKET:
+        case CharacterCatalog.CLOSED_BRACKET:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
-        case CharacterCatalogue.DOT:
+        case CharacterCatalog.DOT:
           return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex,
             TaskAfterSetHeader.MAP_NEXT_NODE);
         default:
@@ -1027,13 +1027,13 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the given header is not null.
     if (header == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.HEADER);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.HEADER);
     }
 
     //Asserts that the given header is not blank.
     if (header.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.HEADER,
+        LowerCaseVariableCatalog.HEADER,
         header,
         "is blank");
     }

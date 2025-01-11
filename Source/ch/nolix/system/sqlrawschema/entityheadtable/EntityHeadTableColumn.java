@@ -2,7 +2,7 @@ package ch.nolix.system.sqlrawschema.entityheadtable;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public enum EntityHeadTableColumn implements INameHolder {
   TABLE_ID("TableId"),
@@ -12,7 +12,7 @@ public enum EntityHeadTableColumn implements INameHolder {
 
   EntityHeadTableColumn(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
   }

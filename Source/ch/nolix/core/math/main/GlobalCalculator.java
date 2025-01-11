@@ -9,7 +9,7 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * The {@link GlobalCalculator} provides mathematical functions.
@@ -146,11 +146,11 @@ public final class GlobalCalculator {
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
 
     //Asserts that the given degree is not negative.
-    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalogue.DEGREE).isNotNegative();
+    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isNotNegative();
 
     //Asserts that the given degree is not bigger than the count of the given
     //xValues.
-    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalogue.DEGREE).isNotBiggerThan(xValues.length);
+    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isNotBiggerThan(xValues.length);
 
     //Asserts that the count of the given yValues equals the count of the given
     //xValues.

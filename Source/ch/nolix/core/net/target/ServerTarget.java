@@ -1,10 +1,10 @@
 package ch.nolix.core.net.target;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class ServerTarget implements IServerTarget {
 
@@ -20,7 +20,7 @@ public class ServerTarget implements IServerTarget {
     final SecurityMode securityModeForConnections) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalogue.PORT).isPort();
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 
     GlobalValidator
       .assertThat(securityModeForConnections)
@@ -66,7 +66,7 @@ public class ServerTarget implements IServerTarget {
 
   private String toHttpsUrl() {
 
-    if (getPort() == PortCatalogue.HTTPS) {
+    if (getPort() == PortCatalog.HTTPS) {
       return String.format("https://%s", getIpOrDomain());
     }
 
@@ -75,7 +75,7 @@ public class ServerTarget implements IServerTarget {
 
   private String toHttpUrl() {
 
-    if (getPort() == PortCatalogue.HTTP) {
+    if (getPort() == PortCatalog.HTTP) {
       return String.format("http://%s", getIpOrDomain());
     }
 

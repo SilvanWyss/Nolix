@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.systemapi.objectdataapi.datavalidatorapi.IEntityValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -41,7 +41,7 @@ public final class EntityValidator implements IEntityValidator {
   public void assertHasSaveStamp(final IEntity entity) {
     if (!entity.hasSaveStamp()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseVariableCatalogue.SAVE_STAMP);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseVariableCatalog.SAVE_STAMP);
     }
   }
 

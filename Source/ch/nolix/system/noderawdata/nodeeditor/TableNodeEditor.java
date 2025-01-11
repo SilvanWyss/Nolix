@@ -1,9 +1,9 @@
 package ch.nolix.system.noderawdata.nodeeditor;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalogue;
+import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalog;
 import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public final class TableNodeEditor implements ITableNodeEditor {
   public IMutableNode<?> removeAndGetStoredEntityNodeById(final IMutableNode<?> tableNode, final String id) {
     return //
     tableNode.removeAndGetStoredFirstChildNodeThat(
-      a -> a.hasHeader(NodeHeaderCatalogue.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
+      a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
+      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }
 }

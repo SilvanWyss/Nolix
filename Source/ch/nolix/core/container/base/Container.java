@@ -23,10 +23,10 @@ import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -75,7 +75,7 @@ implements IContainer<E> {
   public final boolean containsAll(final Iterable<?> objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -123,7 +123,7 @@ implements IContainer<E> {
   public final boolean containsAll(final Object[] objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -150,7 +150,7 @@ implements IContainer<E> {
   public final boolean containsAny(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -198,7 +198,7 @@ implements IContainer<E> {
   public final boolean containsAnyOf(final Iterable<?> objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -228,7 +228,7 @@ implements IContainer<E> {
   public final boolean containsAnyOf(final Object[] objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalogue.OBJECTS).isNotNull();
+    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -471,7 +471,7 @@ implements IContainer<E> {
   public final boolean containsOne(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes found.
     var found = false;
@@ -542,7 +542,7 @@ implements IContainer<E> {
   public final boolean containsOnly(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -597,7 +597,7 @@ implements IContainer<E> {
       if (mapper == null) {
 
         //Creates and throws a new ArgumentIsNullException. 
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.MAPPER);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MAPPER);
       }
 
       //Returns 0.0.
@@ -618,7 +618,7 @@ implements IContainer<E> {
   public final int getCount(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes count.
     var count = 0;
@@ -675,7 +675,7 @@ implements IContainer<E> {
   public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes local1BasedIndex.
     var local1BasedIndex = 1;
@@ -1030,7 +1030,7 @@ implements IContainer<E> {
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1198,7 +1198,7 @@ implements IContainer<E> {
   public final <E2 extends E> E2 getStoredFirstOfType(final Class<E2> type) {
 
     //Asserts that the given type is not null.
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
     return (E2) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
@@ -1285,7 +1285,7 @@ implements IContainer<E> {
   public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
 
     //Asserts that the given type is not null.
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalogue.TYPE).isNotNull();
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
@@ -1321,7 +1321,7 @@ implements IContainer<E> {
   public final E getStoredOne(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElement.
     E selectedElement = null;
@@ -1367,7 +1367,7 @@ implements IContainer<E> {
   public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes otherElements.
     final var otherElements = createEmptyMutableList(new Marker<E>());
@@ -1400,7 +1400,7 @@ implements IContainer<E> {
   public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalogue.SELECTOR).isNotNull();
+    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElements.
     final var selectedElements = createEmptyMutableList(new Marker<E>());
@@ -1684,7 +1684,7 @@ implements IContainer<E> {
   public final <E2> IContainer<E2> to(final Function<E, E2> mapper) {
 
     //Asserts that the given mapper is not null.
-    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalogue.MAPPER).isNotNull();
+    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
@@ -1696,7 +1696,7 @@ implements IContainer<E> {
       if (e == null) {
 
         //Creates and throws a ArgumentIsNullException.
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
       }
 
       //Lets the given given mapper create mappingElement from the current element.
@@ -1795,7 +1795,7 @@ implements IContainer<E> {
 
       //Handles the case that the current element is null.
       if (e == null) {
-        array[index] = CharacterCatalogue.SPACE;
+        array[index] = CharacterCatalog.SPACE;
 
         //Handles the case that the current element is not  null.
       } else {
@@ -1959,7 +1959,7 @@ implements IContainer<E> {
       if (e == null) {
 
         //Creates and throws a ArgumentIsNullException.
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
       }
 
       //Adds the elements the given multipleMapper maps from the current element at the end of the list.
@@ -2096,7 +2096,7 @@ implements IContainer<E> {
     //Enumerates the element count of the current Container.
     return switch (getCount()) {
       case 0 ->
-        StringCatalogue.EMPTY_STRING;
+        StringCatalog.EMPTY_STRING;
       case 1 ->
         getStoredFirst().toString();
       default ->
@@ -2115,7 +2115,7 @@ implements IContainer<E> {
   public final <E2> IContainer<E2> toWithOneBasedIndex(final BiFunction<Integer, E, E2> mapper) {
 
     //Asserts that the given mapper is not null.
-    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalogue.MAPPER).isNotNull();
+    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
@@ -2130,7 +2130,7 @@ implements IContainer<E> {
       if (e == null) {
 
         //Creates and throws a ArgumentIsNullException.
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.ELEMENT);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
       }
 
       //Lets the given mapper create mappingElement from the current element.
@@ -2236,7 +2236,7 @@ implements IContainer<E> {
   private String toStringWhenContainsSeveralElements(final String separator) {
 
     //Asserts that the given separator is not null.
-    GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalogue.SEPARATOR).isNotNull();
+    GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalog.SEPARATOR).isNotNull();
 
     //Creates a StringBuilder.
     final var stringBuilder = new StringBuilder();

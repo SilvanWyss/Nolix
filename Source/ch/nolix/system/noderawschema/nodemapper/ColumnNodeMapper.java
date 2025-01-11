@@ -2,7 +2,7 @@ package ch.nolix.system.noderawschema.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IColumnNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
@@ -22,18 +22,18 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
   public INode<?> mapColumnDtoToNode(final ColumnDto columnDto) {
     return //
     Node.withHeaderAndChildNode(
-      NodeHeaderCatalogue.COLUMN,
+      NodeHeaderCatalog.COLUMN,
       createIdNodeFrom(columnDto),
       createNameNodeFrom(columnDto),
       mapContentModelDtoToNode(columnDto));
   }
 
   private Node createIdNodeFrom(final ColumnDto column) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.ID, column.id());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, column.id());
   }
 
   private Node createNameNodeFrom(final ColumnDto column) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalogue.NAME, column.name());
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, column.name());
   }
 
   private INode<?> mapContentModelDtoToNode(final ColumnDto column) {

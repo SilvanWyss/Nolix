@@ -11,7 +11,7 @@ import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link Polynom} is not mutable.
@@ -95,7 +95,7 @@ public final class Polynom {
 
     //Asserts that the given degree is between 0 and the degree of the current
     //Polynom.
-    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalogue.DEGREE).isBetween(0, getDegree());
+    GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isBetween(0, getDegree());
 
     return coefficients[coefficients.length - degree - 1];
   }

@@ -10,7 +10,7 @@ import java.lang.reflect.Member;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class GlobalReflectionTool {
 
@@ -41,7 +41,7 @@ public final class GlobalReflectionTool {
 
   public static Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalogue.VALUE).isNotNull();
+    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     var localClass = object.getClass();
     while (localClass != null) {

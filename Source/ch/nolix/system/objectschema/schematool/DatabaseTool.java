@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
 import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
@@ -44,7 +44,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
     if (!canAddGivenTable(database, table)) {
 
       if (table == null) {
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.TABLE);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TABLE);
       }
 
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -57,7 +57,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   public void assertCanSetGivenNameToDatabase(final String name) {
     if (!canSetGivenNameToDatabase(name)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalogue.NAME,
+        LowerCaseVariableCatalog.NAME,
         name,
         "cannot be set to database");
     }

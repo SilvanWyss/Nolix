@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiReferenceEntryTableColumn;
@@ -16,7 +16,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     return //
     "SELECT COUNT(*) FROM "
     + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifyingPrefix()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + columnId
@@ -39,7 +39,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
     + " FROM "
     + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
@@ -56,7 +56,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
     + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId

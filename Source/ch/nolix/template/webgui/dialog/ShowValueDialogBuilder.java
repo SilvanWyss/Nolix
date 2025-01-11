@@ -3,8 +3,8 @@ package ch.nolix.template.webgui.dialog;
 import java.util.function.Consumer;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
@@ -19,13 +19,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 
-  private static final String DEFAULT_VALUE_NAME = LowerCaseVariableCatalogue.VALUE;
+  private static final String DEFAULT_VALUE_NAME = LowerCaseVariableCatalog.VALUE;
 
-  private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;
+  private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalog.LONG_LEFT_ARROW;
 
   private String valueName = DEFAULT_VALUE_NAME;
 
-  private String value = StringCatalogue.ZERO;
+  private String value = StringCatalog.ZERO;
 
   private String confirmButtonText = DEFAULT_CONFIRM_BUTTON_TEXT;
 

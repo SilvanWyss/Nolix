@@ -8,9 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.webgui.main.Control;
@@ -25,11 +25,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
 
-  public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
+  public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
-  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
-  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableCatalog.TEXT;
 
   private static final LabelHtmlBuilder HTML_BUILDER = new LabelHtmlBuilder();
 
@@ -71,7 +71,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public String getUserInput() {
-    return StringCatalogue.EMPTY_STRING;
+    return StringCatalog.EMPTY_STRING;
   }
 
   @Override
@@ -110,7 +110,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
   @Override
   public ILabel setText(final String text) {
 
-    GlobalValidator.assertThat(text).thatIsNamed(LowerCaseVariableCatalogue.TEXT).isNotNull();
+    GlobalValidator.assertThat(text).thatIsNamed(LowerCaseVariableCatalog.TEXT).isNotNull();
 
     this.text.setValue(text);
 

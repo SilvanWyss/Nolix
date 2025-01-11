@@ -1,6 +1,6 @@
 package ch.nolix.system.element.style;
 
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
  */
 public abstract class StyleElement<E extends StyleElement<E>> extends StylableElement<E> implements IStyleElement<E> {
 
-  private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalogue.CONFIGURATION;
+  private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalog.CONFIGURATION;
 
   private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(
     CONFIGURATION_HEADER,

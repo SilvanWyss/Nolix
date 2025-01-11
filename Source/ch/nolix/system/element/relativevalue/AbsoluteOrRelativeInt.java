@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 
@@ -49,7 +49,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    */
   private AbsoluteOrRelativeInt(final double percentage) {
 
-    GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalogue.PERCENTAGE).isNotNegative();
+    GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalog.PERCENTAGE).isNotNegative();
 
     isAbsolute = false;
     absoluteValue = 0;
@@ -187,7 +187,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   private void assertIsRelative() {
     if (!isRelative()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.PERCENTAGE);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.PERCENTAGE);
     }
   }
 }

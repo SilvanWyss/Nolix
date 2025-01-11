@@ -5,12 +5,12 @@ import java.lang.reflect.Method;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class MethodMediator extends ArgumentMediator<Method> {
 
   MethodMediator(final Method argument) {
-    super(LowerCaseVariableCatalogue.METHOD, argument);
+    super(LowerCaseVariableCatalog.METHOD, argument);
   }
 
   MethodMediator(final String argumentName, final Method argument) {

@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalogue;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiValueEntryTableColumn;
@@ -16,7 +16,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     return //
     "SELECT COUNT(*) FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifyingPrefix()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getQualifiedName()
     + " = '"
     + value
@@ -34,7 +34,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     + MultiValueEntryTableColumn.VALUE.getName()
     + " FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
@@ -52,7 +52,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     return //
     "SELECT TOP 1 * FROM "
     + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalogue.WHERE
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + columnId

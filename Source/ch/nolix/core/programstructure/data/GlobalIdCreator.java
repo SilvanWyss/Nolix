@@ -2,7 +2,7 @@ package ch.nolix.core.programstructure.data;
 
 import java.util.UUID;
 
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 public final class GlobalIdCreator {
 
@@ -10,6 +10,6 @@ public final class GlobalIdCreator {
   }
 
   public static String createIdOf10HexadecimalCharacters() {
-    return UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING).substring(22, 32);
+    return UUID.randomUUID().toString().replace(StringCatalog.MINUS, StringCatalog.EMPTY_STRING).substring(22, 32);
   }
 }

@@ -4,7 +4,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
@@ -14,19 +14,19 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   @Override
   public IHtmlElement createHtmlElementForControl(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
-      HtmlElementTypeCatalogue.DIV,
+      HtmlElementTypeCatalog.DIV,
       createHtmlElementForTableOfGrid(control));
   }
 
   public HtmlElement createHtmlElementForTableOfGrid(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
-      HtmlElementTypeCatalogue.TABLE,
+      HtmlElementTypeCatalog.TABLE,
       createHtmlElementForTableBodyOfGrid(control));
   }
 
   private HtmlElement createHtmlElementForTableBodyOfGrid(final IGrid grid) {
     return HtmlElement.withTypeAndChildElements(
-      HtmlElementTypeCatalogue.TBODY,
+      HtmlElementTypeCatalog.TBODY,
       createHtmlElementsForChildControlsOfGrid(grid));
   }
 
@@ -43,7 +43,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 
   private HtmlElement createHtmlElementForRowOfGrid(final IGrid grid, final int rowIndex) {
     return HtmlElement.withTypeAndChildElements(
-      HtmlElementTypeCatalogue.TR,
+      HtmlElementTypeCatalog.TR,
       createHtmlElementsForCellsOfRowOfGrid(grid, rowIndex));
   }
 
@@ -61,11 +61,11 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   private HtmlElement createHtmlElementForCellOfGrid(final IGrid grid, final int rowIndex, final int columnIndex) {
 
     if (!grid.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
-      return HtmlElement.withType(HtmlElementTypeCatalogue.TD);
+      return HtmlElement.withType(HtmlElementTypeCatalog.TD);
     }
 
     final var childControl = grid.getStoredChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
     final var childControlHtmlElement = childControl.getHtml();
-    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHtmlElement);
+    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalog.TD, childControlHtmlElement);
   }
 }

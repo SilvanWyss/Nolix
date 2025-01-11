@@ -6,9 +6,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
@@ -20,9 +20,9 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
-  private static final String ID_HEADER = PascalCaseVariableCatalogue.ID;
+  private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
 
-  private static final String TEXT_HEADER = PascalCaseVariableCatalogue.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableCatalog.TEXT;
 
   private static final String SELECTION_FLAG_HEADER = "Selected";
 
@@ -61,7 +61,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   }
 
   public static ItemMenuItem createBlankItem() {
-    return withText(StringCatalogue.EMPTY_STRING);
+    return withText(StringCatalog.EMPTY_STRING);
   }
 
   public static ItemMenuItem fromSpecification(final INode<?> specification) {
@@ -214,7 +214,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   private void setId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id.setValue(id);
   }

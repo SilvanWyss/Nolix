@@ -2,13 +2,13 @@ package ch.nolix.application.relationaldoc.backend.dataadapter;
 
 import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableObjectExaminer;
 import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
-import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalogue;
+import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalog;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.dataadapterapi.IDataAdapter;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 
 public final class DataAdapter implements IDataAdapter {
@@ -29,8 +29,8 @@ public final class DataAdapter implements IDataAdapter {
     final var nodeDataAdapter = //
     NodeDataAdapter
       .forNodeDatabase(nodeDatabase)
-      .withName(LowerCaseVariableCatalogue.DATABASE)
-      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .withName(LowerCaseVariableCatalog.DATABASE)
+      .andSchema(SchemaCatalog.RELATIONAL_DOC_SCHEMA);
 
     return new DataAdapter(nodeDataAdapter);
   }

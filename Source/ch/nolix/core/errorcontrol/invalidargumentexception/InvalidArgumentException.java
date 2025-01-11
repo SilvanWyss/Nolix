@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException} that is
@@ -356,7 +356,7 @@ public class InvalidArgumentException extends RuntimeException {
 
     //Handles the case that the given argument is null.
     if (argument == null) {
-      return StringCatalogue.EMPTY_STRING;
+      return StringCatalog.EMPTY_STRING;
     }
 
     try {
@@ -366,13 +366,13 @@ public class InvalidArgumentException extends RuntimeException {
 
       //Handles the case that the String representation is null.
       if (string == null) {
-        return StringCatalogue.NULL_HEADER;
+        return StringCatalog.NULL_HEADER;
       }
 
       //Handles the case that the String representation is not null.
       return string;
     } catch (final Throwable error) { //NOSONAR: Each Throwable must be caught here.
-      return StringCatalogue.EMPTY_STRING;
+      return StringCatalog.EMPTY_STRING;
     }
   }
 
@@ -388,7 +388,7 @@ public class InvalidArgumentException extends RuntimeException {
 
     //Handles the case that the stringRepresentation is blank.
     if (stringRepresentation.isBlank()) {
-      return StringCatalogue.SPACE;
+      return StringCatalog.SPACE;
     }
 
     //Handles the case that the length of the stringRepresentation is not bigger

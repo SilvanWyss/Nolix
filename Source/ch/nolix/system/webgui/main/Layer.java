@@ -10,13 +10,13 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StylableElement;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
@@ -39,15 +39,15 @@ implements ILayer<Layer> {
 
   public static final double DEFAULT_OPACITY = 1.0;
 
-  public static final IColor DEFAULT_BACKGROUND_COLOR = X11ColorCatalogue.WHITE;
+  public static final IColor DEFAULT_BACKGROUND_COLOR = X11ColorCatalog.WHITE;
 
   public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 
-  private static final String ROLE_HEADER = PascalCaseVariableCatalogue.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
-  private static final String OPACITY_HEADER = PascalCaseVariableCatalogue.OPACITY;
+  private static final String OPACITY_HEADER = PascalCaseVariableCatalog.OPACITY;
 
-  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalogue.BACKGROUND;
+  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalog.BACKGROUND;
 
   private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
 

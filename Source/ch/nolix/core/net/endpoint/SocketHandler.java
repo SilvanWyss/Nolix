@@ -21,7 +21,7 @@ import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.SocketType;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class SocketHandler {
 
@@ -161,7 +161,7 @@ public final class SocketHandler {
       final var line = INPUT_STREAM_TOOL.readLineFromInputStream(inputStream);
 
       if (line == null) {
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalogue.LINE);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.LINE);
       }
 
       if (line.isEmpty()) {

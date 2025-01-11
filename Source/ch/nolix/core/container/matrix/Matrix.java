@@ -17,8 +17,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.CharacterCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * A {@link Matrix} is a {@link Container} that stores its elements in rows and
@@ -519,7 +519,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     //Asserts that the given element is not null.
     GlobalValidator
       .assertThat(element)
-      .thatIsNamed(LowerCaseVariableCatalogue.ELEMENT)
+      .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
 
     //Sets the given element at the given index to the current matrix.
@@ -559,7 +559,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     //Asserts that the given element is not null.
     GlobalValidator
       .assertThat(element)
-      .thatIsNamed(LowerCaseVariableCatalogue.ELEMENT)
+      .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
 
     elements[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] = element;
@@ -675,14 +675,14 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     for (var i = 0; i < getRowCount(); i++) {
 
       if (i > 0) {
-        stringBuilder.append(CharacterCatalogue.SEMICOLON);
+        stringBuilder.append(CharacterCatalog.SEMICOLON);
       }
 
       //Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
 
         if (j > 0) {
-          stringBuilder.append(CharacterCatalogue.COMMA);
+          stringBuilder.append(CharacterCatalog.COMMA);
         }
 
         stringBuilder.append(elements[i][j].toString());
@@ -711,12 +711,12 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
     GlobalValidator
       .assertThat(index)
-      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isPositive();
 
     GlobalValidator
       .assertThat(index)
-      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());
   }
 
@@ -737,22 +737,22 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isPositive();
 
     GlobalValidator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isNotBiggerThan(getRowCount());
 
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isPositive();
 
     GlobalValidator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalogue.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isNotBiggerThan(getColumnCount());
   }
 }

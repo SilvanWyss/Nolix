@@ -8,8 +8,8 @@ import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
@@ -62,7 +62,7 @@ implements IControlCssBuilder<C, S> {
     final ILinkedList<ICssRule> allStateCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndAllStatesIntoList(control, allStateCssRules);
     for (final var r : allStateCssRules) {
-      list.addAtEnd(r.withPrefixedSelector(allStateSelectorPrefix + StringCatalogue.SPACE));
+      list.addAtEnd(r.withPrefixedSelector(allStateSelectorPrefix + StringCatalog.SPACE));
     }
   }
 
@@ -71,7 +71,7 @@ implements IControlCssBuilder<C, S> {
     final ILinkedList<ICssRule> baseCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, baseCssRules);
     for (final var r : baseCssRules) {
-      list.addAtEnd(r.withPrefixedSelector(baseSelectorPrefix + StringCatalogue.SPACE));
+      list.addAtEnd(r.withPrefixedSelector(baseSelectorPrefix + StringCatalog.SPACE));
     }
   }
 
@@ -116,7 +116,7 @@ implements IControlCssBuilder<C, S> {
     final ILinkedList<ICssRule> focusCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndStateIntoList(control, ControlState.FOCUS, focusCssRules);
     for (final var r : focusCssRules) {
-      list.addAtEnd(r.withPrefixedSelector(focusSelectorPrefix + StringCatalogue.SPACE));
+      list.addAtEnd(r.withPrefixedSelector(focusSelectorPrefix + StringCatalog.SPACE));
     }
   }
 
@@ -125,7 +125,7 @@ implements IControlCssBuilder<C, S> {
     final ILinkedList<ICssRule> hoverCssRules = LinkedList.createEmpty();
     fillUpCssRulesForControlAndStateIntoList(control, ControlState.HOVER, hoverCssRules);
     for (final var r : hoverCssRules) {
-      list.addAtEnd(r.withPrefixedSelector(hoverSelectorPrefix + StringCatalogue.SPACE));
+      list.addAtEnd(r.withPrefixedSelector(hoverSelectorPrefix + StringCatalog.SPACE));
     }
   }
 
@@ -138,43 +138,43 @@ implements IControlCssBuilder<C, S> {
 
     list.addAtEnd(
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_STYLE,
+        CssPropertyNameCatalog.BORDER_STYLE,
         "solid"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_LEFT_WIDTH,
+        CssPropertyNameCatalog.BORDER_LEFT_WIDTH,
         String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_LEFT_COLOR,
+        CssPropertyNameCatalog.BORDER_LEFT_COLOR,
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getLeftBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.PADDING_LEFT,
+        CssPropertyNameCatalog.PADDING_LEFT,
         String.valueOf(style.getLeftPaddingWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_RIGHT_WIDTH,
+        CssPropertyNameCatalog.BORDER_RIGHT_WIDTH,
         String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_RIGHT_COLOR,
+        CssPropertyNameCatalog.BORDER_RIGHT_COLOR,
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getRightBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.PADDING_RIGHT,
+        CssPropertyNameCatalog.PADDING_RIGHT,
         String.valueOf(style.getRightPaddingWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_TOP_WIDTH,
+        CssPropertyNameCatalog.BORDER_TOP_WIDTH,
         String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_TOP_COLOR,
+        CssPropertyNameCatalog.BORDER_TOP_COLOR,
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getTopBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.PADDING_TOP,
+        CssPropertyNameCatalog.PADDING_TOP,
         String.valueOf(style.getTopPaddingWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_BOTTOM_WIDTH,
+        CssPropertyNameCatalog.BORDER_BOTTOM_WIDTH,
         String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + "px"),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
+        CssPropertyNameCatalog.BORDER_BOTTOM_COLOR,
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getBottomBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.PADDING_BOTTOM,
+        CssPropertyNameCatalog.PADDING_BOTTOM,
         String.valueOf(style.getBottomPaddingWhenHasState(state)) + "px"));
 
     list.addAtEnd(style.getBackgroundWhenHasState(state).toCssProperties());
@@ -190,7 +190,7 @@ implements IControlCssBuilder<C, S> {
     if (style.definesWidthForState(state)) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.WIDTH,
+          CssPropertyNameCatalog.WIDTH,
           CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             style.getWidthForState(state),
             "vw")));
@@ -199,7 +199,7 @@ implements IControlCssBuilder<C, S> {
     if (style.definesHeightForState(state)) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.HEIGHT,
+          CssPropertyNameCatalog.HEIGHT,
           CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             style.getHeightForState(state),
             "vh")));
@@ -226,13 +226,13 @@ implements IControlCssBuilder<C, S> {
 
   private final ICssRule getCssRuleForControlAndAllStates(final C control) {
     return CssRule.withSelectorAndProperties(
-      StringCatalogue.EMPTY_STRING,
+      StringCatalog.EMPTY_STRING,
       getCssPropertiesForControlAndAllStates(control));
   }
 
   private final ICssRule getCssRuleForControlAndState(final C control, final ControlState state) {
     return CssRule.withSelectorAndProperties(
-      StringCatalogue.EMPTY_STRING,
+      StringCatalog.EMPTY_STRING,
       getCssPropertiesForControlAndState(control, state));
   }
 
@@ -267,7 +267,7 @@ implements IControlCssBuilder<C, S> {
     if (control.hasMinWidth()) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.MIN_WIDTH,
+          CssPropertyNameCatalog.MIN_WIDTH,
           CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMinWidth(),
             "vw")));
@@ -276,7 +276,7 @@ implements IControlCssBuilder<C, S> {
     if (control.hasMinHeight()) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.MIN_HEIGHT,
+          CssPropertyNameCatalog.MIN_HEIGHT,
           CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMinHeight(),
             "vh")));
@@ -285,7 +285,7 @@ implements IControlCssBuilder<C, S> {
     if (control.hasMaxWidth()) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.MAX_WIDTH,
+          CssPropertyNameCatalog.MAX_WIDTH,
           CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMaxWidth(),
             "vw")));
@@ -294,7 +294,7 @@ implements IControlCssBuilder<C, S> {
     if (control.hasMaxHeight()) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.MAX_HEIGHT,
+          CssPropertyNameCatalog.MAX_HEIGHT,
           CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
             control.getMaxHeight(),
             "vh")));
@@ -302,7 +302,7 @@ implements IControlCssBuilder<C, S> {
 
     list.addAtEnd(
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.CURSOR,
+        CssPropertyNameCatalog.CURSOR,
         control.getCursorIcon().toCssValue()));
 
     fillUpCssPropertiesForControlAndAllStatesIntoList(control, list);
@@ -319,19 +319,19 @@ implements IControlCssBuilder<C, S> {
     if (opacity < 1.0) {
       list.addAtEnd(
         CssProperty.withNameAndValue(
-          CssPropertyNameCatalogue.OPACITY,
+          CssPropertyNameCatalog.OPACITY,
           opacity));
     }
 
     list.addAtEnd(
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.COLOR,
+        CssPropertyNameCatalog.COLOR,
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getTextColorWhenHasState(state))),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.FONT_FAMILY,
+        CssPropertyNameCatalog.FONT_FAMILY,
         style.getFontWhenHasState(state).getCode().toLowerCase(Locale.ENGLISH)),
       CssProperty.withNameAndValue(
-        CssPropertyNameCatalogue.FONT_SIZE,
+        CssPropertyNameCatalog.FONT_SIZE,
         String.valueOf(style.getTextSizeWhenHasState(state)) + "px"),
       getFontWeightCssPropertyForControlAndState(control, state));
 

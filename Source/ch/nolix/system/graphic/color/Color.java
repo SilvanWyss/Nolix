@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.stringcatalogueapi.StringCatalogue;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
@@ -212,7 +212,7 @@ public final class Color extends AbstractElement implements IColor {
     if (webColorAndName.isEmpty()) {
 
       if ((string.length() != 8 || string.length() != 10)
-      && !string.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
+      && !string.substring(0, 2).equals(StringCatalog.HEXADECIMAL_PREFIX)) {
         throw UnrepresentingArgumentException.forArgumentAndType(string, Color.class);
       }
 
@@ -511,7 +511,7 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public String toHexadecimalString() {
 
-    var string = StringCatalogue.HEXADECIMAL_PREFIX
+    var string = StringCatalog.HEXADECIMAL_PREFIX
     + String.format("%02X", redValue)
     + String.format("%02X", greenValue)
     + String.format("%02X", blueValue);
@@ -529,7 +529,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public String toHexadecimalStringWithAlphaValue() {
-    return StringCatalogue.HEXADECIMAL_PREFIX
+    return StringCatalog.HEXADECIMAL_PREFIX
     + String.format("%02X", redValue)
     + String.format("%02X", greenValue)
     + String.format("%02X", blueValue)

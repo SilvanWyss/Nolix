@@ -6,8 +6,8 @@ import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
@@ -19,7 +19,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
-      HtmlElementTypeCatalogue.A,
+      HtmlElementTypeCatalog.A,
       createHtmlAttributesForControl(control),
       control.getDisplayText());
   }
@@ -51,7 +51,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
       case NEW_TAB ->
         HtmlAttribute.withNameAndValue("target", "_blank");
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.TARGET, target);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.TARGET, target);
     };
   }
 }

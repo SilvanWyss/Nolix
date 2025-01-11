@@ -4,7 +4,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.X11ColorCatalogue;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.webguiapi.containerapi.GridType;
@@ -17,7 +17,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
 
   public static final int DEFAULT_GRID_THICKNESS = 1;
 
-  public static final Color DEFAULT_GRID_COLOR = X11ColorCatalogue.BLACK;
+  public static final Color DEFAULT_GRID_COLOR = X11ColorCatalog.BLACK;
 
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 

@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class MockSlot implements ISlot {
 
@@ -43,7 +43,7 @@ public final class MockSlot implements ISlot {
 
   private String getReply(final String message) {
 
-    GlobalValidator.assertThat(message).thatIsNamed(LowerCaseVariableCatalogue.MESSAGE).isNotNull();
+    GlobalValidator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
 
     latestReceivedMessage = message;
 

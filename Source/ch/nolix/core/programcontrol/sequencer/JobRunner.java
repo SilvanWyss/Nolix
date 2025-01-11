@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -42,7 +42,7 @@ final class JobRunner extends Thread {
   public JobRunner(final Runnable job) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.job = job;
     maxRunCount = null;
@@ -64,7 +64,7 @@ final class JobRunner extends Thread {
   public JobRunner(final Runnable job, final BooleanSupplier condition) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
@@ -94,10 +94,10 @@ final class JobRunner extends Thread {
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalogue.CONDITION).isNotNull();
+    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     //Asserts that the given timeIntervalInMilliseconds is not negative.
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
@@ -125,7 +125,7 @@ final class JobRunner extends Thread {
     final int maxRunCount) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given maxRunCount is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -155,13 +155,13 @@ final class JobRunner extends Thread {
     final BooleanSupplier condition) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given maxRunCount is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalogue.CONDITION).isNotNull();
+    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.job = job;
     this.maxRunCount = maxRunCount;
@@ -192,13 +192,13 @@ final class JobRunner extends Thread {
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given max run count is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalogue.CONDITION).isNotNull();
+    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     //Asserts that the given timeIntervalInMilliseconds is not negative.
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
@@ -229,7 +229,7 @@ final class JobRunner extends Thread {
     final int timeIntervalInMilliseconds) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalogue.JOB).isNotNull();
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given maxRunCount is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -267,7 +267,7 @@ final class JobRunner extends Thread {
 
     //Asserts that the current JobRunner has an error.
     if (error == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.ERROR);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
     }
 
     return error;

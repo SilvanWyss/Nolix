@@ -5,7 +5,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalogue;
+import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
 
 public final class GlobalNolixEnvironmentProvider {
 
@@ -14,30 +14,30 @@ public final class GlobalNolixEnvironmentProvider {
 
   public static String getNolixConfigurationFilePath() {
 
-    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalogue.NOLIX_CONFIGURATION_FILE_PATH);
+    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH);
 
-    return NolixDirectoryAndFileCatalogue.NOLIX_CONFIGURATION_FILE_PATH;
+    return NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH;
   }
 
   public static String getNolixDirectoryPath() {
 
-    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalogue.NOLIX_DIRECTORY_PATH);
+    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_DIRECTORY_PATH);
 
-    return NolixDirectoryAndFileCatalogue.NOLIX_DIRECTORY_PATH;
+    return NolixDirectoryAndFileCatalog.NOLIX_DIRECTORY_PATH;
   }
 
   public static String getNolixLicensesDirectoryPath() {
 
-    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalogue.NOLIX_LICENSES_DIRECTORY_NAME);
+    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_NAME);
 
-    return NolixDirectoryAndFileCatalogue.NOLIX_LICENSES_DIRECTORY_NAME;
+    return NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_NAME;
   }
 
   public static String getNolixLogFilePath() {
 
-    createFileIfDoesNotExist(NolixDirectoryAndFileCatalogue.NOLIX_LOG_FILE_PATH);
+    createFileIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_LOG_FILE_PATH);
 
-    return NolixDirectoryAndFileCatalogue.NOLIX_LOG_FILE_PATH;
+    return NolixDirectoryAndFileCatalog.NOLIX_LOG_FILE_PATH;
   }
 
   private static void createDirectoryIfDoesNotExist(final String path) {

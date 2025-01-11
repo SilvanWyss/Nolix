@@ -2,8 +2,8 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
 
@@ -15,23 +15,23 @@ public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
   }
 
   public final N andHttpPort() {
-    return andPort(PortCatalogue.HTTP);
+    return andPort(PortCatalog.HTTP);
   }
 
   public final N andHttpsPort() {
-    return andPort(PortCatalogue.HTTPS);
+    return andPort(PortCatalog.HTTPS);
   }
 
   public final N andMsSqlPort() {
-    return andPort(PortCatalogue.MS_SQL);
+    return andPort(PortCatalog.MS_SQL);
   }
 
   public final N andPort(final int port) {
 
     GlobalValidator
       .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalogue.PORT)
-      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .thatIsNamed(LowerCaseVariableCatalog.PORT)
+      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     return setArgumentAndGetNext(port);
   }

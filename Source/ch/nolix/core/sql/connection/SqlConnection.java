@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
@@ -45,7 +45,7 @@ public abstract class SqlConnection implements ISqlConnection {
     final String userPassword) {
     this(
       sqlDatabaseEngine,
-      IPv4Catalogue.LOOP_BACK_ADDRESS,
+      IPv4Catalog.LOOP_BACK_ADDRESS,
       port,
       userName,
       userPassword);

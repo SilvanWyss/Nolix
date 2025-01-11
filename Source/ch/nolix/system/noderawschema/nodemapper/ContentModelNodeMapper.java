@@ -3,7 +3,7 @@ package ch.nolix.system.noderawschema.nodemapper;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalogue;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodemapperapi.IContentModelNodeMapper;
 import ch.nolix.systemapi.rawschemaapi.dto.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
@@ -31,126 +31,126 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           valueModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           valueModelDto.dataType().name()));
     }
 
     if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           optionalValueModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           optionalValueModelDto.dataType().name()));
     }
 
     if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           multiValueModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           multiValueModelDto.dataType().name()));
     }
 
     if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           referenceModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           referenceModelDto.dataType().name()),
         Node.withHeaderAndChildNodes(
-          NodeHeaderCatalogue.REFERENCED_TABLE_IDS,
+          NodeHeaderCatalog.REFERENCED_TABLE_IDS,
           referenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           optionalReferenceModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           optionalReferenceModelDto.dataType().name()),
         Node.withHeaderAndChildNodes(
-          NodeHeaderCatalogue.REFERENCED_TABLE_IDS,
+          NodeHeaderCatalog.REFERENCED_TABLE_IDS,
           optionalReferenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
     if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           multiReferenceModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           multiReferenceModelDto.dataType().name()),
         Node.withHeaderAndChildNodes(
-          NodeHeaderCatalogue.REFERENCED_TABLE_IDS,
+          NodeHeaderCatalog.REFERENCED_TABLE_IDS,
           multiReferenceModelDto.referencedTableIds().to(Node::withHeader)));
     }
 
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           backReferenceModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           backReferenceModelDto.dataType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
+          NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
           backReferenceModelDto.backReferencedColumnId()));
     }
 
     if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           optionalBackReferenceModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           optionalBackReferenceModelDto.dataType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
+          NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
           optionalBackReferenceModelDto.backReferencedColumnId()));
     }
 
     if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
       return //
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalogue.CONTENT_MODEL,
+        NodeHeaderCatalog.CONTENT_MODEL,
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.CONTENT_TYPE,
+          NodeHeaderCatalog.CONTENT_TYPE,
           multiBackReferenceModelDto.getContentType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.DATA_TYPE,
+          NodeHeaderCatalog.DATA_TYPE,
           multiBackReferenceModelDto.dataType().name()),
         Node.withHeaderAndChildNode(
-          NodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
+          NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
           multiBackReferenceModelDto.backReferencedColumnId()));
     }
 
