@@ -89,7 +89,7 @@ final class InternalDataReader {
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
           entityId,
           multiValueColumnInfo.id()))
-      .to(r -> VALUE_MAPPER.mapValueToString(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.dataType()));
+      .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.dataType()));
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {

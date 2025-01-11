@@ -14,7 +14,6 @@ public interface IValueMapper {
    * @return a new value from the given string according to the given dataType.
    * @throws RuntimeException if the given string does not represent a value of
    *                          the given dataType.
-   * @throws RuntimeException if the given dataType is null.
    */
-  Object mapValueToString(String string, DataType dataType);
+  Object mapStringToValue(String string, DataType dataType);
 }

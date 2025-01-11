@@ -111,7 +111,7 @@ public final class InternalDataReader {
 
     return multiValueNode
       .getStoredChildNodes()
-      .to(a -> VALUE_MAPPER.mapValueToString(a.getHeader(), multiValueColumnInfo.dataType()));
+      .to(a -> VALUE_MAPPER.mapStringToValue(a.getHeader(), multiValueColumnInfo.dataType()));
   }
 
   public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {

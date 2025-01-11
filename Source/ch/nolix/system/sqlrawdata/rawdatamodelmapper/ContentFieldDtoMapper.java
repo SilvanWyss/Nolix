@@ -24,7 +24,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
     final var columnName = columnView.name();
     final var dataType = columnView.dataType();
-    final var content = VALUE_MAPPER.mapValueToString(string, dataType);
+    final var content = VALUE_MAPPER.mapStringToValue(string, dataType);
 
     return ContentFieldDto.withColumnNameAndContent(columnName, content);
   }

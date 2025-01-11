@@ -26,6 +26,6 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
     return ContentFieldDto.withColumnNameAndContent(
       columnInfo.name(),
-      VALUE_MAPPER.mapValueToString(contentFieldNode.getHeader(), columnInfo.dataType()));
+      VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), columnInfo.dataType()));
   }
 }

@@ -2,6 +2,7 @@ package ch.nolix.system.sqlrawdata.datamapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 
 /**
@@ -11,7 +12,7 @@ import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
 public final class ValueMapper implements IValueMapper {
 
   @Override
-  public Object mapValueToString(final String string, final DataType dataType) {
+  public Object mapStringToValue(final String string, final DataType dataType) {
     return //
     switch (dataType) {
       case INTEGER_1BYTE ->
@@ -31,7 +32,7 @@ public final class ValueMapper implements IValueMapper {
       case STRING ->
         string;
       default ->
-        throw InvalidArgumentException.forArgument(dataType);
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.DATA_TYPE, dataType);
     };
   }
 }
