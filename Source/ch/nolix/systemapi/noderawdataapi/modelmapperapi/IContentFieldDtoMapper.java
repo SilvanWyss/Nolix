@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.noderawdataapi.dtomapperapi;
+package ch.nolix.systemapi.noderawdataapi.modelmapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;

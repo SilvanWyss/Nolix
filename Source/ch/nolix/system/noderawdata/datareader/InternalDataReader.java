@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datareader;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.dtomapper.LoadedEntityDtoMapper;
+import ch.nolix.system.noderawdata.modelmapper.LoadedEntityDtoMapper;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;

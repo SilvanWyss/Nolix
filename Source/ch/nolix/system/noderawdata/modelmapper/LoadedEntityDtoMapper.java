@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawdata.dtomapper;
+package ch.nolix.system.noderawdata.modelmapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
