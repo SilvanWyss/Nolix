@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawdataapi.datamapperapi;
+package ch.nolix.systemapi.rawdataapi.valuemapperapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 

@@ -8,7 +8,7 @@ import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.sqlrawdata.datamapper.ValueMapper;
+import ch.nolix.system.rawdata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNo
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
-import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
+import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class InternalDataReader {

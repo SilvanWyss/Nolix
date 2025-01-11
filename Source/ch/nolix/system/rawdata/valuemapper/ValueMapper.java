@@ -1,9 +1,9 @@
-package ch.nolix.system.sqlrawdata.datamapper;
+package ch.nolix.system.rawdata.valuemapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.sqlrawdataapi.datamapperapi.IValueMapper;
+import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 
 /**
  * @author Silvan Wyss
