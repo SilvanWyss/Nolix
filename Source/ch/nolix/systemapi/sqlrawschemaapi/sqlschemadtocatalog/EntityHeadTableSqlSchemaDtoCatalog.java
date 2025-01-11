@@ -1,11 +1,12 @@
-package ch.nolix.system.sqlrawschema.entityheadtable;
+package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
 import ch.nolix.system.sqlrawschema.datatype.DatatypeTypeCatalog;
+import ch.nolix.system.sqlrawschema.entityheadtable.EntityHeadTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.IndexTableType;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 
-public final class EntityHeadTableDtoCatalog {
+public final class EntityHeadTableSqlSchemaDtoCatalog {
 
   private static final ColumnDto TABLE_COLUMN_DTO = ColumnDto.withNameAndDataType(
     EntityHeadTableColumn.TABLE_ID.getName(), DatatypeTypeCatalog.TEXT);
@@ -18,6 +19,6 @@ public final class EntityHeadTableDtoCatalog {
     TABLE_COLUMN_DTO,
     ENTITY_ID_COLUMN_DTO);
 
-  private EntityHeadTableDtoCatalog() {
+  private EntityHeadTableSqlSchemaDtoCatalog() {
   }
 }
