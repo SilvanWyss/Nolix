@@ -4,11 +4,11 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.system.sqlrawdata.datareader.ContentFieldMapper;
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.ILoadedEntityDtoMapper;
 
 /**
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.sqlrawdataapi.rawdatadtomapperapi.ILoadedEntityDtoMapp
  */
 public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
 
-  private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
+  private static final IContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
   @Override
   public EntityLoadingDto mapSqlRecordToEntityLoadingDto(final ISqlRecord sqlRecord, final TableViewDto tableView) {
@@ -44,7 +44,8 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
 
     for (final var c : columnViews) {
 
-      final var contentFieldDto = CONTENT_FIELD_MAPPER.createContentFieldFromString(sqlRecordValueIterator.next(), c);
+      final var string = sqlRecordValueIterator.next();
+      final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapStringToContentFieldDtoUsingColumnView(string, c);
 
       contentFieldDtos.addAtEnd(contentFieldDto);
     }
