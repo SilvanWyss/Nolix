@@ -2,7 +2,7 @@ package ch.nolix.system.noderawdata.adapter;
 
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter;
+import ch.nolix.system.noderawschema.adapter.SchemaAdapter;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapterAndSchemaReader;
 
 public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {

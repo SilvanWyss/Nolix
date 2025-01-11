@@ -2,7 +2,7 @@ package ch.nolix.system.sqlrawdata.adapter;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapterAndSchemaReader;
-import ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter;
+import ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter;
 
 public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
 

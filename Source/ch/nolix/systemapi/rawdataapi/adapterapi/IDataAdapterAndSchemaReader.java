@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.rawdataapi.adapterapi;
 
-import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 
 /**
  * @author Silvan Wyss

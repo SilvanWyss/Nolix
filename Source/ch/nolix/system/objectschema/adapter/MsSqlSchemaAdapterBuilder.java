@@ -38,7 +38,7 @@ MsSqlSchemaAdapter>>>>> {
 
     return new MsSqlSchemaAdapter(
       databaseName,
-      ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter
+      ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter
         .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
           databaseName,
           SqlConnectionPoolBuilder

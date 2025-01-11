@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawschema.schemaadapter;
+package ch.nolix.system.noderawschema.adapter;
 
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.programcontrol.closepool.CloseController;
@@ -9,11 +9,11 @@ import ch.nolix.system.noderawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.noderawschema.schemareader.SchemaReader;
 import ch.nolix.system.noderawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 public final class SchemaAdapter implements ISchemaAdapter {
 

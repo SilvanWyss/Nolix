@@ -22,10 +22,10 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
-import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

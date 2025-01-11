@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.noderawschema.schemaadapter.SchemaAdapter;
+import ch.nolix.system.noderawschema.adapter.SchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;

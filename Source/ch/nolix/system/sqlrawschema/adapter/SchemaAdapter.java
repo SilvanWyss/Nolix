@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.schemaadapter;
+package ch.nolix.system.sqlrawschema.adapter;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
@@ -8,11 +8,11 @@ import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlrawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public abstract class SchemaAdapter implements ISchemaAdapter {

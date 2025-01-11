@@ -18,10 +18,10 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNo
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.rawschemaflatdtomapperapi.IFlatTableDtoMapper;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 
 public final class SchemaReader implements ISchemaReader {
 

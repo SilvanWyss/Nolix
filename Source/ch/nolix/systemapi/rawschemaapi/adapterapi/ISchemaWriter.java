@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
+package ch.nolix.systemapi.rawschemaapi.adapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
