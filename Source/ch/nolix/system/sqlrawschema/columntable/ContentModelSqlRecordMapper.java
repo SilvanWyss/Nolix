@@ -11,17 +11,17 @@ import ch.nolix.systemapi.rawschemaapi.dto.OptionalReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;
-import ch.nolix.systemapi.sqlrawschemaapi.modelsqlrecord.ContentModelSqlRecord;
+import ch.nolix.systemapi.sqlrawschemaapi.modelsqldto.ContentModelSqlDto;
 
 public final class ContentModelSqlRecordMapper {
 
   private static final String NULL = "NULL";
 
-  public ContentModelSqlRecord mapContentModelDtoToContentModelSqlRecord(final IContentModelDto contentModelDto) {
+  public ContentModelSqlDto mapContentModelDtoToContentModelSqlDto(final IContentModelDto contentModelDto) {
 
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + valueModelDto.getContentType().name() + "'",
         "'" + valueModelDto.dataType().name() + "'",
         NULL,
@@ -30,7 +30,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + optionalValueModelDto.getContentType().name() + "'",
         "'" + optionalValueModelDto.dataType().name() + "'",
         NULL,
@@ -39,7 +39,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + multiValueModelDto.getContentType().name() + "'",
         "'" + multiValueModelDto.dataType().name() + "'",
         NULL,
@@ -48,7 +48,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + referenceModelDto.getContentType().name() + "'",
         "'" + referenceModelDto.dataType().name() + "'",
 
@@ -59,7 +59,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + optionalReferenceModelDto.getContentType().name() + "'",
         "'" + optionalReferenceModelDto.dataType().name() + "'",
 
@@ -70,7 +70,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + multiReferenceModelDto.getContentType().name() + "'",
         "'" + multiReferenceModelDto.dataType().name() + "'",
 
@@ -81,7 +81,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + backReferenceModelDto.getContentType().name() + "'",
         "'" + backReferenceModelDto.dataType().name() + "'",
         NULL,
@@ -90,7 +90,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + optionalBackReferenceModelDto.getContentType().name() + "'",
         "'" + optionalBackReferenceModelDto.dataType().name() + "'",
         NULL,
@@ -99,7 +99,7 @@ public final class ContentModelSqlRecordMapper {
 
     if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
       return //
-      new ContentModelSqlRecord(
+      new ContentModelSqlDto(
         "'" + multiBackReferenceModelDto.getContentType().name() + "'",
         "'" + multiBackReferenceModelDto.dataType().name() + "'",
         NULL,

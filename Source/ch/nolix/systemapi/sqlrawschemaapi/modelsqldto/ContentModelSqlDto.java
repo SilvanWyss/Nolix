@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawschemaapi.modelsqlrecord;
+package ch.nolix.systemapi.sqlrawschemaapi.modelsqldto;
 
 /**
  * @author Silvan Wyss
@@ -8,7 +8,7 @@ package ch.nolix.systemapi.sqlrawschemaapi.modelsqlrecord;
  * @param referencedTableId
  * @param backReferencedColumnId
  */
-public record ContentModelSqlRecord(
+public record ContentModelSqlDto(
 String contentType,
 String dataType,
 String referencedTableId,

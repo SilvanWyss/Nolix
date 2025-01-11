@@ -24,8 +24,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   @Override
   public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
 
-    final var contentModelRecord = //
-    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlRecord(column.contentModel());
+    final var contentModelSqlDto = //
+    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(column.contentModel());
 
     return //
     "INSERT INTO "
@@ -51,13 +51,13 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + ", '"
     + column.name()
     + "', "
-    + contentModelRecord.contentType()
+    + contentModelSqlDto.contentType()
     + ", "
-    + contentModelRecord.dataType()
+    + contentModelSqlDto.dataType()
     + ", "
-    + contentModelRecord.referencedTableId()
+    + contentModelSqlDto.referencedTableId()
     + ", "
-    + contentModelRecord.backReferencedColumnId()
+    + contentModelSqlDto.backReferencedColumnId()
     + " FROM "
     + SchemaTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
@@ -135,8 +135,8 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     final String columnID,
     final IContentModelDto contentModel) {
 
-    final var contentModelRecord = //
-    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlRecord(contentModel);
+    final var contentModelSqlDto = //
+    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
     return //
     "UPDATE "
@@ -144,15 +144,15 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
-    + contentModelRecord.dataType()
+    + contentModelSqlDto.dataType()
     + ", "
     + ColumnTableColumn.REFERENCED_TABLE_ID
     + " = "
-    + contentModelRecord.referencedTableId()
+    + contentModelSqlDto.referencedTableId()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
     + " = "
-    + contentModelRecord.backReferencedColumnId()
+    + contentModelSqlDto.backReferencedColumnId()
     + "WHERE"
     + ColumnTableColumn.ID
     + " = '"
