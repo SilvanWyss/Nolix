@@ -4,6 +4,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
@@ -11,31 +12,32 @@ import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
-import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
+
+  private final ICloseController closeController = CloseController.forElement(this);
+
+  private final ISqlConnection sqlConnection;
 
   private final ISchemaReader schemaReader;
 
   private final ISchemaWriter schemaWriter;
 
-  private final ICloseController closeController = CloseController.forElement(this);
-
   protected AbstractSchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
-    final IQueryCreator queryCreator,
-    final IStatementCreator statementCreator) {
+    final IQueryCreator queryCreator) {
+
+    sqlConnection = sqlConnectionPool.borrowResource();
 
     schemaReader = SchemaReader.forDatabaseNameAndSqlConnectionAndQueryCreator(
       databaseName,
-      sqlConnectionPool.borrowResource(),
+      sqlConnection,
       queryCreator);
 
-    schemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
+    schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(
       databaseName,
-      sqlConnectionPool,
-      statementCreator);
+      sqlConnection);
 
     getStoredCloseController().createCloseDependencyTo(schemaReader);
     getStoredCloseController().createCloseDependencyTo(schemaWriter);
@@ -103,6 +105,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   @Override
   public final void noteClose() {
+    sqlConnection.close();
   }
 
   @Override

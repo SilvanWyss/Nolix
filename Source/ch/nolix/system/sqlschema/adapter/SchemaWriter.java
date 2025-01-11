@@ -2,11 +2,14 @@ package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
@@ -14,58 +17,65 @@ import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
 
-  private int saveCount;
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
-  private final SqlCollector sqlCollector = new SqlCollector();
-
-  private final ISqlConnection sqlConnection;
-
-  private final IStatementCreator statementCreator;
+  private static final IStatementCreator STATEMENT_CREATOR = new StatementCreator();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private SchemaWriter(
-    final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IStatementCreator statementCreator) {
+  private final ISqlConnection sqlConnection;
 
-    GlobalValidator.assertThat(statementCreator).thatIsNamed(IStatementCreator.class).isNotNull();
+  private final SqlCollector sqlCollector = new SqlCollector();
+
+  private int saveCount;
+
+  private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
+
+    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
 
     this.sqlConnection = sqlConnection;
-    this.statementCreator = statementCreator;
+    createCloseDependencyTo(sqlConnection);
 
-    getStoredCloseController().createCloseDependencyTo(sqlConnection);
     sqlCollector.addSqlStatement("USE " + databaseName);
   }
 
-  public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
+  public static SchemaWriter forDatabasNameAndSqlConnection(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
-    final IStatementCreator statementCreator) {
-    return new SchemaWriter(
-      databaseName,
-      sqlConnectionPool.borrowResource(),
-      statementCreator);
+    final ISqlConnection sqlConnection) {
+    return new SchemaWriter(databaseName, sqlConnection);
   }
 
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
-    sqlCollector.addSqlStatement(statementCreator.createStatementToAddColumn(tableName, column));
+
+    final var statement = STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   @Override
   public void addTable(final TableDto table) {
-    sqlCollector.addSqlStatement(statementCreator.createStatementToAddTable(table));
+
+    final var statement = STATEMENT_CREATOR.createStatementToAddTable(table);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
-    sqlCollector.addSqlStatement(statementCreator.createStatementToDeleteColumn(tableName, columnName));
+
+    final var statement = STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   @Override
   public void deleteTable(final String tableName) {
-    sqlCollector.addSqlStatement(statementCreator.createStatementToDeleteTable(tableName));
+
+    final var statement = STATEMENT_CREATOR.createStatementToDeleteTable(tableName);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   @Override
@@ -95,13 +105,18 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-    sqlCollector.addSqlStatement(
-      statementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName));
+
+    final var statement = STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-    sqlCollector.addSqlStatement(statementCreator.createStatementToRenameTable(tableName, newTableName));
+
+    final var statement = STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   @Override
