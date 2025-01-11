@@ -4,7 +4,7 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlschema.mssqlquerycreator.MsSqlQueryCreator;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public final class MsSqlSchemaAdapter extends SchemaAdapter {
+public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
 
   private static final IQueryCreator QUERY_CREATOR = new MsSqlQueryCreator();
 

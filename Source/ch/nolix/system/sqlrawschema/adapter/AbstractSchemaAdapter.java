@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public abstract class SchemaAdapter implements ISchemaAdapter {
+public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 
@@ -25,7 +25,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  protected SchemaAdapter(
+  protected AbstractSchemaAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter sqlSchemaAdapter,
