@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
-import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalog;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.EntityHeadTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiBackReferenceEntryTableSqlSchemaDtoCatalog;
@@ -33,7 +33,7 @@ final class InternalDatabaseInitializer {
 
     //Adds schema tables.
     schemaAdapter.addTable(TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO);
-    schemaAdapter.addTable(ColumnTableSqlDtoCatalog.COLUMN_TABLE_SQL_DTO);
+    schemaAdapter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
 
     //Adds index tables.
     schemaAdapter.addTable(EntityHeadTableSqlSchemaDtoCatalog.ENTITY_HEAD_TABLE_DTO);
