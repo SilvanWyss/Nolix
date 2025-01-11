@@ -20,6 +20,11 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   }
 
   @Override
+  public IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
+    return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.COLUMN);
+  }
+
+  @Override
   public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
     return tableNode.getStoredFirstChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
@@ -29,5 +34,31 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.ENTITY);
+  }
+
+  @Override
+  public IMutableNode<?> getStoredIdNodeFromTableNode(final IMutableNode<?> tableNode) {
+    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ID);
+  }
+
+  @Override
+  public IMutableNode<?> getStoredNameNodeFromTableNode(final IMutableNode<?> tableNode) {
+    return tableNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
+  }
+
+  @Override
+  public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
+
+    final var idNode = getStoredIdNodeFromTableNode(tableNode);
+
+    return idNode.getSingleChildNodeHeader();
+  }
+
+  @Override
+  public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
+
+    final var nameNode = getStoredNameNodeFromTableNode(tableNode);
+
+    return nameNode.getSingleChildNodeHeader();
   }
 }

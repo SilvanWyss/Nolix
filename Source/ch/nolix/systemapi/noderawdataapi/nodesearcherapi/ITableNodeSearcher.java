@@ -11,7 +11,17 @@ public interface ITableNodeSearcher {
     IMutableNode<?> tableNode,
     String id);
 
+  IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
+
   IMutableNode<?> getStoredEntityNodeFromTableNode(IMutableNode<?> tableNode, String id);
 
   IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
+
+  IMutableNode<?> getStoredIdNodeFromTableNode(IMutableNode<?> tableNode);
+
+  IMutableNode<?> getStoredNameNodeFromTableNode(IMutableNode<?> tableNode);
+
+  String getTableIdFromTableNode(IMutableNode<?> tableNode);
+
+  String getTableNameFromTableNode(IMutableNode<?> tableNode);
 }
