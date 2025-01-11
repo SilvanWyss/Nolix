@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawdata.dataadapter;
+package ch.nolix.system.sqlrawdata.adapter;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter;
