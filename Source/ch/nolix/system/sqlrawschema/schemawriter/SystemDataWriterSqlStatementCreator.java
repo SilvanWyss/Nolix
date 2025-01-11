@@ -4,17 +4,13 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
-import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class SystemDataWriterSqlStatementCreator implements ISystemDataWriterSqlStatementCreator {
 
@@ -158,21 +154,6 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + " = '"
     + columnID
     + "'";
-  }
-
-  @Override
-  public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
-    return //
-    "UPDATE "
-    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + SpaceEnclosedSqlKeywordCatalog.SET
-    + DatabasePropertyTableColumn.VALUE.getLabel()
-    + " = '"
-    + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
-    + "' WHERE "
-    + DatabasePropertyTableColumn.KEY.getLabel()
-    + " = "
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }
 
   @Override

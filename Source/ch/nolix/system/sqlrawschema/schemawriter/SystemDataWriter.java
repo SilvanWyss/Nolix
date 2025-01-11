@@ -3,12 +3,17 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
+import ch.nolix.system.sqlrawschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class SystemDataWriter implements ChangeRequestable {
+
+  private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
+  new DatabasePropertiesStatementCreator();
 
   private static final SystemDataWriterSqlStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = //
   new SystemDataWriterSqlStatementCreator();
@@ -63,8 +68,10 @@ final class SystemDataWriter implements ChangeRequestable {
   }
 
   public void setSchemaTimestamp(ITime schemaTimestamp) {
-    sqlCollector.addSqlStatement(
-      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetSchemaTimestamp(schemaTimestamp));
+
+    final var statement = DATABASE_PROPERTIES_STATEMENT_CREATOR.createStatementToSetSchemaTimestamp(schemaTimestamp);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void setTableName(final String tableName, final String newTableName) {

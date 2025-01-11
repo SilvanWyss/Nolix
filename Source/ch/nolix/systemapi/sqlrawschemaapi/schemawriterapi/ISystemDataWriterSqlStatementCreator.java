@@ -4,7 +4,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface ISystemDataWriterSqlStatementCreator {
 
@@ -21,8 +20,6 @@ public interface ISystemDataWriterSqlStatementCreator {
   String createStatementToSetColumnParameterizedFieldType(
     String columnID,
     IContentModelDto contentModel);
-
-  String createStatementToSetSchemaTimestamp(ITime schemaTimestamp);
 
   String createStatementToSetTableName(String tableName, String newTableName);
 }
