@@ -209,7 +209,7 @@ final class DatabaseUpdater {
         "entity with the id '" + newEntity.id() + "'");
     }
 
-    final var entityNode = ENTITY_NODE_MAPPER.createNodeFromEntityWithSaveStamp(tableView, newEntity, 0);
+    final var entityNode = ENTITY_NODE_MAPPER.mapEntityCreationDtoToEntityNode(newEntity, tableView, 0);
 
     tableNode.addChildNode(entityNode);
   }

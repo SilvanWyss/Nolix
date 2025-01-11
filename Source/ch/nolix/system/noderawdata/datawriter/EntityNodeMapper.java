@@ -3,19 +3,24 @@ package ch.nolix.system.noderawdata.datawriter;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 
-final class EntityNodeMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2021-10-19
+ */
+public final class EntityNodeMapper {
 
   private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
-  public Node createNodeFromEntityWithSaveStamp(
-    final TableViewDto tableView,
+  public INode<?> mapEntityCreationDtoToEntityNode(
     final EntityCreationDto newEntity,
+    final TableViewDto tableView,
     final long saveStamp) {
     return //
     Node.withHeaderAndChildNodes(
