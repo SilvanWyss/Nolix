@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.schemawriter;
+package ch.nolix.system.sqlrawschema.statementcreator;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -10,9 +10,9 @@ import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi.ISystemDataWriterSqlStatementCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.ISchemaStatementCreator;
 
-public final class SystemDataWriterSqlStatementCreator implements ISystemDataWriterSqlStatementCreator {
+public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
   private static final ContentModelSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
   new ContentModelSqlRecordMapper();
@@ -127,9 +127,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
   }
 
   @Override
-  public String createStatementToSetColumnParameterizedFieldType(
-    final String columnID,
-    final IContentModelDto contentModel) {
+  public String createStatementToSetColumnContentModel(final String columnId, final IContentModelDto contentModel) {
 
     final var contentModelSqlDto = //
     PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
@@ -152,7 +150,7 @@ public final class SystemDataWriterSqlStatementCreator implements ISystemDataWri
     + "WHERE"
     + ColumnTableColumn.ID
     + " = '"
-    + columnID
+    + columnId
     + "'";
   }
 

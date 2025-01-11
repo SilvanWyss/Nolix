@@ -1,11 +1,11 @@
-package ch.nolix.systemapi.sqlrawschemaapi.schemawriterapi;
+package ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 
-public interface ISystemDataWriterSqlStatementCreator {
+public interface ISchemaStatementCreator {
 
   String createStatementToAddColumn(String parentTableName, ColumnDto column);
 
@@ -17,9 +17,7 @@ public interface ISystemDataWriterSqlStatementCreator {
 
   String createStatementToSetColumnName(String tableName, String columnName, String newColumnName);
 
-  String createStatementToSetColumnParameterizedFieldType(
-    String columnID,
-    IContentModelDto contentModel);
+  String createStatementToSetColumnContentModel(String columnId, IContentModelDto contentModel);
 
   String createStatementToSetTableName(String tableName, String newTableName);
 }

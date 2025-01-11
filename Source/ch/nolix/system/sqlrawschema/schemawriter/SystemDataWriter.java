@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.statementcreator.DatabasePropertiesStatementCreator;
+import ch.nolix.system.sqlrawschema.statementcreator.SchemaStatementCreator;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
@@ -15,8 +16,8 @@ final class SystemDataWriter implements ChangeRequestable {
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
-  private static final SystemDataWriterSqlStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = //
-  new SystemDataWriterSqlStatementCreator();
+  private static final SchemaStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = //
+  new SchemaStatementCreator();
 
   private final SqlCollector sqlCollector;
 
@@ -62,7 +63,7 @@ final class SystemDataWriter implements ChangeRequestable {
     final String columnId,
     final IContentModelDto contentModel) {
     sqlCollector.addSqlStatement(
-      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnParameterizedFieldType(
+      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnContentModel(
         columnId,
         contentModel));
   }
