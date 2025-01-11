@@ -8,6 +8,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
+import ch.nolix.system.noderawdata.nodemapper.EntityNodeMapper;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawdata.tabledefinition.FieldIndexCatalog;
@@ -16,6 +17,7 @@ import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
+import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
@@ -47,7 +49,7 @@ final class DatabaseUpdater {
 
   private static final EntityHeadNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityHeadNodeMapper();
 
-  private static final EntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
+  private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
   public void deleteEntriesFromMultiReference(
     final IMutableNode<?> nodeDatabase,

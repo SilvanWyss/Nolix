@@ -1,10 +1,11 @@
-package ch.nolix.system.noderawdata.datawriter;
+package ch.nolix.system.noderawdata.nodemapper;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
@@ -14,10 +15,11 @@ import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearc
  * @author Silvan Wyss
  * @version 2021-10-19
  */
-public final class EntityNodeMapper {
+public final class EntityNodeMapper implements IEntityNodeMapper {
 
   private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
+  @Override
   public INode<?> mapEntityCreationDtoToEntityNode(
     final EntityCreationDto newEntity,
     final TableViewDto tableView,
