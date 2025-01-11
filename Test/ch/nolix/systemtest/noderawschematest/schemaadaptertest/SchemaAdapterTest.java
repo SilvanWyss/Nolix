@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.noderawschema.adapter.SchemaAdapter;
+import ch.nolix.system.noderawschema.adapter.NodeRawSchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.dto.ValueModelDto;
@@ -34,7 +34,7 @@ final class SchemaAdapterTest extends StandardTest {
       new ValueModelDto(DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
 
     //execution
@@ -59,7 +59,7 @@ final class SchemaAdapterTest extends StandardTest {
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //setup verification
     expect(testUnit.isChangeFree()).isTrue();
@@ -94,7 +94,7 @@ final class SchemaAdapterTest extends StandardTest {
       new ValueModelDto(DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
     testUnit.addColumn(tableName, columnDto);
     testUnit.saveChanges();
@@ -118,7 +118,7 @@ final class SchemaAdapterTest extends StandardTest {
     final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups testUnit.
-    final var testUnit = SchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());

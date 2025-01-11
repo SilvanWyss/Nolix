@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 
-public final class SchemaAdapter implements ISchemaAdapter {
+public final class NodeRawSchemaAdapter implements ISchemaAdapter {
 
   private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 
@@ -25,7 +25,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 
   private final SchemaWriter schemaWriter;
 
-  private SchemaAdapter(final IMutableNode<?> nodeDatabase) {
+  private NodeRawSchemaAdapter(final IMutableNode<?> nodeDatabase) {
 
     DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(nodeDatabase);
 
@@ -36,12 +36,12 @@ public final class SchemaAdapter implements ISchemaAdapter {
     createCloseDependencyTo(schemaWriter);
   }
 
-  public static SchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return new SchemaAdapter(nodeDatabase);
+  public static NodeRawSchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new NodeRawSchemaAdapter(nodeDatabase);
   }
 
-  public static SchemaAdapter forFileNodeDatabase(final String filePath) {
-    return new SchemaAdapter(new FileNode(filePath));
+  public static NodeRawSchemaAdapter forFileNodeDatabase(final String filePath) {
+    return new NodeRawSchemaAdapter(new FileNode(filePath));
   }
 
   @Override
