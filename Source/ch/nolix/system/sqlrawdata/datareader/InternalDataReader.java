@@ -106,7 +106,7 @@ final class InternalDataReader {
     for (final var r : records) {
 
       final var entity = //
-      LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(SqlRecord.withOneBasedIndexAndValues(index, r), tableView);
+      LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(SqlRecord.withOneBasedIndexAndValues(index, r), tableView);
 
       entities.addAtEnd(entity);
     }
@@ -117,7 +117,7 @@ final class InternalDataReader {
   public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {
 
     //TODO: Create EntityLoadingDtoMapper
-    return LOADED_ENTITY_DTO_MAPPER.mapRecordToEntityLoadingDto(
+    return LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(
       SqlRecord.withOneBasedIndexAndValues(1,
         sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView))),
       tableView);

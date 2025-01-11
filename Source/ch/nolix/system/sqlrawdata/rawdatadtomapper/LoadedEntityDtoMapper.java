@@ -20,21 +20,21 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 
   @Override
-  public EntityLoadingDto mapRecordToEntityLoadingDto(final ISqlRecord paramRecord, final TableViewDto tableView) {
+  public EntityLoadingDto mapSqlRecordToEntityLoadingDto(final ISqlRecord sqlRecord, final TableViewDto tableView) {
     return //
     new EntityLoadingDto(
-      paramRecord.getStoredAt1BasedIndex(1),
-      paramRecord.getStoredAt1BasedIndex(2),
-      mapRecordToContentFieldDtos(paramRecord, tableView.columnViews()));
+      sqlRecord.getStoredAt1BasedIndex(1),
+      sqlRecord.getStoredAt1BasedIndex(2),
+      mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnViews()));
   }
 
   @Override
-  public IContainer<ContentFieldDto<Object>> mapRecordToContentFieldDtos(
-    final ISqlRecord paramRecord,
+  public IContainer<ContentFieldDto<Object>> mapSqlRecordToContentFieldDtos(
+    final ISqlRecord sqlRecord,
     final IContainer<ColumnViewDto> columnViews) {
 
     final ILinkedList<ContentFieldDto<Object>> contentFieldDtos = LinkedList.createEmpty();
-    var sqlRecordValueIterator = paramRecord.iterator();
+    var sqlRecordValueIterator = sqlRecord.iterator();
 
     //Skips id.
     sqlRecordValueIterator.next();

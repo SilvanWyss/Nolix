@@ -14,23 +14,19 @@ import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 public interface ILoadedEntityDtoMapper {
 
   /**
-   * @param paramRecord
+   * @param sqlRecord
    * @param columnViews
-   * @return new {@link ContentFieldDto}s from the given paramRecord.
-   * @throws RuntimeException if the given paramRecord is not valid.
-   * @throws RuntimeException if the given columnViews is not valid.
+   * @return new {@link ContentFieldDto}s from the given sqlRecord.
    */
-  IContainer<ContentFieldDto<Object>> mapRecordToContentFieldDtos(
-    ISqlRecord paramRecord,
+  IContainer<ContentFieldDto<Object>> mapSqlRecordToContentFieldDtos(
+    ISqlRecord sqlRecord,
     IContainer<ColumnViewDto> columnViews);
 
   /**
-   * @param paramRecord
+   * @param sqlRecord
    * @param tableView
-   * @return a new {@link EntityLoadingDto} from the given paramRecord.
-   * @throws RuntimeException if the given paramRecord is not valid.
-   * @throws RuntimeException if the given tableView is not valid.
+   * @return a new {@link EntityLoadingDto} from the given sqlRecord.
    */
-  EntityLoadingDto mapRecordToEntityLoadingDto(ISqlRecord paramRecord, TableViewDto tableView);
+  EntityLoadingDto mapSqlRecordToEntityLoadingDto(ISqlRecord sqlRecord, TableViewDto tableView);
 
 }
