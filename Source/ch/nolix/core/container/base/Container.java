@@ -2138,6 +2138,9 @@ implements IContainer<E> {
 
       //Adds the mappingElement at the end of the list.
       list.addAtEnd(mappingElement);
+
+      //Increments the index.
+      index++;
     }
 
     //Returns list.
