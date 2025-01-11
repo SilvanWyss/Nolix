@@ -7,23 +7,25 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlrawschema.schemawriter.SchemaWriter;
-import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 
-  private final SchemaReader rawSchemaReader;
-
-  private final SchemaWriter rawSchemaWriter;
-
   private final ICloseController closeController = CloseController.forElement(this);
+
+  private final ISchemaReader rawSchemaReader;
+
+  private final ISchemaWriter rawSchemaWriter;
 
   protected AbstractSchemaAdapter(
     final String databaseName,
@@ -122,7 +124,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final Time loadSchemaTimestamp() {
+  public final ITime loadSchemaTimestamp() {
     return rawSchemaReader.loadSchemaTimestamp();
   }
 
