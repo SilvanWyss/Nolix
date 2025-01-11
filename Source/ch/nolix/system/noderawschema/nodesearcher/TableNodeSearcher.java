@@ -59,11 +59,17 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
-    return getStoredIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+
+    final var idNode = getStoredIdNodeFromTableNode(tableNode);
+
+    return idNode.getSingleChildNodeHeader();
   }
 
   @Override
   public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
-    return getStoredNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+
+    final var nameNode = getStoredNameNodeFromTableNode(tableNode);
+
+    return nameNode.getSingleChildNodeHeader();
   }
 }
