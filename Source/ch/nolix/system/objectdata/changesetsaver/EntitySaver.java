@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi.IEntityDtoMapper;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public final class EntitySaver {
 

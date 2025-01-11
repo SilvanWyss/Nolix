@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class DataAdapter implements IDataAdapter {
 

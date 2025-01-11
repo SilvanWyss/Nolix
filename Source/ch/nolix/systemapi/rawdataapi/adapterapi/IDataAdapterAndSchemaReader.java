@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawdataapi.dataadapterapi;
+package ch.nolix.systemapi.rawdataapi.adapterapi;
 
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 

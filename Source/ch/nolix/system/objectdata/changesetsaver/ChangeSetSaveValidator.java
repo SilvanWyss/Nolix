@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IDatabaseSearcher;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public final class ChangeSetSaveValidator {
 

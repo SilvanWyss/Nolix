@@ -5,7 +5,7 @@ import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 
 public final class EntityLoader {
 

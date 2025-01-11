@@ -4,7 +4,7 @@ import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IDatabaseSearcher;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public final class ChangeSetSaver {
 

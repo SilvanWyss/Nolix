@@ -21,7 +21,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class AbstractEntity implements IEntity {
 

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawdataapi.dataadapterapi;
+package ch.nolix.systemapi.rawdataapi.adapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;

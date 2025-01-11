@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;

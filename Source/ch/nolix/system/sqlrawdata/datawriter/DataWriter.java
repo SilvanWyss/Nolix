@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;

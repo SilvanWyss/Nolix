@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class Database implements IDatabase {
