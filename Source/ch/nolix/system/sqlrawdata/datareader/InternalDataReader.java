@@ -3,7 +3,6 @@ package ch.nolix.system.sqlrawdata.datareader;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
-import ch.nolix.core.sql.model.SqlRecord;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.valuemapper.ValueMapper;
@@ -100,11 +99,10 @@ final class InternalDataReader {
 
   public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {
 
-    //TODO: Create EntityLoadingDtoMapper
-    return LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(
-      SqlRecord.withOneBasedIndexAndValues(1,
-        sqlConnection.getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView))),
-      tableView);
+    final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView);
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+
+    return LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(sqlRecord, tableView);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
