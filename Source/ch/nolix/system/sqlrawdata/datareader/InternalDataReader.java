@@ -1,12 +1,10 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
-import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.connection.SqlConnection;
 import ch.nolix.core.sql.model.SqlRecord;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.valuemapper.ValueMapper;
 import ch.nolix.system.sqlrawdata.querycreator.EntityQueryCreator;
@@ -94,24 +92,10 @@ final class InternalDataReader {
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {
 
-    //TODO: Create EntityLoadingDtoMapper
     final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView);
     final var records = sqlConnection.getRecordsFromQuery(query);
 
-    final IArrayList<EntityLoadingDto> entities = ArrayList.withInitialCapacityFromSizeOfContainer(records);
-
-    var index = 1;
-
-    //TODO Add toUsingOneBasedIndex method to IContainer
-    for (final var r : records) {
-
-      final var entity = //
-      LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(SqlRecord.withOneBasedIndexAndValues(index, r), tableView);
-
-      entities.addAtEnd(entity);
-    }
-
-    return entities;
+    return records.to(r -> LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(r, tableView));
   }
 
   public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {
