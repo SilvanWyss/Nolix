@@ -5,7 +5,7 @@ import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemamodelsearcherapi.ISchemaSearcher;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 final class TableMapper {
 

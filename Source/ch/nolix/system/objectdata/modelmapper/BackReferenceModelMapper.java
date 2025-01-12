@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
-import ch.nolix.systemapi.rawschemaapi.dto.BackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.BackReferenceModelDto;
 
 public final class BackReferenceModelMapper
 implements IContentModelDtoToContentModelMapper<BackReferenceModelDto> {

@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
-import ch.nolix.systemapi.rawschemaapi.dto.OptionalReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalReferenceModelDto;
 
 public final class OptionalReferenceModelMapper
 implements IContentModelDtoToContentModelMapper<OptionalReferenceModelDto> {

@@ -9,9 +9,9 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 

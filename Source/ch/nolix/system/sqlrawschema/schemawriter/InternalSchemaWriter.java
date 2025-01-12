@@ -4,8 +4,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.sqlschemadtomapper.SqlSchemaDtoMapper;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 

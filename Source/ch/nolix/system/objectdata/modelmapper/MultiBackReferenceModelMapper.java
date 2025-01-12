@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
-import ch.nolix.systemapi.rawschemaapi.dto.MultiBackReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.MultiBackReferenceModelDto;
 
 public final class MultiBackReferenceModelMapper
 implements IContentModelDtoToContentModelMapper<MultiBackReferenceModelDto> {

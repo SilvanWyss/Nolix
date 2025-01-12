@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.databaseinspector;
 import ch.nolix.system.rawdata.schemaviewmapper.ColumnViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.IColumnViewDtoMapper;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 public final class TableDefinitionMapper {
 

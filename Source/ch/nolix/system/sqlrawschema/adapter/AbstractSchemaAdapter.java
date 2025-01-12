@@ -10,10 +10,10 @@ import ch.nolix.system.sqlrawschema.schemawriter.SchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

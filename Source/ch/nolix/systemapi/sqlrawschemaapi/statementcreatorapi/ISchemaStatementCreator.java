@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 public interface ISchemaStatementCreator {
 

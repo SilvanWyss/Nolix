@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawschemaapi.rawschemadtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 
 /**
  * @author Silvan Wyss

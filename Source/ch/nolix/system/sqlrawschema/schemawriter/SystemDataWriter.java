@@ -5,9 +5,9 @@ import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlrawschema.statementcreator.SchemaStatementCreator;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

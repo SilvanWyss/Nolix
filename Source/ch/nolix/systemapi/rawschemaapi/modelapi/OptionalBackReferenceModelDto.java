@@ -1,13 +1,14 @@
-package ch.nolix.systemapi.rawschemaapi.dto;
+package ch.nolix.systemapi.rawschemaapi.modelapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public record ValueModelDto(DataType dataType) implements IContentModelDto {
+public record OptionalBackReferenceModelDto(DataType dataType, String backReferencedColumnId)
+implements IContentModelDto {
 
   @Override
   public ContentType getContentType() {
-    return ContentType.VALUE;
+    return ContentType.OPTIONAL_BACK_REFERENCE;
   }
 
   @Override

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawschemaapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 /**
  * @author Silvan Wyss

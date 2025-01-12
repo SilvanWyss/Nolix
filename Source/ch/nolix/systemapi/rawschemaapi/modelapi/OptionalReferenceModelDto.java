@@ -1,14 +1,15 @@
-package ch.nolix.systemapi.rawschemaapi.dto;
+package ch.nolix.systemapi.rawschemaapi.modelapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public record ReferenceModelDto(DataType dataType, IContainer<String> referencedTableIds) implements IContentModelDto {
+public record OptionalReferenceModelDto(DataType dataType, IContainer<String> referencedTableIds)
+implements IContentModelDto {
 
   @Override
   public ContentType getContentType() {
-    return ContentType.REFERENCE;
+    return ContentType.OPTIONAL_REFERENCE;
   }
 
   @Override

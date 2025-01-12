@@ -1,9 +1,9 @@
 package ch.nolix.systemapi.rawschemaapi.adapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.dto.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.dto.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
 

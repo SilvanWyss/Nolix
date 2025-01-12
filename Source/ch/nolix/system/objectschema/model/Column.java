@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawschemaapi.dto.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
 

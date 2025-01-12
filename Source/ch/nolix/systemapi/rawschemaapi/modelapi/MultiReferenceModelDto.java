@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawschemaapi.dto;
+package ch.nolix.systemapi.rawschemaapi.modelapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
