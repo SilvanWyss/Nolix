@@ -4,7 +4,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializer;
+import ch.nolix.system.sqlrawschema.databaseinitializer.TempDatabaseInitializer;
 import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlrawschema.schemawriter.SchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
-  private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
+  private static final TempDatabaseInitializer DATABASE_INITIALIZER = new TempDatabaseInitializer();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

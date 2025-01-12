@@ -7,7 +7,7 @@ import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInspec
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public final class DatabaseInitializer {
+public final class TempDatabaseInitializer {
 
   private static final IDatabaseInspector DATABASE_INSPECTOR = new DatabaseInspector();
 
