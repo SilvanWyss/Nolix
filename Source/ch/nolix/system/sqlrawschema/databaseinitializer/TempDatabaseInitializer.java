@@ -2,14 +2,13 @@ package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
-import ch.nolix.system.sqlrawschema.databaseschemainspector.DatabaseInspector;
-import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInspector;
+import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public final class TempDatabaseInitializer {
 
-  private static final IDatabaseInspector DATABASE_INSPECTOR = new DatabaseInspector();
+  private static final IDatabaseStateAnalyser DATABASE_INSPECTOR = new DatabaseStateAnalyser();
 
   private static final InternalDatabaseInitializer INTERNAL_DATABASE_INITIALIZER = new InternalDatabaseInitializer();
 

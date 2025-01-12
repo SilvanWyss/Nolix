@@ -1,9 +1,9 @@
-package ch.nolix.system.sqlrawschema.databaseschemainspector;
+package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.adapter.SchemaReader;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
-import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInspector;
+import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
  * @author Silvan Wyss
  * @version 2025-01-05
  */
-public final class DatabaseInspector implements IDatabaseInspector {
+public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
 
   /**
    * @param schemaReader

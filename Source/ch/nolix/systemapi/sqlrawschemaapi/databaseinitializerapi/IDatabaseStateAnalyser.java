@@ -8,7 +8,7 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
  * @author Silvan Wyss
  * @version 2025-01-05
  */
-public interface IDatabaseInspector {
+public interface IDatabaseStateAnalyser {
 
   /**
    * @param databaseName
