@@ -3,7 +3,7 @@ package ch.nolix.systemtest.sqlrawschematest.databaseinitializertest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializerSqlStatementCreator;
+import ch.nolix.system.sqlrawschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.system.time.moment.Time;
 
 final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
@@ -13,10 +13,10 @@ final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
 
     //setup
     final var time = Time.withYear(2025);
-    final var testUnit = new DatabaseInitializerSqlStatementCreator();
+    final var testUnit = new DatabaseInitializationStatementCreator();
 
     //execution
-    final var result = testUnit.createSqlStatementToCreateSchemaTimestampEntry(time);
+    final var result = testUnit.createStatementToCreateSchemaTimestampEntry(time);
 
     //verification
     final var expectedResult = //

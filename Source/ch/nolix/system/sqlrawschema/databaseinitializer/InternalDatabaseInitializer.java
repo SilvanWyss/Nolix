@@ -1,6 +1,7 @@
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.system.sqlrawschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
@@ -13,8 +14,8 @@ import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 
 final class InternalDatabaseInitializer {
 
-  private static final DatabaseInitializerSqlStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
-  new DatabaseInitializerSqlStatementCreator();
+  private static final DatabaseInitializationStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
+  new DatabaseInitializationStatementCreator();
 
   public void initializeDatabase(
     final String databaseName,
@@ -51,7 +52,7 @@ final class InternalDatabaseInitializer {
 
     final var now = Time.ofNow();
     final var sqlStatementToCreateSchemaTimestampEntry = //
-    DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createSqlStatementToCreateSchemaTimestampEntry(now);
+    DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createStatementToCreateSchemaTimestampEntry(now);
 
     try (final var sqlConnection = sqlConnectionPool.borrowResource()) {
       sqlConnection.executeStatement("USE " + databaseName);

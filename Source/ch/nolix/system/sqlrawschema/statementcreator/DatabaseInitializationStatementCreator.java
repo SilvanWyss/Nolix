@@ -1,15 +1,15 @@
-package ch.nolix.system.sqlrawschema.databaseinitializer;
+package ch.nolix.system.sqlrawschema.statementcreator;
 
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
-import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInitializerSqlStatementCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabaseInitializationStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public final class DatabaseInitializerSqlStatementCreator implements IDatabaseInitializerSqlStatementCreator {
+public final class DatabaseInitializationStatementCreator implements IDatabaseInitializationStatementCreator {
 
   @Override
-  public String createSqlStatementToCreateSchemaTimestampEntry(final ITime timestamp) {
+  public String createStatementToCreateSchemaTimestampEntry(final ITime schemaTimestamp) {
     return //
     "INSERT INTO "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
@@ -20,7 +20,7 @@ public final class DatabaseInitializerSqlStatementCreator implements IDatabaseIn
     + ") VALUES ("
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
     + ", '"
-    + timestamp.getSpecification().getSingleChildNodeHeader()
+    + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "');";
   }
 }
