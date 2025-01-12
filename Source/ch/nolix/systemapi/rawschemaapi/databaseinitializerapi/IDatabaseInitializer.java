@@ -16,8 +16,8 @@ public interface IDatabaseInitializer {
   /**
    * Initializes the database if the database is not initialized.
    * 
-   * @throws RuntimeException if the database is either not empty or not
-   *                          initialized.
+   * @throws RuntimeException if the database is not properly (!) uninitialized or
+   *                          not properly (!) initialized.
    */
   void initializeDatabaseIfNotInitialized();
 }
