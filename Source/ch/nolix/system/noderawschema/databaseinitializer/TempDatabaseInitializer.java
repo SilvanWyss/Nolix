@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.databaseschemainspector.DatabaseSchemaInspector;
 
-public final class DatabaseInitializer {
+public final class TempDatabaseInitializer {
 
   private static final DatabaseSchemaInspector DATABASE_SCHEMA_INSPECTOR = new DatabaseSchemaInspector();
 

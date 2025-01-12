@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.noderawschema.databaseinitializer.DatabaseInitializer;
+import ch.nolix.system.noderawschema.databaseinitializer.TempDatabaseInitializer;
 import ch.nolix.system.noderawschema.schemareader.SchemaReader;
 import ch.nolix.system.noderawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 public final class NodeRawSchemaAdapter implements ISchemaAdapter {
 
-  private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
+  private static final TempDatabaseInitializer DATABASE_INITIALIZER = new TempDatabaseInitializer();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
