@@ -1,8 +1,7 @@
 package ch.nolix.coreapi.programatomapi.variableapi;
 
 /**
- * Of the {@link PluralLowerCaseVariableCatalog} an instance cannot be
- * created.
+ * Of the {@link PluralLowerCaseVariableCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2018-03-24
@@ -420,6 +419,10 @@ public final class PluralLowerCaseVariableCatalog {
   public static final String TYPES = "types";
 
   public static final String URLS = "urls";
+
+  public static final String VALID_FROM_DATE_TIMES = "valid from date times";
+
+  public static final String VALID_TO_DATE_TIMES = "valid to date times";
 
   public static final String VALUES = "values";
 

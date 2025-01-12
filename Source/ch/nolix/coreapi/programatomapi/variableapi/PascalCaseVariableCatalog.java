@@ -420,6 +420,10 @@ public final class PascalCaseVariableCatalog {
 
   public static final String URL = "Url";
 
+  public static final String VALID_FROM_DATE_TIME = "ValidFromDateTime";
+
+  public static final String VALID_TO_DATE_TIME = "ValidToDateTime";
+
   public static final String VALUE = "Value";
 
   public static final String VALUE_TYPE = "ValueType";

@@ -1,8 +1,7 @@
 package ch.nolix.coreapi.programatomapi.variableapi;
 
 /**
- * Of the {@link PluralPascalCaseVariableCatalog} an instance cannot be
- * created.
+ * Of the {@link PluralPascalCaseVariableCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2018-04-26
@@ -421,6 +420,10 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String URLS = "Urls";
 
+  public static final String VALID_FROM_DATE_TIMES = "ValidFromDateTimes";
+
+  public static final String VALID_TO_DATE_TIMES = "ValidToDateTimes";
+
   public static final String VALUES = "Values";
 
   public static final String VALUE_TYPES = "ValueTypes";
@@ -438,8 +441,8 @@ public final class PluralPascalCaseVariableCatalog {
   public static final String ZERO_BASED_INDEXES = "ZeroBasedIndex";
 
   /**
-   * Prevents that an instance of the {@link PluralPascalCaseVariableCatalog}
-   * can be created.
+   * Prevents that an instance of the {@link PluralPascalCaseVariableCatalog} can
+   * be created.
    */
   private PluralPascalCaseVariableCatalog() {
   }

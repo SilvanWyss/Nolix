@@ -420,6 +420,10 @@ public final class LowerCaseVariableCatalog {
 
   public static final String URL = "url";
 
+  public static final String VALID_FROM_DATE_TIME = "valid from date time";
+
+  public static final String VALID_TO_DATE_TIME = "valid to date time";
+
   public static final String VALUE = "value";
 
   public static final String VALUE_TYPE = "value type";
