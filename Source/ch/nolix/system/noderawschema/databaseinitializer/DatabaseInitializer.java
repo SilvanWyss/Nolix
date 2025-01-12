@@ -1,20 +1,19 @@
 package ch.nolix.system.noderawschema.databaseinitializer;
 
-import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.time.moment.Time;
+import ch.nolix.system.rawschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.systemapi.noderawschemaapi.databaseinitializerapi.IDatabaseComponentCreator;
 import ch.nolix.systemapi.noderawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
-import ch.nolix.systemapi.rawschemaapi.databaseinitializerapi.IDatabaseInitializer;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
  * @author Silvan Wyss
  * @version 2025-01-12
  */
-public final class DatabaseInitializer implements IDatabaseInitializer {
+public final class DatabaseInitializer extends AbstractDatabaseInitializer {
 
   private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
 
@@ -54,40 +53,14 @@ public final class DatabaseInitializer implements IDatabaseInitializer {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void initializeDatabaseIfNotInitialized() {
-    switch (getDatabaseState()) {
-      case UNINITIALIZED:
-        initializeDatabase();
-        break;
-      case INITIALIZED:
-        //Does nothing.
-        break;
-      case INVALID:
-        throw GeneralException.withErrorMessage("The database has a schema that does not suit.");
-    }
-  }
-
-  /**
-   * Initializes the database.
-   */
-  private void initializeDatabase() {
-
-    final var initialSchemaTimeStamp = Time.ofNow();
-
-    initializeDatabaseWithInitialSchemaTimeStamp(initialSchemaTimeStamp);
-  }
-
-  /**
    * 
    * Initializes the database with the given initialSchemaTimeStamp.
    * 
    * @param initialSchemaTimeStamp
    * @throws RuntimeException if the given initialSchemaTimeStamp is null.
    */
-  private void initializeDatabaseWithInitialSchemaTimeStamp(final Time initialSchemaTimeStamp) {
+  @Override
+  protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimeStamp) {
     nodeDatabase
       .setHeader(NodeHeaderCatalog.DATABASE)
       .addChildNode(
