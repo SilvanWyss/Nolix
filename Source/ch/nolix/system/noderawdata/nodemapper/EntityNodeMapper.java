@@ -10,6 +10,7 @@ import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalo
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 /**
  * @author Silvan Wyss
@@ -35,10 +36,13 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     final long saveStamp,
     final TableViewDto tableView) {
 
-    final var attributes = new Node[2 + tableView.columnViews().getCount()];
+    final var size = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnViews().getCount();
+    final var attributes = new Node[size];
 
     attributes[0] = createIdAttributeFrom(newEntity);
     attributes[1] = createSaveStampAttribute(saveStamp);
+    attributes[2] = Node.EMPTY_NODE;
+    attributes[3] = Node.EMPTY_NODE;
 
     for (final var f : newEntity.contentFields()) {
 

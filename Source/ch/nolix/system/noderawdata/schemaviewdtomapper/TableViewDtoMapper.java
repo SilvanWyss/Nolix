@@ -6,6 +6,7 @@ import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.ITableViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 /**
  * @author Silvan Wyss
@@ -28,7 +29,11 @@ public final class TableViewDtoMapper implements ITableViewDtoMapper {
     final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
     final var columnViews = //
-    columnNodes.toWithOneBasedIndex((i, c) -> COLUMN_VIEW_DTO_MAPPER.mapColumnNodeToColumnViewDto(c, 2 + i));
+    columnNodes.toWithOneBasedIndex(
+      (i, c) -> //
+      COLUMN_VIEW_DTO_MAPPER.mapColumnNodeToColumnViewDto(
+        c,
+        FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + i));
 
     return new TableViewDto(id, name, columnViews);
   }

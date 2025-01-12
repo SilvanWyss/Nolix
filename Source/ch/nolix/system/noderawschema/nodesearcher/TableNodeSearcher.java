@@ -6,6 +6,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
@@ -14,7 +15,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   @Override
   public int get1BasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
 
-    var local1BasedColumnIndex = 3;
+    var local1BasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;
 
     for (final var c : getStoredColumnNodesFromTableNode(tableNode)) {
 
