@@ -7,6 +7,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
+import ch.nolix.systemapi.applicationapi.mainapi.IWebServer;
 
 /**
  * A {@link Server} is a {@link AbstractServer} that listens to net
@@ -15,7 +16,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @author Silvan Wyss
  * @version 2017-09-10
  */
-public final class Server extends AbstractServer<Server> {
+public final class Server extends AbstractServer<Server> implements IWebServer {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
@@ -69,15 +70,17 @@ public final class Server extends AbstractServer<Server> {
   }
 
   /**
-   * @return the Ip of the current {@link Server}.
+   * {@inheritDoc}
    */
+  @Override
   public String getIp() {
     return LocalComputer.getLanIp();
   }
 
   /**
-   * @return the port of the current {@link Server}.
+   * {@inheritDoc}
    */
+  @Override
   public int getPort() {
     return internalServer.getPort();
   }

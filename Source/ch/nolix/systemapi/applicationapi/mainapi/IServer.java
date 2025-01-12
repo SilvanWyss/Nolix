@@ -29,7 +29,7 @@ public interface IServer extends Clearable, GroupCloseable {
    * 
    * @param instanceName
    * @throws RuntimeException if the current {@link IServer} does not contain a
-   *                          {@link IApplication} with the given instance name.
+   *                          {@link IApplication} with the given instanceName.
    */
   void removeApplicationByInstanceName(final String instanceName);
 }
