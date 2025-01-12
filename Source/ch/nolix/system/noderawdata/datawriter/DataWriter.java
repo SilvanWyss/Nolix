@@ -122,7 +122,7 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public boolean hasChanges() {
-    return internalDataWriter.hasChanges();
+    return internalDataWriter.hasUpdates();
   }
 
   @Override
