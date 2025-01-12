@@ -4,11 +4,11 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public interface IContentModel {
 
-  IAbstractBackReferenceModel<?> asBaseParameterizedBackReferenceType();
+  IAbstractBackReferenceModel<?> asAbstractBackReferenceModel();
 
-  IAbstractReferenceModel<?> asBaseParameterizedReferenceType();
+  IAbstractReferenceModel<?> asAbstractReferenceModel();
 
-  IAbstractValueModel<?> asBaseParameterizedValueType();
+  IAbstractValueModel<?> asAbstractValueModel();
 
   boolean referencesTable(ITable<?> table);
 

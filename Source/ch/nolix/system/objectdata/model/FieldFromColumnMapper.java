@@ -15,12 +15,12 @@ public final class FieldFromColumnMapper {
   private AbstractField createEmptyFieldFromColumn(final IColumn column) {
     return switch (column.getContentModel().getContentType()) {
       case VALUE ->
-        Value.withValueType(column.getContentModel().asBaseParameterizedValueType().getValueType());
+        Value.withValueType(column.getContentModel().asAbstractValueModel().getValueType());
       case OPTIONAL_VALUE ->
         OptionalValue
-          .withValueType(column.getContentModel().asBaseParameterizedValueType().getValueType());
+          .withValueType(column.getContentModel().asAbstractValueModel().getValueType());
       case MULTI_VALUE ->
-        MultiValue.withValueType(column.getContentModel().asBaseParameterizedValueType().getValueType());
+        MultiValue.withValueType(column.getContentModel().asAbstractValueModel().getValueType());
       case REFERENCE ->
         createEmptyReferenceFromReferenceColumn(column);
       case OPTIONAL_REFERENCE ->
@@ -40,7 +40,7 @@ public final class FieldFromColumnMapper {
 
     final var referencedtableName = referenceColumn
       .getContentModel()
-      .asBaseParameterizedReferenceType()
+      .asAbstractReferenceModel()
       .getStoredencedTable()
       .getName();
 
@@ -51,7 +51,7 @@ public final class FieldFromColumnMapper {
 
     final var referencedtableName = optionalReferenceColumn
       .getContentModel()
-      .asBaseParameterizedReferenceType()
+      .asAbstractReferenceModel()
       .getStoredencedTable()
       .getName();
 
@@ -62,7 +62,7 @@ public final class FieldFromColumnMapper {
 
     final var referencedtableName = multiReferenceColumn
       .getContentModel()
-      .asBaseParameterizedReferenceType()
+      .asAbstractReferenceModel()
       .getStoredencedTable()
       .getName();
 
@@ -73,7 +73,7 @@ public final class FieldFromColumnMapper {
 
     final var backReferencedColumn = backReferenceColumn
       .getContentModel()
-      .asBaseParameterizedBackReferenceType()
+      .asAbstractBackReferenceModel()
       .getBackReferencedColumn();
 
     final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
@@ -89,7 +89,7 @@ public final class FieldFromColumnMapper {
 
     final var backReferencedColumn = optionalBackReferenceColumn
       .getContentModel()
-      .asBaseParameterizedBackReferenceType()
+      .asAbstractBackReferenceModel()
       .getBackReferencedColumn();
 
     final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
@@ -105,7 +105,7 @@ public final class FieldFromColumnMapper {
 
     final var backReferencedColumn = multiBackReferenceColumn
       .getContentModel()
-      .asBaseParameterizedBackReferenceType()
+      .asAbstractBackReferenceModel()
       .getBackReferencedColumn();
 
     final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();

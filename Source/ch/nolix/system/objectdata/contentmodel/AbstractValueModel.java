@@ -23,17 +23,17 @@ implements IAbstractValueModel<V> {
   }
 
   @Override
-  public final IAbstractBackReferenceModel<?> asBaseParameterizedBackReferenceType() {
+  public final IAbstractBackReferenceModel<?> asAbstractBackReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IAbstractReferenceModel<?> asBaseParameterizedReferenceType() {
+  public final IAbstractReferenceModel<?> asAbstractReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IAbstractValueModel<?> asBaseParameterizedValueType() {
+  public final IAbstractValueModel<?> asAbstractValueModel() {
     return this;
   }
 
