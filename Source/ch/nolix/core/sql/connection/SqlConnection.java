@@ -176,9 +176,9 @@ public abstract class SqlConnection implements ISqlConnection {
         }
       }
 
-      final var record = ch.nolix.core.sql.model.SqlRecord.withOneBasedIndexAndValues(index, entries);
+      final var sqlRecord = ch.nolix.core.sql.model.SqlRecord.withOneBasedIndexAndValues(index, entries);
 
-      sqlRecords.addAtEnd(record);
+      sqlRecords.addAtEnd(sqlRecord);
       index++;
     }
 
