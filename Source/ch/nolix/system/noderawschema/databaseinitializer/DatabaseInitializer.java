@@ -3,6 +3,10 @@ package ch.nolix.system.noderawschema.databaseinitializer;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.noderawschemaapi.databaseinitializerapi.IDatabaseComponentCreator;
+import ch.nolix.systemapi.noderawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
+import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.rawschemaapi.databaseinitializerapi.IDatabaseInitializer;
 
@@ -11,6 +15,10 @@ import ch.nolix.systemapi.rawschemaapi.databaseinitializerapi.IDatabaseInitializ
  * @version 2025-01-12
  */
 public final class DatabaseInitializer implements IDatabaseInitializer {
+
+  private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
+
+  private static final IDatabaseComponentCreator DATABASE_COMPONENT_CREATOR = new DatabaseComponentCreator();
 
   private final IMutableNode<?> nodeDatabase;
 
@@ -42,8 +50,7 @@ public final class DatabaseInitializer implements IDatabaseInitializer {
    */
   @Override
   public DatabaseState getDatabaseState() {
-    //TODO: Implement
-    return null;
+    return DATABASE_STATE_ANALYSER.getStateOfNodeDatabase(nodeDatabase);
   }
 
   /**
@@ -64,9 +71,27 @@ public final class DatabaseInitializer implements IDatabaseInitializer {
   }
 
   /**
-   * Initializes the database for the case that the database is not initialized.
+   * Initializes the database.
    */
   private void initializeDatabase() {
-    //TODO: Implement
+
+    final var initialSchemaTimeStamp = Time.ofNow();
+
+    initializeDatabaseWithInitialSchemaTimeStamp(initialSchemaTimeStamp);
+  }
+
+  /**
+   * 
+   * Initializes the database with the given initialSchemaTimeStamp.
+   * 
+   * @param initialSchemaTimeStamp
+   * @throws RuntimeException if the given initialSchemaTimeStamp is null.
+   */
+  private void initializeDatabaseWithInitialSchemaTimeStamp(final Time initialSchemaTimeStamp) {
+    nodeDatabase
+      .setHeader(NodeHeaderCatalog.DATABASE)
+      .addChildNode(
+        DATABASE_COMPONENT_CREATOR.createDatabasePropertiesNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp),
+        DATABASE_COMPONENT_CREATOR.createEntityHeadsNode());
   }
 }
