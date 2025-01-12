@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawschemaapi.flatdto;
+package ch.nolix.systemapi.rawschemaapi.flatmodelapi;
 
 public record FlatTableDto(String id, String name) {
 }

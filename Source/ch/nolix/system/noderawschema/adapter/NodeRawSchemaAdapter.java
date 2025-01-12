@@ -10,7 +10,7 @@ import ch.nolix.system.noderawschema.schemareader.SchemaReader;
 import ch.nolix.system.noderawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;

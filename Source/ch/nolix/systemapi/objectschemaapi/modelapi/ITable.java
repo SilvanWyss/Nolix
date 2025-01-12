@@ -6,7 +6,7 @@ import ch.nolix.coreapi.componentapi.datamodelcomponentapi.IDatabaseComponent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
-import ch.nolix.systemapi.rawschemaapi.flatdto.FlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 
 public interface ITable
 extends
