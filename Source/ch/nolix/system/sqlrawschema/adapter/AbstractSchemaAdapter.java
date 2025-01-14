@@ -39,10 +39,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
       sqlConnectionPool,
       queryCreator);
 
-    rawSchemaReader = SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+    rawSchemaReader = //
+    SchemaReader.forDatabaseNameAndSqlConnectionAndSqlSchemaQueryCreator(
       databaseName,
-      sqlConnectionPool,
-      sqlSchemaAdapter);
+      sqlConnectionPool.borrowResource(),
+      queryCreator);
 
     rawSchemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
       databaseName,

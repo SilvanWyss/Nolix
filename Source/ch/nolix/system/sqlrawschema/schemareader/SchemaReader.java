@@ -1,9 +1,6 @@
 package ch.nolix.system.sqlrawschema.schemareader;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connection.SqlConnection;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -18,7 +15,6 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemaflatdtomapperapi.ITableFlatDtoMapper;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 
 public final class SchemaReader implements ISchemaReader {
 
@@ -32,35 +28,32 @@ public final class SchemaReader implements ISchemaReader {
 
   private final ISqlConnection sqlConnection;
 
-  private final ISchemaAdapter schemaAdapter;
+  private final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader sqlSchemaReader;
 
   private SchemaReader(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final ISchemaAdapter schemaAdapter) {
+    final ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator sqlSchemaQueryCreator) {
 
-    GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
-    GlobalValidator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
+    this.sqlSchemaReader = //
+    ch.nolix.system.sqlschema.adapter.SchemaReader.forDatabaseNameAndSqlConnectionAndQueryCreator(
+      databaseName,
+      sqlConnection,
+      sqlSchemaQueryCreator);
 
     this.sqlConnection = sqlConnection;
-    this.schemaAdapter = schemaAdapter;
-
-    createCloseDependencyTo(sqlConnection);
-    createCloseDependencyTo(schemaAdapter);
-
-    sqlConnection.executeStatement("USE " + databaseName);
   }
 
-  public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+  public static SchemaReader forDatabaseNameAndSqlConnectionAndSqlSchemaQueryCreator(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
-    final ISchemaAdapter schemaAdapter) {
-    return new SchemaReader(databaseName, sqlConnectionPool.borrowResource(), schemaAdapter);
+    final ISqlConnection sqlConnection,
+    final ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator sqlSchemaQueryCreator) {
+    return new SchemaReader(databaseName, sqlConnection, sqlSchemaQueryCreator);
   }
 
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
-    return schemaAdapter.columnsIsEmpty(TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName, columnName);
+    return sqlSchemaReader.columnsIsEmpty(TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName, columnName);
   }
 
   @Override
