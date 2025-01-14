@@ -2,25 +2,29 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connection.SqlConnection;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
+
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();
 
   private final ICloseController closeController = CloseController.forElement(this);
+
+  private final String databaseName;
 
   private int saveCount;
 
@@ -32,29 +36,27 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private final ISqlConnection sqlConnection;
 
-  public SchemaWriter(
-    final String databaseName,
-    final ISqlConnection sqlConnection,
-    final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter schemaWriter) {
+  public SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
 
-    GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
+    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
 
+    this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;
-    systemDataWriter = new SystemDataWriter(sqlCollector);
-    internalSchemaWriter = new InternalSchemaWriter(schemaWriter);
+    this.systemDataWriter = new SystemDataWriter(sqlCollector);
+
+    final var sqlSchemaWriter = //
+    ch.nolix.system.sqlschema.adapter.SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
+
+    this.internalSchemaWriter = new InternalSchemaWriter(sqlSchemaWriter);
 
     createCloseDependencyTo(sqlConnection);
-    sqlConnection.executeStatement("USE " + databaseName);
   }
 
-  public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+  public static SchemaWriter forDatabaseNameAndSqlConnection(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
-    final ISchemaAdapter schemaAdapter) {
-    return new SchemaWriter(
-      databaseName,
-      sqlConnectionPool.borrowResource(),
-      schemaAdapter);
+    final ISqlConnection sqlConnection) {
+    return new SchemaWriter(databaseName, sqlConnection);
   }
 
   @Override
@@ -111,6 +113,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void saveChanges() {
     try {
 
+      sqlConnection.executeStatement("USE " + databaseName);
       systemDataWriter.setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
       sqlCollector.addSqlStatements(internalSchemaWriter.getSqlStatements());
       sqlCollector.executeAndClearUsingConnection(sqlConnection);

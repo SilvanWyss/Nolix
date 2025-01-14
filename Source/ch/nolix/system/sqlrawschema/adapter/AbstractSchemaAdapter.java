@@ -45,10 +45,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
       sqlConnectionPool.borrowResource(),
       queryCreator);
 
-    rawSchemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
-      databaseName,
-      sqlConnectionPool,
-      sqlSchemaAdapter);
+    rawSchemaWriter = SchemaWriter.forDatabaseNameAndSqlConnection(databaseName, sqlConnectionPool.borrowResource());
 
     getStoredCloseController().createCloseDependencyTo(rawSchemaReader);
     getStoredCloseController().createCloseDependencyTo(rawSchemaWriter);
