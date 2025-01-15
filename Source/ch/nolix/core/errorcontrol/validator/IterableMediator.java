@@ -143,6 +143,23 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     hasElementCount(elementCountOfIterable);
   }
 
+  public void containsDistinctNonNullElemensOnly() {
+
+    containsNonNullElementsOnly();
+
+    final var argument = getStoredArgument();
+
+    for (final var e : argument) {
+      if (ITERABLE_TOOL.containsElementMultipleTimes(argument, e)) {
+        throw //
+        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+          getArgumentName(),
+          argument,
+          "contains the element '" + e + "' multiple times.");
+      }
+    }
+  }
+
   public void containsExactly(final Object firstElement, final Object... elements) {
 
     final var allElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
@@ -356,6 +373,27 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     //Asserts that the argument of this container mediator is not empty.
     if (ITERABLE_TOOL.isEmpty(getStoredArgument())) {
       throw EmptyArgumentException.forArgument(getStoredArgument());
+    }
+  }
+
+  private void containsNonNullElementsOnly() {
+
+    isNotNull();
+
+    final var argument = getStoredArgument();
+    var oneBasedndex = 1;
+
+    for (final var e : argument) {
+
+      if (e == null) {
+        throw //
+        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+          getArgumentName(),
+          argument,
+          "contains a null element at the " + oneBasedndex + "th one-based index.");
+      }
+
+      oneBasedndex++;
     }
   }
 }
