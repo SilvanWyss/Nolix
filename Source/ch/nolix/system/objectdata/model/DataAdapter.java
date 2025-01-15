@@ -72,7 +72,7 @@ public abstract class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final <E extends IEntity> DataAdapter insertEntity(
+  public final <E extends IEntity> IDataAdapter insertEntity(
     final E entity,
     @SuppressWarnings("unchecked") final E... entities) {
 
