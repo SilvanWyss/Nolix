@@ -4,11 +4,11 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.adapter.NodeDataAdapterAndSchemaReader;
-import ch.nolix.system.objectdata.model.DataAdapter;
+import ch.nolix.system.objectdata.model.AbstractDataAdapter;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
-public final class NodeDataAdapter extends DataAdapter {
+public final class NodeDataAdapter extends AbstractDataAdapter {
 
   private final IMutableNode<?> nodeDatabase;
 
@@ -43,7 +43,7 @@ public final class NodeDataAdapter extends DataAdapter {
   }
 
   @Override
-  public DataAdapter createEmptyCopy() {
+  public AbstractDataAdapter createEmptyCopy() {
     return forNodeDatabase(nodeDatabase).withName(getDatabaseName()).andSchema(getSchema());
   }
 }

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
-public abstract class DataAdapter implements IDataAdapter {
+public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
@@ -29,7 +29,7 @@ public abstract class DataAdapter implements IDataAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  protected DataAdapter(
+  protected AbstractDataAdapter(
     final String databaseName,
     final ISchemaAdapter schemaAdapter,
     final ISchema schema,

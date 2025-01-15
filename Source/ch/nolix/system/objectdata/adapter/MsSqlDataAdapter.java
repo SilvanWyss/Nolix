@@ -3,12 +3,12 @@ package ch.nolix.system.objectdata.adapter;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
-import ch.nolix.system.objectdata.model.DataAdapter;
+import ch.nolix.system.objectdata.model.AbstractDataAdapter;
 import ch.nolix.system.objectschema.adapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlrawdata.adapter.MsSqlDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
-public final class MsSqlDataAdapter extends DataAdapter {
+public final class MsSqlDataAdapter extends AbstractDataAdapter {
 
   private final SqlConnectionPool sqlConnectionPool;
 
@@ -49,7 +49,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
   }
 
   @Override
-  public DataAdapter createEmptyCopy() {
+  public AbstractDataAdapter createEmptyCopy() {
     return new MsSqlDataAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);
   }
 }
