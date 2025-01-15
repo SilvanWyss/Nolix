@@ -51,6 +51,16 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
+  public final String getDatabaseName() {
+    return databaseName;
+  }
+
+  @Override
+  public final int getSaveCount() {
+    return saveCount;
+  }
+
+  @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
@@ -59,11 +69,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   public final <E extends IEntity> ITable<E> getStoredTableByEntityType(
     final Class<E> entityType) {
     return database.getStoredTableByEntityType(entityType);
-  }
-
-  @Override
-  public final int getSaveCount() {
-    return saveCount;
   }
 
   @Override
@@ -102,10 +107,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     } finally {
       reset();
     }
-  }
-
-  protected final String getDatabaseName() {
-    return databaseName;
   }
 
   protected final ISchema getSchema() {
