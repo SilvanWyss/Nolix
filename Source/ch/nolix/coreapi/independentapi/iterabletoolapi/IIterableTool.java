@@ -19,6 +19,14 @@ public interface IIterableTool {
   /**
    * @param iterable
    * @param element
+   * @return true if the given iterable contains the given element multiple times,
+   *         false otherwise.
+   */
+  boolean containsElementMultipleTimes(Iterable<?> iterable, Object element);
+
+  /**
+   * @param iterable
+   * @param element
    * @return true if the given iterable contains the given element exactly 1 time,
    *         false otherwise.
    */

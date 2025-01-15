@@ -11,6 +11,30 @@ public final class IterableTool implements IIterableTool {
   /**
    * @param iterable
    * @param element
+   * @return true if the given iterable contains the given element multiple times,
+   *         false otherwise, for the case that the given iterable is not null.
+   */
+  private static boolean containsElementMultipleTimesWhenIsNotNull(final Iterable<?> iterable, final Object element) {
+
+    var found = false;
+
+    for (final var e : iterable) {
+      if (e == element) {
+
+        if (found) {
+          return true;
+        }
+
+        found = true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * @param iterable
+   * @param element
    * @return true if the given iterable contains the given element exactly 1 time,
    *         false otherwise, for the case that the given iterable is not null.
    */
@@ -106,6 +130,16 @@ public final class IterableTool implements IIterableTool {
     }
 
     return containsElementWhenIsNotNull(iterable, element);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsElementMultipleTimes(final Iterable<?> iterable, final Object element) {
+    return //
+    iterable != null
+    && containsElementMultipleTimesWhenIsNotNull(iterable, element);
   }
 
   /**
