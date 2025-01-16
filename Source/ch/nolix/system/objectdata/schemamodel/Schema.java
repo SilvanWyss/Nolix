@@ -2,9 +2,10 @@ package ch.nolix.system.objectdata.schemamodel;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 
@@ -12,13 +13,15 @@ public final class Schema implements ISchema {
 
   public static final Schema EMPTY_SCHEMA = new Schema(ImmutableList.createEmpty());
 
-  private final IContainer<Class<? extends IEntity>> entityTypes;
+  private final ImmutableList<Class<? extends IEntity>> entityTypes;
 
   private Schema(final IContainer<Class<? extends IEntity>> entityTypes) {
 
-    assertContainsDifferentEntityTypesOnly(entityTypes);
+    GlobalValidator.assertThat(entityTypes)
+      .thatIsNamed(PluralLowerCaseVariableCatalog.ENTITY_TYPES)
+      .containsDistinctNonNullElemensOnly();
 
-    this.entityTypes = entityTypes;
+    this.entityTypes = ImmutableList.forIterable(entityTypes);
   }
 
   @SuppressWarnings("unchecked")
@@ -44,20 +47,5 @@ public final class Schema implements ISchema {
   @Override
   public IContainer<Class<? extends IEntity>> getEntityTypes() {
     return entityTypes;
-  }
-
-  private void assertContainsDifferentEntityTypesOnly(
-    final IContainer<Class<? extends IEntity>> entityTypes) {
-    if (!containsDifferentEntityTypesOnly(entityTypes)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        "list of entity types",
-        entityTypes,
-        "does not contain different entity types only");
-    }
-  }
-
-  private boolean containsDifferentEntityTypesOnly(
-    final IContainer<Class<? extends IEntity>> entityTypes) {
-    return entityTypes.getStoredInGroups(Class::getSimpleName).containsAsManyAs(entityTypes);
   }
 }
