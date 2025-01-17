@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.EntityHeadTableSqlSchemaDtoCatalog;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.EntityIndexTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiBackReferenceEntryTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiReferenceEntryTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiValueEntryTableSqlSchemaDtoCatalog;
@@ -119,7 +119,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
     schemaWriter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
 
     //Adds index tables.
-    schemaWriter.addTable(EntityHeadTableSqlSchemaDtoCatalog.ENTITY_HEAD_TABLE_DTO);
+    schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
 
     //Adds multi-entry tables.
     schemaWriter.addTable(MultiValueEntryTableSqlSchemaDtoCatalog.MULTI_VALUE_ENTRY_TABLE_SQL_DTO);
