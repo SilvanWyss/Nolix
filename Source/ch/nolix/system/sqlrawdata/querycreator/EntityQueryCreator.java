@@ -7,15 +7,15 @@ import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 
 public final class EntityQueryCreator implements IEntityQueryCreator {
 
   @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
     return "SELECT COUNT(Id) FROM "
-    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix()
+    + TableNameQualifyingPrefix.E
     + tableName
     + " WHERE Id = '"
     + id
@@ -31,7 +31,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     "SELECT COUNT("
     + columnName
     + ") FROM "
-    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix()
+    + TableNameQualifyingPrefix.E
     + tableName
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + columnName
@@ -50,7 +50,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     "SELECT COUNT("
     + columnName
     + ") FROM "
-    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix()
+    + TableNameQualifyingPrefix.E
     + tableName
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + columnName
@@ -66,7 +66,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableView.name()
+    + TableNameQualifyingPrefix.E + tableView.name()
     + ";";
   }
 
@@ -75,7 +75,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableView.name()
+    + TableNameQualifyingPrefix.E + tableView.name()
     + " WHERE Id = '"
     + id
     + "';";
@@ -86,7 +86,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT "
     + DatabasePropertyTableColumn.VALUE.getLabel()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
+    + FixTableType.DATABASE_PROPERTY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getLabel()
     + " = '"

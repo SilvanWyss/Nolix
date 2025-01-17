@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
 
 public final class SqlSchemaDtoMapper {
@@ -28,7 +28,7 @@ public final class SqlSchemaDtoMapper {
   public ch.nolix.systemapi.sqlschemaapi.dto.TableDto mapTableDtoToSqlSchemaTableDto(final TableDto table) {
     return //
     new ch.nolix.systemapi.sqlschemaapi.dto.TableDto(
-      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + table.name(),
+      TableNameQualifyingPrefix.E + table.name(),
       createSqlColumnDtosFrom(table));
   }
 

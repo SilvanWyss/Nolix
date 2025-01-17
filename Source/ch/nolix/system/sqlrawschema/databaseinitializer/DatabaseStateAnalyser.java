@@ -4,7 +4,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.adapter.SchemaReader;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
@@ -20,7 +20,7 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
    */
   private static DatabaseState getDatabaseSchemaState(final ISchemaReader schemaReader) {
 
-    if (schemaReader.tableExists(MetaDataTableType.DATABASE_PROPERTY.getQualifiedName())) {
+    if (schemaReader.tableExists(FixTableType.DATABASE_PROPERTY.getQualifiedName())) {
       return DatabaseState.INITIALIZED;
     }
 

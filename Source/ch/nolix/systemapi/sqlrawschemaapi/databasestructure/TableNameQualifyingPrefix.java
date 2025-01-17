@@ -5,6 +5,6 @@ package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
  * @version 2025-01-17
  */
 public enum TableNameQualifyingPrefix {
-  S,
+  F,
   E
 }

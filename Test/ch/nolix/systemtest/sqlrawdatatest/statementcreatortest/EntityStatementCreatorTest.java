@@ -38,7 +38,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var result = testUnit.createStatementToDeleteEntityIndex("test_id");
 
     //verification
-    final var expectedResult = "DELETE FROM SEntityHead WHERE EntityId = 'test_id';";
+    final var expectedResult = "DELETE FROM FEntityIndex WHERE EntityId = 'test_id';";
     expect(result).isEqualTo(expectedResult);
   }
 

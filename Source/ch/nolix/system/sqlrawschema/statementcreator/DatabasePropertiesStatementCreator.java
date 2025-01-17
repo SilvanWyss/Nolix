@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.statementcreator;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -13,7 +13,7 @@ public final class DatabasePropertiesStatementCreator implements IDatabaseProper
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return //
     "UPDATE "
-    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
+    + FixTableType.DATABASE_PROPERTY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + DatabasePropertyTableColumn.VALUE.getLabel()
     + " = '"

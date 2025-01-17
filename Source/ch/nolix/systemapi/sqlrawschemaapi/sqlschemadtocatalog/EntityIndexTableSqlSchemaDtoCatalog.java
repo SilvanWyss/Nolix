@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.EntityIndexTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.IndexTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
@@ -15,7 +15,7 @@ public final class EntityIndexTableSqlSchemaDtoCatalog {
     EntityIndexTableColumn.ENTITY_ID.getName(), DataTypeTypeCatalog.TEXT);
 
   public static final TableDto ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO = TableDto.withNameAndColumn(
-    IndexTableType.ENTITY_HEAD.getQualifiedName(),
+    FixTableType.ENTITY_INDEX.getQualifiedName(),
     TABLE_ID_SQL_SCHEMA_COLUMN_DTO,
     ENTITY_ID_SQL_SCHEMA_COLUMN_DTO);
 

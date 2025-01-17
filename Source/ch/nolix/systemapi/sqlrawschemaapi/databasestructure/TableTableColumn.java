@@ -2,15 +2,13 @@ package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
 public enum TableTableColumn implements INameHolder {
-  ID(PascalCaseVariableCatalog.ID),
+  ID(PascalCaseVariableCatalog.ID + CharacterCatalog.UNDERSCORE),
   NAME(PascalCaseVariableCatalog.NAME);
-
-  private static final String NAME_PREFIX = SchemaTableType.TABLE.getQualifiedName() + StringCatalog.DOT;
 
   private final String name;
 
@@ -24,13 +22,5 @@ public enum TableTableColumn implements INameHolder {
   @Override
   public String getName() {
     return name;
-  }
-
-  public String getQualifiedName() {
-    return (getQualifyingPrefix() + getName());
-  }
-
-  public String getQualifyingPrefix() {
-    return NAME_PREFIX;
   }
 }

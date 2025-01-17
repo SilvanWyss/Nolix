@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemaflatdtomapperapi.ITableFlatDtoMapper;
 
@@ -54,7 +54,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
     return //
-    sqlSchemaReader.columnsIsEmpty(TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName, columnName);
+    sqlSchemaReader.columnsIsEmpty(TableNameQualifyingPrefix.E + tableName, columnName);
   }
 
   @Override

@@ -18,8 +18,8 @@ final class MultiValueQueryCreatorTest extends StandardTest {
 
     //verification setup
     final var expectedResult = //
-    "SELECT Value "
-    + "FROM SMultiValueEntry "
+    "SELECT Value_ "
+    + "FROM FMultiValueEntry "
     + "WHERE EntityId = 'my_entity_id' "
     + "AND MultiValueColumnId = 'my_column_id';";
 

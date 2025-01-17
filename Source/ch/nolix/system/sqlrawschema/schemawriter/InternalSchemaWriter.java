@@ -6,7 +6,7 @@ import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.sqlschemadtomapper.SqlSchemaDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 
 final class InternalSchemaWriter implements ChangeRequestable {
@@ -24,7 +24,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 
   public void addColumn(final String tableName, final ColumnDto column) {
     sqlSchemaWriter.addColumn(
-      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName,
+      TableNameQualifyingPrefix.E + tableName,
       SCHEMA_DTO_MAPPER.mapColumnDtoToSqlColumnDto(column));
   }
 
@@ -33,11 +33,11 @@ final class InternalSchemaWriter implements ChangeRequestable {
   }
 
   public void deleteColumn(final String tableName, final String columnName) {
-    sqlSchemaWriter.deleteColumn(TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName, columnName);
+    sqlSchemaWriter.deleteColumn(TableNameQualifyingPrefix.E + tableName, columnName);
   }
 
   public void deleteTable(final String tableName) {
-    sqlSchemaWriter.deleteTable(TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName);
+    sqlSchemaWriter.deleteTable(TableNameQualifyingPrefix.E + tableName);
   }
 
   public IContainer<String> getSqlStatements() {
@@ -55,14 +55,14 @@ final class InternalSchemaWriter implements ChangeRequestable {
 
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
     sqlSchemaWriter.renameColumn(
-      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName,
+      TableNameQualifyingPrefix.E + tableName,
       columnName,
       newColumnName);
   }
 
   public void setTableName(final String tableName, final String newTableName) {
     sqlSchemaWriter.renameTable(
-      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName,
-      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + newTableName);
+      TableNameQualifyingPrefix.E + tableName,
+      TableNameQualifyingPrefix.E + newTableName);
   }
 }

@@ -3,17 +3,25 @@ package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
-public enum MultiEntryTableType implements IQualifiedNameHolder {
+/**
+ * @author Silvan Wyss
+ * @version 2025-17-01
+ */
+public enum FixTableType implements IQualifiedNameHolder {
+  DATABASE_PROPERTY("DatabaseProperty"),
+  TABLE(PascalCaseVariableCatalog.TABLE),
+  COLUMN(PascalCaseVariableCatalog.COLUMN),
+  TABLE_REFERENCE("TableReference"),
+  ENTITY_INDEX("EntityIndex"),
   MULTI_VALUE_ENTRY("MultiValueEntry"),
   MULTI_REFERENCE_ENTRY("MultiReferenceEntry"),
   MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
 
-  private static final String QUALIFYING_PREFIX = TableType.MULTI_ENTRY_TABLE.getTableNameQualifyingPrefix();
-
   private final String name;
 
-  MultiEntryTableType(final String name) {
+  FixTableType(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
@@ -27,6 +35,6 @@ public enum MultiEntryTableType implements IQualifiedNameHolder {
 
   @Override
   public String getQualifyingPrefix() {
-    return QUALIFYING_PREFIX;
+    return TableNameQualifyingPrefix.F.name();
   }
 }

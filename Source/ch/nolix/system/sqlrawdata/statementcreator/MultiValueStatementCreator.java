@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiValueStatementCreator;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiEntryTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiValueEntryTableColumn;
 
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
@@ -10,7 +10,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
     "DELETE FROM "
-    + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -29,7 +29,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entry) {
     return //
     "DELETE FROM "
-    + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -52,7 +52,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entry) {
     return //
     "INSERT INTO "
-    + MultiEntryTableType.MULTI_VALUE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + " ("
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
     + ", "

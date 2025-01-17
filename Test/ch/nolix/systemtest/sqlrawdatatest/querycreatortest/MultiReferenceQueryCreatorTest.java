@@ -19,7 +19,7 @@ final class MultiReferenceQueryCreatorTest extends StandardTest {
     //verification setup
     final var expectedResult = //
     "SELECT ReferencedEntityId "
-    + "FROM SMultiReferenceEntry "
+    + "FROM FMultiReferenceEntry "
     + "WHERE EntityId = 'my_entity_id' "
     + "AND MultiReferenceColumnId = 'my_column_id';";
 

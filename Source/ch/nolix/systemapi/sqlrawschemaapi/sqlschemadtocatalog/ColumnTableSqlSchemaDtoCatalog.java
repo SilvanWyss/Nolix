@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
@@ -34,7 +34,7 @@ public final class ColumnTableSqlSchemaDtoCatalog {
     ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DataTypeTypeCatalog.TEXT);
 
   public static final TableDto COLUMN_TABLE_SQL_DTO = TableDto.withNameAndColumn(
-    SchemaTableType.COLUMN.getQualifiedName(),
+    FixTableType.COLUMN.getQualifiedName(),
     ID_SQL_DTO,
     PARENT_TABLE_ID_SQL_DTO,
     NAME_SQL_DTO,

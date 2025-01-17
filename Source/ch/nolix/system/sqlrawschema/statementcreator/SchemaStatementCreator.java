@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.SchemaTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.ISchemaStatementCreator;
 
@@ -25,7 +25,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
     return //
     "INSERT INTO "
-    + SchemaTableType.COLUMN.getQualifiedName()
+    + FixTableType.COLUMN.getQualifiedName()
     + " ("
     + ColumnTableColumn.ID.getName()
     + ", "
@@ -43,7 +43,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ") SELECT '"
     + column.id()
     + "', "
-    + TableTableColumn.ID.getQualifiedName()
+    + TableTableColumn.ID.getName()
     + ", '"
     + column.name()
     + "', "
@@ -55,9 +55,9 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ", "
     + contentModelSqlDto.backReferencedColumnId()
     + " FROM "
-    + SchemaTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + TableTableColumn.NAME.getQualifiedName()
+    + TableTableColumn.NAME.getName()
     + " = '"
     + parentTableName
     + "'";
@@ -81,7 +81,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return //
     "DELETE FROM "
-    + SchemaTableType.COLUMN.getQualifiedName()
+    + FixTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = "
@@ -97,7 +97,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToDeleteTable(final String tableName) {
     return //
     "DELETE FROM "
-    + SchemaTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME
     + " = '"
@@ -110,7 +110,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     final String newColumnName) {
     return //
     "UPDATE "
-    + SchemaTableType.COLUMN.getQualifiedName()
+    + FixTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.NAME
     + " = '"
@@ -134,7 +134,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
     return //
     "UPDATE "
-    + SchemaTableType.COLUMN.getQualifiedName()
+    + FixTableType.COLUMN.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
@@ -158,7 +158,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToSetTableName(final String tableName, final String newTableName) {
     return //
     "UPDATE "
-    + SchemaTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + TableTableColumn.NAME.getName()
     + " = '"
@@ -173,7 +173,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   private String createStatementToAddTableIgnoringColumns(final TableDto tableDto) {
     return //
     "INSERT INTO "
-    + SchemaTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getQualifiedName()
     + " ("
     + TableTableColumn.ID.getName()
     + ", "
