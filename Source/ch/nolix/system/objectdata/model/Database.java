@@ -1,8 +1,10 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -15,21 +17,23 @@ public final class Database implements IDatabase {
 
   private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 
-  private final ITime schemaTimestamp;
-
-  private final IDataAdapterAndSchemaReader dataAndSchemaAdapter;
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private final ISchema schema;
 
-  private final LinkedList<? extends ITable<IEntity>> tables;
+  private final ITime schemaTimestamp;
 
-  private Database(final IDataAdapterAndSchemaReader dataAndSchemaAdapter, final ISchema schema) {
+  private final ImmutableList<? extends ITable<IEntity>> tables;
 
-    GlobalValidator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAdapterAndSchemaReader.class).isNotNull();
+  private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
+
+  private Database(final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader, final ISchema schema) {
+
+    RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
     GlobalValidator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 
-    schemaTimestamp = dataAndSchemaAdapter.getSchemaTimestamp();
-    this.dataAndSchemaAdapter = dataAndSchemaAdapter;
+    schemaTimestamp = rawDataAdapterAndSchemaReader.getSchemaTimestamp();
+    this.rawDataAdapterAndSchemaReader = rawDataAdapterAndSchemaReader;
     this.schema = schema;
     tables = loadTables();
   }
@@ -127,7 +131,7 @@ public final class Database implements IDatabase {
   }
 
   IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
-    return dataAndSchemaAdapter;
+    return rawDataAdapterAndSchemaReader;
   }
 
   ISchema internalGetSchema() {
@@ -140,7 +144,7 @@ public final class Database implements IDatabase {
     }
   }
 
-  private LinkedList<Table<IEntity>> loadTables() {
-    return DATABASE_TABLE_LOADER.loadTablesForDatabase(this);
+  private ImmutableList<Table<IEntity>> loadTables() {
+    return ImmutableList.forIterable(DATABASE_TABLE_LOADER.loadTablesForDatabase(this));
   }
 }
