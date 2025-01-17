@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.EntityHeadTableColumn;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.EntityIndexTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.IndexTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MetaDataTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableType;
@@ -95,9 +95,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "INSERT INTO "
     + IndexTableType.ENTITY_HEAD.getQualifiedName()
     + "("
-    + EntityHeadTableColumn.TABLE_ID.getName()
+    + EntityIndexTableColumn.TABLE_ID.getName()
     + ", "
-    + EntityHeadTableColumn.ENTITY_ID.getName()
+    + EntityIndexTableColumn.ENTITY_ID.getName()
     + ") VALUES ("
     + STRING_TOOL.getInSingleQuotes(tableId)
     + ", "
