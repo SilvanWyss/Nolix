@@ -24,6 +24,10 @@ public final class NodeHeaderCatalog {
 
   public static final String ENTITY = PascalCaseVariableCatalog.ENTITY;
 
+  public static final String ENTITY_INDEX = "EntityIndex";
+
+  public static final String ENTITY_INDEXES = "EntityIndexes";
+
   public static final String ID = PascalCaseVariableCatalog.ID;
 
   public static final String NAME = PascalCaseVariableCatalog.NAME;

@@ -2,7 +2,6 @@ package ch.nolix.system.noderawschema.nodesearcher;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 
@@ -30,7 +29,7 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
 
   @Override
   public IMutableNode<?> getStoredEntityIndexesNodeFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return nodeDatabase.getStoredFirstChildNodeWithHeader(StructureHeaderCatalog.ENTITY_INDEXES);
+    return nodeDatabase.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ENTITY_INDEXES);
   }
 
   @Override

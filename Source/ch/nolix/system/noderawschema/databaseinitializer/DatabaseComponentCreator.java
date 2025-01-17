@@ -2,7 +2,6 @@ package ch.nolix.system.noderawschema.databaseinitializer;
 
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.structure.StructureHeaderCatalog;
 import ch.nolix.systemapi.noderawschemaapi.databaseinitializerapi.IDatabaseComponentCreator;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -30,7 +29,7 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
    */
   @Override
   public IMutableNode<?> createEntityIndexesNode() {
-    return MutableNode.createEmpty().setHeader(StructureHeaderCatalog.ENTITY_INDEXES);
+    return MutableNode.createEmpty().setHeader(NodeHeaderCatalog.ENTITY_INDEXES);
   }
 
   /**
