@@ -115,10 +115,9 @@ public final class InternalDataWriter {
   }
 
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-
-    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityIndex(tableName, newEntity.id()));
-
-    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToInsertEntity(tableName, newEntity));
+    sqlCollector.addSqlStatement(
+      ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityIndex(tableName, newEntity.id()),
+      ENTITY_STATEMENT_CREATOR.createStatementToInsertEntity(tableName, newEntity));
   }
 
   public void insertEntryIntoMultiBackReference(

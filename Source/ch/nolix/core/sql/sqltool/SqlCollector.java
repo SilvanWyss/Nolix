@@ -1,5 +1,6 @@
 package ch.nolix.core.sql.sqltool;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -11,11 +12,11 @@ public final class SqlCollector implements ISqlCollector {
   private final LinkedList<String> sqlStatements = LinkedList.createEmpty();
 
   @Override
-  public SqlCollector addSqlStatement(final String sqlstatement) {
+  public SqlCollector addSqlStatement(final String sqlstatement, final String... sqlStatements) {
 
-    GlobalValidator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
+    addSingleSqlStatement(sqlstatement);
 
-    sqlStatements.addAtEnd(sqlstatement);
+    addSqlStatements(ContainerView.forArray(sqlStatements));
 
     return this;
   }
@@ -50,6 +51,13 @@ public final class SqlCollector implements ISqlCollector {
   @Override
   public boolean isEmpty() {
     return sqlStatements.isEmpty();
+  }
+
+  private void addSingleSqlStatement(final String sqlstatement) {
+
+    GlobalValidator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
+
+    this.sqlStatements.addAtEnd(sqlstatement);
   }
 
   private void executeUsingConnection(final ISqlConnection sqlConnection) {
