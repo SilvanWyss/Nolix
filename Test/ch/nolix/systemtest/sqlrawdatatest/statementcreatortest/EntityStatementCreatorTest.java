@@ -17,10 +17,10 @@ final class EntityStatementCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityStatementCreator();
-    final var entityHeadDto = new EntityDeletionDto("my_id", "100");
+    final var entityDeletionDto = new EntityDeletionDto("my_id", "100");
 
     //execution
-    final var result = testUnit.createStatementToDeleteEntity("MyTable", entityHeadDto);
+    final var result = testUnit.createStatementToDeleteEntity("MyTable", entityDeletionDto);
 
     //verification
     final var expectedResult = "DELETE FROM EMyTable WHERE Id = 'my_id' AND SaveStamp = '100';"
@@ -29,7 +29,7 @@ final class EntityStatementCreatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_createStatementToDeleteEntityHead() {
+  void testCase_createStatementToDeleteEntityIndex() {
 
     //setup
     final var testUnit = new EntityStatementCreator();
