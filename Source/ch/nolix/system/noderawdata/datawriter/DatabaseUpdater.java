@@ -8,7 +8,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
-import ch.nolix.system.noderawdata.nodemapper.EntityHeadNodeMapper;
+import ch.nolix.system.noderawdata.nodemapper.EntityIndexNodeMapper;
 import ch.nolix.system.noderawdata.nodemapper.EntityNodeMapper;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
@@ -17,7 +17,7 @@ import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityHeadNodeMapper;
+import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
@@ -49,7 +49,7 @@ final class DatabaseUpdater {
 
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  private static final IEntityHeadNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityHeadNodeMapper();
+  private static final IEntityIndexNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityIndexNodeMapper();
 
   private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
@@ -318,7 +318,7 @@ final class DatabaseUpdater {
 
     final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromNodeDatabase(nodeDatabase);
 
-    final var entityHeadNode = ENTITY_HEAD_NODE_MAPPER.mapEntityCreationDtoToEntityHeadNode(newEntity, tableView);
+    final var entityHeadNode = ENTITY_HEAD_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableView);
 
     entityHeadsNode.addChildNode(entityHeadNode);
   }
