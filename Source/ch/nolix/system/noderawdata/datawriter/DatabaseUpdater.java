@@ -132,7 +132,7 @@ final class DatabaseUpdater {
     final String tableName,
     final EntityDeletionDto entity) {
 
-    deleteEntityHeadFromDatabase(database, entity);
+    deleteEntityIndexFromDatabase(database, entity);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
 
@@ -202,7 +202,7 @@ final class DatabaseUpdater {
     final TableViewDto tableView,
     final EntityCreationDto newEntity) {
 
-    insertEntityHeadIntoDatabase(nodeDatabase, tableView, newEntity);
+    insertEntityIndexIntoDatabase(nodeDatabase, tableView, newEntity);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -303,24 +303,24 @@ final class DatabaseUpdater {
     updateEntityNode(entityNode.get(), tableView, entityUpdate);
   }
 
-  private void deleteEntityHeadFromDatabase(final IMutableNode<?> nodeDatabase, final EntityDeletionDto entity) {
+  private void deleteEntityIndexFromDatabase(final IMutableNode<?> nodeDatabase, final EntityDeletionDto entity) {
 
     final var entityId = entity.id();
-    final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromNodeDatabase(nodeDatabase);
+    final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
 
-    entityHeadsNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));
+    entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));
   }
 
-  private void insertEntityHeadIntoDatabase(
+  private void insertEntityIndexIntoDatabase(
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final EntityCreationDto newEntity) {
 
-    final var entityHeadsNode = DATABASE_NODE_SEARCHER.getStoredEntityHeadsNodeFromNodeDatabase(nodeDatabase);
+    final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
 
     final var entityHeadNode = ENTITY_HEAD_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableView);
 
-    entityHeadsNode.addChildNode(entityHeadNode);
+    entityIndexesNode.addChildNode(entityHeadNode);
   }
 
   private void updateEntityNode(

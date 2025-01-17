@@ -9,7 +9,7 @@ public interface IDatabaseNodeSearcher {
 
   IMutableNode<?> getStoredDatabasePropertiesNodeFromNodeDatabase(IMutableNode<?> nodeDatabase);
 
-  IMutableNode<?> getStoredEntityHeadsNodeFromNodeDatabase(IMutableNode<?> nodeDatabase);
+  IMutableNode<?> getStoredEntityIndexesNodeFromNodeDatabase(IMutableNode<?> nodeDatabase);
 
   IMutableNode<?> getStoredTableNodeByTableIdFromNodeDatabase(
     IMutableNode<?> nodeDatabase,
