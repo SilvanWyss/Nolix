@@ -32,7 +32,7 @@ import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-final class DatabaseUpdater {
+public final class DatabaseUpdater {
 
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
@@ -49,7 +49,7 @@ final class DatabaseUpdater {
 
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  private static final IEntityIndexNodeMapper ENTITY_HEAD_NODE_MAPPER = new EntityIndexNodeMapper();
+  private static final IEntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
 
   private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
@@ -317,10 +317,9 @@ final class DatabaseUpdater {
     final EntityCreationDto newEntity) {
 
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
+    final var entityIndexNode = ENTITY_INDEXES_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableView);
 
-    final var entityHeadNode = ENTITY_HEAD_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableView);
-
-    entityIndexesNode.addChildNode(entityHeadNode);
+    entityIndexesNode.addChildNode(entityIndexNode);
   }
 
   private void updateEntityNode(
