@@ -1,6 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.componentapi.datamodelcomponentapi.IEntityComponent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
@@ -8,7 +9,7 @@ import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
 public interface IField
-extends EmptinessRequestable, IDatabaseObject, IEntityComponent, INameHolder, MandatorynessRequestable {
+extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameHolder, MandatorynessRequestable {
 
   /**
    * @return the {@link IAbstractBackReference}s that reference back the current
