@@ -9,7 +9,7 @@ public interface IEntityStatementCreator {
 
   String createStatementToDeleteEntity(String tableName, EntityDeletionDto entity);
 
-  String createStatementToDeleteEntityHead(String entityId);
+  String createStatementToDeleteEntityIndex(String entityId);
 
   String createStatementToExpectGivenSchemaTimestamp(ITime schemaTimestamp);
 
@@ -17,7 +17,7 @@ public interface IEntityStatementCreator {
 
   String createStatementToInsertEntity(String tableName, EntityCreationDto newEntity);
 
-  String createStatementToInsertEntityHead(String tableId, String entityId);
+  String createStatementToInsertEntityIndex(String tableId, String entityId);
 
   String createStatementToUpdateEntityOnTable(String tableName, EntityUpdateDto entityUpdate);
 }

@@ -38,7 +38,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   }
 
   @Override
-  public String createStatementToDeleteEntityHead(final String entityId) {
+  public String createStatementToDeleteEntityIndex(final String entityId) {
     return "DELETE FROM "
     + IndexTableType.ENTITY_HEAD.getQualifiedName()
     + " WHERE EntityId = "
@@ -91,7 +91,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   }
 
   @Override
-  public String createStatementToInsertEntityHead(final String tableId, final String entityId) {
+  public String createStatementToInsertEntityIndex(final String tableId, final String entityId) {
     return "INSERT INTO "
     + IndexTableType.ENTITY_HEAD.getQualifiedName()
     + "("

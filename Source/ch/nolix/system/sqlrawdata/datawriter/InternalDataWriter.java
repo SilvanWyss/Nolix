@@ -47,7 +47,7 @@ public final class InternalDataWriter {
   }
 
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
-    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntityHead(entity.id()));
+    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntityIndex(entity.id()));
     sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntity(tableName, entity));
   }
 
@@ -116,7 +116,7 @@ public final class InternalDataWriter {
 
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
 
-    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityHead(tableName, newEntity.id()));
+    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityIndex(tableName, newEntity.id()));
 
     sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToInsertEntity(tableName, newEntity));
   }
