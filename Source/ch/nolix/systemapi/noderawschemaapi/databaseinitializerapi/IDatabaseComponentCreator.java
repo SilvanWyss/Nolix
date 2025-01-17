@@ -17,9 +17,9 @@ public interface IDatabaseComponentCreator {
   IMutableNode<?> createDatabasePropertiesNodeWithInitialSchemaTimeStamp(ITime initialSchemaTimeStamp);
 
   /**
-   * @return a new entity heads node.
+   * @return a new entity indexes node.
    */
-  IMutableNode<?> createEntityHeadsNode();
+  IMutableNode<?> createEntityIndexesNode();
 
   /**
    * @param initialSchemaTimeStamp

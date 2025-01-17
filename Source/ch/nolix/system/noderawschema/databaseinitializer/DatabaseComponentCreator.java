@@ -29,8 +29,8 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> createEntityHeadsNode() {
-    return MutableNode.createEmpty().setHeader(StructureHeaderCatalog.ENTITY_HEADS);
+  public IMutableNode<?> createEntityIndexesNode() {
+    return MutableNode.createEmpty().setHeader(StructureHeaderCatalog.ENTITY_INDEXES);
   }
 
   /**

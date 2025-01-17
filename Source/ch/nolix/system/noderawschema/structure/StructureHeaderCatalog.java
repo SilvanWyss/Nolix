@@ -4,7 +4,7 @@ public final class StructureHeaderCatalog {
 
   public static final String ENTITY_HEAD = "EntityHead";
 
-  public static final String ENTITY_HEADS = "EntityHeads";
+  public static final String ENTITY_INDEXES = "EntityHeads";
 
   private StructureHeaderCatalog() {
   }

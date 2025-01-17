@@ -29,6 +29,6 @@ final class InternalDatabaseInitializer implements IDatabaseInitializer {
   }
 
   private INode<?> createEntityHeadsNode() {
-    return Node.withHeader(StructureHeaderCatalog.ENTITY_HEADS);
+    return Node.withHeader(StructureHeaderCatalog.ENTITY_INDEXES);
   }
 }

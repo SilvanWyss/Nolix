@@ -30,7 +30,7 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
 
   @Override
   public IMutableNode<?> getStoredEntityIndexesNodeFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return nodeDatabase.getStoredFirstChildNodeWithHeader(StructureHeaderCatalog.ENTITY_HEADS);
+    return nodeDatabase.getStoredFirstChildNodeWithHeader(StructureHeaderCatalog.ENTITY_INDEXES);
   }
 
   @Override

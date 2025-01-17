@@ -65,6 +65,6 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
       .setHeader(NodeHeaderCatalog.DATABASE)
       .addChildNode(
         DATABASE_COMPONENT_CREATOR.createDatabasePropertiesNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp),
-        DATABASE_COMPONENT_CREATOR.createEntityHeadsNode());
+        DATABASE_COMPONENT_CREATOR.createEntityIndexesNode());
   }
 }
