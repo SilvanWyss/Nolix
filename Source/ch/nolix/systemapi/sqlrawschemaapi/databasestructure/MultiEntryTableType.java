@@ -9,7 +9,7 @@ public enum MultiEntryTableType implements IQualifiedNameHolder {
   MULTI_REFERENCE_ENTRY("MultiReferenceEntry"),
   MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
 
-  private static final String QUALIFYING_PREFIX = TableType.MULTI_ENTRY_TABLE.getQualifyingPrefix();
+  private static final String QUALIFYING_PREFIX = TableType.MULTI_ENTRY_TABLE.getTableNameQualifyingPrefix();
 
   private final String name;
 

@@ -3,22 +3,22 @@ package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 public enum TableType {
-  META_DATA_TABLE("M"),
-  SCHEMA_TABLE("S"),
-  INDEX_TABLE("I"),
-  ENTITY_TABLE("E"),
-  MULTI_ENTRY_TABLE("T");
+  META_DATA_TABLE(TableNameQualifyingPrefix.S),
+  SCHEMA_TABLE(TableNameQualifyingPrefix.S),
+  INDEX_TABLE(TableNameQualifyingPrefix.S),
+  ENTITY_TABLE(TableNameQualifyingPrefix.E),
+  MULTI_ENTRY_TABLE(TableNameQualifyingPrefix.S);
 
-  private final String qualifyingPrefix;
+  private final TableNameQualifyingPrefix tableNameQualifyingPrefix;
 
-  TableType(final String qualifyingPrefix) {
+  TableType(final TableNameQualifyingPrefix tableNameQualifyingPrefix) {
 
-    GlobalValidator.assertThat(qualifyingPrefix).thatIsNamed("qualifying prefix").isNotBlank();
+    GlobalValidator.assertThat(tableNameQualifyingPrefix).thatIsNamed(TableNameQualifyingPrefix.class).isNotNull();
 
-    this.qualifyingPrefix = qualifyingPrefix;
+    this.tableNameQualifyingPrefix = tableNameQualifyingPrefix;
   }
 
-  public String getQualifyingPrefix() {
-    return qualifyingPrefix;
+  public String getTableNameQualifyingPrefix() {
+    return tableNameQualifyingPrefix.name();
   }
 }

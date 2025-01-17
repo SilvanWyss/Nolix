@@ -18,9 +18,11 @@ final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
     //execution
     final var result = testUnit.createStatementToCreateSchemaTimestampEntry(time);
 
-    //verification
+    //verification setup
     final var expectedResult = //
-    "INSERT INTO MDatabaseProperty (ValueKey, Value) VALUES ('SchemaTimestamp', '2025-01-01-00-00-00-000-000');";
+    "INSERT INTO SDatabaseProperty (ValueKey, Value) VALUES ('SchemaTimestamp', '2025-01-01-00-00-00-000-000');";
+
+    //verification
     expect(result).isEqualTo(expectedResult);
   }
 }

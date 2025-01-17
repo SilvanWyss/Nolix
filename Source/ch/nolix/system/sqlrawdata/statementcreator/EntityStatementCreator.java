@@ -28,7 +28,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     final String tableName,
     final EntityDeletionDto entity) {
     return "DELETE FROM "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName
     + " WHERE Id = '"
     + entity.id()
     + "' AND SaveStamp = '"
@@ -64,7 +64,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
     return "SELECT Id FROM "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName
     + " WHERE Id = '"
     + entityId
     + "'; "
@@ -78,7 +78,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
     return "INSERT INTO "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName
     + " (Id, SaveStamp, "
     + newEntity.contentFields().to(StringContentFieldDto::columnName).toStringWithSeparator(", ")
     + ") VALUES ('"
@@ -117,7 +117,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     }
 
     return "UPDATE "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName
     + " SET SaveStamp = '"
     + (Integer.valueOf(entityUpdate.saveStamp()) + 1)
     + "'"

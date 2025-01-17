@@ -16,11 +16,14 @@ final class MultiValueQueryCreatorTest extends StandardTest {
     //execution
     final var result = testUnit.createQueryToLoadMultiValueEntries("my_entity_id", "my_column_id");
 
-    //verification
-    final var expectedResult = "SELECT Value "
-    + "FROM TMultiValueEntry "
+    //verification setup
+    final var expectedResult = //
+    "SELECT Value "
+    + "FROM SMultiValueEntry "
     + "WHERE EntityId = 'my_entity_id' "
     + "AND MultiValueColumnId = 'my_column_id';";
+
+    //verification
     expect(result).isEqualTo(expectedResult);
   }
 }

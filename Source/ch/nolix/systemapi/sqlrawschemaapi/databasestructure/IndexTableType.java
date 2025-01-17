@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 public enum IndexTableType implements IQualifiedNameHolder {
   ENTITY_HEAD("EntityHead");
 
-  private static final String QUALIFYING_PREFIX = TableType.INDEX_TABLE.getQualifyingPrefix();
+  private static final String QUALIFYING_PREFIX = TableType.INDEX_TABLE.getTableNameQualifyingPrefix();
 
   private final String name;
 

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 public enum MetaDataTableType implements IQualifiedNameHolder {
   DATABASE_PROPERTY("DatabaseProperty");
 
-  private static final String QUALIFYING_PREFIX = TableType.META_DATA_TABLE.getQualifyingPrefix();
+  private static final String QUALIFYING_PREFIX = TableType.META_DATA_TABLE.getTableNameQualifyingPrefix();
 
   private final String name;
 

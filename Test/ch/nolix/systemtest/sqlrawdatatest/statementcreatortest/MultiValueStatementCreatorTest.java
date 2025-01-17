@@ -17,7 +17,7 @@ final class MultiValueStatementCreatorTest extends StandardTest {
 
     //verification setup
     final var expectedResult = //
-    "DELETE FROM TMultiValueEntry "
+    "DELETE FROM SMultiValueEntry "
     + "WHERE EntityId = 'my_entity_id' AND MultiValueColumnId = 'my_multi_value_column_id';";
 
     //execution
@@ -38,7 +38,7 @@ final class MultiValueStatementCreatorTest extends StandardTest {
 
     //verification setup
     final var expectedResult = //
-    "DELETE FROM TMultiValueEntry "
+    "DELETE FROM SMultiValueEntry "
     + "WHERE EntityId = 'my_entity_id' AND MultiValueColumnId = 'my_multi_value_column_id' AND Value = 'my_entry';";
 
     //execution
@@ -59,7 +59,7 @@ final class MultiValueStatementCreatorTest extends StandardTest {
 
     //verification setup
     final var expectedResult = //
-    "INSERT INTO TMultiValueEntry "
+    "INSERT INTO SMultiValueEntry "
     + "(EntityId, MultiValueColumnId, Value) "
     + "VALUES ('my_entity_id', 'my_multi_value_column_id', 'my_entry');";
 

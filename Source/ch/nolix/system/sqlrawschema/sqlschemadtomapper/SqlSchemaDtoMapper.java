@@ -28,7 +28,7 @@ public final class SqlSchemaDtoMapper {
   public ch.nolix.systemapi.sqlschemaapi.dto.TableDto mapTableDtoToSqlSchemaTableDto(final TableDto table) {
     return //
     new ch.nolix.systemapi.sqlschemaapi.dto.TableDto(
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + table.name(),
+      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + table.name(),
       createSqlColumnDtosFrom(table));
   }
 

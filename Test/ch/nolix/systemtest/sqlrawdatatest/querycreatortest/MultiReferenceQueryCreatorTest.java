@@ -16,11 +16,14 @@ final class MultiReferenceQueryCreatorTest extends StandardTest {
     //execution
     final var result = testUnit.createQueryToLoadMultiReferenceEntries("my_entity_id", "my_column_id");
 
-    //verification
-    final var expectedResult = "SELECT ReferencedEntityId "
-    + "FROM TMultiReferenceEntry "
+    //verification setup
+    final var expectedResult = //
+    "SELECT ReferencedEntityId "
+    + "FROM SMultiReferenceEntry "
     + "WHERE EntityId = 'my_entity_id' "
     + "AND MultiReferenceColumnId = 'my_column_id';";
+
+    //verification
     expect(result).isEqualTo(expectedResult);
   }
 }

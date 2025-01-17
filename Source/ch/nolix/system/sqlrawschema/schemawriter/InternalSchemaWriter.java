@@ -24,7 +24,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 
   public void addColumn(final String tableName, final ColumnDto column) {
     sqlSchemaWriter.addColumn(
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName,
+      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName,
       SCHEMA_DTO_MAPPER.mapColumnDtoToSqlColumnDto(column));
   }
 
@@ -33,11 +33,11 @@ final class InternalSchemaWriter implements ChangeRequestable {
   }
 
   public void deleteColumn(final String tableName, final String columnName) {
-    sqlSchemaWriter.deleteColumn(TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName, columnName);
+    sqlSchemaWriter.deleteColumn(TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName, columnName);
   }
 
   public void deleteTable(final String tableName) {
-    sqlSchemaWriter.deleteTable(TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName);
+    sqlSchemaWriter.deleteTable(TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName);
   }
 
   public IContainer<String> getSqlStatements() {
@@ -55,14 +55,14 @@ final class InternalSchemaWriter implements ChangeRequestable {
 
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
     sqlSchemaWriter.renameColumn(
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName,
+      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName,
       columnName,
       newColumnName);
   }
 
   public void setTableName(final String tableName, final String newTableName) {
     sqlSchemaWriter.renameTable(
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName,
-      TableType.ENTITY_TABLE.getQualifyingPrefix() + newTableName);
+      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName,
+      TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + newTableName);
   }
 }

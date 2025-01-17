@@ -76,8 +76,10 @@ final class EntityQueryCreatorTest extends StandardTest {
     //execution
     final var result = testUnit.createQueryToLoadSchemaTimestamp();
 
+    //verification setup
+    final var expectedResult = "SELECT Value FROM SDatabaseProperty WHERE ValueKey = 'SchemaTimestamp';";
+
     //verification
-    final var expectedResult = "SELECT Value FROM MDatabaseProperty WHERE ValueKey = 'SchemaTimestamp';";
     expect(result).isEqualTo(expectedResult);
   }
 }

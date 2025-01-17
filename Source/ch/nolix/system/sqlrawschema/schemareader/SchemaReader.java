@@ -53,7 +53,8 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
-    return sqlSchemaReader.columnsIsEmpty(TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName, columnName);
+    return //
+    sqlSchemaReader.columnsIsEmpty(TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableName, columnName);
   }
 
   @Override

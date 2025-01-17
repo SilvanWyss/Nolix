@@ -15,7 +15,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
     return "SELECT COUNT(Id) FROM "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix()
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix()
     + tableName
     + " WHERE Id = '"
     + id
@@ -31,7 +31,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     "SELECT COUNT("
     + columnName
     + ") FROM "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix()
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix()
     + tableName
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + columnName
@@ -50,7 +50,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     "SELECT COUNT("
     + columnName
     + ") FROM "
-    + TableType.ENTITY_TABLE.getQualifyingPrefix()
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix()
     + tableName
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + columnName
@@ -66,7 +66,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableView.name()
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableView.name()
     + ";";
   }
 
@@ -75,7 +75,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT Id, SaveStamp, "
     + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableView.name()
+    + TableType.ENTITY_TABLE.getTableNameQualifyingPrefix() + tableView.name()
     + " WHERE Id = '"
     + id
     + "';";
