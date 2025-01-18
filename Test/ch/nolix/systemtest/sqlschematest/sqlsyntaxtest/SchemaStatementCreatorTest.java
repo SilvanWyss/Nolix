@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
-import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.DataTypeDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 final class SchemaStatementCreatorTest extends StandardTest {
 

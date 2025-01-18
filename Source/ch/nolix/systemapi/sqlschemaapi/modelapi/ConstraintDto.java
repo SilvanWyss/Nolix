@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlschemaapi.dto;
+package ch.nolix.systemapi.sqlschemaapi.modelapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.sqlschemaapi.columnconstaintproperty.ConstraintType;

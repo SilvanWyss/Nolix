@@ -4,8 +4,8 @@ import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiReferenceEntryTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiValueEntryTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
-import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 public final class MultiValueEntryTableSqlSchemaDtoCatalog {
 

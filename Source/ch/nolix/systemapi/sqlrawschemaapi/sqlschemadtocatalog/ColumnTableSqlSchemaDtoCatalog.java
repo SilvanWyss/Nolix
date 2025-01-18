@@ -4,8 +4,8 @@ import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
-import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 public final class ColumnTableSqlSchemaDtoCatalog {
 

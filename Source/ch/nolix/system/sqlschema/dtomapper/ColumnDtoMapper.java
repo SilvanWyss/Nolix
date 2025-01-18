@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlschema.dtomapper;
 
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.dtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
 
 /**
  * @author Silvan Wyss

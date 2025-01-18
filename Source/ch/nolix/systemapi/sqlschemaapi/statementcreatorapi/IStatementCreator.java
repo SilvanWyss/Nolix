@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlschemaapi.statementcreatorapi;
 
-import ch.nolix.systemapi.sqlschemaapi.dto.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.dto.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 public interface IStatementCreator {
 
