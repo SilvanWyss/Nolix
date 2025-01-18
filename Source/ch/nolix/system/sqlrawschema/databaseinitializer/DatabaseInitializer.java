@@ -97,19 +97,19 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
   @Override
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimestamp) {
 
-    initializeSystemTables();
+    initializeFixTables();
 
     saveInitialTimestamp(initialSchemaTimestamp);
   }
 
-  private void initializeSystemTables() {
+  private void initializeFixTables() {
 
     final var schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
 
-    initializeSystemTables(schemaWriter);
+    initializeFixTables(schemaWriter);
   }
 
-  private void initializeSystemTables(final ISchemaWriter schemaWriter) {
+  private void initializeFixTables(final ISchemaWriter schemaWriter) {
 
     //Adds meta data tables.
     schemaWriter.addTable(DatabasePropertyTableSqlSchemaDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
