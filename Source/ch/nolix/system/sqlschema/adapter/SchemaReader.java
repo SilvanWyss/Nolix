@@ -12,6 +12,8 @@ import ch.nolix.system.sqlschema.dtomapper.ColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.dtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.flatmodelapi.FlatTableDto;
+import ch.nolix.systemapi.sqlschemaapi.flatmodelmapper.FlatTableDtoMapper;
+import ch.nolix.systemapi.sqlschemaapi.flatmodelmapperapi.IFlatTableDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
@@ -21,6 +23,8 @@ public final class SchemaReader implements ISchemaReader {
   private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
+  private static final IFlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -79,10 +83,9 @@ public final class SchemaReader implements ISchemaReader {
   public IContainer<FlatTableDto> loadFlatTables() {
 
     final var query = queryCreator.createQueryToLoadNameOfTables();
-    final var records = sqlConnection.getRecordsFromQuery(query);
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
-    //TODO: Create FlatTableDtoMapper
-    return records.to(r -> new FlatTableDto(r.getStoredOne()));
+    return sqlRecords.to(FLAT_TABLE_DTO_MAPPER::mapSqlRecordToFlatTableDto);
   }
 
   @Override
