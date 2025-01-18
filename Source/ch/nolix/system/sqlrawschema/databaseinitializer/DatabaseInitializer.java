@@ -6,19 +6,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawschema.databaseinitializer.AbstractDatabaseInitializer;
-import ch.nolix.system.sqlrawschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.system.sqlschema.adapter.SchemaWriter;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
+import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseInitializerTool;
 import ch.nolix.systemapi.sqlrawschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.EntityIndexTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiBackReferenceEntryTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiReferenceEntryTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiValueEntryTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.TableTableSqlSchemaDtoCatalog;
-import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabaseInitializationStatementCreator;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -28,12 +19,11 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
 
-  private static final IDatabaseInitializationStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
-  new DatabaseInitializationStatementCreator();
-
   private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
+
+  private static final IDatabaseInitializerTool DATABASE_INITIALIZER_TOOL = new DatabaseInitializerTool();
 
   private final String databaseName;
 
@@ -97,46 +87,9 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
   @Override
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimestamp) {
 
-    initializeFixTables();
-
-    saveInitialTimestamp(initialSchemaTimestamp);
-  }
-
-  private void initializeFixTables() {
-
     final var schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
 
-    initializeFixTables(schemaWriter);
-  }
-
-  private void initializeFixTables(final ISchemaWriter schemaWriter) {
-
-    //Adds meta data tables.
-    schemaWriter.addTable(DatabasePropertyTableSqlSchemaDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
-
-    //Adds schema tables.
-    schemaWriter.addTable(TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO);
-    schemaWriter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
-
-    //Adds index tables.
-    schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
-
-    //Adds multi-entry tables.
-    schemaWriter.addTable(MultiValueEntryTableSqlSchemaDtoCatalog.MULTI_VALUE_ENTRY_TABLE_SQL_DTO);
-    schemaWriter.addTable(MultiReferenceEntryTableSqlSchemaDtoCatalog.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
-    schemaWriter.addTable(MultiBackReferenceEntryTableSqlSchemaDtoCatalog.MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO);
-
-    //Save changes to database.
-    schemaWriter.saveChanges();
-  }
-
-  private void saveInitialTimestamp(final ITime initialSchemaTimestamp) {
-
-    sqlConnection.executeStatement("USE " + databaseName);
-
-    final var query = //
-    DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createStatementToCreateSchemaTimestampEntry(initialSchemaTimestamp);
-
-    sqlConnection.executeStatement(query);
+    DATABASE_INITIALIZER_TOOL.initializeFixTables(schemaWriter);
+    DATABASE_INITIALIZER_TOOL.saveSchemaTimestamp(initialSchemaTimestamp, sqlConnection, databaseName);
   }
 }
