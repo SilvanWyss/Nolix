@@ -39,7 +39,7 @@ public final class FloatPair {
     return new FloatPair(value1, value2);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}}
    */

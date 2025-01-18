@@ -76,7 +76,7 @@ public final class ImmutableList<E> extends Container<E> {
     return new ImmutableList<>(array.clone());
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * @param <E2>
    * @param container

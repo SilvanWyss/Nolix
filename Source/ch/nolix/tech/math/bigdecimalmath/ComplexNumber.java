@@ -73,7 +73,7 @@ public final class ComplexNumber implements IComplexNumber {
     return getMagnitude().compareTo(complexNumber.getMagnitude());
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public boolean equals(final Object object) {
 

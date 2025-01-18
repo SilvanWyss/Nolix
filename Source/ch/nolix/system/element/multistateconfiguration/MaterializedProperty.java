@@ -202,7 +202,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
     }
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   private void setValueForStateUsingSetterMethod(final S state, final V value) {
     if (setterMethod == null) {
       setValueForState(state, value);

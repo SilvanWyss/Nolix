@@ -351,7 +351,7 @@ public final class Node extends AbstractNode<Node> {
     return withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

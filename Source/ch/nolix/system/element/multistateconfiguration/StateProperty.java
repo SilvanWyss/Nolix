@@ -24,7 +24,7 @@ final class StateProperty<V> {
     return ValueStoringState.STORING_VALUE;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   public V getValue() {
 
     if (!hasValueOrDefinesEmpty || value == null) {
@@ -52,7 +52,7 @@ final class StateProperty<V> {
     value = null;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   public void setValue(final V value) {
 
     if (value == null) {

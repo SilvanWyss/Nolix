@@ -593,7 +593,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return matrix;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Matrix} contains n elements.
@@ -630,7 +630,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Matrix} contains n elements.

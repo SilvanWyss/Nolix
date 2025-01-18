@@ -439,7 +439,7 @@ implements IContainer<E> {
     return found;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -580,7 +580,7 @@ implements IContainer<E> {
     return averageAsBigDecimal.doubleValue();
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -997,7 +997,7 @@ implements IContainer<E> {
     return min;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1143,7 +1143,7 @@ implements IContainer<E> {
     return min;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1291,7 +1291,7 @@ implements IContainer<E> {
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1436,7 +1436,7 @@ implements IContainer<E> {
     return Math.sqrt(variance);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1673,7 +1673,7 @@ implements IContainer<E> {
     return true;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -2104,7 +2104,7 @@ implements IContainer<E> {
     };
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.

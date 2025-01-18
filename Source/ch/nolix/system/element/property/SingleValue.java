@@ -118,7 +118,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
     setterMethod.accept(value);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

@@ -256,7 +256,7 @@ final class JobRunner extends Thread {
     return (error != null);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the error of the current {@link JobRunner}.
    * @throws ArgumentDoesNotHaveAttributeException if the current

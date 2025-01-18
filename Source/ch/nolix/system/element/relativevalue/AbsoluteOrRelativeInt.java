@@ -124,7 +124,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
     return percentage;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -146,7 +146,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
     return isAbsolute;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

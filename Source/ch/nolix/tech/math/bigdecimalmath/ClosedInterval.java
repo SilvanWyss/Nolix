@@ -114,7 +114,7 @@ public final class ClosedInterval implements IClosedInterval {
     return ("[" + min + ", " + max + "]");
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   private boolean equalsClosedIntervall(final IClosedInterval closedInterval) {
     return //
     closedInterval != null

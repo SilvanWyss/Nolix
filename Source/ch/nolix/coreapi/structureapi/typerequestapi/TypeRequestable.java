@@ -27,7 +27,7 @@ public interface TypeRequestable {
     return (getClass() == concreteType);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete

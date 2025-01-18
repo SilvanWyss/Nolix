@@ -49,7 +49,7 @@ final class ResultJobRunner<R> extends Thread {
     return (error != null);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the error of the current {@link ResultJobRunner}.
    * @throws ArgumentDoesNotHaveAttributeException if the current

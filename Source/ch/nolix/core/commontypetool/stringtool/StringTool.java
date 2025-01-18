@@ -49,7 +49,7 @@ public final class StringTool implements IStringTool {
     return stringBuilder.toString();
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -63,7 +63,7 @@ public final class StringTool implements IStringTool {
     return ("{" + object + "}");
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -97,7 +97,7 @@ public final class StringTool implements IStringTool {
     return ("(" + stringBuilder.toString() + ")");
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

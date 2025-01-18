@@ -432,7 +432,7 @@ public final class Color extends AbstractElement implements IColor {
     return greenValue;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -461,7 +461,7 @@ public final class Color extends AbstractElement implements IColor {
     return redValue;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -470,7 +470,7 @@ public final class Color extends AbstractElement implements IColor {
     return (alphaValue == MAX_COLOR_COMPONENT);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -479,7 +479,7 @@ public final class Color extends AbstractElement implements IColor {
     return (blueValue == MAX_COLOR_COMPONENT);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -488,7 +488,7 @@ public final class Color extends AbstractElement implements IColor {
     return (greenValue == MAX_COLOR_COMPONENT);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -556,7 +556,7 @@ public final class Color extends AbstractElement implements IColor {
     + getBlueValue();
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -575,7 +575,7 @@ public final class Color extends AbstractElement implements IColor {
       (int) (MAX_COLOR_COMPONENT * floatingPointAlphaValue));
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -584,7 +584,7 @@ public final class Color extends AbstractElement implements IColor {
     return new Color(redValue, greenValue, blueValue);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

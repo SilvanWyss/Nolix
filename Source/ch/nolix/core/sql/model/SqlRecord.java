@@ -27,8 +27,7 @@ public final class SqlRecord extends Container<String> implements ISqlRecord {
 
   private final ImmutableList<String> values;
 
-  //TODO: Say available comfort methods instead of comfortable methods 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * Creates a new {@link SqlRecord} with the given values.
    * 

@@ -14,7 +14,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 
   private final V value;
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   private KeyValuePair(final K key, final V value) {
 
     if (key == null) {
@@ -43,7 +43,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
     return value;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public String toString() {
     return STRING_TOOL.getInParentheses(key + ";" + value);

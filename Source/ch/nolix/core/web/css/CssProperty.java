@@ -10,7 +10,7 @@ public final class CssProperty implements ICssProperty {
 
   private final String value;
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   private CssProperty(final String name, final String value) {
 
     if (name == null) {

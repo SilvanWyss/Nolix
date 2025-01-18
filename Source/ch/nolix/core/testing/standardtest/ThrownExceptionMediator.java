@@ -46,7 +46,7 @@ public class ThrownExceptionMediator {
     this.exception = exception;
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have a message.
@@ -62,7 +62,7 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have the given message.
@@ -139,7 +139,7 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} has a message.
@@ -156,7 +156,7 @@ public class ThrownExceptionMediator {
     }
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the exception of the current {@link ThrownExceptionMediator}.
    * 

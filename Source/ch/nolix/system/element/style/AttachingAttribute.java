@@ -63,7 +63,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
     return new AttachingAttribute(Node.fromString(value));
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   public static AttachingAttribute fromAttachingAttribute(final IAttachingAttribute attachingAttribute) {
 
     if (attachingAttribute instanceof final AttachingAttribute concreteAttachingAttribute) {
@@ -133,7 +133,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
     && getTag().equals(tag.toString());
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public IAttachingAttribute withValue(String value) {
 

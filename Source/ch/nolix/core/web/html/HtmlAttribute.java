@@ -10,7 +10,7 @@ public final class HtmlAttribute implements IHtmlAttribute {
 
   private final String value;
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   private HtmlAttribute(final String name, final String value) {
 
     if (name == null) {

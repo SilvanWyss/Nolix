@@ -115,7 +115,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return addAttributes(ContainerView.forArray(attributes));
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
 
     this.attributes.addAtEnd(attributes);
@@ -144,7 +144,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return addChildNodes(ContainerView.forArray(childNodes));
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
 
     this.childNodes.addAtEnd(childNodes);

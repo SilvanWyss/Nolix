@@ -63,7 +63,7 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
     return (getStoredParentClient().internalGetSessionStackSize() > 1);
   }
 
-  //For a better performance, this implementation does not use all comfortable methods.
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
