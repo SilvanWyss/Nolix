@@ -2,7 +2,7 @@ package ch.nolix.systemapi.sqlschemaapi.adapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.systemapi.sqlschemaapi.flatdto.FlatTableDto;
+import ch.nolix.systemapi.sqlschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
