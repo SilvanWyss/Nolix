@@ -7,8 +7,10 @@ import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableReferenceTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.ISchemaStatementCreator;
 
@@ -75,6 +77,22 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     }
 
     return statements;
+  }
+
+  @Override
+  public String createStatementToAddTableReference(final TableReferenceDto tableReferenceDto) {
+    return //
+    "INSERT INTO "
+    + FixTableType.TABLE_REFERENCE.getName()
+    + " ("
+    + TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName()
+    + ", "
+    + TableReferenceTableColumn.REFERENCED_TABLIE_ID.getName()
+    + ") VALUES ('"
+    + tableReferenceDto.referenceColumnId()
+    + "', '"
+    + tableReferenceDto.referencedTableId()
+    + "');";
   }
 
   @Override

@@ -4,10 +4,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 
 public interface ISchemaStatementCreator {
 
   String createStatementToAddColumn(String parentTableName, ColumnDto column);
+
+  String createStatementToAddTableReference(TableReferenceDto tableReferenceDto);
 
   IContainer<String> createStatementsToAddTable(TableDto table);
 
