@@ -40,7 +40,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.FIELD_TYPE.getName()
+    + ColumnTableColumn.CONTENT_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
@@ -69,7 +69,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.FIELD_TYPE.getName()
+    + ColumnTableColumn.CONTENT_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "

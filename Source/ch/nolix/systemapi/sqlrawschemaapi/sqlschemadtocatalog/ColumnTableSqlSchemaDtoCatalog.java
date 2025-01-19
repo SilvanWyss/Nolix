@@ -20,7 +20,7 @@ public final class ColumnTableSqlSchemaDtoCatalog {
     DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto PROPERTY_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(
-    ColumnTableColumn.FIELD_TYPE.getName(),
+    ColumnTableColumn.CONTENT_TYPE.getName(),
     DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto DATA_TYPE_SQL_DTO = ColumnDto.withNameAndDataType(

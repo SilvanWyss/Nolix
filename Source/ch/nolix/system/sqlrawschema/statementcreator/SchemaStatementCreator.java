@@ -33,7 +33,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ", "
     + ColumnTableColumn.NAME.getName()
     + ", "
-    + ColumnTableColumn.FIELD_TYPE.getName()
+    + ColumnTableColumn.CONTENT_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
