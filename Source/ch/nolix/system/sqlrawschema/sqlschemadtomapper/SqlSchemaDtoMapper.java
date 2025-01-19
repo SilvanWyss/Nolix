@@ -22,7 +22,8 @@ public final class SqlSchemaDtoMapper {
     DataTypeTypeCatalog.INTEGER);
 
   public ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto mapColumnDtoToSqlColumnDto(final ColumnDto column) {
-    return ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto.withNameAndDataType(column.name(), DataTypeTypeCatalog.TEXT);
+    return //
+    ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto.withNameAndDataType(column.name(), DataTypeTypeCatalog.TEXT);
   }
 
   public ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto mapTableDtoToSqlSchemaTableDto(final TableDto table) {
