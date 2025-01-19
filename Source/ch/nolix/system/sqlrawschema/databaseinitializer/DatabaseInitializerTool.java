@@ -11,6 +11,7 @@ import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.EntityIndexTableSq
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiBackReferenceEntryTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiReferenceEntryTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.MultiValueEntryTableSqlSchemaDtoCatalog;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.TableReferenceTableSqlSchemaCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog.TableTableSqlSchemaDtoCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabaseInitializationStatementCreator;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
@@ -37,6 +38,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     //Adds schema tables.
     schemaWriter.addTable(TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO);
     schemaWriter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
+    schemaWriter.addTable(TableReferenceTableSqlSchemaCatalog.TABLE_REFERENCE_SQL_DTO);
 
     //Adds entity index table.
     schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
