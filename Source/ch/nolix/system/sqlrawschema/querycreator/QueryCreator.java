@@ -5,6 +5,7 @@ import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableReferenceTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 
@@ -147,5 +148,24 @@ public final class QueryCreator implements IQueryCreator {
     + DatabasePropertyTableColumn.KEY.getLabel()
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String createQueryToLoadTableReferences(final String referenceColumnId) {
+    return //
+    "SELECT "
+    + TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName()
+    + ", "
+    + TableReferenceTableColumn.REFERENCED_TABLIE_ID.getName()
+    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + FixTableType.TABLE_REFERENCE.getName()
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName()
+    + " = '"
+    + referenceColumnId
+    + "';";
   }
 }
