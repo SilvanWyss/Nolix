@@ -6,7 +6,7 @@ import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
 import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 
 public abstract class DataAdapter extends AbstractDataAdapter {

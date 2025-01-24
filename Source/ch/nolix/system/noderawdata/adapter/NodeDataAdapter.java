@@ -6,7 +6,7 @@ import ch.nolix.system.noderawdata.datareader.DataReader;
 import ch.nolix.system.noderawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.noderawdata.datawriter.DataWriter;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 public final class NodeDataAdapter extends AbstractDataAdapter {
 

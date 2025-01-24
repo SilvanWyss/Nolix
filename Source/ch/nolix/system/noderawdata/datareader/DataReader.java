@@ -8,8 +8,8 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataReader implements IDataReader {

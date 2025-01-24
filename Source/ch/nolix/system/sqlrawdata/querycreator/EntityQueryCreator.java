@@ -2,8 +2,8 @@ package ch.nolix.system.sqlrawdata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;

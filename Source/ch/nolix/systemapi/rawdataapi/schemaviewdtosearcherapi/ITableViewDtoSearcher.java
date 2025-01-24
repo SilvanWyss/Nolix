@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi;
 
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**
  * @author Silvan Wyss

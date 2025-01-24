@@ -14,8 +14,8 @@ import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

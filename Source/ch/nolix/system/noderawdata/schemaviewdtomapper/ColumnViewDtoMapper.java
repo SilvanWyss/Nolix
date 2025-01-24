@@ -4,7 +4,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
 
 /**
  * @author Silvan Wyss

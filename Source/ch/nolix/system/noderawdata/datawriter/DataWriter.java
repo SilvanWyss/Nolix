@@ -10,8 +10,8 @@ import ch.nolix.systemapi.rawdataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {

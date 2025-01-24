@@ -5,7 +5,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**
  * @author Silvan Wyss

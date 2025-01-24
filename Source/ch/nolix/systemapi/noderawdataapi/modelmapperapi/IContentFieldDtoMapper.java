@@ -2,7 +2,7 @@ package ch.nolix.systemapi.noderawdataapi.modelmapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
 
 /**
  * @author Silvan Wyss

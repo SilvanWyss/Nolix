@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**
  * @author Silvan Wyss

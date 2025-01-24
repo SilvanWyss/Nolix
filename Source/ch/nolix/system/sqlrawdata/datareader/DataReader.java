@@ -9,9 +9,9 @@ import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 public final class DataReader implements IDataReader {
 

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawdataapi.querycreatorapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 public interface IEntityQueryCreator {
 

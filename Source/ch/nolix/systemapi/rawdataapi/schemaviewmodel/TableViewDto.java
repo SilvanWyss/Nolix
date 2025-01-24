@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawdataapi.schemaviewdto;
+package ch.nolix.systemapi.rawdataapi.schemaviewmodel;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 

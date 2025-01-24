@@ -10,8 +10,8 @@ import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
 import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.ColumnViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewdto.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class InternalDataWriter {
