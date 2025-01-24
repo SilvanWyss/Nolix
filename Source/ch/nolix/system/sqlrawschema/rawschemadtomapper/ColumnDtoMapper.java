@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawschema.rawschemadtomapper;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
@@ -14,6 +14,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalBackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ReferenceModelDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 
@@ -27,7 +28,9 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public ColumnDto mapColumnTableSqlRecordToColumnDto(final ISqlRecord columnTableSqlRecord) {
+  public ColumnDto mapColumnTableSqlRecordToColumnDto(
+    final ISqlRecord columnTableSqlRecord,
+    final IContainer<TableReferenceDto> tableReferences) {
 
     final var contentType = ContentType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(4));
 
@@ -55,50 +58,44 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
         new ColumnDto(
           columnTableSqlRecord.getStoredAt1BasedIndex(1),
           columnTableSqlRecord.getStoredAt1BasedIndex(2),
-
-          //TODO: Handle multiple referenced table ids
           new ReferenceModelDto(DataType.valueOf(
             columnTableSqlRecord.getStoredAt1BasedIndex(5)),
-            ImmutableList.withElement(columnTableSqlRecord.getStoredAt1BasedIndex(6))));
+            tableReferences.to(TableReferenceDto::referencedTableId)));
       case OPTIONAL_REFERENCE ->
         new ColumnDto(
           columnTableSqlRecord.getStoredAt1BasedIndex(1),
           columnTableSqlRecord.getStoredAt1BasedIndex(2),
-
-          //TODO: Handle multiple referenced table ids
           new OptionalReferenceModelDto(
             DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
-            ImmutableList.withElement(columnTableSqlRecord.getStoredAt1BasedIndex(6))));
+            tableReferences.to(TableReferenceDto::referencedTableId)));
       case MULTI_REFERENCE ->
         new ColumnDto(
           columnTableSqlRecord.getStoredAt1BasedIndex(1),
           columnTableSqlRecord.getStoredAt1BasedIndex(2),
-
-          //TODO: Handle multiple referenced table ids
           new MultiReferenceModelDto(
             DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
-            ImmutableList.withElement(columnTableSqlRecord.getStoredAt1BasedIndex(6))));
+            tableReferences.to(TableReferenceDto::referencedTableId)));
       case BACK_REFERENCE ->
         new ColumnDto(
           columnTableSqlRecord.getStoredAt1BasedIndex(1),
           columnTableSqlRecord.getStoredAt1BasedIndex(2),
           new BackReferenceModelDto(
             DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
-            columnTableSqlRecord.getStoredAt1BasedIndex(7)));
+            columnTableSqlRecord.getStoredAt1BasedIndex(6)));
       case OPTIONAL_BACK_REFERENCE ->
         new ColumnDto(
           columnTableSqlRecord.getStoredAt1BasedIndex(1),
           columnTableSqlRecord.getStoredAt1BasedIndex(2),
           new OptionalBackReferenceModelDto(
             DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
-            columnTableSqlRecord.getStoredAt1BasedIndex(7)));
+            columnTableSqlRecord.getStoredAt1BasedIndex(6)));
       case MULTI_BACK_REFERENCE ->
         new ColumnDto(
           columnTableSqlRecord.getStoredAt1BasedIndex(1),
           columnTableSqlRecord.getStoredAt1BasedIndex(2),
           new MultiBackReferenceModelDto(
             DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
-            columnTableSqlRecord.getStoredAt1BasedIndex(7)));
+            columnTableSqlRecord.getStoredAt1BasedIndex(6)));
       default ->
         throw InvalidArgumentException.forArgument(contentType);
     };

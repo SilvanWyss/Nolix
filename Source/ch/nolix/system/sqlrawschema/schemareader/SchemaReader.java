@@ -84,7 +84,9 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
-    return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
+    return //
+    sqlRecords.to(
+      r -> COLUMN_DTO_MAPPER.mapColumnTableSqlRecordToColumnDto(r, loadTableReferencesByColumnId(r.getStoredFirst())));
   }
 
   @Override
@@ -93,7 +95,9 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
-    return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
+    return //
+    sqlRecords.to(
+      r -> COLUMN_DTO_MAPPER.mapColumnTableSqlRecordToColumnDto(r, loadTableReferencesByColumnId(r.getStoredFirst())));
   }
 
   @Override
