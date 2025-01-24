@@ -14,6 +14,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemaflatdtomapperapi.ITableFlatDtoMapper;
 
 public final class SchemaReader implements ISchemaReader {
@@ -22,7 +23,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private static final ITableFlatDtoMapper TABLE_DTO_MAPPER = new TableFlatDtoMapper();
 
-  private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -64,52 +65,67 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public int getTableCount() {
-    return Integer.valueOf(
-      sqlConnection
-        .getSingleRecordFromQuery(QUERY_CREATOR.createQueryToGetTableCount())
-        .getStoredAt1BasedIndex(1));
+
+    final var query = QUERY_CREATOR.createQueryToGetTableCount();
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+    final var value = sqlRecord.getStoredOne();
+
+    return Integer.valueOf(value);
   }
 
   @Override
   public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
-    return sqlConnection
-      .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
-      .to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
+
+    final var query = QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId);
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+
+    return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
   }
 
   @Override
   public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
-    return sqlConnection
-      .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
-      .to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
+
+    final var query = QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName);
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+
+    return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
   }
 
   @Override
   public FlatTableDto loadFlatTableById(final String id) {
-    return TABLE_DTO_MAPPER.createTableDto(
-      sqlConnection.getSingleRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableById(id)));
+
+    final var query = QUERY_CREATOR.createQueryToLoadFlatTableById(id);
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+
+    return TABLE_DTO_MAPPER.createTableDto(sqlRecord);
   }
 
   @Override
   public FlatTableDto loadFlatTableByName(final String name) {
-    return TABLE_DTO_MAPPER.createTableDto(
-      sqlConnection.getSingleRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableByName(name)));
+
+    final var query = QUERY_CREATOR.createQueryToLoadFlatTableByName(name);
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+
+    return TABLE_DTO_MAPPER.createTableDto(sqlRecord);
   }
 
   @Override
   public IContainer<FlatTableDto> loadFlatTables() {
-    return sqlConnection
-      .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadFlatTables())
-      .to(TABLE_DTO_MAPPER::createTableDto);
+
+    final var query = QUERY_CREATOR.createQueryToLoadFlatTables();
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+
+    return sqlRecords.to(TABLE_DTO_MAPPER::createTableDto);
   }
 
   @Override
   public Time loadSchemaTimestamp() {
-    return Time.fromString(
-      sqlConnection
-        .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadSchemaTimestamp())
-        .getStoredFirst()
-        .getStoredAt1BasedIndex(1));
+
+    final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+    final var value = sqlRecord.getStoredOne();
+
+    return Time.fromString(value);
   }
 
   @Override
@@ -133,9 +149,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   private TableDto loadTable(final FlatTableDto flatTable) {
-    return new TableDto(
-      flatTable.id(),
-      flatTable.name(),
-      loadColumnsByTableId(flatTable.id()));
+    return new TableDto(flatTable.id(), flatTable.name(), loadColumnsByTableId(flatTable.id()));
   }
 }
