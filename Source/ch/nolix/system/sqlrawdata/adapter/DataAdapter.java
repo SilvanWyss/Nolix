@@ -35,9 +35,9 @@ public abstract class DataAdapter extends AbstractDataAdapter {
         databaseName,
         sqlConnectionPool.borrowResource(),
         tableViews),
-      DataWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+      DataWriter.forDatabaseNameAndSqlConnectionAndTableViews(
         databaseName,
-        sqlConnectionPool,
+        sqlConnectionPool.borrowResource(),
         tableViews));
   }
 }

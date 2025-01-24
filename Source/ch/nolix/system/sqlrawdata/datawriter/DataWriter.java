@@ -2,7 +2,6 @@ package ch.nolix.system.sqlrawdata.datawriter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -39,11 +38,11 @@ public final class DataWriter implements IDataWriter {
     createCloseDependencyTo(sqlConnection);
   }
 
-  public static DataWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+  public static DataWriter forDatabaseNameAndSqlConnectionAndTableViews(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
+    final ISqlConnection sqlConnection,
     final IContainer<TableViewDto> tableViews) {
-    return new DataWriter(databaseName, sqlConnectionPool.borrowResource(), tableViews);
+    return new DataWriter(databaseName, sqlConnection, tableViews);
   }
 
   @Override
