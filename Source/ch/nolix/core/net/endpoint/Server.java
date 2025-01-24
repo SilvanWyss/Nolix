@@ -13,7 +13,7 @@ import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 /**
- * A {@link Server} is a {@link AbstractServer} that listens to {@link NetEndPoint}
+ * A {@link Server} is a {@link AbstractServer} that listens to {@link AbstractNetEndPoint}
  * on a specific port.
  * 
  * A {@link Server} supports the WebSocket protocol and can communicate with a
@@ -49,7 +49,7 @@ public final class Server extends AbstractServer {
   private final ServerSocket serverSocket;
 
   /**
-   * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   * Creates a new {@link Server} that will listen to {@link AbstractNetEndPoint}s on the
    * given port.
    * 
    * When a web browser connects to the {@link Server}, the {@link Server} will
@@ -94,7 +94,7 @@ public final class Server extends AbstractServer {
   }
 
   /**
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s on the
    *         HTTP port (80).
    */
   public static Server forHttpPort() {
@@ -103,7 +103,7 @@ public final class Server extends AbstractServer {
 
   /**
    * @param port
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s on the
    *         given port.
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
@@ -114,7 +114,7 @@ public final class Server extends AbstractServer {
   /**
    * @param port
    * @param initialHttpMessage
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s on the
    *         given port. When a web browser connects to the {@link Server}, the
    *         {@link Server} will send the given initialHttpMessage to the web
    *         browser and close the connection.

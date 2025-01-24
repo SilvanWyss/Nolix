@@ -17,7 +17,7 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
-final class WebSocketEndPoint extends NetEndPoint {
+final class WebSocketEndPoint extends AbstractNetEndPoint {
 
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 

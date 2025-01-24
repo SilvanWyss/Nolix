@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
-final class SslServerEndPoint extends NetEndPoint {
+final class SslServerEndPoint extends AbstractNetEndPoint {
 
   private final ChannelHandlerContext channelHandlerContext;
 

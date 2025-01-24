@@ -24,7 +24,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  * @author Silvan Wyss
  * @version 2017-05-06
  */
-public final class SocketEndPoint extends NetEndPoint {
+public final class SocketEndPoint extends AbstractNetEndPoint {
 
   private final PeerType peerType;
 
@@ -135,7 +135,7 @@ public final class SocketEndPoint extends NetEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} with the given socket. The given
+   * Creates a new {@link AbstractNetEndPoint} with the given socket. The given
    * socketInputStream and the given socketOutputStream belong to the given
    * socket.
    * 
@@ -166,7 +166,7 @@ public final class SocketEndPoint extends NetEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} with the given socket and target. The given
+   * Creates a new {@link AbstractNetEndPoint} with the given socket and target. The given
    * socketInputStream and the given socketOutputStream belong to the given
    * socket.
    * 
