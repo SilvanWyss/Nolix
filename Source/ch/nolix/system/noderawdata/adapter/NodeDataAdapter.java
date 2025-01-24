@@ -3,8 +3,8 @@ package ch.nolix.system.noderawdata.adapter;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.datareader.DataReader;
-import ch.nolix.system.noderawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.noderawdata.datawriter.DataWriter;
+import ch.nolix.system.noderawdata.schemaviewloader.TableDefinitionLoader;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
