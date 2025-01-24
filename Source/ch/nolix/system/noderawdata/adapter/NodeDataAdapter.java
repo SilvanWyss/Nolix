@@ -4,16 +4,17 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.datareader.DataReader;
 import ch.nolix.system.noderawdata.datawriter.DataWriter;
-import ch.nolix.system.noderawdata.schemaviewloader.TableDefinitionLoader;
+import ch.nolix.system.noderawdata.schemaviewloader.TableViewLoader;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
+import ch.nolix.systemapi.noderawdataapi.schemaviewloaderapi.ITableViewLoader;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 public final class NodeDataAdapter extends AbstractDataAdapter {
 
-  private static final TableDefinitionLoader TABLE_DEFINITION_LOADER = new TableDefinitionLoader();
+  private static final ITableViewLoader TABLE_DEFINITION_LOADER = new TableViewLoader();
 
   private NodeDataAdapter(final IMutableNode<?> nodeDatabase) {
-    this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableDefinitionsFromNodeDatabase(nodeDatabase));
+    this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableViewsFromNodeDatabase(nodeDatabase));
   }
 
   private NodeDataAdapter(
