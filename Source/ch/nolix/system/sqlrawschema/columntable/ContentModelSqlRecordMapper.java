@@ -24,7 +24,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + valueModelDto.getContentType().name() + "'",
         "'" + valueModelDto.dataType().name() + "'",
-        NULL,
         NULL);
     }
 
@@ -33,7 +32,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + optionalValueModelDto.getContentType().name() + "'",
         "'" + optionalValueModelDto.dataType().name() + "'",
-        NULL,
         NULL);
     }
 
@@ -42,7 +40,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + multiValueModelDto.getContentType().name() + "'",
         "'" + multiValueModelDto.dataType().name() + "'",
-        NULL,
         NULL);
     }
 
@@ -51,9 +48,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + referenceModelDto.getContentType().name() + "'",
         "'" + referenceModelDto.dataType().name() + "'",
-
-        //TODO: Handle multiple referenced table ids
-        "'" + referenceModelDto.referencedTableIds().getStoredFirst() + "'",
         NULL);
     }
 
@@ -62,9 +56,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + optionalReferenceModelDto.getContentType().name() + "'",
         "'" + optionalReferenceModelDto.dataType().name() + "'",
-
-        //TODO: Handle multiple referenced table ids
-        "'" + optionalReferenceModelDto.referencedTableIds().getStoredFirst() + "'",
         NULL);
     }
 
@@ -73,9 +64,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + multiReferenceModelDto.getContentType().name() + "'",
         "'" + multiReferenceModelDto.dataType().name() + "'",
-
-        //TODO: Handle multiple referenced table ids
-        "'" + multiReferenceModelDto.referencedTableIds().getStoredFirst() + "'",
         NULL);
     }
 
@@ -84,7 +72,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + backReferenceModelDto.getContentType().name() + "'",
         "'" + backReferenceModelDto.dataType().name() + "'",
-        NULL,
         "'" + backReferenceModelDto.backReferencedColumnId() + "'");
     }
 
@@ -93,7 +80,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + optionalBackReferenceModelDto.getContentType().name() + "'",
         "'" + optionalBackReferenceModelDto.dataType().name() + "'",
-        NULL,
         "'" + optionalBackReferenceModelDto.backReferencedColumnId() + "'");
     }
 
@@ -102,7 +88,6 @@ public final class ContentModelSqlRecordMapper {
       new ContentModelSqlDto(
         "'" + multiBackReferenceModelDto.getContentType().name() + "'",
         "'" + multiBackReferenceModelDto.dataType().name() + "'",
-        NULL,
         "'" + multiBackReferenceModelDto.backReferencedColumnId() + "'");
     }
 

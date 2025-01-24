@@ -27,9 +27,6 @@ public final class ColumnTableSqlSchemaDtoCatalog {
     ColumnTableColumn.DATA_TYPE.getName(),
     DataTypeTypeCatalog.TEXT);
 
-  private static final ColumnDto REFERENCED_TABLE_SQL_DTO = ColumnDto.withNameAndDataType(
-    ColumnTableColumn.REFERENCED_TABLE_ID.getName(), DataTypeTypeCatalog.TEXT);
-
   private static final ColumnDto BACK_REFERENCED_COLUMN_ID_SQL_DTO = ColumnDto.withNameAndDataType(
     ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName(), DataTypeTypeCatalog.TEXT);
 
@@ -40,7 +37,6 @@ public final class ColumnTableSqlSchemaDtoCatalog {
     NAME_SQL_DTO,
     PROPERTY_TYPE_SQL_DTO,
     DATA_TYPE_SQL_DTO,
-    REFERENCED_TABLE_SQL_DTO,
     BACK_REFERENCED_COLUMN_ID_SQL_DTO);
 
   private ColumnTableSqlSchemaDtoCatalog() {

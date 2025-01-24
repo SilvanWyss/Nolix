@@ -44,8 +44,6 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
-    + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
-    + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTableType.COLUMN.getQualifiedName()
@@ -72,8 +70,6 @@ public final class QueryCreator implements IQueryCreator {
     + ColumnTableColumn.CONTENT_TYPE.getName()
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
-    + ", "
-    + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM

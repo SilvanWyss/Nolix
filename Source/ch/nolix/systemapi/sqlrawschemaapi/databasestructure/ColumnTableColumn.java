@@ -11,7 +11,6 @@ public enum ColumnTableColumn implements INameHolder {
   NAME(PascalCaseVariableCatalog.NAME),
   CONTENT_TYPE("ContentType"),
   DATA_TYPE(PascalCaseVariableCatalog.DATA_TYPE),
-  REFERENCED_TABLE_ID("ReferencedTableId"),
   BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
 
   private final String name;

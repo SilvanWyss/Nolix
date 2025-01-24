@@ -44,8 +44,6 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ", "
     + ColumnTableColumn.DATA_TYPE.getName()
     + ", "
-    + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
-    + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + ") SELECT '"
     + column.id()
@@ -57,8 +55,6 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + contentModelSqlDto.contentType()
     + ", "
     + contentModelSqlDto.dataType()
-    + ", "
-    + contentModelSqlDto.referencedTableId()
     + ", "
     + contentModelSqlDto.backReferencedColumnId()
     + " FROM "
@@ -177,10 +173,6 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ColumnTableColumn.DATA_TYPE
     + " = "
     + contentModelSqlDto.dataType()
-    + ", "
-    + ColumnTableColumn.REFERENCED_TABLE_ID
-    + " = "
-    + contentModelSqlDto.referencedTableId()
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
     + " = "
