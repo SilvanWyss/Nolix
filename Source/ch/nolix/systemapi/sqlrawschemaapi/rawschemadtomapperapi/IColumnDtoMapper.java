@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
 /**
@@ -13,5 +13,5 @@ public interface IColumnDtoMapper {
    * @param columnTableSqlRecord
    * @return a new {@link ColumnDto} from the given columnTableSqlRecord
    */
-  ColumnDto mapColumnTableSqlRecordToColumnDto(IContainer<String> columnTableSqlRecord);
+  ColumnDto mapColumnTableSqlRecordToColumnDto(ISqlRecord columnTableSqlRecord);
 }
