@@ -5,6 +5,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface ISchemaReader extends GroupCloseable {
@@ -26,6 +27,8 @@ public interface ISchemaReader extends GroupCloseable {
   TableDto loadTableById(String id);
 
   TableDto loadTableByName(String name);
+
+  IContainer<TableReferenceDto> loadTableReferencesByColumnId(String columnId);
 
   IContainer<TableDto> loadTables();
 

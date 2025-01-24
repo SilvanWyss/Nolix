@@ -22,6 +22,7 @@ import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 
 public final class SchemaReader implements ISchemaReader {
 
@@ -132,6 +133,12 @@ public final class SchemaReader implements ISchemaReader {
     return DATABASE_NODE_SEARCHER
       .getStoredTableNodesFromNodeDatabase(nodeDatabase)
       .to(this::loadTableFromTableNode);
+  }
+
+  @Override
+  public IContainer<TableReferenceDto> loadTableReferencesByColumnId(final String columnId) {
+    //TODO: Implement
+    return null;
   }
 
   @Override

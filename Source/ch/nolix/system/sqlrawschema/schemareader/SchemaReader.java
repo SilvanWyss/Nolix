@@ -6,15 +6,18 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawschema.querycreator.QueryCreator;
 import ch.nolix.system.sqlrawschema.rawschemadtomapper.ColumnDtoMapper;
+import ch.nolix.system.sqlrawschema.rawschemadtomapper.TableReferenceDtoMapper;
 import ch.nolix.system.sqlrawschema.rawschemaflatdtomapper.TableFlatDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.ITableReferenceDtoMapper;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemaflatdtomapperapi.ITableFlatDtoMapper;
 
 public final class SchemaReader implements ISchemaReader {
@@ -24,6 +27,8 @@ public final class SchemaReader implements ISchemaReader {
   private static final ITableFlatDtoMapper TABLE_DTO_MAPPER = new TableFlatDtoMapper();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
+  private static final ITableReferenceDtoMapper TABLE_REFERENCE_DTO_MAPPER = new TableReferenceDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -136,6 +141,15 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public TableDto loadTableByName(final String name) {
     return loadTable(loadFlatTableByName(name));
+  }
+
+  @Override
+  public IContainer<TableReferenceDto> loadTableReferencesByColumnId(final String columnId) {
+
+    final var query = QUERY_CREATOR.createQueryToLoadTableReferences(columnId);
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+
+    return sqlRecords.to(TABLE_REFERENCE_DTO_MAPPER::mapTableReferenceTableSqlRecordToTableReferenceDto);
   }
 
   @Override
