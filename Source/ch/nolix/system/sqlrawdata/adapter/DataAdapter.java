@@ -31,9 +31,9 @@ public abstract class DataAdapter extends AbstractDataAdapter {
     final SqlConnectionPool sqlConnectionPool,
     final IContainer<TableViewDto> tableViews) {
     super(
-      DataReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+      DataReader.forDatabaseNameAndSqlConnectionAndTableViews(
         databaseName,
-        sqlConnectionPool,
+        sqlConnectionPool.borrowResource(),
         tableViews),
       DataWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
         databaseName,

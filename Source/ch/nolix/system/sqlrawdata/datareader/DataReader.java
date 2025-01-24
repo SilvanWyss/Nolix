@@ -2,7 +2,6 @@ package ch.nolix.system.sqlrawdata.datareader;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -37,11 +36,11 @@ public final class DataReader implements IDataReader {
     createCloseDependencyTo(sqlConnection);
   }
 
-  public static DataReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+  public static DataReader forDatabaseNameAndSqlConnectionAndTableViews(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
+    final ISqlConnection sqlConnection,
     final IContainer<TableViewDto> tableViews) {
-    return new DataReader(databaseName, sqlConnectionPool.borrowResource(), tableViews);
+    return new DataReader(databaseName, sqlConnection, tableViews);
   }
 
   @Override
