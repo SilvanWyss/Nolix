@@ -1,10 +1,12 @@
 package ch.nolix.system.sqlrawschema.statementcreator;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.rawschemaapi.modelapi.IAbstractReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
@@ -20,12 +22,15 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   new ContentModelSqlRecordMapper();
 
   @Override
-  public String createStatementToAddColumn(final String parentTableName, final ColumnDto column) {
+  public IContainer<String> createStatementsToAddColumn(final String parentTableName, final ColumnDto column) {
+
+    final ILinkedList<String> statements = LinkedList.createEmpty();
+    final var contentModel = column.contentModel();
 
     final var contentModelSqlDto = //
-    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(column.contentModel());
+    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
-    return //
+    final var statement = //
     "INSERT INTO "
     + FixTableType.COLUMN.getQualifiedName()
     + " ("
@@ -63,6 +68,21 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + " = '"
     + parentTableName
     + "'";
+
+    statements.addAtEnd(statement);
+
+    if (contentModel instanceof final IAbstractReferenceModelDto abstractReferenceModel) {
+      for (final var i : abstractReferenceModel.getReferencedTableIds()) {
+
+        final var columnId = column.id();
+        final var tableReference = new TableReferenceDto(columnId, i);
+        final var addTableReferenceStatement = createStatementToAddTableReference(tableReference);
+
+        statements.addAtEnd(addTableReferenceStatement);
+      }
+    }
+
+    return statements;
   }
 
   @Override
@@ -73,7 +93,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     statements.addAtEnd(createStatementToAddTableIgnoringColumns(table));
 
     for (final var c : table.columns()) {
-      statements.addAtEnd(createStatementToAddColumn(table.name(), c));
+      statements.addAtEnd(createStatementsToAddColumn(table.name(), c));
     }
 
     return statements;

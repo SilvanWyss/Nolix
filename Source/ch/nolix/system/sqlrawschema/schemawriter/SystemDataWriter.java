@@ -11,6 +11,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
+//TODO: Beautify
 final class SystemDataWriter implements ChangeRequestable {
 
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
@@ -29,8 +30,8 @@ final class SystemDataWriter implements ChangeRequestable {
   }
 
   public void addColumn(final String tableName, final ColumnDto column) {
-    sqlCollector.addSqlStatement(
-      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column));
+    sqlCollector.addSqlStatements(
+      SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementsToAddColumn(tableName, column));
   }
 
   public void deleteColumn(String tableName, String columnName) {

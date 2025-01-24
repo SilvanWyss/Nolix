@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 
 public interface ISchemaStatementCreator {
 
-  String createStatementToAddColumn(String parentTableName, ColumnDto column);
+  IContainer<String> createStatementsToAddColumn(String parentTableName, ColumnDto column);
 
   String createStatementToAddTableReference(TableReferenceDto tableReferenceDto);
 
