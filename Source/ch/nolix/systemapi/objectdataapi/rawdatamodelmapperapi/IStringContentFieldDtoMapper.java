@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.rawdatadtomapperapi;
+package ch.nolix.systemapi.objectdataapi.rawdatamodelmapperapi;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.rawdataapi.model.StringContentFieldDto;
