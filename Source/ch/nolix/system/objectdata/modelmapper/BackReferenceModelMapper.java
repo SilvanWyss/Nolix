@@ -12,7 +12,7 @@ public final class BackReferenceModelMapper
 implements IContentModelDtoToContentModelMapper<BackReferenceModelDto> {
 
   @Override
-  public IContentModelView mapContentModelDtoToContentModel(
+  public IContentModelView mapContentModelDtoToContentModelView(
     final BackReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
