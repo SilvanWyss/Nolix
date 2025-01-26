@@ -1,47 +1,57 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
-import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 
 public final class Column extends ImmutableDatabaseObject implements IColumnView {
 
-  private final String name;
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
   private final String id;
+
+  private final String name;
 
   private final IContentModelView contentModelView;
 
   private final Table<IEntity> parentTable;
 
+  private final IDataReader rawDataReader;
+
   private Column(
-    final String name,
     final String id,
+    final String name,
     final IContentModelView contentModelView,
-    final Table<IEntity> parentTable) {
+    final Table<IEntity> parentTable,
+    final IDataReader rawDataReader) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     GlobalValidator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();
-    GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+    RESOURCE_VALIDATOR.assertIsOpen(parentTable);
+    RESOURCE_VALIDATOR.assertIsOpen(rawDataReader);
 
-    this.name = name;
     this.id = id;
+    this.name = name;
     this.contentModelView = contentModelView;
     this.parentTable = parentTable;
+    this.rawDataReader = rawDataReader;
   }
 
-  static Column withNameAndIdAndParameterizedFieldTypeAndParentTable(
-    final String name,
+  static Column withIdAndNameAndContentModelViewAndParentTableAndRawDataReader(
     final String id,
+    final String name,
     final IContentModelView contentModelView,
-    final Table<IEntity> parentTable) {
-    return new Column(name, id, contentModelView, parentTable);
+    final Table<IEntity> parentTable,
+    final IDataReader rawDataReader) {
+    return new Column(name, id, contentModelView, parentTable, rawDataReader);
   }
 
   @Override
@@ -67,7 +77,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
   @Override
   public boolean internalContainsGivenValueInPersistedData(final String value) {
     return //
-    getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
+    rawDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
       getStoredParentTable().getName(),
       getName(),
       value);
@@ -78,14 +88,10 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     return //
-    getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    rawDataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
       getStoredParentTable().getName(),
       getName(),
       value,
       entitiesToIgnoreIds);
-  }
-
-  private IDataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
-    return parentTable.internalGetStoredDataAndSchemaAdapter();
   }
 }

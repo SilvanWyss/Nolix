@@ -16,12 +16,16 @@ final class ColumnMapper {
     final ColumnDto columnDto,
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    return Column.withNameAndIdAndParameterizedFieldTypeAndParentTable(
+
+    final var contentModelView = //
+    PARAMETERIZED_FIELD_TYPE_MAPPER.mapContentModelDtoToContentModel(columnDto.contentModel(), referencableTables);
+
+    return //
+    Column.withIdAndNameAndContentModelViewAndParentTableAndRawDataReader(
       columnDto.name(),
       columnDto.id(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.mapContentModelDtoToContentModel(
-        columnDto.contentModel(),
-        referencableTables),
-      parentTable);
+      contentModelView,
+      parentTable,
+      parentTable.internalGetStoredDataAndSchemaAdapter());
   }
 }
