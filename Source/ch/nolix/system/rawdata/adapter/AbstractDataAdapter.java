@@ -30,7 +30,10 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     this.dataWriter = dataWriter;
 
     getStoredCloseController().createCloseDependencyTo(dataReader);
-    getStoredCloseController().createCloseDependencyTo(dataWriter);
+
+    if (dataReader != dataWriter) {
+      getStoredCloseController().createCloseDependencyTo(dataWriter);
+    }
   }
 
   @Override
