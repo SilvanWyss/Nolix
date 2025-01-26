@@ -7,6 +7,7 @@ import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameHolder, MandatorynessRequestable {
@@ -23,7 +24,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
    */
   IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis();
 
-  IColumn getStoredParentColumn();
+  IColumnView getStoredParentColumn();
 
   ContentType getType();
 

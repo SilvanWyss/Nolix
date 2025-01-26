@@ -15,7 +15,6 @@ import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.system.objectdata.modelsearcher.TableSearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityCreator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
@@ -23,6 +22,7 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
 
@@ -50,12 +50,12 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final Class<E> entityClass;
 
-  private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable = new CachingProperty<>(
+  private final CachingProperty<IContainer<IColumnView>> columnsThatReferenceCurrentTable = new CachingProperty<>(
     () -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 
-  private final LinkedList<IColumn> columns = LinkedList.createEmpty();
+  private final LinkedList<IColumnView> columnViews = LinkedList.createEmpty();
 
   private final LinkedList<E> entitiesInLocalData = LinkedList.createEmpty();
 
@@ -130,8 +130,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   @Override
-  public IContainer<IColumn> getStoredColumns() {
-    return columns;
+  public IContainer<IColumnView> getStoredColumns() {
+    return columnViews;
   }
 
   @Override
@@ -224,8 +224,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entitiesInLocalData;
   }
 
-  void internalAddColumn(final IColumn column) {
-    columns.addAtEnd(column);
+  void internalAddColumn(final IColumnView columnView) {
+    columnViews.addAtEnd(columnView);
   }
 
   @SuppressWarnings("unchecked")
@@ -233,7 +233,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::internalClose);
   }
 
-  IContainer<IColumn> internalGetColumnsThatReferencesCurrentTable() {
+  IContainer<IColumnView> internalGetColumnsThatReferencesCurrentTable() {
     return columnsThatReferenceCurrentTable.getValue();
   }
 
@@ -250,9 +250,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
     entitiesInLocalData.clear();
   }
 
-  void internalSetColumns(final IContainer<IColumn> columns) {
-    this.columns.clear();
-    this.columns.addAtEnd(columns);
+  void internalSetColumns(final IContainer<IColumnView> columnViews) {
+    this.columnViews.clear();
+    this.columnViews.addAtEnd(columnViews);
   }
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {

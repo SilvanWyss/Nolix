@@ -2,16 +2,16 @@ package ch.nolix.system.objectdata.contentmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReferenceModel;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractValueModel;
-import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
 public abstract class AbstractBackReferenceModel<
 
-C extends IColumn>
-implements IAbstractBackReferenceModel<C> {
+C extends IColumnView>
+implements IAbstractBackReferenceModelView<C> {
 
   private final C backReferencedColumn;
 
@@ -23,17 +23,17 @@ implements IAbstractBackReferenceModel<C> {
   }
 
   @Override
-  public final IAbstractBackReferenceModel<C> asAbstractBackReferenceModel() {
+  public final IAbstractBackReferenceModelView<C> asAbstractBackReferenceModel() {
     return this;
   }
 
   @Override
-  public final IAbstractReferenceModel<?> asAbstractReferenceModel() {
+  public final IAbstractReferenceModelView<?> asAbstractReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IAbstractValueModel<?> asAbstractValueModel() {
+  public final IAbstractValueModelView<?> asAbstractValueModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 

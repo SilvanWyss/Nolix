@@ -3,45 +3,45 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
-public final class Column extends ImmutableDatabaseObject implements IColumn {
+public final class Column extends ImmutableDatabaseObject implements IColumnView {
 
   private final String name;
 
   private final String id;
 
-  private final IContentModel contentModel;
+  private final IContentModelView contentModelView;
 
   private final Table<IEntity> parentTable;
 
   private Column(
     final String name,
     final String id,
-    final IContentModel contentModel,
+    final IContentModelView contentModelView,
     final Table<IEntity> parentTable) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-    GlobalValidator.assertThat(contentModel).thatIsNamed(IContentModel.class).isNotNull();
+    GlobalValidator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 
     this.name = name;
     this.id = id;
-    this.contentModel = contentModel;
+    this.contentModelView = contentModelView;
     this.parentTable = parentTable;
   }
 
   static Column withNameAndIdAndParameterizedFieldTypeAndParentTable(
     final String name,
     final String id,
-    final IContentModel contentModel,
+    final IContentModelView contentModelView,
     final Table<IEntity> parentTable) {
-    return new Column(name, id, contentModel, parentTable);
+    return new Column(name, id, contentModelView, parentTable);
   }
 
   @Override
@@ -55,8 +55,8 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   }
 
   @Override
-  public IContentModel getContentModel() {
-    return contentModel;
+  public IContentModelView getContentModel() {
+    return contentModelView;
   }
 
   @Override

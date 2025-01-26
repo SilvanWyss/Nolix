@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 import ch.nolix.systemapi.rawschemaapi.modelapi.BackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.MultiBackReferenceModelDto;
@@ -46,7 +46,7 @@ public final class ContentModelMapper {
   private static final MultiBackReferenceModelMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
   new MultiBackReferenceModelMapper();
 
-  public IContentModel mapContentModelDtoToContentModel(
+  public IContentModelView mapContentModelDtoToContentModel(
     final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

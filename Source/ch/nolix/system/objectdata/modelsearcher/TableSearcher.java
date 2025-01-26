@@ -5,10 +5,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
 /**
  * @author Silvan Wyss
@@ -33,22 +33,22 @@ public final class TableSearcher extends DatabaseObjectExaminer implements ITabl
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> IContainer<IColumn> getStoredColumsThatReferencesTable(final ITable<E> table) {
+  public <E extends IEntity> IContainer<IColumnView> getStoredColumsThatReferencesTable(final ITable<E> table) {
 
     if (table == null) {
       return ImmutableList.createEmpty();
     }
 
-    final ILinkedList<IColumn> columns = LinkedList.createEmpty();
+    final ILinkedList<IColumnView> columnViews = LinkedList.createEmpty();
 
     for (final var t : table.getStoredParentDatabase().getStoredTables()) {
       for (final var c : t.getStoredColumns()) {
         if (c.getContentModel().referencesTable(table)) {
-          columns.addAtEnd(c);
+          columnViews.addAtEnd(c);
         }
       }
     }
 
-    return columns;
+    return columnViews;
   }
 }

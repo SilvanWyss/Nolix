@@ -1,42 +1,42 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IColumn;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
 public final class FieldFromColumnMapper {
 
-  public AbstractField createFieldFromColumn(final IColumn column) {
+  public AbstractField createFieldFromColumn(final IColumnView columnView) {
 
-    final var field = createEmptyFieldFromColumn(column);
-    field.internalSetParentColumn(column);
+    final var field = createEmptyFieldFromColumn(columnView);
+    field.internalSetParentColumn(columnView);
 
     return field;
   }
 
-  private AbstractField createEmptyFieldFromColumn(final IColumn column) {
-    return switch (column.getContentModel().getContentType()) {
+  private AbstractField createEmptyFieldFromColumn(final IColumnView columnView) {
+    return switch (columnView.getContentModel().getContentType()) {
       case VALUE ->
-        Value.withValueType(column.getContentModel().asAbstractValueModel().getValueType());
+        Value.withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
       case OPTIONAL_VALUE ->
         OptionalValue
-          .withValueType(column.getContentModel().asAbstractValueModel().getValueType());
+          .withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
       case MULTI_VALUE ->
-        MultiValue.withValueType(column.getContentModel().asAbstractValueModel().getValueType());
+        MultiValue.withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
       case REFERENCE ->
-        createEmptyReferenceFromReferenceColumn(column);
+        createEmptyReferenceFromReferenceColumn(columnView);
       case OPTIONAL_REFERENCE ->
-        createEmptyOptionalReferenceFromOptionalReferenceColumn(column);
+        createEmptyOptionalReferenceFromOptionalReferenceColumn(columnView);
       case MULTI_REFERENCE ->
-        createEmptyMultiReferenceFromMultiReferenceColumn(column);
+        createEmptyMultiReferenceFromMultiReferenceColumn(columnView);
       case BACK_REFERENCE ->
-        createEmptyBackReferenceFromBackReferenceColumn(column);
+        createEmptyBackReferenceFromBackReferenceColumn(columnView);
       case OPTIONAL_BACK_REFERENCE ->
-        createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(column);
+        createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(columnView);
       case MULTI_BACK_REFERENCE ->
-        createEmptyMultiBackReferenceFromMultiBackReferenceColumn(column);
+        createEmptyMultiBackReferenceFromMultiBackReferenceColumn(columnView);
     };
   }
 
-  private AbstractField createEmptyReferenceFromReferenceColumn(final IColumn referenceColumn) {
+  private AbstractField createEmptyReferenceFromReferenceColumn(final IColumnView referenceColumn) {
 
     final var referencedtableName = referenceColumn
       .getContentModel()
@@ -47,7 +47,7 @@ public final class FieldFromColumnMapper {
     return Reference.forEntityWithTableName(referencedtableName);
   }
 
-  private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumn optionalReferenceColumn) {
+  private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumnView optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
       .getContentModel()
@@ -58,7 +58,7 @@ public final class FieldFromColumnMapper {
     return OptionalReference.forEntityWithTableName(referencedtableName);
   }
 
-  private AbstractField createEmptyMultiReferenceFromMultiReferenceColumn(final IColumn multiReferenceColumn) {
+  private AbstractField createEmptyMultiReferenceFromMultiReferenceColumn(final IColumnView multiReferenceColumn) {
 
     final var referencedtableName = multiReferenceColumn
       .getContentModel()
@@ -69,7 +69,7 @@ public final class FieldFromColumnMapper {
     return MultiReference.forReferencedTable(referencedtableName);
   }
 
-  private AbstractField createEmptyBackReferenceFromBackReferenceColumn(final IColumn backReferenceColumn) {
+  private AbstractField createEmptyBackReferenceFromBackReferenceColumn(final IColumnView backReferenceColumn) {
 
     final var backReferencedColumn = backReferenceColumn
       .getContentModel()
@@ -85,7 +85,7 @@ public final class FieldFromColumnMapper {
   }
 
   private AbstractField createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
-    final IColumn optionalBackReferenceColumn) {
+    final IColumnView optionalBackReferenceColumn) {
 
     final var backReferencedColumn = optionalBackReferenceColumn
       .getContentModel()
@@ -101,7 +101,7 @@ public final class FieldFromColumnMapper {
   }
 
   private AbstractField createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
-    final IColumn multiBackReferenceColumn) {
+    final IColumnView multiBackReferenceColumn) {
 
     final var backReferencedColumn = multiBackReferenceColumn
       .getContentModel()

@@ -1,13 +1,15 @@
-package ch.nolix.systemapi.objectdataapi.modelapi;
+package ch.nolix.systemapi.objectdataapi.schemaviewapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
-public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
+public interface IColumnView extends IDatabaseObject, IIdHolder, INameHolder {
 
-  IContentModel getContentModel();
+  IContentModelView getContentModel();
 
   ITable<IEntity> getStoredParentTable();
 
