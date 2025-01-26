@@ -77,14 +77,11 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public boolean equals(final Object object) {
 
-    if (!(object instanceof final ComplexNumber)) {
-      return false;
+    if (object instanceof final IComplexNumber complexNumber) {
+      return equalsComplexNumber(complexNumber);
     }
 
-    final var complexNumber = (ComplexNumber) object;
-
-    return realComponent.equals(complexNumber.realComponent)
-    && imaginaryComponent.equals(complexNumber.imaginaryComponent);
+    return false;
   }
 
   @Override
@@ -256,5 +253,11 @@ public final class ComplexNumber implements IComplexNumber {
     }
 
     return (realComponent + " + " + imaginaryComponent + "i");
+  }
+
+  private boolean equalsComplexNumber(final IComplexNumber complexNumber) {
+    return //
+    realComponent.equals(complexNumber.getRealComponent())
+    && imaginaryComponent.equals(complexNumber.getImaginaryComponent());
   }
 }
