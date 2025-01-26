@@ -4,8 +4,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IOneBaseIndexed;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 /**
- * A {@link ISqlRecord} represents a SQL record. A {@link ISqlRecord} stores each
- * value as a {@link String}. An empty field, that means a null field, is
+ * A {@link ISqlRecord} represents a SQL record. A {@link ISqlRecord} stores
+ * each value as a {@link String}. An empty field, that means a null field, is
  * represented with a {@link String} that is 'NULL'.
  * 
  * @author Silvan Wyss

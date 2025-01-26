@@ -20,8 +20,8 @@ public interface IContentModelDtoToContentModelMapper<T extends IContentModelDto
   /**
    * @param contentModelDto
    * @param referencedTables
-   * @return a new {@link IContentModelView} from the given contentModelDto using the
-   *         given referencedTables.
+   * @return a new {@link IContentModelView} from the given contentModelDto using
+   *         the given referencedTables.
    */
   IContentModelView mapContentModelDtoToContentModel(
     T contentModelDto,

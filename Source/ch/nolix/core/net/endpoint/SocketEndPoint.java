@@ -166,9 +166,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   }
 
   /**
-   * Creates a new {@link AbstractNetEndPoint} with the given socket and target. The given
-   * socketInputStream and the given socketOutputStream belong to the given
-   * socket.
+   * Creates a new {@link AbstractNetEndPoint} with the given socket and target.
+   * The given socketInputStream and the given socketOutputStream belong to the
+   * given socket.
    * 
    * @param socket
    * @param socketInputStream

@@ -9,9 +9,10 @@ import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 /**
- * A {@link AbstractNetEndPoint} can send messages to an other {@link AbstractNetEndPoint} that
- * is on: -the same process on the local computer -another process on the local
- * computer -another process on another computer
+ * A {@link AbstractNetEndPoint} can send messages to an other
+ * {@link AbstractNetEndPoint} that is on: -the same process on the local
+ * computer -another process on the local computer -another process on another
+ * computer
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
@@ -111,8 +112,8 @@ public abstract class AbstractNetEndPoint extends EndPoint {
   /**
    * Confirms that the current {@link AbstractNetEndPoint} has a target info.
    * 
-   * @throws InvalidArgumentException if the current {@link AbstractNetEndPoint} has
-   *                                  already a target info.
+   * @throws InvalidArgumentException if the current {@link AbstractNetEndPoint}
+   *                                  has already a target info.
    */
   private void confirmReceivedTargetInfo() {
 
@@ -142,7 +143,8 @@ public abstract class AbstractNetEndPoint extends EndPoint {
    * Lets the current {@link AbstractNetEndPoint} receive the given message.
    * 
    * @param message
-   * @throws ClosedArgumentException if the current {@link AbstractNetEndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractNetEndPoint} is
+   *                                 closed.
    */
   private void receiveMessage(final String message) {
 

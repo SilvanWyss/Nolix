@@ -47,7 +47,8 @@ public final class FieldFromColumnMapper {
     return Reference.forEntityWithTableName(referencedtableName);
   }
 
-  private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(final IColumnView optionalReferenceColumn) {
+  private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(
+    final IColumnView optionalReferenceColumn) {
 
     final var referencedtableName = optionalReferenceColumn
       .getContentModel()

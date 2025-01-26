@@ -7,8 +7,8 @@ import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 /**
- * A {@link Server} is a {@link AbstractServer} that listens to {@link NetEndPoint}
- * on a specific port.
+ * A {@link Server} is a {@link AbstractServer} that listens to
+ * {@link NetEndPoint} on a specific port.
  * 
  * @author Silvan Wyss
  * @version 2016-11-01

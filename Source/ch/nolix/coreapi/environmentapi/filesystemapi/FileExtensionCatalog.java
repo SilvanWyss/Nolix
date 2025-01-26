@@ -70,8 +70,7 @@ public final class FileExtensionCatalog {
   public static final String XML = ".xml";
 
   /**
-   * Prevents that an instance of the {@link FileExtensionCatalog} can be
-   * created.
+   * Prevents that an instance of the {@link FileExtensionCatalog} can be created.
    */
   private FileExtensionCatalog() {
   }

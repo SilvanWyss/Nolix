@@ -15,8 +15,8 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
 /**
- * A {@link AbstractServer} can contain {@link Application}s. A {@link AbstractServer}
- * is closable.
+ * A {@link AbstractServer} can contain {@link Application}s. A
+ * {@link AbstractServer} is closable.
  * 
  * @param <S> is the type of a {@link AbstractServer}.
  * @author Silvan Wyss
@@ -38,9 +38,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws ArgumentIsNullException  if the given application is null.
    * @throws ArgumentIsNullException  if the given instanceName is null
    * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with the given
-   *                                  instanceName.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  the given instanceName.
    */
   public final S addApplication(final Application<?, ?> application) {
 
@@ -64,10 +64,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                          already to a {@link AbstractServer}.
    * @throws ArgumentIsNullException          if the given instanceName is null
    * @throws InvalidArgumentException         if the given instanceName is blank.
-   * @throws InvalidArgumentException         if the current {@link AbstractServer}
-   *                                          contains already a
-   *                                          {@link Application} with the given
-   *                                          instanceName.
+   * @throws InvalidArgumentException         if the current
+   *                                          {@link AbstractServer} contains
+   *                                          already a {@link Application} with
+   *                                          the given instanceName.
    */
   public final S addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
 
@@ -82,7 +82,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * Adds a new {@link Application} with the given instanceName,
-   * initialSessionClass and applicationService to the current {@link AbstractServer}.
+   * initialSessionClass and applicationService to the current
+   * {@link AbstractServer}.
    * 
    * @param applicationName
    * @param initialSessionClass
@@ -94,9 +95,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with the given
-   *                                  instanceName.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  the given instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <T extends Session<C, U>, C extends BackendClient<C, U>, U> S//
@@ -127,9 +128,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with an
-   *                                  instanceName that equals the given name.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  an instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <T extends Session<C, Object>, C extends BackendClient<C, Object>> S //
@@ -175,7 +176,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * Adds a new default {@link Application} with the given name,
-   * initialSessionClass and applicationService to the current {@link AbstractServer}.
+   * initialSessionClass and applicationService to the current
+   * {@link AbstractServer}.
    * 
    * @param applicationName
    * @param initialSessionClass
@@ -187,11 +189,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a default {@link Application}.
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with the given
-   *                                  instanceName.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a default
+   *                                  {@link Application}.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  the given instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <T extends Session<C, U>, C extends BackendClient<C, U>, U> S //
@@ -212,7 +215,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
-   * void context as default {@link Application} the current {@link AbstractServer}.
+   * void context as default {@link Application} the current
+   * {@link AbstractServer}.
    * 
    * @param name
    * @param initialSessionClass
@@ -222,9 +226,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with an
-   *                                  instanceName that equals the given name.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  an instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <T extends Session<C, Object>, C extends BackendClient<C, Object>> S//
@@ -257,8 +261,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @param name
-   * @return true if the current {@link AbstractServer} contains a {@link Application}
-   *         with the given name.
+   * @return true if the current {@link AbstractServer} contains a
+   *         {@link Application} with the given name.
    */
   public final boolean containsApplicationWithName(final String name) {
     return applications.containsAny(a -> a.getInstanceName().equals(name));
@@ -306,7 +310,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * @return the default {@link Application} of the current {@link AbstractServer}.
+   * @return the default {@link Application} of the current
+   *         {@link AbstractServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractServer} does not
    *                                               contain a default
@@ -329,8 +334,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * @return true if the current {@link AbstractServer} has a {@link AbstractClient}
-   *         connected.
+   * @return true if the current {@link AbstractServer} has a
+   *         {@link AbstractClient} connected.
    */
   public final boolean hasClientConnected() {
     return applications.containsAny(Application::hasClientConnected);
@@ -433,9 +438,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * {@link AbstractServer}.
    * 
    * @param application
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with the same
-   *                                  name as one of the given applications.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  the same name as one of the given
+   *                                  applications.
    */
   private void addApplicationToList(final Application<?, ?> application) {
 
@@ -462,9 +468,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @param name
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link Application} with the same
-   *                                  name as one of the given applications.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link Application} with
+   *                                  the same name as one of the given
+   *                                  applications.
    */
   private void assertDoesNotContainApplicationWithName(final String name) {
     if (containsApplicationWithName(name)) {
@@ -479,8 +486,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param application
    * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link AbstractServer} does not
-   *                                                contain the given application.
+   *                                                {@link AbstractServer} does
+   *                                                not contain the given
+   *                                                application.
    */
   private void removeApplication(final IApplication<?> application) {
 

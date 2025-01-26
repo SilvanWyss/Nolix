@@ -19,8 +19,7 @@ public final class MessageHeaderCatalog {
   public static final String MULTI_DATA_REQUEST_HEADER = "MultiDataRequest";
 
   /**
-   * Prevents that an instance of the {@link MessageHeaderCatalog} can be
-   * created.
+   * Prevents that an instance of the {@link MessageHeaderCatalog} can be created.
    */
   private MessageHeaderCatalog() {
   }

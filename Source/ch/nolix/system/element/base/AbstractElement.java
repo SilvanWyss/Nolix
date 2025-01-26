@@ -47,8 +47,8 @@ public abstract class AbstractElement implements IElement {
 
   /**
    * @param abstractElement
-   * @return true if the current {@link AbstractElement} has the same specification as the
-   *         given element.
+   * @return true if the current {@link AbstractElement} has the same
+   *         specification as the given element.
    */
   private boolean hasSameSpecificationAs(final AbstractElement abstractElement) {
     return getSpecification().equals(abstractElement.getSpecification());

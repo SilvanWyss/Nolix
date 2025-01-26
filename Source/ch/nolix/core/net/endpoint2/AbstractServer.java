@@ -140,7 +140,8 @@ public abstract class AbstractServer implements IServer {
   protected abstract void noteAddedDefaultSlot(ISlot defaultSlot);
 
   /**
-   * Notes that the given slot has been added to the current {@link AbstractServer}.
+   * Notes that the given slot has been added to the current
+   * {@link AbstractServer}.
    * 
    * @param slot
    */
@@ -159,9 +160,9 @@ public abstract class AbstractServer implements IServer {
    * {@link AbstractServer}.
    * 
    * @param slot
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link ISlot} with the same name
-   *                                  like the given slot.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link ISlot} with the
+   *                                  same name like the given slot.
    */
   private void addSlotToList(ISlot slot) {
 
@@ -184,9 +185,9 @@ public abstract class AbstractServer implements IServer {
 
   /**
    * @param name
-   * @throws InvalidArgumentException if the current {@link AbstractServer} contains
-   *                                  already a {@link ISlot} with the same name
-   *                                  as the given slot.
+   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   *                                  contains already a {@link ISlot} with the
+   *                                  same name as the given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
@@ -229,8 +230,8 @@ public abstract class AbstractServer implements IServer {
    * 
    * @param slot
    * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link AbstractServer} does not
-   *                                                contain the given slot.
+   *                                                {@link AbstractServer} does
+   *                                                not contain the given slot.
    */
   private void removeSlot(final ISlot slot) {
 
