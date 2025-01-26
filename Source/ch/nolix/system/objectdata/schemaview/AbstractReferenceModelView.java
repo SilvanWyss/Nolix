@@ -43,7 +43,7 @@ implements IAbstractReferenceModelView<E> {
   }
 
   @Override
-  public final boolean referencesTable(final ITable<?> table) {
+  public final boolean referencesTable(final Object table) {
     return (getStoredencedTable() == table);
   }
 }

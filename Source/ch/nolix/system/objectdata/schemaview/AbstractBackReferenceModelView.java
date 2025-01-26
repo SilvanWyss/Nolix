@@ -2,7 +2,6 @@ package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
@@ -43,7 +42,7 @@ implements IAbstractBackReferenceModelView<C> {
   }
 
   @Override
-  public final boolean referencesTable(final ITable<?> table) {
+  public final boolean referencesTable(final Object table) {
     return false;
   }
 }
