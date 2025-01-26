@@ -33,17 +33,19 @@ public final class TableSearcher extends DatabaseObjectExaminer implements ITabl
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> IContainer<IColumnView> getStoredColumsThatReferencesTable(final ITable<E> table) {
+  @SuppressWarnings("unchecked")
+  public <E extends IEntity> IContainer<IColumnView<ITable<IEntity>>> getStoredColumsThatReferencesTable(
+    final ITable<E> table) {
 
     if (table == null) {
       return ImmutableList.createEmpty();
     }
 
-    final ILinkedList<IColumnView> columnViews = LinkedList.createEmpty();
+    final ILinkedList<IColumnView<ITable<IEntity>>> columnViews = LinkedList.createEmpty();
 
     for (final var t : table.getStoredParentDatabase().getStoredTables()) {
       for (final var c : t.getStoredColumns()) {
-        if (c.getContentModel().referencesTable(table)) {
+        if (c.getContentModel().referencesTable((ITable<IEntity>) table)) {
           columnViews.addAtEnd(c);
         }
       }

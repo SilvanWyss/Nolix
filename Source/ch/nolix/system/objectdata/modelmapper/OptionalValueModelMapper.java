@@ -12,7 +12,7 @@ public final class OptionalValueModelMapper
 implements IContentModelDtoToContentModelMapper<OptionalValueModelDto> {
 
   @Override
-  public IContentModelView mapContentModelDtoToContentModelView(
+  public IContentModelView<ITable<IEntity>> mapContentModelDtoToContentModelView(
     final OptionalValueModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

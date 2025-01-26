@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 
-public final class Column extends ImmutableDatabaseObject implements IColumnView {
+public final class Column extends ImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
 
   private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
 
@@ -19,7 +19,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
 
   private final String name;
 
-  private final IContentModelView contentModelView;
+  private final IContentModelView<ITable<IEntity>> contentModelView;
 
   private final Table<IEntity> parentTable;
 
@@ -28,7 +28,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
   private Column(
     final String id,
     final String name,
-    final IContentModelView contentModelView,
+    final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
     final IDataReader rawDataReader) {
 
@@ -48,7 +48,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
   static Column withIdAndNameAndContentModelViewAndParentTableAndRawDataReader(
     final String id,
     final String name,
-    final IContentModelView contentModelView,
+    final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
     final IDataReader rawDataReader) {
     return new Column(name, id, contentModelView, parentTable, rawDataReader);
@@ -65,7 +65,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
   }
 
   @Override
-  public IContentModelView getContentModel() {
+  public IContentModelView<ITable<IEntity>> getContentModel() {
     return contentModelView;
   }
 

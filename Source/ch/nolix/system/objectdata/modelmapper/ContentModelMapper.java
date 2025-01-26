@@ -46,7 +46,7 @@ public final class ContentModelMapper {
   private static final MultiBackReferenceModelMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
   new MultiBackReferenceModelMapper();
 
-  public IContentModelView mapContentModelDtoToContentModel(
+  public IContentModelView<ITable<IEntity>> mapContentModelDtoToContentModel(
     final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

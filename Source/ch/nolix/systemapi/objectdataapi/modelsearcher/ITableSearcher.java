@@ -23,5 +23,5 @@ public interface ITableSearcher extends IDatabaseObjectExaminer {
    * @param table
    * @return the {@link IColumnView}s that references the given table.
    */
-  <E extends IEntity> IContainer<IColumnView> getStoredColumsThatReferencesTable(ITable<E> table);
+  <E extends IEntity> IContainer<IColumnView<ITable<IEntity>>> getStoredColumsThatReferencesTable(ITable<E> table);
 }

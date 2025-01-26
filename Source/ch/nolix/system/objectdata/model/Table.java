@@ -50,12 +50,12 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final Class<E> entityClass;
 
-  private final CachingProperty<IContainer<IColumnView>> columnsThatReferenceCurrentTable = new CachingProperty<>(
+  private final CachingProperty<IContainer<IColumnView<ITable<IEntity>>>> columnsThatReferenceCurrentTable = new CachingProperty<>(
     () -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 
-  private final LinkedList<IColumnView> columnViews = LinkedList.createEmpty();
+  private final LinkedList<IColumnView<ITable<IEntity>>> columnViews = LinkedList.createEmpty();
 
   private final LinkedList<E> entitiesInLocalData = LinkedList.createEmpty();
 
@@ -130,7 +130,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   @Override
-  public IContainer<IColumnView> getStoredColumns() {
+  public IContainer<IColumnView<ITable<IEntity>>> getStoredColumns() {
     return columnViews;
   }
 
@@ -224,7 +224,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entitiesInLocalData;
   }
 
-  void internalAddColumn(final IColumnView columnView) {
+  void internalAddColumn(final IColumnView<ITable<IEntity>> columnView) {
     columnViews.addAtEnd(columnView);
   }
 
@@ -233,7 +233,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::internalClose);
   }
 
-  IContainer<IColumnView> internalGetColumnsThatReferencesCurrentTable() {
+  IContainer<IColumnView<ITable<IEntity>>> internalGetColumnsThatReferencesCurrentTable() {
     return columnsThatReferenceCurrentTable.getValue();
   }
 
@@ -250,7 +250,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     entitiesInLocalData.clear();
   }
 
-  void internalSetColumns(final IContainer<IColumnView> columnViews) {
+  void internalSetColumns(final IContainer<IColumnView<ITable<IEntity>>> columnViews) {
     this.columnViews.clear();
     this.columnViews.addAtEnd(columnViews);
   }

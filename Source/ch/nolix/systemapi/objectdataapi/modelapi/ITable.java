@@ -18,7 +18,7 @@ public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, I
 
   Optional<E> getOptionalStoredEntityById(String id);
 
-  IContainer<IColumnView> getStoredColumns();
+  IContainer<IColumnView<ITable<IEntity>>> getStoredColumns();
 
   IContainer<E> getStoredEntities();
 

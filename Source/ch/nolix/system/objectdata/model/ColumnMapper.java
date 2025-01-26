@@ -12,7 +12,7 @@ final class ColumnMapper {
   private static final ContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
   new ContentModelMapper();
 
-  public IColumnView createColumnFromDtoForParentTableUsingGivenReferencableTables(
+  public IColumnView<ITable<IEntity>> createColumnFromDtoForParentTableUsingGivenReferencableTables(
     final ColumnDto columnDto,
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {

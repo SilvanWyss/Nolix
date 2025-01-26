@@ -8,10 +8,8 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceMode
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
 
-public abstract class AbstractReferenceModelView<
-
-E extends IEntity>
-implements IAbstractReferenceModelView<E> {
+public abstract class AbstractReferenceModelView<E extends IEntity>
+implements IAbstractReferenceModelView<ITable<E>> {
 
   private final ITable<E> referencedTable;
 
@@ -23,17 +21,17 @@ implements IAbstractReferenceModelView<E> {
   }
 
   @Override
-  public final IAbstractBackReferenceModelView<?> asAbstractBackReferenceModel() {
+  public final IAbstractBackReferenceModelView<?, ITable<E>> asAbstractBackReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
   @Override
-  public final IAbstractReferenceModelView<?> asAbstractReferenceModel() {
+  public final IAbstractReferenceModelView<ITable<E>> asAbstractReferenceModel() {
     return this;
   }
 
   @Override
-  public final IAbstractValueModelView<?> asAbstractValueModel() {
+  public final IAbstractValueModelView<?, ITable<E>> asAbstractValueModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
@@ -43,7 +41,7 @@ implements IAbstractReferenceModelView<E> {
   }
 
   @Override
-  public final boolean referencesTable(final Object table) {
+  public final boolean referencesTable(final ITable<E> table) {
     return (getStoredencedTable() == table);
   }
 }

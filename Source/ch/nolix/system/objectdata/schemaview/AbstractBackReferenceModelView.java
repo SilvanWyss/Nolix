@@ -2,15 +2,15 @@ package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
-public abstract class AbstractBackReferenceModelView<
-
-C extends IColumnView>
-implements IAbstractBackReferenceModelView<C> {
+public abstract class AbstractBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
+implements IAbstractBackReferenceModelView<C, ITable<IEntity>> {
 
   private final C backReferencedColumn;
 
@@ -22,17 +22,17 @@ implements IAbstractBackReferenceModelView<C> {
   }
 
   @Override
-  public final IAbstractBackReferenceModelView<C> asAbstractBackReferenceModel() {
+  public final IAbstractBackReferenceModelView<C, ITable<IEntity>> asAbstractBackReferenceModel() {
     return this;
   }
 
   @Override
-  public final IAbstractReferenceModelView<?> asAbstractReferenceModel() {
+  public final IAbstractReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
   @Override
-  public final IAbstractValueModelView<?> asAbstractValueModel() {
+  public final IAbstractValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
@@ -42,7 +42,7 @@ implements IAbstractBackReferenceModelView<C> {
   }
 
   @Override
-  public final boolean referencesTable(final Object table) {
+  public final boolean referencesTable(final ITable<IEntity> table) {
     return false;
   }
 }

@@ -12,7 +12,7 @@ public final class ReferenceModelMapper
 implements IContentModelDtoToContentModelMapper<ReferenceModelDto> {
 
   @Override
-  public IContentModelView mapContentModelDtoToContentModelView(
+  public IContentModelView<ITable<IEntity>> mapContentModelDtoToContentModelView(
     final ReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 

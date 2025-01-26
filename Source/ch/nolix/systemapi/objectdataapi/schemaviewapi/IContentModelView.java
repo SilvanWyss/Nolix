@@ -2,15 +2,15 @@ package ch.nolix.systemapi.objectdataapi.schemaviewapi;
 
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public interface IContentModelView {
+public interface IContentModelView<T> {
 
-  IAbstractBackReferenceModelView<?> asAbstractBackReferenceModel();
+  IAbstractBackReferenceModelView<?, T> asAbstractBackReferenceModel();
 
-  IAbstractReferenceModelView<?> asAbstractReferenceModel();
+  IAbstractReferenceModelView<T> asAbstractReferenceModel();
 
-  IAbstractValueModelView<?> asAbstractValueModel();
+  IAbstractValueModelView<?, T> asAbstractValueModel();
 
-  boolean referencesTable(Object table);
+  boolean referencesTable(T table);
 
   ContentType getContentType();
 }
