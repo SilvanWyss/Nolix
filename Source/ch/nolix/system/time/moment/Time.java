@@ -82,7 +82,7 @@ extends AbstractElement implements ITime {
   /**
    * @param specification
    * @return a new {@link Time} from the given specification.
-   * @NullPointerException if the given specification is null.
+   * @throws NullPointerException     if the given specification is null.
    * @throws InvalidArgumentException if the given specification does not
    *                                  represent a {@link Time}.
    */
