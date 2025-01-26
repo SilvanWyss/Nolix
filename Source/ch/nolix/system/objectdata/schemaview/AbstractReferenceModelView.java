@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.contentmodel;
+package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -8,14 +8,14 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceMode
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
 
-public abstract class AbstractReferenceModel<
+public abstract class AbstractReferenceModelView<
 
 E extends IEntity>
 implements IAbstractReferenceModelView<E> {
 
   private final ITable<E> referencedTable;
 
-  protected AbstractReferenceModel(final ITable<E> referencedTable) {
+  protected AbstractReferenceModelView(final ITable<E> referencedTable) {
 
     GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 

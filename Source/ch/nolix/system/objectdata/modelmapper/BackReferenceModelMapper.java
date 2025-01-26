@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.contentmodel.BackReferenceModel;
+import ch.nolix.system.objectdata.schemaview.BackReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
@@ -20,6 +20,6 @@ implements IContentModelDtoToContentModelMapper<BackReferenceModelDto> {
     final var referencableColumns = referencableTables.toMultiple(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
-    return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
+    return BackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
   }
 }

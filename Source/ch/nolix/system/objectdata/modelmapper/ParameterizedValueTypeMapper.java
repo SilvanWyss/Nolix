@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.contentmodel.ValueModel;
+import ch.nolix.system.objectdata.schemaview.ValueModelView;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
@@ -18,6 +18,6 @@ implements IContentModelDtoToContentModelMapper<ValueModelDto> {
 
     final var valueType = contentModelDto.dataType().getDataTypeClass();
 
-    return ValueModel.forValueType(valueType);
+    return ValueModelView.forValueType(valueType);
   }
 }

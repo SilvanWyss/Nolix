@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdata.contentmodel.ReferenceModel;
+import ch.nolix.system.objectdata.schemaview.ReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
@@ -20,6 +20,6 @@ implements IContentModelDtoToContentModelMapper<ReferenceModelDto> {
     final var tables = referencableTables.getStoredSelected(t -> tableIds.containsEqualing(t.getId()));
 
     //TODO: Handle multiple referenced tables
-    return ReferenceModel.forReferencedTable(tables.getStoredFirst());
+    return ReferenceModelView.forReferencedTable(tables.getStoredFirst());
   }
 }

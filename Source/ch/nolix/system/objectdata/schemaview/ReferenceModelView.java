@@ -1,18 +1,18 @@
-package ch.nolix.system.objectdata.contentmodel;
+package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
-public final class ReferenceModel<E extends IEntity> extends AbstractReferenceModel<E> {
+public final class ReferenceModelView<E extends IEntity> extends AbstractReferenceModelView<E> {
 
-  private ReferenceModel(final ITable<E> referencedTable) {
+  private ReferenceModelView(final ITable<E> referencedTable) {
     super(referencedTable);
   }
 
-  public static <E2 extends IEntity> ReferenceModel<E2> forReferencedTable(
+  public static <E2 extends IEntity> ReferenceModelView<E2> forReferencedTable(
     final ITable<E2> referencedTable) {
-    return new ReferenceModel<>(referencedTable);
+    return new ReferenceModelView<>(referencedTable);
   }
 
   @Override
