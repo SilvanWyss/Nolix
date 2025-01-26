@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.componentapi.applicationcomponentapi.IClientComponent;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 
@@ -16,7 +17,7 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
  * @param <S> is the type of the context of the parent {@link Application} of
  *            the parent {@link BackendClient} of a {@link Session}.
  */
-public abstract class Session<C extends BackendClient<C, S>, S> implements IRefreshableSubscriber {
+public abstract class Session<C extends BackendClient<C, S>, S> implements IClientComponent<C>, IRefreshableSubscriber {
 
   private C parentClient;
 
@@ -26,6 +27,7 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
    * @return true if the current {@link Session} belongs to a
    *         {@link AbstractClient}.
    */
+  @Override
   public final boolean belongsToClient() {
     return (parentClient != null);
   }
@@ -51,6 +53,7 @@ public abstract class Session<C extends BackendClient<C, S>, S> implements IRefr
    * @throws InvalidArgumentException if the current {@link Session} does not
    *                                  belong to a client.
    */
+  @Override
   public final C getStoredParentClient() {
 
     //Asserts that the current {@link Session} belonts to a client.
