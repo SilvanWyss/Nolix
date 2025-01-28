@@ -45,7 +45,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private SchemaReader(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("database Node").isNotNull();
+    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
   }
@@ -76,40 +76,54 @@ public final class SchemaReader implements ISchemaReader {
   public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
+    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
-    return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
-      .to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
+    return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   @Override
   public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
-    return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
-      .to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
+    return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   @Override
   public FlatTableDto loadFlatTableById(final String id) {
-    return //
-    FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(
-      DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, id));
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, id);
+
+    return FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(tableNode);
   }
 
   @Override
   public FlatTableDto loadFlatTableByName(final String name) {
-    return //
-    FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(
-      DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name));
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name);
+
+    return FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(tableNode);
   }
 
   @Override
   public IContainer<FlatTableDto> loadFlatTables() {
-    return //
-    DATABASE_NODE_SEARCHER
-      .getStoredTableNodesFromNodeDatabase(nodeDatabase)
-      .to(FLAT_TABLE_DTO_MAPPER::mapTableNodeToFlatTableDto);
+
+    final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
+
+    return tableNodes.to(FLAT_TABLE_DTO_MAPPER::mapTableNodeToFlatTableDto);
+  }
+
+  @Override
+  public Time loadSchemaTimestamp() {
+  
+    final var databasePropertiesNode = //
+    DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
+  
+    final var timestampNode = //
+    DATABASE_PROPERTIES_NODE_SEARCHER.getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+  
+    return Time.fromSpecification(timestampNode);
   }
 
   @Override
@@ -129,28 +143,17 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<TableDto> loadTables() {
-    return DATABASE_NODE_SEARCHER
-      .getStoredTableNodesFromNodeDatabase(nodeDatabase)
-      .to(this::loadTableFromTableNode);
-  }
-
-  @Override
   public IContainer<TableReferenceDto> loadTableReferencesByColumnId(final String columnId) {
     //TODO: Implement
     return null;
   }
 
   @Override
-  public Time loadSchemaTimestamp() {
+  public IContainer<TableDto> loadTables() {
 
-    final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-      .getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
+    final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
 
-    final var timestampNode = DATABASE_PROPERTIES_NODE_SEARCHER
-      .getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
-
-    return Time.fromSpecification(timestampNode);
+    return tableNodes.to(this::loadTableFromTableNode);
   }
 
   @Override
@@ -159,14 +162,18 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   private IContainer<ColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
-    return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
-      .to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
+
+    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
+
+    return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   private TableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
-    return new TableDto(
-      TABLE_NODE_SEARCHER.getStoredIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
-      TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
-      loadColumnsFromTableNode(tableNode));
+
+    final var tableId = TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
+    final var tableName = TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
+    final var columns = loadColumnsFromTableNode(tableNode);
+
+    return new TableDto(tableId, tableName, columns);
   }
 }
