@@ -43,7 +43,7 @@ public final class FieldFromColumnMapper {
     final var referencedtableName = referenceColumn
       .getContentModel()
       .asAbstractReferenceModel()
-      .getStoredencedTable()
+      .getStoredReferencedTable()
       .getName();
 
     return Reference.forEntityWithTableName(referencedtableName);
@@ -55,7 +55,7 @@ public final class FieldFromColumnMapper {
     final var referencedtableName = optionalReferenceColumn
       .getContentModel()
       .asAbstractReferenceModel()
-      .getStoredencedTable()
+      .getStoredReferencedTable()
       .getName();
 
     return OptionalReference.forEntityWithTableName(referencedtableName);
@@ -67,7 +67,7 @@ public final class FieldFromColumnMapper {
     final var referencedtableName = multiReferenceColumn
       .getContentModel()
       .asAbstractReferenceModel()
-      .getStoredencedTable()
+      .getStoredReferencedTable()
       .getName();
 
     return MultiReference.forReferencedTable(referencedtableName);

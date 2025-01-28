@@ -36,12 +36,12 @@ implements IAbstractReferenceModelView<ITable<E>> {
   }
 
   @Override
-  public final ITable<E> getStoredencedTable() {
+  public final ITable<E> getStoredReferencedTable() {
     return referencedTable;
   }
 
   @Override
   public final boolean referencesTable(final ITable<E> table) {
-    return (getStoredencedTable() == table);
+    return (getStoredReferencedTable() == table);
   }
 }
