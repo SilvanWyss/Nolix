@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.function.Predicate;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -35,19 +36,22 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
 
   private final LinkedList<MultiReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
-  private MultiReference(final String referencedTableName) {
-    super(referencedTableName);
+  private MultiReference(final IContainer<String> referencableTableNames) {
+    super(referencableTableNames);
   }
 
   public static <E2 extends Entity> MultiReference<E2> forReferencedEntityType(final Class<E2> referencedEntityType) {
 
     final var referencedTableName = referencedEntityType.getSimpleName();
 
-    return forReferencedTable(referencedTableName);
+    //TODO: Enable MultiReference to reference base types
+    return new MultiReference<>(ImmutableList.withElement(referencedTableName));
   }
 
   public static <E2 extends Entity> MultiReference<E2> forReferencedTable(final String referencedTableName) {
-    return new MultiReference<>(referencedTableName);
+
+    //TODO: Enable MultiReference to reference base types
+    return new MultiReference<>(ImmutableList.withElement(referencedTableName));
   }
 
   @Override

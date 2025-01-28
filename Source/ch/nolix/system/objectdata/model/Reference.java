@@ -29,16 +29,20 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   private String referencedEntityId;
 
-  private Reference(final String referencedTableName) {
-    super(referencedTableName);
+  private Reference(final IContainer<String> referencableTableNames) {
+    super(referencableTableNames);
   }
 
   public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
-    return new Reference<>(type.getSimpleName());
+
+    //TODO: Enable Reference to reference base types
+    return new Reference<>(ImmutableList.withElement(type.getSimpleName()));
   }
 
   public static Reference<AbstractEntity> forEntityWithTableName(final String tableName) {
-    return new Reference<>(tableName);
+
+    //TODO: Enable Reference to reference base types
+    return new Reference<>(ImmutableList.withElement(tableName));
   }
 
   @Override

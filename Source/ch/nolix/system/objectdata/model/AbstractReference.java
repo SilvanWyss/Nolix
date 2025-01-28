@@ -10,25 +10,33 @@ import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public abstract class AbstractReference<E extends IEntity> extends AbstractField implements IAbstractReference<E> {
 
+  private final IContainer<String> referencableTableNames;
+
   private final String referencedTableName;
 
   private Table<E> referencedTable;
 
-  protected AbstractReference(final String referencedTableName) {
+  protected AbstractReference(final IContainer<String> referencableTableNames) {
 
-    GlobalValidator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
+    GlobalValidator.assertThatTheStrings(referencableTableNames).areNotBlank();
 
-    this.referencedTableName = referencedTableName;
+    this.referencableTableNames = ImmutableList.forIterable(referencableTableNames);
+
+    //TODO: Enable AbstractReference to reference base types
+    this.referencedTableName = referencableTableNames.getStoredFirst();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public final ITable<E> getStoredReferencedTable() {
-
-    extractReferencedTableIfNotExtracted();
-
-    return referencedTable;
+  public IContainer<String> getReferencableTableNames() {
+    return referencableTableNames;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getReferencedTableName() {
     return referencedTableName;
@@ -42,13 +50,30 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final ITable<E> getStoredReferencedTable() {
+
+    extractReferencedTableIfNotExtracted();
+
+    return referencedTable;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean referencesBackEntity(final IEntity entity) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public boolean referencesBackField(final IField field) {
+  public final boolean referencesBackField(final IField field) {
     return false;
   }
 
