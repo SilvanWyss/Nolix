@@ -6,6 +6,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.noderawschema.nodeexaminer.TableNodeExaminer;
+import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
+import ch.nolix.system.noderawschema.nodesearcher.ContentModelNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.TableNodeSearcher;
@@ -13,6 +15,8 @@ import ch.nolix.system.noderawschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.noderawschema.rawschemaflatdtomapper.FlatTableDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.noderawschemaapi.nodeexaminerapi.ITableNodeExaminer;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IContentModelNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
@@ -37,7 +41,11 @@ public final class SchemaReader implements ISchemaReader {
 
   private static final IFlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
+  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
+  private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -116,13 +124,13 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public Time loadSchemaTimestamp() {
-  
+
     final var databasePropertiesNode = //
     DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
-  
+
     final var timestampNode = //
     DATABASE_PROPERTIES_NODE_SEARCHER.getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
-  
+
     return Time.fromSpecification(timestampNode);
   }
 
@@ -144,8 +152,14 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<TableReferenceDto> loadTableReferencesByColumnId(final String columnId) {
-    //TODO: Implement
-    return null;
+
+    final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
+    final var contentModelNode = COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode);
+
+    final var referencedTableIds = //
+    CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdsFromContentModelNode(contentModelNode);
+
+    return referencedTableIds.to(t -> new TableReferenceDto(columnId, t));
   }
 
   @Override
