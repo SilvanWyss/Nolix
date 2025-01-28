@@ -79,7 +79,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   @Override
   public E getStoredReferencedEntity() {
-    return getStoredParentMultiReference().getReferencedTable().getStoredEntityById(getReferencedEntityId());
+    return getStoredParentMultiReference().getStoredReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
   @Override

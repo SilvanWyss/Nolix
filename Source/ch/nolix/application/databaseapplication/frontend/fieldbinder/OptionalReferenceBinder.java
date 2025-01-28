@@ -15,7 +15,7 @@ extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
     dropdownMenu.addBlankItem();
 
-    for (final var e : optionalReference.getReferencedTable().getStoredEntities()) {
+    for (final var e : optionalReference.getStoredReferencedTable().getStoredEntities()) {
       dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
     }
   }

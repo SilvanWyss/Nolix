@@ -22,7 +22,7 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
   }
 
   @Override
-  public final ITable<E> getReferencedTable() {
+  public final ITable<E> getStoredReferencedTable() {
 
     extractReferencedTableIfNotExtracted();
 

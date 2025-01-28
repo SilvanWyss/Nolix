@@ -16,7 +16,7 @@ public final class ReferenceBinder extends FieldBinder<IReference<IEntity>, IDro
   protected void addSelectionOptionsToControlForField(
     final IDropdownMenu dropdownMenu,
     final IReference<IEntity> reference) {
-    for (final var e : reference.getReferencedTable().getStoredEntities()) {
+    for (final var e : reference.getStoredReferencedTable().getStoredEntities()) {
       dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
     }
   }

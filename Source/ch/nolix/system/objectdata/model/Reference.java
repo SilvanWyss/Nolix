@@ -72,7 +72,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   @Override
   public E getStoredReferencedEntity() {
-    return getReferencedTable().getStoredEntityById(getReferencedEntityId());
+    return getStoredReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
   @Override
@@ -117,7 +117,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   @Override
   public void setEntityById(final String id) {
 
-    final var entity = getReferencedTable().getStoredEntityById(id);
+    final var entity = getStoredReferencedTable().getStoredEntityById(id);
 
     setEntity(entity);
   }
