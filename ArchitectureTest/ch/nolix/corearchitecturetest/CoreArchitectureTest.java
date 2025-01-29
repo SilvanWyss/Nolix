@@ -19,7 +19,7 @@ final class CoreArchitectureTest {
       .onlyDependOnClassesThat()
       .resideInAnyPackage("ch.nolix.core..", "ch.nolix.coreapi..", "io.netty..", "java..", "javax..");
 
-    final var testUnit = new ClassFileImporter().importPackages("ch.nolix..");
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.core..");
 
     rule.check(testUnit);
   }
