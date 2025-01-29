@@ -50,8 +50,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final Class<E> entityClass;
 
-  private final CachingProperty<IContainer<IColumnView<ITable<IEntity>>>> columnsThatReferenceCurrentTable = new CachingProperty<>(
-    () -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
+  private final CachingProperty<IContainer<IColumnView<ITable<IEntity>>>> columnsThatReferenceCurrentTable = //
+  new CachingProperty<>(() -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 
