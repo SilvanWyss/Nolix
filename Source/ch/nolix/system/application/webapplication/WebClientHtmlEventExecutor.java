@@ -2,11 +2,11 @@ package ch.nolix.system.application.webapplication;
 
 import java.util.Optional;
 import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
 
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 
 public final class WebClientHtmlEventExecutor {
 
