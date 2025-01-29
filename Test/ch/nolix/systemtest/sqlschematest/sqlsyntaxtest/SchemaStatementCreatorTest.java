@@ -39,6 +39,6 @@ final class SchemaStatementCreatorTest extends StandardTest {
     final var result = testUnit.createStatementToAddTable(tableDto);
 
     //setup verification
-    expect(result).isEqualTo("CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);");
+    expect(result).isEqualTo("CREATE TABLE Pet (Name nvarchar(100), WeightInKilogram Float);");
   }
 }

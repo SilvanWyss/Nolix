@@ -18,7 +18,7 @@ public final class StatementCreator implements IStatementCreator {
   public String createStatementToAddTable(TableDto table) {
     return "CREATE TABLE "
     + table.name()
-    + " (" + table.columns().to(this::getColumnAsSql).toStringWithSeparator(",")
+    + " (" + table.columns().to(this::getColumnAsSql).toStringWithSeparator(", ")
     + ");";
   }
 
