@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawdataapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**

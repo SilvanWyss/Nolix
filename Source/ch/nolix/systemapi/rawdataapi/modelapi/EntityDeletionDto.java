@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawdataapi.model;
+package ch.nolix.systemapi.rawdataapi.modelapi;
 
 public record EntityDeletionDto(String id, String saveStamp) {
 }

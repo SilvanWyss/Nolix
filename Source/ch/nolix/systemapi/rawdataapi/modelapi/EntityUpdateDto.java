@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.rawdataapi.model;
+package ch.nolix.systemapi.rawdataapi.modelapi;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

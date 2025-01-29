@@ -5,9 +5,9 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdataapi.rawdatamodelmapperapi.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdataapi.rawdatamodelmapperapi.IStringContentFieldDtoMapper;
-import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 
 /**
  * @author Silvan Wyss

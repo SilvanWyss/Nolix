@@ -2,8 +2,8 @@ package ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 

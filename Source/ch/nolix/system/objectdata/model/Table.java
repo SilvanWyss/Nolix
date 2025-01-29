@@ -24,7 +24,7 @@ import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
 import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 
 public final class Table<E extends IEntity> implements ITable<E> {
 

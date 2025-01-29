@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi;
 
-import ch.nolix.systemapi.rawdataapi.model.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.model.EntityDeletionDto;
-import ch.nolix.systemapi.rawdataapi.model.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IEntityStatementCreator {

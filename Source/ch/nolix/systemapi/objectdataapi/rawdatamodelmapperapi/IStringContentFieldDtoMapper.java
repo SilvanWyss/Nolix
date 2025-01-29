@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.rawdatamodelmapperapi;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.rawdataapi.model.StringContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.StringContentFieldDto;
 
 /**
  * @author Silvan Wyss

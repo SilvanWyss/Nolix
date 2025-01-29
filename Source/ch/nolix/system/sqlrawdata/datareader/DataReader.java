@@ -8,7 +8,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
-import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;

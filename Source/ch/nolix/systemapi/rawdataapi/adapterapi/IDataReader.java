@@ -2,7 +2,7 @@ package ch.nolix.systemapi.rawdataapi.adapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IDataReader extends GroupCloseable {

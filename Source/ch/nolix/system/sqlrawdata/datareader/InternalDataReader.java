@@ -12,7 +12,7 @@ import ch.nolix.system.sqlrawdata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.rawdatamodelmapper.LoadedEntityDtoMapper;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdataapi.model.EntityLoadingDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;

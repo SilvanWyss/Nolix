@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi;
 
-import ch.nolix.systemapi.rawdataapi.model.StringContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.StringContentFieldDto;
 
 /**
  * @author Silvan Wyss

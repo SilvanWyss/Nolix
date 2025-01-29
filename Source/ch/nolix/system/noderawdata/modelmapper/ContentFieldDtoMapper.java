@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.modelmapper;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.rawdata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.modelmapperapi.IContentFieldDtoMapper;
-import ch.nolix.systemapi.rawdataapi.model.ContentFieldDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
 import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 
