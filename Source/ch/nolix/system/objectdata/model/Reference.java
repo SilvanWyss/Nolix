@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
@@ -31,6 +32,18 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   private Reference(final IContainer<String> referencableTableNames) {
     super(referencableTableNames);
+  }
+
+  @SafeVarargs
+  public static <E2 extends Entity> Reference<E2> forBaseAndItsSubEntityType(
+    final Class<E2> baseEntiyType,
+    final Class<? extends E2> subEntityType,
+    final Class<? extends E2>... subEntityTypes) {
+
+    final var allSubTypes = ContainerView.forElementAndArray(subEntityType, subEntityTypes);
+    final var referencableTableNames = allSubTypes.to(Class::getSimpleName);
+
+    return new Reference<>(referencableTableNames);
   }
 
   public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
