@@ -21,7 +21,7 @@ final class SchemaStatementCreatorTest extends StandardTest {
     //execution
     final var result = testUnit.createStatementToAddColumn("Pet", columnDto);
 
-    //setup verification
+    //verification
     expect(result).isEqualTo("ALTER TABLE Pet ADD Name nvarchar(100);");
   }
 
@@ -32,13 +32,13 @@ final class SchemaStatementCreatorTest extends StandardTest {
     final var tableDto = TableDto.withNameAndColumn(
       "Pet",
       ColumnDto.withNameAndDataType("Name", DataTypeDto.withNameAndParameter("nvarchar", "100")),
-      ColumnDto.withNameAndDataType("WeightInKilogram", DataTypeDto.withName("Float")));
+      ColumnDto.withNameAndDataType("WeightInKilogram", DataTypeDto.withName("float")));
     final var testUnit = new StatementCreator();
 
     //execution
     final var result = testUnit.createStatementToAddTable(tableDto);
 
-    //setup verification
-    expect(result).isEqualTo("CREATE TABLE Pet (Name nvarchar(100), WeightInKilogram Float);");
+    //verification
+    expect(result).isEqualTo("CREATE TABLE Pet (Name nvarchar(100), WeightInKilogram float);");
   }
 }
