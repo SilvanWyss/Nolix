@@ -1,10 +1,9 @@
-package ch.nolix.templatetest.mathtest.sequencetest;
+package ch.nolix.template.math.sequence;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.template.math.sequence.GlobalSequenceFactory;
 
 final class GlobalSequenceCreatorTest extends StandardTest {
 

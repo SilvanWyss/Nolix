@@ -1,4 +1,4 @@
-package ch.nolix.templatetest.webguitest.dialogtest;
+package ch.nolix.template.webgui.dialog;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
-import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
 final class ShowValueDialogBuilderTest extends StandardTest {
 

@@ -1,4 +1,4 @@
-package ch.nolix.templatetest.webguitest.styletest;
+package ch.nolix.template.webgui.style;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,6 @@ import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.template.webgui.style.StyleCatalog;
 
 final class StyleCatalogTest extends StandardTest {
 
