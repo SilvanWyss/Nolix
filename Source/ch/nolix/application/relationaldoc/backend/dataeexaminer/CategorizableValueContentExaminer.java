@@ -1,7 +1,7 @@
 package ch.nolix.application.relationaldoc.backend.dataeexaminer;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.DataType;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 
 public final class CategorizableValueContentExaminer {

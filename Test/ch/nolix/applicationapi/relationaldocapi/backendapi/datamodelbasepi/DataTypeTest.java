@@ -1,8 +1,7 @@
-package ch.nolix.techapitest.relationaldocapitest.baseapitest;
+package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 

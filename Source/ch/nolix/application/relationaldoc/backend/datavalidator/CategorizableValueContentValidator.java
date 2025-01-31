@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.datavalidator;
 
 import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableValueContentExaminer;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.DataType;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableValueContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.DataType;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 

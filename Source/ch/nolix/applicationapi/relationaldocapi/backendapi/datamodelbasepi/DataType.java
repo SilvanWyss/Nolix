@@ -1,4 +1,4 @@
-package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi;
+package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi;
 
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 

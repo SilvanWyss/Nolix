@@ -1,6 +1,6 @@
 package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelabasepi.CATEGORIZABLE;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.CATEGORIZABLE;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
