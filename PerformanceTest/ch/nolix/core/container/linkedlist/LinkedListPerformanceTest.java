@@ -1,8 +1,7 @@
-package ch.nolix.coreperformancetest.containerperformancetest.linkedlistperformancetest;
+package ch.nolix.core.container.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.performancetest.PerformanceTest;

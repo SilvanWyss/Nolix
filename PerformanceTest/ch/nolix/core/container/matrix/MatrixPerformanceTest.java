@@ -1,9 +1,8 @@
-package ch.nolix.coreperformancetest.containerperformancetest.matrixperformancetest;
+package ch.nolix.core.container.matrix;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
