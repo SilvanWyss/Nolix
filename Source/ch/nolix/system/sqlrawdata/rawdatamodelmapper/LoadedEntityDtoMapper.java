@@ -22,7 +22,9 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   private static final IContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
   @Override
-  public EntityLoadingDto mapSqlRecordToEntityLoadingDto(final ISqlRecord sqlRecord, final TableSchemaViewDto tableView) {
+  public EntityLoadingDto mapSqlRecordToEntityLoadingDto(
+    final ISqlRecord sqlRecord,
+    final TableSchemaViewDto tableView) {
     return //
     new EntityLoadingDto(
       sqlRecord.getStoredAt1BasedIndex(1),

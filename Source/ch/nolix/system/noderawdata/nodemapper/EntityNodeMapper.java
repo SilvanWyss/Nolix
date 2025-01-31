@@ -36,7 +36,9 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     final long saveStamp,
     final TableSchemaViewDto tableView) {
 
-    final var size = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnSchemaViews().getCount();
+    final var size = //
+    FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnSchemaViews().getCount();
+
     final var attributes = new Node[size];
 
     attributes[0] = createIdAttributeFrom(newEntity);

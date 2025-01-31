@@ -14,7 +14,9 @@ public final class TableViewDtoSearcher implements ITableViewDtoSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ColumnSchemaViewDto getColumnViewByColumnId(final TableSchemaViewDto tableSchemaViewDto, final String columnId) {
+  public ColumnSchemaViewDto getColumnViewByColumnId(
+    final TableSchemaViewDto tableSchemaViewDto,
+    final String columnId) {
     return tableSchemaViewDto.columnSchemaViews().getStoredFirst(c -> c.id().equals(columnId));
   }
 
@@ -22,7 +24,9 @@ public final class TableViewDtoSearcher implements ITableViewDtoSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ColumnSchemaViewDto getColumnViewByColumnName(final TableSchemaViewDto tableSchemaViewDto, final String columnName) {
+  public ColumnSchemaViewDto getColumnViewByColumnName(
+    final TableSchemaViewDto tableSchemaViewDto,
+    final String columnName) {
     return tableSchemaViewDto.columnSchemaViews().getStoredFirst(c -> c.name().equals(columnName));
   }
 }
