@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
@@ -15,8 +16,7 @@ import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
 
-  private static final IContentModelExaminer PARAMETERIZED_FIELD_TYPE_TOOL = //
-  new ParameterizedFieldTypeTool();
+  private static final IContentModelExaminer CONTENT_MODEL_EXAMINER = new ContentModelExaminer();
 
   @Override
   public void assertBelongsToTable(final IColumn column) {
@@ -68,17 +68,17 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractBackReferenceModel(column.getContentModel());
+    return CONTENT_MODEL_EXAMINER.isAbstractBackReferenceModel(column.getContentModel());
   }
 
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractReferenceModel(column.getContentModel());
+    return CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(column.getContentModel());
   }
 
   @Override
   public boolean isAValueColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractValueModel(column.getContentModel());
+    return CONTENT_MODEL_EXAMINER.isAbstractValueModel(column.getContentModel());
   }
 
   @Override
@@ -91,7 +91,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
       final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
       final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
 
-      if (!PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractReferenceModel(backReferencedColumnContentModel)) {
+      if (!CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(backReferencedColumnContentModel)) {
         return false;
       }
 
