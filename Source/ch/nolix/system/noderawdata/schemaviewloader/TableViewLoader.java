@@ -4,8 +4,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.schemaviewdtomapper.TableSchemaViewDtoMapper;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
-import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.ITableSchemaViewDtoMapper;
 import ch.nolix.systemapi.noderawdataapi.schemaviewloaderapi.ITableViewLoader;
+import ch.nolix.systemapi.noderawdataapi.schemaviewmodelmapperapi.ITableSchemaViewDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 

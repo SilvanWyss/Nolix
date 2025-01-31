@@ -3,8 +3,8 @@ package ch.nolix.system.noderawdata.schemaviewdtomapper;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnSchemaViewDtoMapper;
-import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.ITableSchemaViewDtoMapper;
+import ch.nolix.systemapi.noderawdataapi.schemaviewmodelmapperapi.IColumnSchemaViewDtoMapper;
+import ch.nolix.systemapi.noderawdataapi.schemaviewmodelmapperapi.ITableSchemaViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
