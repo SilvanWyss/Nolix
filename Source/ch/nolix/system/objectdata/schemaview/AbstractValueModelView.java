@@ -22,12 +22,12 @@ public abstract class AbstractValueModelView<V> implements IAbstractValueModelVi
 
   @Override
   public final IAbstractBackReferenceModelView<?, ITable<IEntity>> asAbstractBackReferenceModel() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractBackReferenceModel");
   }
 
   @Override
   public final IAbstractReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractReferenceModel");
   }
 
   @Override
