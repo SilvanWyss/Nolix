@@ -106,7 +106,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadFlatTableById(id);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
-    return TABLE_DTO_MAPPER.createTableDto(sqlRecord);
+    return TABLE_DTO_MAPPER.mapTableTableSqlRecordToFlatTableDto(sqlRecord);
   }
 
   @Override
@@ -115,7 +115,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadFlatTableByName(name);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
-    return TABLE_DTO_MAPPER.createTableDto(sqlRecord);
+    return TABLE_DTO_MAPPER.mapTableTableSqlRecordToFlatTableDto(sqlRecord);
   }
 
   @Override
@@ -124,7 +124,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadFlatTables();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
-    return sqlRecords.to(TABLE_DTO_MAPPER::createTableDto);
+    return sqlRecords.to(TABLE_DTO_MAPPER::mapTableTableSqlRecordToFlatTableDto);
   }
 
   @Override
