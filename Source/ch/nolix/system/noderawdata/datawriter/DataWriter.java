@@ -2,7 +2,6 @@ package ch.nolix.system.noderawdata.datawriter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
@@ -11,6 +10,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -20,16 +20,16 @@ public final class DataWriter implements IDataWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
+  private final DatabaseSchemaViewDto databaseSchemaView;
+
   private final InternalDataWriter internalDataWriter;
 
-  private final IContainer<TableSchemaViewDto> tableViews;
+  public DataWriter(final IMutableNode<?> nodeDatabase, final DatabaseSchemaViewDto databaseSchemaView) {
 
-  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<TableSchemaViewDto> tableViews) {
+    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
-    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
-
-    internalDataWriter = new InternalDataWriter(nodeDatabase);
-    this.tableViews = tableViews;
+    this.databaseSchemaView = databaseSchemaView;
+    this.internalDataWriter = new InternalDataWriter(nodeDatabase);
   }
 
   @Override
@@ -44,7 +44,7 @@ public final class DataWriter implements IDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var multiBackReferenceColumnInfo = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
 
@@ -61,7 +61,7 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiReferenceColumnName) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiReferenceColumnName);
 
     internalDataWriter.deleteEntriesFromMultiReference(tableInfo, entityId, columnView);
@@ -74,7 +74,7 @@ public final class DataWriter implements IDataWriter {
     final String multiRefereceColumnName,
     final String referencedEntityId) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiRefereceColumnName);
 
     internalDataWriter.deleteEntryFromMultiReference(tableInfo, entityId, columnView, referencedEntityId);
@@ -86,7 +86,7 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiValueColumnName) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
     internalDataWriter.deleteEntriesFromMultiValue(tableInfo, entityId, columnView);
@@ -99,7 +99,7 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName,
     final String entry) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
     internalDataWriter.deleteEntryFromMultiValue(tableInfo, entityId, columnView, entry);
@@ -127,7 +127,7 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-    internalDataWriter.insertEntityIntoTable(getTableInfoByTableName(tableName), newEntity);
+    internalDataWriter.insertEntityIntoTable(getTableSchemaViewByTableName(tableName), newEntity);
   }
 
   @Override
@@ -137,7 +137,7 @@ public final class DataWriter implements IDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
 
     final var multiBackReferenceColumnInfo = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
@@ -156,7 +156,7 @@ public final class DataWriter implements IDataWriter {
     final String multiReferenceColumnId,
     final String referencedEntityId) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiReferenceColumnId);
 
     internalDataWriter.insertEntryIntoMultiReference(
@@ -173,7 +173,7 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName,
     final String entry) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
     internalDataWriter.insertEntryIntoMultiValue(tableInfo, entityId, columnView, entry);
@@ -201,10 +201,10 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
-    internalDataWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
+    internalDataWriter.updateEntityOnTable(getTableSchemaViewByTableName(tableName), entityUpdate);
   }
 
-  private TableSchemaViewDto getTableInfoByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
+  private TableSchemaViewDto getTableSchemaViewByTableName(final String tableName) {
+    return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }

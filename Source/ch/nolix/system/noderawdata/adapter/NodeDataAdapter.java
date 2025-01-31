@@ -26,7 +26,7 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
       //TODO: Use DatabaseSchemaViewDto
       new DataReader(nodeDatabase, new DatabaseSchemaViewDto("database", tableViews)),
 
-      new DataWriter(nodeDatabase, tableViews));
+      new DataWriter(nodeDatabase, new DatabaseSchemaViewDto("database", tableViews)));
   }
 
   public static NodeDataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
