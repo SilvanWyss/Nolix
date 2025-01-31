@@ -159,7 +159,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT "
     + TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName()
     + ", "
-    + TableReferenceTableColumn.REFERENCED_TABLIE_ID.getName()
+    + TableReferenceTableColumn.REFERENCED_TABLE_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTableType.TABLE_REFERENCE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE

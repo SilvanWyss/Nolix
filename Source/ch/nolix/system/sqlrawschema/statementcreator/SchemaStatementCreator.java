@@ -101,7 +101,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + " ("
     + TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName()
     + ", "
-    + TableReferenceTableColumn.REFERENCED_TABLIE_ID.getName()
+    + TableReferenceTableColumn.REFERENCED_TABLE_ID.getName()
     + ") VALUES ('"
     + tableReferenceDto.referenceColumnId()
     + "', '"

@@ -8,7 +8,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
  */
 public enum TableReferenceTableColumn implements INameHolder {
   REFERENCE_COLUMN_ID("ReferenceColumnId"),
-  REFERENCED_TABLIE_ID("ReferencedTableId");
+  REFERENCED_TABLE_ID("ReferencedTableId");
 
   private final String name;
 

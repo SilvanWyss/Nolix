@@ -19,7 +19,7 @@ public final class TableReferenceTableSqlSchemaCatalog {
 
   private static final ColumnDto REFERENCED_TABLE_ID_COLUMN_SQL_DTO = //
   ColumnDto.withNameAndDataType(
-    TableReferenceTableColumn.REFERENCED_TABLIE_ID.getName(),
+    TableReferenceTableColumn.REFERENCED_TABLE_ID.getName(),
     DataTypeTypeCatalog.TEXT);
 
   public static final TableDto TABLE_REFERENCE_SQL_DTO = //
