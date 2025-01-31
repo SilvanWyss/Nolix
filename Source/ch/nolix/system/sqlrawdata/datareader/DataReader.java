@@ -11,6 +11,7 @@ import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 public final class DataReader implements IDataReader {
@@ -19,28 +20,28 @@ public final class DataReader implements IDataReader {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final InternalDataReader internalDataReader;
+  private final DatabaseSchemaViewDto databaseSchemaView;
 
-  private final IContainer<TableSchemaViewDto> tableViews;
+  private final InternalDataReader internalDataReader;
 
   private DataReader(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IContainer<TableSchemaViewDto> tableViews) {
+    final DatabaseSchemaViewDto databaseSchemaView,
+    final ISqlConnection sqlConnection) {
 
-    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
+    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
-    internalDataReader = new InternalDataReader(databaseName, sqlConnection);
-    this.tableViews = tableViews;
+    this.databaseSchemaView = databaseSchemaView;
+    this.internalDataReader = new InternalDataReader(databaseName, sqlConnection);
 
     createCloseDependencyTo(sqlConnection);
   }
 
-  public static DataReader forDatabaseNameAndSqlConnectionAndTableViews(
+  public static DataReader forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IContainer<TableSchemaViewDto> tableViews) {
-    return new DataReader(databaseName, sqlConnection, tableViews);
+    final DatabaseSchemaViewDto databaseSchemaView,
+    final ISqlConnection sqlConnection) {
+    return new DataReader(databaseName, databaseSchemaView, sqlConnection);
   }
 
   @Override
@@ -87,12 +88,18 @@ public final class DataReader implements IDataReader {
 
   @Override
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final String tableName) {
-    return internalDataReader.loadEntitiesOfTable(getTableInfoByTableName(tableName));
+
+    final var tableSchemaView = getTableSchemaViewByTableName(tableName);
+
+    return internalDataReader.loadEntitiesOfTable(tableSchemaView);
   }
 
   @Override
   public EntityLoadingDto loadEntity(final String tableName, final String id) {
-    return internalDataReader.loadEntity(getTableInfoByTableName(tableName), id);
+
+    final var tableSchemaView = getTableSchemaViewByTableName(tableName);
+
+    return internalDataReader.loadEntity(tableSchemaView, id);
   }
 
   @Override
@@ -137,12 +144,12 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String columnName) {
 
-    final var tableView = getTableInfoByTableName(tableName);
+    final var tableSchemaView = getTableSchemaViewByTableName(tableName);
 
-    return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, columnName);
+    return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableSchemaView, columnName);
   }
 
-  private TableSchemaViewDto getTableInfoByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
+  private TableSchemaViewDto getTableSchemaViewByTableName(final String tableName) {
+    return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }

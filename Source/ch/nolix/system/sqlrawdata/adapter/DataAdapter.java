@@ -1,17 +1,17 @@
 package ch.nolix.system.sqlrawdata.adapter;
 
 import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
-import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
+import ch.nolix.system.sqlrawdata.schemaviewloader.DatabaseSchemaViewLoader;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.sqlrawdataapi.schemaviewloaderapi.IDatabaseSchemaViewLoader;
 
 public abstract class DataAdapter extends AbstractDataAdapter {
 
-  private static final DatabaseInspector DATABASE_INSPECTOR = new DatabaseInspector();
+  private static final IDatabaseSchemaViewLoader DATABASE_SCHEMA_VIEW_LOADER = new DatabaseSchemaViewLoader();
 
   protected DataAdapter(
     final String databaseName,
@@ -20,24 +20,24 @@ public abstract class DataAdapter extends AbstractDataAdapter {
 
     this(
       databaseName,
-      sqlConnectionPool,
-      DATABASE_INSPECTOR.createTableDefinitionsFrom(schemaReader));
+      DATABASE_SCHEMA_VIEW_LOADER.loadDatabaseSchemaView(databaseName, schemaReader),
+      sqlConnectionPool);
 
     schemaReader.close();
   }
 
   private DataAdapter(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
-    final IContainer<TableSchemaViewDto> tableViews) {
+    final DatabaseSchemaViewDto databaseSchemaView,
+    final SqlConnectionPool sqlConnectionPool) {
     super(
-      DataReader.forDatabaseNameAndSqlConnectionAndTableViews(
+      DataReader.forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
         databaseName,
-        sqlConnectionPool.borrowResource(),
-        tableViews),
-      DataWriter.forDatabaseNameAndSqlConnectionAndTableViews(
+        databaseSchemaView,
+        sqlConnectionPool.borrowResource()),
+      DataWriter.forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
         databaseName,
-        sqlConnectionPool.borrowResource(),
-        tableViews));
+        databaseSchemaView,
+        sqlConnectionPool.borrowResource()));
   }
 }

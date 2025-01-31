@@ -2,7 +2,6 @@ package ch.nolix.system.sqlrawdata.datawriter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
@@ -12,6 +11,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -21,28 +21,28 @@ public final class DataWriter implements IDataWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final InternalDataWriter internalDataWriter;
+  private final DatabaseSchemaViewDto databaseSchemaView;
 
-  private final IContainer<TableSchemaViewDto> tableViews;
+  private final InternalDataWriter internalDataWriter;
 
   private DataWriter(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IContainer<TableSchemaViewDto> tableViews) {
+    final DatabaseSchemaViewDto databaseSchemaView,
+    final ISqlConnection sqlConnection) {
 
-    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
+    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
+    this.databaseSchemaView = databaseSchemaView;
     internalDataWriter = new InternalDataWriter(databaseName, sqlConnection);
-    this.tableViews = tableViews;
 
     createCloseDependencyTo(sqlConnection);
   }
 
-  public static DataWriter forDatabaseNameAndSqlConnectionAndTableViews(
+  public static DataWriter forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IContainer<TableSchemaViewDto> tableViews) {
-    return new DataWriter(databaseName, sqlConnection, tableViews);
+    final DatabaseSchemaViewDto databaseSchemaView,
+    final ISqlConnection sqlConnection) {
+    return new DataWriter(databaseName, databaseSchemaView, sqlConnection);
   }
 
   @Override
@@ -190,12 +190,12 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String columnName) {
 
-    final var tableView = getTableDefinitionByTableName(tableName);
+    final var tableSchemaView = getTableSchmeaViewByTableName(tableName);
 
-    return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, columnName);
+    return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableSchemaView, columnName);
   }
 
-  private TableSchemaViewDto getTableDefinitionByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
+  private TableSchemaViewDto getTableSchmeaViewByTableName(final String tableName) {
+    return databaseSchemaView.tableSchemaViews().getStoredFirst(t -> t.name().equals(tableName));
   }
 }
