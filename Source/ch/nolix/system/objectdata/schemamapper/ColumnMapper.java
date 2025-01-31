@@ -10,11 +10,10 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class ColumnMapper implements IColumnMapper {
 
-  private static final IContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
-  new ContentModelMapper();
+  private static final IContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
 
   @Override
   public IColumn mapFieldToColumn(final IField field, final IContainer<ITable> referencedTables) {
-    return new Column(field.getName(), PARAMETERIZED_FIELD_TYPE_MAPPER.mapFieldToContentModel(field, referencedTables));
+    return new Column(field.getName(), CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, referencedTables));
   }
 }
