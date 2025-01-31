@@ -41,7 +41,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
     COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(column, contentModel);
 
-    column.setParameterizedFieldTypeAttribute(contentModel);
+    column.interanlSetContentModelAttribute(contentModel);
 
     if (column.isConnectedWithRealDatabase()) {
 
@@ -75,7 +75,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     }
 
     for (final var brc : backReferencingColumns) {
-      ((Column) brc).setParameterizedFieldTypeToDatabase();
+      ((Column) brc).internalSetContentModelToDatabase();
     }
 
     column.internalSetEdited();

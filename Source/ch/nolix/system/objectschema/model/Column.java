@@ -12,7 +12,9 @@ import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modeleditorapi.IColumnEditor;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
+import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
@@ -20,17 +22,15 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
 
-  private static final IContentModel INITIAL_FIELD_TYPE = //
-  ValueModel.forDataType(DataType.INTEGER_4BYTE);
+  private static final IContentModel INITIAL_FIELD_TYPE = ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
   private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
-  private static final ContentModelMapper PARAMETERIZED_FIELD_TYPE_MAPPER = //
-  new ContentModelMapper();
+  private static final IColumnEditor<Column> COLUMN_EDITOR = new ColumnEditor();
 
-  private static final ColumnEditor COLUMN_EDITOR = new ColumnEditor();
+  private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
-  private static final ColumnTool COLUMN_TOOL = new ColumnTool();
+  private static final ContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
 
   private final String id;
 
@@ -62,7 +62,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return new Column(
       columnDto.id(),
       columnDto.name(),
-      PARAMETERIZED_FIELD_TYPE_MAPPER.createContentModelFromDto(
+      CONTENT_MODEL_MAPPER.createContentModelFromDto(
         columnDto.contentModel(),
         tables));
   }
@@ -152,20 +152,19 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetStoredRawSchemaAdapter();
   }
 
-  void setNameAttribute(final String header) {
-    this.name = header;
-  }
-
-  void setParameterizedFieldTypeAttribute(
-    final IContentModel contentModel) {
+  void interanlSetContentModelAttribute(final IContentModel contentModel) {
     this.contentModel = contentModel;
   }
 
-  void setParameterizedFieldTypeToDatabase() {
-
+  void internalSetContentModelToDatabase() {
+  
     final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
-
+  
     internalGetStoredRawSchemaAdapter().setColumnContentModel(getId(), contentModelDto);
+  }
+
+  void setNameAttribute(final String header) {
+    this.name = header;
   }
 
   void setParentTableAttribute(final Table parentTable) {

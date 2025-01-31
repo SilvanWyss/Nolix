@@ -57,11 +57,11 @@ public final class TableEditor {
       table.internalGetStoredRawSchemaAdapter().setTableName(oldTableName, name);
 
       for (final var rc : referencingColumns) {
-        ((Column) rc).setParameterizedFieldTypeToDatabase();
+        ((Column) rc).internalSetContentModelToDatabase();
       }
 
       for (final var brc : backReferencingColumns) {
-        ((Column) brc).setParameterizedFieldTypeToDatabase();
+        ((Column) brc).internalSetContentModelToDatabase();
       }
     }
 
