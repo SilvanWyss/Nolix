@@ -48,18 +48,18 @@ public final class TableMutationValidator implements ITableMutationValidator {
 
     if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
 
-      final var baseParameterizedReferenceType = (AbstractReferenceModel) column.getContentModel();
-      final var referencedTables = baseParameterizedReferenceType.getReferencedTables();
+      final var abstractReferenceModel = (AbstractReferenceModel) column.getContentModel();
+      final var referencedTables = abstractReferenceModel.getReferencedTables();
 
       DATABASE_VALIDATOR.assertContainsTables(table.getStoredParentDatabase(), referencedTables);
     }
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
 
-      final var baseParameterizedBackReferenceType = (AbstractBackReferenceModel) column
+      final var abstractBackReferenceModel = (AbstractBackReferenceModel) column
         .getContentModel();
 
-      final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
+      final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
 
       DATABASE_TOOL.assertContainsTableWithGivenColumn(table.getStoredParentDatabase(), backReferencedColumn);
     }
