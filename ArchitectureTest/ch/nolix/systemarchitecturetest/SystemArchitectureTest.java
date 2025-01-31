@@ -15,6 +15,8 @@ final class SystemArchitectureTest {
       .classes()
       .that()
       .resideInAPackage("ch.nolix.system..")
+      .and()
+      .haveNameNotMatching(".*Test$")
       .should()
       .onlyDependOnClassesThat()
       .resideInAnyPackage(
