@@ -5,24 +5,31 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
+import ch.nolix.systemapi.noderawdataapi.modelmapperapi.IContentFieldDtoMapper;
+import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
-public final class LoadedEntityDtoMapper {
+/**
+ * @author Silvan Wyss
+ * @version 2025-01-31
+ */
+public final class EntityLoadingDtoMapper {
 
-  private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
+  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
+  private static final IContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
-  public EntityLoadingDto createLoadedEntityDtoFromEntityNode(
+  public EntityLoadingDto mapEntiyNodeToEntityLoadingDto(
     final IMutableNode<?> entityNode,
     final TableViewDto tableView) {
-    return //
-    new EntityLoadingDto(
-      getIdFromEntityNode(entityNode),
-      getSaveStampFromEntityNode(entityNode),
-      createContentFieldsFromEntityNode(entityNode, tableView));
+
+    final var id = ENTITY_NODE_SEARCHER.getIdFromEntityNode(entityNode);
+    final var saveStamp = ENTITY_NODE_SEARCHER.getSaveStampFromEntityNode(entityNode);
+    final var contentFields = createContentFieldsFromEntityNode(entityNode, tableView);
+
+    return new EntityLoadingDto(id, saveStamp, contentFields);
   }
 
   private IContainer<ContentFieldDto<Object>> createContentFieldsFromEntityNode(
@@ -40,19 +47,5 @@ public final class LoadedEntityDtoMapper {
     }
 
     return contentFields;
-  }
-
-  private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
-
-    final var idNode = ENTITY_NODE_SEARCHER.getStoredIdNodeFromEntityNode(entityNode);
-
-    return idNode.getHeader();
-  }
-
-  private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
-
-    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
-
-    return saveStampNode.getHeader();
   }
 }

@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datareader;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.modelmapper.LoadedEntityDtoMapper;
+import ch.nolix.system.noderawdata.modelmapper.EntityLoadingDtoMapper;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
@@ -30,7 +30,7 @@ public final class InternalDataReader {
 
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
-  private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
+  private static final EntityLoadingDtoMapper ENTITY_LOADING_DTO_MAPPER = new EntityLoadingDtoMapper();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
@@ -58,7 +58,7 @@ public final class InternalDataReader {
 
     return TABLE_NODE_SEARCHER
       .getStoredEntityNodesFromTableNode(tableNode)
-      .to(rn -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFromEntityNode(rn, tableView));
+      .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntiyNodeToEntityLoadingDto(rn, tableView));
   }
 
   public IContainer<String> loadMultiBackReferenceEntries(
@@ -121,7 +121,7 @@ public final class InternalDataReader {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, id);
 
-    return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFromEntityNode(entityNode, tableView);
+    return ENTITY_LOADING_DTO_MAPPER.mapEntiyNodeToEntityLoadingDto(entityNode, tableView);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
