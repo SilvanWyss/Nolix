@@ -62,7 +62,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return new Column(
       columnDto.id(),
       columnDto.name(),
-      CONTENT_MODEL_MAPPER.createContentModelFromDto(
+      CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModel(
         columnDto.contentModel(),
         tables));
   }

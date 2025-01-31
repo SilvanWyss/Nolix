@@ -18,7 +18,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
 
 public final class ContentModelMapper {
 
-  public IContentModel createContentModelFromDto(
+  public IContentModel mapContentModelDtoToContentModel(
     final IContentModelDto contentModelDto,
     final IContainer<ITable> tables) {
 
