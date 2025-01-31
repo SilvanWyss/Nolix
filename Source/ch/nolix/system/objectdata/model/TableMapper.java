@@ -33,7 +33,7 @@ final class TableMapper {
 
     final var columns = tableDto.columns()
       .to(
-        c -> COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table,
+        c -> COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(c, table,
           referencableTables));
 
     table.internalSetColumns(columns);

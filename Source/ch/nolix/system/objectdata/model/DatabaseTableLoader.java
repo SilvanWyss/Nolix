@@ -46,7 +46,7 @@ final class DatabaseTableLoader {
 
     for (final var c : rawBaseValueColumns) {
 
-      final var column = COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
+      final var column = COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(
         c,
         table,
         ImmutableList.createEmpty());
@@ -75,7 +75,7 @@ final class DatabaseTableLoader {
 
     for (final var c : rawBaseReferenceColumns) {
 
-      final var column = COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
+      final var column = COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(
         c,
         table,
         referencableTables);
@@ -104,7 +104,7 @@ final class DatabaseTableLoader {
 
     for (final var c : rawBaseValueColumns) {
 
-      final var column = COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
+      final var column = COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(
         c,
         table,
         referencableTables);
