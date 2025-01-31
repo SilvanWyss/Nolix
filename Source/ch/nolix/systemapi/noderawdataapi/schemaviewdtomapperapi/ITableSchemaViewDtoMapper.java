@@ -7,7 +7,7 @@ import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
  * @author Silvan Wyss
  * @version 2025-01-11
  */
-public interface ITableViewDtoMapper {
+public interface ITableSchemaViewDtoMapper {
 
   /**
    * @param tableNode
