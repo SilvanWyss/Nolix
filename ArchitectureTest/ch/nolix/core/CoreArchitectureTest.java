@@ -1,11 +1,11 @@
-package ch.nolix.systemarchitecturetest;
+package ch.nolix.core;
 
 import org.junit.jupiter.api.Test;
 
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
-final class SystemArchitectureTest {
+final class CoreArchitectureTest {
 
   @Test
   void testCase_chnolixcore_package() {
@@ -14,20 +14,14 @@ final class SystemArchitectureTest {
     ArchRuleDefinition
       .classes()
       .that()
-      .resideInAPackage("ch.nolix.system..")
+      .resideInAPackage("ch.nolix.core..")
       .and()
       .haveNameNotMatching(".*Test$")
       .should()
       .onlyDependOnClassesThat()
-      .resideInAnyPackage(
-        "ch.nolix.core..",
-        "ch.nolix.coreapi..",
-        "ch.nolix.system..",
-        "ch.nolix.systemapi..",
-        "java..",
-        "javax..");
+      .resideInAnyPackage("ch.nolix.core..", "ch.nolix.coreapi..", "io.netty..", "java..", "javax..");
 
-    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.system..");
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.core..");
 
     rule.check(testUnit);
   }
