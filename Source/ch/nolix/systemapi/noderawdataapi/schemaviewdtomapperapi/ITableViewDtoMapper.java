@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -11,8 +11,8 @@ public interface ITableViewDtoMapper {
 
   /**
    * @param tableNode
-   * @return a new {@link TableViewDto} from the given tableNode.
+   * @return a new {@link TableSchemaViewDto} from the given tableNode.
    * @throws RuntimeException if the given tableNode is null.
    */
-  TableViewDto mapTableNodeToTableViewDto(IMutableNode<?> tableNode);
+  TableSchemaViewDto mapTableNodeToTableViewDto(IMutableNode<?> tableNode);
 }

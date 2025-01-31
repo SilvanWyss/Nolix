@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -22,9 +22,9 @@ public final class DataWriter implements IDataWriter {
 
   private final InternalDataWriter internalDataWriter;
 
-  private final IContainer<TableViewDto> tableViews;
+  private final IContainer<TableSchemaViewDto> tableViews;
 
-  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<TableViewDto> tableViews) {
+  public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<TableSchemaViewDto> tableViews) {
 
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
@@ -204,7 +204,7 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
   }
 
-  private TableViewDto getTableInfoByTableName(final String tableName) {
+  private TableSchemaViewDto getTableInfoByTableName(final String tableName) {
     return tableViews.getStoredFirst(td -> td.name().equals(tableName));
   }
 }

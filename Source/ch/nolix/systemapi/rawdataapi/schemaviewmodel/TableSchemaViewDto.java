@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @version 2025-01-10
  * @param id
  * @param name
- * @param columnViews
+ * @param columnSchemaViews
  */
-public record TableViewDto(String id, String name, IContainer<ColumnSchemaViewDto> columnViews) {
+public record TableSchemaViewDto(String id, String name, IContainer<ColumnSchemaViewDto> columnSchemaViews) {
 }

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.rawdataapi.schemaviewmapperapi;
 
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 /**
@@ -11,8 +11,8 @@ public interface ITableViewDtoMapper {
 
   /**
    * @param tableDto
-   * @return a new {@link TableViewDto} from the given tableDto.
+   * @return a new {@link TableSchemaViewDto} from the given tableDto.
    * @throws RuntimeException if the given tableDto is null.
    */
-  TableViewDto mapTableDtoToTableViewDto(TableDto tableDto);
+  TableSchemaViewDto mapTableDtoToTableViewDto(TableDto tableDto);
 }

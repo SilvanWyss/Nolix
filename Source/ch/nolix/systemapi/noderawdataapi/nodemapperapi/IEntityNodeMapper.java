@@ -2,7 +2,7 @@ package ch.nolix.systemapi.noderawdataapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -19,6 +19,6 @@ public interface IEntityNodeMapper {
    */
   INode<?> mapEntityCreationDtoToEntityNode(
     EntityCreationDto entityCreationDto,
-    TableViewDto tableView,
+    TableSchemaViewDto tableView,
     long saveStamp);
 }

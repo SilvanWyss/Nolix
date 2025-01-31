@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.querycreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlrawdataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
@@ -62,18 +62,18 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   }
 
   @Override
-  public String createQueryToLoadEntitiesOfTable(final TableViewDto tableView) {
+  public String createQueryToLoadEntitiesOfTable(final TableSchemaViewDto tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableView.columnViews().to(ColumnSchemaViewDto::name).toStringWithSeparator(", ")
+    + tableView.columnSchemaViews().to(ColumnSchemaViewDto::name).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + TableNameQualifyingPrefix.E + tableView.name()
     + ";";
   }
 
   @Override
-  public String createQueryToLoadEntity(String id, TableViewDto tableView) {
+  public String createQueryToLoadEntity(String id, TableSchemaViewDto tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableView.columnViews().to(ColumnSchemaViewDto::name).toStringWithSeparator(", ")
+    + tableView.columnSchemaViews().to(ColumnSchemaViewDto::name).toStringWithSeparator(", ")
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + TableNameQualifyingPrefix.E + tableView.name()
     + " WHERE Id = '"

@@ -9,7 +9,7 @@ import ch.nolix.systemapi.noderawdataapi.modelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public final class EntityLoadingDtoMapper {
 
   public EntityLoadingDto mapEntiyNodeToEntityLoadingDto(
     final IMutableNode<?> entityNode,
-    final TableViewDto tableView) {
+    final TableSchemaViewDto tableView) {
 
     final var id = ENTITY_NODE_SEARCHER.getIdFromEntityNode(entityNode);
     final var saveStamp = ENTITY_NODE_SEARCHER.getSaveStampFromEntityNode(entityNode);
@@ -34,11 +34,11 @@ public final class EntityLoadingDtoMapper {
 
   private IContainer<ContentFieldDto<Object>> createContentFieldsFromEntityNode(
     final IMutableNode<?> entityNode,
-    final TableViewDto tableView) {
+    final TableSchemaViewDto tableView) {
 
     final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
 
-    for (final var c : tableView.columnViews()) {
+    for (final var c : tableView.columnSchemaViews()) {
 
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.oneBasedOrdinalIndex());
       final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapContentFieldNodeToContentFieldDto(contentFieldNode, c);

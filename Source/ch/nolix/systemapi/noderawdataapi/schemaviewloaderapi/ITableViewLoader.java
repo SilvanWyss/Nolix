@@ -2,7 +2,7 @@ package ch.nolix.systemapi.noderawdataapi.schemaviewloaderapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -15,5 +15,5 @@ public interface ITableViewLoader {
    * @return the table views from the given nodeDatabase.
    * @throws RuntimeException if the given nodeDatabase is null.
    */
-  IContainer<TableViewDto> loadTableViewsFromNodeDatabase(IMutableNode<?> nodeDatabase);
+  IContainer<TableSchemaViewDto> loadTableViewsFromNodeDatabase(IMutableNode<?> nodeDatabase);
 }

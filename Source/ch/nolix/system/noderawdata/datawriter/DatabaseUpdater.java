@@ -29,7 +29,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DatabaseUpdater {
@@ -55,7 +55,7 @@ public final class DatabaseUpdater {
 
   public void deleteEntriesFromMultiReference(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiReferenceColumnInfo) {
 
@@ -73,7 +73,7 @@ public final class DatabaseUpdater {
 
   public void deleteEntriesFromMultiValue(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiValueColumnInfo) {
 
@@ -91,7 +91,7 @@ public final class DatabaseUpdater {
 
   public void deleteEntryFromMultiReference(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
@@ -110,7 +110,7 @@ public final class DatabaseUpdater {
 
   public void deleteEntryFromMultiValue(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
@@ -147,7 +147,7 @@ public final class DatabaseUpdater {
 
   public void deleteMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
@@ -199,7 +199,7 @@ public final class DatabaseUpdater {
 
   public void insertEntityIntoTable(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final EntityCreationDto newEntity) {
 
     insertEntityIndexIntoDatabase(nodeDatabase, tableView, newEntity);
@@ -220,7 +220,7 @@ public final class DatabaseUpdater {
 
   public void insertEntryIntoMultiBackReference(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
@@ -239,7 +239,7 @@ public final class DatabaseUpdater {
 
   public void insertEntryIntoMultiReference(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
@@ -258,7 +258,7 @@ public final class DatabaseUpdater {
 
   public void insertEntryIntoMultiValue(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
@@ -277,7 +277,7 @@ public final class DatabaseUpdater {
 
   public void updateEntityOnTable(
     final IMutableNode<?> database,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final EntityUpdateDto entityUpdate) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database,
@@ -313,7 +313,7 @@ public final class DatabaseUpdater {
 
   private void insertEntityIndexIntoDatabase(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final EntityCreationDto newEntity) {
 
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
@@ -324,7 +324,7 @@ public final class DatabaseUpdater {
 
   private void updateEntityNode(
     final IMutableNode<?> entityNode,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final EntityUpdateDto entityUpdate) {
     for (final var f : entityUpdate.updatedContentFields()) {
 

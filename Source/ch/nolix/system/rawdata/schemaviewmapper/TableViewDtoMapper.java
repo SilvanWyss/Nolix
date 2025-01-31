@@ -2,7 +2,7 @@ package ch.nolix.system.rawdata.schemaviewmapper;
 
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.ITableViewDtoMapper;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
@@ -18,7 +18,7 @@ public final class TableViewDtoMapper implements ITableViewDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public TableViewDto mapTableDtoToTableViewDto(final TableDto table) {
+  public TableSchemaViewDto mapTableDtoToTableViewDto(final TableDto table) {
 
     final var id = table.id();
     final var name = table.name();
@@ -31,6 +31,6 @@ public final class TableViewDtoMapper implements ITableViewDtoMapper {
         c,
         FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + i));
 
-    return new TableViewDto(id, name, columnViews);
+    return new TableSchemaViewDto(id, name, columnViews);
   }
 }

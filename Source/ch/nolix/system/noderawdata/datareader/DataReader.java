@@ -9,7 +9,7 @@ import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataReader implements IDataReader {
@@ -20,9 +20,9 @@ public final class DataReader implements IDataReader {
 
   private final InternalDataReader internalDataReader;
 
-  private final IContainer<TableViewDto> tableViews;
+  private final IContainer<TableSchemaViewDto> tableViews;
 
-  public DataReader(final IMutableNode<?> nodeDatabase, final IContainer<TableViewDto> tableViews) {
+  public DataReader(final IMutableNode<?> nodeDatabase, final IContainer<TableSchemaViewDto> tableViews) {
 
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
@@ -129,7 +129,7 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  private TableViewDto getTableInfoByTableName(final String tableName) {
+  private TableSchemaViewDto getTableInfoByTableName(final String tableName) {
     return tableViews.getStoredFirst(td -> td.name().equals(tableName));
   }
 }

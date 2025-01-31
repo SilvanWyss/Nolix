@@ -5,7 +5,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -19,7 +19,7 @@ public final class EntityIndexNodeMapper implements IEntityIndexNodeMapper {
   @Override
   public INode<?> mapEntityCreationDtoToEntityIndexNode(
     final EntityCreationDto entityCreationDto,
-    final TableViewDto tableView) {
+    final TableSchemaViewDto tableView) {
     return Node.withHeaderAndChildNode(NodeHeaderCatalog.ENTITY_INDEX, tableView.id(), entityCreationDto.id());
   }
 }

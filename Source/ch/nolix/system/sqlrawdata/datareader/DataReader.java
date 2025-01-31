@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 public final class DataReader implements IDataReader {
 
@@ -21,12 +21,12 @@ public final class DataReader implements IDataReader {
 
   private final InternalDataReader internalDataReader;
 
-  private final IContainer<TableViewDto> tableViews;
+  private final IContainer<TableSchemaViewDto> tableViews;
 
   private DataReader(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<TableViewDto> tableViews) {
+    final IContainer<TableSchemaViewDto> tableViews) {
 
     GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
 
@@ -39,7 +39,7 @@ public final class DataReader implements IDataReader {
   public static DataReader forDatabaseNameAndSqlConnectionAndTableViews(
     final String databaseName,
     final ISqlConnection sqlConnection,
-    final IContainer<TableViewDto> tableViews) {
+    final IContainer<TableSchemaViewDto> tableViews) {
     return new DataReader(databaseName, sqlConnection, tableViews);
   }
 
@@ -142,7 +142,7 @@ public final class DataReader implements IDataReader {
     return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, columnName);
   }
 
-  private TableViewDto getTableInfoByTableName(final String tableName) {
+  private TableSchemaViewDto getTableInfoByTableName(final String tableName) {
     return tableViews.getStoredFirst(td -> td.name().equals(tableName));
   }
 }

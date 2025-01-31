@@ -7,7 +7,7 @@ import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.ITableViewDtoMapper;
 import ch.nolix.systemapi.noderawdataapi.schemaviewloaderapi.ITableViewLoader;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public final class TableViewLoader implements ITableViewLoader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<TableViewDto> loadTableViewsFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
+  public IContainer<TableSchemaViewDto> loadTableViewsFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
 
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
 

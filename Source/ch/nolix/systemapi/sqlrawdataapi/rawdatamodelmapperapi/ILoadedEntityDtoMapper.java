@@ -5,7 +5,7 @@ import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -27,6 +27,6 @@ public interface ILoadedEntityDtoMapper {
    * @param tableView
    * @return a new {@link EntityLoadingDto} from the given sqlRecord.
    */
-  EntityLoadingDto mapSqlRecordToEntityLoadingDto(ISqlRecord sqlRecord, TableViewDto tableView);
+  EntityLoadingDto mapSqlRecordToEntityLoadingDto(ISqlRecord sqlRecord, TableSchemaViewDto tableView);
 
 }

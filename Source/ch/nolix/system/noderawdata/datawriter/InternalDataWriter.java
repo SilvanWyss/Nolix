@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class InternalDataWriter {
@@ -32,7 +32,7 @@ final class InternalDataWriter {
   }
 
   public void deleteEntriesFromMultiReference(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiReferenceColumnInfo) {
 
@@ -43,7 +43,7 @@ final class InternalDataWriter {
   }
 
   public void deleteEntriesFromMultiValue(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiValueColumnInfo) {
 
@@ -54,7 +54,7 @@ final class InternalDataWriter {
   }
 
   public void deleteEntryFromMultiReference(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
@@ -70,7 +70,7 @@ final class InternalDataWriter {
   }
 
   public void deleteEntryFromMultiValue(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
@@ -86,7 +86,7 @@ final class InternalDataWriter {
   }
 
   public void deleteMultiBackReferenceEntry(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
@@ -125,7 +125,7 @@ final class InternalDataWriter {
   }
 
   public void insertEntryIntoMultiBackReference(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
@@ -141,7 +141,7 @@ final class InternalDataWriter {
   }
 
   public void insertEntryIntoMultiReference(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
@@ -157,7 +157,7 @@ final class InternalDataWriter {
   }
 
   public void insertEntryIntoMultiValue(
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final String entityId,
     final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
@@ -168,7 +168,7 @@ final class InternalDataWriter {
     addUpdateAction(updateAction);
   }
 
-  public void insertEntityIntoTable(final TableViewDto tableView, final EntityCreationDto newEntity) {
+  public void insertEntityIntoTable(final TableSchemaViewDto tableView, final EntityCreationDto newEntity) {
 
     final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.insertEntityIntoTable(d, tableView, newEntity);
 
@@ -188,7 +188,7 @@ final class InternalDataWriter {
     }
   }
 
-  public void updateEntityOnTable(final TableViewDto tableView, EntityUpdateDto entityUpdate) {
+  public void updateEntityOnTable(final TableSchemaViewDto tableView, EntityUpdateDto entityUpdate) {
 
     final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.updateEntityOnTable(d, tableView,
       entityUpdate);

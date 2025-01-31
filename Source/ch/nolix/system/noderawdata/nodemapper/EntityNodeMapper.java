@@ -9,7 +9,7 @@ import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 /**
@@ -23,7 +23,7 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
   @Override
   public INode<?> mapEntityCreationDtoToEntityNode(
     final EntityCreationDto newEntity,
-    final TableViewDto tableView,
+    final TableSchemaViewDto tableView,
     final long saveStamp) {
     return //
     Node.withHeaderAndChildNodes(
@@ -34,9 +34,9 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
   private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
     final EntityCreationDto newEntity,
     final long saveStamp,
-    final TableViewDto tableView) {
+    final TableSchemaViewDto tableView) {
 
-    final var size = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnViews().getCount();
+    final var size = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnSchemaViews().getCount();
     final var attributes = new Node[size];
 
     attributes[0] = createIdAttributeFrom(newEntity);
