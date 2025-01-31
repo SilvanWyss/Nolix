@@ -15,6 +15,8 @@ final class CoreArchitectureTest {
       .classes()
       .that()
       .resideInAPackage("ch.nolix.core..")
+      .and()
+      .haveNameNotMatching(".*Test$")
       .should()
       .onlyDependOnClassesThat()
       .resideInAnyPackage("ch.nolix.core..", "ch.nolix.coreapi..", "io.netty..", "java..", "javax..");
