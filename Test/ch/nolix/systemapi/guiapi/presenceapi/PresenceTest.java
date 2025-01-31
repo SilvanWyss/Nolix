@@ -1,4 +1,4 @@
-package ch.nolix.systemapitest.guiapitest.presenceapitest;
+package ch.nolix.systemapi.guiapi.presenceapi;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,7 +9,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.guiapi.presenceapi.Presence;
 
 final class PresenceTest extends StandardTest {
 

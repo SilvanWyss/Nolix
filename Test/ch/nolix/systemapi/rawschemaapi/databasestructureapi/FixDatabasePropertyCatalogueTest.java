@@ -1,9 +1,8 @@
-package ch.nolix.systemapitest.rawschemaapitest.databasestrucureapitest;
+package ch.nolix.systemapi.rawschemaapi.databasestructureapi;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 final class FixDatabasePropertyCatalogueTest extends StandardTest {
 

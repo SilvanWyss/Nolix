@@ -1,4 +1,4 @@
-package ch.nolix.systemapitest.fieldapitest.mainapitest;
+package ch.nolix.systemapi.objectdataapi.fieldproperty;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -8,9 +8,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-final class FieldTypeTest extends StandardTest {
+final class ContentTypeTest extends StandardTest {
 
   @MethodSource
   private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {

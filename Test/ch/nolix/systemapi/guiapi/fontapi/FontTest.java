@@ -1,4 +1,4 @@
-package ch.nolix.systemapitest.guiapitest.fontapitest;
+package ch.nolix.systemapi.guiapi.fontapi;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,7 +9,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.guiapi.fontapi.Font;
 
 final class FontTest extends StandardTest {
 
