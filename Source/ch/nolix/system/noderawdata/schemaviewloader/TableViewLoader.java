@@ -2,7 +2,7 @@ package ch.nolix.system.noderawdata.schemaviewloader;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawdata.schemaviewdtomapper.TableSchemaViewDtoMapper;
+import ch.nolix.system.noderawdata.schemaviewmodelmapper.TableSchemaViewDtoMapper;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.schemaviewloaderapi.ITableViewLoader;
 import ch.nolix.systemapi.noderawdataapi.schemaviewmodelmapperapi.ITableSchemaViewDtoMapper;

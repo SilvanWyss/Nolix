@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawdata.schemaviewdtomapper;
+package ch.nolix.system.noderawdata.schemaviewmodelmapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
