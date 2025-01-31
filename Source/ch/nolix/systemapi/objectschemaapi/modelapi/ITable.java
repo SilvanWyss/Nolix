@@ -20,7 +20,7 @@ IIdHolder {
 
   ITable addColumns(IContainer<IColumn> columns);
 
-  ITable createColumnWithNameAndParameterizedFieldType(String name, IContentModel contentModel);
+  ITable addColumnWithNameAndContentModel(String name, IContentModel contentModel);
 
   FlatTableDto getFlatDto();
 

@@ -78,7 +78,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   @Override
-  public Table createColumnWithNameAndParameterizedFieldType(
+  public Table addColumnWithNameAndContentModel(
     final String name,
     final IContentModel contentModel) {
     return addColumn(new Column(name, contentModel));
