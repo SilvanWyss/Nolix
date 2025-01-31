@@ -4,7 +4,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.rawdata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.noderawdataapi.modelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
@@ -14,7 +14,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public ContentFieldDto<Object> mapContentFieldNodeToContentFieldDto(
     final INode<?> contentFieldNode,
-    final ColumnViewDto columnInfo) {
+    final ColumnSchemaViewDto columnInfo) {
 
     if (contentFieldNode.containsChildNodes()) {
       return ContentFieldDto.withColumnName(columnInfo.name());

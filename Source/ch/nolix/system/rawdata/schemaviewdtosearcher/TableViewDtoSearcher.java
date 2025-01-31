@@ -1,7 +1,7 @@
 package ch.nolix.system.rawdata.schemaviewdtosearcher;
 
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**
@@ -14,7 +14,7 @@ public final class TableViewDtoSearcher implements ITableViewDtoSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ColumnViewDto getColumnViewByColumnId(final TableViewDto tableViewDto, final String columnId) {
+  public ColumnSchemaViewDto getColumnViewByColumnId(final TableViewDto tableViewDto, final String columnId) {
     return tableViewDto.columnViews().getStoredFirst(c -> c.id().equals(columnId));
   }
 
@@ -22,7 +22,7 @@ public final class TableViewDtoSearcher implements ITableViewDtoSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ColumnViewDto getColumnViewByColumnName(final TableViewDto tableViewDto, final String columnName) {
+  public ColumnSchemaViewDto getColumnViewByColumnName(final TableViewDto tableViewDto, final String columnName) {
     return tableViewDto.columnViews().getStoredFirst(c -> c.name().equals(columnName));
   }
 }

@@ -10,7 +10,7 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 public final class DataReader implements IDataReader {
@@ -133,7 +133,7 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  private ColumnViewDto getColumnInfoByTableNameAndColumnName(
+  private ColumnSchemaViewDto getColumnInfoByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
 

@@ -2,7 +2,7 @@ package ch.nolix.system.sqlrawdata.rawdatamodelmapper;
 
 import ch.nolix.system.rawdata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi.IContentFieldDtoMapper;
 
@@ -20,7 +20,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public ContentFieldDto<Object> mapStringToContentFieldDtoUsingColumnView(
     final String string,
-    final ColumnViewDto columnView) {
+    final ColumnSchemaViewDto columnView) {
 
     final var columnName = columnView.name();
     final var dataType = columnView.dataType();

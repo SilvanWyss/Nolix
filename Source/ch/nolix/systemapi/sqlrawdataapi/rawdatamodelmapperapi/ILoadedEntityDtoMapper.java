@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**
@@ -20,7 +20,7 @@ public interface ILoadedEntityDtoMapper {
    */
   IContainer<ContentFieldDto<Object>> mapSqlRecordToContentFieldDtos(
     ISqlRecord sqlRecord,
-    IContainer<ColumnViewDto> columnViews);
+    IContainer<ColumnSchemaViewDto> columnViews);
 
   /**
    * @param sqlRecord

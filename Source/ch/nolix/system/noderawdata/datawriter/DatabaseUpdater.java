@@ -28,7 +28,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -57,7 +57,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiReferenceColumnInfo) {
+    final ColumnSchemaViewDto multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -75,7 +75,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo) {
+    final ColumnSchemaViewDto multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -93,7 +93,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiReferenceColumnInfo,
+    final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -112,7 +112,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo,
+    final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -149,7 +149,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo,
+    final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -222,7 +222,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo,
+    final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase,
@@ -241,7 +241,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiReferenceColumnInfo,
+    final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -260,7 +260,7 @@ public final class DatabaseUpdater {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo,
+    final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,

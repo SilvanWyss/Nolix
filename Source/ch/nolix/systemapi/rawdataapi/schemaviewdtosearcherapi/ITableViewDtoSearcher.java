@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi;
 
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 
 /**
@@ -17,7 +17,7 @@ public interface ITableViewDtoSearcher {
    * @throws RuntimeException if the given tableViewDto does not contain a column
    *                          view of a column with the given columnId.
    */
-  ColumnViewDto getColumnViewByColumnId(TableViewDto tableViewDto, String columnId);
+  ColumnSchemaViewDto getColumnViewByColumnId(TableViewDto tableViewDto, String columnId);
 
   /**
    * @param tableViewDto
@@ -27,5 +27,5 @@ public interface ITableViewDtoSearcher {
    * @throws RuntimeException if the given tableViewDto does not contain a column
    *                          view of a column with the given columnName.
    */
-  ColumnViewDto getColumnViewByColumnName(TableViewDto tableViewDto, String columnName);
+  ColumnSchemaViewDto getColumnViewByColumnName(TableViewDto tableViewDto, String columnName);
 }

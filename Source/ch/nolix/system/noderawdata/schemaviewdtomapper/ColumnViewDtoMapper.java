@@ -4,7 +4,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
   /**
    * {@inheritDoc}
    */
-  public ColumnViewDto mapColumnNodeToColumnViewDto(
+  public ColumnSchemaViewDto mapColumnNodeToColumnViewDto(
     final IMutableNode<?> columnNode,
     final int oneBasedColumnOrdinalIndex) {
 
@@ -28,7 +28,7 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
     final var dataType = COLUMN_NODE_SEARCHER.getColumnDataTypeFromColumnNode(columnNode);
 
     return //
-    new ColumnViewDto(
+    new ColumnSchemaViewDto(
       id,
       name,
       oneBasedColumnOrdinalIndex,

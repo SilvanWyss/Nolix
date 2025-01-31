@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
  * @param contentType
  * @param dataType
  */
-public record ColumnViewDto(
+public record ColumnSchemaViewDto(
 String id,
 String name,
 int oneBasedOrdinalIndex,

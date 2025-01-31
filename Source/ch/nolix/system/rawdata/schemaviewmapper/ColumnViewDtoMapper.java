@@ -1,7 +1,7 @@
 package ch.nolix.system.rawdata.schemaviewmapper;
 
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.IColumnViewDtoMapper;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
 /**
@@ -14,7 +14,7 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public ColumnViewDto mapColumnDtoToColumnViewDto(final ColumnDto columnDto, final int oneBasedColumnOrdinalIndex) {
+  public ColumnSchemaViewDto mapColumnDtoToColumnViewDto(final ColumnDto columnDto, final int oneBasedColumnOrdinalIndex) {
 
     final var id = columnDto.id();
     final var name = columnDto.name();
@@ -22,6 +22,6 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
     final var contentType = contentModel.getContentType();
     final var dataType = contentModel.getDataType();
 
-    return new ColumnViewDto(id, name, oneBasedColumnOrdinalIndex, contentType, dataType);
+    return new ColumnSchemaViewDto(id, name, oneBasedColumnOrdinalIndex, contentType, dataType);
   }
 }

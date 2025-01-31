@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -186,7 +186,7 @@ public final class DataWriter implements IDataWriter {
     internalDataWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  private ColumnViewDto getColumnDefinitionByTableNameAndColumnName(
+  private ColumnSchemaViewDto getColumnDefinitionByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
 

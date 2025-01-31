@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi;
 
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -15,5 +15,5 @@ public interface IContentFieldDtoMapper {
    * @return a new {@link ContentFieldDto} from the given string using the given
    *         columnView.
    */
-  ContentFieldDto<Object> mapStringToContentFieldDtoUsingColumnView(String string, ColumnViewDto columnView);
+  ContentFieldDto<Object> mapStringToContentFieldDtoUsingColumnView(String string, ColumnSchemaViewDto columnView);
 }

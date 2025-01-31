@@ -14,7 +14,7 @@ import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnViewDto;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableViewDto;
 import ch.nolix.systemapi.rawdataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -64,7 +64,7 @@ public final class InternalDataReader {
   public IContainer<String> loadMultiBackReferenceEntries(
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo) {
+    final ColumnSchemaViewDto multiBackReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -81,7 +81,7 @@ public final class InternalDataReader {
   public IContainer<String> loadMultiReferenceEntries(
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiReferenceColumnInfo) {
+    final ColumnSchemaViewDto multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -98,7 +98,7 @@ public final class InternalDataReader {
   public IContainer<Object> loadMultiValueEntries(
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo) {
+    final ColumnSchemaViewDto multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -126,7 +126,7 @@ public final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final TableViewDto tableView,
-    final ColumnViewDto columnInfo,
+    final ColumnSchemaViewDto columnInfo,
     final String value) {
 
     final var tableNode = //
@@ -143,7 +143,7 @@ public final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final TableViewDto tableView,
-    final ColumnViewDto columnInfo,
+    final ColumnSchemaViewDto columnInfo,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
