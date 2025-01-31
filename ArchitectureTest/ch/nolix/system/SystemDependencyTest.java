@@ -8,7 +8,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 final class SystemDependencyTest {
 
   @Test
-  void testCase_chnolixcore_package() {
+  void testCase_chnolixsystem_package() {
 
     //setup
     final var rule = //
