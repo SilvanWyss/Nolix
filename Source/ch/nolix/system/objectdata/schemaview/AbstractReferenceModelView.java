@@ -8,8 +8,7 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceMode
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
 
-public abstract class AbstractReferenceModelView<E extends IEntity>
-implements IAbstractReferenceModelView<ITable<E>> {
+public abstract class AbstractReferenceModelView<E extends IEntity> implements IAbstractReferenceModelView<ITable<E>> {
 
   private final ITable<E> referencedTable;
 
@@ -22,7 +21,7 @@ implements IAbstractReferenceModelView<ITable<E>> {
 
   @Override
   public final IAbstractBackReferenceModelView<?, ITable<E>> asAbstractBackReferenceModel() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractBackReferenceModel");
   }
 
   @Override
@@ -32,7 +31,7 @@ implements IAbstractReferenceModelView<ITable<E>> {
 
   @Override
   public final IAbstractValueModelView<?, ITable<E>> asAbstractValueModel() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractValueModel");
   }
 
   @Override
