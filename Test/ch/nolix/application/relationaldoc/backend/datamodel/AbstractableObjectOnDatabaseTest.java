@@ -1,10 +1,7 @@
-package ch.nolix.applicationtest.relationaldoctest.backendtest.datamodeltest;
+package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableField;
-import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
-import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalog;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;

@@ -1,8 +1,7 @@
-package ch.nolix.applicationtest.relationaldoctest.backendtest.dataadaptertest;
+package ch.nolix.application.relationaldoc.backend.dataadapter;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.application.relationaldoc.backend.dataadapter.DataAdapter;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.standardtest.StandardTest;
