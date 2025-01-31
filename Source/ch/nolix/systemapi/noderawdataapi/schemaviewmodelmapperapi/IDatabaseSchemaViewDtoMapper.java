@@ -10,11 +10,10 @@ import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 public interface IDatabaseSchemaViewDtoMapper {
 
   /**
-   * @param databaseName
    * @param nodeDatabase
    * @return a new {@link DatabaseSchemaViewDto} with the given databaseName from
    *         the given nodeDatabase.
    * @throws RuntimeException if the given nodeDatabase is null.
    */
-  DatabaseSchemaViewDto mapTableNodeToTableViewDto(String databaseName, IMutableNode<?> nodeDatabase);
+  DatabaseSchemaViewDto mapTableNodeToTableViewDto(IMutableNode<?> nodeDatabase);
 }
