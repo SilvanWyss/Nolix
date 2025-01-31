@@ -1,4 +1,4 @@
-package ch.nolix.techtest.mathtest.bigdecimalmathtest;
+package ch.nolix.tech.math.bigdecimalmath;
 
 import java.math.BigDecimal;
 
@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 
 final class ClosedIntervalTest extends StandardTest {
 

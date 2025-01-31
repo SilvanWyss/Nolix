@@ -1,12 +1,10 @@
-package ch.nolix.techtest.mathtest.fractaltest;
+package ch.nolix.tech.math.fractal;
 
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.tech.math.fractal.FractalBuilder;
-import ch.nolix.tech.math.fractal.FractalTool;
 
 final class FractalToolTest extends StandardTest {
 

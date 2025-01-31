@@ -1,10 +1,9 @@
-package ch.nolix.techtest.mathtest.fractaltest;
+package ch.nolix.tech.math.fractal;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
-import ch.nolix.tech.math.fractal.FractalBuilder;
 
 final class FractalBuilderTest extends StandardTest {
 

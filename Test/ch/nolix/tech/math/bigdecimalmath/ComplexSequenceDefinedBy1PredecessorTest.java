@@ -1,12 +1,10 @@
-package ch.nolix.techtest.mathtest.bigdecimalmathtest;
+package ch.nolix.tech.math.bigdecimalmath;
 
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
 final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 

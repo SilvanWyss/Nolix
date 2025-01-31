@@ -1,4 +1,4 @@
-package ch.nolix.techtest.mathtest.bigdecimalmathtest;
+package ch.nolix.tech.math.bigdecimalmath;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,7 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
 final class ComplexNumberTest extends StandardTest {
 
