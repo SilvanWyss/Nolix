@@ -18,8 +18,8 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
 
 public final class ContentModelMapper {
 
-  private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
-  new ParameterizedValueTypeMapper();
+  private static final ValueModelMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
+  new ValueModelMapper();
 
   private static final OptionalValueModelMapper PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER = //
   new OptionalValueModelMapper();

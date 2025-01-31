@@ -8,8 +8,7 @@ import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContent
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
 
-public final class ParameterizedValueTypeMapper
-implements IContentModelDtoToContentModelMapper<ValueModelDto> {
+public final class ValueModelMapper implements IContentModelDtoToContentModelMapper<ValueModelDto> {
 
   @Override
   public IContentModelView<ITable<IEntity>> mapContentModelDtoToContentModelView(
