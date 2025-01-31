@@ -28,12 +28,12 @@ implements IAbstractBackReferenceModelView<C, ITable<IEntity>> {
 
   @Override
   public final IAbstractReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractReferenceModel");
   }
 
   @Override
   public final IAbstractValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
-    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractValueModel");
   }
 
   @Override
