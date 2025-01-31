@@ -5,11 +5,12 @@ import org.junit.jupiter.api.Test;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
-final class SystemArchitectureTest {
+final class SystemDependencyTest {
 
   @Test
   void testCase_chnolixcore_package() {
 
+    //setup
     final var rule = //
     ArchRuleDefinition
       .classes()
@@ -26,9 +27,9 @@ final class SystemArchitectureTest {
         "ch.nolix.systemapi..",
         "java..",
         "javax..");
-
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix.system..");
 
+    //execution & verification
     rule.check(testUnit);
   }
 }
