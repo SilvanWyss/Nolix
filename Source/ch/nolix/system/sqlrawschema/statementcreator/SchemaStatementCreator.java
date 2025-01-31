@@ -18,8 +18,7 @@ import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.ISchemaStatementCr
 
 public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
-  private static final ContentModelSqlRecordMapper PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER = //
-  new ContentModelSqlRecordMapper();
+  private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
 
   @Override
   public IContainer<String> createStatementsToAddColumn(final String parentTableName, final ColumnDto column) {
@@ -27,8 +26,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     final ILinkedList<String> statements = LinkedList.createEmpty();
     final var contentModel = column.contentModel();
 
-    final var contentModelSqlDto = //
-    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
+    final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
     final var statement = //
     "INSERT INTO "
@@ -163,8 +161,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   @Override
   public String createStatementToSetColumnContentModel(final String columnId, final IContentModelDto contentModel) {
 
-    final var contentModelSqlDto = //
-    PARAMETERIZED_FIELD_TYPE_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
+    final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
     return //
     "UPDATE "
