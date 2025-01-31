@@ -9,6 +9,7 @@ import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -18,17 +19,16 @@ public final class DataReader implements IDataReader {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
+  private final DatabaseSchemaViewDto databaseSchemaView;
+
   private final InternalDataReader internalDataReader;
 
-  private final IContainer<TableSchemaViewDto> tableViews;
+  public DataReader(final IMutableNode<?> nodeDatabase, final DatabaseSchemaViewDto databaseSchemaView) {
 
-  public DataReader(final IMutableNode<?> nodeDatabase, final IContainer<TableSchemaViewDto> tableViews) {
+    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
-    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
-    GlobalValidator.assertThat(tableViews).thatIsNamed("table definitions").isNotNull();
-
-    internalDataReader = new InternalDataReader(nodeDatabase);
-    this.tableViews = tableViews;
+    this.databaseSchemaView = databaseSchemaView;
+    this.internalDataReader = new InternalDataReader(nodeDatabase);
   }
 
   @Override
@@ -47,7 +47,7 @@ public final class DataReader implements IDataReader {
     final String entityId,
     final String multiBackReferenceColumnName) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
 
     final var multiBackReferenceColumnInfo = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiBackReferenceColumnName);
@@ -61,7 +61,7 @@ public final class DataReader implements IDataReader {
     final String entityId,
     final String multiReferenceColumnName) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiReferenceColumnName);
 
     return internalDataReader.loadMultiReferenceEntries(tableInfo, entityId, columnView);
@@ -73,7 +73,7 @@ public final class DataReader implements IDataReader {
     final String entityId,
     final String multiValueColumnName) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
     return internalDataReader.loadMultiValueEntries(tableInfo, entityId, columnView);
@@ -81,12 +81,12 @@ public final class DataReader implements IDataReader {
 
   @Override
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final String tableName) {
-    return internalDataReader.loadEntitiesOfTable(getTableInfoByTableName(tableName));
+    return internalDataReader.loadEntitiesOfTable(getTableSchemaViewByTableName(tableName));
   }
 
   @Override
   public EntityLoadingDto loadEntity(final String tableName, final String id) {
-    return internalDataReader.loadEntity(getTableInfoByTableName(tableName), id);
+    return internalDataReader.loadEntity(getTableSchemaViewByTableName(tableName), id);
   }
 
   @Override
@@ -100,7 +100,7 @@ public final class DataReader implements IDataReader {
     final String columnName,
     final String value) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, columnName);
 
     return internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableInfo, columnView, value);
@@ -113,7 +113,7 @@ public final class DataReader implements IDataReader {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    final var tableInfo = getTableInfoByTableName(tableName);
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, columnName);
 
     return //
@@ -129,7 +129,7 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  private TableSchemaViewDto getTableInfoByTableName(final String tableName) {
-    return tableViews.getStoredFirst(td -> td.name().equals(tableName));
+  private TableSchemaViewDto getTableSchemaViewByTableName(final String tableName) {
+    return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }
