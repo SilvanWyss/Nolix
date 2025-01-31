@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.schemaviewdtomapper;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnViewDtoMapper;
+import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.IColumnSchemaViewDtoMapper;
 import ch.nolix.systemapi.noderawdataapi.schemaviewdtomapperapi.ITableSchemaViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
@@ -16,7 +16,7 @@ public final class TableSchemaViewDtoMapper implements ITableSchemaViewDtoMapper
 
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  private static final IColumnViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnViewDtoMapper();
+  private static final IColumnSchemaViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnSchemaViewDtoMapper();
 
   /**
    * {@inheritDoc}

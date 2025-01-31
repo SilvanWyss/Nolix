@@ -7,7 +7,7 @@ import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
  * @author Silvan Wyss
  * @version 2025-01-10
  */
-public interface IColumnViewDtoMapper {
+public interface IColumnSchemaViewDtoMapper {
 
   /**
    * @param columnNode
