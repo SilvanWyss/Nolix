@@ -14,9 +14,9 @@ public final class DatabaseInitializationStatementCreator implements IDatabaseIn
     "INSERT INTO "
     + FixTableType.DATABASE_PROPERTY.getQualifiedName()
     + " ("
-    + DatabasePropertyTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getName()
     + ", "
-    + DatabasePropertyTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getName()
     + ") VALUES ("
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
     + ", '"

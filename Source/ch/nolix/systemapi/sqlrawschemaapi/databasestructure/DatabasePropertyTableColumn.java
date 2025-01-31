@@ -1,12 +1,10 @@
 package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
-public enum DatabasePropertyTableColumn implements ILabelHolder {
+public enum DatabasePropertyTableColumn implements INameHolder {
 
   //'Key' is a reserved word in MSSQL databases.
   KEY("ValueKey"),
@@ -14,17 +12,14 @@ public enum DatabasePropertyTableColumn implements ILabelHolder {
   //'Value' is a reserved word in MSSQL databases.
   VALUE(PascalCaseVariableCatalog.VALUE + CharacterCatalog.UNDERSCORE);
 
-  private final String label;
+  private final String name;
 
-  DatabasePropertyTableColumn(final String label) {
-
-    GlobalValidator.assertThat(label).thatIsNamed(LowerCaseVariableCatalog.LABEL).isNotBlank();
-
-    this.label = label;
+  DatabasePropertyTableColumn(final String name) {
+    this.name = name;
   }
 
   @Override
-  public final String getLabel() {
-    return label;
+  public String getName() {
+    return name;
   }
 }

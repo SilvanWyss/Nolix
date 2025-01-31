@@ -50,11 +50,11 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return "IF NOT EXISTS (SELECT * FROM "
     + FixTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
-    + DatabasePropertyTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
     + "' AND "
-    + DatabasePropertyTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getName()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";

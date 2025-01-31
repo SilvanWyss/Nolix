@@ -15,11 +15,11 @@ public final class DatabasePropertiesStatementCreator implements IDatabaseProper
     "UPDATE "
     + FixTableType.DATABASE_PROPERTY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.SET
-    + DatabasePropertyTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getName()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "' WHERE "
-    + DatabasePropertyTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getName()
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }

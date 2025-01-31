@@ -9,11 +9,11 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 public final class DatabasePropertyTableSqlSchemaDtoCatalog {
 
   private static final ColumnDto KEY_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
-    DatabasePropertyTableColumn.KEY.getLabel(),
+    DatabasePropertyTableColumn.KEY.getName(),
     DataTypeTypeCatalog.TEXT);
 
   private static final ColumnDto VALUE_COLUMN_SQL_DTO = ColumnDto.withNameAndDataType(
-    DatabasePropertyTableColumn.VALUE.getLabel(), DataTypeTypeCatalog.TEXT);
+    DatabasePropertyTableColumn.VALUE.getName(), DataTypeTypeCatalog.TEXT);
 
   public static final TableDto DATABASE_PROPERTY_TABLE_SQL_DTO = TableDto.withNameAndColumn(
     FixTableType.DATABASE_PROPERTY.getQualifiedName(),

@@ -84,11 +84,11 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
-    + DatabasePropertyTableColumn.VALUE.getLabel()
+    + DatabasePropertyTableColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTableType.DATABASE_PROPERTY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + DatabasePropertyTableColumn.KEY.getLabel()
+    + DatabasePropertyTableColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
     + "';";
