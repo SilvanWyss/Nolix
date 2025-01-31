@@ -10,12 +10,12 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IContentModelExaminer;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IParameterizedFieldTypeTool;
 
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
 
-  private static final IParameterizedFieldTypeTool PARAMETERIZED_FIELD_TYPE_TOOL = //
+  private static final IContentModelExaminer PARAMETERIZED_FIELD_TYPE_TOOL = //
   new ParameterizedFieldTypeTool();
 
   @Override
@@ -68,17 +68,17 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseBackReferenceType(column.getContentModel());
+    return PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractBackReferenceModel(column.getContentModel());
   }
 
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(column.getContentModel());
+    return PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractReferenceModel(column.getContentModel());
   }
 
   @Override
   public boolean isAValueColumn(final IColumn column) {
-    return PARAMETERIZED_FIELD_TYPE_TOOL.isABaseValueType(column.getContentModel());
+    return PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractValueModel(column.getContentModel());
   }
 
   @Override
@@ -91,7 +91,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
       final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
       final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
 
-      if (!PARAMETERIZED_FIELD_TYPE_TOOL.isABaseReferenceType(backReferencedColumnContentModel)) {
+      if (!PARAMETERIZED_FIELD_TYPE_TOOL.isAbstractReferenceModel(backReferencedColumnContentModel)) {
         return false;
       }
 
