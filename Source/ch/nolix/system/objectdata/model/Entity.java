@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public abstract class Entity extends AbstractEntity {
 
-  private static final FieldFromEntityMapper FIELD_FROM_ENTITY_MAPPER = new FieldFromEntityMapper();
+  private static final EntitySearcher FIELD_FROM_ENTITY_MAPPER = new EntitySearcher();
 
   @Override
   public final String getParentTableName() {
@@ -13,6 +13,6 @@ public abstract class Entity extends AbstractEntity {
 
   @Override
   final IContainer<AbstractField> internalLoadFields() {
-    return FIELD_FROM_ENTITY_MAPPER.getStoredFieldsFrom(this);
+    return FIELD_FROM_ENTITY_MAPPER.getStoredFieldsFromEntity(this);
   }
 }

@@ -4,10 +4,11 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 
-final class FieldFromEntityMapper {
+public final class EntitySearcher {
 
-  public ILinkedList<AbstractField> getStoredFieldsFrom(final Object entity) {
+  public ILinkedList<AbstractField> getStoredFieldsFromEntity(final IEntity entity) {
 
     final ILinkedList<AbstractField> fields = LinkedList.createEmpty();
 
