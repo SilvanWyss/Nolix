@@ -4,9 +4,9 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
-public final class FieldFromColumnMapper {
+public final class ColumnFieldCreator {
 
-  public AbstractField createFieldFromColumn(final IColumnView<ITable<IEntity>> columnView) {
+  public AbstractField createFieldForColumn(final IColumnView<ITable<IEntity>> columnView) {
 
     final var field = createEmptyFieldFromColumn(columnView);
     field.internalSetParentColumn(columnView);
