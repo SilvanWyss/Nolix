@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 public final class OptionalReference<E extends IEntity> extends AbstractReference<E> implements IOptionalReference<E> {
 

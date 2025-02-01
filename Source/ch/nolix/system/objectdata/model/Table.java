@@ -21,7 +21,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.ITableSearcher;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;

@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity>
 extends AbstractBackReference<E>

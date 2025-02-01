@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.modelsearcher;
+package ch.nolix.systemapi.objectdataapi.modelsearcherapi;
 
 import java.util.Optional;
 

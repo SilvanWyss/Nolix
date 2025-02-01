@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 public final class BackReference<E extends IEntity> extends AbstractBackReference<E> implements IBackReference<E> {
 

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.ITableSearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.ITableSearcher;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
 /**

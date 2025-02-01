@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 /**
  * @author Silvan Wyss

@@ -5,7 +5,7 @@ import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 public final class BaseReferenceUpdater {
 
