@@ -4,14 +4,18 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.sqlschemadtomapper.SqlSchemaDtoMapper;
+import ch.nolix.system.sqlrawschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 
 final class InternalSchemaWriter implements ChangeRequestable {
 
   private static final SqlSchemaDtoMapper SCHEMA_DTO_MAPPER = new SqlSchemaDtoMapper();
+
+  private static final ISqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
 
   private final ISchemaWriter sqlSchemaWriter;
 
@@ -25,7 +29,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
   public void addColumn(final String tableName, final ColumnDto column) {
     sqlSchemaWriter.addColumn(
       TableNameQualifyingPrefix.E + tableName,
-      SCHEMA_DTO_MAPPER.mapColumnDtoToSqlColumnDto(column));
+      SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDto(column));
   }
 
   public void addTable(final TableDto table) {

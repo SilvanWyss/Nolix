@@ -4,10 +4,11 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
+import ch.nolix.system.sqlrawschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
 
 public final class SqlSchemaDtoMapper {
 
@@ -21,10 +22,7 @@ public final class SqlSchemaDtoMapper {
     PascalCaseVariableCatalog.SAVE_STAMP,
     DataTypeTypeCatalog.INTEGER);
 
-  public ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto mapColumnDtoToSqlColumnDto(final ColumnDto column) {
-    return //
-    ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto.withNameAndDataType(column.name(), DataTypeTypeCatalog.TEXT);
-  }
+  private static final ISqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
 
   public ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto mapTableDtoToSqlSchemaTableDto(final TableDto table) {
     return //
@@ -40,7 +38,10 @@ public final class SqlSchemaDtoMapper {
     columns.addAtEnd(SQL_ID_COLUMN_DTO);
 
     for (final var c : table.columns()) {
-      columns.addAtEnd(mapColumnDtoToSqlColumnDto(c));
+
+      final var column = SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDto(c);
+
+      columns.addAtEnd(column);
     }
 
     columns.addAtEnd(SQL_SAVE_STAMP_COLUMN_DTO);
