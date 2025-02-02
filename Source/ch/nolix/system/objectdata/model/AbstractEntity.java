@@ -59,11 +59,11 @@ public abstract class AbstractEntity implements IEntity {
 
     /*
      * An Entity must not be referenced on deletion. This is validated. But an
-     * Entity must update all back referencing fields to itself on deletion.
+     * Entity must update all back referencing fields on deletion.
      */
     updateBackReferencingFieldsForDeletion();
 
-    updateStateForDelete();
+    updateStateForDeletion();
   }
 
   @Override
@@ -334,7 +334,7 @@ public abstract class AbstractEntity implements IEntity {
     optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
   }
 
-  private void updateStateForDelete() {
+  private void updateStateForDeletion() {
     state = DatabaseObjectState.DELETED;
   }
 }
