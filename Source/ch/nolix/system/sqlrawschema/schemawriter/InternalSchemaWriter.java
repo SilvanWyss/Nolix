@@ -3,17 +3,18 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
-import ch.nolix.system.sqlrawschema.sqlschemadtomapper.SqlSchemaDtoMapper;
 import ch.nolix.system.sqlrawschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
+import ch.nolix.system.sqlrawschema.sqlschemamodelmapper.SqlSchemaTableDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
+import ch.nolix.systemapi.sqlrawschemaapi.sqlschemamodelmapperapi.ISqlSchemaTableDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 
-final class InternalSchemaWriter implements ChangeRequestable {
+public final class InternalSchemaWriter implements ChangeRequestable {
 
-  private static final SqlSchemaDtoMapper SCHEMA_DTO_MAPPER = new SqlSchemaDtoMapper();
+  private static final ISqlSchemaTableDtoMapper SQL_SCHEMA_TABLE_DTO_MAPPER = new SqlSchemaTableDtoMapper();
 
   private static final ISqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
 
@@ -33,7 +34,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
   }
 
   public void addTable(final TableDto table) {
-    sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.mapTableDtoToSqlSchemaTableDto(table));
+    sqlSchemaWriter.addTable(SQL_SCHEMA_TABLE_DTO_MAPPER.mapTableDtoSqlSchemaTableDto(table));
   }
 
   public void deleteColumn(final String tableName, final String columnName) {
