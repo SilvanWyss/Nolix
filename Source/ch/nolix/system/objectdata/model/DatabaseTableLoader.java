@@ -20,7 +20,7 @@ final class DatabaseTableLoader {
     final var rawTables = database.internalGetStoredDataAndSchemaAdapter().loadTables();
 
     final var tables = rawTables
-      .to(rt -> TABLE_MAPPER.mapRawTableDtoToTableWithoutColumnsAndWithoutEntities(rt, database));
+      .to(rt -> TABLE_MAPPER.mapTableDtoToTableWithoutColumnsAndWithoutEntities(rt, database));
 
     addBaseValueColumnsToTablesFromRawTables(tables, rawTables);
     addBaseReferenceColumnsToTablesFromRawTables(tables, rawTables, tables);
