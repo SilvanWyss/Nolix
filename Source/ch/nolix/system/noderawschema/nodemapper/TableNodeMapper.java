@@ -18,6 +18,21 @@ public final class TableNodeMapper implements ITableNodeMapper {
 
   private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
+  private static INode<?> createIdNodeFromTableDto(
+    final TableDto tableDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, tableDto.id());
+  }
+
+  private static INode<?> createNameNodeFromTableDto(
+    final TableDto tableDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, tableDto.name());
+  }
+
+  private static IContainer<INode<?>> createColumnNodesFromTableDto(
+    final TableDto tableDto) {
+    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToNode);
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -30,20 +45,5 @@ public final class TableNodeMapper implements ITableNodeMapper {
     childNodes.addAtEnd(createColumnNodesFromTableDto(tableDto));
 
     return Node.withHeaderAndChildNodes(NodeHeaderCatalog.TABLE, childNodes);
-  }
-
-  private INode<?> createIdNodeFromTableDto( //NOSONAR: This method is an instance method.
-    final TableDto tableDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, tableDto.id());
-  }
-
-  private INode<?> createNameNodeFromTableDto( //NOSONAR: This method is an instance method.
-    final TableDto tableDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, tableDto.name());
-  }
-
-  private IContainer<INode<?>> createColumnNodesFromTableDto( //NOSONAR: This method is an instance method.
-    final TableDto tableDto) {
-    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToNode);
   }
 }
