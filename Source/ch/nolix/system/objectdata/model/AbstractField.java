@@ -123,7 +123,7 @@ public abstract class AbstractField implements IField {
   protected final void setAsEditedAndRunPotentialUpdateAction() {
 
     if (belongsToEntity()) {
-      ((AbstractEntity) getStoredParentEntity()).internalSetEdited();
+      getStoredParentEntity().internalSetEdited();
     }
 
     edited = true;

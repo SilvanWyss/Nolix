@@ -113,6 +113,25 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   @Override
+  public final void internalSetEdited() {
+    switch (getState()) {
+      case NEW:
+        //Does nothing.
+        break;
+      case LOADED:
+        state = DatabaseObjectState.EDITED;
+        break;
+      case EDITED:
+        //Does nothing.
+        break;
+      case DELETED:
+        throw DeletedArgumentException.forArgument(this);
+      case CLOSED:
+        throw ClosedArgumentException.forArgument(this);
+    }
+  }
+
+  @Override
   public final void internalSetId(final String id) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
@@ -231,22 +250,6 @@ public abstract class AbstractEntity implements IEntity {
     updateBaseBackReferencesWhenIsInsertedIntoDatabase();
 
     entityFlyweight.noteInsert();
-  }
-
-  final void internalSetEdited() {
-    switch (getState()) {
-      case NEW:
-        break;
-      case LOADED:
-        state = DatabaseObjectState.EDITED;
-        break;
-      case EDITED:
-        break;
-      case DELETED:
-        throw DeletedArgumentException.forArgument(this);
-      case CLOSED:
-        throw ClosedArgumentException.forArgument(this);
-    }
   }
 
   private boolean extractedFields() {
