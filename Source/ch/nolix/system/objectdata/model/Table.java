@@ -76,12 +76,12 @@ public final class Table<E extends IEntity> implements ITable<E> {
     this.entityClass = entityClass;
   }
 
-  static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
+  static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityType(
     final Database parentDatabase,
     final String name,
     final String id,
-    final Class<E2> entityClass) {
-    return new Table<>(parentDatabase, name, id, entityClass);
+    final Class<E2> entityType) {
+    return new Table<>(parentDatabase, name, id, entityType);
   }
 
   @Override

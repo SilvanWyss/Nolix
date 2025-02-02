@@ -14,14 +14,17 @@ final class TableMapper {
   private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
   @SuppressWarnings("unchecked")
-  public Table<IEntity> createEmptyTableFromTableDtoForDatabase(
-    final TableDto tableDto,
+  public Table<IEntity> mapRawTableDtoToTableWithoutColumnsAndWithoutEntities(
+    final TableDto rawTableDto,
     final Database database) {
-    return Table.withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
-      database,
-      tableDto.name(),
-      tableDto.id(),
-      (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(database.internalGetSchema(), tableDto.name())));
+
+    final var tableName = rawTableDto.name();
+    final var tableId = rawTableDto.id();
+
+    final var entityType = //
+    (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(database.internalGetSchema(), tableName));
+
+    return Table.withParentDatabaseAndNameAndIdAndEntityType(database, tableName, tableId, entityType);
   }
 
   public ITable<IEntity> createTableFromTableDtoForDatabaseUsingGivenReferencableTables(
@@ -29,7 +32,7 @@ final class TableMapper {
     final Database database,
     final IContainer<ITable<IEntity>> referencableTables) {
 
-    final var table = createEmptyTableFromTableDtoForDatabase(tableDto, database);
+    final var table = mapRawTableDtoToTableWithoutColumnsAndWithoutEntities(tableDto, database);
 
     final var columns = tableDto.columns()
       .to(
