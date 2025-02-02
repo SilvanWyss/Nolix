@@ -13,7 +13,7 @@ extends AbstractEntity {
   }
 
   @Override
-  final IContainer<AbstractField> internalLoadFields() {
+  protected final IContainer<AbstractField> findFields() {
     return ENTITY_FIELD_EXTRACTOR.extractStoredFieldsFromEntity(this);
   }
 }

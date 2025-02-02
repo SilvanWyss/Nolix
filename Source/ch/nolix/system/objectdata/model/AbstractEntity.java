@@ -204,6 +204,8 @@ public abstract class AbstractEntity implements IEntity {
     return (getClass().getSimpleName() + " (id: " + getId() + ")");
   }
 
+  protected abstract IContainer<AbstractField> findFields();
+
   protected final void initialize() {
     extractFieldsIfNotExtracted();
   }
@@ -223,8 +225,6 @@ public abstract class AbstractEntity implements IEntity {
   final AbstractField internalGetStoredFieldByName(final String name) {
     return getStoredFields().getStoredFirst(p -> p.hasName(name));
   }
-
-  abstract IContainer<AbstractField> internalLoadFields();
 
   final void internalNoteInsertIntoDatabase() {
 
@@ -261,7 +261,7 @@ public abstract class AbstractEntity implements IEntity {
 
   private void extractFieldsWhenNotExtracted() {
 
-    fields = internalLoadFields();
+    fields = findFields();
 
     fields.forEach(p -> p.internalSetParentEntity(this));
   }
