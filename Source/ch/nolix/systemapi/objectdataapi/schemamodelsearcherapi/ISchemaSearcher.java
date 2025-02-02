@@ -13,7 +13,6 @@ public interface ISchemaSearcher {
    * @param name
    * @param schema
    * @return the entity type with the given name from the given schema.
-   * @throws RuntimeException if the given schema is not valid.
    * @throws RuntimeException if the given schema does not contain an entity type
    *                          with the given name.
    */
