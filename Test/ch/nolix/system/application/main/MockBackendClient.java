@@ -6,7 +6,7 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-public final class MockBackendClient extends BackendClient<MockBackendClient, Object> {
+public final class MockBackendClient extends AbstractBackendClient<MockBackendClient, Object> {
 
   private IChainedNode latestRunHereCommand;
 

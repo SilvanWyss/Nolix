@@ -9,11 +9,11 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.webapi.cookieapi.ICookieManager;
-import ch.nolix.system.application.main.BackendClient;
+import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
 public abstract class BaseWebClient<C extends BaseWebClient<C, S>, S>
-extends BackendClient<C, S>
+extends AbstractBackendClient<C, S>
 implements ICookieManager {
 
   private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //

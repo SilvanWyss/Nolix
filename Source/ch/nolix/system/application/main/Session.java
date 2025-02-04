@@ -13,11 +13,11 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <C> is the type of the {@link BackendClient} of a {@link Session}.
+ * @param <C> is the type of the {@link AbstractBackendClient} of a {@link Session}.
  * @param <S> is the type of the context of the parent {@link Application} of
- *            the parent {@link BackendClient} of a {@link Session}.
+ *            the parent {@link AbstractBackendClient} of a {@link Session}.
  */
-public abstract class Session<C extends BackendClient<C, S>, S> implements IClientComponent<C>, IRefreshableSubscriber {
+public abstract class Session<C extends AbstractBackendClient<C, S>, S> implements IClientComponent<C>, IRefreshableSubscriber {
 
   private C parentClient;
 

@@ -24,12 +24,12 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <C> is the type of the {@link BackendClient}s of a
+ * @param <C> is the type of the {@link AbstractBackendClient}s of a
  *            {@link Application}.
  * @param <S> is the type of the application context of a {@link Application}.
  */
 public abstract class Application //NOSONAR: An application class is expected to be abstract.
-<C extends BackendClient<C, S>, S>
+<C extends AbstractBackendClient<C, S>, S>
 implements IApplication<S> {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
@@ -155,7 +155,7 @@ implements IApplication<S> {
    * @param client
    */
   @SuppressWarnings("unchecked")
-  public final void takeClient(final BackendClient<?, ?> client) {
+  public final void takeClient(final AbstractBackendClient<?, ?> client) {
     final var localClient = (C) client;
     localClient.internalSetParentApplication(this);
     clients.addAtEnd(localClient);
@@ -281,7 +281,7 @@ implements IApplication<S> {
 
   /**
    * @param endPoint
-   * @return a new {@link BackendClient} with the given endPoint
+   * @return a new {@link AbstractBackendClient} with the given endPoint
    */
   private C createBackendClientWithEndPoint(final IEndPoint endPoint) {
 

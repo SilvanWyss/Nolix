@@ -2,7 +2,7 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
-public final class BasicApplication<C extends BackendClient<C, S>, S> extends Application<C, S> {
+public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends Application<C, S> {
 
   private final String applicationName;
 
@@ -22,7 +22,7 @@ public final class BasicApplication<C extends BackendClient<C, S>, S> extends Ap
     this.initialSessionClass = initialSessionClass;
   }
 
-  public static <C2 extends BackendClient<C2, S2>, T extends Session<C2, S2>, S2> BasicApplication<C2, S2> //
+  public static <C2 extends AbstractBackendClient<C2, S2>, T extends Session<C2, S2>, S2> BasicApplication<C2, S2> //
   withNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,

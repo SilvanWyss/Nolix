@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
-public final class BackendClientSessionManager<C extends BackendClient<C, S>, S> {
+public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
 
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
 
@@ -25,7 +25,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, S>, S>
     this.parentClient = parentClient;
   }
 
-  public static <C2 extends BackendClient<C2, S2>, S2> BackendClientSessionManager<C2, S2> forClient(
+  public static <C2 extends AbstractBackendClient<C2, S2>, S2> BackendClientSessionManager<C2, S2> forClient(
     final C2 client) {
     return new BackendClientSessionManager<>(client);
   }

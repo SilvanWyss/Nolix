@@ -89,7 +89,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param initialSessionClass
    * @param applicationContext
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
    *                            given initialSessionClass.
    * @param <U>                 is the type of the given applicationContext.
    * @return the current {@link AbstractServer}.
@@ -100,7 +100,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  the given instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, U>, C extends BackendClient<C, U>, U> S//
+  public final <T extends Session<C, U>, C extends AbstractBackendClient<C, U>, U> S//
   addApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
@@ -123,7 +123,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
    *                            given initialSessionClass.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
@@ -133,7 +133,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  an instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, Object>, C extends BackendClient<C, Object>> S //
+  public final <T extends Session<C, Object>, C extends AbstractBackendClient<C, Object>> S //
   addApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
     final Class<T> initialSessionClass) {
@@ -154,14 +154,14 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * have a target.
    * 
    * @param defaultApplication
-   * @param <C>                is the type of the {@link BackendClient} of the
+   * @param <C>                is the type of the {@link AbstractBackendClient} of the
    *                           given defaultApplication.
    * @param <U>                is the type of the context of the given
    *                           defaultApplication.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException if the given defaultApplication is null.
    */
-  public final <C extends BackendClient<C, U>, U> S addDefaultApplication(
+  public final <C extends AbstractBackendClient<C, U>, U> S addDefaultApplication(
     final Application<C, U> defaultApplication) {
 
     defaultApplication.internalSetParentServer(this);
@@ -183,7 +183,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param initialSessionClass
    * @param applicationContext
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
    *                            given initialSessionClass.
    * @param <U>                 is the type of the given applicationContext.
    * @return the current {@link AbstractServer}.
@@ -197,7 +197,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  the given instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, U>, C extends BackendClient<C, U>, U> S //
+  public final <T extends Session<C, U>, C extends AbstractBackendClient<C, U>, U> S //
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
@@ -221,7 +221,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link BackendClient} of the
+   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
    *                            given initialSessionClass.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
@@ -231,7 +231,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  an instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, Object>, C extends BackendClient<C, Object>> S//
+  public final <T extends Session<C, Object>, C extends AbstractBackendClient<C, Object>> S//
   addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
     final Class<T> initialSessionClass) {
@@ -375,7 +375,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                               with a name that equals the
    *                                               given target.
    */
-  public final void takeClient(final BackendClient<?, ?> client) {
+  public final void takeClient(final AbstractBackendClient<?, ?> client) {
 
     //Handles the case that the given client does not have a target.
     if (!client.hasTarget()) {

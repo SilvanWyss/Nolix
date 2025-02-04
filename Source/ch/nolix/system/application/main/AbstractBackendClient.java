@@ -9,23 +9,23 @@ import ch.nolix.core.net.endpoint3.EndPoint;
 /**
  * @author Silvan Wyss
  * @version 2022-03-18
- * @param <C> is the type of a {@link BackendClient}.
+ * @param <C> is the type of a {@link AbstractBackendClient}.
  * @param <S> is the type of the context of the parent {@link Application} of a
- *            {@link BackendClient}.
+ *            {@link AbstractBackendClient}.
  */
-public abstract class BackendClient<C extends BackendClient<C, S>, S> extends AbstractClient<C> {
+public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S> extends AbstractClient<C> {
 
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
   /**
-   * The {@link Application} the current {@link BackendClient} belongs to.
+   * The {@link Application} the current {@link AbstractBackendClient} belongs to.
    */
   private Application<C, S> parentApplication;
 
   /**
    * @return the name of the parent {@link Application} of the current
-   *         {@link BackendClient}.
+   *         {@link AbstractBackendClient}.
    */
   public final String getApplicationName() {
     return getStoredParentApplication().getInstanceName();
@@ -33,15 +33,15 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
 
   /**
    * @return the context of the parent {@link Application} of the current
-   *         {@link BackendClient}.
+   *         {@link AbstractBackendClient}.
    */
   public final S getStoredApplicationContext() {
     return getStoredParentApplication().getStoredApplicationService();
   }
 
   /**
-   * @return the parent {@link Application} of the current {@link BackendClient}.
-   * @throws InvalidArgumentException if the current {@link BackendClient} does
+   * @return the parent {@link Application} of the current {@link AbstractBackendClient}.
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient} does
    *                                  not reference its parent
    *                                  {@link Application}.
    */
@@ -79,9 +79,9 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * @return the current {@link Session} of the current {@link BackendClient}.
+   * @return the current {@link Session} of the current {@link AbstractBackendClient}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link BackendClient} does not
+   *                                               {@link AbstractBackendClient} does not
    *                                               have a current {@link Session}.
    */
   protected final Session<C, S> getStoredCurrentSession() {
@@ -89,11 +89,11 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * Sets the {@link EndPoint} of the current {@link BackendClient}.
+   * Sets the {@link EndPoint} of the current {@link AbstractBackendClient}.
    * 
    * @param endPoint
    * @throws ArgumentIsNullException  if the given endPoint is null.
-   * @throws InvalidArgumentException if the current {@link BackendClient} is
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient} is
    *                                  already connected.
    */
   protected final void setEndPoint(final EndPoint endPoint) {
@@ -102,46 +102,46 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
 
   /**
    * @return the size of the {@link Session} stack of the current
-   *         {@link BackendClient}.
+   *         {@link AbstractBackendClient}.
    */
   final int internalGetSessionStackSize() {
     return sessionManager.getSessionStackSize();
   }
 
   /**
-   * Pops the current {@link Session} of the current {@link BackendClient} from
-   * the current {@link BackendClient}. Closes the current {@link BackendClient}
-   * if the current {@link Session} of the current {@link BackendClient} was the
-   * last {@link Session} of the current {@link BackendClient}.
+   * Pops the current {@link Session} of the current {@link AbstractBackendClient} from
+   * the current {@link AbstractBackendClient}. Closes the current {@link AbstractBackendClient}
+   * if the current {@link Session} of the current {@link AbstractBackendClient} was the
+   * last {@link Session} of the current {@link AbstractBackendClient}.
    * 
    * @InvalidArgumentException if the current {@link Session} of the current
-   *                           {@link BackendClient} is not the top
+   *                           {@link AbstractBackendClient} is not the top
    *                           {@link Session} of the current
-   *                           {@link BackendClient}.
+   *                           {@link AbstractBackendClient}.
    */
   final void internalPopCurrentSession() {
     sessionManager.popCurrentSession();
   }
 
   /**
-   * Pops the current {@link Session} of the current {@link BackendClient} from
-   * the current {@link BackendClient} Forwards the given result. Closes the
-   * current {@link BackendClient} if the current {@link Session} of the current
-   * {@link BackendClient} was the last {@link Session} of the current
-   * {@link BackendClient}.
+   * Pops the current {@link Session} of the current {@link AbstractBackendClient} from
+   * the current {@link AbstractBackendClient} Forwards the given result. Closes the
+   * current {@link AbstractBackendClient} if the current {@link Session} of the current
+   * {@link AbstractBackendClient} was the last {@link Session} of the current
+   * {@link AbstractBackendClient}.
    * 
    * @param result
    * @InvalidArgumentException if the current {@link Session} of the current
-   *                           {@link BackendClient} is not the top
+   *                           {@link AbstractBackendClient} is not the top
    *                           {@link Session} of the current
-   *                           {@link BackendClient}.
+   *                           {@link AbstractBackendClient}.
    */
   final void internalPopCurrentSessionAndForwardGivenResult(final Object result) {
     sessionManager.popCurrentSessionAndForwardGivenResult(result);
   }
 
   /**
-   * Pushes the given session to the current {@link BackendClient}.
+   * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
@@ -151,7 +151,7 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * Pushes the given session to the current {@link BackendClient}.
+   * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
    * @param <R>     is the type of the returned result.
@@ -163,10 +163,10 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * Sets the current {@link Session} of the current {@link BackendClient}. That
-   * means the current {@link Session} of the current {@link BackendClient} will
-   * be popped from the current {@link BackendClient} and the given session will
-   * be pushed to the current {@link BackendClient}.
+   * Sets the current {@link Session} of the current {@link AbstractBackendClient}. That
+   * means the current {@link Session} of the current {@link AbstractBackendClient} will
+   * be popped from the current {@link AbstractBackendClient} and the given session will
+   * be pushed to the current {@link AbstractBackendClient}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
@@ -176,12 +176,12 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * Sets the {@link Application} the current {@link BackendClient} will belong
+   * Sets the {@link Application} the current {@link AbstractBackendClient} will belong
    * to.
    * 
    * @param parentApplication
    * @throws ArgumentIsNullException  if the given parentApplication is null.
-   * @throws InvalidArgumentException if the current {@link BackendClient}
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
    *                                  references already its parent
    *                                  {@link Application}.
    */
@@ -198,7 +198,7 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link BackendClient}
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
    *                                  references already its parent
    *                                  {@link Application}.
    */
@@ -209,7 +209,7 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link BackendClient} does
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient} does
    *                                  not reference its parent
    *                                  {@link Application}.
    */
@@ -220,7 +220,7 @@ public abstract class BackendClient<C extends BackendClient<C, S>, S> extends Ab
   }
 
   /**
-   * @return true if the current {@link BackendClient} references its parent
+   * @return true if the current {@link AbstractBackendClient} references its parent
    *         {@link Application}.
    */
   private boolean referencesParentApplication() {
