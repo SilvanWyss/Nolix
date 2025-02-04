@@ -28,7 +28,9 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  *            {@link Application}.
  * @param <S> is the type of the application context of a {@link Application}.
  */
-public abstract class Application<C extends BackendClient<C, S>, S> implements IApplication<S> {
+public abstract class Application //NOSONAR: An application class is expected to be abstract.
+<C extends BackendClient<C, S>, S>
+implements IApplication<S> {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
