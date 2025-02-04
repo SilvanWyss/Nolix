@@ -100,7 +100,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  the given instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, U>, C extends AbstractBackendClient<C, U>, U> S//
+  public final <T extends AbstractSession<C, U>, C extends AbstractBackendClient<C, U>, U> S//
   addApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
@@ -133,7 +133,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  an instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, Object>, C extends AbstractBackendClient<C, Object>> S //
+  public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S //
   addApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
     final Class<T> initialSessionClass) {
@@ -197,7 +197,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  the given instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, U>, C extends AbstractBackendClient<C, U>, U> S //
+  public final <T extends AbstractSession<C, U>, C extends AbstractBackendClient<C, U>, U> S //
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
@@ -231,7 +231,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  an instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <T extends Session<C, Object>, C extends AbstractBackendClient<C, Object>> S//
+  public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S//
   addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
     final Class<T> initialSessionClass) {

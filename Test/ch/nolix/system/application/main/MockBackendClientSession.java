@@ -1,6 +1,6 @@
 package ch.nolix.system.application.main;
 
-public final class MockBackendClientSession extends Session<MockBackendClient, Object> {
+public final class MockBackendClientSession extends AbstractSession<MockBackendClient, Object> {
 
   @Override
   public void refresh() {

@@ -12,9 +12,9 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
   private final C parentClient;
 
-  private Session<C, S> currentSession;
+  private AbstractSession<C, S> currentSession;
 
-  private final LinkedList<Session<C, S>> sessionStack = LinkedList.createEmpty();
+  private final LinkedList<AbstractSession<C, S>> sessionStack = LinkedList.createEmpty();
 
   private BackendClientSessionManager(final C parentClient) {
 
@@ -46,7 +46,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
   }
 
-  public Session<C, S> getStoredCurrentSession() {
+  public AbstractSession<C, S> getStoredCurrentSession() {
 
     GlobalSequencer
       .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
@@ -71,10 +71,10 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     popCurrentSessionFromStack();
   }
 
-  public void pushSession(final Session<C, S> session) {
+  public void pushSession(final AbstractSession<C, S> session) {
 
     //Asserts that the given session is not null.
-    GlobalValidator.assertThat(session).isOfType(Session.class);
+    GlobalValidator.assertThat(session).isOfType(AbstractSession.class);
 
     //Sets the given session to the Client of the current ClientSessionManager.
     session.internalSetParentClient(parentClient.asConcrete());
@@ -88,7 +88,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   @SuppressWarnings("unchecked")
-  public <R> R pushSessionAndGetResult(final Session<C, S> session) {
+  public <R> R pushSessionAndGetResult(final AbstractSession<C, S> session) {
 
     pushSession(session);
 
@@ -99,7 +99,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return (R) session.internalGetStoredResult();
   }
 
-  public void setCurrentSession(final Session<C, S> session) {
+  public void setCurrentSession(final AbstractSession<C, S> session) {
     popCurrentSessionFromStack();
     pushSession(session);
   }
@@ -134,11 +134,11 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     return sessionStack.get1BasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
   }
 
-  private Session<C, S> getStoredTopSession() {
+  private AbstractSession<C, S> getStoredTopSession() {
     return sessionStack.getStoredLast();
   }
 
-  private void initializeSession(final Session<C, S> session) {
+  private void initializeSession(final AbstractSession<C, S> session) {
 
     //Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {

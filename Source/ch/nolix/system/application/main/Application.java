@@ -172,16 +172,16 @@ implements IApplication<S> {
   }
 
   /**
-   * @return a new initial {@link Session} for a {@link AbstractClient} of the
+   * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of the
    *         current {@link Application}.
    */
   @SuppressWarnings("unchecked")
-  protected final Session<C, S> createInitialSession() {
-    return (Session<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
+  protected final AbstractSession<C, S> createInitialSession() {
+    return (AbstractSession<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
   }
 
   /**
-   * @return the initial {@link Session} class of the current {@link Application}.
+   * @return the initial {@link AbstractSession} class of the current {@link Application}.
    */
   protected abstract Class<?> getInitialSessionClass();
 

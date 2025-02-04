@@ -9,22 +9,25 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 
 /**
- * A {@link Session} manages user run methods and user data methods.
+ * A {@link AbstractSession} manages user run methods and user data methods.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <C> is the type of the {@link AbstractBackendClient} of a {@link Session}.
+ * @param <C> is the type of the {@link AbstractBackendClient} of a
+ *            {@link AbstractSession}.
  * @param <S> is the type of the context of the parent {@link Application} of
- *            the parent {@link AbstractBackendClient} of a {@link Session}.
+ *            the parent {@link AbstractBackendClient} of a
+ *            {@link AbstractSession}.
  */
-public abstract class Session<C extends AbstractBackendClient<C, S>, S> implements IClientComponent<C>, IRefreshableSubscriber {
+public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
+implements IClientComponent<C>, IRefreshableSubscriber {
 
   private C parentClient;
 
   private Object result;
 
   /**
-   * @return true if the current {@link Session} belongs to a
+   * @return true if the current {@link AbstractSession} belongs to a
    *         {@link AbstractClient}.
    */
   @Override
@@ -34,7 +37,7 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
 
   /**
    * @return the name of the parent {@link Application} of the parent
-   *         {@link AbstractClient} of the current {@link Session}.
+   *         {@link AbstractClient} of the current {@link AbstractSession}.
    */
   public final String getApplicationName() {
     return getStoredParentClient().getApplicationName();
@@ -42,16 +45,16 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
 
   /**
    * @return the context of the parent {@link Application} of the parent
-   *         {@link AbstractClient} of the current {@link Session}.
+   *         {@link AbstractClient} of the current {@link AbstractSession}.
    */
   public final S getStoredApplicationContext() {
     return getStoredParentApplication().getStoredApplicationService();
   }
 
   /**
-   * @return the parent client of the current {@link Session}.
-   * @throws InvalidArgumentException if the current {@link Session} does not
-   *                                  belong to a client.
+   * @return the parent client of the current {@link AbstractSession}.
+   * @throws InvalidArgumentException if the current {@link AbstractSession} does
+   *                                  not belong to a client.
    */
   @Override
   public final C getStoredParentClient() {
@@ -77,15 +80,16 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
   }
 
   /**
-   * Pops the current {@link Session} from its parent {@link AbstractClient}.
+   * Pops the current {@link AbstractSession} from its parent
+   * {@link AbstractClient}.
    */
   public final void pop() {
     getStoredParentClient().internalPopCurrentSession();
   }
 
   /**
-   * Pops the current {@link Session} from its parent {@link AbstractClient} with
-   * the given result.
+   * Pops the current {@link AbstractSession} from its parent
+   * {@link AbstractClient} with the given result.
    * 
    * @param result
    * @throws ArgumentIsNullException if the given result is null.
@@ -96,48 +100,50 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
 
   /**
    * Pushes the given session to the parent {@link AbstractClient} of the current
-   * {@link Session}.
+   * {@link AbstractSession}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final void push(final Session<C, S> session) {
+  public final void push(final AbstractSession<C, S> session) {
     getStoredParentClient().internalPush(session);
   }
 
   /**
    * Pushes the given session to the parent {@link AbstractClient} of the current
-   * {@link Session}.
+   * {@link AbstractSession}.
    * 
    * @param session
    * @param <R>     is the type of the returned result.
    * @return the result from the given session.
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final <R> R pushAndGetResult(final Session<C, S> session) {
+  public final <R> R pushAndGetResult(final AbstractSession<C, S> session) {
     return getStoredParentClient().internalPushAndGetResult(session);
   }
 
   /**
    * Sets the next session of the parent {@link AbstractClient} of the current
-   * {@link Session}. That means the current {@link Session} will be popped from
-   * its parent {@link AbstractClient} and the given session is pushed to the
-   * parent {@link AbstractClient} of the current {@link Session}.
+   * {@link AbstractSession}. That means the current {@link AbstractSession} will
+   * be popped from its parent {@link AbstractClient} and the given session is
+   * pushed to the parent {@link AbstractClient} of the current
+   * {@link AbstractSession}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  public final void setNext(final Session<C, S> session) {
+  public final void setNext(final AbstractSession<C, S> session) {
     getStoredParentClient().internalSetCurrentSession(session);
   }
 
   /**
-   * Initializes the current {@link Session}.
+   * Initializes the current {@link AbstractSession}.
    */
   protected abstract void fullInitialize();
 
   /**
-   * @return the {@link AbstractClient} class of the current {@link Session}.
+   * @return the {@link AbstractClient} class of the current
+   *         {@link AbstractSession}.
    */
   protected abstract Class<?> getClientClass();
 
@@ -151,19 +157,19 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
   }
 
   /**
-   * Removes the parent client of the current {@link Session}.
+   * Removes the parent client of the current {@link AbstractSession}.
    */
   final void internalRemoveParentClient() {
     parentClient = null;
   }
 
   /**
-   * Sets the parent client of the current {@link Session}.
+   * Sets the parent client of the current {@link AbstractSession}.
    * 
    * @param parentClient
    * @throws ArgumentIsNullException  if the given parent client is null.
-   * @throws InvalidArgumentException if the current {@link Session} belongs to a
-   *                                  client.
+   * @throws InvalidArgumentException if the current {@link AbstractSession}
+   *                                  belongs to a client.
    */
   final void internalSetParentClient(C parentClient) {
 
@@ -185,8 +191,8 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link Session} does not
-   *                                  belong to a client.
+   * @throws InvalidArgumentException if the current {@link AbstractSession} does
+   *                                  not belong to a client.
    */
   private void assertBelongsToClient() {
 
@@ -197,8 +203,8 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link Session} belongs to a
-   *                                  client.
+   * @throws InvalidArgumentException if the current {@link AbstractSession}
+   *                                  belongs to a client.
    */
   private void assertDoesNotBelongToClient() {
 
@@ -210,7 +216,7 @@ public abstract class Session<C extends AbstractBackendClient<C, S>, S> implemen
 
   /**
    * @return the parent {@link Application} of the parent {@link AbstractClient}
-   *         of the current {@link Session}.
+   *         of the current {@link AbstractSession}.
    */
   private Application<C, S> getStoredParentApplication() {
     return getStoredParentClient().getStoredParentApplication();

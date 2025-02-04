@@ -79,12 +79,12 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @return the current {@link Session} of the current {@link AbstractBackendClient}.
+   * @return the current {@link AbstractSession} of the current {@link AbstractBackendClient}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractBackendClient} does not
-   *                                               have a current {@link Session}.
+   *                                               have a current {@link AbstractSession}.
    */
-  protected final Session<C, S> getStoredCurrentSession() {
+  protected final AbstractSession<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
   }
 
@@ -101,7 +101,7 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @return the size of the {@link Session} stack of the current
+   * @return the size of the {@link AbstractSession} stack of the current
    *         {@link AbstractBackendClient}.
    */
   final int internalGetSessionStackSize() {
@@ -109,14 +109,14 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Pops the current {@link Session} of the current {@link AbstractBackendClient} from
+   * Pops the current {@link AbstractSession} of the current {@link AbstractBackendClient} from
    * the current {@link AbstractBackendClient}. Closes the current {@link AbstractBackendClient}
-   * if the current {@link Session} of the current {@link AbstractBackendClient} was the
-   * last {@link Session} of the current {@link AbstractBackendClient}.
+   * if the current {@link AbstractSession} of the current {@link AbstractBackendClient} was the
+   * last {@link AbstractSession} of the current {@link AbstractBackendClient}.
    * 
-   * @InvalidArgumentException if the current {@link Session} of the current
+   * @InvalidArgumentException if the current {@link AbstractSession} of the current
    *                           {@link AbstractBackendClient} is not the top
-   *                           {@link Session} of the current
+   *                           {@link AbstractSession} of the current
    *                           {@link AbstractBackendClient}.
    */
   final void internalPopCurrentSession() {
@@ -124,16 +124,16 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Pops the current {@link Session} of the current {@link AbstractBackendClient} from
+   * Pops the current {@link AbstractSession} of the current {@link AbstractBackendClient} from
    * the current {@link AbstractBackendClient} Forwards the given result. Closes the
-   * current {@link AbstractBackendClient} if the current {@link Session} of the current
-   * {@link AbstractBackendClient} was the last {@link Session} of the current
+   * current {@link AbstractBackendClient} if the current {@link AbstractSession} of the current
+   * {@link AbstractBackendClient} was the last {@link AbstractSession} of the current
    * {@link AbstractBackendClient}.
    * 
    * @param result
-   * @InvalidArgumentException if the current {@link Session} of the current
+   * @InvalidArgumentException if the current {@link AbstractSession} of the current
    *                           {@link AbstractBackendClient} is not the top
-   *                           {@link Session} of the current
+   *                           {@link AbstractSession} of the current
    *                           {@link AbstractBackendClient}.
    */
   final void internalPopCurrentSessionAndForwardGivenResult(final Object result) {
@@ -146,7 +146,7 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  final void internalPush(final Session<C, S> session) {
+  final void internalPush(final AbstractSession<C, S> session) {
     sessionManager.pushSession(session);
   }
 
@@ -158,20 +158,20 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
    * @return the result from the given session.
    * @throws ArgumentIsNullException if the given session is null.
    */
-  final <R> R internalPushAndGetResult(final Session<C, S> session) {
+  final <R> R internalPushAndGetResult(final AbstractSession<C, S> session) {
     return sessionManager.pushSessionAndGetResult(session);
   }
 
   /**
-   * Sets the current {@link Session} of the current {@link AbstractBackendClient}. That
-   * means the current {@link Session} of the current {@link AbstractBackendClient} will
+   * Sets the current {@link AbstractSession} of the current {@link AbstractBackendClient}. That
+   * means the current {@link AbstractSession} of the current {@link AbstractBackendClient} will
    * be popped from the current {@link AbstractBackendClient} and the given session will
    * be pushed to the current {@link AbstractBackendClient}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
    */
-  final void internalSetCurrentSession(final Session<C, S> session) {
+  final void internalSetCurrentSession(final AbstractSession<C, S> session) {
     sessionManager.setCurrentSession(session);
   }
 
