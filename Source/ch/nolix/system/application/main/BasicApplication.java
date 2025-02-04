@@ -22,7 +22,8 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
     this.initialSessionClass = initialSessionClass;
   }
 
-  public static <C2 extends AbstractBackendClient<C2, S2>, T extends AbstractSession<C2, S2>, S2> BasicApplication<C2, S2> //
+  public static <C2 extends AbstractBackendClient<C2, S2>, T extends AbstractSession<C2, S2>, S2> //
+  BasicApplication<C2, S2> //
   withNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
