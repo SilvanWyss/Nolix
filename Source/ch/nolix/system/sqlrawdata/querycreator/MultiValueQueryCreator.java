@@ -32,7 +32,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     return //
     "SELECT "
     + MultiValueEntryTableColumn.VALUE.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTableType.MULTI_VALUE_ENTRY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.ENTITY_ID.getName()

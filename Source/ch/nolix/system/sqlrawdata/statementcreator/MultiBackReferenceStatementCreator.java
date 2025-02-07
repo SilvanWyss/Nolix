@@ -1,5 +1,6 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiBackReferenceEntryTableColumn;
@@ -12,7 +13,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String multiBackReferenceColumnId) {
     return "DELETE FROM "
     + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
@@ -30,7 +31,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String backReferencedEntityId) {
     return "DELETE FROM "
     + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
     + entityId

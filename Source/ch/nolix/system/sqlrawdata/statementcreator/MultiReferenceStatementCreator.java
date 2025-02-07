@@ -1,5 +1,6 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiReferenceEntryTableColumn;
@@ -12,7 +13,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String multiReferenceColumnId) {
     return "DELETE FROM "
     + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
@@ -30,7 +31,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String referencedEntityId) {
     return "DELETE FROM "
     + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
     + entityId

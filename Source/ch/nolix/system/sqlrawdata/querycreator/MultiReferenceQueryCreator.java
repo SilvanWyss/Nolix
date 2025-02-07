@@ -37,7 +37,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String multiReferenceColumnId) {
     return "SELECT "
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()

@@ -55,7 +55,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + contentModelSqlDto.dataType()
     + ", "
     + contentModelSqlDto.backReferencedColumnId()
-    + " FROM "
+    + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTableType.TABLE.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME.getName()

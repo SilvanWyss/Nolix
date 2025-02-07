@@ -2,6 +2,7 @@ package ch.nolix.system.sqlrawdata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
+import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawdata.sqlmapper.SqlValueMapper;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
@@ -49,7 +50,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return "IF NOT EXISTS (SELECT * FROM "
     + FixTableType.DATABASE_PROPERTY.getQualifiedName()
-    + " WHERE "
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
