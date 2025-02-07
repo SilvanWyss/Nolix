@@ -18,21 +18,6 @@ public final class TableNodeMapper implements ITableNodeMapper {
 
   private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
-  private static INode<?> createIdNodeFromTableDto(
-    final TableDto tableDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, tableDto.id());
-  }
-
-  private static INode<?> createNameNodeFromTableDto(
-    final TableDto tableDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, tableDto.name());
-  }
-
-  private static IContainer<INode<?>> createColumnNodesFromTableDto(
-    final TableDto tableDto) {
-    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToColumnNode);
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -40,10 +25,25 @@ public final class TableNodeMapper implements ITableNodeMapper {
   public INode<?> mapTableDtoToNode(final TableDto tableDto) {
 
     final ILinkedList<INode<?>> childNodes = LinkedList.createEmpty();
-    childNodes.addAtEnd(createIdNodeFromTableDto(tableDto));
-    childNodes.addAtEnd(createNameNodeFromTableDto(tableDto));
-    childNodes.addAtEnd(createColumnNodesFromTableDto(tableDto));
+    childNodes.addAtEnd(mapTableDtoToIdNode(tableDto));
+    childNodes.addAtEnd(mapTableDtoToNameNode(tableDto));
+    childNodes.addAtEnd(mapColumnDtoToColumnNodes(tableDto));
 
     return Node.withHeaderAndChildNodes(NodeHeaderCatalog.TABLE, childNodes);
+  }
+
+  private INode<?> mapTableDtoToIdNode(
+    final TableDto tableDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, tableDto.id());
+  }
+
+  private INode<?> mapTableDtoToNameNode(
+    final TableDto tableDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, tableDto.name());
+  }
+
+  private IContainer<INode<?>> mapColumnDtoToColumnNodes(
+    final TableDto tableDto) {
+    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToColumnNode);
   }
 }
