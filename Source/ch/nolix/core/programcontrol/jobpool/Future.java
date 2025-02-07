@@ -1,10 +1,10 @@
 package ch.nolix.core.programcontrol.jobpool;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.future.BaseFuture;
+import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-final class Future extends BaseFuture {
+final class Future extends AbstractFuture {
 
   private final JobWrapper jobWrapper;
 

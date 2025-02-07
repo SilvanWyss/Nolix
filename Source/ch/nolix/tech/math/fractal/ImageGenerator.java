@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
-import ch.nolix.core.programcontrol.future.BaseFuture;
+import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -25,7 +25,7 @@ import ch.nolix.techapi.mathapi.fractalapi.IFractal;
 import ch.nolix.techapi.mathapi.fractalapi.IFractalTool;
 import ch.nolix.techapi.mathapi.fractalapi.IImageGenerator;
 
-public final class ImageGenerator extends BaseFuture implements IImageGenerator {
+public final class ImageGenerator extends AbstractFuture implements IImageGenerator {
 
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 

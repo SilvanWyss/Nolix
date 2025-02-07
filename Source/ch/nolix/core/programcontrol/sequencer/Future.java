@@ -3,14 +3,14 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.future.BaseFuture;
+import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
  * @author Silvan Wyss
  * @version 2017-05-23
  */
-public final class Future extends BaseFuture {
+public final class Future extends AbstractFuture {
 
   private final JobRunner jobRunner;
 

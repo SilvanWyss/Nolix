@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  * @author Silvan Wyss
  * @version 2022-06-18
  */
-public abstract class BaseFuture implements IFuture {
+public abstract class AbstractFuture implements IFuture {
 
   /**
    * {@inheritDoc}
