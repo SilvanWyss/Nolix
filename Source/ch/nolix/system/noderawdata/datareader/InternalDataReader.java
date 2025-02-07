@@ -58,7 +58,7 @@ public final class InternalDataReader {
 
     return TABLE_NODE_SEARCHER
       .getStoredEntityNodesFromTableNode(tableNode)
-      .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntiyNodeToEntityLoadingDto(rn, tableView));
+      .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(rn, tableView));
   }
 
   public IContainer<String> loadMultiBackReferenceEntries(
@@ -121,7 +121,7 @@ public final class InternalDataReader {
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, id);
 
-    return ENTITY_LOADING_DTO_MAPPER.mapEntiyNodeToEntityLoadingDto(entityNode, tableView);
+    return ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(entityNode, tableView);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
