@@ -28,6 +28,7 @@ public interface IContentFieldDtoMapper {
    * @param entityNode
    * @param tableView
    * @return new {ContentFieldDto}s from the given entityNode.
+   * @throws RuntimeException if the given entityNode is null.
    */
   IContainer<ContentFieldDto<Object>> mapEntityNodeToContentFieldDtos(
     IMutableNode<?> entityNode,
