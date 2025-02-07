@@ -87,11 +87,11 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param applicationName
    * @param initialSessionClass
-   * @param applicationContext
+   * @param applicationService
    * @param <T>                 is the type of the given initialSessionClass.
    * @param <C>                 is the type of the {@link AbstractBackendClient} of the
    *                            given initialSessionClass.
-   * @param <U>                 is the type of the given applicationContext.
+   * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -104,13 +104,13 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   addApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
-    final U applicationContext) {
+    final U applicationService) {
 
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
       applicationName,
       initialSessionClass,
-      applicationContext);
+      applicationService);
 
     //Calls other method.
     return addApplication(application);
@@ -181,11 +181,11 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param applicationName
    * @param initialSessionClass
-   * @param applicationContext
+   * @param applicationService
    * @param <T>                 is the type of the given initialSessionClass.
    * @param <C>                 is the type of the {@link AbstractBackendClient} of the
    *                            given initialSessionClass.
-   * @param <U>                 is the type of the given applicationContext.
+   * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws InvalidArgumentException if the given instanceName is blank.
@@ -201,13 +201,13 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
-    final U applicationContext) {
+    final U applicationService) {
 
     //Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
       applicationName,
       initialSessionClass,
-      applicationContext);
+      applicationService);
 
     //Calls other method.
     return addDefaultApplication(localDefaultApplication);

@@ -11,9 +11,9 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
   private <T extends AbstractSession<C, S>> BasicApplication(
     final String applicationName,
     final Class<T> initialSessionClass,
-    final S applicationContext) {
+    final S applicationService) {
 
-    super(applicationContext);
+    super(applicationService);
 
     GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
     GlobalValidator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
@@ -27,8 +27,8 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
   withNameAndInitialSessionClassAndContext(
     final String applicationName,
     final Class<T> initialSessionClass,
-    final S2 applicationContext) {
-    return new BasicApplication<>(applicationName, initialSessionClass, applicationContext);
+    final S2 applicationService) {
+    return new BasicApplication<>(applicationName, initialSessionClass, applicationService);
   }
 
   @Override

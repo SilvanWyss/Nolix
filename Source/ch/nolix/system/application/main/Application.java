@@ -43,7 +43,7 @@ implements IApplication<S> {
   private final LinkedList<C> clients = LinkedList.createEmpty();
 
   /**
-   * Creates a new {@link Application} with the given applicationContext.
+   * Creates a new {@link Application} with the given applicationService.
    * 
    * @param applicationService
    * @throws ArgumentIsNullException if the given applicationService is null.
