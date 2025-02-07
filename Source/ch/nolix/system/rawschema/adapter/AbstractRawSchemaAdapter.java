@@ -1,13 +1,14 @@
 package ch.nolix.system.rawschema.adapter;
 
+import java.util.function.Supplier;
+
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaWriter;
+import ch.nolix.systemapi.rawschemaapi.databaseinitializerapi.IDatabaseInitializer;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
@@ -17,8 +18,6 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISchemaReader schemaReader;
@@ -26,16 +25,16 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   private final ISchemaWriter schemaWriter;
 
   protected AbstractRawSchemaAdapter(
-    final ISchemaReader schemaReader,
-    final ISchemaWriter schemaWriter) {
+    final IDatabaseInitializer databaseInitializer,
+    final Supplier<ISchemaReader> schemaReaderCreator,
+    final Supplier<ISchemaWriter> schemaWriterCreator) {
 
-    RESOURCE_VALIDATOR.assertIsOpen(schemaReader);
-    RESOURCE_VALIDATOR.assertIsOpen(schemaWriter);
+    databaseInitializer.initializeDatabaseIfNotInitialized();
 
-    this.schemaReader = schemaReader;
+    schemaReader = schemaReaderCreator.get();
+    schemaWriter = schemaWriterCreator.get();
+
     createCloseDependencyTo(schemaReader);
-
-    this.schemaWriter = schemaWriter;
     createCloseDependencyTo(schemaWriter);
   }
 

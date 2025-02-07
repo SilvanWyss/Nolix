@@ -10,22 +10,20 @@ import ch.nolix.system.rawschema.adapter.AbstractRawSchemaAdapter;
 public final class NodeRawSchemaAdapter extends AbstractRawSchemaAdapter {
 
   private NodeRawSchemaAdapter(final IMutableNode<?> nodeDatabase) {
-    super(SchemaReader.forNodeDatabase(nodeDatabase), SchemaWriter.forNodeDatabase(nodeDatabase));
+    super(
+      DatabaseInitializer.forNodeDatabase(nodeDatabase),
+      () -> SchemaReader.forNodeDatabase(nodeDatabase),
+      () -> SchemaWriter.forNodeDatabase(nodeDatabase));
   }
 
   public static NodeRawSchemaAdapter forFileNodeDatabase(final String filePath) {
 
     final var nodeDatabase = new FileNode(filePath);
 
-    return forNodeDatabase(nodeDatabase);
+    return new NodeRawSchemaAdapter(nodeDatabase);
   }
 
   public static NodeRawSchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-
-    final var databaseInitializer = DatabaseInitializer.forNodeDatabase(nodeDatabase);
-
-    databaseInitializer.initializeDatabaseIfNotInitialized();
-
     return new NodeRawSchemaAdapter(nodeDatabase);
   }
 }
