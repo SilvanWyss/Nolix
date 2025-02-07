@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
@@ -39,11 +40,6 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final boolean columnIsEmpty(final String tableName, final String columnName) {
-    return schemaReader.columnIsEmpty(tableName, columnName);
-  }
-
-  @Override
   public final void addColumn(final String tableName, ColumnDto column) {
     schemaWriter.addColumn(tableName, column);
   }
@@ -51,6 +47,16 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   @Override
   public final void addTable(final TableDto table) {
     schemaWriter.addTable(table);
+  }
+
+  @Override
+  public final boolean columnIsEmpty(final String tableName, final String columnName) {
+    return schemaReader.columnIsEmpty(tableName, columnName);
+  }
+
+  @Override
+  public final void createCloseDependencyTo(final GroupCloseable element) {
+    ISchemaAdapter.super.createCloseDependencyTo(element);
   }
 
   @Override

@@ -3,6 +3,7 @@ package ch.nolix.system.rawdata.adapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
@@ -34,6 +35,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     if (dataReader != dataWriter) {
       getStoredCloseController().createCloseDependencyTo(dataWriter);
     }
+  }
+
+  @Override
+  public final void createCloseDependencyTo(final GroupCloseable element) {
+    IDataAdapter.super.createCloseDependencyTo(element);
   }
 
   @Override

@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter;
@@ -50,6 +51,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     this.database = Database.withDataAndSchemaAdapterAndSchema(rawDataAndSchemaAdapter, schema);
 
     createCloseDependencyTo(rawDataAndSchemaAdapter);
+  }
+
+  @Override
+  public final void createCloseDependencyTo(final GroupCloseable element) {
+    IDataAdapter.super.createCloseDependencyTo(element);
   }
 
   @Override
