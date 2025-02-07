@@ -1,20 +1,20 @@
 package ch.nolix.system.sqlrawdata.adapter;
 
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter;
 
 public final class MsSqlDataAdapter extends AbstractSqlDataAdapter {
 
-  private MsSqlDataAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
+  private MsSqlDataAdapter(final String databaseName, final ISqlConnection sqlConnection) {
     super(
       databaseName,
-      sqlConnectionPool,
-      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnectionPool.borrowResource()));
+      sqlConnection,
+      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));
   }
 
-  public static MsSqlDataAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+  public static MsSqlDataAdapter forDatabaseNameAndSqlConnection(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool) {
-    return new MsSqlDataAdapter(databaseName, sqlConnectionPool);
+    final ISqlConnection sqlConnection) {
+    return new MsSqlDataAdapter(databaseName, sqlConnection);
   }
 }

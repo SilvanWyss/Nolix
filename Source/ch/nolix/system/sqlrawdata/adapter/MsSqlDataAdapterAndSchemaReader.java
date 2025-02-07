@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawdata.adapter;
 
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter;
 
@@ -12,12 +12,12 @@ public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAn
     super(msSqlDataAdapter, msSqlSchemaAdapter);
   }
 
-  public static MsSqlDataAdapterAndSchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+  public static MsSqlDataAdapterAndSchemaReader forDatabaseNameAndSqlConnection(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool) {
-    return new MsSqlDataAdapterAndSchemaReader(
-      MsSqlDataAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
-      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName,
-        sqlConnectionPool.borrowResource()));
+    final ISqlConnection sqlConnection) {
+    return //
+    new MsSqlDataAdapterAndSchemaReader(
+      MsSqlDataAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection),
+      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));
   }
 }

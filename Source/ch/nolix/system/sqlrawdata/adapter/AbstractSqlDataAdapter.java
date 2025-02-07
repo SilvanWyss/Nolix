@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawdata.adapter;
 
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
+import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapter;
 import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
@@ -15,13 +15,13 @@ public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
 
   protected AbstractSqlDataAdapter(
     final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
+    final ISqlConnection sqlConnection,
     final ISchemaReader schemaReader) {
 
     this(
       databaseName,
       DATABASE_SCHEMA_VIEW_LOADER.loadDatabaseSchemaView(databaseName, schemaReader),
-      sqlConnectionPool);
+      sqlConnection);
 
     schemaReader.close();
   }
@@ -29,15 +29,15 @@ public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
   private AbstractSqlDataAdapter(
     final String databaseName,
     final DatabaseSchemaViewDto databaseSchemaView,
-    final SqlConnectionPool sqlConnectionPool) {
+    final ISqlConnection sqlConnection) {
     super(
       DataReader.forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
         databaseName,
         databaseSchemaView,
-        sqlConnectionPool.borrowResource()),
+        sqlConnection),
       DataWriter.forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
         databaseName,
         databaseSchemaView,
-        sqlConnectionPool.borrowResource()));
+        sqlConnection));
   }
 }
