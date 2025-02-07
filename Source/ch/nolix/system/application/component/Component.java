@@ -6,7 +6,7 @@ import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public abstract class Component //NOSONAR: A component class is expected to be abstract.
-<C extends Controller<S>, S> extends BaseComponent<C, S> {
+<C extends Controller<S>, S> extends AbstractComponent<C, S> {
 
   private IControl<?, ?> childControl;
 

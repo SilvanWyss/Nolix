@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-public abstract class BaseComponent<C extends Controller<S>, S>
+public abstract class AbstractComponent<C extends Controller<S>, S>
 extends Control<IComponent, IComponentStyle>
 implements IComponent {
 
@@ -24,7 +24,7 @@ implements IComponent {
 
   private final C controller;
 
-  protected BaseComponent(final C controller, final WebClientSession<S> webClientSession) {
+  protected AbstractComponent(final C controller, final WebClientSession<S> webClientSession) {
 
     GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 

@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<S>, S extends IAdapterFactory<A>, A>
-extends BaseComponent<C, S> {
+extends AbstractComponent<C, S> {
 
   private IControl<?, ?> childControl;
 
