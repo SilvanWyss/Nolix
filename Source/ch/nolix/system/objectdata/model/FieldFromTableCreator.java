@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
-public final class FieldFromTableMapper {
+public final class FieldFromTableCreator {
 
   private static final ColumnFieldCreator COLUMN_FIELD_CREATOR = new ColumnFieldCreator();
 

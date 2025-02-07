@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public final class GeneralEntity extends AbstractEntity {
 
-  private static final FieldFromTableMapper FIELD_FROM_TABLE_EXTRACTOR = new FieldFromTableMapper();
+  private static final FieldFromTableCreator FIELD_FROM_TABLE_EXTRACTOR = new FieldFromTableCreator();
 
   private final String tableName;
 
