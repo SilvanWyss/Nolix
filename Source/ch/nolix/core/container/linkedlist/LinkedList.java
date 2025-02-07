@@ -3,7 +3,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.iteratortool.IterableTool;
+import ch.nolix.core.commontypetool.iteratortool.IterableExaminer;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -32,7 +33,7 @@ public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object t
 extends Container<E>
 implements ILinkedList<E> {
 
-  private static final IterableTool ITERABLE_TOOL = new IterableTool();
+  private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private int elementCount;
 
@@ -161,7 +162,7 @@ implements ILinkedList<E> {
     GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalog.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
-    if (ITERABLE_TOOL.containsAny(elements)) {
+    if (ITERABLE_EXAMINER.containsAny(elements)) {
 
       final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
 

@@ -5,13 +5,6 @@ import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 public final class IterableTool implements IIterableTool {
 
   @Override
-  public boolean containsAny(final Iterable<?> iterable) {
-    return //
-    iterable != null
-    && iterable.iterator().hasNext();
-  }
-
-  @Override
   public int getCount(final Iterable<?> iterable) {
 
     final var iterator = iterable.iterator();
@@ -23,12 +16,5 @@ public final class IterableTool implements IIterableTool {
     }
 
     return elementCount;
-  }
-
-  @Override
-  public boolean isEmpty(final Iterable<?> iterable) {
-    return //
-    iterable == null
-    || !iterable.iterator().hasNext();
   }
 }
