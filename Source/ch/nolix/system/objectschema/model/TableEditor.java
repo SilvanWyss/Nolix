@@ -15,7 +15,10 @@ public final class TableEditor {
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
-  public void addColumnToTable(final Table table, final Column column) {
+  private TableEditor() {
+  }
+
+  public static void addColumnToTable(final Table table, final Column column) {
 
     table.addColumnAttribute(column);
     column.setParentTableAttribute(table);
@@ -31,7 +34,7 @@ public final class TableEditor {
     table.internalSetEdited();
   }
 
-  public void deleteTable(final Table table) {
+  public static void deleteTable(final Table table) {
 
     if (table.belongsToDatabase()) {
       table.getStoredParentDatabase().removeTableAttribute(table);
@@ -44,7 +47,7 @@ public final class TableEditor {
     table.internalSetDeleted();
   }
 
-  public void setNameToTable(final Table table, final String name) {
+  public static void setNameToTable(final Table table, final String name) {
 
     final var oldTableName = table.getName();
     final var referencingColumns = TABLE_TOOL.getStoredReferencingColumns(table);

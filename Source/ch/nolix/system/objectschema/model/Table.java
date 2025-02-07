@@ -20,8 +20,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
-  private static final TableEditor TABLE_EDITOR = new TableEditor();
-
   private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
 
   private final String id;
@@ -57,7 +55,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
   public Table addColumn(final IColumn column) {
 
     MUTATION_VALIDATOR.assertCanAddColumnToTable(this, column);
-    TABLE_EDITOR.addColumnToTable(this, (Column) column);
+
+    TableEditor.addColumnToTable(this, (Column) column);
 
     return this;
   }
@@ -86,8 +85,10 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public void delete() {
+
     MUTATION_VALIDATOR.assertCanDeleteTable(this);
-    TABLE_EDITOR.deleteTable(this);
+
+    TableEditor.deleteTable(this);
   }
 
   @Override
@@ -130,7 +131,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
   public Table setName(final String name) {
 
     MUTATION_VALIDATOR.assertCanSetNameToTable(this, name);
-    TABLE_EDITOR.setNameToTable(this, name);
+
+    TableEditor.setNameToTable(this, name);
 
     return this;
   }
