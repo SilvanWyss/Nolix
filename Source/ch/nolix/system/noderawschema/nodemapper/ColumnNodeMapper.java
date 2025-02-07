@@ -19,24 +19,24 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapColumnDtoToNode(final ColumnDto columnDto) {
+  public INode<?> mapColumnDtoToColumnNode(final ColumnDto columnDto) {
     return //
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.COLUMN,
-      createIdNodeFrom(columnDto),
-      createNameNodeFrom(columnDto),
-      mapContentModelDtoToNode(columnDto));
+      mapColumnDtoToIdNode(columnDto),
+      mapColumnDtoToNameNode(columnDto),
+      mapColunDtoToContentModelNode(columnDto));
   }
 
-  private Node createIdNodeFrom(final ColumnDto column) {
+  private Node mapColumnDtoToIdNode(final ColumnDto column) {
     return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, column.id());
   }
 
-  private Node createNameNodeFrom(final ColumnDto column) {
+  private Node mapColumnDtoToNameNode(final ColumnDto column) {
     return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, column.name());
   }
 
-  private INode<?> mapContentModelDtoToNode(final ColumnDto column) {
+  private INode<?> mapColunDtoToContentModelNode(final ColumnDto column) {
     return CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(column.contentModel());
   }
 }

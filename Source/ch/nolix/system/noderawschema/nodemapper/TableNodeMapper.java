@@ -30,7 +30,7 @@ public final class TableNodeMapper implements ITableNodeMapper {
 
   private static IContainer<INode<?>> createColumnNodesFromTableDto(
     final TableDto tableDto) {
-    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToNode);
+    return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToColumnNode);
   }
 
   /**

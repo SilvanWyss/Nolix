@@ -78,7 +78,7 @@ public final class SchemaWriter implements ISchemaWriter {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
-    tableNode.addChildNode(COLUMN_NODE_MAPPER.mapColumnDtoToNode(column));
+    tableNode.addChildNode(COLUMN_NODE_MAPPER.mapColumnDtoToColumnNode(column));
 
     hasChanges = true;
   }
