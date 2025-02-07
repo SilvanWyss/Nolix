@@ -39,7 +39,8 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
 
     super(
       databaseName,
-      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
+      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName,
+        sqlConnectionPool.borrowResource()),
       schema,
       () -> MsSqlDataAdapterAndSchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
         databaseName,

@@ -17,6 +17,7 @@ public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAn
     final SqlConnectionPool sqlConnectionPool) {
     return new MsSqlDataAdapterAndSchemaReader(
       MsSqlDataAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
-      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool));
+      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName,
+        sqlConnectionPool.borrowResource()));
   }
 }

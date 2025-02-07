@@ -39,7 +39,7 @@ MsSqlSchemaAdapter>>>>> {
     return new MsSqlSchemaAdapter(
       databaseName,
       ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter
-        .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+        .forDatabaseNameAndSqlConnection(
           databaseName,
           SqlConnectionPoolBuilder
             .createConnectionPool()
@@ -48,6 +48,7 @@ MsSqlSchemaAdapter>>>>> {
             .andDatabase(databaseName)
             .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
             .andLoginName(nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName())
-            .andLoginPassword(nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword())));
+            .andLoginPassword(nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword())
+            .borrowResource()));
   }
 }

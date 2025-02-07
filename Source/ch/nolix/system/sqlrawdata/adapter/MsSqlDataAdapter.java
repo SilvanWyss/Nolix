@@ -9,7 +9,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
     super(
       databaseName,
       sqlConnectionPool,
-      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool));
+      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnectionPool.borrowResource()));
   }
 
   public static MsSqlDataAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
