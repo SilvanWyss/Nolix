@@ -11,7 +11,7 @@ public final class NodeRawSchemaAdapter extends AbstractRawSchemaAdapter {
 
   private NodeRawSchemaAdapter(final IMutableNode<?> nodeDatabase) {
     super(
-      DatabaseInitializer.forNodeDatabase(nodeDatabase),
+      DatabaseInitializer.forDatabaseNameAndNodeDatabase("database", nodeDatabase),
       () -> SchemaReader.forNodeDatabase(nodeDatabase),
       () -> SchemaWriter.forNodeDatabase(nodeDatabase));
   }

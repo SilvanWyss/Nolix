@@ -10,16 +10,26 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public interface IDatabaseComponentCreator {
 
   /**
+   * @param name
    * @param initialSchemaTimeStamp
-   * @return a new database properties node with the given initialSchemaTimeStamp.
+   * @return a new database properties node with the given name and
+   *         initialSchemaTimeStamp.
+   * @throws RuntimeException if the given name is null or blank.
    * @throws RuntimeException if the given initialSchemaTimeStamp is null.
    */
-  IMutableNode<?> createDatabasePropertiesNodeWithInitialSchemaTimeStamp(ITime initialSchemaTimeStamp);
+  IMutableNode<?> createDatabasePropertiesNodeWithInitialSchemaTimeStamp(String name, ITime initialSchemaTimeStamp);
 
   /**
    * @return a new entity indexes node.
    */
   IMutableNode<?> createEntityIndexesNode();
+
+  /**
+   * @param name
+   * @return a new name node with the given name.
+   * @throws RuntimeException if the given name is null or blank.
+   */
+  IMutableNode<?> createNameNodeWithName(String name);
 
   /**
    * @param initialSchemaTimeStamp

@@ -19,29 +19,39 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
 
   private static final IDatabaseComponentCreator DATABASE_COMPONENT_CREATOR = new DatabaseComponentCreator();
 
+  private final String databaseName;
+
   private final IMutableNode<?> nodeDatabase;
 
   /**
-   * Creates a new {@link DatabaseInitializer} for the given nodeDatabase.
+   * Creates a new {@link DatabaseInitializer} for the given databaseName and
+   * nodeDatabase.
    * 
+   * @param databaseName
    * @param nodeDatabase
+   * @throws RuntimeException if the given databaseName is null or blank.
    * @throws RuntimeException if the given nodeDatabase is null.
    */
-  private DatabaseInitializer(final IMutableNode<?> nodeDatabase) {
+  private DatabaseInitializer(final String databaseName, final IMutableNode<?> nodeDatabase) {
 
+    GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
+    this.databaseName = databaseName;
     this.nodeDatabase = nodeDatabase;
   }
 
   /**
-   * 
+   * @param databaseName
    * @param nodeDatabase
    * @return a new {@link DatabaseInitializer} for the given nodeDatabase.
+   * @throws RuntimeException if the given databaseName is null or blank.
    * @throws RuntimeException if the given nodeDatabase is null.
    */
-  public static DatabaseInitializer forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return new DatabaseInitializer(nodeDatabase);
+  public static DatabaseInitializer forDatabaseNameAndNodeDatabase(
+    final String databaseName,
+    final IMutableNode<?> nodeDatabase) {
+    return new DatabaseInitializer(databaseName, nodeDatabase);
   }
 
   /**
@@ -61,10 +71,16 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    */
   @Override
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimeStamp) {
+
+    final var databasePropertiesNode = //
+    DATABASE_COMPONENT_CREATOR.createDatabasePropertiesNodeWithInitialSchemaTimeStamp(
+      databaseName,
+      initialSchemaTimeStamp);
+
+    final var entityIndexesNodes = DATABASE_COMPONENT_CREATOR.createEntityIndexesNode();
+
     nodeDatabase
       .setHeader(NodeHeaderCatalog.DATABASE)
-      .addChildNode(
-        DATABASE_COMPONENT_CREATOR.createDatabasePropertiesNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp),
-        DATABASE_COMPONENT_CREATOR.createEntityIndexesNode());
+      .addChildNode(databasePropertiesNode, entityIndexesNodes);
   }
 }

@@ -16,12 +16,18 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> createDatabasePropertiesNodeWithInitialSchemaTimeStamp(final ITime initialSchemaTimeStamp) {
+  public IMutableNode<?> createDatabasePropertiesNodeWithInitialSchemaTimeStamp(
+    final String name,
+    final ITime initialSchemaTimeStamp) {
+
+    final var nameNode = createNameNodeWithName(name);
+    final var schemaTimestampNode = createSchemaTimestampNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp);
+
     return //
     MutableNode
       .createEmpty()
       .setHeader(NodeHeaderCatalog.DATABASE_PROPERTIES)
-      .addChildNode(createSchemaTimestampNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp));
+      .addChildNode(nameNode, schemaTimestampNode);
   }
 
   /**
@@ -30,6 +36,14 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
   @Override
   public IMutableNode<?> createEntityIndexesNode() {
     return MutableNode.createEmpty().setHeader(NodeHeaderCatalog.ENTITY_INDEXES);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IMutableNode<?> createNameNodeWithName(final String name) {
+    return MutableNode.createEmpty().setHeader(name);
   }
 
   /**
