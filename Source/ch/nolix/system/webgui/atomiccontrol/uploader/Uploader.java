@@ -26,6 +26,12 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 
   private byte[] file;
 
+  public Uploader() {
+
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    reset();
+  }
+
   @Override
   public byte[] getFile() {
 
