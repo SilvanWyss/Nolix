@@ -31,23 +31,25 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   protected AbstractDataAdapter(
     final String databaseName,
-    final ISchemaAdapter schemaAdapter,
     final ISchema schema,
-    final Supplier<IDataAdapterAndSchemaReader> dataAndSchemaAdapterCreator) {
+    final ISchemaAdapter schemaAdapter,
+    final Supplier<IDataAdapterAndSchemaReader> rawDataAndSchemaReaderCreator) {
 
     GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
-    GlobalValidator.assertThat(schema).thatIsNamed("schema").isNotNull();
 
     SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
       schema,
       schemaAdapter);
+
     schemaAdapter.close();
 
-    this.schema = schema;
+    final var rawDataAndSchemaAdapter = rawDataAndSchemaReaderCreator.get();
+
     this.databaseName = databaseName;
-    final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.get();
-    database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
-    getStoredCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
+    this.schema = schema;
+    this.database = Database.withDataAndSchemaAdapterAndSchema(rawDataAndSchemaAdapter, schema);
+
+    createCloseDependencyTo(rawDataAndSchemaAdapter);
   }
 
   @Override

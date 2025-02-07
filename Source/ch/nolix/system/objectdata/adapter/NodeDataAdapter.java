@@ -19,8 +19,8 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
 
     super(
       databaseName,
-      NodeSchemaAdapter.forNodeDatabase(databaseName, nodeDatabase),
       schema,
+      NodeSchemaAdapter.forNodeDatabase(databaseName, nodeDatabase),
       () -> NodeDataAdapterAndSchemaReader.forNodeDatabase(nodeDatabase));
 
     this.nodeDatabase = nodeDatabase;
