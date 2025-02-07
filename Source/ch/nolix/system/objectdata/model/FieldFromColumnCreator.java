@@ -4,7 +4,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
-public final class ColumnFieldCreator {
+public final class FieldFromColumnCreator {
 
   public AbstractField createFieldForColumn(final IColumnView<ITable<IEntity>> columnView) {
 
