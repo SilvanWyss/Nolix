@@ -12,6 +12,10 @@ public final class SpaceEnclosedSqlKeywordCatalog {
 
   public static final String WHERE = " WHERE ";
 
+  /**
+   * Prevents that an instance of the {@link SpaceEnclosedSqlKeywordCatalog} can
+   * be created.
+   */
   private SpaceEnclosedSqlKeywordCatalog() {
   }
 }
