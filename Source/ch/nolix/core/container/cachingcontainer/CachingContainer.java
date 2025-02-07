@@ -19,7 +19,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
   private static final String AUTO_ID_PREFIX = "Z";
 
-  private long autoIdCounter;
+  private long autoIdCounter = 1;
 
   private final LinkedList<Pair<String, E>> elements = LinkedList.createEmpty();
 
@@ -147,11 +147,14 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
   private String createNextAutoId() {
 
-    autoIdCounter++;
     while (containsWithId(AUTO_ID_PREFIX + autoIdCounter)) {
       autoIdCounter++;
     }
 
-    return String.valueOf(AUTO_ID_PREFIX + autoIdCounter);
+    final var nextAutoId = autoIdCounter;
+
+    autoIdCounter++;
+
+    return String.valueOf(AUTO_ID_PREFIX + nextAutoId);
   }
 }
