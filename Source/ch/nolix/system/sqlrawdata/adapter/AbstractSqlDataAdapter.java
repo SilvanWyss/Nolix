@@ -9,11 +9,11 @@ import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlrawdataapi.schemaviewloaderapi.IDatabaseSchemaViewLoader;
 
-public abstract class DataAdapter extends AbstractDataAdapter {
+public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
 
   private static final IDatabaseSchemaViewLoader DATABASE_SCHEMA_VIEW_LOADER = new DatabaseSchemaViewLoader();
 
-  protected DataAdapter(
+  protected AbstractSqlDataAdapter(
     final String databaseName,
     final SqlConnectionPool sqlConnectionPool,
     final ISchemaReader schemaReader) {
@@ -26,7 +26,7 @@ public abstract class DataAdapter extends AbstractDataAdapter {
     schemaReader.close();
   }
 
-  private DataAdapter(
+  private AbstractSqlDataAdapter(
     final String databaseName,
     final DatabaseSchemaViewDto databaseSchemaView,
     final SqlConnectionPool sqlConnectionPool) {
