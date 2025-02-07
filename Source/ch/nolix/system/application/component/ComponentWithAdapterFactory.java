@@ -2,23 +2,24 @@ package ch.nolix.system.application.component;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programcontrolapi.datasupplierapi.IDataSupplierFactory;
+import ch.nolix.coreapi.programcontrolapi.adapterapi.IAdapterFactory;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ComponentWithAdapterFactory<C extends Controller<S>, S extends IDataSupplierFactory<T>, T>
+public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
+<C extends Controller<S>, S extends IAdapterFactory<A>, A>
 extends BaseComponent<C, S> {
 
   private IControl<?, ?> childControl;
 
   protected ComponentWithAdapterFactory(
     final C controller,
-    final T initialDataSupplier,
+    final A initialAdapter,
     final WebClientSession<S> webClientSession) {
 
     super(controller, webClientSession);
 
-    rebuild(initialDataSupplier);
+    rebuild(initialAdapter);
   }
 
   @Override
@@ -34,19 +35,19 @@ extends BaseComponent<C, S> {
   @Override
   public final void rebuild() {
 
-    final var dataSupplier = createDataSupplier();
+    final var adapter = createAdapter();
 
-    rebuild(dataSupplier);
+    rebuild(adapter);
   }
 
-  protected abstract IControl<?, ?> createControl(C controller, T dataAdapter);
+  protected abstract IControl<?, ?> createControl(C controller, A adapter);
 
-  private T createDataSupplier() {
-    return getStoredApplicationContext().createDataSupplier();
+  private A createAdapter() {
+    return getStoredApplicationContext().createAdapter();
   }
 
-  private void rebuild(final T dataSupplier) {
-    childControl = createControl(getStoredController(), dataSupplier);
+  private void rebuild(final A adapter) {
+    childControl = createControl(getStoredController(), adapter);
     childControl.internalSetParentControl(this);
     childControl.linkTo(this);
   }
