@@ -11,7 +11,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.independent.arraytool.ArrayTool;
+import ch.nolix.core.independent.iterabletool.IterableExaminer;
 import ch.nolix.core.independent.iterabletool.IterableTool;
+import ch.nolix.coreapi.independentapi.iterabletoolapi.IIterableExaminer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
@@ -27,6 +29,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
 public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+
+  private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private static final IterableTool ITERABLE_TOOL = new IterableTool();
 
@@ -65,7 +69,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                                not contain the given element.
    */
   public void contains(final Object element) {
-    if (!ITERABLE_TOOL.containsElement(getStoredArgument(), element)) {
+    if (!ITERABLE_EXAMINER.containsElement(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
         getArgumentName(),
         getStoredArgument(),
@@ -150,7 +154,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     final var argument = getStoredArgument();
 
     for (final var e : argument) {
-      if (ITERABLE_TOOL.containsElementMultipleTimes(argument, e)) {
+      if (ITERABLE_EXAMINER.containsElementMultipleTimes(argument, e)) {
         throw //
         InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -249,7 +253,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  element with the given stringRepresentation.
    */
   public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
-    if (!ITERABLE_TOOL.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {
+    if (!ITERABLE_EXAMINER.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {
       throw //
       InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
@@ -266,7 +270,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  element for several times.
    */
   public void containsOnce(final Object element) {
-    if (!ITERABLE_TOOL.containsElementOnce(getStoredArgument(),
+    if (!ITERABLE_EXAMINER.containsElementOnce(getStoredArgument(),
       element)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
@@ -354,7 +358,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is empty.
-    if (!ITERABLE_TOOL.isEmpty(getStoredArgument())) {
+    if (!ITERABLE_EXAMINER.isEmpty(getStoredArgument())) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
@@ -371,7 +375,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is not empty.
-    if (ITERABLE_TOOL.isEmpty(getStoredArgument())) {
+    if (ITERABLE_EXAMINER.isEmpty(getStoredArgument())) {
       throw EmptyArgumentException.forArgument(getStoredArgument());
     }
   }
