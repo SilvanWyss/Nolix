@@ -20,7 +20,7 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  * @version 2018-03-04
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
-public final class MultiValue<V> extends BaseValue<V> implements Clearable {
+public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
 
   private final Consumer<V> adderMethod;
 

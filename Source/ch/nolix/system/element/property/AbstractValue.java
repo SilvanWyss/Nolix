@@ -14,9 +14,9 @@ import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
 /**
  * @author Silvan Wyss
  * @version 2017-10-29
- * @param <V> is the type of the values of a {@link BaseValue}.
+ * @param <V> is the type of the values of a {@link AbstractValue}.
  */
-public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {
+public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {
 
   private final String name;
 
@@ -25,7 +25,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
   protected final Function<V, INode<?>> specificationCreator;
 
   /**
-   * Creates a new {@link BaseValue} with the given name, valueCreator and
+   * Creates a new {@link AbstractValue} with the given name, valueCreator and
    * specificationCreator.
    * 
    * @param name
@@ -36,7 +36,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
    * @throws ArgumentIsNullException  if the given valueCreator is null.
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
-  BaseValue(
+  AbstractValue(
     final String name,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
@@ -60,7 +60,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
 
   /**
    * Adds or changes the value from the given attribute to the current
-   * {@link BaseValue}.
+   * {@link AbstractValue}.
    * 
    * @param attribute
    */
@@ -76,7 +76,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
   }
 
   /**
-   * Adds or change the given value to the current {@link BaseValue}.
+   * Adds or change the given value to the current {@link AbstractValue}.
    * 
    * @param value
    */
