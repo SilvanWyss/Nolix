@@ -25,13 +25,13 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     final EntityCreationDto newEntity,
     final TableSchemaViewDto tableView,
     final long saveStamp) {
-    return //
-    Node.withHeaderAndChildNodes(
-      NodeHeaderCatalog.ENTITY,
-      createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableView));
+
+    final var fieldNodes = mapEntityCreationDtoToFieldNodes(newEntity, saveStamp, tableView);
+
+    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.ENTITY, fieldNodes);
   }
 
-  private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
+  private IContainer<Node> mapEntityCreationDtoToFieldNodes(
     final EntityCreationDto newEntity,
     final long saveStamp,
     final TableSchemaViewDto tableView) {
@@ -41,8 +41,8 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
 
     final var attributes = new Node[size];
 
-    attributes[0] = createIdAttributeFrom(newEntity);
-    attributes[1] = createSaveStampAttribute(saveStamp);
+    attributes[0] = mapEntityCreationDtoToIdNode(newEntity);
+    attributes[1] = mapSaveStampToSaveStampNode(saveStamp);
     attributes[2] = Node.EMPTY_NODE;
     attributes[3] = Node.EMPTY_NODE;
 
@@ -62,11 +62,11 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     return ContainerView.forArray(attributes);
   }
 
-  private Node createIdAttributeFrom(final EntityCreationDto newEntity) {
+  private Node mapEntityCreationDtoToIdNode(final EntityCreationDto newEntity) {
     return Node.withHeader(newEntity.id());
   }
 
-  private Node createSaveStampAttribute(final long saveStamp) {
+  private Node mapSaveStampToSaveStampNode(final long saveStamp) {
     return Node.withHeader(saveStamp);
   }
 }
