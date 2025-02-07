@@ -8,13 +8,13 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-public abstract class BaseSubElement<E extends IMutableElement> implements IProperty {
+public abstract class AbstractSubElement<E extends IMutableElement> implements IProperty {
 
   private final String attributePrefix;
 
   private E internalSubElement;
 
-  protected BaseSubElement(
+  protected AbstractSubElement(
     final String attributePrefix,
     final E internalSubElement) {
 
