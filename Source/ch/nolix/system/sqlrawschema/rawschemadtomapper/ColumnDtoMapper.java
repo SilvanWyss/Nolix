@@ -16,6 +16,7 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
+import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableFieldIndexCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 
 /**
@@ -32,69 +33,73 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final ISqlRecord columnTableSqlRecord,
     final IContainer<TableReferenceDto> tableReferences) {
 
-    final var contentType = ContentType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(4));
+    final var contentType = ContentType
+      .valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX));
 
     return //
     switch (contentType) {
       case VALUE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new ValueModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5))));
+            DataType
+              .valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX))));
       case OPTIONAL_VALUE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new OptionalValueModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5))));
+            DataType
+              .valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX))));
       case MULTI_VALUE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new MultiValueModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5))));
+            DataType
+              .valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX))));
       case REFERENCE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new ReferenceModelDto(DataType.valueOf(
-            columnTableSqlRecord.getStoredAt1BasedIndex(5)),
+            columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
             tableReferences.to(TableReferenceDto::referencedTableId)));
       case OPTIONAL_REFERENCE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new OptionalReferenceModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
+            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
             tableReferences.to(TableReferenceDto::referencedTableId)));
       case MULTI_REFERENCE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new MultiReferenceModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
+            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
             tableReferences.to(TableReferenceDto::referencedTableId)));
       case BACK_REFERENCE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new BackReferenceModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
+            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
             columnTableSqlRecord.getStoredAt1BasedIndex(6)));
       case OPTIONAL_BACK_REFERENCE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new OptionalBackReferenceModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
+            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
             columnTableSqlRecord.getStoredAt1BasedIndex(6)));
       case MULTI_BACK_REFERENCE ->
         new ColumnDto(
-          columnTableSqlRecord.getStoredAt1BasedIndex(1),
-          columnTableSqlRecord.getStoredAt1BasedIndex(2),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
+          columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
           new MultiBackReferenceModelDto(
-            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(5)),
+            DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
             columnTableSqlRecord.getStoredAt1BasedIndex(6)));
       default ->
         throw InvalidArgumentException.forArgument(contentType);
