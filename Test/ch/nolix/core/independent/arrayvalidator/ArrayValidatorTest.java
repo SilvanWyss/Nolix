@@ -2,6 +2,7 @@ package ch.nolix.core.independent.arrayvalidator;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.independent.arraytool.ArrayValidator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ArrayValidatorTest extends StandardTest {

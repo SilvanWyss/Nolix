@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.independentapi.arrayvalidatorapi;
+package ch.nolix.coreapi.independentapi.arraytoolapi;
 
 /**
  * @author Silvan Wyss
