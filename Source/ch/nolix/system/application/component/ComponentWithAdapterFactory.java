@@ -6,12 +6,12 @@ import ch.nolix.coreapi.programcontrolapi.datasupplierapi.IDataSupplierFactory;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ComponentWithDataSupplier<C extends Controller<S>, S extends IDataSupplierFactory<T>, T>
+public abstract class ComponentWithAdapterFactory<C extends Controller<S>, S extends IDataSupplierFactory<T>, T>
 extends BaseComponent<C, S> {
 
   private IControl<?, ?> childControl;
 
-  protected ComponentWithDataSupplier(
+  protected ComponentWithAdapterFactory(
     final C controller,
     final T initialDataSupplier,
     final WebClientSession<S> webClientSession) {
