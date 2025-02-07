@@ -35,7 +35,7 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
    * @return the context of the parent {@link Application} of the current
    *         {@link AbstractBackendClient}.
    */
-  public final S getStoredApplicationContext() {
+  public final S getStoredApplicationService() {
     return getStoredParentApplication().getStoredApplicationService();
   }
 

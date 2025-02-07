@@ -98,8 +98,8 @@ implements IComponent {
     return HTML_BUILDER;
   }
 
-  protected final S getStoredApplicationContext() {
-    return getStoredController().getStoredApplicationContext();
+  protected final S getStoredApplicationService() {
+    return getStoredController().getStoredApplicationService();
   }
 
   protected final C getStoredController() {

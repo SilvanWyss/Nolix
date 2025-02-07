@@ -7,8 +7,8 @@ public abstract class Controller<AS> { //NOSONAR: This class is a base type that
 
   private WebClientSession<AS> webClientSession;
 
-  protected final AS getStoredApplicationContext() {
-    return getStoredWebClientSession().getStoredApplicationContext();
+  protected final AS getStoredApplicationService() {
+    return getStoredWebClientSession().getStoredApplicationService();
   }
 
   protected final WebClientSession<AS> getStoredWebClientSession() {

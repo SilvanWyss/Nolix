@@ -47,7 +47,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * @return the context of the parent {@link Application} of the parent
    *         {@link AbstractClient} of the current {@link AbstractSession}.
    */
-  public final S getStoredApplicationContext() {
+  public final S getStoredApplicationService() {
     return getStoredParentApplication().getStoredApplicationService();
   }
 

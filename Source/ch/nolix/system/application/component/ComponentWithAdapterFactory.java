@@ -43,7 +43,7 @@ extends BaseComponent<C, S> {
   protected abstract IControl<?, ?> createControl(C controller, A adapter);
 
   private A createAdapter() {
-    return getStoredApplicationContext().createAdapter();
+    return getStoredApplicationService().createAdapter();
   }
 
   private void rebuild(final A adapter) {
