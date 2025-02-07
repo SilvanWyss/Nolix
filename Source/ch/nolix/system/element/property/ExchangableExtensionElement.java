@@ -3,7 +3,7 @@ package ch.nolix.system.element.property;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
-extends BaseExtensionElement<E> {
+extends AbstractExtensionElement<E> {
 
   public ExchangableExtensionElement(final E internalExtensionElement) {
     super(internalExtensionElement);

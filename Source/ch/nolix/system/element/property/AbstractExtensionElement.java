@@ -7,11 +7,11 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
-public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
+public abstract class AbstractExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
 
   private E internalExtensionElement;
 
-  protected BaseExtensionElement(final E internalExtensionElement) {
+  protected AbstractExtensionElement(final E internalExtensionElement) {
     internalSetExtensionElement(internalExtensionElement);
   }
 
