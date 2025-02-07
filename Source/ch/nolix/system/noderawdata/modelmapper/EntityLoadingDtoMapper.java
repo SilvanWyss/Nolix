@@ -1,13 +1,9 @@
 package ch.nolix.system.noderawdata.modelmapper;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.modelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
-import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 
@@ -27,25 +23,8 @@ public final class EntityLoadingDtoMapper {
 
     final var id = ENTITY_NODE_SEARCHER.getIdFromEntityNode(entityNode);
     final var saveStamp = ENTITY_NODE_SEARCHER.getSaveStampFromEntityNode(entityNode);
-    final var contentFields = createContentFieldsFromEntityNode(entityNode, tableView);
+    final var contentFields = CONTENT_FIELD_DTO_MAPPER.mapEntityNodeToContentFieldDtos(entityNode, tableView);
 
     return new EntityLoadingDto(id, saveStamp, contentFields);
-  }
-
-  private IContainer<ContentFieldDto<Object>> createContentFieldsFromEntityNode(
-    final IMutableNode<?> entityNode,
-    final TableSchemaViewDto tableView) {
-
-    final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
-
-    for (final var c : tableView.columnSchemaViews()) {
-
-      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.oneBasedOrdinalIndex());
-      final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapContentFieldNodeToContentFieldDto(contentFieldNode, c);
-
-      contentFields.addAtEnd(contentFieldDto);
-    }
-
-    return contentFields;
   }
 }
