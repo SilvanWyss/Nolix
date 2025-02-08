@@ -63,8 +63,8 @@ public final class GlobalReflectionTool {
     return OBJECT_TOOL.getNameOfFirstFieldOfObjectThatStoresValue(object, value);
   }
 
-  public static IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
-    return CLASS_TOOL.getPublicStaticFieldValuesOfClass(paramClass);
+  public static IContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
+    return CLASS_TOOL.getStoredPublicStaticFieldValuesOfClass(paramClass);
   }
 
   public static <V> V getValueFromStaticField(final Field staticField) {

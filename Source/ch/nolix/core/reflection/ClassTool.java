@@ -5,17 +5,20 @@ import java.lang.reflect.Constructor;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.reflectionapi.IClassTool;
 
-public final class ClassTool {
+public final class ClassTool implements IClassTool {
 
   private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
+  @Override
   public <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
     return CONSTRUCTOR_TOOL.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
   }
 
+  @Override
   public <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
     try {
 
@@ -29,7 +32,8 @@ public final class ClassTool {
     }
   }
 
-  public IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
+  @Override
+  public IContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
 
     final var publicStaticFields = LinkedList.createEmpty();
 

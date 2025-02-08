@@ -21,7 +21,7 @@ final class PluralPascalCaseVariableCatalogTest extends StandardTest {
 
     //verification
     for (final var c : GlobalReflectionTool
-      .getPublicStaticFieldValuesOfClass(PluralPascalCaseVariableCatalog.class)) {
+      .getStoredPublicStaticFieldValuesOfClass(PluralPascalCaseVariableCatalog.class)) {
 
       expect(c).isOfType(String.class);
 

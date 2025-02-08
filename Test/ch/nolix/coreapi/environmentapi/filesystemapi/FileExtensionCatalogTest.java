@@ -11,7 +11,7 @@ final class FileExtensionCatalogTest extends StandardTest {
   void testCase_constants() {
 
     //verification
-    for (final var c : GlobalReflectionTool.getPublicStaticFieldValuesOfClass(FileExtensionCatalog.class)) {
+    for (final var c : GlobalReflectionTool.getStoredPublicStaticFieldValuesOfClass(FileExtensionCatalog.class)) {
       expect(c).isOfType(String.class);
     }
   }

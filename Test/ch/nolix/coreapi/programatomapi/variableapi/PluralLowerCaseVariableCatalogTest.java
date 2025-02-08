@@ -20,7 +20,8 @@ final class PluralLowerCaseVariableCatalogTest extends StandardTest {
     LinkedList.withElement(PluralLowerCaseVariableCatalog.GUIS, PluralLowerCaseVariableCatalog.URLS);
 
     //verification
-    for (final var c : GlobalReflectionTool.getPublicStaticFieldValuesOfClass(PluralLowerCaseVariableCatalog.class)) {
+    for (final var c : GlobalReflectionTool
+      .getStoredPublicStaticFieldValuesOfClass(PluralLowerCaseVariableCatalog.class)) {
 
       expect(c).isOfType(String.class);
 

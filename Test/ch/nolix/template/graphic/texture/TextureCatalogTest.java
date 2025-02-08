@@ -13,7 +13,8 @@ final class TextureCatalogTest extends StandardTest {
   void testCase_constantsOfTextureCatalog() {
 
     //verification
-    final var textures = GlobalReflectionTool.getPublicStaticFieldValuesOfClass(TextureCatalog.class);
+    final var textures = GlobalReflectionTool.getStoredPublicStaticFieldValuesOfClass(TextureCatalog.class);
+
     for (final var t : textures) {
 
       expect(t).isOfType(Image.class);
