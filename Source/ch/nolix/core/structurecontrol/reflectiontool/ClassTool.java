@@ -1,11 +1,11 @@
-package ch.nolix.core.structurecontrol.reflection;
+package ch.nolix.core.structurecontrol.reflectiontool;
 
 import java.lang.reflect.Constructor;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.structurecontrolapi.reflectionapi.IClassTool;
+import ch.nolix.coreapi.structurecontrolapi.reflectiontoolapi.IClassTool;
 
 public final class ClassTool implements IClassTool {
 

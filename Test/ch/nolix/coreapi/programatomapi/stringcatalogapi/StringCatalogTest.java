@@ -2,7 +2,7 @@ package ch.nolix.coreapi.programatomapi.stringcatalogapi;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.structurecontrol.reflection.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class StringCatalogTest extends StandardTest {

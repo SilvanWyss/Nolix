@@ -3,7 +3,7 @@ package ch.nolix.system.graphic.color;
 import java.lang.reflect.Field;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.structurecontrol.reflection.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 final class ColorConstantExtractor {
