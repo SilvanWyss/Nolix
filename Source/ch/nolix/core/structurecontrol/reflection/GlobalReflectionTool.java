@@ -9,6 +9,7 @@ import java.lang.reflect.Member;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.structurecontrol.reflectionexaminer.ExecutableExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -16,7 +17,7 @@ public final class GlobalReflectionTool {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
-  private static final ExecutableTool EXECUTABLE_TOOL = new ExecutableTool();
+  private static final ExecutableExaminer EXECUTABLE_TOOL = new ExecutableExaminer();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
@@ -28,7 +29,7 @@ public final class GlobalReflectionTool {
   }
 
   public static boolean allParametersOfMethodAreOfType(final Executable executable, final Class<?> type) {
-    return EXECUTABLE_TOOL.allParametersOfMethodAreOfType(executable, type);
+    return EXECUTABLE_TOOL.allParametersOfExecutableAreOfType(executable, type);
   }
 
   public static <T> T createInstanceFromDefaultConstructorOfClass(final Class<T> paramClass) {
