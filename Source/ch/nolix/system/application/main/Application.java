@@ -12,8 +12,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.reflection.ClassTool;
-import ch.nolix.core.reflection.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflection.ClassTool;
+import ch.nolix.core.structurecontrol.reflection.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
