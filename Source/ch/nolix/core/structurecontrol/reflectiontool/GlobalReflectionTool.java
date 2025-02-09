@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.structurecontrol.reflectionexaminer.ExecutableExaminer;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
+import ch.nolix.core.structurecontrol.reflectionexaminer.MemberExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
@@ -19,7 +20,7 @@ public final class GlobalReflectionTool {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
-  private static final MemberTool MEMBER_TOOL = new MemberTool();
+  private static final MemberExaminer MEMBER_EXAMINER = new MemberExaminer();
 
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
@@ -91,15 +92,15 @@ public final class GlobalReflectionTool {
   }
 
   public static boolean isPrivate(final Member member) {
-    return MEMBER_TOOL.isPrivate(member);
+    return MEMBER_EXAMINER.isPrivate(member);
   }
 
   public static boolean isProtected(final Member member) {
-    return MEMBER_TOOL.isProtected(member);
+    return MEMBER_EXAMINER.isProtected(member);
   }
 
   public static boolean isPublic(final Member member) {
-    return MEMBER_TOOL.isPublic(member);
+    return MEMBER_EXAMINER.isPublic(member);
   }
 
   public static boolean isStatic(final Field field) {
