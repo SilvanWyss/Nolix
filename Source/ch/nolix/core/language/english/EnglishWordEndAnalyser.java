@@ -1,4 +1,4 @@
-package ch.nolix.core.language;
+package ch.nolix.core.language.english;
 
 import ch.nolix.coreapi.languageapi.englishapi.IEnglishWordEndAnalyser;
 
