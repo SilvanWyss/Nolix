@@ -8,26 +8,32 @@ import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 public final class SslServer extends AbstractServer {
 
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-  //
   new NolixConfigurationSSLCertificateReader();
 
   private final ch.nolix.core.net.endpoint2.SslServer internalWebSocketServer;
 
-  public SslServer(final int port, final String HtmlPage, final ISslCertificate paramSSLCertificate) {
+  private SslServer(final int port, final String HtmlPage, final ISslCertificate paramSSLCertificate) {
 
     internalWebSocketServer = new ch.nolix.core.net.endpoint2.SslServer(port, HtmlPage, paramSSLCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
   }
 
-  public SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+  public static SslServer forPortAndHtmlPageAndSSLCertificate(
+    final int port,
+    final String htmlPage,
+    final ISslCertificate sslCertificate) {
+    return new SslServer(port, htmlPage, sslCertificate);
+  }
+
+  public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
 
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-      .getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var sslCertificate = //
+    NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
-    return new SslServer(port, htmlPage, paramSSLCertificate);
+    return new SslServer(port, htmlPage, sslCertificate);
   }
 
   @Override
