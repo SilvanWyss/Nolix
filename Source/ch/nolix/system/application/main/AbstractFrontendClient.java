@@ -10,9 +10,9 @@ import ch.nolix.core.net.endpoint3.NetEndPoint;
 /**
  * @author Silvan Wyss
  * @version 2022-03-18
- * @param <C> is the type of a {@link FrontendClient}.
+ * @param <C> is the type of a {@link AbstractFrontendClient}.
  */
-public abstract class FrontendClient<C extends FrontendClient<C>> extends AbstractClient<C> {
+public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>> extends AbstractClient<C> {
 
   /**
    * {@inheritDoc}
@@ -31,10 +31,10 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the given application.
+   * Connects the current {@link AbstractFrontendClient} to the given application.
    * 
    * @param application
-   * @throws InvalidArgumentException if the current {@link FrontendClient} is
+   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
    *                                  already connected.
    */
   protected final void connectTo(final Application<?, ?> application) {
@@ -47,11 +47,11 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the default
+   * Connects the current {@link AbstractFrontendClient} to the default
    * {@link Application} on the given server.
    * 
    * @param server
-   * @throws InvalidArgumentException if the current {@link FrontendClient} is
+   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
    *                                  already connected.
    */
   protected final void connectTo(final AbstractServer<?> server) {
@@ -64,12 +64,12 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the default
+   * Connects the current {@link AbstractFrontendClient} to the default
    * {@link Application} on the given port on the local computer.
    * 
    * @param port
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws InvalidArgumentException      if the current {@link FrontendClient}
+   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
    *                                       is already connected.
    */
   protected final void connectTo(final int port) {
@@ -77,7 +77,7 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the {@link Application} with
+   * Connects the current {@link AbstractFrontendClient} to the {@link Application} with
    * the given name on the given port on the local computer.
    * 
    * @param port
@@ -85,7 +85,7 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    * @throws ArgumentIsNullException       if the given name is null.
    * @throws EmptyArgumentException        if the given name is blank.
-   * @throws InvalidArgumentException      if the current {@link FrontendClient}
+   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
    *                                       is already connected.
    */
   protected final void connectTo(final int port, final String name) {
@@ -93,14 +93,14 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the {@link Application} with
+   * Connects the current {@link AbstractFrontendClient} to the {@link Application} with
    * the given instanceName on the given server.
    * 
    * @param server
    * @param instanceName
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws EmptyArgumentException   if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link FrontendClient} is
+   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
    *                                  already connected.
    */
   protected final void connectTo(final AbstractServer<?> server, final String instanceName) {
@@ -113,11 +113,11 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the default
+   * Connects the current {@link AbstractFrontendClient} to the default
    * {@link Application} on the HTTP port (80) on the computer with the given ip.
    * 
    * @param ip
-   * @throws InvalidArgumentException if the current {@link FrontendClient} is
+   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
    *                                  already connected.
    */
   protected final void connectTo(final String ip) {
@@ -125,13 +125,13 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the default
+   * Connects the current {@link AbstractFrontendClient} to the default
    * {@link Application} on given port on the computer with the given ip.
    * 
    * @param ip
    * @param port
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws InvalidArgumentException      if the current {@link FrontendClient}
+   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
    *                                       is already connected.
    */
   protected final void connectTo(final String ip, final int port) {
@@ -139,7 +139,7 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
   }
 
   /**
-   * Connects the current {@link FrontendClient} to the {@link Application} with
+   * Connects the current {@link AbstractFrontendClient} to the {@link Application} with
    * the given name on the given port on the computer with the given ip.
    * 
    * @param ip
@@ -148,7 +148,7 @@ public abstract class FrontendClient<C extends FrontendClient<C>> extends Abstra
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    * @throws ArgumentIsNullException       if the given name is null.
    * @throws EmptyArgumentException        if the given name is blank.
-   * @throws InvalidArgumentException      if the current {@link FrontendClient}
+   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
    *                                       is already connected.
    */
   protected final void connectTo(final String ip, final int port, final String name) {
