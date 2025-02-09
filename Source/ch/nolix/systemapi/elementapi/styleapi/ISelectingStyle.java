@@ -3,7 +3,7 @@ package ch.nolix.systemapi.elementapi.styleapi;
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**
- * A {@link ISelectingStyle} is a {@link IBaseStyle} that can select or skip a
+ * A {@link ISelectingStyle} is a {@link IAbstractStyle} that can select or skip a
  * {@link IStylableElement} that is given to be styled.
  * 
  * @author Silvan Wyss
@@ -11,7 +11,7 @@ import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPa
  * @param <S> is the type of a {@link ISelectingStyle}.
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyle<S> {
+public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IAbstractStyle<S> {
 
   /**
    * @return true if the current {@link ISelectingStyle} would select the child

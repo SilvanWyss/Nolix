@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 public abstract class BaseSelectingStyle
-extends BaseStyle<ISelectingStyleWithSelectors>
+extends AbstractStyle<ISelectingStyleWithSelectors>
 implements ISelectingStyleWithSelectors {
 
   protected static final String SELECTOR_ID_HEADER = "SelectorId";

@@ -9,16 +9,16 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
+import ch.nolix.systemapi.elementapi.styleapi.IAbstractStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <S> is the type of a {@link BaseStyle}.
+ * @param <S> is the type of a {@link AbstractStyle}.
  */
-abstract class BaseStyle<S extends IBaseStyle<S>> extends AbstractElement implements IBaseStyle<S> {
+abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElement implements IAbstractStyle<S> {
 
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
@@ -27,12 +27,12 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends AbstractElement implem
   private final ImmutableList<BaseSelectingStyle> subStyles;
 
   /**
-   * Creates a new {@link BaseStyle}.
+   * Creates a new {@link AbstractStyle}.
    * 
    * @param attachingAttributes
    * @param subStyles
    */
-  protected BaseStyle(
+  protected AbstractStyle(
     final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
@@ -149,12 +149,12 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends AbstractElement implem
   }
 
   /**
-   * Sets the attaching attributes of the current {@link BaseStyle} to the given
+   * Sets the attaching attributes of the current {@link AbstractStyle} to the given
    * element.
    * 
    * @param element
    * @throws InvalidArgumentException if an attaching attribute of the current
-   *                                  {@link BaseStyle} is not valid for the given
+   *                                  {@link AbstractStyle} is not valid for the given
    *                                  element.
    */
   protected final void setAttachingAttributesToElement(IStylableElement<?> element) {
@@ -176,7 +176,7 @@ abstract class BaseStyle<S extends IBaseStyle<S>> extends AbstractElement implem
   }
 
   /**
-   * Lets the sub styles of the current {@link BaseStyle} style the child element
+   * Lets the sub styles of the current {@link AbstractStyle} style the child element
    * of the given element.
    * 
    * @param element

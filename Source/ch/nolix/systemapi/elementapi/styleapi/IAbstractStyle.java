@@ -5,35 +5,35 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 /**
- * A {@link IBaseStyle} can style {@link IStylableElement}s. A
- * {@link IBaseStyle} can distinguish if it would style also the child elements
+ * A {@link IAbstractStyle} can style {@link IStylableElement}s. A
+ * {@link IAbstractStyle} can distinguish if it would style also the child elements
  * of a given {@link IStylableElement}.
  * 
  * @author Silvan Wyss
  * @version 2023-07-09
- * @param <S> is the type of a {@link IBaseStyle}.
+ * @param <S> is the type of a {@link IAbstractStyle}.
  */
-public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
+public interface IAbstractStyle<S extends IAbstractStyle<S>> extends IElement {
 
   /**
-   * Applies the current {@link IBaseStyle} to the given element.
+   * Applies the current {@link IAbstractStyle} to the given element.
    * 
    * @param element
    */
   void applyToElement(IStylableElement<?> element);
 
   /**
-   * @return the attaching attributes of the current {@link IBaseStyle}.
+   * @return the attaching attributes of the current {@link IAbstractStyle}.
    */
   IContainer<? extends IAttachingAttribute> getAttachingAttributes();
 
   /**
-   * @return the sub styles of the current {@link IBaseStyle}.
+   * @return the sub styles of the current {@link IAbstractStyle}.
    */
   IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
 
   /**
-   * @return true if the current {@link IBaseStyle} has attaching attributes,
+   * @return true if the current {@link IAbstractStyle} has attaching attributes,
    *         false otherwise.
    */
   boolean hasAttachingAttributes();
@@ -73,7 +73,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param selectorType
    * @param newAttachingAttributes
-   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
+   * @return a new {@link IAbstractStyle} from the current {@link IAbstractStyle} where
    *         each of the given newAttachingAttributes was either added or updated
    *         the according attachingAttributes where the given selectorType is.
    */
@@ -83,7 +83,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @param selectorType
    * @param newAttachingAttribute
    * @param newAttachingAttributes
-   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
+   * @return a new {@link IAbstractStyle} from the current {@link IAbstractStyle} where
    *         the newAttachingAttribute and each of the given
    *         newAttachingAttributes either was added or updated the according
    *         attachingAttributes where the given selectorType is.

@@ -23,7 +23,7 @@ import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
  * @author Silvan Wyss
  * @version 2016-02-01
  */
-public final class Style extends BaseStyle<IStyle> implements IStyle {
+public final class Style extends AbstractStyle<IStyle> implements IStyle {
 
   private static final IAttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
