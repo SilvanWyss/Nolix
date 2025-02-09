@@ -12,6 +12,8 @@ public interface ISchemaStatementCreator {
 
   String createStatementToAddTableReference(TableReferenceDto tableReferenceDto);
 
+  String createStatementToAddTable(String tableId, String tableName);
+
   IContainer<String> createStatementsToAddTable(TableDto table);
 
   String createStatementToDeleteColumn(String tableName, String columnName);

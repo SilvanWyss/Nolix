@@ -79,12 +79,27 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return statements;
   }
 
+  public String createStatementToAddTable(final String tableId, final String tableName) {
+    return //
+    "INSERT INTO "
+    + FixTableType.TABLE.getQualifiedName()
+    + " ("
+    + TableTableColumn.ID.getName()
+    + ", "
+    + TableTableColumn.NAME.getName()
+    + ") VALUES ('"
+    + tableId
+    + "', '"
+    + tableName
+    + "')";
+  }
+
   @Override
   public ILinkedList<String> createStatementsToAddTable(final TableDto table) {
 
     final ILinkedList<String> statements = LinkedList.createEmpty();
 
-    statements.addAtEnd(createStatementToAddTableIgnoringColumns(table));
+    statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
 
     for (final var c : table.columns()) {
       statements.addAtEnd(createStatementsToAddColumn(table.name(), c));
@@ -195,20 +210,5 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + " = '"
     + tableName
     + "'";
-  }
-
-  private String createStatementToAddTableIgnoringColumns(final TableDto tableDto) {
-    return //
-    "INSERT INTO "
-    + FixTableType.TABLE.getQualifiedName()
-    + " ("
-    + TableTableColumn.ID.getName()
-    + ", "
-    + TableTableColumn.NAME.getName()
-    + ") VALUES ('"
-    + tableDto.id()
-    + "', '"
-    + tableDto.name()
-    + "')";
   }
 }
