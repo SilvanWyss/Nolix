@@ -23,8 +23,7 @@ public final class DatabaseSchemaViewDtoMapper implements IDatabaseSchemaViewDto
   @Override
   public DatabaseSchemaViewDto mapTableNodeToTableViewDto(final IMutableNode<?> nodeDatabase) {
 
-    //TODO: Add database name to node databases
-    final var databaseName = "database";
+    final var databaseName = DATABASE_NODE_SEARCHER.getNameFromNodeDatabase(nodeDatabase);
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
     final var tableSchemaViews = tableNodes.to(TABLE_SCHEMA_VIEW_DTO_MAPPER::mapTableNodeToTableViewDto);
 

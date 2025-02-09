@@ -5,6 +5,8 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface IDatabaseNodeSearcher {
 
+  String getNameFromNodeDatabase(IMutableNode<?> nodeDatabase);
+
   IMutableNode<?> getStoredColumnNodeByColumnIdFromNodeDatabase(IMutableNode<?> nodeDatabase, String columnId);
 
   IMutableNode<?> getStoredDatabasePropertiesNodeFromNodeDatabase(IMutableNode<?> nodeDatabase);

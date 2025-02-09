@@ -3,13 +3,27 @@ package ch.nolix.system.noderawschema.nodesearcher;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.ITableNodeSearcher;
 
 public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
 
-  private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+  new DatabasePropertiesNodeSearcher();
 
-  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
+
+  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
+
+  @Override
+  public String getNameFromNodeDatabase(IMutableNode<?> nodeDatabase) {
+
+    final var databasePropertiesNode = getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
+
+    return DATABASE_PROPERTIES_NODE_SEARCHER.getNameFromDatabasePropertiesNode(databasePropertiesNode);
+  }
 
   @Override
   public IMutableNode<?> getStoredColumnNodeByColumnIdFromNodeDatabase(
