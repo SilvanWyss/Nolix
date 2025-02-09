@@ -4,14 +4,16 @@ import java.lang.reflect.Constructor;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
 import ch.nolix.coreapi.structurecontrolapi.reflectiontoolapi.IClassTool;
 
 public final class ClassTool implements IClassTool {
 
-  private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
-  private static final FieldTool FIELD_TOOL = new FieldTool();
+  private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
 
   @Override
   public <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
@@ -41,7 +43,7 @@ public final class ClassTool implements IClassTool {
     for (final var f : paramClass.getDeclaredFields()) {
 
       //Handles the case that the current field is .
-      if (FIELD_TOOL.isStatic(f) && GlobalReflectionTool.isPublic(f)) {
+      if (FIELD_EXAMINER.isStatic(f) && GlobalReflectionTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));
         } catch (final IllegalAccessException illegalAccessException) {

@@ -10,18 +10,22 @@ import java.lang.reflect.Member;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.structurecontrol.reflectionexaminer.ExecutableExaminer;
+import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
 
 public final class GlobalReflectionTool {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
-  private static final ExecutableExaminer EXECUTABLE_TOOL = new ExecutableExaminer();
+  private static final MemberTool MEMBER_TOOL = new MemberTool();
+
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private static final FieldTool FIELD_TOOL = new FieldTool();
 
-  private static final MemberTool MEMBER_TOOL = new MemberTool();
+  private static final ExecutableExaminer EXECUTABLE_TOOL = new ExecutableExaminer();
 
   private static final ObjectTool OBJECT_TOOL = new ObjectTool();
 
@@ -99,7 +103,7 @@ public final class GlobalReflectionTool {
   }
 
   public static boolean isStatic(final Field field) {
-    return FIELD_TOOL.isStatic(field);
+    return FIELD_EXAMINER.isStatic(field);
   }
 
   public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {

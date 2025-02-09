@@ -1,19 +1,22 @@
 package ch.nolix.core.structurecontrol.reflectiontool;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
 
 public final class FieldTool {
+
+  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @SuppressWarnings("unchecked")
   public <V> V getValueFromStaticField(final Field paramField) {
 
-    if (!isStatic(paramField)) {
+    if (!FIELD_EXAMINER.isStatic(paramField)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(paramField, "is not ");
     }
 
@@ -29,22 +32,13 @@ public final class FieldTool {
     return type.isAssignableFrom(field.getType());
   }
 
-  public boolean isStatic(final Field field) {
-
-    if (field == null) {
-      throw ArgumentIsNullException.forArgumentType(Field.class);
-    }
-
-    return Modifier.isStatic(field.getModifiers());
-  }
-
   public boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TYPE);
     }
 
-    if (!isStatic(field)) {
+    if (!FIELD_EXAMINER.isStatic(field)) {
       return false;
     }
 
