@@ -1,6 +1,7 @@
 package ch.nolix.system.noderawschema.databaseinitializer;
 
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databaseinitializerapi.IDatabaseComponentCreator;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
@@ -16,11 +17,11 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> createDatabasePropertiesNodeWithInitialSchemaTimeStamp(
-    final String name,
+  public IMutableNode<?> createDatabasePropertiesNodeWithDatabaseNameAndInitialSchemaTimeStamp(
+    final String databaseName,
     final ITime initialSchemaTimeStamp) {
 
-    final var nameNode = createNameNodeWithName(name);
+    final var nameNode = createNameNodeWithName(databaseName);
     final var schemaTimestampNode = createSchemaTimestampNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp);
 
     return //
@@ -43,7 +44,10 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
    */
   @Override
   public IMutableNode<?> createNameNodeWithName(final String name) {
-    return MutableNode.createEmpty().setHeader(name);
+    return MutableNode
+      .createEmpty()
+      .setHeader(NodeHeaderCatalog.NAME)
+      .addChildNode(Node.withHeader(name));
   }
 
   /**

@@ -73,7 +73,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimeStamp) {
 
     final var databasePropertiesNode = //
-    DATABASE_COMPONENT_CREATOR.createDatabasePropertiesNodeWithInitialSchemaTimeStamp(
+    DATABASE_COMPONENT_CREATOR.createDatabasePropertiesNodeWithDatabaseNameAndInitialSchemaTimeStamp(
       databaseName,
       initialSchemaTimeStamp);
 
