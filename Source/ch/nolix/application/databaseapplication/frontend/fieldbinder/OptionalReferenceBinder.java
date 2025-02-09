@@ -1,9 +1,9 @@
 package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
-import ch.nolix.system.webgui.itemmenu.DropdownMenu;
+import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;
 
 public final class OptionalReferenceBinder
 extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {

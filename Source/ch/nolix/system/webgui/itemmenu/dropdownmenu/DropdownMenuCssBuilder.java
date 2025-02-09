@@ -1,9 +1,10 @@
-package ch.nolix.system.webgui.itemmenu;
+package ch.nolix.system.webgui.itemmenu.dropdownmenu;
 
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
+import ch.nolix.system.webgui.itemmenu.ItemMenuCssBuilder;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class DropdownMenuCssBuilder extends ItemMenuCssBuilder<IDropdownMenu, IDropdownMenuStyle> {

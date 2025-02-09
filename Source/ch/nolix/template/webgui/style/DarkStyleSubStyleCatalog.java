@@ -8,7 +8,7 @@ import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.container.Grid;
-import ch.nolix.system.webgui.itemmenu.DropdownMenu;
+import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.LinearContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
