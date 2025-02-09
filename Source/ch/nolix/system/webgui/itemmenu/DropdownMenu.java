@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuStyle> implements IDropdownMenu {
+public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdownMenuStyle> implements IDropdownMenu {
 
   private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
 

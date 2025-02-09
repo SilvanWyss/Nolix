@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
+public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {
 
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
