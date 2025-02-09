@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.wordapi.EnglishArticleCatalog;
 
 public final class EnglishNounTool {
 
-  private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
+  private static final EnglishWordEndAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishWordEndAnalyser();
 
   public String getArticleOfNoun(final String noun) {
 

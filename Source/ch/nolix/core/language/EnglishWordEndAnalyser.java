@@ -1,6 +1,6 @@
 package ch.nolix.core.language;
 
-public final class EnglishPostfixAnalyser {
+public final class EnglishWordEndAnalyser {
 
   public boolean endsWithVocalAndY(final String noun) {
     return //
