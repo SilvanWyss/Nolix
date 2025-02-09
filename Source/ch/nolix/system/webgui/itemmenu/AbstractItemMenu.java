@@ -4,7 +4,6 @@ import java.util.function.Consumer;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -15,12 +14,15 @@ import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuValidator;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {
 
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
+
+  private static final IItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
   private final MultiValue<IItemMenuItem<?>> items = new MultiValue<>(
     ITEM_HEADER,
@@ -42,7 +44,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
     for (final var i : allItems) {
 
-      assertCanAddItem(i);
+      ITEM_MENU_VALIDATOR.assertCanAddItem(this, i);
 
       i.internalSetParentMenu(this);
       this.items.add(i);
@@ -119,7 +121,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   }
 
   @Override
-  public boolean containsSelectedItem() {
+  public final boolean containsSelectedItem() {
     return getStoredItems().containsAny(IItemMenuItem::isSelected);
   }
 
@@ -174,7 +176,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   }
 
   @Override
-  public void runHtmlEvent(final String htmlEvent) {
+  public final void runHtmlEvent(final String htmlEvent) {
     GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onchange");
   }
 
@@ -254,27 +256,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
     removeSelectAction();
 
     setCursorIcon(CursorIcon.HAND);
-  }
-
-  private void assertCanAddItem(final IItemMenuItem<?> item) {
-    assertDoesNotContainItemWithId(item.getId());
-    assertDoesNotContainItemWithText(item.getText());
-  }
-
-  private void assertDoesNotContainItemWithId(final String id) {
-    if (containsItemWithId(id)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        this,
-        "contains already an item with the id '" + id + "'");
-    }
-  }
-
-  private void assertDoesNotContainItemWithText(final String text) {
-    if (containsItemWithText(text)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        this,
-        "contains already an item with the text '" + text + "'");
-    }
   }
 
   private IItemMenuItem<?> getStoredBlankItem() {
