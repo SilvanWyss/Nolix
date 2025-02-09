@@ -36,8 +36,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  private static final EntityLoader ENTITY_LOADER = new EntityLoader();
-
   private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
@@ -257,7 +255,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {
 
-    final var entity = ENTITY_LOADER.loadEntityById(this, id, internalGetStoredDataAndSchemaAdapter());
+    final var entity = EntityLoader.loadEntityById(this, id, internalGetStoredDataAndSchemaAdapter());
 
     entitiesInLocalData.addAtEnd(entity);
   }
