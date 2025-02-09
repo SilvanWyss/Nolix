@@ -1,12 +1,12 @@
 package ch.nolix.core.language.english;
 
-import ch.nolix.coreapi.languageapi.englishapi.IEnglishWordEndAnalyser;
+import ch.nolix.coreapi.languageapi.englishapi.IEnglishWordEndExaminer;
 
 /**
  * @author Silvan Wyss
  * @version 2023-12-17
  */
-public final class EnglishWordEndAnalyser implements IEnglishWordEndAnalyser {
+public final class EnglishWordEndExaminer implements IEnglishWordEndExaminer {
 
   /**
    * @param word

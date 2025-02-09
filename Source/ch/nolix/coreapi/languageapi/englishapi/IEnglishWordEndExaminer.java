@@ -4,7 +4,7 @@ package ch.nolix.coreapi.languageapi.englishapi;
  * @author Silvan Wyss
  * @version 2025-02-09
  */
-public interface IEnglishWordEndAnalyser {
+public interface IEnglishWordEndExaminer {
 
   /**
    * @param word

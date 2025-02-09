@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.wordapi.EnglishArticleCatalog;
 
 public final class EnglishNounTool {
 
-  private static final EnglishWordEndAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishWordEndAnalyser();
+  private static final EnglishWordEndExaminer ENGLISH_WORD_END_EXAMINER = new EnglishWordEndExaminer();
 
   public String getArticleOfNoun(final String noun) {
 
@@ -78,7 +78,7 @@ public final class EnglishNounTool {
       return (noun + "es");
     }
 
-    if (ENGLISH_POSTFIX_ANALYSER.endsWithVocalAndY(noun) || noun.endsWith("ff")) {
+    if (ENGLISH_WORD_END_EXAMINER.endsWithVocalAndY(noun) || noun.endsWith("ff")) {
       return (noun + "s");
     }
 
