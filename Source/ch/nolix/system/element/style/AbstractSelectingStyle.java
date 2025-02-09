@@ -13,7 +13,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-public abstract class BaseSelectingStyle
+public abstract class AbstractSelectingStyle
 extends AbstractStyle<ISelectingStyleWithSelectors>
 implements ISelectingStyleWithSelectors {
 
@@ -33,7 +33,7 @@ implements ISelectingStyleWithSelectors {
 
   private final ImmutableList<String> selectorTokens;
 
-  protected BaseSelectingStyle(
+  protected AbstractSelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
     IContainer<String> selectorRoles,

@@ -22,7 +22,7 @@ import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class DeepSelectingStyle extends BaseSelectingStyle {
+public final class DeepSelectingStyle extends AbstractSelectingStyle {
 
   public static final String TYPE_NAME = "DeepSelectingStyle";
 
@@ -76,7 +76,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     final ILinkedList<String> selectorRoles = LinkedList.createEmpty();
     final ILinkedList<String> selectorTokens = LinkedList.createEmpty();
     final ILinkedList<IAttachingAttribute> attachingAttributes = LinkedList.createEmpty();
-    final ILinkedList<BaseSelectingStyle> subStyles = LinkedList.createEmpty();
+    final ILinkedList<AbstractSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {

@@ -24,7 +24,7 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
 
   private final ImmutableList<AttachingAttribute> attachingAttributes;
 
-  private final ImmutableList<BaseSelectingStyle> subStyles;
+  private final ImmutableList<AbstractSelectingStyle> subStyles;
 
   /**
    * Creates a new {@link AbstractStyle}.
@@ -190,9 +190,9 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
 
   /**
    * @param selectingStyle
-   * @return a {@link BaseSelectingStyle} from the given selectingStyle.
+   * @return a {@link AbstractSelectingStyle} from the given selectingStyle.
    */
-  private BaseSelectingStyle createSelectingStyleFromSelectingStyle(final ISelectingStyleWithSelectors selectingStyle) {
+  private AbstractSelectingStyle createSelectingStyleFromSelectingStyle(final ISelectingStyleWithSelectors selectingStyle) {
 
     if (selectingStyle instanceof final SelectingStyle elementSelectingStyle) {
       return elementSelectingStyle;

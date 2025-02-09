@@ -68,7 +68,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   public static Style fromSpecification(final INode<?> specification) {
 
     final ILinkedList<IAttachingAttribute> attachingAttributes = LinkedList.createEmpty();
-    final ILinkedList<BaseSelectingStyle> subStyles = LinkedList.createEmpty();
+    final ILinkedList<AbstractSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
