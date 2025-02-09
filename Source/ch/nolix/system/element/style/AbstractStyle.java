@@ -8,8 +8,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IAbstractStyle;
+import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
@@ -149,13 +149,13 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   }
 
   /**
-   * Sets the attaching attributes of the current {@link AbstractStyle} to the given
-   * element.
+   * Sets the attaching attributes of the current {@link AbstractStyle} to the
+   * given element.
    * 
    * @param element
    * @throws InvalidArgumentException if an attaching attribute of the current
-   *                                  {@link AbstractStyle} is not valid for the given
-   *                                  element.
+   *                                  {@link AbstractStyle} is not valid for the
+   *                                  given element.
    */
   protected final void setAttachingAttributesToElement(IStylableElement<?> element) {
     for (final var aa : getAttachingAttributes()) {
@@ -176,8 +176,8 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   }
 
   /**
-   * Lets the sub styles of the current {@link AbstractStyle} style the child element
-   * of the given element.
+   * Lets the sub styles of the current {@link AbstractStyle} style the child
+   * element of the given element.
    * 
    * @param element
    */
@@ -192,7 +192,8 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    * @param selectingStyle
    * @return a {@link AbstractSelectingStyle} from the given selectingStyle.
    */
-  private AbstractSelectingStyle createSelectingStyleFromSelectingStyle(final ISelectingStyleWithSelectors selectingStyle) {
+  private AbstractSelectingStyle createSelectingStyleFromSelectingStyle(
+    final ISelectingStyleWithSelectors selectingStyle) {
 
     if (selectingStyle instanceof final SelectingStyle elementSelectingStyle) {
       return elementSelectingStyle;
