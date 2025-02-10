@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.webgui.itemmenu.AbstractItemMenu;
+import ch.nolix.system.webgui.itemmenu.base.AbstractItemMenu;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;

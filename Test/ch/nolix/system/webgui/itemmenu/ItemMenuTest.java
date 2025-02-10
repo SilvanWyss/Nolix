@@ -2,10 +2,11 @@ package ch.nolix.system.webgui.itemmenu;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.system.webgui.itemmenu.base.ItemMenuItem;
 import ch.nolix.system.webgui.main.ControlTest;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuStyle;
 
 abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
 

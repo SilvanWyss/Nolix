@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.itemmenuapi;
+package ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi;
 
 /**
  * @author Silvan Wyss

@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.itemmenu;
+package ch.nolix.system.webgui.itemmenu.base;
 
 import java.util.function.Consumer;
 
@@ -13,8 +13,8 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
 import ch.nolix.system.element.property.Value;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
 
 public final class ItemMenuItem extends MutableElement implements IItemMenuItem<ItemMenuItem> {
 

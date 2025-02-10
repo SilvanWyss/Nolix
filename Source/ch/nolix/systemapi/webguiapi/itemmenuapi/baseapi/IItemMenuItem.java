@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webguiapi.itemmenuapi;
+package ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
