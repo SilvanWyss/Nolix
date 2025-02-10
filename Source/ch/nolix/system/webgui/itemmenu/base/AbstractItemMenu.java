@@ -13,6 +13,7 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuSearcher;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuValidator;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -21,6 +22,8 @@ public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IIte
 extends Control<M, S> implements IItemMenu<M, S> {
 
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
+
+  private static final IItemMenuSearcher ITEM_MENU_SEARCHER = new ItemMenuSearcher();
 
   private static final IItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
@@ -97,7 +100,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final boolean blankItemIsSelected() {
-    return (containsBlankItem() && getStoredBlankItem().isSelected());
+    return //
+    containsBlankItem()
+    && ITEM_MENU_SEARCHER.getStoredBlankItem(this).isSelected();
   }
 
   @Override
@@ -127,7 +132,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final String getIdByItemText(final String itemText) {
-    return getStoredItemByText(itemText).getId();
+    return ITEM_MENU_SEARCHER.getStoredItemByText(this, itemText).getId();
   }
 
   @Override
@@ -147,7 +152,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final String getTextByItemId(final String itemId) {
-    return getStoredItemById(itemId).getText();
+    return ITEM_MENU_SEARCHER.getStoredItemById(this, itemId).getText();
   }
 
   @Override
@@ -183,7 +188,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final M selectBlankItem() {
 
-    getStoredBlankItem().select();
+    final var blankItem = ITEM_MENU_SEARCHER.getStoredBlankItem(this);
+
+    blankItem.select();
 
     return asConcrete();
   }
@@ -191,7 +198,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final M selectFirstItem() {
 
-    getStoredFirstItem().select();
+    final var firstItem = ITEM_MENU_SEARCHER.getStoredFirstItem(this);
+
+    firstItem.select();
 
     return asConcrete();
   }
@@ -199,7 +208,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final M selectItemById(final String id) {
 
-    getStoredItemById(id).select();
+    final var item = ITEM_MENU_SEARCHER.getStoredItemById(this, id);
+
+    item.select();
 
     return asConcrete();
   }
@@ -207,7 +218,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final M selectItemByText(final String text) {
 
-    getStoredItemByText(text).select();
+    final var item = ITEM_MENU_SEARCHER.getStoredItemByText(this, text);
+
+    item.select();
 
     return asConcrete();
   }
@@ -236,7 +249,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
     if (userInput.isEmpty()) {
       getStoredItems().forEach(IItemMenuItem::unselect);
     } else {
-      getStoredItemByText(userInput).select();
+      selectItemByText(userInput);
     }
 
     return asConcrete();
@@ -256,22 +269,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
     removeSelectAction();
 
     setCursorIcon(CursorIcon.HAND);
-  }
-
-  private IItemMenuItem<?> getStoredBlankItem() {
-    return getStoredItems().getStoredFirst(IItemMenuItem::isBlank);
-  }
-
-  private IItemMenuItem<?> getStoredFirstItem() {
-    return getStoredItems().getStoredFirst();
-  }
-
-  private IItemMenuItem<?> getStoredItemById(final String itemId) {
-    return getStoredItems().getStoredFirst(i -> i.hasId(itemId));
-  }
-
-  private IItemMenuItem<?> getStoredItemByText(final String itemText) {
-    return getStoredItems().getStoredFirst(i -> i.getText().equals(itemText));
   }
 
   private boolean hasSelectAction() {
