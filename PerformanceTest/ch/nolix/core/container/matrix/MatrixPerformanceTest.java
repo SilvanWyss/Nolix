@@ -3,7 +3,7 @@ package ch.nolix.core.container.matrix;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
@@ -22,7 +22,7 @@ final class MatrixPerformanceTest extends PerformanceTest {
 
       final ILinkedList<Integer> row = LinkedList.createEmpty();
 
-      GlobalSequencer.forCount(rowAndColumnCount).run(j -> row.addAtEnd(j - (j % 5)));
+      GlobalFlowController.forCount(rowAndColumnCount).run(j -> row.addAtEnd(j - (j % 5)));
 
       matrix.addRow(row);
     }

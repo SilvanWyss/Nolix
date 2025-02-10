@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.sequencer;
+package ch.nolix.core.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
@@ -12,22 +12,22 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
- * The {@link GlobalSequencer} provides methods for flow control. Of the
- * {@link GlobalSequencer} an instance cannot be created.
+ * The {@link GlobalFlowController} provides methods for flow control. Of the
+ * {@link GlobalFlowController} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-06-01
  */
-public final class GlobalSequencer {
+public final class GlobalFlowController {
 
   private static final JobPool JOB_POOL = new JobPool();
 
   private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
 
   /**
-   * Prevents that an instance of the {@link GlobalSequencer} can be created.
+   * Prevents that an instance of the {@link GlobalFlowController} can be created.
    */
-  private GlobalSequencer() {
+  private GlobalFlowController() {
   }
 
   /**

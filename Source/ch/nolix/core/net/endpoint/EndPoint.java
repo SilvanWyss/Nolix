@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -87,7 +87,7 @@ public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
       return receiver;
     }
 
-    GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceiver);
+    GlobalFlowController.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceiver);
 
     assertHasReceiver();
 

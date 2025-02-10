@@ -7,7 +7,7 @@ import java.net.SocketException;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 
@@ -95,6 +95,6 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
    * @param socket
    */
   private void handleSocket(final Socket socket) {
-    GlobalSequencer.runInBackground(() -> SOCKET_HANDLER.handleSocketForServer(socket, parentServer));
+    GlobalFlowController.runInBackground(() -> SOCKET_HANDLER.handleSocketForServer(socket, parentServer));
   }
 }

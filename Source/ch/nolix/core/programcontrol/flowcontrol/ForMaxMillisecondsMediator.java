@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.sequencer;
+package ch.nolix.core.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
@@ -109,7 +109,7 @@ public final class ForMaxMillisecondsMediator {
     final var startTimeInMilliseconds = System.currentTimeMillis();
     final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 
-    GlobalSequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getAsBoolean());
+    GlobalFlowController.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getAsBoolean());
   }
 
   /**

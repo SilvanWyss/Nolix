@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class NetEndPointTest extends StandardTest {
@@ -24,7 +24,7 @@ final class NetEndPointTest extends StandardTest {
       expectRunning(
         () -> {
           try (final var result = new NetEndPoint(port)) {
-            GlobalSequencer.waitForMilliseconds(1);
+            GlobalFlowController.waitForMilliseconds(1);
           }
         })
         .doesNotThrowException();

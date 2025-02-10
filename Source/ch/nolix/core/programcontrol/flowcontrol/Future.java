@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.sequencer;
+package ch.nolix.core.programcontrol.flowcontrol;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -65,7 +65,7 @@ public final class Future extends AbstractFuture {
    */
   @Override
   public void waitUntilIsFinished() {
-    GlobalSequencer.waitUntil(this::isFinished);
+    GlobalFlowController.waitUntil(this::isFinished);
   }
 
   /**
@@ -76,7 +76,7 @@ public final class Future extends AbstractFuture {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    GlobalSequencer.asLongAs(
+    GlobalFlowController.asLongAs(
       () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
       && isRunning());
 

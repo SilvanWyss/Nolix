@@ -8,9 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -97,7 +97,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    GlobalSequencer.waitAsLongAs(
+    GlobalFlowController.waitAsLongAs(
       () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
       && isRunning());
 

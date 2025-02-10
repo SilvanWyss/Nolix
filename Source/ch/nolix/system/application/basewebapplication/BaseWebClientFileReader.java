@@ -6,7 +6,7 @@ import java.util.Optional;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
@@ -86,7 +86,7 @@ final class BaseWebClientFileReader {
 
       parentBackendWebClient.internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
 
-      GlobalSequencer
+      GlobalFlowController
         .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
         .waitAsLongAs(this::isWaitingForFileFromCounterpart);
 

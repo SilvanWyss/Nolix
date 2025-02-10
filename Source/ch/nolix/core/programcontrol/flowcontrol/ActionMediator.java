@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.sequencer;
+package ch.nolix.core.programcontrol.flowcontrol;
 
 /**
  * @author Silvan Wyss

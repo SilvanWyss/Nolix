@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.sequencer;
+package ch.nolix.core.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
@@ -19,7 +19,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public AsLongAsMediator asLongAs(final BooleanSupplier condition) {
-    return GlobalSequencer.asLongAs(condition);
+    return GlobalFlowController.asLongAs(condition);
   }
 
   /**
@@ -28,7 +28,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public AsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
-    return GlobalSequencer.asSoonAs(condition);
+    return GlobalFlowController.asSoonAs(condition);
   }
 
   /**
@@ -38,7 +38,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public AsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
-    return GlobalSequencer.asSoonAsNoMore(condition);
+    return GlobalFlowController.asSoonAsNoMore(condition);
   }
 
   /**
@@ -49,7 +49,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public IFuture enqueue(final Runnable job) {
-    return GlobalSequencer.enqueue(job);
+    return GlobalFlowController.enqueue(job);
   }
 
   /**
@@ -58,7 +58,7 @@ public final class SequencerMediator {
    * @throws NegativeArgumentException if the given max run count is negative.
    */
   public ForCountMediator forCount(final int maxRunCount) {
-    return GlobalSequencer.forCount(maxRunCount);
+    return GlobalFlowController.forCount(maxRunCount);
   }
 
   /**
@@ -69,7 +69,7 @@ public final class SequencerMediator {
    *                                   negative.
    */
   public ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
-    return GlobalSequencer.forMaxMilliseconds(maxDurationInMilliseconds);
+    return GlobalFlowController.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
   /**
@@ -80,7 +80,7 @@ public final class SequencerMediator {
    *                                   negative.
    */
   public ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
-    return GlobalSequencer.forMaxSeconds(maxDurationInSeconds);
+    return GlobalFlowController.forMaxSeconds(maxDurationInSeconds);
   }
 
   /**
@@ -91,7 +91,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public Future runInBackground(final Runnable job) {
-    return GlobalSequencer.runInBackground(job);
+    return GlobalFlowController.runInBackground(job);
   }
 
   /**
@@ -104,7 +104,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given result job is null.
    */
   public <R> ResultFuture<R> runInBackground(final Supplier<R> resultJob) {
-    return GlobalSequencer.runInBackground(resultJob);
+    return GlobalFlowController.runInBackground(resultJob);
   }
 
   /**
@@ -114,7 +114,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public AsLongAsMediator until(final BooleanSupplier condition) {
-    return GlobalSequencer.until(condition);
+    return GlobalFlowController.until(condition);
   }
 
   /**
@@ -124,7 +124,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public void waitAsLongAs(final BooleanSupplier condition) {
-    GlobalSequencer.waitAsLongAs(condition);
+    GlobalFlowController.waitAsLongAs(condition);
   }
 
   /**
@@ -135,7 +135,7 @@ public final class SequencerMediator {
    *                                   negative.
    */
   public void waitForMilliseconds(final int durationInMilliseconds) {
-    GlobalSequencer.waitForMilliseconds(durationInMilliseconds);
+    GlobalFlowController.waitForMilliseconds(durationInMilliseconds);
   }
 
   /**
@@ -145,7 +145,7 @@ public final class SequencerMediator {
    * @throws NegativeArgumentException if the given durationInSeconds is negative.
    */
   public void waitForSeconds(final int durationInSeconds) {
-    GlobalSequencer.waitForSeconds(durationInSeconds);
+    GlobalFlowController.waitForSeconds(durationInSeconds);
   }
 
   /**
@@ -155,6 +155,6 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public void waitUntil(final BooleanSupplier condition) {
-    GlobalSequencer.waitUntil(condition);
+    GlobalFlowController.waitUntil(condition);
   }
 }

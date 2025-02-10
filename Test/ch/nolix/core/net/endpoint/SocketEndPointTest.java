@@ -2,7 +2,7 @@ package ch.nolix.core.net.endpoint;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class SocketEndPointTest extends StandardTest {
@@ -25,7 +25,7 @@ final class SocketEndPointTest extends StandardTest {
       expectRunning(
         () -> {
           try (final var result = new SocketEndPoint(port)) {
-            GlobalSequencer.waitForMilliseconds(1);
+            GlobalFlowController.waitForMilliseconds(1);
           }
         })
         .doesNotThrowException();
@@ -48,7 +48,7 @@ final class SocketEndPointTest extends StandardTest {
 
         //execution
         testUnit.sendMessage("MESSAGE");
-        GlobalSequencer.waitForMilliseconds(WAITING_TIME_IN_MILLISECONDS);
+        GlobalFlowController.waitForMilliseconds(WAITING_TIME_IN_MILLISECONDS);
 
         //verification
         expect(slot.getLatestReceivedMessage()).isEqualTo("MESSAGE");

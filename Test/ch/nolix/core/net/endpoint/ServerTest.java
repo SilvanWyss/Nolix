@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
@@ -58,7 +58,7 @@ final class ServerTest extends StandardTest {
     try (final var testUnit = Server.forPort(port)) {
 
       //setup
-      GlobalSequencer.forCount(5).run(() -> testUnit.addDefaultSlot(Mockito.mock(ISlot.class)));
+      GlobalFlowController.forCount(5).run(() -> testUnit.addDefaultSlot(Mockito.mock(ISlot.class)));
 
       //setup verification
       expect(testUnit.containsAny()).isTrue();

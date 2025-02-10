@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.programcontrol.flowcontrol.ForCountMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ForCountMediatorTest extends StandardTest {

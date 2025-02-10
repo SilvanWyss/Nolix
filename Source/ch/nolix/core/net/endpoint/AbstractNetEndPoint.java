@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
@@ -106,7 +106,7 @@ public abstract class AbstractNetEndPoint extends EndPoint {
    * @param rawMessage
    */
   final void receiveRawMessageInBackground(final String rawMessage) {
-    GlobalSequencer.runInBackground(() -> receiveRawMessage(rawMessage));
+    GlobalFlowController.runInBackground(() -> receiveRawMessage(rawMessage));
   }
 
   /**

@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.sequencer;
+package ch.nolix.core.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
@@ -27,7 +27,7 @@ public final class AsSoonAsMediator {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
-    GlobalSequencer.waitUntil(condition);
+    GlobalFlowController.waitUntil(condition);
 
     job.run();
   }

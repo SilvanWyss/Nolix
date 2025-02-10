@@ -2,7 +2,7 @@ package ch.nolix.core.container.base;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
@@ -26,7 +26,7 @@ public abstract class CopyableIteratorTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = //
     createIteratorForContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
-    GlobalSequencer.forCount(4).run(testUnit::next);
+    GlobalFlowController.forCount(4).run(testUnit::next);
 
     //execution
     final var result = testUnit.createCopy();

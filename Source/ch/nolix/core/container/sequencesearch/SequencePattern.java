@@ -8,7 +8,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
@@ -167,7 +167,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
         final ILinkedList<E> sequence = LinkedList.createEmpty();
         final var iterator3 = iterator.createCopy();
-        GlobalSequencer.forCount(getSize()).run(() -> sequence.addAtEnd(iterator3.next()));
+        GlobalFlowController.forCount(getSize()).run(() -> sequence.addAtEnd(iterator3.next()));
 
         //Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
         if (sequenceConditions.containsOnly(sc -> sc.test(sequence))) {
