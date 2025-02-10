@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAfterEveryMediator;
 
 /**
  * A {@link AfterEveryMediator} is not mutable.
@@ -14,7 +15,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-01-01
  */
-public final class AfterEveryMediator {
+public final class AfterEveryMediator implements IAfterEveryMediator {
 
   private final int timeIntervalInMilliseconds;
 
@@ -69,38 +70,33 @@ public final class AfterEveryMediator {
   }
 
   /**
-   * Lets the current {@link AfterEveryMediator} run the given job.
-   * 
-   * @param job
+   * {@inheritDoc}
    */
+  @Override
   public void run(final Runnable job) {
 
-    //Handles the case that the current AfterAllMediator does not have a max run
-    //count.
+    //Handles the case that the current AfterEveryMediator does not have a max run count.
     if (!hasMaxRunCount()) {
       runWhenDoesNotHaveMaxRunCount(job);
 
-      //Handles the case that the current AfterAllMediator has a max run count.
+      //Handles the case that the current AfterEveryMediator has a max run count.
     } else {
       runWhenHasMaxRunCount(job);
     }
   }
 
   /**
-   * Lets the current {@link AfterEveryMediator} run the given job in background.
-   * 
-   * @param job
-   * @return a new {@link Future}.
-   * @throws ArgumentIsNullException if the given job is null.
+   * {@inheritDoc}
    */
+  @Override
   public Future runInBackground(final Runnable job) {
 
-    //Handles the case that the current AfterAllMediator does not have a max count.
+    //Handles the case that the current AfterEveryMediator does not have a max count.
     if (!hasMaxRunCount()) {
       return runInBackgroundWhenDoesNotHaveMaxRunConunt(job);
     }
 
-    //Handles the case that the current AfterAllMediator has a max count.
+    //Handles the case that the current AfterEveryMediator has a max count.
     return runInBackgroundWhenHasMaxRunConunt(job);
   }
 
@@ -180,6 +176,8 @@ public final class AfterEveryMediator {
    */
   private void runWhenDoesNotHaveMaxRunCount(final Runnable job) {
 
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+
     assertHasCondition();
 
     while (condition.getAsBoolean()) {
@@ -195,6 +193,8 @@ public final class AfterEveryMediator {
    * @param job
    */
   private void runWhenHasMaxRunCount(final Runnable job) {
+
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
