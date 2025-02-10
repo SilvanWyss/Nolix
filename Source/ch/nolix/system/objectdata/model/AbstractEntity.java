@@ -241,10 +241,6 @@ public abstract class AbstractEntity implements IEntity {
     return ((Table<?>) getStoredParentTable()).internalGetStoredDataAndSchemaAdapter();
   }
 
-  final AbstractField internalGetStoredFieldByName(final String name) {
-    return getStoredFields().getStoredFirst(p -> p.hasName(name));
-  }
-
   final void internalNoteInsertIntoDatabase() {
 
     updateBaseBackReferencesWhenIsInsertedIntoDatabase();
