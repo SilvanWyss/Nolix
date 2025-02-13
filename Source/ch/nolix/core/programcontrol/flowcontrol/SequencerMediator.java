@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
@@ -18,7 +19,7 @@ public final class SequencerMediator {
    * @return a new {@link AsLongAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AsLongAsMediator asLongAs(final BooleanSupplier condition) {
+  public IAsLongAsMediator asLongAs(final BooleanSupplier condition) {
     return GlobalFlowController.asLongAs(condition);
   }
 
@@ -113,7 +114,7 @@ public final class SequencerMediator {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AsLongAsMediator until(final BooleanSupplier condition) {
+  public IAsLongAsMediator until(final BooleanSupplier condition) {
     return GlobalFlowController.until(condition);
   }
 

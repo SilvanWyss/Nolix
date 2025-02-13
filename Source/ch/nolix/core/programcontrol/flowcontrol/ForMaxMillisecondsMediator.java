@@ -80,7 +80,9 @@ public final class ForMaxMillisecondsMediator {
     final var startTimeInMilliseconds = System.currentTimeMillis();
     final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 
-    return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getAsBoolean());
+    return //
+    AsLongAsMediator.withCondition(
+      () -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getAsBoolean());
   }
 
   /**

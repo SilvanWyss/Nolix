@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
@@ -35,8 +36,8 @@ public final class GlobalFlowController {
    * @return a new {@link AsLongAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsLongAsMediator asLongAs(final BooleanSupplier condition) {
-    return new AsLongAsMediator(condition);
+  public static IAsLongAsMediator asLongAs(final BooleanSupplier condition) {
+    return AsLongAsMediator.withCondition(condition);
   }
 
   /**
@@ -173,8 +174,8 @@ public final class GlobalFlowController {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsLongAsMediator until(final BooleanSupplier condition) {
-    return new AsLongAsMediator(() -> !condition.getAsBoolean());
+  public static IAsLongAsMediator until(final BooleanSupplier condition) {
+    return AsLongAsMediator.withCondition(() -> !condition.getAsBoolean());
   }
 
   /**

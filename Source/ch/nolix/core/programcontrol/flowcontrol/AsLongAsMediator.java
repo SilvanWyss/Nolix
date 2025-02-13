@@ -3,110 +3,76 @@ package ch.nolix.core.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAfterEveryMediator;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
+import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
- * An as long as mediator is not mutable.
+ * A {@link AsLongAsMediator} is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2017-06-01
  */
-public final class AsLongAsMediator {
+public final class AsLongAsMediator implements IAsLongAsMediator {
 
   private final BooleanSupplier condition;
 
-  private final Integer maxRunCount;
-
   /**
-   * Creates a new as long as mediator with the given condition.
+   * Creates a new {@link AsLongAsMediator} with the given condition.
    * 
    * @param condition
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  AsLongAsMediator(final BooleanSupplier condition) {
+  private AsLongAsMediator(final BooleanSupplier condition) {
 
-    //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
+    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
-    maxRunCount = null;
     this.condition = condition;
   }
 
   /**
-   * @param timeIntervalInMilliseconds
-   * @return a new after all mediator with the given time interval in
-   *         milliseconds.
-   * @throws NegativeArgumentException if the given time interval in milliseconds
-   *                                   is negative.
+   * @param condition
+   * @return a new {@link AsLongAsMediator} with the given condition.
+   * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AfterEveryMediator afterEveryMilliseconds(final int timeIntervalInMilliseconds) {
-
-    //Handles the case that this as long as mediator does not have a max run count.
-    if (!hasMaxRunCount()) {
-      return new AfterEveryMediator(condition, timeIntervalInMilliseconds);
-    }
-
-    //Handles the case that this as long as mediator has a max run count.
-    return new AfterEveryMediator(maxRunCount, condition, timeIntervalInMilliseconds);
+  public static AsLongAsMediator withCondition(final BooleanSupplier condition) {
+    return new AsLongAsMediator(condition);
   }
 
   /**
-   * @return a new {@link AfterEveryMediator} with a time interval of 1 second.
+   * {@inheritDoc}
    */
-  public AfterEveryMediator afterEverySecond() {
+  @Override
+  public IAfterEveryMediator afterEveryMilliseconds(final int timeIntervalInMilliseconds) {
+    return new AfterEveryMediator(condition, timeIntervalInMilliseconds);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IAfterEveryMediator afterEverySecond() {
     return afterEveryMilliseconds(TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND);
   }
 
   /**
-   * Lets this as long as mediator run the given job.
-   * 
-   * @param job
+   * {@inheritDoc}
    */
+  @Override
   public void run(final Runnable job) {
-
-    //Handles the case that this as long as mediator does not have a max run count.
-    if (!hasMaxRunCount()) {
-      while (condition.getAsBoolean()) {
-        job.run();
-      }
-
-      //Handles the case that this as long as mediator has a max run count.
-    } else {
-      for (var i = 1; i <= maxRunCount; i++) {
-
-        if (!condition.getAsBoolean()) {
-          break;
-        }
-
-        job.run();
-      }
+    while (condition.getAsBoolean()) {
+      job.run();
     }
   }
 
   /**
-   * Lets this as long as mediator run the given job in background.
-   * 
-   * @param job
-   * @return a new future.
-   * @throws ArgumentIsNullException if the given job is null.
+   * {@inheritDoc}
    */
-  public Future runInBackground(final Runnable job) {
-
-    //Handles the case that this as long as mediator does not have a max run count.
-    if (!hasMaxRunCount()) {
-      return new Future(new JobRunner(job, condition));
-    }
-
-    //Handles the case that this as long as mediator has a max run count.
-    return new Future(new JobRunner(job, maxRunCount, condition));
-  }
-
-  /**
-   * @return true if this as long as mediator has max run count.
-   */
-  private boolean hasMaxRunCount() {
-    return (maxRunCount != null);
+  @Override
+  public IFuture runInBackground(final Runnable job) {
+    return new Future(new JobRunner(job, condition));
   }
 }
