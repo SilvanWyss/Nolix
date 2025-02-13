@@ -6,6 +6,7 @@ import java.util.function.Supplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
@@ -28,7 +29,7 @@ public final class SequencerMediator {
    * @return a new {@link AsSoonAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
+  public IAsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
     return GlobalFlowController.asSoonAs(condition);
   }
 
@@ -38,7 +39,7 @@ public final class SequencerMediator {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
+  public IAsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
     return GlobalFlowController.asSoonAsNoMore(condition);
   }
 

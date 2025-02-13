@@ -30,8 +30,8 @@ public interface IAsLongAsMediator {
   void run(Runnable job);
 
   /**
-   * Lets the current {@link IAsLongAsMediator} the given job asynchronously in
-   * background.
+   * Lets the current {@link IAsLongAsMediator} run the given job asynchronously
+   * in background.
    * 
    * @param job
    * @return a new {@link IFuture}.

@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
+import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
@@ -45,8 +46,8 @@ public final class GlobalFlowController {
    * @return a new {@link AsSoonAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
-    return new AsSoonAsMediator(condition);
+  public static IAsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
+    return AsSoonAsMediator.withCondition(condition);
   }
 
   /**
@@ -55,8 +56,8 @@ public final class GlobalFlowController {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
-    return new AsSoonAsMediator(() -> !condition.getAsBoolean());
+  public static IAsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
+    return AsSoonAsMediator.withCondition(() -> !condition.getAsBoolean());
   }
 
   /**
