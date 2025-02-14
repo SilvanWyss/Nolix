@@ -1,9 +1,5 @@
 package ch.nolix.coreapi.netapi.websocketapi;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-
 public enum WebSocketFramePayloadLengthType {
   BITS_7,
   BITS_16,
@@ -11,7 +7,9 @@ public enum WebSocketFramePayloadLengthType {
 
   public static WebSocketFramePayloadLengthType fromCode(final int code) {
 
-    GlobalValidator.assertThat(code).thatIsNamed(LowerCaseVariableCatalog.CODE).isNotNegative();
+    if (code < 0) {
+      throw new IllegalArgumentException("The given code '" + code + "' is negative.");
+    }
 
     if (code < 126) {
       return BITS_7;
@@ -25,12 +23,14 @@ public enum WebSocketFramePayloadLengthType {
       return BITS_64;
     }
 
-    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.CODE, code);
+    throw new IllegalArgumentException("The given code '" + code + "' is not valid.");
   }
 
   public static WebSocketFramePayloadLengthType fromPayloadLength(final long payloadLength) {
 
-    GlobalValidator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
+    if (payloadLength < 0) {
+      throw new IllegalArgumentException("The given payload length '" + payloadLength + "' is negative.");
+    }
 
     if (payloadLength < 126) {
       return BITS_7;
