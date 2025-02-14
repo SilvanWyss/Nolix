@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.webgui.basecontainer.Container;
+import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class SingleContainer
-extends Container<ISingleContainer, ISingleContainerStyle>
+extends AbstractContainer<ISingleContainer, ISingleContainerStyle>
 implements ISingleContainer {
 
   private static final String CONTROL_HEADER = "Control";

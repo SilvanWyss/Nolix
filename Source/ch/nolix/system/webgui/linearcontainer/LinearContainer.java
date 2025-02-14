@@ -4,7 +4,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
-import ch.nolix.system.webgui.basecontainer.Container;
+import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public abstract class LinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
-extends Container<C, S>
+extends AbstractContainer<C, S>
 implements ILinearContainer<C, S> {
 
   private static final String CHILD_CONTROL_HEADER = "ChildControl";

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
-public abstract class Container<C extends IContainer<C, S>, S extends IControlStyle<S>>
+public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends Control<C, S> implements IContainer<C, S> {
 
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;

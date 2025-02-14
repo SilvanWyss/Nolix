@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
-import ch.nolix.system.webgui.basecontainer.Container;
+import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
+public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements IGrid {
 
   private static final String CELL_HEADER = PascalCaseVariableCatalog.CELL;
 

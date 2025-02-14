@@ -6,7 +6,7 @@ import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.atomiccontrol.link.Link;
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
-import ch.nolix.system.webgui.basecontainer.Container;
+import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
@@ -41,7 +41,7 @@ public final class DarkStyleSubStyleCatalog {
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //
   new DeepSelectingStyle()
-    .withSelectorType(Container.class)
+    .withSelectorType(AbstractContainer.class)
     .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
     .withAttachingAttribute(
       "MinWidth(500)",
