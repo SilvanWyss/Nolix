@@ -509,23 +509,6 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
-   * @return a {@link String} representation of the next node of the current
-   *         {@link ChainedNode}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ChainedNode} does not
-   *                                               have a next node.
-   */
-  public String getNextNodeAsString() {
-
-    //Asserts that the current ChainedNode has a next node.
-    if (nextNode == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
-    }
-
-    return nextNode.toString();
-  }
-
-  /**
    * @return the one attribute of the current {@link ChainedNode}.
    * @throws EmptyArgumentException   if the current {@link ChainedNode} does not
    *                                  contain an attribute.
