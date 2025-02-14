@@ -554,16 +554,9 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
-   * @return a {@link Integer} representation of the one attribute of the current
-   *         {@link ChainedNode}.
-   * @throws EmptyArgumentException          if the current {@link ChainedNode}
-   *                                         does not contain an attribute.
-   * @throws InvalidArgumentException        if the current {@link ChainedNode}
-   *                                         contains several attributes.
-   * @throws UnrepresentingArgumentException if the one attribute of the current
-   *                                         {@link ChainedNode} does not
-   *                                         represent a {@link Integer}.
+   * {@inheritDoc}
    */
+  @Override
   public int getSingleChildNodeAsInt() {
     return getSingleChildNode().toInt();
   }
