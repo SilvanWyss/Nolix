@@ -419,14 +419,6 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
-   * @return the {@link String} representations of the attributes of the current
-   *         {@link ChainedNode}.
-   */
-  public IContainer<String> getChildNodesAsStrings() {
-    return childNodes.toStrings();
-  }
-
-  /**
    * @param header
    * @return the first attribute with the given header from the current
    *         {@link ChainedNode}.
