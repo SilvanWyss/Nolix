@@ -444,23 +444,6 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
-   * @return a reproducing {@link String} representation of the header of the
-   *         current {@link ChainedNode}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ChainedNode} does not
-   *                                               have a header.
-   */
-  public String getEscapeHeader() {
-
-    //Asserts that the current ChainedNode has a header.
-    if (header == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
-    }
-
-    return getEscapeStringFor(header);
-  }
-
-  /**
    * @param header
    * @return the first attribute with the given header from the current
    *         {@link ChainedNode}.
