@@ -87,6 +87,32 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
+   * @param chainedNode
+   * @return a {@link ChainedNode} from the given chainedNode.
+   * @throws RuntimeException if the given chainedNode is null.
+   */
+  public static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
+
+    if (chainedNode instanceof final ChainedNode localChainedNode) {
+      return localChainedNode;
+    }
+
+    final var newChainedNode = new ChainedNode();
+
+    if (chainedNode.hasHeader()) {
+      newChainedNode.setHeader(chainedNode.getHeader());
+    }
+
+    newChainedNode.addChildNodes(chainedNode.getChildNodes());
+
+    if (chainedNode.hasNextNode()) {
+      newChainedNode.setNextNode(chainedNode.getNextNode());
+    }
+
+    return newChainedNode;
+  }
+
+  /**
    * @param node
    * @return a new {@link ChainedNode} from the given node.
    */
@@ -342,31 +368,6 @@ public final class ChainedNode implements IChainedNode {
     chainedNode.setNextNode(nextNode);
 
     return chainedNode;
-  }
-
-  /**
-   * @param chainedNode
-   * @return a {@link ChainedNode} from the given chainedNode.
-   */
-  private static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
-
-    if (chainedNode instanceof final ChainedNode lChainedNode) {
-      return lChainedNode;
-    }
-
-    final var newChainedNode = new ChainedNode();
-
-    if (chainedNode.hasHeader()) {
-      newChainedNode.setHeader(chainedNode.getHeader());
-    }
-
-    newChainedNode.addChildNodes(chainedNode.getChildNodes());
-
-    if (chainedNode.hasNextNode()) {
-      newChainedNode.setNextNode(chainedNode.getNextNode());
-    }
-
-    return newChainedNode;
   }
 
   /**
