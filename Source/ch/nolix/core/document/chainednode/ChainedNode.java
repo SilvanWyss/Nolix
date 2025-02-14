@@ -385,7 +385,7 @@ public final class ChainedNode implements IChainedNode {
   public boolean equals(final Object object) {
     return //
     object instanceof final ChainedNode chainedNode
-    && equalsChainedNode(chainedNode);
+    && ChainedNodeComparator.areEqual(this, chainedNode);
   }
 
   /**
@@ -730,46 +730,6 @@ public final class ChainedNode implements IChainedNode {
       nextIndex++;
     }
     return nextIndex;
-  }
-
-  /**
-   * @param chainedNode
-   * @return true if the current {@link ChainedNode} equals the given chainedNode,
-   *         false otherwise.
-   */
-  private boolean equalsChainedNode(final ChainedNode chainedNode) {
-    return //
-    canEqualBecauseOfHeader(chainedNode)
-    && canEqualBecauseOfChildNodes(chainedNode);
-  }
-
-  /**
-   * @param chainedNode
-   * @return true if the current {@link ChainedNode} can equal the given
-   *         chainedNode because of their child nodes, false otherwise.
-   */
-  private boolean canEqualBecauseOfChildNodes(final ChainedNode chainedNode) {
-    return //
-    chainedNode != null
-    && getChildNodes().containsExactlyEqualingInSameOrder(chainedNode.getChildNodes());
-  }
-
-  /**
-   * @param chainedNode
-   * @return true if the current {@link ChainedNode} can equal the given
-   *         chainedNode because of the header.
-   */
-  private boolean canEqualBecauseOfHeader(final ChainedNode chainedNode) {
-
-    if (chainedNode == null) {
-      return false;
-    }
-
-    if (!hasHeader()) {
-      return !chainedNode.hasHeader();
-    }
-
-    return (chainedNode.hasHeader() && hasHeader(chainedNode.getHeader()));
   }
 
   /**
