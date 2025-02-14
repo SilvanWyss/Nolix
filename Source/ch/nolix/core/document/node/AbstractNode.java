@@ -353,7 +353,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   public final IMutableXmlNode toXml() {
 
     //Creates an XmlNode.
-    final var xmlNode = new MutableXmlNode().setName(getHeader());
+    final var xmlNode = MutableXmlNode.createBlankMutableXmlNode().setName(getHeader());
 
     //Iterates the child nodes of the current BaseNode.
     for (final AbstractNode<?> cn : getStoredChildNodes()) {

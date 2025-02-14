@@ -25,6 +25,13 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   private final LinkedList<IMutableXmlNode> childNodes = LinkedList.createEmpty();
 
+  private MutableXmlNode() {
+  }
+
+  public static MutableXmlNode createBlankMutableXmlNode() {
+    return new MutableXmlNode();
+  }
+
   public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
 
     final var mutableXmlNode = new MutableXmlNode();

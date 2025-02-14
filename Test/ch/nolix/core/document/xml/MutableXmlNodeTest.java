@@ -10,7 +10,7 @@ final class MutableXmlNodeTest extends StandardTest {
   void test_toString() {
 
     //setup
-    final var testUnit = new MutableXmlNode().setName("Node");
+    final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node");
 
     //execution
     final var result = testUnit.toString();
@@ -23,7 +23,8 @@ final class MutableXmlNodeTest extends StandardTest {
   void test_toString_whenHas1Attribute() {
 
     //setup
-    final var testUnit = new MutableXmlNode().setName("Node").addAttributeWithNameAndValue("key", "value");
+    final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node").addAttributeWithNameAndValue("key",
+      "value");
 
     //execution
     final var result = testUnit.toString();
@@ -36,7 +37,8 @@ final class MutableXmlNodeTest extends StandardTest {
   void test_toString_whenHas1ChildNode() {
 
     //setup
-    final var testUnit = new MutableXmlNode().setName("Node").addChildNode(new MutableXmlNode().setName("ChildNode"));
+    final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node")
+      .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode"));
 
     //execution
     final var result = testUnit.toString();
@@ -49,7 +51,7 @@ final class MutableXmlNodeTest extends StandardTest {
   void test_toString_whenHas2Attributes() {
 
     //setup
-    final var testUnit = new MutableXmlNode()
+    final var testUnit = MutableXmlNode.createBlankMutableXmlNode()
       .setName("Node")
       .addAttributeWithNameAndValue("key1", "value1")
       .addAttributeWithNameAndValue("key2", "value2");
@@ -65,10 +67,10 @@ final class MutableXmlNodeTest extends StandardTest {
   void test_toString_whenHas2ChildNodes() {
 
     //setup
-    final var testUnit = new MutableXmlNode()
+    final var testUnit = MutableXmlNode.createBlankMutableXmlNode()
       .setName("Node")
-      .addChildNode(new MutableXmlNode().setName("ChildNode1"))
-      .addChildNode(new MutableXmlNode().setName("ChildNode2"));
+      .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode1"))
+      .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode2"));
 
     //execution
     final var result = testUnit.toString();
