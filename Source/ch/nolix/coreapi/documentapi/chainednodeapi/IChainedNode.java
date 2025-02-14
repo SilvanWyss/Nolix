@@ -1,5 +1,6 @@
 package ch.nolix.coreapi.documentapi.chainednodeapi;
 
+import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -77,6 +78,19 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
    *                          {@link IChainedNode} does not have a header.
    */
   String getSingleChildNodeHeader();
+
+  /**
+   * @return a double representation of the single child node of the current
+   *         {@link IChainedNode}. {@link ChainedNode}.
+   * @throws RuntimeException if the current {@link IChainedNode} does not contain
+   *                          child nodes or contains several child nodes.
+   * @throws RuntimeException if the single child node of the current
+   *                          {@link IChainedNode} does not have a header.
+   * @throws RuntimeException if the header of the single child node of the
+   *                          current {@link IChainedNode} does not represent a
+   *                          double.
+   */
+  double getSingleChildNodeAsDouble();
 
   /**
    * @return true if the current {@link IChainedNode} has a next node.
