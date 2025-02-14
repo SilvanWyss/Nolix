@@ -53,7 +53,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getName()
     + " = '"
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
+    + DatabaseProperty.SCHEMA_TIMESTAMP.getName()
     + "' AND "
     + DatabasePropertyTableColumn.VALUE.getName()
     + " = '"

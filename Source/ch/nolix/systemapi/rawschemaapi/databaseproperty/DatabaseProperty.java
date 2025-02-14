@@ -1,23 +1,18 @@
 package ch.nolix.systemapi.rawschemaapi.databaseproperty;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
-public enum DatabaseProperty implements ILabelHolder {
+public enum DatabaseProperty implements INameHolder {
   SCHEMA_TIMESTAMP("SchemaTimestamp");
 
-  private final String label;
+  private final String name;
 
   DatabaseProperty(final String label) {
-
-    GlobalValidator.assertThat(label).thatIsNamed(LowerCaseVariableCatalog.LABEL).isNotBlank();
-
-    this.label = label;
+    this.name = label;
   }
 
   @Override
-  public final String getLabel() {
-    return label;
+  public final String getName() {
+    return name;
   }
 }

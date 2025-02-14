@@ -21,6 +21,6 @@ public final class DatabasePropertiesStatementCreator implements IDatabaseProper
     + "' WHERE "
     + DatabasePropertyTableColumn.KEY.getName()
     + " = "
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
+    + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes();
   }
 }

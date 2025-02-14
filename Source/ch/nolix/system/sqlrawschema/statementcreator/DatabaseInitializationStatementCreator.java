@@ -18,7 +18,7 @@ public final class DatabaseInitializationStatementCreator implements IDatabaseIn
     + ", "
     + DatabasePropertyTableColumn.VALUE.getName()
     + ") VALUES ("
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
+    + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes()
     + ", '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "');";

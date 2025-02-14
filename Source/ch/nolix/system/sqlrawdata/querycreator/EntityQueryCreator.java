@@ -90,7 +90,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getName()
     + " = '"
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
+    + DatabaseProperty.SCHEMA_TIMESTAMP.getName()
     + "';";
   }
 }
