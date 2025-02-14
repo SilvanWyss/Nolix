@@ -106,6 +106,14 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
   int getSingleChildNodeAsInt();
 
   /**
+   * @return a {@link String} representation of the single child node of the
+   *         current {@link IChainedNode}.
+   * @throws RuntimeException if the current {@link IChainedNode} does not contain
+   *                          a child node or contains multiple child nodes.
+   */
+  String getSingleChildNodeAsString();
+
+  /**
    * @return true if the current {@link IChainedNode} has a next node.
    */
   boolean hasNextNode();
