@@ -419,17 +419,6 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
-   * @return the {@link Node} representations of the attributes of the current
-   *         {@link ChainedNode}.
-   * @throws UnrepresentingArgumentException if one of the attributes of the
-   *                                         current {@link ChainedNode} does not
-   *                                         represent a {@link Node}.
-   */
-  public IContainer<Node> getChildNodesAsNodes() {
-    return childNodes.to(ChainedNode::toNode);
-  }
-
-  /**
    * @return a {@link String} representation of the attributes of the current
    *         {@link ChainedNode}.
    */
