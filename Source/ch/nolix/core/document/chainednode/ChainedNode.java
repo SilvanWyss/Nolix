@@ -419,14 +419,6 @@ public final class ChainedNode implements IChainedNode {
   }
 
   /**
-   * @return a {@link String} representation of the attributes of the current
-   *         {@link ChainedNode}.
-   */
-  public String getChildNodesAsString() {
-    return childNodes.toString();
-  }
-
-  /**
    * @return the {@link String} representations of the attributes of the current
    *         {@link ChainedNode}.
    */
