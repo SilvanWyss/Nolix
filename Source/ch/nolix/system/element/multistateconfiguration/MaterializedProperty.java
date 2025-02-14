@@ -182,7 +182,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
 
   private void extractStateProperties() {
     for (var i = 0; i < stateProperties.length; i++) {
-      stateProperties[i] = new StateProperty<>();
+      stateProperties[i] = StateProperty.createUndefinedStateProperty();
     }
   }
 

@@ -5,11 +5,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
-final class StateProperty<V> {
+public final class StateProperty<V> {
 
   private boolean hasValueOrDefinesEmpty;
 
   private V value;
+
+  private StateProperty() {
+  }
+
+  public static <V2> StateProperty<V2> createUndefinedStateProperty() {
+    return new StateProperty<>();
+  }
 
   public ValueStoringState getAssignmentType() {
 
