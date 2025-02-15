@@ -2,6 +2,7 @@ package ch.nolix.core.errorcontrol.validator;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.independent.arraytool.ArrayTool;
@@ -149,6 +150,18 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
    */
   public static ExtendedMethodMediator assertThat(final Method argument) {
     return new ExtendedMethodMediator(argument);
+  }
+
+  /**
+   * @param argument
+   * @param <T>      is the type of the element of the given {@link Optional}
+   *                 argument.
+   * @return a new {@link ExtendedOptionalMediator} for the given argument.
+   */
+  public static <T> ExtendedOptionalMediator<T> assertThat(
+    final Optional<T> argument //NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
+  ) {
+    return ExtendedOptionalMediator.forArgument(argument);
   }
 
   /**

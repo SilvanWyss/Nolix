@@ -1,5 +1,7 @@
 package ch.nolix.core.testing.standardtest;
 
+import java.util.Optional;
+
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.core.errorcontrol.validator.BooleanMediator;
 import ch.nolix.core.errorcontrol.validator.ByteMediator;
@@ -8,7 +10,9 @@ import ch.nolix.core.errorcontrol.validator.IterableMediator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
+import ch.nolix.core.errorcontrol.validator.OptionalMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
+import ch.nolix.coreapi.errorcontrolapi.validatorapi.IOptionalMediator;
 
 /**
  * @author Silvan Wyss
@@ -94,6 +98,18 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    */
   protected static final LongMediator expect(final Long value) {
     return LongMediator.forArgument(value);
+  }
+
+  /**
+   * @param argument
+   * @param <T>      is the type of the element of the given {@link Optional}
+   *                 argument.
+   * @return a new {@link IOptionalMediator} for the given argument.
+   */
+  protected static final <T> IOptionalMediator expect(
+    final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
+  ) {
+    return OptionalMediator.forArgument(argument);
   }
 
   /**
