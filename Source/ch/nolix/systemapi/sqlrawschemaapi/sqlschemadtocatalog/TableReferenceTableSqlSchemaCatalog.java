@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableReferenceTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.datatypeapi.DataTypeTypeCatalog;
@@ -13,14 +14,16 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 public final class TableReferenceTableSqlSchemaCatalog {
 
   private static final ColumnDto REFERENCE_COLUMN_ID_COLUMN_SQL_DTO = //
-  ColumnDto.withNameAndDataType(
+  new ColumnDto(
     TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName(),
-    DataTypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT,
+    ImmutableList.createEmpty());
 
   private static final ColumnDto REFERENCED_TABLE_ID_COLUMN_SQL_DTO = //
-  ColumnDto.withNameAndDataType(
+  new ColumnDto(
     TableReferenceTableColumn.REFERENCED_TABLE_ID.getName(),
-    DataTypeTypeCatalog.TEXT);
+    DataTypeTypeCatalog.TEXT,
+    ImmutableList.createEmpty());
 
   public static final TableDto TABLE_REFERENCE_SQL_DTO = //
   TableDto.withNameAndColumn(

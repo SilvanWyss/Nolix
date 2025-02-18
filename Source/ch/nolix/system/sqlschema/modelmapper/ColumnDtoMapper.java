@@ -1,5 +1,6 @@
 package ch.nolix.system.sqlschema.modelmapper;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
@@ -20,6 +21,6 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var name = sqlRecord.getStoredAt1BasedIndex(1);
     final var dataType = DataTypeDto.withName(sqlRecord.getStoredAt1BasedIndex(2));
 
-    return ColumnDto.withNameAndDataType(name, dataType);
+    return new ColumnDto(name, dataType, ImmutableList.createEmpty());
   }
 }

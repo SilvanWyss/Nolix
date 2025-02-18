@@ -2,6 +2,7 @@ package ch.nolix.system.sqlrawschema.statementcreator;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
@@ -15,7 +16,7 @@ final class SchemaStatementCreatorTest extends StandardTest {
 
     //setup
     final var dataTypeDto = DataTypeDto.withNameAndParameter("nvarchar", "100");
-    final var columnDto = ColumnDto.withNameAndDataType("Name", dataTypeDto);
+    final var columnDto = new ColumnDto("Name", dataTypeDto, ImmutableList.createEmpty());
     final var testUnit = new StatementCreator();
 
     //execution
@@ -31,8 +32,8 @@ final class SchemaStatementCreatorTest extends StandardTest {
     //setup
     final var tableDto = TableDto.withNameAndColumn(
       "Pet",
-      ColumnDto.withNameAndDataType("Name", DataTypeDto.withNameAndParameter("nvarchar", "100")),
-      ColumnDto.withNameAndDataType("WeightInKilogram", DataTypeDto.withName("float")));
+      new ColumnDto("Name", DataTypeDto.withNameAndParameter("nvarchar", "100"), ImmutableList.createEmpty()),
+      new ColumnDto("WeightInKilogram", DataTypeDto.withName("float"), ImmutableList.createEmpty()));
     final var testUnit = new StatementCreator();
 
     //execution
