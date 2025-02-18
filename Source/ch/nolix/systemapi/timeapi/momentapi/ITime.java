@@ -1,6 +1,5 @@
 package ch.nolix.systemapi.timeapi.momentapi;
 
-import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.timeapi.timestructureapi.Month;
 import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
 public interface ITime extends IElement {
 
   /**
-   * @return the day of the month of the current {@link Time}.
+   * @return the day of the month of the current {@link ITime}.
    */
   int getDayOfMonth();
 
