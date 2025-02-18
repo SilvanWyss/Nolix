@@ -16,10 +16,9 @@ public final class DatabasePropertyTableSqlSchemaDtoCatalog {
   new ColumnDto(DatabasePropertyTableColumn.VALUE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final TableDto DATABASE_PROPERTY_TABLE_SQL_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.DATABASE_PROPERTY.getQualifiedName(),
-    KEY_COLUMN_SQL_DTO,
-    VALUE_COLUMN_SQL_DTO);
+    ImmutableList.withElement(KEY_COLUMN_SQL_DTO, VALUE_COLUMN_SQL_DTO));
 
   private DatabasePropertyTableSqlSchemaDtoCatalog() {
   }

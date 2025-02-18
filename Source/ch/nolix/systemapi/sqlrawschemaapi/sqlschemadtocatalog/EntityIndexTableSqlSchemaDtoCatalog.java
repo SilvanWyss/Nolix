@@ -16,10 +16,9 @@ public final class EntityIndexTableSqlSchemaDtoCatalog {
   new ColumnDto(EntityIndexTableColumn.ENTITY_ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final TableDto ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.ENTITY_INDEX.getQualifiedName(),
-    TABLE_ID_SQL_SCHEMA_COLUMN_DTO,
-    ENTITY_ID_SQL_SCHEMA_COLUMN_DTO);
+    ImmutableList.withElement(TABLE_ID_SQL_SCHEMA_COLUMN_DTO, ENTITY_ID_SQL_SCHEMA_COLUMN_DTO));
 
   private EntityIndexTableSqlSchemaDtoCatalog() {
   }

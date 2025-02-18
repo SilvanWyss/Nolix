@@ -26,10 +26,9 @@ public final class TableReferenceTableSqlSchemaCatalog {
     ImmutableList.createEmpty());
 
   public static final TableDto TABLE_REFERENCE_SQL_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.TABLE_REFERENCE.getName(),
-    REFERENCE_COLUMN_ID_COLUMN_SQL_DTO,
-    REFERENCED_TABLE_ID_COLUMN_SQL_DTO);
+    ImmutableList.withElement(REFERENCE_COLUMN_ID_COLUMN_SQL_DTO, REFERENCED_TABLE_ID_COLUMN_SQL_DTO));
 
   /**
    * Prevents that an instance of the {@link TableReferenceTableSqlSchemaCatalog}

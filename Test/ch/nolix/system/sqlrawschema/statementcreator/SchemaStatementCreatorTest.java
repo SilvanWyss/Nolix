@@ -30,10 +30,11 @@ final class SchemaStatementCreatorTest extends StandardTest {
   void testCase_createStatementToAddTable() {
 
     //setup
-    final var tableDto = TableDto.withNameAndColumn(
+    final var tableDto = new TableDto(
       "Pet",
-      new ColumnDto("Name", DataTypeDto.withNameAndParameter("nvarchar", "100"), ImmutableList.createEmpty()),
-      new ColumnDto("WeightInKilogram", DataTypeDto.withName("float"), ImmutableList.createEmpty()));
+      ImmutableList.withElement(
+        new ColumnDto("Name", DataTypeDto.withNameAndParameter("nvarchar", "100"), ImmutableList.createEmpty()),
+        new ColumnDto("WeightInKilogram", DataTypeDto.withName("float"), ImmutableList.createEmpty())));
     final var testUnit = new StatementCreator();
 
     //execution

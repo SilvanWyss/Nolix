@@ -21,9 +21,9 @@ public final class TableTableSqlSchemaDtoCatalog {
     ImmutableList.createEmpty());
 
   public static final TableDto TABLE_TABLE_SQL_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.TABLE.getQualifiedName(),
-    ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO);
+    ImmutableList.withElement(ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO));
 
   private TableTableSqlSchemaDtoCatalog() {
   }

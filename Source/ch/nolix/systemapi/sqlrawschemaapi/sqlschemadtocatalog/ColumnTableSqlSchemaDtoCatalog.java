@@ -35,14 +35,15 @@ public final class ColumnTableSqlSchemaDtoCatalog {
     ImmutableList.createEmpty());
 
   public static final TableDto COLUMN_TABLE_SQL_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.COLUMN.getQualifiedName(),
-    ID_SQL_DTO,
-    PARENT_TABLE_ID_SQL_DTO,
-    NAME_SQL_DTO,
-    PROPERTY_TYPE_SQL_DTO,
-    DATA_TYPE_SQL_DTO,
-    BACK_REFERENCED_COLUMN_ID_SQL_DTO);
+    ImmutableList.withElement(
+      ID_SQL_DTO,
+      PARENT_TABLE_ID_SQL_DTO,
+      NAME_SQL_DTO,
+      PROPERTY_TYPE_SQL_DTO,
+      DATA_TYPE_SQL_DTO,
+      BACK_REFERENCED_COLUMN_ID_SQL_DTO));
 
   private ColumnTableSqlSchemaDtoCatalog() {
   }

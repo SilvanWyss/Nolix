@@ -29,11 +29,12 @@ public final class MultiValueEntryTableSqlSchemaDtoCatalog {
     ImmutableList.createEmpty());
 
   public static final TableDto MULTI_VALUE_ENTRY_TABLE_SQL_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.MULTI_VALUE_ENTRY.getQualifiedName(),
-    MULTI_VALUE_COLUMN_COLUMN_SQL_DTO,
-    ENTITY_COLUMN_SQL_DTO,
-    VALUE_COLUMN_SQL_DTO);
+    ImmutableList.withElement(
+      MULTI_VALUE_COLUMN_COLUMN_SQL_DTO,
+      ENTITY_COLUMN_SQL_DTO,
+      VALUE_COLUMN_SQL_DTO));
 
   private MultiValueEntryTableSqlSchemaDtoCatalog() {
   }

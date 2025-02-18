@@ -28,11 +28,12 @@ public final class MultiReferenceEntryTableSqlSchemaDtoCatalog {
     ImmutableList.createEmpty());
 
   public static final TableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = //
-  TableDto.withNameAndColumn(
+  new TableDto(
     FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName(),
-    MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
-    ENTITY_COLUMN_SQL_DTO,
-    REFERENCED_ENTITY_COLUMN_SQL_DTO);
+    ImmutableList.withElement(
+      MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
+      ENTITY_COLUMN_SQL_DTO,
+      REFERENCED_ENTITY_COLUMN_SQL_DTO));
 
   private MultiReferenceEntryTableSqlSchemaDtoCatalog() {
   }
