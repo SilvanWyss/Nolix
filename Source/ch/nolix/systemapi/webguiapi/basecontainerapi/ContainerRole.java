@@ -1,6 +1,5 @@
 package ch.nolix.systemapi.webguiapi.basecontainerapi;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 /**
@@ -19,8 +18,8 @@ public enum ContainerRole {
   /**
    * @param specification
    * @return a new {@link ContainerRole} from the given specification.
-   * @throws InvalidArgumentException if the given specification does not
-   *                                  represent a {@link ContainerRole}.
+   * @throws RuntimeException if the given specification does not represent a
+   *                          {@link ContainerRole}.
    */
   public static ContainerRole fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
