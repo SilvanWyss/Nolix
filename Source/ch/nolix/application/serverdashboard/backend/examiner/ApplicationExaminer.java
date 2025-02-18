@@ -3,6 +3,7 @@ package ch.nolix.application.serverdashboard.backend.examiner;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.examinerapi.IApplicationExaminer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 /**
  * @author Silvan Wyss
@@ -14,9 +15,10 @@ public final class ApplicationExaminer implements IApplicationExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isWebApplication(final Application<?, ?> application) {
+  public boolean isWebApplication(final IApplication<?> application) {
     return //
     application != null
-    && application.getClientClass() == WebClient.class;
+    && application instanceof Application<?, ?> localApplication
+    && localApplication.getClientClass() == WebClient.class;
   }
 }
