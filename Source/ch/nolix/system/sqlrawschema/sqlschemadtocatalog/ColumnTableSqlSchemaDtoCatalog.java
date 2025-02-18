@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlrawschemaapi.sqlschemadtocatalog;
+package ch.nolix.system.sqlrawschema.sqlschemadtocatalog;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
