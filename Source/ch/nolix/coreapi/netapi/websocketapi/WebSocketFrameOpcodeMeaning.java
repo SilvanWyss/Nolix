@@ -1,9 +1,5 @@
 package ch.nolix.coreapi.netapi.websocketapi;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-
 public enum WebSocketFrameOpcodeMeaning {
   CONTINUATION_FRAME,
   TEXT_FRAME,
@@ -32,11 +28,8 @@ public enum WebSocketFrameOpcodeMeaning {
       case 0xB, 0xC, 0xD, 0xE, 0xF ->
         RESERVED;
       default ->
-        throw //
-        UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-          LowerCaseVariableCatalog.NUMBER,
-          number,
-          WebSocketFrameOpcodeMeaning.class);
+        throw new IllegalArgumentException(
+          "The given number '" + number + "' does not represent a WebSocketFrameOpcodeMeaning.");
     };
   }
 
@@ -55,9 +48,9 @@ public enum WebSocketFrameOpcodeMeaning {
       case PONG ->
         0xA;
       case RESERVED ->
-        throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not represent a single number");
+        throw new IllegalArgumentException("The current WebSocketFrameOpcodeMeaning does not represent a number.");
       default ->
-        throw InvalidArgumentException.forArgument(this);
+        throw new IllegalArgumentException("The current WebSocketFrameOpcodeMeaning does not represent a number.");
     };
   }
 }

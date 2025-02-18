@@ -5,7 +5,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
@@ -74,6 +73,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   void testCase_toNumber_whenDoesNotHaveASingleNumber(final WebSocketFrameOpcodeMeaning testUnit) {
 
     //execution & verification
-    expectRunning(testUnit::toNumber).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(testUnit::toNumber).throwsException();
   }
 }
