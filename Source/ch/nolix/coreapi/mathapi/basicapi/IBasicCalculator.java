@@ -1,7 +1,5 @@
 package ch.nolix.coreapi.mathapi.basicapi;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-
 /**
  * @author Silvan Wyss
  * @version 2024-12-27
@@ -63,7 +61,7 @@ public interface IBasicCalculator {
   /**
    * @param values
    * @return the average of the given values.
-   * @throws EmptyArgumentException if the given values is empty.
+   * @throws RuntimeException if the given values is empty.
    */
   double getAverage(Iterable<Double> values);
 
