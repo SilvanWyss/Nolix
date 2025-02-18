@@ -1,6 +1,5 @@
 package ch.nolix.coreapi.documentapi.chainednodeapi;
 
-import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -81,7 +80,7 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
 
   /**
    * @return a double representation of the single child node of the current
-   *         {@link IChainedNode}. {@link ChainedNode}.
+   *         {@link IChainedNode}.
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child nodes or contains multiple child nodes.
    * @throws RuntimeException if the single child node of the current
@@ -94,7 +93,7 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
 
   /**
    * @return a int representation of the single child node of the current
-   *         {@link IChainedNode}. {@link ChainedNode}.
+   *         {@link IChainedNode}.
    * @throws RuntimeException if the current {@link IChainedNode} does not contain
    *                          a child node or contains multiple child nodes.
    * @throws RuntimeException if the single child node of the current
