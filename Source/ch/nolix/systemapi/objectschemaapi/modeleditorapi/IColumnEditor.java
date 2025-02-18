@@ -1,6 +1,5 @@
 package ch.nolix.systemapi.objectschemaapi.modeleditorapi;
 
-import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 
@@ -29,7 +28,7 @@ public interface IColumnEditor<C extends IColumn> {
    * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
    *                          given contentModel to the given column
    */
-  void setContentModelToColumn(Column column, IContentModel contentModel);
+  void setContentModelToColumn(C column, IContentModel contentModel);
 
   /**
    * Lets the current {@link IColumnEditor} set the given name to the given
@@ -40,5 +39,5 @@ public interface IColumnEditor<C extends IColumn> {
    * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
    *                          given name to the given column.
    */
-  void setNameToColumn(Column column, String name);
+  void setNameToColumn(C column, String name);
 }
