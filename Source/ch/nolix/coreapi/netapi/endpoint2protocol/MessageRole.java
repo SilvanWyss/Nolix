@@ -1,8 +1,5 @@
 package ch.nolix.coreapi.netapi.endpoint2protocol;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-
 /**
  * @author Silvan Wyss
  * @version 2016-10-01
@@ -27,8 +24,8 @@ public enum MessageRole {
   /**
    * @param prefix
    * @return a new {@link MessageRole} from the given prefix
-   * @throws UnrepresentingArgumentException if the given prefix does not
-   *                                         represent a {@link MessageRole}.
+   * @throws IllegalArgumentException if the given prefix does not represent a
+   *                                  {@link MessageRole}.
    */
   public static MessageRole fromPrefix(final char prefix) {
 
@@ -43,20 +40,8 @@ public enum MessageRole {
       case MessageRolePrefixCatalog.ERROR_RESPONSE_PREFIX ->
         ERROR_RESPONSE;
       default ->
-        throw createUnrepresentingArgumentExceptionForPrefix(prefix);
+        throw new IllegalArgumentException("The given prefix '" + prefix + "' is not valid.");
     };
-  }
-
-  /**
-   * @param prefix
-   * @return a new {@link UnrepresentingArgumentException} for the given prefix
-   *         that does not represent a {@link MessageRole}.
-   */
-  private static UnrepresentingArgumentException createUnrepresentingArgumentExceptionForPrefix(final char prefix) {
-    return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-      LowerCaseVariableCatalog.PREFIX,
-      prefix,
-      MessageRole.class);
   }
 
   /**
