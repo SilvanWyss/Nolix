@@ -3,7 +3,6 @@ package ch.nolix.systemapi.guiapi.guiproperty;
 import java.awt.Cursor;
 import java.util.Locale;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 /**
@@ -46,7 +45,7 @@ public enum CursorIcon {
       case WAIT ->
         "wait";
       default ->
-        throw InvalidArgumentException.forArgument(this);
+        throw new IllegalArgumentException("The current CursorIcon does not represent a CSS value.");
     };
   }
 
