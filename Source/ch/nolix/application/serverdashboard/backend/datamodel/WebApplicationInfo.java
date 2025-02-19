@@ -3,8 +3,7 @@ package ch.nolix.application.serverdashboard.backend.datamodel;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
-import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationService;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
@@ -14,7 +13,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
 
   private final IImage applicationLogo;
 
-  private <S> WebApplicationInfo(final Application<WebClient<S>, S> webApplication) {
+  private <S> WebApplicationInfo(final IApplication<?> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
 
@@ -27,7 +26,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
     }
   }
 
-  public static <S> WebApplicationInfo forWebApplication(final Application<WebClient<S>, S> webApplication) {
+  public static WebApplicationInfo forWebApplication(final IApplication<?> webApplication) {
     return new WebApplicationInfo(webApplication);
   }
 
