@@ -4,6 +4,9 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 
 public final class ChainedNodeComparator {
 
+  private ChainedNodeComparator() {
+  }
+
   public static boolean areEqual(final IChainedNode chainedNode1, final IChainedNode chainedNode2) {
 
     if (chainedNode1 == null) {
@@ -36,8 +39,5 @@ public final class ChainedNodeComparator {
     final IChainedNode chainedNode1,
     final IChainedNode chainedNode2) {
     return chainedNode1.getChildNodes().containsExactlyEqualingInSameOrder(chainedNode2.getChildNodes());
-  }
-
-  private ChainedNodeComparator() {
   }
 }
