@@ -1,9 +1,8 @@
 package ch.nolix.applicationapi.serverdashboardapi.backendapi.toolapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.application.main.AbstractServer;
-import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
+import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
 /**
  * @author Silvan Wyss
@@ -13,8 +12,8 @@ public interface IWebApplicationExtractor {
 
   /**
    * @param server
-   * @return the web {@link Application}s of the given server.
+   * @return the web applications of the given server.
    * @throws RuntimeException if the given server is null.
    */
-  IContainer<Application<WebClient<Object>, Object>> getStoredWebApplicationsOfServer(AbstractServer<?> server);
+  IContainer<? extends IApplication<Object>> getStoredWebApplicationsOfServer(IServer server);
 }

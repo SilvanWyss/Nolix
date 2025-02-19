@@ -6,9 +6,10 @@ import ch.nolix.applicationapi.serverdashboardapi.backendapi.toolapi.IWebApplica
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.system.application.main.AbstractServer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
+import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
 /**
  * @author Silvan Wyss
@@ -22,8 +23,7 @@ public final class WebApplicationExtractor implements IWebApplicationExtractor {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<Application<WebClient<Object>, Object>> getStoredWebApplicationsOfServer(
-    final AbstractServer<?> server) {
+  public IContainer<? extends IApplication<Object>> getStoredWebApplicationsOfServer(final IServer server) {
 
     final ILinkedList<Application<WebClient<Object>, Object>> webApplications = LinkedList.createEmpty();
 

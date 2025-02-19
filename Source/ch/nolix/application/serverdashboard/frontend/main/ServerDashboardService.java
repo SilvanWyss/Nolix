@@ -8,8 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.application.main.AbstractServer;
-import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 public final class ServerDashboardService implements IServerDashboardService {
 
@@ -33,7 +32,7 @@ public final class ServerDashboardService implements IServerDashboardService {
     return getStoredWebApplications().to(WebApplicationInfo::forWebApplication);
   }
 
-  private IContainer<Application<WebClient<Object>, Object>> getStoredWebApplications() {
+  private IContainer<? extends IApplication<Object>> getStoredWebApplications() {
     return WEB_APPLICATION_EXTRACTOR.getStoredWebApplicationsOfServer(server);
   }
 }
