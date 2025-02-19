@@ -13,7 +13,7 @@ public final class ExtendedOptionalMediator<T> extends OptionalMediator<T> {
   public static <T2> ExtendedOptionalMediator<T2> forArgument(
     final Optional<T2> argument //NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.
   ) {
-    return new ExtendedOptionalMediator<T2>(argument);
+    return new ExtendedOptionalMediator<>(argument);
   }
 
   public OptionalMediator<T> thatIsNamed(final Class<?> type) {
