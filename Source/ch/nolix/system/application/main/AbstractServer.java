@@ -89,8 +89,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param initialSessionClass
    * @param applicationService
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
-   *                            given initialSessionClass.
+   * @param <C>                 is the type of the {@link AbstractBackendClient}
+   *                            of the given initialSessionClass.
    * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
@@ -123,8 +123,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
-   *                            given initialSessionClass.
+   * @param <C>                 is the type of the {@link AbstractBackendClient}
+   *                            of the given initialSessionClass.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
@@ -154,8 +154,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * have a target.
    * 
    * @param defaultApplication
-   * @param <C>                is the type of the {@link AbstractBackendClient} of the
-   *                           given defaultApplication.
+   * @param <C>                is the type of the {@link AbstractBackendClient} of
+   *                           the given defaultApplication.
    * @param <U>                is the type of the context of the given
    *                           defaultApplication.
    * @return the current {@link AbstractServer}.
@@ -183,8 +183,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param initialSessionClass
    * @param applicationService
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
-   *                            given initialSessionClass.
+   * @param <C>                 is the type of the {@link AbstractBackendClient}
+   *                            of the given initialSessionClass.
    * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given instanceName is null.
@@ -221,8 +221,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param name
    * @param initialSessionClass
    * @param <T>                 is the type of the given initialSessionClass.
-   * @param <C>                 is the type of the {@link AbstractBackendClient} of the
-   *                            given initialSessionClass.
+   * @param <C>                 is the type of the {@link AbstractBackendClient}
+   *                            of the given initialSessionClass.
    * @return the current {@link AbstractServer}.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
@@ -295,9 +295,10 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   }
 
   /**
-   * @return the {@link Application}s of the current {@link AbstractServer}.
+   * {@inheritDoc}
    */
-  public final IContainer<Application<?, ?>> getStoredApplications() {
+  @Override
+  public final IContainer<? extends IApplication<?>> getStoredApplications() {
     return applications;
   }
 
