@@ -29,14 +29,14 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
     final ColumnSchemaViewDto columnInfo) {
 
     if (contentFieldNode.containsChildNodes()) {
-      return ContentFieldDto.withColumnName(columnInfo.name());
+      return new ContentFieldDto<>(columnInfo.name(), null);
     }
 
     if (!contentFieldNode.hasHeader()) {
-      return ContentFieldDto.withColumnName(columnInfo.name());
+      return new ContentFieldDto<>(columnInfo.name(), null);
     }
 
-    return ContentFieldDto.withColumnNameAndContent(
+    return new ContentFieldDto<>(
       columnInfo.name(),
       VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), columnInfo.dataType()));
   }
