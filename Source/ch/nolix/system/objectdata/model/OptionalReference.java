@@ -92,7 +92,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   }
 
   @Override
-  public void internalSetOrClearContent(final Object content) {
+  public void internalSetOptionalContent(final Object content) {
     if (content == null) {
       referencedEntityId = null;
     } else {

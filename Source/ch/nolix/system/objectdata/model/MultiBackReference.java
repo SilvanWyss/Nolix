@@ -102,7 +102,7 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public void internalSetOrClearContent(final Object content) {
+  public void internalSetOptionalContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
   }
 

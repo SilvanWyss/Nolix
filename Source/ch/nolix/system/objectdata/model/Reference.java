@@ -98,7 +98,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   }
 
   @Override
-  public void internalSetOrClearContent(final Object content) {
+  public void internalSetOptionalContent(final Object content) {
     referencedEntityId = (String) content;
   }
 

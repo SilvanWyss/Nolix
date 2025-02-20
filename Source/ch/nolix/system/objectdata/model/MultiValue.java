@@ -68,7 +68,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   }
 
   @Override
-  public void internalSetOrClearContent(final Object content) {
+  public void internalSetOptionalContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
   }
 

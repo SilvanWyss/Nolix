@@ -28,7 +28,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
 
   ContentType getType();
 
-  void internalSetOrClearContent(Object content);
+  void internalSetOptionalContent(Object content);
 
   boolean knowsParentColumn();
 

@@ -66,7 +66,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
 
   @Override
   @SuppressWarnings("unchecked")
-  public void internalSetOrClearContent(final Object content) {
+  public void internalSetOptionalContent(final Object content) {
     if (content == null) {
       internalValue = null;
     } else {

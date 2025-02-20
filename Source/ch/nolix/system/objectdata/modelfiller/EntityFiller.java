@@ -25,7 +25,7 @@ public final class EntityFiller implements IEntityFiller {
 
       final var field = fields.getStoredFirst(f2 -> f2.hasName(f.columnName()));
 
-      field.internalSetOrClearContent(f.optionalContent());
+      field.internalSetOptionalContent(f.optionalContent());
     }
   }
 }

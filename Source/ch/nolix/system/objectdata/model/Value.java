@@ -51,7 +51,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
 
   @Override
   @SuppressWarnings("unchecked")
-  public void internalSetOrClearContent(final Object content) {
+  public void internalSetOptionalContent(final Object content) {
     internalValue = (V) content;
   }
 
