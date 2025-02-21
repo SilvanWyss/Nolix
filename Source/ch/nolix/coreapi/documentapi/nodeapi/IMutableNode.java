@@ -145,6 +145,14 @@ public interface IMutableNode<N extends IMutableNode<N>> extends INode<N>, IFlue
   void resetFromFile(String filePath);
 
   /**
+   * Resets the current {@link IMutableNode} from the given node.
+   * 
+   * @param node
+   * @throws RuntimeException if the given node is null.
+   */
+  void resetFromNode(INode<?> node);
+
+  /**
    * Resets the current {@link IMutableNode} from the given string.
    * 
    * @param string

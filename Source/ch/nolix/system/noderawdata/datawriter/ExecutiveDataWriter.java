@@ -196,7 +196,7 @@ public final class ExecutiveDataWriter {
   public void saveChangesAndReset() {
     try {
 
-      nodeDatabase.setChildNodes(createNodeDatabaseWithUpdates().getStoredChildNodes());
+      nodeDatabase.resetFromNode(createNodeDatabaseWithUpdates());
 
       saveCount++;
     } finally {

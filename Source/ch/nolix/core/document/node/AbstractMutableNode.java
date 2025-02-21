@@ -71,6 +71,21 @@ implements IMutableNode<N> {
    * {@inheritDoc}
    */
   @Override
+  public final void resetFromNode(INode<?> node) {
+
+    reset();
+
+    if (node.hasHeader()) {
+      setHeader(node.getHeader());
+    }
+
+    addChildNodes(node.getStoredChildNodes());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void resetFromString(final String string) {
 
     reset();
