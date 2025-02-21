@@ -13,7 +13,7 @@ public interface IEntityIndexNodeMapper {
   /**
    * @param entityCreationDto
    * @param tableView
-   * @return a new index {@link INode} from the given entityCreationDto.
+   * @return a new entity index node from the given entityCreationDto.
    * @throws RuntimeException if the given entityCreationDto is null.
    */
   INode<?> mapEntityCreationDtoToEntityIndexNode(EntityCreationDto entityCreationDto, TableSchemaViewDto tableView);
