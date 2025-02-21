@@ -16,7 +16,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 final class ExecutiveDataWriter {
 
-  private static final DatabaseUpdater DATABASE_UPDATER = new DatabaseUpdater();
+  private static final DataWriterActionProvider DATABASE_UPDATER = new DataWriterActionProvider();
 
   private int saveCount;
 
