@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 
 public final class MultiReferenceSaver {
 
@@ -41,12 +42,22 @@ public final class MultiReferenceSaver {
 
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();
+    final var tableName = entity.getParentTableName();
+    final var entityId = entity.getId();
+    final var multiReferenceColumnId = multiReference.getStoredParentColumn().getId();
+    final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
+    final var referencedEntity = multiReference.getStoredParentEntity();
+    final var referencedEntityTableId = referencedEntity.getStoredParentTable().getId();
 
-    dataAndSchemaAdapter.insertMultiReferenceEntry(
-      entity.getParentTableName(),
-      entity.getId(),
-      multiReference.getStoredParentColumn().getId(),
-      multiReferenceEntry.getReferencedEntityId());
+    final var multiReferenceEntryDto = //
+    new MultiReferenceEntryDto(
+      tableName,
+      entityId,
+      multiReferenceColumnId,
+      referencedEntityId,
+      referencedEntityTableId);
+
+    dataAndSchemaAdapter.insertMultiReferenceEntry(multiReferenceEntryDto);
   }
 
   private void deleteMultiReferenceEntry(

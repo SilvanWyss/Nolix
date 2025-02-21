@@ -9,6 +9,7 @@ import ch.nolix.systemapi.rawdataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
@@ -150,17 +151,17 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void insertMultiReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiReferenceColumnId,
-    final String referencedEntityId) {
+  public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
-    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiReferenceColumnId);
+    final var tableView = getTableSchemaViewByTableName(multiReferenceEntry.tableName());
+    final var entityId = multiReferenceEntry.entityid();
+    final var columndId = multiReferenceEntry.multiReferenceColumnId();
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableView, columndId);
+    final var referencedEntityId = multiReferenceEntry.referencedEntityId();
+    final var referencedEntityTableId = multiReferenceEntry.referencedEntityTableId();
 
     internalDataWriter.insertEntryIntoMultiReference(
-      tableInfo,
+      tableView,
       entityId,
       columnView,
       referencedEntityId);

@@ -4,6 +4,7 @@ import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -127,19 +128,12 @@ public interface IDataWriter extends IResettableChangeSaver {
     String backReferencedEntityId);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
-   * @param tableName
-   * @param entityId
-   * @param multiReferenceColumnId
-   * @param referencedEntityId
+   * @param multiReferenceEntry
    */
-  void insertMultiReferenceEntry(
-    String tableName,
-    String entityId,
-    String multiReferenceColumnId,
-    String referencedEntityId);
+  void insertMultiReferenceEntry(MultiReferenceEntryDto multiReferenceEntry);
 
   /**
    * There is not asserted that the concerned entity was not changed in the

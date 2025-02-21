@@ -12,6 +12,7 @@ import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {
@@ -130,12 +131,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void insertMultiReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiReferenceColumnId,
-    final String referencedEntityId) {
-    dataWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnId, referencedEntityId);
+  public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
+    dataWriter.insertMultiReferenceEntry(multiReferenceEntry);
   }
 
   @Override
