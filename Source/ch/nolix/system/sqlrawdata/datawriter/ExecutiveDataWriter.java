@@ -17,7 +17,7 @@ import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiReferenceState
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public final class InternalDataWriter {
+public final class ExecutiveDataWriter {
 
   private static final IEntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
 
@@ -35,7 +35,7 @@ public final class InternalDataWriter {
 
   private final ISqlConnection sqlConnection;
 
-  public InternalDataWriter(
+  public ExecutiveDataWriter(
     final String databaseName,
     final ISqlConnection sqlConnection) {
 
