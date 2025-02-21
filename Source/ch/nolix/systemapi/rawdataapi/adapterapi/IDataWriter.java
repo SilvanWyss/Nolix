@@ -23,7 +23,7 @@ public interface IDataWriter extends IResettableChangeSaver {
   void deleteEntity(String tableName, EntityDeletionDto entity);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -38,7 +38,7 @@ public interface IDataWriter extends IResettableChangeSaver {
     String backReferencedEntityId);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -48,7 +48,7 @@ public interface IDataWriter extends IResettableChangeSaver {
   void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -63,7 +63,7 @@ public interface IDataWriter extends IResettableChangeSaver {
     String referencedEntityId);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -73,7 +73,7 @@ public interface IDataWriter extends IResettableChangeSaver {
   void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -113,7 +113,7 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertEntity(String tableName, EntityCreationDto newEntity);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -136,7 +136,7 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiReferenceEntry(MultiReferenceEntryDto multiReferenceEntry);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
@@ -147,7 +147,7 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 
   /**
-   * There is not asserted that the concerned entity was not changed in the
+   * There is not validated that the concerned entity was not changed in the
    * meanwhile.
    * 
    * @param tableName
