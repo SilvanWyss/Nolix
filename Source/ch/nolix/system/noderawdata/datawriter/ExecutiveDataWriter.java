@@ -14,15 +14,15 @@ import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-final class ExecutiveDataWriter {
+public final class ExecutiveDataWriter {
 
-  private static final DataWriterActionProvider DATABASE_UPDATER = new DataWriterActionProvider();
-
-  private int saveCount;
+  private static final DataWriterActionProvider DATA_WRITER_ACTION_PROVIDER = new DataWriterActionProvider();
 
   private final IMutableNode<?> nodeDatabase;
 
-  private final IUpdaterCollector<IMutableNode<?>> updaterCollector = new UpdaterCollector<>();
+  private final IUpdaterCollector<IMutableNode<?>> updateCollector = new UpdaterCollector<>();
+
+  private int saveCount;
 
   public ExecutiveDataWriter(final IMutableNode<?> nodeDatabase) {
 
@@ -37,9 +37,9 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiReferenceColumnInfo) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableView, entityId, multiReferenceColumnInfo);
+    d -> DATA_WRITER_ACTION_PROVIDER.deleteEntriesFromMultiReference(d, tableView, entityId, multiReferenceColumnInfo);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void deleteEntriesFromMultiValue(
@@ -48,9 +48,9 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiValueColumnInfo) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableView, entityId, multiValueColumnInfo);
+    d -> DATA_WRITER_ACTION_PROVIDER.deleteEntriesFromMultiValue(d, tableView, entityId, multiValueColumnInfo);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void deleteEntryFromMultiReference(
@@ -59,14 +59,16 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.deleteEntryFromMultiReference(
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> //
+    DATA_WRITER_ACTION_PROVIDER.deleteEntryFromMultiReference(
       d,
       tableView,
       entityId,
       multiReferenceColumnInfo,
       referencedEntityId);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void deleteEntryFromMultiValue(
@@ -75,14 +77,18 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiValueColumnInfo,
     final String entry) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableView,
-      entityId, multiValueColumnInfo, entry);
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DATA_WRITER_ACTION_PROVIDER.deleteEntryFromMultiValue(d, tableView, entityId, multiValueColumnInfo, entry);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void deleteEntityFromTable(final String tableName, final EntityDeletionDto entity) {
-    addUpdateAction(d -> DATABASE_UPDATER.deleteEntityFromTable(d, tableName, entity));
+
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DATA_WRITER_ACTION_PROVIDER.deleteEntityFromTable(d, tableName, entity);
+
+    updateCollector.addUpdater(updateAction);
   }
 
   public void deleteMultiBackReferenceEntry(
@@ -91,29 +97,32 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.deleteMultiBackReferenceEntry(
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> //
+    DATA_WRITER_ACTION_PROVIDER.deleteMultiBackReferenceEntry(
       d,
       tableView,
       entityId,
       multiBackReferenceColumnInfo,
       backReferencedEntityId);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
-  public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
+  public void expectSchemaTimestamp(ITime schemaTimestamp) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.expectGivenSchemaTimestamp(d, schemaTimestamp);
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DATA_WRITER_ACTION_PROVIDER.expectGivenSchemaTimestamp(d, schemaTimestamp);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void expectTableContainsEntity(final String tableName, final String entityId) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.expectTableContainsEntity(d, tableName,
-      entityId);
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DATA_WRITER_ACTION_PROVIDER.expectTableContainsEntity(d, tableName, entityId);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public int getSaveCount() {
@@ -121,7 +130,7 @@ final class ExecutiveDataWriter {
   }
 
   public boolean hasUpdates() {
-    return updaterCollector.containsAny();
+    return updateCollector.containsAny();
   }
 
   public void insertEntryIntoMultiBackReference(
@@ -130,14 +139,16 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.insertEntryIntoMultiBackReference(
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> //
+    DATA_WRITER_ACTION_PROVIDER.insertEntryIntoMultiBackReference(
       d,
       tableView,
       entityId,
       multiBackReferenceColumnInfo,
       backReferencedEntityId);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void insertEntryIntoMultiReference(
@@ -146,14 +157,16 @@ final class ExecutiveDataWriter {
     final ColumnSchemaViewDto multiReferenceColumnInfo,
     final String referencedEntityId) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.insertEntryIntoMultiReference(
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> //
+    DATA_WRITER_ACTION_PROVIDER.insertEntryIntoMultiReference(
       d,
       tableView,
       entityId,
       multiReferenceColumnInfo,
       referencedEntityId);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void insertEntryIntoMultiValue(
@@ -163,25 +176,28 @@ final class ExecutiveDataWriter {
     final String entry) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableView, entityId, multiValueColumnInfo, entry);
+    d -> DATA_WRITER_ACTION_PROVIDER.insertEntryIntoMultiValue(d, tableView, entityId, multiValueColumnInfo, entry);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void insertEntityIntoTable(final TableSchemaViewDto tableView, final EntityCreationDto newEntity) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.insertEntityIntoTable(d, tableView, newEntity);
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DATA_WRITER_ACTION_PROVIDER.insertEntityIntoTable(d, tableView, newEntity);
 
-    addUpdateAction(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   public void reset() {
-    updaterCollector.clear();
+    updateCollector.clear();
   }
 
   public void saveChangesAndReset() {
     try {
+
       nodeDatabase.setChildNodes(createNodeDatabaseWithUpdates().getStoredChildNodes());
+
       saveCount++;
     } finally {
       reset();
@@ -190,21 +206,17 @@ final class ExecutiveDataWriter {
 
   public void updateEntityOnTable(final TableSchemaViewDto tableView, EntityUpdateDto entityUpdate) {
 
-    final Consumer<IMutableNode<?>> updateAction = d -> DATABASE_UPDATER.updateEntityOnTable(d, tableView,
-      entityUpdate);
+    final Consumer<IMutableNode<?>> updateAction = //
+    d -> DATA_WRITER_ACTION_PROVIDER.updateEntityOnTable(d, tableView, entityUpdate);
 
-    addUpdateAction(updateAction);
-  }
-
-  private void addUpdateAction(final Consumer<IMutableNode<?>> updateAction) {
-    updaterCollector.addUpdater(updateAction);
+    updateCollector.addUpdater(updateAction);
   }
 
   private IMutableNode<?> createNodeDatabaseWithUpdates() {
 
     final var newNodeDatabase = MutableNode.fromNode(nodeDatabase);
 
-    updaterCollector.updateObjectAndClear(newNodeDatabase);
+    updateCollector.updateObjectAndClear(newNodeDatabase);
 
     return newNodeDatabase;
   }
