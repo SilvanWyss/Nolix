@@ -10,6 +10,7 @@ import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.noderawdata.nodemapper.EntityIndexNodeMapper;
 import ch.nolix.system.noderawdata.nodemapper.EntityNodeMapper;
+import ch.nolix.system.noderawdata.nodemapper.MultiReferenceEntryNodeMapper;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
@@ -19,6 +20,7 @@ import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
+import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IMultiReferenceEntryNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.FieldIndexCatalog;
@@ -27,6 +29,7 @@ import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNo
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
@@ -52,6 +55,8 @@ public final class DataWriterActionProvider {
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
   private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
+
+  private static final IMultiReferenceEntryNodeMapper MULTI_REFERENCE_ENTRY_NODE_MAPPER = new MultiReferenceEntryNodeMapper();
 
   private DataWriterActionProvider() {
   }
@@ -242,21 +247,17 @@ public final class DataWriterActionProvider {
 
   public static void insertEntryIntoMultiReference(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
-    final String entityId,
-    final ColumnSchemaViewDto multiReferenceColumnInfo,
-    final String referencedEntityId) {
+    final MultiReferenceEntryDto multiReferenceEntry,
+    final int multiReferenceColumnOneBasedOrdinalIndex) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableName = multiReferenceEntry.tableName();
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var entityId = multiReferenceEntry.entityid();
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
+    final var multiReferenceEntryNode = Node.withHeader(multiReferenceEntry.referencedEntityId());
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
-
-    final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
-
-    multiReferenceNode.addChildNode(Node.withHeader(referencedEntityId));
+    multiReferenceNode.addChildNode(multiReferenceEntryNode);
   }
 
   public static void insertEntryIntoMultiValue(

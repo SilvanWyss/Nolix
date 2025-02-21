@@ -154,17 +154,11 @@ public final class DataWriter implements IDataWriter {
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
 
     final var tableView = getTableSchemaViewByTableName(multiReferenceEntry.tableName());
-    final var entityId = multiReferenceEntry.entityid();
     final var columndId = multiReferenceEntry.multiReferenceColumnId();
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableView, columndId);
-    final var referencedEntityId = multiReferenceEntry.referencedEntityId();
-    final var referencedEntityTableId = multiReferenceEntry.referencedEntityTableId();
+    final var multiReferenceColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.insertEntryIntoMultiReference(
-      tableView,
-      entityId,
-      columnView,
-      referencedEntityId);
+    executiveDataWriter.insertEntryIntoMultiReference(multiReferenceEntry, multiReferenceColumnOneBasedOrdinalIndex);
   }
 
   @Override
