@@ -20,14 +20,12 @@ public class SqlValueMapper implements ISqlValueMapper {
   @Override
   public String mapStringContentFieldDtoToSqlValue(final StringContentFieldDto stringContentFieldDto) {
 
-    final var optionalContent = stringContentFieldDto.optionalContent();
+    final var optionalContentString = stringContentFieldDto.optionalContentString();
 
-    if (optionalContent.isEmpty()) {
+    if (optionalContentString.isEmpty()) {
       return SqlKeywordCatalog.NULL;
     }
 
-    final var content = optionalContent.get();
-
-    return STRING_TOOL.getInSingleQuotes(content);
+    return STRING_TOOL.getInSingleQuotes(optionalContentString);
   }
 }

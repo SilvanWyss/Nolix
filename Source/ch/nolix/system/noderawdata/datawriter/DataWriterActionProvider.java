@@ -327,6 +327,7 @@ public final class DataWriterActionProvider {
     entityIndexesNode.addChildNode(entityIndexNode);
   }
 
+  //TODO: Move this implementation to EntityNodeMapper
   private static void updateEntityNode(
     final IMutableNode<?> entityNode,
     final TableSchemaViewDto tableView,
@@ -336,14 +337,13 @@ public final class DataWriterActionProvider {
       final var columnInfo = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
       final var columnIndex = columnInfo.oneBasedOrdinalIndex();
       final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(columnIndex);
+      final var optionalContentString = f.optionalContentString();
 
-      final var valueAsString = f.optionalContent();
-      if (valueAsString.isEmpty()) {
+      if (optionalContentString == null) {
         contentFieldNode.removeHeader();
       } else {
-        contentFieldNode.setHeader(valueAsString.get());
+        contentFieldNode.setHeader(optionalContentString);
       }
     }
   }
-
 }

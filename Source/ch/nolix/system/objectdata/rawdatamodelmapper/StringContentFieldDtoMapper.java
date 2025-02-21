@@ -21,37 +21,38 @@ import ch.nolix.systemapi.rawdataapi.modelapi.StringContentFieldDto;
 public final class StringContentFieldDtoMapper implements IStringContentFieldDtoMapper {
 
   private static StringContentFieldDto mapOptionalValueToStringContentFieldDto(IOptionalValue<?> optionalValue) {
+
+    final var columnName = optionalValue.getName();
+
     if (optionalValue.isEmpty()) {
-      return StringContentFieldDto.withColumnName(optionalValue.getName());
+      return new StringContentFieldDto(columnName, null);
     }
 
-    return //
-    StringContentFieldDto.withColumnNameAndContent(
-      optionalValue.getName(),
-      optionalValue.getStoredValue().toString());
+    return new StringContentFieldDto(columnName, optionalValue.getStoredValue().toString());
   }
 
   private static StringContentFieldDto mapOptionalReferenceToStringContentFieldDto(
     IOptionalReference<?> optionalReference) {
+
+    final var columnName = optionalReference.getName();
+
     if (optionalReference.isEmpty()) {
-      return StringContentFieldDto.withColumnName(optionalReference.getName());
+      return new StringContentFieldDto(columnName, null);
     }
 
-    return //
-    StringContentFieldDto.withColumnNameAndContent(
-      optionalReference.getName(),
-      optionalReference.getReferencedEntityId());
+    return new StringContentFieldDto(columnName, optionalReference.getReferencedEntityId());
   }
 
   private static StringContentFieldDto mapOptionalBackReferenceToStringContentFieldDto(
     IOptionalBackReference<?> optionalBackReference) {
+
+    final var columnName = optionalBackReference.getName();
+
     if (optionalBackReference.isEmpty()) {
-      return StringContentFieldDto.withColumnName(optionalBackReference.getName());
+      return new StringContentFieldDto(columnName, null);
     }
 
-    return StringContentFieldDto.withColumnNameAndContent(
-      optionalBackReference.getName(),
-      optionalBackReference.getBackReferencedEntityId());
+    return new StringContentFieldDto(columnName, optionalBackReference.getBackReferencedEntityId());
   }
 
   /**
@@ -61,7 +62,7 @@ public final class StringContentFieldDtoMapper implements IStringContentFieldDto
   public StringContentFieldDto mapFieldToStringContentFieldDto(final IField field) {
 
     if (field instanceof final IValue<?> value) {
-      return StringContentFieldDto.withColumnNameAndContent(value.getName(), value.getStoredValue().toString());
+      return new StringContentFieldDto(value.getName(), value.getStoredValue().toString());
     }
 
     if (field instanceof final IOptionalValue<?> optionalValue) {
@@ -69,11 +70,11 @@ public final class StringContentFieldDtoMapper implements IStringContentFieldDto
     }
 
     if (field instanceof final IMultiValue<?> multiValue) {
-      return StringContentFieldDto.withColumnName(multiValue.getName());
+      return new StringContentFieldDto(multiValue.getName(), null);
     }
 
     if (field instanceof final IReference<?> reference) {
-      return StringContentFieldDto.withColumnNameAndContent(reference.getName(), reference.getReferencedEntityId());
+      return new StringContentFieldDto(reference.getName(), reference.getReferencedEntityId());
     }
 
     if (field instanceof final IOptionalReference<?> optionalReference) {
@@ -81,14 +82,11 @@ public final class StringContentFieldDtoMapper implements IStringContentFieldDto
     }
 
     if (field instanceof final IMultiReference<?> multiReference) {
-      return StringContentFieldDto.withColumnName(multiReference.getName());
+      return new StringContentFieldDto(multiReference.getName(), null);
     }
 
     if (field instanceof final IBackReference<?> backReference) {
-      return //
-      StringContentFieldDto.withColumnNameAndContent(
-        backReference.getName(),
-        backReference.getBackReferencedEntityId());
+      return new StringContentFieldDto(backReference.getName(), backReference.getBackReferencedEntityId());
     }
 
     if (field instanceof final IOptionalBackReference<?> optionalBackReference) {
@@ -96,7 +94,7 @@ public final class StringContentFieldDtoMapper implements IStringContentFieldDto
     }
 
     if (field instanceof final IMultiBackReference<?> multiBackReference) {
-      return StringContentFieldDto.withColumnName(multiBackReference.getName());
+      return new StringContentFieldDto(multiBackReference.getName(), null);
     }
 
     throw InvalidArgumentException.forArgument(field);

@@ -67,9 +67,9 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new EntityCreationDto(
       "my_id",
       ImmutableList.withElement(
-        StringContentFieldDto.withColumnNameAndContent("MyColumn1", "my_value1"),
-        StringContentFieldDto.withColumnNameAndContent("MyColumn2", "my_value2"),
-        StringContentFieldDto.withColumnNameAndContent("MyColumn3", "my_value3")));
+        new StringContentFieldDto("MyColumn1", "my_value1"),
+        new StringContentFieldDto("MyColumn2", "my_value2"),
+        new StringContentFieldDto("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
@@ -89,9 +89,9 @@ final class EntityStatementCreatorTest extends StandardTest {
       "my_id",
       "100",
       ImmutableList.withElement(
-        StringContentFieldDto.withColumnNameAndContent("MyColumn1", "my_value1"),
-        StringContentFieldDto.withColumnNameAndContent("MyColumn2", "my_value2"),
-        StringContentFieldDto.withColumnNameAndContent("MyColumn3", "my_value3")));
+        new StringContentFieldDto("MyColumn1", "my_value1"),
+        new StringContentFieldDto("MyColumn2", "my_value2"),
+        new StringContentFieldDto("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);

@@ -50,12 +50,12 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
 
       final var columnInfo = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
       final var index = columnInfo.oneBasedOrdinalIndex() - 1;
+      final var optionalContentString = f.optionalContentString();
 
-      final var valueAsString = f.optionalContent();
-      if (valueAsString.isEmpty()) {
+      if (optionalContentString == null) {
         attributes[index] = Node.EMPTY_NODE;
       } else {
-        attributes[index] = Node.withHeader(valueAsString.get());
+        attributes[index] = Node.withHeader(optionalContentString);
       }
     }
 
