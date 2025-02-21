@@ -47,13 +47,16 @@ public final class DataWriterActionProvider {
 
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
-  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
-
   private static final IEntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
+
+  private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
   private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
-  public void deleteEntriesFromMultiReference(
+  private DataWriterActionProvider() {
+  }
+
+  public static void deleteEntriesFromMultiReference(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -71,7 +74,7 @@ public final class DataWriterActionProvider {
     multiReferenceColumnNode.removeChildNodes();
   }
 
-  public void deleteEntriesFromMultiValue(
+  public static void deleteEntriesFromMultiValue(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -89,7 +92,7 @@ public final class DataWriterActionProvider {
     multiValueColumnNode.removeChildNodes();
   }
 
-  public void deleteEntryFromMultiReference(
+  public static void deleteEntryFromMultiReference(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -108,7 +111,7 @@ public final class DataWriterActionProvider {
     multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
   }
 
-  public void deleteEntryFromMultiValue(
+  public static void deleteEntryFromMultiValue(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -127,7 +130,7 @@ public final class DataWriterActionProvider {
     multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
   }
 
-  public void deleteEntityFromTable(
+  public static void deleteEntityFromTable(
     final IMutableNode<?> database,
     final String tableName,
     final EntityDeletionDto entity) {
@@ -145,7 +148,7 @@ public final class DataWriterActionProvider {
     }
   }
 
-  public void deleteMultiBackReferenceEntry(
+  public static void deleteMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -164,7 +167,7 @@ public final class DataWriterActionProvider {
     multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }
 
-  public void expectGivenSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
+  public static void expectGivenSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
       .getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
@@ -177,7 +180,7 @@ public final class DataWriterActionProvider {
     }
   }
 
-  public void expectTableContainsEntity(
+  public static void expectTableContainsEntity(
     final IMutableNode<?> nodeDatabase,
     final String tableName,
     final String entityId) {
@@ -197,7 +200,7 @@ public final class DataWriterActionProvider {
     }
   }
 
-  public void insertEntityIntoTable(
+  public static void insertEntityIntoTable(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final EntityCreationDto newEntity) {
@@ -218,7 +221,7 @@ public final class DataWriterActionProvider {
     tableNode.addChildNode(entityNode);
   }
 
-  public void insertEntryIntoMultiBackReference(
+  public static void insertEntryIntoMultiBackReference(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -237,7 +240,7 @@ public final class DataWriterActionProvider {
     multiBackReferenceNode.addChildNode(Node.withHeader(backReferencedEntityId));
   }
 
-  public void insertEntryIntoMultiReference(
+  public static void insertEntryIntoMultiReference(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -256,7 +259,7 @@ public final class DataWriterActionProvider {
     multiReferenceNode.addChildNode(Node.withHeader(referencedEntityId));
   }
 
-  public void insertEntryIntoMultiValue(
+  public static void insertEntryIntoMultiValue(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -275,7 +278,7 @@ public final class DataWriterActionProvider {
     multiValueNode.addChildNode(Node.withHeader(entry));
   }
 
-  public void updateEntityOnTable(
+  public static void updateEntityOnTable(
     final IMutableNode<?> database,
     final TableSchemaViewDto tableView,
     final EntityUpdateDto entityUpdate) {
@@ -303,7 +306,8 @@ public final class DataWriterActionProvider {
     updateEntityNode(entityNode.get(), tableView, entityUpdate);
   }
 
-  private void deleteEntityIndexFromDatabase(final IMutableNode<?> nodeDatabase, final EntityDeletionDto entity) {
+  private static void deleteEntityIndexFromDatabase(final IMutableNode<?> nodeDatabase,
+    final EntityDeletionDto entity) {
 
     final var entityId = entity.id();
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
@@ -311,7 +315,7 @@ public final class DataWriterActionProvider {
     entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));
   }
 
-  private void insertEntityIndexIntoDatabase(
+  private static void insertEntityIndexIntoDatabase(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final EntityCreationDto newEntity) {
@@ -322,7 +326,7 @@ public final class DataWriterActionProvider {
     entityIndexesNode.addChildNode(entityIndexNode);
   }
 
-  private void updateEntityNode(
+  private static void updateEntityNode(
     final IMutableNode<?> entityNode,
     final TableSchemaViewDto tableView,
     final EntityUpdateDto entityUpdate) {
