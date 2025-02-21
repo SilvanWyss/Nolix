@@ -14,7 +14,7 @@ import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-final class InternalDataWriter {
+final class ExecutiveDataWriter {
 
   private static final DatabaseUpdater DATABASE_UPDATER = new DatabaseUpdater();
 
@@ -24,7 +24,7 @@ final class InternalDataWriter {
 
   private final IUpdaterCollector<IMutableNode<?>> updaterCollector = new UpdaterCollector<>();
 
-  public InternalDataWriter(final IMutableNode<?> nodeDatabase) {
+  public ExecutiveDataWriter(final IMutableNode<?> nodeDatabase) {
 
     GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
