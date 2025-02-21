@@ -126,7 +126,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     final String entityId,
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
-    dataWriter.insertMultiReferenceEntry(tableName, entityId, multiBackReferenceColumnId, backReferencedEntityId);
+    dataWriter.insertMultiBackReferenceEntry(tableName, entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
   @Override
