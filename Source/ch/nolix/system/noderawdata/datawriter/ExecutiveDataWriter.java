@@ -24,11 +24,15 @@ public final class ExecutiveDataWriter {
 
   private int saveCount;
 
-  public ExecutiveDataWriter(final IMutableNode<?> nodeDatabase) {
+  private ExecutiveDataWriter(final IMutableNode<?> nodeDatabase) {
 
     GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
+  }
+
+  public static ExecutiveDataWriter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new ExecutiveDataWriter(nodeDatabase);
   }
 
   public void deleteEntriesFromMultiReference(

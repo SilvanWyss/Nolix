@@ -30,7 +30,7 @@ public final class DataWriter implements IDataWriter {
     GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
-    this.executiveDataWriter = new ExecutiveDataWriter(nodeDatabase);
+    this.executiveDataWriter = ExecutiveDataWriter.forNodeDatabase(nodeDatabase);
   }
 
   @Override
