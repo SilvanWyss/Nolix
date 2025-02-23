@@ -3,6 +3,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalHeaderHolder;
+import ch.nolix.coreapi.stateapi.statemutationapi.Resettable;
 
 /**
  * A {@link IMutableNode} is a {@link INode} that is mutable.
@@ -11,7 +12,11 @@ import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMu
  * @version 2022-06-25
  * @param <N> is the type of a {@link IMutableNode}.
  */
-public interface IMutableNode<N extends IMutableNode<N>> extends INode<N>, IFluentMutableOptionalHeaderHolder<N> {
+public interface IMutableNode<N extends IMutableNode<N>>
+extends
+INode<N>,
+IFluentMutableOptionalHeaderHolder<N>,
+Resettable {
 
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
@@ -129,12 +134,6 @@ public interface IMutableNode<N extends IMutableNode<N>> extends INode<N>, IFlue
    *                          a child {@link INode} with the given header.
    */
   void replaceFirstChildNodeWithGivenHeaderByGivenNode(String header, INode<?> node);
-
-  /**
-   * Removes the header and child {@link INode}s of the current
-   * {@link IMutableNode}.
-   */
-  void reset();
 
   /**
    * Resets the current {@link IMutableNode} from the file with the given file
