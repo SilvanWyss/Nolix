@@ -35,7 +35,11 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
-    executiveDataWriter.deleteEntityFromTable(tableName, entity);
+
+    final var entityId = entity.id();
+    final var entitySaveStamp = entity.saveStamp();
+
+    executiveDataWriter.deleteEntity(tableName, entityId, entitySaveStamp);
   }
 
   @Override

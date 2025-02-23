@@ -28,7 +28,6 @@ import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.FieldIndexCatalo
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
@@ -120,20 +119,19 @@ public final class DataWriterActionProvider {
     multiValueNode.removeFirstChildNodeWithHeader(entry);
   }
 
-  public static void deleteEntityFromTable(
+  public static void deleteEntity(
     final IMutableNode<?> database,
     final String tableName,
-    final EntityDeletionDto entity) {
+    final String entityId,
+    final String entitySaveStamp) {
 
-    deleteEntityIndexFromDatabase(database, entity);
+    deleteEntityIndex(database, entityId);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
-
-    final var entityNode = TABLE_NODE_EDITOR.removeAndGetStoredEntityNodeById(tableNode, entity.id());
-
+    final var entityNode = TABLE_NODE_EDITOR.removeAndGetStoredEntityNodeById(tableNode, entityId);
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
 
-    if (!saveStampNode.hasHeader(entity.saveStamp())) {
+    if (!saveStampNode.hasHeader(entitySaveStamp)) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("data");
     }
   }
@@ -292,10 +290,8 @@ public final class DataWriterActionProvider {
     updateEntityNode(entityNode.get(), tableView, entityUpdate);
   }
 
-  private static void deleteEntityIndexFromDatabase(final IMutableNode<?> nodeDatabase,
-    final EntityDeletionDto entity) {
+  private static void deleteEntityIndex(final IMutableNode<?> nodeDatabase, final String entityId) {
 
-    final var entityId = entity.id();
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
 
     entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));

@@ -8,7 +8,6 @@ import ch.nolix.core.programcontrol.process.UpdaterCollector;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
@@ -93,10 +92,13 @@ public final class ExecutiveDataWriter {
     updaterCollector.addUpdater(updateAction);
   }
 
-  public void deleteEntityFromTable(final String tableName, final EntityDeletionDto entity) {
+  public void deleteEntity(
+    final String tableName,
+    final String entityId,
+    final String entitySaveStamp) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.deleteEntityFromTable(d, tableName, entity);
+    d -> DataWriterActionProvider.deleteEntity(d, tableName, entityId, entitySaveStamp);
 
     updaterCollector.addUpdater(updateAction);
   }
