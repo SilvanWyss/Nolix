@@ -56,7 +56,7 @@ public final class ExecutiveDataWriter {
     updaterCollector.addUpdater(updateAction);
   }
 
-  public void deleteEntryFromMultiReference(
+  public void deleteMultiReferenceEntry(
     final String tableName,
     final String entityId,
     final int multiReferencedColumnOneBasedOrdinalIndex,
@@ -64,7 +64,7 @@ public final class ExecutiveDataWriter {
 
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
-    DataWriterActionProvider.deleteEntryFromMultiReference(
+    DataWriterActionProvider.deleteMultiReferenceEntry(
       d,
       tableName,
       entityId,
@@ -74,7 +74,7 @@ public final class ExecutiveDataWriter {
     updaterCollector.addUpdater(updateAction);
   }
 
-  public void deleteEntryFromMultiValue(
+  public void deleteMultiValueEntry(
     final String tableName,
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex,
@@ -82,7 +82,7 @@ public final class ExecutiveDataWriter {
 
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
-    DataWriterActionProvider.deleteEntryFromMultiValue(
+    DataWriterActionProvider.deleteMultiValueEntry(
       d,
       tableName,
       entityId,
@@ -124,7 +124,7 @@ public final class ExecutiveDataWriter {
   public void expectSchemaTimestamp(ITime schemaTimestamp) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.expectGivenSchemaTimestamp(d, schemaTimestamp);
+    d -> DataWriterActionProvider.expectSchemaTimestamp(d, schemaTimestamp);
 
     updaterCollector.addUpdater(updateAction);
   }

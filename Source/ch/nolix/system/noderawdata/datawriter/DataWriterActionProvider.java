@@ -89,36 +89,6 @@ public final class DataWriterActionProvider {
     multiValueNode.reset();
   }
 
-  public static void deleteEntryFromMultiReference(
-    final IMutableNode<?> nodeDatabase,
-    final String tableName,
-    final String entityId,
-    final int multiReferencedColumnOneBasedOrdinalIndex,
-    final String referencedEntityId) {
-
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-
-    final var multiReferenceNode = //
-    entityNode.getStoredChildNodeAt1BasedIndex(multiReferencedColumnOneBasedOrdinalIndex);
-
-    multiReferenceNode.removeFirstChildNodeWithHeader(referencedEntityId);
-  }
-
-  public static void deleteEntryFromMultiValue(
-    final IMutableNode<?> nodeDatabase,
-    final String tableName,
-    final String entityId,
-    final int multiValueColumnOneBasedOrdinalIndex,
-    final String entry) {
-
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-    final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnOneBasedOrdinalIndex);
-
-    multiValueNode.removeFirstChildNodeWithHeader(entry);
-  }
-
   public static void deleteEntity(
     final IMutableNode<?> database,
     final String tableName,
@@ -155,16 +125,46 @@ public final class DataWriterActionProvider {
     multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }
 
-  public static void expectGivenSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
+  public static void deleteMultiReferenceEntry(
+    final IMutableNode<?> nodeDatabase,
+    final String tableName,
+    final String entityId,
+    final int multiReferencedColumnOneBasedOrdinalIndex,
+    final String referencedEntityId) {
 
-    final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-      .getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var actualSchemaTimestamp = DATABASE_PROPERTIES_NODE_SEARCHER
-      .getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
+    final var multiReferenceNode = //
+    entityNode.getStoredChildNodeAt1BasedIndex(multiReferencedColumnOneBasedOrdinalIndex);
+
+    multiReferenceNode.removeFirstChildNodeWithHeader(referencedEntityId);
+  }
+
+  public static void deleteMultiValueEntry(
+    final IMutableNode<?> nodeDatabase,
+    final String tableName,
+    final String entityId,
+    final int multiValueColumnOneBasedOrdinalIndex,
+    final String entry) {
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnOneBasedOrdinalIndex);
+
+    multiValueNode.removeFirstChildNodeWithHeader(entry);
+  }
+
+  public static void expectSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
+
+    final var databasePropertiesNode = //
+    DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
+
+    final var actualSchemaTimestamp = //
+    DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
 
     if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
-      throw ResourceWasChangedInTheMeanwhileException.forResource("schema");
+      throw ResourceWasChangedInTheMeanwhileException.forResource(LowerCaseVariableCatalog.SCHEMA);
     }
   }
 

@@ -38,14 +38,14 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
-  
+
     final var tableView = getTableSchemaViewByTableName(tableName);
-  
+
     final var multiReferenceColumnView = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiReferenceColumnName);
-  
+
     final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
-  
+
     executiveDataWriter.clearMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
   }
 
@@ -54,11 +54,11 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
-  
+
     final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
     final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
-  
+
     executiveDataWriter.clearMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
   }
 
@@ -100,7 +100,7 @@ public final class DataWriter implements IDataWriter {
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiRefereceColumnName);
     final var multiReferencedColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.deleteEntryFromMultiReference(
+    executiveDataWriter.deleteMultiReferenceEntry(
       tableName,
       entityId,
       multiReferencedColumnOneBasedOrdinalIndex,
@@ -118,7 +118,7 @@ public final class DataWriter implements IDataWriter {
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
     final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.deleteEntryFromMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, entry);
+    executiveDataWriter.deleteMultiValueEntry(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, entry);
   }
 
   @Override
