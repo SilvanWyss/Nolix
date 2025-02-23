@@ -3,7 +3,6 @@ package ch.nolix.system.noderawdata.datawriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -14,6 +13,7 @@ import ch.nolix.system.noderawdata.nodemapper.EntityIndexNodeMapper;
 import ch.nolix.system.noderawdata.nodemapper.EntityNodeMapper;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
+import ch.nolix.system.noderawdata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.FieldIndexCatalog;
+import ch.nolix.systemapi.noderawdataapi.nodevalidatorapi.ITableNodeValidator;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
@@ -47,6 +47,8 @@ public final class DataWriterActionProvider {
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+
+  private static final ITableNodeValidator TABLE_NODE_VALIDATOR = new TableNodeValidator();
 
   private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
 
@@ -175,17 +177,7 @@ public final class DataWriterActionProvider {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    final var containsEntity = TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
-      tableNode,
-      FieldIndexCatalog.ID_INDEX,
-      entityId);
-
-    if (!containsEntity) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalog.DATABASE,
-        nodeDatabase,
-        "does not contain a " + tableName + " with the id " + entityId);
-    }
+    TABLE_NODE_VALIDATOR.assertTableNodeContainsEntityWithId(tableNode, entityId);
   }
 
   public static void insertEntityIntoTable(
