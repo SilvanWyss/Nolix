@@ -4,13 +4,14 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.noderawdata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.noderawdata.nodeexaminer.TableNodeExaminer;
+import ch.nolix.system.noderawdata.nodemapper.ContentFieldNodeMapper;
 import ch.nolix.system.noderawdata.nodemapper.EntityIndexNodeMapper;
 import ch.nolix.system.noderawdata.nodemapper.EntityNodeMapper;
-import ch.nolix.system.noderawdata.nodemapper.MultiReferenceEntryNodeMapper;
 import ch.nolix.system.noderawdata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.noderawdata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.noderawschema.nodesearcher.DatabaseNodeSearcher;
@@ -18,9 +19,9 @@ import ch.nolix.system.noderawschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.noderawdataapi.nodeexaminerapi.ITableNodeExaminer;
+import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IContentFieldNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
-import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IMultiReferenceEntryNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.FieldIndexCatalog;
@@ -56,7 +57,7 @@ public final class DataWriterActionProvider {
 
   private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
-  private static final IMultiReferenceEntryNodeMapper MULTI_REFERENCE_ENTRY_NODE_MAPPER = new MultiReferenceEntryNodeMapper();
+  private static final IContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
 
   private DataWriterActionProvider() {
   }
@@ -327,22 +328,21 @@ public final class DataWriterActionProvider {
     entityIndexesNode.addChildNode(entityIndexNode);
   }
 
-  //TODO: Move this implementation to EntityNodeMapper
   private static void updateEntityNode(
     final IMutableNode<?> entityNode,
     final TableSchemaViewDto tableView,
     final EntityUpdateDto entityUpdate) {
     for (final var f : entityUpdate.updatedContentFields()) {
 
-      final var columnInfo = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
-      final var columnIndex = columnInfo.oneBasedOrdinalIndex();
-      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(columnIndex);
-      final var optionalContentString = f.optionalContentString();
+      final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
 
-      if (optionalContentString == null) {
-        contentFieldNode.removeHeader();
-      } else {
-        contentFieldNode.setHeader(optionalContentString);
+      if (columnView.contentType().getCardinality() != Cardinality.TO_MANY) {
+
+        final var columnIndex = columnView.oneBasedOrdinalIndex();
+        final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(columnIndex);
+        final var newContentFieldNode = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
+
+        contentFieldNode.resetFromNode(newContentFieldNode);
       }
     }
   }
