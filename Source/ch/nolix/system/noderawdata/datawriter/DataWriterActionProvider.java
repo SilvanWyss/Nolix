@@ -43,13 +43,13 @@ public final class DataWriterActionProvider {
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
-
   private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
-  private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
+  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
+
+  private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
 
   private static final IEntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
 
