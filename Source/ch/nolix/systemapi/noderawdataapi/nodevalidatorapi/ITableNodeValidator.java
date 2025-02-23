@@ -15,4 +15,12 @@ public interface ITableNodeValidator {
    *                          with the given entityId.
    */
   void assertTableNodeContainsEntityWithId(IMutableNode<?> tableNode, String entityId);
+
+  /**
+   * @param tableNode
+   * @param entityId
+   * @throws RuntimeException if the given tableNode contains an entity with the
+   *                          given entityId.
+   */
+  void assertTableNodeDoesNotContainEntityWithId(IMutableNode<?> tableNode, String entityId);
 }
