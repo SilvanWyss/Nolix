@@ -47,6 +47,26 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
+  public void clearMultiReference(
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
+    executiveDataWriter.deleteEntriesFromMultiReference(
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).id());
+  }
+
+  @Override
+  public void clearMultiValue(
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
+    executiveDataWriter.deleteEntriesFromMultiValue(
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id());
+  }
+
+  @Override
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
     executiveDataWriter.deleteEntity(tableName, entity);
   }
@@ -61,16 +81,6 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiReferenceEntries(
-    final String tableName,
-    final String entityId,
-    final String multiReferenceColumnName) {
-    executiveDataWriter.deleteEntriesFromMultiReference(
-      entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).id());
-  }
-
-  @Override
   public void deleteMultiReferenceEntry(
     final String tableName,
     final String entityId,
@@ -80,16 +90,6 @@ public final class DataWriter implements IDataWriter {
       entityId,
       getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).id(),
       referencedEntityId);
-  }
-
-  @Override
-  public void deleteMultiValueEntries(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName) {
-    executiveDataWriter.deleteEntriesFromMultiValue(
-      entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id());
   }
 
   @Override

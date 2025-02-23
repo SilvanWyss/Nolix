@@ -58,11 +58,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void deleteMultiReferenceEntries(
+  public final void clearMultiReference(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
-    dataWriter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
+    dataWriter.clearMultiReference(tableName, entityId, multiReferenceColumnName);
   }
 
   @Override
@@ -75,11 +75,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void deleteMultiValueEntries(
+  public final void clearMultiValue(
     final String tableName,
     final String entityId,
     final String multiFieldColumn) {
-    dataWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
+    dataWriter.clearMultiValue(tableName, entityId, multiFieldColumn);
   }
 
   @Override

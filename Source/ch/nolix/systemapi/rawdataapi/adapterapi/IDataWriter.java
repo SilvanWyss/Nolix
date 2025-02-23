@@ -14,6 +14,26 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public interface IDataWriter extends IResettableChangeSaver {
 
   /**
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
+   * 
+   * @param tableName
+   * @param entityId
+   * @param multiReferenceColumnName
+   */
+  void clearMultiReference(String tableName, String entityId, String multiReferenceColumnName);
+
+  /**
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
+   * 
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnName
+   */
+  void clearMultiValue(String tableName, String entityId, String multiValueColumnName);
+
+  /**
    * Causes an error if the concerned entity was deleted or changed in the
    * meanwhile.
    * 
@@ -23,8 +43,8 @@ public interface IDataWriter extends IResettableChangeSaver {
   void deleteEntity(String tableName, EntityDeletionDto entity);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param tableName
    * @param entityId
@@ -38,18 +58,8 @@ public interface IDataWriter extends IResettableChangeSaver {
     String backReferencedEntityId);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
-   * 
-   * @param tableName
-   * @param entityId
-   * @param multiReferenceColumnName
-   */
-  void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
-
-  /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param tableName
    * @param entityId
@@ -63,18 +73,8 @@ public interface IDataWriter extends IResettableChangeSaver {
     String referencedEntityId);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
-   * 
-   * @param tableName
-   * @param entityId
-   * @param multiValueColumnName
-   */
-  void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
-
-  /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param tableName
    * @param entityId
@@ -113,8 +113,8 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertEntity(String tableName, EntityCreationDto newEntity);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param tableName
    * @param entityId
@@ -128,16 +128,16 @@ public interface IDataWriter extends IResettableChangeSaver {
     String backReferencedEntityId);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param multiReferenceEntry
    */
   void insertMultiReferenceEntry(MultiReferenceEntryDto multiReferenceEntry);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param tableName
    * @param entityId
@@ -147,8 +147,8 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 
   /**
-   * There is not validated that the concerned entity was not changed in the
-   * meanwhile.
+   * This method does not validate that the concerned entity was not changed in
+   * the meanwhile.
    * 
    * @param tableName
    * @param entityUpdate

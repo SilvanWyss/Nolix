@@ -34,6 +34,35 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
+  public void clearMultiReference(
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
+  
+    final var tableView = getTableSchemaViewByTableName(tableName);
+  
+    final var multiReferenceColumnView = //
+    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiReferenceColumnName);
+  
+    final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
+  
+    executiveDataWriter.clearMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
+  }
+
+  @Override
+  public void clearMultiValue(
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
+  
+    final var tableInfo = getTableSchemaViewByTableName(tableName);
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
+    final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
+  
+    executiveDataWriter.clearMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
+  }
+
+  @Override
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
 
     final var entityId = entity.id();
@@ -61,22 +90,6 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiReferenceEntries(
-    final String tableName,
-    final String entityId,
-    final String multiReferenceColumnName) {
-
-    final var tableView = getTableSchemaViewByTableName(tableName);
-
-    final var multiReferenceColumnView = //
-    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiReferenceColumnName);
-
-    final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
-
-    executiveDataWriter.clearMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
-  }
-
-  @Override
   public void deleteMultiReferenceEntry(
     final String tableName,
     final String entityId,
@@ -92,19 +105,6 @@ public final class DataWriter implements IDataWriter {
       entityId,
       multiReferencedColumnOneBasedOrdinalIndex,
       referencedEntityId);
-  }
-
-  @Override
-  public void deleteMultiValueEntries(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName) {
-
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
-    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
-    final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
-
-    executiveDataWriter.clearMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
   }
 
   @Override
