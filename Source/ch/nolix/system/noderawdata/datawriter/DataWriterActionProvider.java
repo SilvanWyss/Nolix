@@ -185,7 +185,7 @@ public final class DataWriterActionProvider {
     final TableSchemaViewDto tableView,
     final EntityCreationDto newEntity) {
 
-    insertEntityIndexIntoDatabase(nodeDatabase, tableView, newEntity);
+    insertEntityIndexIntoDatabase(nodeDatabase, tableView.id(), newEntity);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -291,11 +291,11 @@ public final class DataWriterActionProvider {
 
   private static void insertEntityIndexIntoDatabase(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final String tableId,
     final EntityCreationDto newEntity) {
 
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
-    final var entityIndexNode = ENTITY_INDEXES_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableView);
+    final var entityIndexNode = ENTITY_INDEXES_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableId);
 
     entityIndexesNode.addChildNode(entityIndexNode);
   }
