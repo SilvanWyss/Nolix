@@ -88,6 +88,13 @@ public interface IDataWriter extends IResettableChangeSaver {
     String entry);
 
   /**
+   * Will cause an error if the database does not have the given schema timestamp.
+   * 
+   * @param schemaTimestamp
+   */
+  void expectSchemaTimestamp(ITime schemaTimestamp);
+
+  /**
    * Will cause an error if the concerned table does not contain an entity with
    * the given entityId. This method can be used to prevent from referencing an
    * entity that was deleted in the meanwhile.
@@ -96,13 +103,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param entityId
    */
   void expectTableContainsEntity(String tableName, String entityId);
-
-  /**
-   * Will cause an error if the database does not have the given schema timestamp.
-   * 
-   * @param schemaTimestamp
-   */
-  void expectGivenSchemaTimestamp(ITime schemaTimestamp);
 
   /**
    * Inserts the given newEntity into the table with the given tableName.

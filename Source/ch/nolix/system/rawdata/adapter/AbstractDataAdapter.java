@@ -92,8 +92,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
-    dataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+  public final void expectSchemaTimestamp(final ITime schemaTimestamp) {
+    dataWriter.expectSchemaTimestamp(schemaTimestamp);
   }
 
   @Override

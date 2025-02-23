@@ -105,7 +105,7 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
+  public void expectSchemaTimestamp(final ITime schemaTimestamp) {
     executiveDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
   }
 

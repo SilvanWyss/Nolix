@@ -54,7 +54,7 @@ public final class ChangeSetSaver {
   private void addExpectionThatDatabaseHasInitialSchemaTimestamp(
     final IDatabase database,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    dataAndSchemaAdapter.expectGivenSchemaTimestamp(database.getSchemaTimestamp());
+    dataAndSchemaAdapter.expectSchemaTimestamp(database.getSchemaTimestamp());
   }
 
   private void assertNewlyReferencedEntitiesExists(
