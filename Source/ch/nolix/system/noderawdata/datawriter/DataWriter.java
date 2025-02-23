@@ -69,7 +69,7 @@ public final class DataWriter implements IDataWriter {
 
     final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.deleteEntriesFromMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
+    executiveDataWriter.clearMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
   }
 
   @Override

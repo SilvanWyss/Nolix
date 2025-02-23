@@ -34,7 +34,7 @@ public final class ExecutiveDataWriter {
     return new ExecutiveDataWriter(nodeDatabase);
   }
 
-  public void deleteEntriesFromMultiReference(
+  public void clearMultiReference(
     final String tableName,
     final String entityId,
     final int multiReferencedColumnOneBasedOrdinalIndex) {
@@ -202,7 +202,11 @@ public final class ExecutiveDataWriter {
   public void saveChangesAndReset() {
     try {
 
-      nodeDatabase.resetFromNode(createNodeDatabaseWithUpdates());
+      final var updatedNodeDatabase = MutableNode.fromNode(nodeDatabase);
+
+      updaterCollector.updateObjectAndClear(updatedNodeDatabase);
+
+      nodeDatabase.resetFromNode(updatedNodeDatabase);
 
       saveCount++;
     } finally {
@@ -216,14 +220,5 @@ public final class ExecutiveDataWriter {
     d -> DataWriterActionProvider.updateEntityOnTable(d, tableView, entityUpdate);
 
     updaterCollector.addUpdater(updateAction);
-  }
-
-  private IMutableNode<?> createNodeDatabaseWithUpdates() {
-
-    final var nodeDatabaseWithUpdates = MutableNode.fromNode(nodeDatabase);
-
-    updaterCollector.updateObjectAndClear(nodeDatabaseWithUpdates);
-
-    return nodeDatabaseWithUpdates;
   }
 }
