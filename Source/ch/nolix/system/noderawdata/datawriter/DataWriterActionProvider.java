@@ -92,19 +92,16 @@ public final class DataWriterActionProvider {
 
   public static void deleteEntryFromMultiReference(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnSchemaViewDto multiReferenceColumnInfo,
+    final int multiReferencedColumnOneBasedOrdinalIndex,
     final String referencedEntityId) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
-
-    final var multiReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+    final var multiReferenceColumnNode = //
+    entityNode.getStoredChildNodeAt1BasedIndex(multiReferencedColumnOneBasedOrdinalIndex);
 
     multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
   }
