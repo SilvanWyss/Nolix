@@ -100,29 +100,24 @@ public final class DataWriterActionProvider {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnNode = //
+    final var multiReferenceNode = //
     entityNode.getStoredChildNodeAt1BasedIndex(multiReferencedColumnOneBasedOrdinalIndex);
 
-    multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
+    multiReferenceNode.removeFirstChildNodeWithHeader(referencedEntityId);
   }
 
   public static void deleteEntryFromMultiValue(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnSchemaViewDto multiValueColumnInfo,
+    final int multiValueColumnOneBasedOrdinalIndex,
     final String entry) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnOneBasedOrdinalIndex);
 
-    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
-
-    final var multiValueColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
-
-    multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
+    multiValueNode.removeFirstChildNodeWithHeader(entry);
   }
 
   public static void deleteEntityFromTable(
