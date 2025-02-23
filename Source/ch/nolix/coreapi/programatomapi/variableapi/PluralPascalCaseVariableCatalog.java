@@ -332,6 +332,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String SELECTORS = "Selectors";
 
+  public static final String SCHEMAS = "Schemas";
+
   public static final String SENDERS = "Senders";
 
   public static final String SEPARATORS = "Separators";

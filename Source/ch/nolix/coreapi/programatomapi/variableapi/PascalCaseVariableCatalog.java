@@ -330,6 +330,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String SAVE_STAMP = "SaveStamp";
 
+  public static final String SCHEMA = "Schema";
+
   public static final String SELECTOR = "Selector";
 
   public static final String SENDER = "Sender";

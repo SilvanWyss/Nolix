@@ -330,6 +330,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String SAVE_STAMP = "save stamp";
 
+  public static final String SCHEMA = "schema";
+
   public static final String SELECTOR = "selector";
 
   public static final String SENDER = "sender";
