@@ -143,7 +143,7 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-    executiveDataWriter.insertEntityIntoTable(getTableSchemaViewByTableName(tableName), newEntity);
+    executiveDataWriter.insertEntity(getTableSchemaViewByTableName(tableName), newEntity);
   }
 
   @Override
@@ -158,7 +158,7 @@ public final class DataWriter implements IDataWriter {
     final var multiBackReferenceColumnInfo = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
 
-    executiveDataWriter.insertEntryIntoMultiBackReference(
+    executiveDataWriter.insertMultiBackReferenceEntry(
       tableInfo,
       entityId,
       multiBackReferenceColumnInfo,
@@ -173,7 +173,7 @@ public final class DataWriter implements IDataWriter {
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableView, columndId);
     final var multiReferenceColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.insertEntryIntoMultiReference(multiReferenceEntry, multiReferenceColumnOneBasedOrdinalIndex);
+    executiveDataWriter.insertMultiReferenceEntry(multiReferenceEntry, multiReferenceColumnOneBasedOrdinalIndex);
   }
 
   @Override
@@ -186,7 +186,7 @@ public final class DataWriter implements IDataWriter {
     final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
-    executiveDataWriter.insertEntryIntoMultiValue(tableInfo, entityId, columnView, entry);
+    executiveDataWriter.insertMultiValueEntry(tableInfo, entityId, columnView, entry);
   }
 
   @Override
@@ -211,7 +211,7 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
-    executiveDataWriter.updateEntityOnTable(getTableSchemaViewByTableName(tableName), entityUpdate);
+    executiveDataWriter.updateEntity(getTableSchemaViewByTableName(tableName), entityUpdate);
   }
 
   private TableSchemaViewDto getTableSchemaViewByTableName(final String tableName) {

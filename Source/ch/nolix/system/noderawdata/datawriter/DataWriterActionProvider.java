@@ -180,12 +180,12 @@ public final class DataWriterActionProvider {
     TABLE_NODE_VALIDATOR.assertTableNodeContainsEntityWithId(tableNode, entityId);
   }
 
-  public static void insertEntityIntoTable(
+  public static void insertEntity(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final EntityCreationDto newEntity) {
 
-    insertEntityIndexIntoDatabase(nodeDatabase, tableView.id(), newEntity);
+    insertEntityIndex(nodeDatabase, tableView.id(), newEntity);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
@@ -201,7 +201,7 @@ public final class DataWriterActionProvider {
     tableNode.addChildNode(entityNode);
   }
 
-  public static void insertEntryIntoMultiBackReference(
+  public static void insertMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -220,7 +220,7 @@ public final class DataWriterActionProvider {
     multiBackReferenceNode.addChildNode(Node.withHeader(backReferencedEntityId));
   }
 
-  public static void insertEntryIntoMultiReference(
+  public static void insertMultiReferenceEntry(
     final IMutableNode<?> nodeDatabase,
     final MultiReferenceEntryDto multiReferenceEntry,
     final int multiReferenceColumnOneBasedOrdinalIndex) {
@@ -235,7 +235,7 @@ public final class DataWriterActionProvider {
     multiReferenceNode.addChildNode(multiReferenceEntryNode);
   }
 
-  public static void insertEntryIntoMultiValue(
+  public static void insertMultiValueEntry(
     final IMutableNode<?> nodeDatabase,
     final TableSchemaViewDto tableView,
     final String entityId,
@@ -254,7 +254,7 @@ public final class DataWriterActionProvider {
     multiValueNode.addChildNode(Node.withHeader(entry));
   }
 
-  public static void updateEntityOnTable(
+  public static void updateEntity(
     final IMutableNode<?> database,
     final TableSchemaViewDto tableView,
     final EntityUpdateDto entityUpdate) {
@@ -289,7 +289,7 @@ public final class DataWriterActionProvider {
     entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAt1BasedIndex(2).hasHeader(entityId));
   }
 
-  private static void insertEntityIndexIntoDatabase(
+  private static void insertEntityIndex(
     final IMutableNode<?> nodeDatabase,
     final String tableId,
     final EntityCreationDto newEntity) {
