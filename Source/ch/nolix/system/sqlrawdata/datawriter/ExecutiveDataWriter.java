@@ -47,41 +47,56 @@ public final class ExecutiveDataWriter {
   }
 
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
-    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntityIndex(entity.id()));
-    sqlCollector.addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntity(tableName, entity));
+
+    final var deleteEntityIndexStatement = ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntityIndex(entity.id());
+    final var deleteEntityStatement = ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntity(tableName, entity);
+
+    sqlCollector.addSqlStatement(deleteEntityIndexStatement, deleteEntityStatement);
   }
 
   public void deleteEntriesFromMultiReference(
     final String entityId,
     final String multiReferenceColumnId) {
-    sqlCollector.addSqlStatement(
-      MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiReferenceEntries(entityId, multiReferenceColumnId));
+
+    final var statement = //
+    MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiReferenceEntries(entityId, multiReferenceColumnId);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteEntriesFromMultiValue(
     final String entityId,
     final String multiValueColumnId) {
-    sqlCollector.addSqlStatement(
-      MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntries(entityId, multiValueColumnId));
+
+    final var statement = //
+    MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntries(entityId, multiValueColumnId);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteEntryFromMultiReference(
     final String entityId,
     final String multiReferenceColumnId,
     final String referencedEntityId) {
-    sqlCollector.addSqlStatement(
-      MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiReferenceEntry(
-        entityId,
-        multiReferenceColumnId,
-        referencedEntityId));
+
+    final var statement = //
+    MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiReferenceEntry(
+      entityId,
+      multiReferenceColumnId,
+      referencedEntityId);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteEntryFromMultiValue(
     final String entityId,
     final String multiValueColumnId,
     final String entry) {
-    sqlCollector.addSqlStatement(
-      MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, entry));
+
+    final var statement = //
+    MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, entry);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteMultiBackReferenceEntry(
@@ -89,7 +104,8 @@ public final class ExecutiveDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
 
-    final var statement = MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiBackReferenceEntry(
+    final var statement = //
+    MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiBackReferenceEntry(
       entityId,
       multiBackReferenceColumnId,
       backReferencedEntityId);
@@ -102,8 +118,10 @@ public final class ExecutiveDataWriter {
   }
 
   public void expectTableContainsEntity(final String tableName, final String entityId) {
-    sqlCollector
-      .addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToExpectTableContainsEntity(tableName, entityId));
+
+    final var statement = ENTITY_STATEMENT_CREATOR.createStatementToExpectTableContainsEntity(tableName, entityId);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public int getSaveCount() {
@@ -115,9 +133,13 @@ public final class ExecutiveDataWriter {
   }
 
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-    sqlCollector.addSqlStatement(
-      ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityIndex(tableName, newEntity.id()),
-      ENTITY_STATEMENT_CREATOR.createStatementToInsertEntity(tableName, newEntity));
+
+    final var insertEntityIndexStatement = //
+    ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityIndex(tableName, newEntity.id());
+
+    final var insertEntityStatement = ENTITY_STATEMENT_CREATOR.createStatementToInsertEntity(tableName, newEntity);
+
+    sqlCollector.addSqlStatement(insertEntityIndexStatement, insertEntityStatement);
   }
 
   public void insertEntryIntoMultiBackReference(
@@ -125,7 +147,8 @@ public final class ExecutiveDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
 
-    final var statement = MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiBackReferenceEntry(
+    final var statement = //
+    MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiBackReferenceEntry(
       entityId,
       multiBackReferenceColumnId,
       backReferencedEntityId);
@@ -137,19 +160,26 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final String multiReferenceColumnId,
     final String referencedEntityId) {
+
+    final var statement = //
+    MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiReferenceEntry(
+      entityId,
+      multiReferenceColumnId,
+      referencedEntityId);
     sqlCollector.addSqlStatement(
-      MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiReferenceEntry(
-        entityId,
-        multiReferenceColumnId,
-        referencedEntityId));
+
+      statement);
   }
 
   public void insertEntryIntoMultiValue(
     final String entityId,
     final String multiValueColumnId,
     final String entry) {
-    sqlCollector.addSqlStatement(
-      MULTI_VALUE_STATEMENT_CREATOR.createStatementToInsertMultiValueEntry(entityId, multiValueColumnId, entry));
+
+    final var statement = MULTI_VALUE_STATEMENT_CREATOR.createStatementToInsertMultiValueEntry(entityId,
+      multiValueColumnId, entry);
+
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void reset() {
@@ -157,16 +187,16 @@ public final class ExecutiveDataWriter {
   }
 
   public void saveChangesAndReset() {
-    try {
-      sqlCollector.executeAndClearUsingConnection(sqlConnection);
-      saveCount++;
-    } finally {
-      reset();
-    }
+
+    sqlCollector.executeAndClearUsingConnection(sqlConnection);
+
+    saveCount++;
   }
 
   public void updateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
-    sqlCollector
-      .addSqlStatement(ENTITY_STATEMENT_CREATOR.createStatementToUpdateEntityOnTable(tableName, entityUpdate));
+
+    final var statement = ENTITY_STATEMENT_CREATOR.createStatementToUpdateEntityOnTable(tableName, entityUpdate);
+
+    sqlCollector.addSqlStatement(statement);
   }
 }
