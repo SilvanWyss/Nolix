@@ -43,9 +43,10 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnSchemaViews().getCount();
 
     final var attributes = new INode[size];
+    final var entityId = newEntity.id();
 
-    attributes[0] = mapEntityCreationDtoToIdNode(newEntity);
-    attributes[1] = mapSaveStampToSaveStampNode(saveStamp);
+    attributes[0] = Node.withHeader(entityId);
+    attributes[1] = Node.withHeader(saveStamp);
     attributes[2] = Node.EMPTY_NODE;
     attributes[3] = Node.EMPTY_NODE;
 
@@ -53,19 +54,10 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
 
       final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
       final var index = columnView.oneBasedOrdinalIndex() - 1;
-      final var contentFieldNode = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
 
-      attributes[index] = contentFieldNode;
+      attributes[index] = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
     }
 
     return ContainerView.forArray(attributes);
-  }
-
-  private Node mapEntityCreationDtoToIdNode(final EntityCreationDto newEntity) {
-    return Node.withHeader(newEntity.id());
-  }
-
-  private Node mapSaveStampToSaveStampNode(final long saveStamp) {
-    return Node.withHeader(saveStamp);
   }
 }
