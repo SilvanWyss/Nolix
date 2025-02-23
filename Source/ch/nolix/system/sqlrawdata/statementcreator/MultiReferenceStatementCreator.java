@@ -11,7 +11,8 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
   public String createStatementToDeleteMultiReferenceEntries(
     final String entityId,
     final String multiReferenceColumnId) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
@@ -29,7 +30,8 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String entityId,
     final String multiReferenceColumnId,
     final String referencedEntityId) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
@@ -50,8 +52,10 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
   public String createStatementToInsertMultiReferenceEntry(
     final String entityId,
     final String multiReferenceColumnId,
-    final String referencedEntityId) {
-    return "INSERT INTO "
+    final String referencedEntityId,
+    final String referencedEntityTableId) {
+    return //
+    "INSERT INTO "
     + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " ("
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
@@ -59,6 +63,8 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + ", "
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + ", "
+    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_TABLE_ID.getName()
     + ") VALUES ('"
     + entityId
     + "', '"

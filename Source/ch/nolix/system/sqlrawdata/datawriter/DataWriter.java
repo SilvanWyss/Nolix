@@ -151,7 +151,7 @@ public final class DataWriter implements IDataWriter {
     final var referencedEntityId = multiReferenceEntry.referencedEntityId();
     final var referencedEntityTableId = multiReferenceEntry.referencedEntityId();
 
-    executiveDataWriter.insertEntryIntoMultiReference(entityId, columnId, referencedEntityId);
+    executiveDataWriter.insertMultiReferenceEntry(entityId, columnId, referencedEntityId, referencedEntityTableId);
   }
 
   @Override

@@ -156,19 +156,20 @@ public final class ExecutiveDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void insertEntryIntoMultiReference(
+  public void insertMultiReferenceEntry(
     final String entityId,
     final String multiReferenceColumnId,
-    final String referencedEntityId) {
+    final String referencedEntityId,
+    final String referencedEntityTableId) {
 
     final var statement = //
     MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiReferenceEntry(
       entityId,
       multiReferenceColumnId,
-      referencedEntityId);
-    sqlCollector.addSqlStatement(
+      referencedEntityId,
+      referencedEntityTableId);
 
-      statement);
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void insertEntryIntoMultiValue(
