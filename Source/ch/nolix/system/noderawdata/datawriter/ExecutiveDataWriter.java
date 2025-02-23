@@ -35,12 +35,13 @@ public final class ExecutiveDataWriter {
   }
 
   public void deleteEntriesFromMultiReference(
-    final TableSchemaViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnSchemaViewDto multiReferenceColumnInfo) {
+    final int multiReferencedColumnOneBasedOrdinalIndex) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.deleteEntriesFromMultiReference(d, tableView, entityId, multiReferenceColumnInfo);
+    d -> //
+    DataWriterActionProvider.clearMultiReference(d, tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
 
     updaterCollector.addUpdater(updateAction);
   }

@@ -62,22 +62,19 @@ public final class DataWriterActionProvider {
   private DataWriterActionProvider() {
   }
 
-  public static void deleteEntriesFromMultiReference(
+  public static void clearMultiReference(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnSchemaViewDto multiReferenceColumnInfo) {
+    final int multiReferencedColumnOneBasedOrdinalIndex) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
+    final var multiReferenceColumnNode = //
+    entityNode.getStoredChildNodeAt1BasedIndex(multiReferencedColumnOneBasedOrdinalIndex);
 
-    final var multiReferenceColumnNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
-
-    multiReferenceColumnNode.removeChildNodes();
+    multiReferenceColumnNode.reset();
   }
 
   public static void deleteEntriesFromMultiValue(

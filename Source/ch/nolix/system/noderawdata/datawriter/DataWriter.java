@@ -62,10 +62,14 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiReferenceColumnName) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
-    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiReferenceColumnName);
+    final var tableView = getTableSchemaViewByTableName(tableName);
 
-    executiveDataWriter.deleteEntriesFromMultiReference(tableInfo, entityId, columnView);
+    final var multiReferenceColumnView = //
+    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiReferenceColumnName);
+
+    final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
+
+    executiveDataWriter.deleteEntriesFromMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
   }
 
   @Override
