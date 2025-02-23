@@ -93,8 +93,9 @@ public final class DataWriter implements IDataWriter {
 
     final var tableInfo = getTableSchemaViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
+    final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.deleteEntriesFromMultiValue(tableInfo, entityId, columnView);
+    executiveDataWriter.clearMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
   }
 
   @Override

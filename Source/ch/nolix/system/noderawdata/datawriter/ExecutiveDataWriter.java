@@ -46,13 +46,13 @@ public final class ExecutiveDataWriter {
     updaterCollector.addUpdater(updateAction);
   }
 
-  public void deleteEntriesFromMultiValue(
-    final TableSchemaViewDto tableView,
+  public void clearMultiValue(
+    final String tableName,
     final String entityId,
-    final ColumnSchemaViewDto multiValueColumnInfo) {
+    final int multiValueColumnOneBasedOrdinalIndex) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.deleteEntriesFromMultiValue(d, tableView, entityId, multiValueColumnInfo);
+    d -> DataWriterActionProvider.clearMultiValue(d, tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
 
     updaterCollector.addUpdater(updateAction);
   }
