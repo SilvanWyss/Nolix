@@ -39,7 +39,7 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiReferenceColumnName) {
 
-    final var tableView = getTableSchemaViewByTableName(tableName);
+    final var tableView = getTableViewByTableName(tableName);
 
     final var multiReferenceColumnView = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiReferenceColumnName);
@@ -55,7 +55,7 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiValueColumnName) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
+    final var tableInfo = getTableViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
     final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
@@ -78,7 +78,7 @@ public final class DataWriter implements IDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
+    final var tableInfo = getTableViewByTableName(tableName);
     final var multiBackReferenceColumnInfo = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
 
@@ -96,7 +96,7 @@ public final class DataWriter implements IDataWriter {
     final String multiRefereceColumnName,
     final String referencedEntityId) {
 
-    final var tableView = getTableSchemaViewByTableName(tableName);
+    final var tableView = getTableViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiRefereceColumnName);
     final var multiReferencedColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
@@ -114,7 +114,7 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName,
     final String entry) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
+    final var tableInfo = getTableViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
     final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
@@ -143,7 +143,7 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-    executiveDataWriter.insertEntity(getTableSchemaViewByTableName(tableName), newEntity);
+    executiveDataWriter.insertEntity(getTableViewByTableName(tableName), newEntity);
   }
 
   @Override
@@ -153,7 +153,7 @@ public final class DataWriter implements IDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
+    final var tableInfo = getTableViewByTableName(tableName);
 
     final var multiBackReferenceColumnInfo = //
     TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
@@ -168,7 +168,7 @@ public final class DataWriter implements IDataWriter {
   @Override
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
 
-    final var tableView = getTableSchemaViewByTableName(multiReferenceEntry.tableName());
+    final var tableView = getTableViewByTableName(multiReferenceEntry.tableName());
     final var columndId = multiReferenceEntry.multiReferenceColumnId();
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableView, columndId);
     final var multiReferenceColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
@@ -183,7 +183,7 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName,
     final String entry) {
 
-    final var tableInfo = getTableSchemaViewByTableName(tableName);
+    final var tableInfo = getTableViewByTableName(tableName);
     final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
 
     executiveDataWriter.insertMultiValueEntry(tableInfo, entityId, columnView, entry);
@@ -211,10 +211,10 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
-    executiveDataWriter.updateEntity(getTableSchemaViewByTableName(tableName), entityUpdate);
+    executiveDataWriter.updateEntity(getTableViewByTableName(tableName), entityUpdate);
   }
 
-  private TableSchemaViewDto getTableSchemaViewByTableName(final String tableName) {
+  private TableSchemaViewDto getTableViewByTableName(final String tableName) {
     return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }
