@@ -16,7 +16,6 @@ import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.EntityIndexTableColu
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-//TODO: Beautify
 public final class EntityStatementCreator implements IEntityStatementCreator {
 
   private static final IStringTool STRING_TOOL = new StringTool();
@@ -24,10 +23,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   private static final ISqlValueMapper SQL_VALUE_MAPPER = new SqlValueMapper();
 
   @Override
-  public String createStatementToDeleteEntity(
-    final String tableName,
-    final EntityDeletionDto entity) {
-    return "DELETE FROM "
+  public String createStatementToDeleteEntity(final String tableName, final EntityDeletionDto entity) {
+    return //
+    "DELETE FROM "
     + tableName
     + " WHERE Id = '"
     + entity.id()
@@ -39,7 +37,8 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToDeleteEntityIndex(final String entityId) {
-    return "DELETE FROM "
+    return //
+    "DELETE FROM "
     + FixTableType.ENTITY_INDEX.getName()
     + " WHERE "
     + EntityIndexTableColumn.ENTITY_ID.getName()
@@ -50,7 +49,8 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
-    return "IF NOT EXISTS (SELECT * FROM "
+    return //
+    "IF NOT EXISTS (SELECT * FROM "
     + FixTableType.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getName()
@@ -65,7 +65,8 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
-    return "SELECT Id FROM "
+    return //
+    "SELECT Id FROM "
     + tableName
     + " WHERE Id = '"
     + entityId
@@ -79,7 +80,8 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
-    return "INSERT INTO "
+    return //
+    "INSERT INTO "
     + tableName
     + " (Id, SaveStamp, "
     + newEntity.contentFields().to(StringContentFieldDto::columnName).toStringWithSeparator(", ")
@@ -94,7 +96,8 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToInsertEntityIndex(final String tableId, final String entityId) {
-    return "INSERT INTO "
+    return //
+    "INSERT INTO "
     + FixTableType.ENTITY_INDEX.getName()
     + "("
     + EntityIndexTableColumn.ENTITY_ID.getName()
@@ -110,15 +113,18 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
 
-    final var contentFieldSets = entityUpdate.updatedContentFields()
+    final var contentFieldSets = //
+    entityUpdate.updatedContentFields()
       .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapStringContentFieldDtoToSqlValue(f));
 
     var contentFieldSetsPrecessor = " ";
+
     if (contentFieldSets.containsAny()) {
       contentFieldSetsPrecessor = ", ";
     }
 
-    return "UPDATE "
+    return //
+    "UPDATE "
     + tableName
     + " SET SaveStamp = '"
     + (Integer.valueOf(entityUpdate.saveStamp()) + 1)
