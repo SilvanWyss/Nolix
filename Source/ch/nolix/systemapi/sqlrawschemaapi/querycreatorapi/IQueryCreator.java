@@ -21,7 +21,7 @@ public interface IQueryCreator {
    * @param tableName
    * @return a query to load the columns of the table with the given tableName.
    */
-  String createQueryToLoadCoumnsByTableName(String tableName);
+  String createQueryToLoadColumnsByTableName(String tableName);
 
   /**
    * @param id
@@ -44,12 +44,4 @@ public interface IQueryCreator {
    * @return a query to load the schema timestamp.
    */
   String createQueryToLoadSchemaTimestamp();
-
-  /**
-   * @param referenceColumnId
-   * @return a query to load the table references of the reference column with the
-   *         given referenceColumnId. The table references contain the ids of the
-   *         referenced table of the column with the given columnId.
-   */
-  String createQueryToLoadTableReferences(String referenceColumnId);
 }

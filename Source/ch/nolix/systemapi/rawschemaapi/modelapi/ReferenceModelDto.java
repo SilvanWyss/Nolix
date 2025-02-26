@@ -1,11 +1,9 @@
 package ch.nolix.systemapi.rawschemaapi.modelapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 
-public record ReferenceModelDto(DataType dataType, IContainer<String> referencedTableIds)
-implements IAbstractReferenceModelDto {
+public record ReferenceModelDto(DataType dataType, String referencedTableId) implements IAbstractReferenceModelDto {
 
   @Override
   public ContentType getContentType() {
@@ -18,7 +16,7 @@ implements IAbstractReferenceModelDto {
   }
 
   @Override
-  public IContainer<String> getReferencedTableIds() {
-    return referencedTableIds;
+  public String getReferencedTableId() {
+    return referencedTableId;
   }
 }

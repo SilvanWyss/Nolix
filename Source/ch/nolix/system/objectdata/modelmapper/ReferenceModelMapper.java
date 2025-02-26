@@ -8,18 +8,16 @@ import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContent
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ReferenceModelDto;
 
-public final class ReferenceModelMapper
-implements IContentModelDtoToContentModelMapper<ReferenceModelDto> {
+public final class ReferenceModelMapper implements IContentModelDtoToContentModelMapper<ReferenceModelDto> {
 
   @Override
   public IContentModelView<ITable<IEntity>> mapContentModelDtoToContentModelView(
     final ReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var tableIds = contentModelDto.referencedTableIds();
-    final var tables = referencableTables.getStoredSelected(t -> tableIds.containsEqualing(t.getId()));
+    final var tableId = contentModelDto.referencedTableId();
+    final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
 
-    //TODO: Handle multiple referenced tables
-    return ReferenceModelView.forReferencedTable(tables.getStoredFirst());
+    return ReferenceModelView.forReferencedTable(table);
   }
 }

@@ -1,6 +1,5 @@
 package ch.nolix.system.noderawschema.nodesearcher;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
@@ -34,11 +33,11 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public IContainer<String> getReferencedTableIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  public String getReferencedTableIdFromContentModelNode(final IMutableNode<?> contentModelNode) {
 
-    final var referencedTableIdsNode = getStoredReferencedTableIdsNodeFromContentModelNode(contentModelNode);
+    final var referencedTableIdsNode = getStoredReferencedTableIdNodeFromContentModelNode(contentModelNode);
 
-    return referencedTableIdsNode.getChildNodesHeaders();
+    return referencedTableIdsNode.getSingleChildNodeHeader();
   }
 
   @Override
@@ -59,7 +58,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public IMutableNode<?> getStoredReferencedTableIdsNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
-    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCED_TABLE_IDS);
+  public IMutableNode<?> getStoredReferencedTableIdNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCED_TABLE_ID);
   }
 }

@@ -1,6 +1,5 @@
 package ch.nolix.system.sqlrawschema.rawschemadtomapper;
 
-import ch.nolix.coreapi.containerapi.baseapi.Mappable;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.rawschemaapi.modelapi.BackReferenceModelDto;
@@ -12,7 +11,6 @@ import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalBackReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalValueModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableFieldIndexCatalog;
 
@@ -50,39 +48,36 @@ public final class ColumnDtoMapperHelper {
   }
 
   public static ColumnDto mapColumnTableSqlRecordToColumnDtoForReferenceColumn(
-    final ISqlRecord columnTableSqlRecord,
-    final Mappable<TableReferenceDto> tableReferences) {
+    final ISqlRecord columnTableSqlRecord) {
     return //
     new ColumnDto(
       columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
       columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
-      new ReferenceModelDto(DataType.valueOf(
-        columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-        tableReferences.to(TableReferenceDto::referencedTableId)));
+      new ReferenceModelDto(
+        DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
+        columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
   }
 
   public static ColumnDto mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(
-    final ISqlRecord columnTableSqlRecord,
-    final Mappable<TableReferenceDto> tableReferences) {
+    final ISqlRecord columnTableSqlRecord) {
     return //
     new ColumnDto(
       columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
       columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
       new OptionalReferenceModelDto(
         DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-        tableReferences.to(TableReferenceDto::referencedTableId)));
+        columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
   }
 
   public static ColumnDto mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(
-    final ISqlRecord columnTableSqlRecord,
-    final Mappable<TableReferenceDto> tableReferences) {
+    final ISqlRecord columnTableSqlRecord) {
     return //
     new ColumnDto(
       columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX),
       columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX),
       new MultiReferenceModelDto(
         DataType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-        tableReferences.to(TableReferenceDto::referencedTableId)));
+        columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
   }
 
   public static ColumnDto mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(

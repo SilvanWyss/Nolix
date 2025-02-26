@@ -9,7 +9,6 @@ import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -83,11 +82,6 @@ implements IDataAdapterAndSchemaReader {
   @Override
   public final TableDto loadTableByName(final String name) {
     return schemaReader.loadTableByName(name);
-  }
-
-  @Override
-  public final IContainer<TableReferenceDto> loadTableReferencesByColumnId(final String columnId) {
-    return schemaReader.loadTableReferencesByColumnId(columnId);
   }
 
   @Override

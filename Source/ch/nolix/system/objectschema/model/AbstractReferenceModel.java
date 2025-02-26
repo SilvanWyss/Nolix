@@ -1,7 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -11,10 +10,13 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
 
   private static final DataType DATA_TYPE = DataType.STRING;
 
-  private final ImmutableList<ITable> referencedTables;
+  private final ITable referencedTable;
 
-  protected AbstractReferenceModel(final IContainer<ITable> referencedTables) {
-    this.referencedTables = ImmutableList.forIterable(referencedTables);
+  protected AbstractReferenceModel(final ITable referencedTable) {
+
+    GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
+
+    this.referencedTable = referencedTable;
   }
 
   @Override
@@ -23,13 +25,13 @@ public abstract class AbstractReferenceModel implements IAbstractReferenceModel 
   }
 
   @Override
-  public final IContainer<ITable> getReferencedTables() {
-    return referencedTables;
+  public final ITable getReferencedTable() {
+    return referencedTable;
   }
 
   @Override
   public final boolean referencesTable(final ITable table) {
-    return getReferencedTables().contains(table);
+    return (getReferencedTable() == table);
   }
 
   @Override

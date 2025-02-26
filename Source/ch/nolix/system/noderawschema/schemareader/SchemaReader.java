@@ -26,7 +26,6 @@ import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 
 public final class SchemaReader implements ISchemaReader {
 
@@ -148,18 +147,6 @@ public final class SchemaReader implements ISchemaReader {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name);
 
     return loadTableFromTableNode(tableNode);
-  }
-
-  @Override
-  public IContainer<TableReferenceDto> loadTableReferencesByColumnId(final String columnId) {
-
-    final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
-    final var contentModelNode = COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode);
-
-    final var referencedTableIds = //
-    CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdsFromContentModelNode(contentModelNode);
-
-    return referencedTableIds.to(t -> new TableReferenceDto(columnId, t));
   }
 
   @Override

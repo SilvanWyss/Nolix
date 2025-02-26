@@ -74,9 +74,9 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
         Node.withHeaderAndChildNode(
           NodeHeaderCatalog.DATA_TYPE,
           referenceModelDto.dataType().name()),
-        Node.withHeaderAndChildNodes(
-          NodeHeaderCatalog.REFERENCED_TABLE_IDS,
-          referenceModelDto.referencedTableIds().to(Node::withHeader)));
+        Node.withHeaderAndChildNode(
+          NodeHeaderCatalog.REFERENCED_TABLE_ID,
+          referenceModelDto.referencedTableId()));
     }
 
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
@@ -89,9 +89,9 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
         Node.withHeaderAndChildNode(
           NodeHeaderCatalog.DATA_TYPE,
           optionalReferenceModelDto.dataType().name()),
-        Node.withHeaderAndChildNodes(
-          NodeHeaderCatalog.REFERENCED_TABLE_IDS,
-          optionalReferenceModelDto.referencedTableIds().to(Node::withHeader)));
+        Node.withHeaderAndChildNode(
+          NodeHeaderCatalog.REFERENCED_TABLE_ID,
+          optionalReferenceModelDto.referencedTableId()));
     }
 
     if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
@@ -104,9 +104,9 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
         Node.withHeaderAndChildNode(
           NodeHeaderCatalog.DATA_TYPE,
           multiReferenceModelDto.dataType().name()),
-        Node.withHeaderAndChildNodes(
-          NodeHeaderCatalog.REFERENCED_TABLE_IDS,
-          multiReferenceModelDto.referencedTableIds().to(Node::withHeader)));
+        Node.withHeaderAndChildNode(
+          NodeHeaderCatalog.REFERENCED_TABLE_ID,
+          multiReferenceModelDto.referencedTableId()));
     }
 
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {

@@ -43,15 +43,15 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
       case REFERENCE ->
         new ReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdsFromContentModelNode(contentModelNode));
+          CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdFromContentModelNode(contentModelNode));
       case OPTIONAL_REFERENCE ->
         new OptionalReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdsFromContentModelNode(contentModelNode));
+          CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdFromContentModelNode(contentModelNode));
       case MULTI_REFERENCE ->
         new MultiReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdsFromContentModelNode(contentModelNode));
+          CONTENT_MODEL_NODE_SEARCHER.getReferencedTableIdFromContentModelNode(contentModelNode));
       case BACK_REFERENCE ->
         new BackReferenceModelDto(
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),

@@ -1,7 +1,5 @@
 package ch.nolix.systemapi.rawschemaapi.modelapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-
 /**
  * @author Silvan Wyss
  * @version 2025-01-24
@@ -9,8 +7,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface IAbstractReferenceModelDto extends IContentModelDto {
 
   /**
-   * @return the ids of the referenced tables of the current
+   * @return the id of the referenced table of the current
    *         {@link IAbstractReferenceModelDto};
    */
-  IContainer<String> getReferencedTableIds();
+  String getReferencedTableId();
 }

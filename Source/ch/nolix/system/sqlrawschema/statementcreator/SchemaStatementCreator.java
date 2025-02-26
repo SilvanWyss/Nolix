@@ -1,18 +1,14 @@
 package ch.nolix.system.sqlrawschema.statementcreator;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.IAbstractReferenceModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableReferenceTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlrawschemaapi.statementcreatorapi.ISchemaStatementCreator;
 
@@ -21,14 +17,12 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
 
   @Override
-  public IContainer<String> createStatementsToAddColumn(final String parentTableName, final ColumnDto column) {
+  public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
 
-    final ILinkedList<String> statements = LinkedList.createEmpty();
     final var contentModel = column.contentModel();
-
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
-    final var statement = //
+    return //
     "INSERT INTO "
     + FixTableType.COLUMN.getQualifiedName()
     + " ("
@@ -60,25 +54,11 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME.getName()
     + " = '"
-    + parentTableName
+    + tableName
     + "'";
-
-    statements.addAtEnd(statement);
-
-    if (contentModel instanceof final IAbstractReferenceModelDto abstractReferenceModel) {
-      for (final var i : abstractReferenceModel.getReferencedTableIds()) {
-
-        final var columnId = column.id();
-        final var tableReference = new TableReferenceDto(columnId, i);
-        final var addTableReferenceStatement = createStatementToAddTableReference(tableReference);
-
-        statements.addAtEnd(addTableReferenceStatement);
-      }
-    }
-
-    return statements;
   }
 
+  @Override
   public String createStatementToAddTable(final String tableId, final String tableName) {
     return //
     "INSERT INTO "
@@ -102,26 +82,10 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
 
     for (final var c : table.columns()) {
-      statements.addAtEnd(createStatementsToAddColumn(table.name(), c));
+      statements.addAtEnd(createStatementToAddColumn(table.name(), c));
     }
 
     return statements;
-  }
-
-  @Override
-  public String createStatementToAddTableReference(final TableReferenceDto tableReferenceDto) {
-    return //
-    "INSERT INTO "
-    + FixTableType.TABLE_REFERENCE.getName()
-    + " ("
-    + TableReferenceTableColumn.REFERENCE_COLUMN_ID.getName()
-    + ", "
-    + TableReferenceTableColumn.REFERENCED_TABLE_ID.getName()
-    + ") VALUES ('"
-    + tableReferenceDto.referenceColumnId()
-    + "', '"
-    + tableReferenceDto.referencedTableId()
-    + "');";
   }
 
   @Override

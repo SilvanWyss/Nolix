@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalValueModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IValueModel;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.rawschemaapi.modelapi.BackReferenceModelDto;
@@ -51,25 +50,25 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     if (contentModel instanceof final IReferenceModel referenceModel) {
 
       final var dataType = referenceModel.getDataType();
-      final var referencedTableIds = referenceModel.getReferencedTables().to(ITable::getId);
+      final var referencedTableId = referenceModel.getReferencedTable().getId();
 
-      return new ReferenceModelDto(dataType, referencedTableIds);
+      return new ReferenceModelDto(dataType, referencedTableId);
     }
 
     if (contentModel instanceof final IOptionalReferenceModel optionalReferenceModel) {
 
       final var dataType = optionalReferenceModel.getDataType();
-      final var referencedTableIds = optionalReferenceModel.getReferencedTables().to(ITable::getId);
+      final var referencedTableId = optionalReferenceModel.getReferencedTable().getId();
 
-      return new OptionalReferenceModelDto(dataType, referencedTableIds);
+      return new OptionalReferenceModelDto(dataType, referencedTableId);
     }
 
     if (contentModel instanceof final IMultiReferenceModel multiReferenceModel) {
 
       final var dataType = multiReferenceModel.getDataType();
-      final var referencedTableIds = multiReferenceModel.getReferencedTables().to(ITable::getId);
+      final var referencedTableId = multiReferenceModel.getReferencedTable().getId();
 
-      return new MultiReferenceModelDto(dataType, referencedTableIds);
+      return new MultiReferenceModelDto(dataType, referencedTableId);
     }
 
     if (contentModel instanceof final IBackReferenceModel backReferenceModel) {

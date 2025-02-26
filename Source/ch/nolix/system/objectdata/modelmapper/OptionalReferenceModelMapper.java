@@ -16,10 +16,9 @@ implements IContentModelDtoToContentModelMapper<OptionalReferenceModelDto> {
     final OptionalReferenceModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var tableIds = contentModelDto.referencedTableIds();
-    final var tables = referencableTables.getStoredSelected(t -> tableIds.containsEqualing(t.getId()));
+    final var tableId = contentModelDto.referencedTableId();
+    final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
 
-    //TODO: Handle multiple referenced tables
-    return OptionalReferenceModelView.forReferencedTable(tables.getStoredFirst());
+    return OptionalReferenceModelView.forReferencedTable(table);
   }
 }

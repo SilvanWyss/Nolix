@@ -1,11 +1,9 @@
 package ch.nolix.system.sqlrawschema.rawschemadtomapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableReferenceDto;
 import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.ColumnTableFieldIndexCatalog;
 import ch.nolix.systemapi.sqlrawschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 
@@ -20,8 +18,7 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    */
   @Override
   public ColumnDto mapColumnTableSqlRecordToColumnDto(
-    final ISqlRecord columnTableSqlRecord,
-    final IContainer<TableReferenceDto> tableReferences) {
+    final ISqlRecord columnTableSqlRecord) {
 
     final var contentType = //
     ContentType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX));
@@ -35,17 +32,11 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
       case MULTI_VALUE ->
         ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(columnTableSqlRecord);
       case REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForReferenceColumn(
-          columnTableSqlRecord,
-          tableReferences);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForReferenceColumn(columnTableSqlRecord);
       case OPTIONAL_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(
-          columnTableSqlRecord,
-          tableReferences);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(columnTableSqlRecord);
       case MULTI_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(
-          columnTableSqlRecord,
-          tableReferences);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(columnTableSqlRecord);
       case BACK_REFERENCE ->
         ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(columnTableSqlRecord);
       case OPTIONAL_BACK_REFERENCE ->

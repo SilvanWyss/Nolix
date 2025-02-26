@@ -11,7 +11,6 @@ public enum FixTableType implements IQualifiedNameHolder {
   DATABASE_PROPERTY("DatabaseProperty"),
   TABLE(PascalCaseVariableCatalog.TABLE),
   COLUMN(PascalCaseVariableCatalog.COLUMN),
-  TABLE_REFERENCE("TableReference"),
   ENTITY_INDEX("EntityIndex"),
   MULTI_VALUE_ENTRY("MultiValueEntry"),
   MULTI_REFERENCE_ENTRY("MultiReferenceEntry"),

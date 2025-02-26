@@ -30,9 +30,9 @@ public final class SystemDataWriter implements ChangeRequestable {
 
   public void addColumn(final String tableName, final ColumnDto column) {
 
-    final var statements = SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementsToAddColumn(tableName, column);
+    final var statement = SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
 
-    sqlCollector.addSqlStatements(statements);
+    sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteColumn(String tableName, String columnName) {

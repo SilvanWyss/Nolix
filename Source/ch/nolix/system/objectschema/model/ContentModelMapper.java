@@ -36,26 +36,26 @@ public final class ContentModelMapper {
 
     if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
 
-      final var referencedTableIds = referenceModelDto.referencedTableIds();
-      final var referencedTables = tables.getStoredSelected(t -> referencedTableIds.containsEqualing(t.getId()));
+      final var referencedTableId = referenceModelDto.referencedTableId();
+      final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
 
-      return ReferenceModel.forReferencedTables(referencedTables);
+      return ReferenceModel.forReferencedTable(referencedTable);
     }
 
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
 
-      final var referencedTableIds = optionalReferenceModelDto.referencedTableIds();
-      final var referencedTables = tables.getStoredSelected(t -> referencedTableIds.containsEqualing(t.getId()));
+      final var referencedTableId = optionalReferenceModelDto.referencedTableId();
+      final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
 
-      return OptionalReferenceModel.forReferencedTables(referencedTables);
+      return OptionalReferenceModel.forReferencedTable(referencedTable);
     }
 
     if (contentModelDto instanceof MultiReferenceModelDto multiBackReferenceModelDto) {
 
-      final var referencedTableIds = multiBackReferenceModelDto.referencedTableIds();
-      final var referencedTables = tables.getStoredSelected(t -> referencedTableIds.containsEqualing(t.getId()));
+      final var referencedTableId = multiBackReferenceModelDto.referencedTableId();
+      final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
 
-      return MultiReferenceModel.forReferencedTables(referencedTables);
+      return MultiReferenceModel.forReferencedTable(referencedTable);
     }
 
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
