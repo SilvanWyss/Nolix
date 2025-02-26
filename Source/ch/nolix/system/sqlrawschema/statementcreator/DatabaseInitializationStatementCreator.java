@@ -12,7 +12,7 @@ public final class DatabaseInitializationStatementCreator implements IDatabaseIn
   public String createStatementToCreateSchemaTimestampEntry(final ITime schemaTimestamp) {
     return //
     "INSERT INTO "
-    + FixTableType.DATABASE_PROPERTY.getQualifiedName()
+    + FixTableType.DATABASE_PROPERTY.getName()
     + " ("
     + DatabasePropertyTableColumn.KEY.getName()
     + ", "

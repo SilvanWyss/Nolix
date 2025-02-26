@@ -36,7 +36,7 @@ public final class ColumnTableSqlSchemaDtoCatalog {
 
   public static final TableDto COLUMN_TABLE_SQL_DTO = //
   new TableDto(
-    FixTableType.COLUMN.getQualifiedName(),
+    FixTableType.COLUMN.getName(),
     ImmutableList.withElement(
       ID_SQL_DTO,
       PARENT_TABLE_ID_SQL_DTO,

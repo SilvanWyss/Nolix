@@ -12,7 +12,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String entityId,
     final String multiBackReferenceColumnId) {
     return "DELETE FROM "
-    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -30,7 +30,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
     return "DELETE FROM "
-    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -52,7 +52,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
     return "INSERT INTO "
-    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getName()
     + " ("
     + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
     + ", "

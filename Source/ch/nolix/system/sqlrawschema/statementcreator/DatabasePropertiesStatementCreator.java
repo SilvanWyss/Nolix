@@ -13,7 +13,7 @@ public final class DatabasePropertiesStatementCreator implements IDatabaseProper
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return //
     "UPDATE "
-    + FixTableType.DATABASE_PROPERTY.getQualifiedName()
+    + FixTableType.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + DatabasePropertyTableColumn.VALUE.getName()
     + " = '"

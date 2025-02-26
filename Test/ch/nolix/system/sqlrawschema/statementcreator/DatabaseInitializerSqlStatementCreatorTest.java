@@ -19,7 +19,7 @@ final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
 
     //verification setup
     final var expectedResult = //
-    "INSERT INTO FDatabaseProperty (ValueKey, Value_) VALUES ('SchemaTimestamp', '2025-01-01-00-00-00-000-000');";
+    "INSERT INTO DatabaseProperty (ValueKey, Value_) VALUES ('SchemaTimestamp', '2025-01-01-00-00-00-000-000');";
 
     //verification
     expect(result).isEqualTo(expectedResult);

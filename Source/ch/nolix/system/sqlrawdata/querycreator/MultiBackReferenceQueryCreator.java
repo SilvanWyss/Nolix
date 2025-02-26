@@ -15,7 +15,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     "SELECT "
     + MultiBackReferenceEntryTableColumn.BACK_REFERENCED_ENTITY_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -33,7 +33,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     final String backReferencedEntityId) {
     return //
     "SELECT TOP 1 * FROM "
-    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_BACK_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiBackReferenceEntryTableColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + " = '"

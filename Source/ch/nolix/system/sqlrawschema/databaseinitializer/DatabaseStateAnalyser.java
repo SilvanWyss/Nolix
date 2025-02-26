@@ -20,7 +20,7 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
    */
   private static DatabaseState getDatabaseSchemaState(final ISchemaReader schemaReader) {
 
-    if (schemaReader.tableExists(FixTableType.DATABASE_PROPERTY.getQualifiedName())) {
+    if (schemaReader.tableExists(FixTableType.DATABASE_PROPERTY.getName())) {
       return DatabaseState.INITIALIZED;
     }
 

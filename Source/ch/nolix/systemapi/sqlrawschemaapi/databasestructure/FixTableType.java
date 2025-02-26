@@ -1,13 +1,13 @@
 package ch.nolix.systemapi.sqlrawschemaapi.databasestructure;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  * @version 2025-17-01
  */
-public enum FixTableType implements IQualifiedNameHolder {
+public enum FixTableType implements INameHolder {
   DATABASE_PROPERTY("DatabaseProperty"),
   TABLE(PascalCaseVariableCatalog.TABLE),
   COLUMN(PascalCaseVariableCatalog.COLUMN),
@@ -25,10 +25,5 @@ public enum FixTableType implements IQualifiedNameHolder {
   @Override
   public String getName() {
     return name;
-  }
-
-  @Override
-  public String getQualifyingPrefix() {
-    return TableNameQualifyingPrefix.F.name();
   }
 }

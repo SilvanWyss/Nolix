@@ -22,7 +22,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var result = testUnit.createStatementToDeleteEntity("MyTable", entityDeletionDto);
 
     //verification
-    final var expectedResult = "DELETE FROM EMyTable WHERE Id = 'my_id' AND SaveStamp = '100';"
+    final var expectedResult = "DELETE FROM MyTable WHERE Id = 'my_id' AND SaveStamp = '100';"
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
     expect(result).isEqualTo(expectedResult);
   }
@@ -37,7 +37,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var result = testUnit.createStatementToDeleteEntityIndex("test_id");
 
     //verification
-    final var expectedResult = "DELETE FROM FEntityIndex WHERE EntityId = 'test_id';";
+    final var expectedResult = "DELETE FROM EntityIndex WHERE EntityId = 'test_id';";
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -52,7 +52,7 @@ final class EntityStatementCreatorTest extends StandardTest {
 
     //verification
     final var expectedResult = //
-    "SELECT Id FROM EMyTable WHERE Id = 'my_id'; "
+    "SELECT Id FROM MyTable WHERE Id = 'my_id'; "
     + "IF @@RowCount = 0 BEGIN "
     + "THROW error(100000, 'The database does not contain a MyTable with the id my_id.', 0)"
     + " END;";
@@ -75,7 +75,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
 
     //verification
-    final var expectedResult = "INSERT INTO EMyTable (Id, SaveStamp, MyColumn1, MyColumn2, MyColumn3) "
+    final var expectedResult = "INSERT INTO MyTable (Id, SaveStamp, MyColumn1, MyColumn2, MyColumn3) "
     + "VALUES ('my_id', '1', 'my_value1', 'my_value2', 'my_value3');";
     expect(result).isEqualTo(expectedResult);
   }
@@ -97,7 +97,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);
 
     //verification
-    final var expectedResult = "UPDATE EMyTable "
+    final var expectedResult = "UPDATE MyTable "
     + "SET SaveStamp = '101', MyColumn1 = 'my_value1', MyColumn2 = 'my_value2', MyColumn3 = 'my_value3' "
     + "WHERE Id = 'my_id' AND SaveStamp = '100';"
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";

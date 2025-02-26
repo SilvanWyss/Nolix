@@ -15,7 +15,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     "SELECT COUNT(*) FROM "
-    + FixTableType.MULTI_REFERENCE_ENTRY.getQualifyingPrefix()
+    + FixTableType.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
@@ -38,7 +38,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     return "SELECT "
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -55,7 +55,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String multiReferenceColumnId,
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
-    + FixTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"

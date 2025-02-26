@@ -15,7 +15,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     "SELECT COUNT(*) FROM "
-    + FixTableType.MULTI_VALUE_ENTRY.getQualifyingPrefix()
+    + FixTableType.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
@@ -33,7 +33,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     "SELECT "
     + MultiValueEntryTableColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.MULTI_VALUE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -51,7 +51,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     final String value) {
     return //
     "SELECT TOP 1 * FROM "
-    + FixTableType.MULTI_VALUE_ENTRY.getQualifiedName()
+    + FixTableType.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"

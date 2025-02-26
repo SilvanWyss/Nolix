@@ -23,7 +23,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT COUNT("
     + TableTableColumn.ID.getName()
     + ") FROM "
-    + FixTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getName()
     + ";";
   }
 
@@ -46,7 +46,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.COLUMN.getQualifiedName()
+    + FixTableType.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -73,7 +73,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.COLUMN.getQualifiedName()
+    + FixTableType.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -92,7 +92,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.ID.getName()
     + " = '"
@@ -111,7 +111,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getQualifiedName()
+    + FixTableType.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME.getName()
     + " = '"
@@ -130,7 +130,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getQualifiedName();
+    + FixTableType.TABLE.getName();
   }
 
   /**
@@ -142,7 +142,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT "
     + DatabasePropertyTableColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.DATABASE_PROPERTY.getQualifiedName()
+    + FixTableType.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getName()
     + " = "

@@ -4,7 +4,6 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.system.sqlrawschema.sqlschemadtocatalog.EntitySqlSchemaColumnDtoCatalog;
 import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.TableNameQualifyingPrefix;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.sqlrawschemaapi.sqlschemamodelmapperapi.ISqlSchemaTableDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
@@ -28,7 +27,7 @@ public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
   @Override
   public ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto mapTableDtoSqlSchemaTableDto(final TableDto tableDto) {
 
-    final var tableName = TableNameQualifyingPrefix.E + tableDto.name();
+    final var tableName = tableDto.name();
     final var contentColumns = tableDto.columns().to(SQL_SCHEMA_COLUMN_DTO_MAPPER::mapColumnDtoToSqlSchemaColumnDto);
     final var columns = ContainerView.forIterable(META_COLUMN_SQL_SCHEMA_COLUMNS, contentColumns);
 

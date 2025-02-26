@@ -22,7 +22,7 @@ final class EntityQueryCreatorTest extends StandardTest {
       "my_value");
 
     //verification
-    final var expectedResult = "SELECT COUNT(MyColumn) FROM EMyTable WHERE MyColumn = 'my_value';";
+    final var expectedResult = "SELECT COUNT(MyColumn) FROM MyTable WHERE MyColumn = 'my_value';";
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -42,7 +42,7 @@ final class EntityQueryCreatorTest extends StandardTest {
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
 
     //verification
-    final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM ECat;";
+    final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat;";
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -62,7 +62,7 @@ final class EntityQueryCreatorTest extends StandardTest {
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);
 
     //verification
-    final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM ECat WHERE Id = 'eeeeeee1';";
+    final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat WHERE Id = 'eeeeeee1';";
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -76,7 +76,7 @@ final class EntityQueryCreatorTest extends StandardTest {
     final var result = testUnit.createQueryToLoadSchemaTimestamp();
 
     //verification setup
-    final var expectedResult = "SELECT Value_ FROM FDatabaseProperty WHERE ValueKey = 'SchemaTimestamp';";
+    final var expectedResult = "SELECT Value_ FROM DatabaseProperty WHERE ValueKey = 'SchemaTimestamp';";
 
     //verification
     expect(result).isEqualTo(expectedResult);
