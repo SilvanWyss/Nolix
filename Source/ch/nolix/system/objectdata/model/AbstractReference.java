@@ -10,28 +10,15 @@ import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 
 public abstract class AbstractReference<E extends IEntity> extends AbstractField implements IAbstractReference<E> {
 
-  private final IContainer<String> referencableTableNames;
-
   private final String referencedTableName;
 
   private Table<E> referencedTable;
 
-  protected AbstractReference(final IContainer<String> referencableTableNames) {
+  protected AbstractReference(final String referencedTableName) {
 
-    GlobalValidator.assertThatTheStrings(referencableTableNames).areNotBlank();
+    GlobalValidator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 
-    this.referencableTableNames = ImmutableList.forIterable(referencableTableNames);
-
-    //TODO: Enable AbstractReference to reference base types
-    this.referencedTableName = referencableTableNames.getStoredFirst();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public IContainer<String> getReferencableTableNames() {
-    return referencableTableNames;
+    this.referencedTableName = referencedTableName;
   }
 
   /**

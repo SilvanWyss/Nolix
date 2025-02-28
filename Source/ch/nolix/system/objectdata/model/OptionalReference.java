@@ -29,20 +29,19 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
 
   private String referencedEntityId;
 
-  private OptionalReference(final IContainer<String> referencableTableNames) {
-    super(referencableTableNames);
+  private OptionalReference(final String referencedTableName) {
+    super(referencedTableName);
   }
 
-  public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> type) {
+  public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> referencedEntityType) {
 
-    //TODO: Enable OptionalReference to reference base types
-    return new OptionalReference<>(ImmutableList.withElement(type.getSimpleName()));
+    final var referencedTableName = referencedEntityType.getSimpleName();
+
+    return new OptionalReference<>(referencedTableName);
   }
 
-  public static OptionalReference<AbstractEntity> forEntityWithTableName(final String tableName) {
-
-    //TODO: Enable OptionalReference to reference base types
-    return new OptionalReference<>(ImmutableList.withElement(tableName));
+  public static OptionalReference<AbstractEntity> forTable(final String referencedTableName) {
+    return new OptionalReference<>(referencedTableName);
   }
 
   @Override

@@ -17,8 +17,8 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   private final BackReference<CategorizableField> parentField = BackReference
     .forEntityAndBackReferencedFieldName(CategorizableField.class, "concreteReferenceContent");
 
-  private final MultiReference<CategorizableObject> referencedObjects = MultiReference
-    .forReferencedEntityType(CategorizableObject.class);
+  private final MultiReference<CategorizableObject> referencedObjects = //
+  MultiReference.forEntity(CategorizableObject.class);
 
   public ConcreteReferenceContent() {
     initialize();

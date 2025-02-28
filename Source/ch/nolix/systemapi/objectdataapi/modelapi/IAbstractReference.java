@@ -1,7 +1,5 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-
 /**
  * @author Silvan Wyss
  * @version 2021-11-13
@@ -9,12 +7,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  *            can reference.
  */
 public interface IAbstractReference<E extends IEntity> extends IField {
-
-  /**
-   * @return the names of the {@link ITable}s the current
-   *         {@link IAbstractReference} can reference.
-   */
-  IContainer<String> getReferencableTableNames();
 
   /**
    * @return the name of the referenced {@link ITable} of the current

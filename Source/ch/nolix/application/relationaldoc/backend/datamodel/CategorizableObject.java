@@ -30,13 +30,13 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
 
   private final MultiReference<CategorizableObject> directBaseTypes = //
-  MultiReference.forReferencedEntityType(CategorizableObject.class);
+  MultiReference.forEntity(CategorizableObject.class);
 
   private final MultiBackReference<CategorizableObject> directSubTypes = //
   MultiBackReference.forBackReferencedEntityTypeAndBaseReference(CategorizableObject.class, "directBaseTypes");
 
   private final MultiReference<CategorizableField> declaredFields = //
-  MultiReference.forReferencedEntityType(CategorizableField.class);
+  MultiReference.forEntity(CategorizableField.class);
 
   public CategorizableObject() {
     initialize();

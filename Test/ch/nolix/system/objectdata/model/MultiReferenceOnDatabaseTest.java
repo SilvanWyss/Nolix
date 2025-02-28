@@ -11,7 +11,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   private static final class Person extends Entity {
 
-    final MultiReference<Pet> pets = MultiReference.forReferencedEntityType(Pet.class);
+    final MultiReference<Pet> pets = MultiReference.forEntity(Pet.class);
 
     Person() {
       initialize();

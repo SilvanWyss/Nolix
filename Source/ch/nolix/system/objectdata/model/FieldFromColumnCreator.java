@@ -40,37 +40,40 @@ public final class FieldFromColumnCreator {
 
   private AbstractField createEmptyReferenceFromReferenceColumn(final IColumnView<ITable<IEntity>> referenceColumn) {
 
-    final var referencedtableName = referenceColumn
+    final var referencedtableName = //
+    referenceColumn
       .getContentModel()
       .asAbstractReferenceModel()
       .getStoredReferencedTable()
       .getName();
 
-    return Reference.forEntityWithTableName(referencedtableName);
+    return Reference.forTable(referencedtableName);
   }
 
   private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(
     final IColumnView<ITable<IEntity>> optionalReferenceColumn) {
 
-    final var referencedtableName = optionalReferenceColumn
+    final var referencedtableName = //
+    optionalReferenceColumn
       .getContentModel()
       .asAbstractReferenceModel()
       .getStoredReferencedTable()
       .getName();
 
-    return OptionalReference.forEntityWithTableName(referencedtableName);
+    return OptionalReference.forTable(referencedtableName);
   }
 
   private AbstractField createEmptyMultiReferenceFromMultiReferenceColumn(
     final IColumnView<ITable<IEntity>> multiReferenceColumn) {
 
-    final var referencedtableName = multiReferenceColumn
+    final var referencedtableName = //
+    multiReferenceColumn
       .getContentModel()
       .asAbstractReferenceModel()
       .getStoredReferencedTable()
       .getName();
 
-    return MultiReference.forReferencedTable(referencedtableName);
+    return MultiReference.forTable(referencedtableName);
   }
 
   private AbstractField createEmptyBackReferenceFromBackReferenceColumn(

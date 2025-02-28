@@ -2,7 +2,6 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
@@ -30,32 +29,19 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   private String referencedEntityId;
 
-  private Reference(final IContainer<String> referencableTableNames) {
-    super(referencableTableNames);
+  private Reference(final String referencedTableName) {
+    super(referencedTableName);
   }
 
-  @SafeVarargs
-  public static <E2 extends Entity> Reference<E2> forBaseAndItsSubEntityType(
-    final Class<E2> baseEntiyType,
-    final Class<? extends E2> subEntityType,
-    final Class<? extends E2>... subEntityTypes) {
+  public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> referencedEntityType) {
 
-    final var allSubTypes = ContainerView.forElementAndArray(subEntityType, subEntityTypes);
-    final var referencableTableNames = allSubTypes.to(Class::getSimpleName);
+    final var referencedTableName = referencedEntityType.getSimpleName();
 
-    return new Reference<>(referencableTableNames);
+    return new Reference<>(referencedTableName);
   }
 
-  public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
-
-    //TODO: Enable Reference to reference base types
-    return new Reference<>(ImmutableList.withElement(type.getSimpleName()));
-  }
-
-  public static Reference<AbstractEntity> forEntityWithTableName(final String tableName) {
-
-    //TODO: Enable Reference to reference base types
-    return new Reference<>(ImmutableList.withElement(tableName));
+  public static Reference<AbstractEntity> forTable(final String referencedTableName) {
+    return new Reference<>(referencedTableName);
   }
 
   @Override
