@@ -2,13 +2,13 @@ package ch.nolix.system.graphic.color;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -32,7 +32,7 @@ public final class Color extends AbstractElement implements IColor {
 
   public static final short MAX_COLOR_COMPONENT = 255;
 
-  private static IContainer<Pair<String, Color>> webColorsAndNames;
+  private static IContainer<IPair<String, IColor>> x11Colors;
 
   private final short redValue;
 
@@ -205,7 +205,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   public static Color fromString(final String string) {
 
-    final var webColorAndName = getWebColorsAndNames()
+    final var webColorAndName = getX11Colors()
       .getOptionalStoredFirst(p -> p.getStoredElement1().equals(string));
 
     //Handles the case that the given string is not a color name.
@@ -231,7 +231,7 @@ public final class Color extends AbstractElement implements IColor {
     }
 
     //Handles the case that the given value is a color name.
-    return webColorAndName.get().getStoredElement2();
+    return (Color) webColorAndName.get().getStoredElement2();
   }
 
   /**
@@ -302,12 +302,16 @@ public final class Color extends AbstractElement implements IColor {
     return value;
   }
 
-  //TODO: Beautify
-  private static IContainer<Pair<String, Color>> getWebColorsAndNames() {
-    if (webColorsAndNames == null) {
-      webColorsAndNames = new X11ColorCatalogExtractor().getWebColorsAndNames();
+  /**
+   * @return the names and values of the X11 colors.
+   */
+  private static IContainer<IPair<String, IColor>> getX11Colors() {
+
+    if (x11Colors == null) {
+      x11Colors = new X11ColorCatalogExtractor().getColorConstantsFromClass(X11ColorCatalog.class);
     }
-    return webColorsAndNames;
+
+    return x11Colors;
   }
 
   /**
@@ -406,7 +410,7 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public String getColorNameOrHexadecimalString() {
 
-    final var webColorAndName = webColorsAndNames.getOptionalStoredFirst(wc -> wc.getStoredElement2().equals(this));
+    final var webColorAndName = getX11Colors().getOptionalStoredFirst(wc -> wc.getStoredElement2().equals(this));
 
     //Handles the case that the current Color has a color name.
     if (webColorAndName.isPresent()) {

@@ -7,51 +7,45 @@ import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 public final class X11ColorCatalogExtractor {
 
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 
-  private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
+  public IContainer<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
 
-  public IContainer<Pair<String, Color>> getWebColorsAndNames() {
-    return colorNames;
+    final LinkedList<IPair<String, IColor>> x11Colors = LinkedList.createEmpty();
+    final var colorStringFields = getColorNameConstantFields(paramClass);
+    final var colorFields = getColorFields(paramClass);
+
+    for (final var csf : colorStringFields) {
+
+      final var colorStringFieldName = csf.getName();
+      final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
+
+      x11Colors.addAtEnd(
+        new Pair<>(GlobalReflectionTool.getValueFromStaticField(csf),
+          GlobalReflectionTool.getValueFromStaticField(colorField)));
+    }
+
+    return x11Colors;
   }
 
   private boolean declaresColor(final Field field) {
-    return GlobalReflectionTool.isStaticAndStoresValueOfGivenType(field, Color.class);
+    return GlobalReflectionTool.isStaticAndStoresValueOfGivenType(field, IColor.class);
   }
 
   private boolean declaresColorName(final Field field) {
     return (GlobalReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
   }
 
-  private LinkedList<Pair<String, Color>> extractAndGetColorNames() {
-
-    final LinkedList<Pair<String, Color>> lColorNames = LinkedList.createEmpty();
-
-    final var colorStringFields = getColorNameConnstantFields();
-    final var colorFields = getColorFields();
-
-    for (final var csf : colorStringFields) {
-
-      final var colorStringFieldName = csf.getName();
-
-      final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
-
-      lColorNames.addAtEnd(
-        new Pair<>(GlobalReflectionTool.getValueFromStaticField(csf),
-          GlobalReflectionTool.getValueFromStaticField(colorField)));
-    }
-
-    return lColorNames;
-  }
-
-  private ILinkedList<Field> getColorFields() {
+  private ILinkedList<Field> getColorFields(final Class<?> paramClass) {
 
     final ILinkedList<Field> colorFields = LinkedList.createEmpty();
 
-    for (final var f : X11ColorCatalog.class.getDeclaredFields()) {
+    for (final var f : paramClass.getDeclaredFields()) {
       if (declaresColor(f)) {
         colorFields.addAtEnd(f);
       }
@@ -60,11 +54,11 @@ public final class X11ColorCatalogExtractor {
     return colorFields;
   }
 
-  private ILinkedList<Field> getColorNameConnstantFields() {
+  private ILinkedList<Field> getColorNameConstantFields(final Class<?> paramClass) {
 
     final ILinkedList<Field> colorNameConstantFields = LinkedList.createEmpty();
 
-    for (final var f : X11ColorCatalog.class.getDeclaredFields()) {
+    for (final var f : paramClass.getDeclaredFields()) {
       if (declaresColorName(f)) {
         colorNameConstantFields.addAtEnd(f);
       }
