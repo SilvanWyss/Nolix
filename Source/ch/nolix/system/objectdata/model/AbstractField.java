@@ -49,7 +49,7 @@ public abstract class AbstractField implements IField {
   }
 
   @Override
-  public IColumnView<ITable<IEntity>> getStoredParentColumn() {
+  public final IColumnView<ITable<IEntity>> getStoredParentColumn() {
 
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
 
