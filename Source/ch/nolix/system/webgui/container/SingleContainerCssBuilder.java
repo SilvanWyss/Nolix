@@ -3,13 +3,13 @@ package ch.nolix.system.webgui.container;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class SingleContainerCssBuilder
-extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
+extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
 
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

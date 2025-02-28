@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webguiapi.cssmapperapi.ICssPropertyMapper;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class ControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
+public abstract class AbstractControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
 implements IControlCssBuilder<C, S> {
 
   private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();

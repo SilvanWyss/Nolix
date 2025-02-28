@@ -3,12 +3,12 @@ package ch.nolix.system.webgui.atomiccontrol.button;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButtonStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonStyle> {
+public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, IButtonStyle> {
 
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

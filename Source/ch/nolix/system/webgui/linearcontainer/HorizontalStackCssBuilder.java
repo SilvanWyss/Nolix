@@ -8,14 +8,14 @@ import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class HorizontalStackCssBuilder
-extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
+extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

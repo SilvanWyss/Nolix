@@ -5,13 +5,13 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class ImageControlCssBuilder
-extends ControlCssBuilder<IImageControl, IImageControlStyle> {
+extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
 
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

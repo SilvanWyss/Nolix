@@ -4,12 +4,12 @@ import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextboxStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextboxStyle> {
+public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox, ITextboxStyle> {
 
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(

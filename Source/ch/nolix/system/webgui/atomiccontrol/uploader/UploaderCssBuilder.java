@@ -3,12 +3,12 @@ package ch.nolix.system.webgui.atomiccontrol.uploader;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploaderStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class UploaderCssBuilder extends ControlCssBuilder<IUploader, IUploaderStyle> {
+public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploader, IUploaderStyle> {
 
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

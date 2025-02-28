@@ -7,13 +7,13 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
-import ch.nolix.system.webgui.basecontroltool.ControlCssBuilder;
+import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
+public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
 
   private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
