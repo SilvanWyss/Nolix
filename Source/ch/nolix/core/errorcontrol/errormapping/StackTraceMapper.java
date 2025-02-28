@@ -1,8 +1,11 @@
 package ch.nolix.core.errorcontrol.errormapping;
 
 import ch.nolix.core.independent.list.List;
+import ch.nolix.coreapi.errorcontrolapi.errormappingapi.IErrorMessageExtractor;
 
 public final class StackTraceMapper {
+
+  private static final IErrorMessageExtractor ERROR_MESSAGE_EXTRACTOR = new ErrorMessageExtractor();
 
   public String[] mapErrorToStackTrace(final Throwable error) {
 
@@ -19,23 +22,11 @@ public final class StackTraceMapper {
     return List.createArrayFromList(list);
   }
 
-  private String getMessageFromError(final Throwable error) {
-
-    if (error == null) {
-      return "An error occured.";
-    }
-
-    final var message = error.getMessage();
-    if (message == null || message.isBlank()) {
-      return "An error occured.";
-    }
-
-    return message;
-  }
-
   private void mapCauseStackTraceIntoList(final Throwable cause, final List<String> list) {
 
-    list.addAtEnd("Cause: " + cause.getClass().getSimpleName() + ": " + getMessageFromError(cause));
+    final var errorMessage = ERROR_MESSAGE_EXTRACTOR.getMessageOfError(cause);
+
+    list.addAtEnd("Cause: " + cause.getClass().getSimpleName() + ": " + errorMessage);
 
     mapOwnStackTraceElementsOfErrorIntoList(cause, list);
   }
