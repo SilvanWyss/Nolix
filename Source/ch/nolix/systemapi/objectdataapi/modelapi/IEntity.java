@@ -18,8 +18,6 @@ extends Deletable, IDatabaseObject, IIdHolder, IOptionalSaveStampHolder, ITableC
 
   IContainer<? extends IField> internalGetStoredFields();
 
-  void internalSetEdited();
-
   void internalSetId(String id);
 
   void internalSetLoaded();

@@ -21,7 +21,7 @@ public abstract class AbstractField implements IField {
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
-  private IEntity parentEntity;
+  private AbstractEntity parentEntity;
 
   private IColumnView<ITable<IEntity>> parentColumn;
 
@@ -57,7 +57,7 @@ public abstract class AbstractField implements IField {
   }
 
   @Override
-  public final IEntity getStoredParentEntity() {
+  public final AbstractEntity getStoredParentEntity() {
 
     FIELD_VALIDATOR.assertBelongsToEntity(this);
 
@@ -132,7 +132,7 @@ public abstract class AbstractField implements IField {
   }
 
   final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
-    return ((AbstractEntity) parentEntity).internalGetStoredDataAndSchemaAdapter();
+    return parentEntity.internalGetStoredDataAndSchemaAdapter();
   }
 
   final void internalSetParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {

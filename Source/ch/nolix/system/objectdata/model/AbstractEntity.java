@@ -112,7 +112,6 @@ public abstract class AbstractEntity implements IEntity {
     return getStoredFields();
   }
 
-  @Override
   public final void internalSetEdited() {
     switch (getState()) {
       case NEW:
