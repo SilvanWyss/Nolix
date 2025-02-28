@@ -6,20 +6,20 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
-final class BaseWebClientFrontendReader implements IFrontEndReader {
+final class FrontendReader implements IFrontEndReader {
 
-  private final BaseWebClient<?, ?> parentBackendWebClient;
+  private final AbstractWebClient<?, ?> parentBackendWebClient;
 
-  private BaseWebClientFrontendReader(final BaseWebClient<?, ?> parentBackendWebClient) {
+  private FrontendReader(final AbstractWebClient<?, ?> parentBackendWebClient) {
 
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
-  public static BaseWebClientFrontendReader forBackendWebClient(
-    final BaseWebClient<?, ?> backendWebClient) {
-    return new BaseWebClientFrontendReader(backendWebClient);
+  public static FrontendReader forBackendWebClient(
+    final AbstractWebClient<?, ?> backendWebClient) {
+    return new FrontendReader(backendWebClient);
   }
 
   @Override

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.ObjectProtocol;
 
-final class BaseWebClientCommandCreator {
+final class ClientCommandCreator {
 
   public ChainedNode createDeleteCookieByNameCommand(final String cookieName) {
     return ChainedNode.withHeaderAndChildNode(

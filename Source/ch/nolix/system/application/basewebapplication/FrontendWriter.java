@@ -4,20 +4,20 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
-final class BaseWebClientFrontendWriter implements IFrontEndWriter {
+final class FrontendWriter implements IFrontEndWriter {
 
-  private final BaseWebClient<?, ?> parentBackendWebClient;
+  private final AbstractWebClient<?, ?> parentBackendWebClient;
 
-  private BaseWebClientFrontendWriter(final BaseWebClient<?, ?> parentBackendWebClient) {
+  private FrontendWriter(final AbstractWebClient<?, ?> parentBackendWebClient) {
 
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
-  public static BaseWebClientFrontendWriter forBackendWebClient(
-    final BaseWebClient<?, ?> backendWebClient) {
-    return new BaseWebClientFrontendWriter(backendWebClient);
+  public static FrontendWriter forBackendWebClient(
+    final AbstractWebClient<?, ?> backendWebClient) {
+    return new FrontendWriter(backendWebClient);
   }
 
   @Override

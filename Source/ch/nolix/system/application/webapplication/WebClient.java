@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.system.application.basewebapplication.BaseWebClient;
+import ch.nolix.system.application.basewebapplication.AbstractWebClient;
 import ch.nolix.system.application.webapplicationrefreshqueue.WebClientRefreshQueue;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.applicationapi.webapplicationprotocol.CommandProtocol;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public final class WebClient<C> extends BaseWebClient<WebClient<C>, C> {
+public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
   private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
 

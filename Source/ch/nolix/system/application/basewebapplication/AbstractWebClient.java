@@ -12,17 +12,17 @@ import ch.nolix.coreapi.webapi.cookieapi.ICookieManager;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
-public abstract class BaseWebClient<C extends BaseWebClient<C, S>, S>
+public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
 extends AbstractBackendClient<C, S>
 implements ICookieManager {
 
-  private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
-  new BaseWebClientCommandCreator();
+  private static final ClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
+  new ClientCommandCreator();
 
-  private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
-  new BaseWebClientRequestCreator();
+  private static final RequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
+  new RequestCreator();
 
-  private final BaseWebClientFileReader fileReader = BaseWebClientFileReader.forBackendWebClient(this);
+  private final FileReader fileReader = FileReader.forBackendWebClient(this);
 
   @Override
   public final void deleteCookieByName(final String name) {

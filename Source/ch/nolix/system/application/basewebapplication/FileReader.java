@@ -11,26 +11,26 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 
-final class BaseWebClientFileReader {
+final class FileReader {
 
   private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 
-  private final BaseWebClient<?, ?> parentBackendWebClient;
+  private final AbstractWebClient<?, ?> parentBackendWebClient;
 
   private boolean isWaitingForFileFromCounterpart;
 
   private byte[] latestOptionalFileFromCounterpart;
 
-  private BaseWebClientFileReader(final BaseWebClient<?, ?> parentBackendWebClient) {
+  private FileReader(final AbstractWebClient<?, ?> parentBackendWebClient) {
 
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
-  public static BaseWebClientFileReader forBackendWebClient(
-    final BaseWebClient<?, ?> backendWebClient) {
-    return new BaseWebClientFileReader(backendWebClient);
+  public static FileReader forBackendWebClient(
+    final AbstractWebClient<?, ?> backendWebClient) {
+    return new FileReader(backendWebClient);
   }
 
   public Optional<byte[]> readOptionalFileFromCounterpart() {

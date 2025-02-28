@@ -1,12 +1,12 @@
 package ch.nolix.system.application.webapplication;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.application.basewebapplication.BaseWebClientSession;
+import ch.nolix.system.application.basewebapplication.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public abstract class WebClientSession<S> extends BaseWebClientSession<WebClient<S>, S> {
+public abstract class WebClientSession<S> extends AbstractWebClientSession<WebClient<S>, S> {
 
   private final IWebGui<?> webGui = new WebGui();
 
