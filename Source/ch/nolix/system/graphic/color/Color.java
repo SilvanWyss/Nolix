@@ -305,7 +305,7 @@ public final class Color extends AbstractElement implements IColor {
   //TODO: Beautify
   private static IContainer<Pair<String, Color>> getWebColorsAndNames() {
     if (webColorsAndNames == null) {
-      webColorsAndNames = new ColorNameConstantExtractor().getWebColorsAndNames();
+      webColorsAndNames = new X11ColorCatalogExtractor().getWebColorsAndNames();
     }
     return webColorsAndNames;
   }

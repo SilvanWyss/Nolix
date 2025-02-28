@@ -8,7 +8,7 @@ import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 
-public final class ColorNameConstantExtractor {
+public final class X11ColorCatalogExtractor {
 
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 
