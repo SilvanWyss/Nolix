@@ -9,7 +9,7 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy2Predecessor;
 
 public final class ComplexSequenceDefinedBy2Predecessor
-extends Sequence<IComplexNumber>
+extends AbstractSequence<IComplexNumber>
 implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
 
   private final IComplexNumber firstValue;

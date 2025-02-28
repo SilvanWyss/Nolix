@@ -6,7 +6,7 @@ import java.util.function.IntFunction;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
-public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
+public final class ComplexExplicitSequence extends AbstractSequence<IComplexNumber> {
 
   private final IntFunction<IComplexNumber> valueFunction;
 

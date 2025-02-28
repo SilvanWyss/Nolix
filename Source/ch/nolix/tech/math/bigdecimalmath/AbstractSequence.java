@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
 
-abstract class Sequence<V> implements ISequence<V> {
+abstract class AbstractSequence<V> implements ISequence<V> {
 
   private final ArrayList<Pair<V, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
 
