@@ -4,9 +4,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class AdditionalConditionMediator {
 
-  private final LicenseManager parentLicenseManager;
+  private final LicenseManagerUnit parentLicenseManager;
 
-  AdditionalConditionMediator(final LicenseManager parentLicenseManager) {
+  AdditionalConditionMediator(final LicenseManagerUnit parentLicenseManager) {
 
     Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 

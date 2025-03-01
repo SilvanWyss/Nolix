@@ -31,7 +31,7 @@ final class GlobalLicenseManagerTest extends StandardTest {
   void testCase_requireFeature_whenLicenseIsNotThere() {
 
     //execution & verification
-    expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).throwsException();
+    expectRunning(() -> LicenseManager.requireFeature(TestFeature.class)).throwsException();
   }
 
   @Test
@@ -40,12 +40,12 @@ final class GlobalLicenseManagerTest extends StandardTest {
     //setup
     final var testLicense = new TestLicense();
     testLicense.activate("0000-0000");
-    GlobalLicenseManager.addLicense(testLicense);
+    LicenseManager.addLicense(testLicense);
 
     //execution & verification
-    expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
+    expectRunning(() -> LicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
 
     //cleanup
-    GlobalLicenseManager.removeLicense(testLicense);
+    LicenseManager.removeLicense(testLicense);
   }
 }

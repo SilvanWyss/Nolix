@@ -4,11 +4,11 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class ConditionMediator {
 
-  private final LicenseManager parentLicenseManager;
+  private final LicenseManagerUnit parentLicenseManager;
 
   private final boolean condition;
 
-  ConditionMediator(final LicenseManager parentLicenseManager, final boolean condition) {
+  ConditionMediator(final LicenseManagerUnit parentLicenseManager, final boolean condition) {
 
     Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 

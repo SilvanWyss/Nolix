@@ -4,11 +4,11 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class LongMediator {
 
-  private final LicenseManager parentLicenseManager;
+  private final LicenseManagerUnit parentLicenseManager;
 
   private final long value;
 
-  LongMediator(final LicenseManager parentLicenseManager, final long value) {
+  LongMediator(final LicenseManagerUnit parentLicenseManager, final long value) {
 
     Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 
