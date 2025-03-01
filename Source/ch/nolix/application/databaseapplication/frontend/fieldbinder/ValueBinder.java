@@ -4,7 +4,7 @@ import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 
-public final class ValueBinder extends FieldBinder<IValue<?>, ITextbox> {
+public final class ValueBinder extends AbstractFieldBinder<IValue<?>, ITextbox> {
 
   @Override
   protected void addSelectionOptionsToControlForField(final ITextbox control, final IValue<?> property) {

@@ -3,7 +3,7 @@ package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public abstract class FieldBinder<F extends IField, W extends IControl<?, ?>> {
+public abstract class AbstractFieldBinder<F extends IField, W extends IControl<?, ?>> {
 
   public final FieldBinding bindControlWithField(final W control, final F field) {
 

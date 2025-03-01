@@ -5,7 +5,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;
 
-public final class ReferenceBinder extends FieldBinder<IReference<IEntity>, IDropdownMenu> {
+public final class ReferenceBinder extends AbstractFieldBinder<IReference<IEntity>, IDropdownMenu> {
 
   @Override
   protected IDropdownMenu createControl() {

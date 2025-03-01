@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;
 
 public final class OptionalReferenceBinder
-extends FieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
+extends AbstractFieldBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
   @Override
   protected void addSelectionOptionsToControlForField(
