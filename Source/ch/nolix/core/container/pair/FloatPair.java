@@ -1,7 +1,7 @@
 package ch.nolix.core.container.pair;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.core.math.main.GlobalNumberComparator;
+import ch.nolix.core.math.main.NumberComparator;
 
 /**
  * A {@link FloatPair} is not mutable.
@@ -48,8 +48,8 @@ public final class FloatPair {
 
     if (object instanceof final FloatPair floatPair) {
       return //
-      GlobalNumberComparator.areEqual(value1, floatPair.value1)
-      && GlobalNumberComparator.areEqual(value2, floatPair.value2);
+      NumberComparator.areEqual(value1, floatPair.value1)
+      && NumberComparator.areEqual(value2, floatPair.value2);
     }
 
     return false;

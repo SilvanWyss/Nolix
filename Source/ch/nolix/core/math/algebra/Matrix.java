@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.GlobalNumberComparator;
+import ch.nolix.core.math.main.NumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -725,7 +725,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
       var isZeroRow = true;
 
       for (double v : r) {
-        if (!GlobalNumberComparator.isZero(v)) {
+        if (!NumberComparator.isZero(v)) {
           isZeroRow = false;
           break;
         }
@@ -907,7 +907,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Polynom toPolynom() {
 
     //Asserts that the upper left element of the current {@link Matrix} is 0.
-    if (GlobalNumberComparator.isZero(values[0][0])) {
+    if (NumberComparator.isZero(values[0][0])) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
     }
 
@@ -992,7 +992,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     //Iterates the rows of the current Matrix.
     for (var i = getRowCount() - 1; i >= 0; i--) {
 
-      if (GlobalNumberComparator.isZero(values[i][i])) {
+      if (NumberComparator.isZero(values[i][i])) {
         throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
       }
 
@@ -1141,11 +1141,11 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     final var columnCount = getColumnCount();
     for (var j = 0; j < columnCount; j++) {
       if (lineIndex != j) {
-        if (!GlobalNumberComparator.isZero(values[lineIndex - 1][j])) {
+        if (!NumberComparator.isZero(values[lineIndex - 1][j])) {
           return false;
         }
       } else if ( //NOSONAR: The else-case is continuing the loop.
-      !GlobalNumberComparator.isOne(values[lineIndex - 1][j])) {
+      !NumberComparator.isOne(values[lineIndex - 1][j])) {
         return false;
       }
     }
@@ -1164,7 +1164,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
     for (var i = 0; i < getRowCount(); i++) {
       for (var j = 0; j < getColumnCount(); j++) {
-        if (!GlobalNumberComparator.areEqual(matrix.values[i][j], values[i][j])) {
+        if (!NumberComparator.areEqual(matrix.values[i][j], values[i][j])) {
           return false;
         }
       }

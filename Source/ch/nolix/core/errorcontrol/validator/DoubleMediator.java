@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.independent.machineprecision.GlobalNumberComparator;
+import ch.nolix.core.independent.machineprecision.NumberComparator;
 
 /**
  * A double mediator is a mediator for a double. A double mediator is not
@@ -104,7 +104,7 @@ public class DoubleMediator extends Mediator {
   public void isEqualTo(final double value) {
 
     //Asserts that the argument of this double mediator equals the given value.
-    if (!GlobalNumberComparator.areEqual(argument, value)) {
+    if (!NumberComparator.areEqual(argument, value)) {
       throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
     }
   }
@@ -143,7 +143,7 @@ public class DoubleMediator extends Mediator {
   public void isNotEqualTo(final double value) {
 
     //Asserts that the argument of this double mediator does not equal the given value.
-    if (GlobalNumberComparator.areEqual(argument, value)) {
+    if (NumberComparator.areEqual(argument, value)) {
       throw EqualArgumentException.forArgumentNameAndArgumentAndEqualValue(getArgumentName(), argument, value);
     }
   }

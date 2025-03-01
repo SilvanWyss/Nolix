@@ -6,13 +6,13 @@ import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalog;
  * @author Silvan Wyss
  * @version 2024-12-13
  */
-public final class GlobalNumberComparator {
+public final class NumberComparator {
 
   /**
-   * Prevents that an instance of the {@link GlobalNumberComparator} can be
+   * Prevents that an instance of the {@link NumberComparator} can be
    * created.
    */
-  private GlobalNumberComparator() {
+  private NumberComparator() {
   }
 
   /**

@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.math.main.GlobalNumberComparator;
+import ch.nolix.core.math.main.NumberComparator;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -32,7 +32,7 @@ public final class LayerCssBuilder {
       cssProperties.addAtEnd(CssProperty.withNameAndValue("position", "fixed"));
     }
 
-    if (!GlobalNumberComparator.isOne(layer.getOpacity())) {
+    if (!NumberComparator.isOne(layer.getOpacity())) {
       cssProperties.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalog.OPACITY, layer.getOpacity()));
     }
 

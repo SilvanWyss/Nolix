@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.Calculator;
-import ch.nolix.core.math.main.GlobalNumberComparator;
+import ch.nolix.core.math.main.NumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -158,7 +158,7 @@ public final class Polynom {
 
     final var integratedCoefficients = new double[integratedDegree + 1];
     for (var i = 0; i < integratedDegree; i++) {
-      if (GlobalNumberComparator.isZero(coefficients[i])) {
+      if (NumberComparator.isZero(coefficients[i])) {
         integratedCoefficients[i] = 0.0;
       } else {
 
@@ -297,7 +297,7 @@ public final class Polynom {
     }
 
     for (var i = 0; i < coefficients.length; i++) {
-      if (!GlobalNumberComparator.areEqual(coefficients[i], polynom.coefficients[i])) {
+      if (!NumberComparator.areEqual(coefficients[i], polynom.coefficients[i])) {
         return false;
       }
     }
@@ -325,7 +325,7 @@ public final class Polynom {
 
       final var constant = coefficients[coefficients.length - 1];
 
-      if (!GlobalNumberComparator.isZero(constant)) {
+      if (!NumberComparator.isZero(constant)) {
 
         if (coefficients.length > 1 && constant > 0.0) {
           stringBuilder.append("+");
@@ -344,13 +344,13 @@ public final class Polynom {
 
       final var coefficient = coefficients[i];
 
-      if (!GlobalNumberComparator.isZero(coefficient)) {
+      if (!NumberComparator.isZero(coefficient)) {
 
         if (i > 0 && coefficient > 0.0) {
           stringBuilder.append('+');
         }
 
-        if (!GlobalNumberComparator.isOne(coefficient)) {
+        if (!NumberComparator.isOne(coefficient)) {
           stringBuilder.append(DOUBLE_TOOL.toString(coefficient));
         }
 
@@ -365,7 +365,7 @@ public final class Polynom {
 
       final var linearCoefficient = coefficients[coefficients.length - 2];
 
-      if (!GlobalNumberComparator.isZero(linearCoefficient)) {
+      if (!NumberComparator.isZero(linearCoefficient)) {
 
         if (coefficients.length > 2 && linearCoefficient > 0.0) {
           stringBuilder.append("+");

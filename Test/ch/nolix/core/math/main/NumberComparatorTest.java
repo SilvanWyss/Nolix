@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-final class GlobalNumberComparatorTest extends StandardTest {
+final class NumberComparatorTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
@@ -64,7 +64,7 @@ final class GlobalNumberComparatorTest extends StandardTest {
   void testCase_areEqual(final double value1, final double value2, final boolean expectedResult) {
 
     //execution
-    final var result = GlobalNumberComparator.areEqual(value1, value2);
+    final var result = NumberComparator.areEqual(value1, value2);
 
     //verification
     expect(result).is(expectedResult);
@@ -93,7 +93,7 @@ final class GlobalNumberComparatorTest extends StandardTest {
   void testCase_isOne(final double value, final boolean expectedResult) {
 
     //execution
-    final var result = GlobalNumberComparator.isOne(value);
+    final var result = NumberComparator.isOne(value);
 
     //verification
     expect(result).is(expectedResult);
@@ -122,7 +122,7 @@ final class GlobalNumberComparatorTest extends StandardTest {
   void testCase_isZero(final double value, final boolean expectedResult) {
 
     //execution
-    final var result = GlobalNumberComparator.isZero(value);
+    final var result = NumberComparator.isZero(value);
 
     //verification
     expect(result).is(expectedResult);
