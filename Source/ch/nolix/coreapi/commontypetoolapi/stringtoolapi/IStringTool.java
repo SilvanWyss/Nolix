@@ -52,25 +52,6 @@ public interface IStringTool {
 
   /**
    * @param string
-   * @return true if the given string is in lower case.
-   */
-  boolean isLowerCase(String string);
-
-  /**
-   * @param string
-   * @return true if the given string is in pascal case.
-   */
-  boolean isPascalCase(String string);
-
-  /**
-   * @param string
-   * @param prefix
-   * @return true if the given string starts with the given prefix ignoring case.
-   */
-  boolean startsWithIgnoringCase(String string, String prefix);
-
-  /**
-   * @param string
    * @return the boolean the given string represents.
    * @throws RuntimeException if the given string does not represent a boolean.
    */

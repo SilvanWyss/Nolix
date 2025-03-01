@@ -1,7 +1,5 @@
 package ch.nolix.core.commontypetool.stringtool;
 
-import java.util.Locale;
-
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -109,37 +107,6 @@ public final class StringTool implements IStringTool {
     }
 
     return ("'" + object + "'");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isLowerCase(final String string) {
-    return //
-    string != null
-    && string.equals(string.toLowerCase(Locale.ENGLISH));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isPascalCase(final String string) {
-    return //
-    string != null
-    && string.equals(toPascalCase(string));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean startsWithIgnoringCase(final String string, final String prefix) {
-    return //
-    string != null
-    && prefix != null
-    && string.regionMatches(true, 0, prefix, 0, prefix.length());
   }
 
   /**

@@ -2,15 +2,15 @@ package ch.nolix.coreapi.programatomapi.variableapi;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringExaminer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringExaminer;
 
 final class PluralPascalCaseVariableCatalogTest extends StandardTest {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
 
   @Test
   void testCase_constants() {
@@ -27,7 +27,7 @@ final class PluralPascalCaseVariableCatalogTest extends StandardTest {
 
       final var stringValue = c.toString();
       if (!exceptions.containsEqualing(stringValue)) {
-        expect(stringValue).fulfills(STRING_TOOL::isPascalCase);
+        expect(stringValue).fulfills(STRING_EXAMINER::isPascalCase);
       }
     }
   }
