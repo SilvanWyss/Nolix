@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -62,7 +62,7 @@ implements ILayer<Layer> {
   private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
 
   //For CSS an id works only when it begins with a letter.
-  private final String internalId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
+  private final String internalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
   private final MutableOptionalValue<LayerRole> role = new MutableOptionalValue<>(
     ROLE_HEADER,

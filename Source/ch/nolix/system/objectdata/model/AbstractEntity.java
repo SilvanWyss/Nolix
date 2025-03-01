@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
@@ -33,7 +33,7 @@ public abstract class AbstractEntity implements IEntity {
 
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
-  private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
+  private String id = IdCreator.createIdOf10HexadecimalCharacters();
 
   private boolean gotExternalId;
 

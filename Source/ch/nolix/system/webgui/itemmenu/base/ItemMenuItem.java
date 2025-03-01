@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -111,7 +111,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     final String text) {
 
     final var item = new ItemMenuItem();
-    item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
+    item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
 
     return item;
@@ -122,7 +122,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     final Runnable selectAction) {
 
     final var item = new ItemMenuItem(i -> selectAction.run());
-    item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
+    item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
 
     return item;
@@ -133,7 +133,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     final Consumer<IItemMenuItem<?>> selectAction) {
 
     final var item = new ItemMenuItem(selectAction);
-    item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
+    item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
 
     return item;

@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
@@ -60,7 +60,7 @@ implements IControl<C, S> {
   new AbsoluteOrRelativeIntValidator();
 
   //An id works correctly for CSS only when it begins with a letter.
-  private final String internalId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
+  private final String internalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
   private final MutableValue<Presence> presence = new MutableValue<>(
     PRESENCE_HEADER,

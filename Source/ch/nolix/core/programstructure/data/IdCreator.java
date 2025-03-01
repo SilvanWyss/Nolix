@@ -4,9 +4,9 @@ import java.util.UUID;
 
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
-public final class GlobalIdCreator {
+public final class IdCreator {
 
-  private GlobalIdCreator() {
+  private IdCreator() {
   }
 
   public static String createIdOf10HexadecimalCharacters() {

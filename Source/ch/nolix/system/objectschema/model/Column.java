@@ -2,7 +2,7 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -43,7 +43,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   public Column(
     final String name,
     final IContentModel contentModel) {
-    this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, contentModel);
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModel);
   }
 
   private Column(

@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.model;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
@@ -46,7 +46,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   public static Table withName(final String name) {
 
-    final var id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
+    final var id = IdCreator.createIdOf10HexadecimalCharacters();
 
     return new Table(id, name);
   }
