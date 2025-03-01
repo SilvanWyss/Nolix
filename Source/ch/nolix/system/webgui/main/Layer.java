@@ -93,7 +93,7 @@ implements ILayer<Layer> {
   private final MutableOptionalValue<IControl<?, ?>> rootControl = new MutableOptionalValue<>(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
-    GlobalControlFactory::createControlFromSpecification,
+    ControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
   private IWebGui<?> parentGui;

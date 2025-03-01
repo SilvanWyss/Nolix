@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
-import ch.nolix.system.webgui.main.GlobalControlFactory;
+import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
@@ -26,7 +26,7 @@ implements ISingleContainer {
   private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
     CONTROL_HEADER,
     this::setControl,
-    GlobalControlFactory::createControlFromSpecification,
+    ControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
   @Override

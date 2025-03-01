@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
-import ch.nolix.system.webgui.main.GlobalControlFactory;
+import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -20,7 +20,7 @@ implements ILinearContainer<C, S> {
   private final MultiValue<IControl<?, ?>> childControls = new MultiValue<>(
     CHILD_CONTROL_HEADER,
     this::addControl,
-    GlobalControlFactory::createControlFromSpecification,
+    ControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
   @Override

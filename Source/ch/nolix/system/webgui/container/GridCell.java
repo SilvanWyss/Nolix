@@ -8,7 +8,7 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.Value;
-import ch.nolix.system.webgui.main.GlobalControlFactory;
+import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public final class GridCell extends MutableElement implements Clearable {
@@ -26,7 +26,7 @@ public final class GridCell extends MutableElement implements Clearable {
   private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
     CONTROL_HEADER,
     this::setControl,
-    GlobalControlFactory::createControlFromSpecification,
+    ControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
   private GridCell() {
