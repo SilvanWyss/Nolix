@@ -18,7 +18,9 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
     this(name, ImmutableList.withElement(materializedProperty, materializedProperties));
   }
 
-  private ForwardingProperty(final String name, final IContainer<AbstractMaterializedProperty<S, V>> materializedProperties) {
+  private ForwardingProperty(
+    final String name,
+    final IContainer<AbstractMaterializedProperty<S, V>> materializedProperties) {
 
     super(name);
 
