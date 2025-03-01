@@ -1,6 +1,6 @@
 package ch.nolix.core.net.ssl;
 
-import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificateKeyReader;
 
@@ -22,7 +22,7 @@ public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
   @Override
   public String readKeyFromPemFile(final String pemFilePath) {
 
-    final var pemFileLines = GlobalFileSystemAccessor.readFileToLines(pemFilePath);
+    final var pemFileLines = FileSystemAccessor.readFileToLines(pemFilePath);
 
     return getKeyFromPemFileLines(pemFileLines);
   }

@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
-import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
@@ -278,7 +278,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    *                                  with the given path.
    */
   public final void saveToFile(final String path, final WriteMode writeMode) {
-    GlobalFileSystemAccessor.createFile(path, writeMode, toFormattedString());
+    FileSystemAccessor.createFile(path, writeMode, toFormattedString());
   }
 
   /**

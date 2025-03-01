@@ -2,29 +2,29 @@ package ch.nolix.core.document.node;
 
 import org.junit.jupiter.api.AfterEach;
 
-import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 
 final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
   @AfterEach
   void cleanup() {
 
-    final var folderOfRunningJar = GlobalFileSystemAccessor.getFolderOfRunningJarFile();
+    final var folderOfRunningJar = FileSystemAccessor.getFolderOfRunningJarFile();
 
     if (folderOfRunningJar.containsItem("fileNode")) {
-      GlobalFileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
+      FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
     }
   }
 
   @Override
   protected FileNode createBlankNode() {
-    return new FileNode(GlobalFileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+    return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
   }
 
   @Override
   protected FileNode createNodeWithHeader(String header) {
 
-    final var fileNode = new FileNode(GlobalFileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+    final var fileNode = new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
 
     fileNode.setHeader(header);
 
@@ -34,7 +34,7 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
   @Override
   protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 
-    final var fileNode = new FileNode(GlobalFileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+    final var fileNode = new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
 
     fileNode.setHeader(header);
 

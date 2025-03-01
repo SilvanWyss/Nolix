@@ -2,7 +2,7 @@ package ch.nolix.system.gui.frontend;
 
 import javax.swing.JFileChooser;
 
-import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
@@ -36,13 +36,13 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 
       final var path = fileChooser.getSelectedFile().getPath();
 
-      if (GlobalFileSystemAccessor.exists(path)) {
+      if (FileSystemAccessor.exists(path)) {
         if (PopupWindowProvider.showRequestWindow(
           "The file '" + path + "' exists already. Do you want to overwrite it?")) {
-          GlobalFileSystemAccessor.createFile(path, WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, bytes);
+          FileSystemAccessor.createFile(path, WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, bytes);
         }
       } else {
-        GlobalFileSystemAccessor.createFile(path, bytes);
+        FileSystemAccessor.createFile(path, bytes);
       }
     }
   }

@@ -21,7 +21,7 @@ import java.util.Base64;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 
-import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.net.ssl.SslCertificateKeyReader;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
@@ -72,7 +72,7 @@ final class SslServerSslContextCreator {
 
     return (X509Certificate) CertificateFactory
       .getInstance("X509")
-      .generateCertificate(new ByteArrayInputStream(GlobalFileSystemAccessor.readFileToBytes(filePath)));
+      .generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
   }
 
   private PrivateKey getPrivateKey(final ISslCertificate paramSSLCertificate)

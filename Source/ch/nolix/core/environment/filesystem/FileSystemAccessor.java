@@ -19,19 +19,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 /**
- * The {@link GlobalFileSystemAccessor} can access the file system on the local
+ * The {@link FileSystemAccessor} can access the file system on the local
  * machine.
  * 
  * @author Silvan Wyss
  * @version 2017-07-14
  */
-public final class GlobalFileSystemAccessor {
+public final class FileSystemAccessor {
 
   /**
-   * Prevents that an instance of the {@link GlobalFileSystemAccessor} can be
+   * Prevents that an instance of the {@link FileSystemAccessor} can be
    * created.
    */
-  private GlobalFileSystemAccessor() {
+  private FileSystemAccessor() {
   }
 
   /**
@@ -46,7 +46,7 @@ public final class GlobalFileSystemAccessor {
    */
   public static String getFolderPathOfRunningJarFile() {
     try {
-      return GlobalFileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+      return FileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
     } catch (final URISyntaxException pURISyntaxException) {
       throw WrapperException.forError(pURISyntaxException);
     }
@@ -307,12 +307,12 @@ public final class GlobalFileSystemAccessor {
 
   /**
    * @param path
-   * @return new {@link FileSystemItemAccessor}s for the file system items in the
+   * @return new {@link FileSystemItemAccessorUnit}s for the file system items in the
    *         folder with the given path.
    */
-  public static IContainer<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
+  public static IContainer<FileSystemItemAccessorUnit> getFileSystemItemAccessors(final String path) {
     return ContainerView.forArray(new File(path).listFiles())
-      .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
+      .to(f -> new FileSystemItemAccessorUnit(f.getAbsolutePath()));
   }
 
   /**

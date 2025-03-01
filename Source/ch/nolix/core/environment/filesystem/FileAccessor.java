@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-07-10
  */
-public final class FileAccessor extends FileSystemItemAccessor {
+public final class FileAccessor extends FileSystemItemAccessorUnit {
 
   /**
    * Creates a new file accessor for a file with the given file path.
@@ -38,7 +38,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 
     //Asserts that the file system item with the given file path is acutally a
     //file.
-    if (!GlobalFileSystemAccessor.isFile(filePath)) {
+    if (!FileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalog.FILE_PATH,
         filePath,

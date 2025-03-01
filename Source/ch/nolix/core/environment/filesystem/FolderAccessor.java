@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-07-10
  */
-public final class FolderAccessor extends FileSystemItemAccessor {
+public final class FolderAccessor extends FileSystemItemAccessorUnit {
 
   /**
    * Creates a new {@link FolderAccessor} for the folder of the running jar file.
@@ -19,7 +19,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
   public FolderAccessor() {
 
     //Calls constructor of the base class.
-    super(GlobalFileSystemAccessor.getFolderPathOfRunningJarFile());
+    super(FileSystemAccessor.getFolderPathOfRunningJarFile());
   }
 
   /**
@@ -36,7 +36,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     super(path);
 
     //Asserts that the file system item with the given path is actually a folder.
-    if (!GlobalFileSystemAccessor.isFolder(path)) {
+    if (!FileSystemAccessor.isFolder(path)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalog.PATH,
         path,
@@ -50,7 +50,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         item with the given relative path.
    */
   public boolean containsItem(final String relativePath) {
-    return GlobalFileSystemAccessor.exists(getPath() + "/" + relativePath);
+    return FileSystemAccessor.exists(getPath() + "/" + relativePath);
   }
 
   /**
@@ -64,7 +64,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *                                  of the current {@link FolderAccessor}.
    */
   public FileAccessor createFile(final String relativePath) {
-    return (GlobalFileSystemAccessor.createFile(getPath() + "/" + relativePath));
+    return (FileSystemAccessor.createFile(getPath() + "/" + relativePath));
   }
 
   /**
@@ -78,7 +78,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *                                  of the current {@link FolderAccessor}.
    */
   public FolderAccessor createFolder(final String relativePath) {
-    return GlobalFileSystemAccessor.createFolder(getPath() + "/" + relativePath);
+    return FileSystemAccessor.createFolder(getPath() + "/" + relativePath);
   }
 
   /**
@@ -88,7 +88,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @param relativePath
    */
   public void deleteFileSystemItem(final String relativePath) {
-    GlobalFileSystemAccessor.deleteFileSystemItem(getPath() + "/" + relativePath);
+    FileSystemAccessor.deleteFileSystemItem(getPath() + "/" + relativePath);
   }
 
   /**
@@ -96,7 +96,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         {@link FolderAccessor}.
    */
   public IContainer<FileAccessor> getFileAccessors() {
-    return GlobalFileSystemAccessor.getFileAccessors(getPath());
+    return FileSystemAccessor.getFileAccessors(getPath());
   }
 
   /**
@@ -105,7 +105,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         current {@link FolderAccessor}, that have the given extension.
    */
   public IContainer<FileAccessor> getFileAccessors(final String extension) {
-    return GlobalFileSystemAccessor.getFileAccessors(getPath(), extension);
+    return FileSystemAccessor.getFileAccessors(getPath(), extension);
   }
 
   /**
@@ -123,15 +123,15 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *         {@link FolderAccessor} recursively.
    */
   public ILinkedList<FileAccessor> getFileAccessorsRecursively() {
-    return GlobalFileSystemAccessor.getFileAccessorsRecursively(getPath());
+    return FileSystemAccessor.getFileAccessorsRecursively(getPath());
   }
 
   /**
-   * @return new {@link FileSystemItemAccessor}s to the file system items in the
+   * @return new {@link FileSystemItemAccessorUnit}s to the file system items in the
    *         folder of the current {@link FolderAccessor}.
    */
-  public IContainer<FileSystemItemAccessor> getFileSystemItemAccessors() {
-    return GlobalFileSystemAccessor.getFileSystemItemAccessors(getPath());
+  public IContainer<FileSystemItemAccessorUnit> getFileSystemItemAccessors() {
+    return FileSystemAccessor.getFileSystemItemAccessors(getPath());
   }
 
   /**
@@ -148,7 +148,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * explorer.
    */
   public void openInFileExplorer() {
-    GlobalFileSystemAccessor.openInFileExplorer(getPath());
+    FileSystemAccessor.openInFileExplorer(getPath());
   }
 
   /**

@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
-import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -35,11 +35,11 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
 
     //Handles the case that there does not exist a file system item with the given
     //filePath.
-    if (!GlobalFileSystemAccessor.exists(filePath)) {
-      fileAccessor = GlobalFileSystemAccessor.createFile(filePath);
+    if (!FileSystemAccessor.exists(filePath)) {
+      fileAccessor = FileSystemAccessor.createFile(filePath);
 
       //Handles the case that there exists a file with the given filePath.
-    } else if (GlobalFileSystemAccessor.isFile(filePath)) {
+    } else if (FileSystemAccessor.isFile(filePath)) {
       fileAccessor = new FileAccessor(filePath);
 
       //Handles the case that there exists file system item with the given filePath

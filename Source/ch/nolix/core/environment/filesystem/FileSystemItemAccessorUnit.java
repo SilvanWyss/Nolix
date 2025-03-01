@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-07-10
  */
-public class FileSystemItemAccessor {
+public class FileSystemItemAccessorUnit {
 
   private final File internalAccessor;
 
@@ -26,7 +26,7 @@ public class FileSystemItemAccessor {
    *                                  with the given path in the file system on
    *                                  the local machine.
    */
-  public FileSystemItemAccessor(final String path) {
+  public FileSystemItemAccessorUnit(final String path) {
 
     //Creates the internal file accessor of this file accessor.
     internalAccessor = new File(path);
@@ -42,7 +42,7 @@ public class FileSystemItemAccessor {
 
   /**
    * @return the extension of the name of the file system item of the current
-   *         {@link FileSystemItemAccessor}.
+   *         {@link FileSystemItemAccessorUnit}.
    */
   public final String getExtension() {
 
@@ -53,7 +53,7 @@ public class FileSystemItemAccessor {
 
   /**
    * @return the name of the file system item of the current
-   *         {@link FileSystemItemAccessor}.
+   *         {@link FileSystemItemAccessorUnit}.
    */
   public final String getName() {
 
@@ -80,7 +80,7 @@ public class FileSystemItemAccessor {
   /**
    * @param extension
    * @return true if the file system item of the current
-   *         {@link FileSystemItemAccessor} has the given extension.
+   *         {@link FileSystemItemAccessorUnit} has the given extension.
    */
   public final boolean hasExtension(final String extension) {
     return getExtension().equals(extension);
