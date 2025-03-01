@@ -4,9 +4,9 @@ import java.util.function.IntFunction;
 
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IObjectSupplierMediator;
 
-public final class GlobalPerformanceValidator {
+public final class PerformanceValidator {
 
-  private GlobalPerformanceValidator() {
+  private PerformanceValidator() {
   }
 
   public static <O> IObjectSupplierMediator<O> assertThatOnAnObjectFrom(final IntFunction<O> objectSupplier) {
