@@ -6,12 +6,12 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 /**
- * Of the {@link GlobalFunctionService} an instance cannot be created.
+ * Of the {@link FunctionService} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2017-01-01
  */
-public final class GlobalFunctionService {
+public final class FunctionService {
 
   private static final double ZERO = 0.0;
 
@@ -22,10 +22,10 @@ public final class GlobalFunctionService {
   private static final boolean TRUE = true;
 
   /**
-   * Prevents that an instance of the {@link GlobalFunctionService} can be
+   * Prevents that an instance of the {@link FunctionService} can be
    * created.
    */
-  private GlobalFunctionService() {
+  private FunctionService() {
   }
 
   /**

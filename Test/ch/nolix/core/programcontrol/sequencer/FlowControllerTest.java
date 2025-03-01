@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.core.programatom.function.GlobalFunctionService;
+import ch.nolix.core.programatom.function.FunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -27,7 +27,7 @@ final class FlowControllerTest extends StandardTest {
   void testCase_runInBackground_whenPassingProcessIsGiven() {
 
     //execution
-    final var result = FlowController.runInBackground(GlobalFunctionService::doNothing);
+    final var result = FlowController.runInBackground(FunctionService::doNothing);
     result.waitUntilIsFinished();
 
     //verification

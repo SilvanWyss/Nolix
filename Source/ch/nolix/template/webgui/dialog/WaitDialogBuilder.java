@@ -1,6 +1,6 @@
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.core.programatom.function.GlobalFunctionService;
+import ch.nolix.core.programatom.function.FunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
@@ -13,9 +13,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
 
-  private static final Runnable DEFAULT_JOB = GlobalFunctionService::doNothing;
+  private static final Runnable DEFAULT_JOB = FunctionService::doNothing;
 
-  private static final Runnable DEFAULT_TERMINAL_ACTION = GlobalFunctionService::doNothing;
+  private static final Runnable DEFAULT_TERMINAL_ACTION = FunctionService::doNothing;
 
   private Runnable job = DEFAULT_JOB;
 

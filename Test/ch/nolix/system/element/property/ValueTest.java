@@ -3,7 +3,7 @@ package ch.nolix.system.element.property;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.programatom.function.GlobalFunctionService;
+import ch.nolix.core.programatom.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ValueTest extends StandardTest {
@@ -12,7 +12,7 @@ final class ValueTest extends StandardTest {
   void testCase_forInt() {
 
     //execution
-    final var result = Value.forInt("amount", GlobalFunctionService::takeObjectAndDoNothing);
+    final var result = Value.forInt("amount", FunctionService::takeObjectAndDoNothing);
 
     //verification
     expect(result.getName()).isEqualTo("amount");
@@ -23,7 +23,7 @@ final class ValueTest extends StandardTest {
   void testCase_getSpecification() {
 
     //setup
-    final var testUnit = Value.forInt("amount", GlobalFunctionService::takeObjectAndDoNothing);
+    final var testUnit = Value.forInt("amount", FunctionService::takeObjectAndDoNothing);
     testUnit.setValue(500);
 
     //execution
@@ -37,7 +37,7 @@ final class ValueTest extends StandardTest {
   void testCase_setValue_whenTheGivenValueIsNull() {
 
     //setup
-    final var testUnit = Value.forString("name", GlobalFunctionService::takeObjectAndDoNothing);
+    final var testUnit = Value.forString("name", FunctionService::takeObjectAndDoNothing);
 
     //setup verification
     expect(testUnit.isEmpty()).isTrue();
@@ -56,7 +56,7 @@ final class ValueTest extends StandardTest {
   void testCase_setValue_whenTheGivenValueIsValid() {
 
     //setup
-    final var testUnit = Value.forString("name", GlobalFunctionService::takeObjectAndDoNothing);
+    final var testUnit = Value.forString("name", FunctionService::takeObjectAndDoNothing);
 
     //execution
     testUnit.setValue("Garfield");

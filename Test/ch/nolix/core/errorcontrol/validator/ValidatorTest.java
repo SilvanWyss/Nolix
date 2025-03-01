@@ -2,7 +2,7 @@ package ch.nolix.core.errorcontrol.validator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programatom.function.GlobalFunctionService;
+import ch.nolix.core.programatom.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ValidatorTest extends StandardTest {
@@ -115,7 +115,7 @@ final class ValidatorTest extends StandardTest {
   void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
 
     //setup
-    final var argument = GlobalFunctionService.class.getMethod("doNothing");
+    final var argument = FunctionService.class.getMethod("doNothing");
 
     //execution
     final var result = Validator.assertThat(argument);

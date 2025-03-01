@@ -10,7 +10,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getFalse() {
 
     //execution
-    final var result = GlobalFunctionService.getFalse();
+    final var result = FunctionService.getFalse();
 
     //verification
     expect(result).isFalse();
@@ -20,7 +20,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getNull() {
 
     //execution
-    final var result = GlobalFunctionService.getNull();
+    final var result = FunctionService.getNull();
 
     //verification
     expect(result).isNull();
@@ -30,7 +30,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getOne() {
 
     //execution
-    final var result = GlobalFunctionService.getOne();
+    final var result = FunctionService.getOne();
 
     //verification
     expect(result).isEqualTo(1);
@@ -40,7 +40,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getStringRepresentationOf_whenNullIsGiven() {
 
     //execution
-    final var result = GlobalFunctionService.getStringRepresentationOf(null);
+    final var result = FunctionService.getStringRepresentationOf(null);
 
     //verification
     expect(result).isEqualTo("null");
@@ -50,7 +50,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
 
     //execution
-    final var result = GlobalFunctionService.getStringRepresentationOf(2500);
+    final var result = FunctionService.getStringRepresentationOf(2500);
 
     //verification
     expect(result).isEqualTo("2500");
@@ -60,7 +60,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getStringRepresentationOf_whenAStringIsGiven() {
 
     //execution
-    final var result = GlobalFunctionService.getStringRepresentationOf("Lorem ipsum");
+    final var result = FunctionService.getStringRepresentationOf("Lorem ipsum");
 
     //verification
     expect(result).isEqualTo("Lorem ipsum");
@@ -70,7 +70,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getTrue() {
 
     //execution
-    final var result = GlobalFunctionService.getTrue();
+    final var result = FunctionService.getTrue();
 
     //verification
     expect(result).isTrue();
@@ -80,7 +80,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getTypeOf_whenIntIsGiven() {
 
     //execution
-    final var result = GlobalFunctionService.getTypeOf(2500);
+    final var result = FunctionService.getTypeOf(2500);
 
     //verification
     expect(result).is(Integer.class);
@@ -90,7 +90,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getTypeOf_whenStringIsGiven() {
 
     //execution
-    final var result = GlobalFunctionService.getTypeOf("");
+    final var result = FunctionService.getTypeOf("");
 
     //verification
     expect(result).is(String.class);
@@ -100,7 +100,7 @@ final class FunctionCatalogTest extends StandardTest {
   void testCase_getZero() {
 
     //execution
-    final var result = GlobalFunctionService.getZero();
+    final var result = FunctionService.getZero();
 
     //verification
     expect(result).isEqualTo(0);
