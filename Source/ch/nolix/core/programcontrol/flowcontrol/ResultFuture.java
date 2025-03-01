@@ -67,7 +67,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public void waitUntilIsFinished() {
-    GlobalFlowController.waitUntil(this::isFinished);
+    FlowController.waitUntil(this::isFinished);
   }
 
   /**
@@ -78,7 +78,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    GlobalFlowController.waitAsLongAs(
+    FlowController.waitAsLongAs(
       () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
       && isRunning());
 

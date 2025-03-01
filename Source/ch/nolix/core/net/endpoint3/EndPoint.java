@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
@@ -86,7 +86,7 @@ public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
       return receiverController;
     }
 
-    GlobalFlowController
+    FlowController
       .forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS)
       .waitUntil(this::hasReceivingDataProviderController);
 

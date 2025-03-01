@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.rawdatamodelmapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
@@ -41,7 +41,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
     var sqlRecordValueIterator = sqlRecord.iterator();
 
     //Skips meta fields.
-    GlobalFlowController
+    FlowController
       .forCount(FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS)
       .run(sqlRecordValueIterator::next);
 

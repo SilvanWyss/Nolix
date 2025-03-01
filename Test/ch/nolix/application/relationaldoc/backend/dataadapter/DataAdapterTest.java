@@ -3,7 +3,7 @@ package ch.nolix.application.relationaldoc.backend.dataadapter;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class DataAdapterTest extends StandardTest {
@@ -14,7 +14,7 @@ final class DataAdapterTest extends StandardTest {
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = DataAdapter.forNodeDatabase(nodeDatabase);
-    GlobalFlowController.forCount(5).run(testUnit::createObject);
+    FlowController.forCount(5).run(testUnit::createObject);
     final var originTopLevelObjects = testUnit.getStoredTopLevelObjects();
 
     //setup verification

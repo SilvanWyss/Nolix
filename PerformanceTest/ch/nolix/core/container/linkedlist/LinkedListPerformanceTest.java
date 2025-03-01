@@ -3,7 +3,7 @@ package ch.nolix.core.container.linkedlist;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.programatom.function.GlobalFunctionService;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -68,7 +68,7 @@ final class LinkedListPerformanceTest extends PerformanceTest {
 
     final ILinkedList<Integer> list = LinkedList.createEmpty();
 
-    GlobalFlowController.forCount(elementCount).run(i -> list.addAtEnd(i - (i % 1000)));
+    FlowController.forCount(elementCount).run(i -> list.addAtEnd(i - (i % 1000)));
 
     return list;
   }

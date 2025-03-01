@@ -14,22 +14,22 @@ import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 /**
- * The {@link GlobalFlowController} provides methods for flow control. Of the
- * {@link GlobalFlowController} an instance cannot be created.
+ * The {@link FlowController} provides methods for flow control. Of the
+ * {@link FlowController} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-06-01
  */
-public final class GlobalFlowController {
+public final class FlowController {
 
   private static final JobPool JOB_POOL = new JobPool();
 
   private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
 
   /**
-   * Prevents that an instance of the {@link GlobalFlowController} can be created.
+   * Prevents that an instance of the {@link FlowController} can be created.
    */
-  private GlobalFlowController() {
+  private FlowController() {
   }
 
   /**

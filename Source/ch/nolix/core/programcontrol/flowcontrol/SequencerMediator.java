@@ -21,7 +21,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public IAsLongAsMediator asLongAs(final BooleanSupplier condition) {
-    return GlobalFlowController.asLongAs(condition);
+    return FlowController.asLongAs(condition);
   }
 
   /**
@@ -30,7 +30,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public IAsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
-    return GlobalFlowController.asSoonAs(condition);
+    return FlowController.asSoonAs(condition);
   }
 
   /**
@@ -40,7 +40,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public IAsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
-    return GlobalFlowController.asSoonAsNoMore(condition);
+    return FlowController.asSoonAsNoMore(condition);
   }
 
   /**
@@ -51,7 +51,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public IFuture enqueue(final Runnable job) {
-    return GlobalFlowController.enqueue(job);
+    return FlowController.enqueue(job);
   }
 
   /**
@@ -60,7 +60,7 @@ public final class SequencerMediator {
    * @throws NegativeArgumentException if the given max run count is negative.
    */
   public ForCountMediator forCount(final int maxRunCount) {
-    return GlobalFlowController.forCount(maxRunCount);
+    return FlowController.forCount(maxRunCount);
   }
 
   /**
@@ -71,7 +71,7 @@ public final class SequencerMediator {
    *                                   negative.
    */
   public ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
-    return GlobalFlowController.forMaxMilliseconds(maxDurationInMilliseconds);
+    return FlowController.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
   /**
@@ -82,7 +82,7 @@ public final class SequencerMediator {
    *                                   negative.
    */
   public ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
-    return GlobalFlowController.forMaxSeconds(maxDurationInSeconds);
+    return FlowController.forMaxSeconds(maxDurationInSeconds);
   }
 
   /**
@@ -93,7 +93,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public Future runInBackground(final Runnable job) {
-    return GlobalFlowController.runInBackground(job);
+    return FlowController.runInBackground(job);
   }
 
   /**
@@ -106,7 +106,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given result job is null.
    */
   public <R> ResultFuture<R> runInBackground(final Supplier<R> resultJob) {
-    return GlobalFlowController.runInBackground(resultJob);
+    return FlowController.runInBackground(resultJob);
   }
 
   /**
@@ -116,7 +116,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public IAsLongAsMediator until(final BooleanSupplier condition) {
-    return GlobalFlowController.until(condition);
+    return FlowController.until(condition);
   }
 
   /**
@@ -126,7 +126,7 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public void waitAsLongAs(final BooleanSupplier condition) {
-    GlobalFlowController.waitAsLongAs(condition);
+    FlowController.waitAsLongAs(condition);
   }
 
   /**
@@ -137,7 +137,7 @@ public final class SequencerMediator {
    *                                   negative.
    */
   public void waitForMilliseconds(final int durationInMilliseconds) {
-    GlobalFlowController.waitForMilliseconds(durationInMilliseconds);
+    FlowController.waitForMilliseconds(durationInMilliseconds);
   }
 
   /**
@@ -147,7 +147,7 @@ public final class SequencerMediator {
    * @throws NegativeArgumentException if the given durationInSeconds is negative.
    */
   public void waitForSeconds(final int durationInSeconds) {
-    GlobalFlowController.waitForSeconds(durationInSeconds);
+    FlowController.waitForSeconds(durationInSeconds);
   }
 
   /**
@@ -157,6 +157,6 @@ public final class SequencerMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public void waitUntil(final BooleanSupplier condition) {
-    GlobalFlowController.waitUntil(condition);
+    FlowController.waitUntil(condition);
   }
 }

@@ -1,7 +1,7 @@
 package ch.nolix.template.webgui.dialog;
 
 import ch.nolix.core.programatom.function.GlobalFunctionService;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -34,7 +34,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
               .setRole(LabelRole.MAIN_LABEL)
               .setText("Please wait...")));
 
-    GlobalFlowController.runInBackgroundAndOrder(getJob(), waitDialog::removeSelfFromGui, getTerminalAction());
+    FlowController.runInBackgroundAndOrder(getJob(), waitDialog::removeSelfFromGui, getTerminalAction());
 
     return waitDialog;
   }

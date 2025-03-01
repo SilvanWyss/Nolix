@@ -4,7 +4,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
 
@@ -48,7 +48,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
   public AbstractSession<C, S> getStoredCurrentSession() {
 
-    GlobalFlowController
+    FlowController
       .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
       .waitUntil(this::containsCurrentSession);
 
@@ -92,7 +92,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
     pushSession(session);
 
-    GlobalFlowController.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
+    FlowController.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
 
     parentClient.internalAssertIsOpen();
 

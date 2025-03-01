@@ -1,7 +1,7 @@
 package ch.nolix.core.programcontrol.worker;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 
 public abstract class Worker {
 
@@ -13,7 +13,7 @@ public abstract class Worker {
 
     setStarted();
 
-    GlobalFlowController.runInBackground(this::run);
+    FlowController.runInBackground(this::run);
   }
 
   private void assertIsNotStarted() {

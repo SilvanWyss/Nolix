@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GlobalSequencerTest extends StandardTest {
@@ -13,7 +13,7 @@ final class GlobalSequencerTest extends StandardTest {
   void testCase_runInBackground_whenFailingProcessIsGiven() {
 
     //execution
-    final var result = GlobalFlowController.runInBackground(() -> {
+    final var result = FlowController.runInBackground(() -> {
       throw GeneralException.withErrorMessage("test error");
     });
     result.waitUntilIsFinished();
@@ -27,7 +27,7 @@ final class GlobalSequencerTest extends StandardTest {
   void testCase_runInBackground_whenPassingProcessIsGiven() {
 
     //execution
-    final var result = GlobalFlowController.runInBackground(GlobalFunctionService::doNothing);
+    final var result = FlowController.runInBackground(GlobalFunctionService::doNothing);
     result.waitUntilIsFinished();
 
     //verification
@@ -38,7 +38,7 @@ final class GlobalSequencerTest extends StandardTest {
   void testCase_runInBackground_whenFunctionIsGiven() {
 
     //execution
-    final var result = GlobalFlowController.runInBackground(() -> 3 + 4);
+    final var result = FlowController.runInBackground(() -> 3 + 4);
     result.waitUntilIsFinished();
 
     //verification

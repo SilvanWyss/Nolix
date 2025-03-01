@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.jobpool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 final class JobWrapper implements Runnable {
@@ -66,14 +66,14 @@ final class JobWrapper implements Runnable {
   }
 
   public void waitUntilIsFinished() {
-    GlobalFlowController.waitUntil(this::isFinished);
+    FlowController.waitUntil(this::isFinished);
   }
 
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    GlobalFlowController.waitAsLongAs(
+    FlowController.waitAsLongAs(
       () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds && !isFinished());
 
     if (!isFinished()) {

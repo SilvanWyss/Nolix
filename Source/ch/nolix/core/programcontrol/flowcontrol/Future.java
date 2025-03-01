@@ -65,7 +65,7 @@ public final class Future extends AbstractFuture {
    */
   @Override
   public void waitUntilIsFinished() {
-    GlobalFlowController.waitUntil(this::isFinished);
+    FlowController.waitUntil(this::isFinished);
   }
 
   /**
@@ -76,7 +76,7 @@ public final class Future extends AbstractFuture {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    GlobalFlowController.asLongAs(
+    FlowController.asLongAs(
       () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
       && isRunning());
 

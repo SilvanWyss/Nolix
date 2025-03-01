@@ -111,7 +111,7 @@ public final class ForMaxMillisecondsMediator {
     final var startTimeInMilliseconds = System.currentTimeMillis();
     final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 
-    GlobalFlowController.waitAsLongAs(
+    FlowController.waitAsLongAs(
       () -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getAsBoolean());
   }
 

@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
-import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
+import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.structurecontrol.reflectiontool.ClassTool;
 import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -159,7 +159,7 @@ implements IApplication<S> {
     final var localClient = (C) client;
     localClient.internalSetParentApplication(this);
     clients.addAtEnd(localClient);
-    GlobalFlowController.runInBackground(() -> localClient.internalPush(createInitialSession()));
+    FlowController.runInBackground(() -> localClient.internalPush(createInitialSession()));
   }
 
   /**

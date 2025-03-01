@@ -49,7 +49,7 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
-    GlobalFlowController.waitUntil(condition);
+    FlowController.waitUntil(condition);
 
     job.run();
   }
