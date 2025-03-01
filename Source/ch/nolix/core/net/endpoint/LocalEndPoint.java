@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
@@ -60,7 +60,7 @@ public final class LocalEndPoint extends EndPoint {
   private LocalEndPoint(final ISlot slot) {
 
     //Asserts that the given slot is not null.
-    GlobalValidator.assertThat(slot).thatIsNamed(ISlot.class).isNotNull();
+    Validator.assertThat(slot).thatIsNamed(ISlot.class).isNotNull();
 
     peerType = PeerType.FRONTEND;
 
@@ -85,7 +85,7 @@ public final class LocalEndPoint extends EndPoint {
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counterpart is not null.
-    GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+    Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
     //Creates a close dependency from the current LocalEndPoint to the given
     //counterpart.
@@ -161,7 +161,7 @@ public final class LocalEndPoint extends EndPoint {
   public void sendMessage(final String message) {
 
     //Asserts that the given message is not null.
-    GlobalValidator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
+    Validator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
 
     //Asserts that the current LocalEndPoint is open.
     assertIsOpen();

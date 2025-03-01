@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -32,9 +32,9 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
     final Table<IEntity> parentTable,
     final IDataReader rawDataReader) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();
     RESOURCE_VALIDATOR.assertIsOpen(parentTable);
     RESOURCE_VALIDATOR.assertIsOpen(rawDataReader);
 

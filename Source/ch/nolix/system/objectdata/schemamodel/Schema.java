@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.schemamodel;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
@@ -17,7 +17,7 @@ public final class Schema implements ISchema {
 
   private Schema(final IContainer<Class<? extends IEntity>> entityTypes) {
 
-    GlobalValidator.assertThat(entityTypes)
+    Validator.assertThat(entityTypes)
       .thatIsNamed(PluralLowerCaseVariableCatalog.ENTITY_TYPES)
       .containsDistinctNonNullElemensOnly();
 

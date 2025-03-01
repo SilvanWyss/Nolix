@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -25,9 +25,9 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     final DatabaseObjectState initialState,
     final String referencedEntityId) {
 
-    GlobalValidator.assertThat(parentMultiReference).thatIsNamed("parent MultiReference").isNotNull();
-    GlobalValidator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
-    GlobalValidator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
+    Validator.assertThat(parentMultiReference).thatIsNamed("parent MultiReference").isNotNull();
+    Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
+    Validator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
 
     this.parentMultiReference = parentMultiReference;
     state = initialState;

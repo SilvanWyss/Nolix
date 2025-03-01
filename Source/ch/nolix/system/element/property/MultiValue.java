@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -50,7 +50,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
     super(name, valueCreator, specificationCreator);
 
     //Asserts that the given adderMethod is not null.
-    GlobalValidator.assertThat(adderMethod).thatIsNamed("adder method").isNotNull();
+    Validator.assertThat(adderMethod).thatIsNamed("adder method").isNotNull();
 
     //Sets the adderMethod of the current MultiProperty.
     this.adderMethod = adderMethod;

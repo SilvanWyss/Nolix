@@ -1,6 +1,6 @@
 package ch.nolix.core.net.websocket;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
@@ -23,7 +23,7 @@ final class WebSocketFrameFirstNibble {
     final boolean maskBit,
     final int payloadLength) {
 
-    GlobalValidator.assertThat(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
+    Validator.assertThat(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
 
     this.mFINBit = mFINBit;
     this.opcode = opcodeMeaning.toNumber();
@@ -46,9 +46,9 @@ final class WebSocketFrameFirstNibble {
     final var RSV2Bit = wrapperByte1.getBitAt(3);
     final var RSV3Bit = wrapperByte1.getBitAt(4);
 
-    GlobalValidator.assertThatTheBit(RSV1Bit).thatIsNamed("RSV1Bit").isCleared();
-    GlobalValidator.assertThatTheBit(RSV2Bit).thatIsNamed("RSV2Bit").isCleared();
-    GlobalValidator.assertThatTheBit(RSV3Bit).thatIsNamed("RSV3Bit").isCleared();
+    Validator.assertThatTheBit(RSV1Bit).thatIsNamed("RSV1Bit").isCleared();
+    Validator.assertThatTheBit(RSV2Bit).thatIsNamed("RSV2Bit").isCleared();
+    Validator.assertThatTheBit(RSV3Bit).thatIsNamed("RSV3Bit").isCleared();
 
     mFINBit = wrapperByte1.getBitAt(1);
     opcode = byte1 & 0b1111;
@@ -59,7 +59,7 @@ final class WebSocketFrameFirstNibble {
 
   public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
 
-    GlobalValidator.assertThat(nibble).hasElementCount(2);
+    Validator.assertThat(nibble).hasElementCount(2);
 
     return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
   }

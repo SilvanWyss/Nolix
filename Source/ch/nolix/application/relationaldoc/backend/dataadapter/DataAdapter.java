@@ -5,7 +5,7 @@ import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
 import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalog;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.dataadapterapi.IDataAdapter;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -19,7 +19,7 @@ public final class DataAdapter implements IDataAdapter {
 
   private DataAdapter(final ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter internalDataAdapter) {
 
-    GlobalValidator.assertThat(internalDataAdapter).thatIsNamed("internal data adapter").isNotNull();
+    Validator.assertThat(internalDataAdapter).thatIsNamed("internal data adapter").isNotNull();
 
     this.internalDataAdapter = internalDataAdapter;
   }

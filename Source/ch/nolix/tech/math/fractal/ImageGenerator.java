@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.programcontrol.future.AbstractFuture;
@@ -41,7 +41,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
 
   private ImageGenerator(final IFractal fractal) {
 
-    GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
+    Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
 
     this.fractal = fractal;
 

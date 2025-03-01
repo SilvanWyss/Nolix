@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
@@ -36,8 +36,8 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    */
   private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
 
-    GlobalValidator.assertThat(sequencePattern).thatIsNamed(ISequencePattern.class).isNotNull();
-    GlobalValidator.assertThat(count).thatIsNamed("count").isNotNegative();
+    Validator.assertThat(sequencePattern).thatIsNamed(ISequencePattern.class).isNotNull();
+    Validator.assertThat(count).thatIsNamed("count").isNotNegative();
 
     this.sequencePattern = sequencePattern;
     this.count = count;

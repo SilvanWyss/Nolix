@@ -1,6 +1,6 @@
 package ch.nolix.system.application.webapplication;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationService;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -18,7 +18,7 @@ public class WebApplicationService implements IWebApplicationService {
 
   public final WebApplicationService setApplicationLogo(final IImage applicationLogo) {
 
-    GlobalValidator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
+    Validator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
 
     this.applicationLogo = applicationLogo;
 

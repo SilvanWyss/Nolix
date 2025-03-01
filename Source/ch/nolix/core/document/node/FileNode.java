@@ -6,7 +6,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.GlobalFileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
@@ -63,12 +63,12 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
   private FileNode(final FileNode parentFileNode, final IMutableNode<?> internalSpecification) {
 
     //Asserts that the given simple persistent specification is not null.
-    GlobalValidator
+    Validator
       .assertThat(parentFileNode)
       .isOfType(FileNode.class);
 
     //Asserts that the given internal specification is not null.
-    GlobalValidator.assertThat(internalSpecification)
+    Validator.assertThat(internalSpecification)
       .thatIsNamed("internal specification")
       .isNotNull();
 

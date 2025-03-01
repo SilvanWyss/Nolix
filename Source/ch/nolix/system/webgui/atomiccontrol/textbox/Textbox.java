@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -133,7 +133,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   @Override
   public Textbox setUpdateTextAction(final Runnable updateTextAction) {
 
-    GlobalValidator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
+    Validator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 
     return setUpdateTextAction(t -> updateTextAction.run());
   }
@@ -141,7 +141,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   @Override
   public Textbox setUpdateTextAction(final Consumer<String> updateTextAction) {
 
-    GlobalValidator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
+    Validator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 
     this.updateTextAction = updateTextAction;
 

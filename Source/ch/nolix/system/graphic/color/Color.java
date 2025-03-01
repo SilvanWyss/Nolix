@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -81,22 +81,22 @@ public final class Color extends AbstractElement implements IColor {
    */
   private Color(final int redValue, final int greenValue, final int blueValue, final int alphaValue) {
 
-    GlobalValidator
+    Validator
       .assertThat(redValue)
       .thatIsNamed("red value")
       .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
-    GlobalValidator
+    Validator
       .assertThat(greenValue)
       .thatIsNamed("green value")
       .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
-    GlobalValidator
+    Validator
       .assertThat(blueValue)
       .thatIsNamed("blue value")
       .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
-    GlobalValidator
+    Validator
       .assertThat(blueValue)
       .thatIsNamed("alpha value")
       .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
@@ -165,7 +165,7 @@ public final class Color extends AbstractElement implements IColor {
   public static Color fromLong(final long pLong) {
 
     //Asserts that the given pLong is a true color value.
-    GlobalValidator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
+    Validator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
 
     var lLong = pLong;
 
@@ -567,7 +567,7 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue) {
 
-    GlobalValidator
+    Validator
       .assertThat(floatingPointAlphaValue)
       .thatIsNamed("floating point number alpha value")
       .isBetween(0.0, 1.0);

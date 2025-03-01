@@ -5,7 +5,7 @@ import java.util.function.Function;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -20,12 +20,12 @@ public final class MatrixRow<E> extends Container<E> {
 
   MatrixRow(final Matrix<E> parentMatrix, final int rowIndex) {
 
-    GlobalValidator
+    Validator
       .assertThat(parentMatrix)
       .thatIsNamed("parent matrix")
       .isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isPositive();

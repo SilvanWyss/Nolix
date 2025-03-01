@@ -2,7 +2,7 @@ package ch.nolix.core.document.node;
 
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
@@ -20,7 +20,7 @@ implements IMutableNode<N> {
   public final N addPostfixToHeader(final String postfix) {
 
     //Asserts that the given postfix is not blank.
-    GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalog.POSTFIX).isNotBlank();
+    Validator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalog.POSTFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
@@ -41,7 +41,7 @@ implements IMutableNode<N> {
   public final N addPrefixToHeader(final String prefix) {
 
     //Asserts that the given prefix is not blank.
-    GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
+    Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {

@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
@@ -15,7 +15,7 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
 
   protected AbstractValue(final Class<V> valueType) {
 
-    GlobalValidator.assertThat(valueType).thatIsNamed("value type").isNotNull();
+    Validator.assertThat(valueType).thatIsNamed("value type").isNotNull();
 
     this.valueType = valueType;
   }

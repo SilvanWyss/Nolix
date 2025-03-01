@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.componentapi.applicationcomponentapi.IClientComponent;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
@@ -174,7 +174,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   final void internalSetParentClient(C parentClient) {
 
     //Asserts that the given client is not null.
-    GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+    Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
     //Asserts that the current session does not belong to a client.
     assertDoesNotBelongToClient();
@@ -185,7 +185,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
 
   final void internalSetResult(final Object result) {
 
-    GlobalValidator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
+    Validator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
 
     this.result = result;
   }

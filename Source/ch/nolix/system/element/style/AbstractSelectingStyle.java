@@ -5,7 +5,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -43,8 +43,8 @@ implements ISelectingStyleWithSelectors {
 
     super(attachingAttributes, subStyles);
 
-    GlobalValidator.assertThatTheStrings(selectorRoles).areNotBlank();
-    GlobalValidator.assertThatTheStrings(selectorTokens).areNotBlank();
+    Validator.assertThatTheStrings(selectorRoles).areNotBlank();
+    Validator.assertThatTheStrings(selectorTokens).areNotBlank();
 
     selectorId = optionalSelectorId;
     selectorType = optionalSelectorType;

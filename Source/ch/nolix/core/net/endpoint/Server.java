@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
@@ -67,10 +67,10 @@ public final class Server extends AbstractServer {
   private Server(final int port, final String initialHttpMessage) {
 
     //Asserts that the given port is in [0,65535].
-    GlobalValidator.assertThat(port).isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
+    Validator.assertThat(port).isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     //Asserts that the given initialHttpMessage is not blank.
-    GlobalValidator.assertThat(initialHttpMessage).thatIsNamed("initial HTTP message").isNotBlank();
+    Validator.assertThat(initialHttpMessage).thatIsNamed("initial HTTP message").isNotBlank();
 
     //Sets the port of the current Server.
     this.port = port;

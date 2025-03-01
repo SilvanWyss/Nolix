@@ -1,7 +1,7 @@
 package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -34,9 +34,9 @@ final class SslServerWorker extends Worker {
     final String htmlPage,
     final ISslCertificate paramSSLCertificate) {
 
-    GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
-    GlobalValidator.assertThat(paramSSLCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
+    Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
+    Validator.assertThat(paramSSLCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;
     this.port = port;

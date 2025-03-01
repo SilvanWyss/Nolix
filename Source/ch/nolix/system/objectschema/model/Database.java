@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
@@ -29,7 +29,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
     DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
-    GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed("raw schema adapter").isNotNull();
+    Validator.assertThat(rawSchemaAdapter).thatIsNamed("raw schema adapter").isNotNull();
 
     this.name = name;
     this.rawSchemaAdapter = rawSchemaAdapter;

@@ -1,6 +1,6 @@
 package ch.nolix.core.license;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class ConditionMediator {
 
@@ -10,7 +10,7 @@ public final class ConditionMediator {
 
   ConditionMediator(final LicenseManager parentLicenseManager, final boolean condition) {
 
-    GlobalValidator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
+    Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 
     this.parentLicenseManager = parentLicenseManager;
     this.condition = condition;

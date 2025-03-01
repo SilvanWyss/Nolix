@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.structurecontrol.reflectiontool.ClassTool;
@@ -50,7 +50,7 @@ implements IApplication<S> {
    */
   protected Application(final S applicationService) {
 
-    GlobalValidator.assertThat(applicationService).thatIsNamed("application context").isNotNull();
+    Validator.assertThat(applicationService).thatIsNamed("application context").isNotNull();
 
     this.applicationService = applicationService;
   }
@@ -196,7 +196,7 @@ implements IApplication<S> {
    */
   final void internalSetNameAddendum(final String nameAddendum) {
 
-    GlobalValidator.assertThat(nameAddendum).thatIsNamed("instance name").isNotBlank();
+    Validator.assertThat(nameAddendum).thatIsNamed("instance name").isNotBlank();
 
     assertDoesNotHaveNameAddendum();
 
@@ -213,7 +213,7 @@ implements IApplication<S> {
    */
   final void internalSetParentServer(final AbstractServer<?> parentServer) {
 
-    GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
+    Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
     assertDoesNotBelongToServer();
 
     this.parentServer = parentServer;

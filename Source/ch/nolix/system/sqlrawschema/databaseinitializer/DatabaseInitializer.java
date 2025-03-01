@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
@@ -47,9 +47,9 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
     final ISqlConnection sqlConnection,
     final IQueryCreator sqlSchemaQueryCreator) {
 
-    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
     RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
-    GlobalValidator.assertThat(sqlSchemaQueryCreator).thatIsNamed("sql schema query creator").isNotNull();
+    Validator.assertThat(sqlSchemaQueryCreator).thatIsNamed("sql schema query creator").isNotNull();
 
     this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -295,8 +295,8 @@ implements IWebGui<WebGui> {
     final IFrontEndReader frontEndReader,
     final IFrontEndWriter frontEndWriter) {
 
-    GlobalValidator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
-    GlobalValidator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
+    Validator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
+    Validator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
 
     this.frontEndReader = frontEndReader;
     this.frontEndWriter = frontEndWriter;
@@ -323,7 +323,7 @@ implements IWebGui<WebGui> {
   @Override
   public WebGui setTitle(final String title) {
 
-    GlobalValidator.assertThat(title).thatIsNamed(LowerCaseVariableCatalog.TITLE).isNotBlank();
+    Validator.assertThat(title).thatIsNamed(LowerCaseVariableCatalog.TITLE).isNotBlank();
 
     this.title.setValue(title);
 

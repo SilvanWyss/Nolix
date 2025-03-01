@@ -7,7 +7,7 @@ import java.util.function.Function;
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -37,8 +37,8 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
 
     super(name);
 
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-    GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
 
     stateProperties = new StateProperty[stateClass.getEnumConstants().length];
     this.valueCreator = valueCreator;
@@ -58,9 +58,9 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
 
     super(name);
 
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-    GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
-    GlobalValidator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+    Validator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
 
     stateProperties = new StateProperty[stateClass.getEnumConstants().length];
     this.valueCreator = valueCreator;

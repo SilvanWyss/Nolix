@@ -1,6 +1,6 @@
 package ch.nolix.system.noderawschema.schemareader;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -44,7 +44,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private SchemaReader(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
+    Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
   }

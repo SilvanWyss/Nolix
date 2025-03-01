@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
@@ -69,7 +69,7 @@ public final class LicenseManager {
   public LicenseManager addLicense(final License license) {
 
     //Asserts that the given license is not null.
-    GlobalValidator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
+    Validator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
 
     //Assets thath the given license is actiaved.
     license.assetIsActivated();
@@ -174,7 +174,7 @@ public final class LicenseManager {
   private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 
     //Asserts that the given licenseType is not null.
-    GlobalValidator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     return readKeyFromLicenseFile(licenseType.getName());
   }

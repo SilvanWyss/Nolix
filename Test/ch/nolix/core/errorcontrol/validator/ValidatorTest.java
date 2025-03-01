@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-final class GlobalValidatorTest extends StandardTest {
+final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByte() {
@@ -14,7 +14,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = (byte) 127;
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(ByteMediator.class);
@@ -27,7 +27,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = new byte[100];
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(ExtendedIterableMediator.class);
@@ -40,7 +40,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = 1.0;
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(DoubleMediator.class);
@@ -53,7 +53,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = new double[100];
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(ExtendedIterableMediator.class);
@@ -66,7 +66,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = 50;
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(LongMediator.class);
@@ -79,7 +79,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = new int[100];
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(ExtendedIterableMediator.class);
@@ -92,7 +92,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = 50L;
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(LongMediator.class);
@@ -105,7 +105,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = new long[100];
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(ExtendedIterableMediator.class);
@@ -118,7 +118,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = GlobalFunctionService.class.getMethod("doNothing");
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(MethodMediator.class);
@@ -131,7 +131,7 @@ final class GlobalValidatorTest extends StandardTest {
     final var argument = "lorem ipsum";
 
     //execution
-    final var result = GlobalValidator.assertThat(argument);
+    final var result = Validator.assertThat(argument);
 
     //verification
     expect(result).isOfType(StringMediator.class);

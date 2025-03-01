@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
@@ -182,7 +182,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final void runHtmlEvent(final String htmlEvent) {
-    GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onchange");
+    Validator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onchange");
   }
 
   @Override
@@ -228,7 +228,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final M setSelectAction(final Runnable selectAction) {
 
-    GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+    Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
     return setSelectAction(i -> selectAction.run());
   }
@@ -236,7 +236,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final M setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
 
-    GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+    Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
     this.selectAction = selectAction;
 

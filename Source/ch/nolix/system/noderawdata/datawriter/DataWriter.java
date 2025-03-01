@@ -1,6 +1,6 @@
 package ch.nolix.system.noderawdata.datawriter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
@@ -27,7 +27,7 @@ public final class DataWriter implements IDataWriter {
 
   public DataWriter(final IMutableNode<?> nodeDatabase, final DatabaseSchemaViewDto databaseSchemaView) {
 
-    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
+    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
     this.executiveDataWriter = ExecutiveDataWriter.forNodeDatabase(nodeDatabase);

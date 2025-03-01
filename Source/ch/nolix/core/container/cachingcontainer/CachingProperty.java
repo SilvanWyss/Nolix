@@ -3,7 +3,7 @@ package ch.nolix.core.container.cachingcontainer;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class CachingProperty<V> {
 
@@ -15,7 +15,7 @@ public final class CachingProperty<V> {
 
   public CachingProperty(final Supplier<V> valueCreator) {
 
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 
     this.valueCreator = valueCreator;
     needToRefreshFunction = null;
@@ -23,8 +23,8 @@ public final class CachingProperty<V> {
 
   public CachingProperty(final Supplier<V> valueCreator, final BooleanSupplier needToRefreshFunction) {
 
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-    GlobalValidator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
 
     this.valueCreator = valueCreator;
     this.needToRefreshFunction = needToRefreshFunction;

@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -133,7 +133,7 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final void internalSetId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     if (gotExternalId) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "got already an external id");
@@ -154,7 +154,7 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
 
-    GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+    Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 
     if (belongsToTable()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentTable());
@@ -167,7 +167,7 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final void internalSetSaveStamp(final String saveStamp) {
 
-    GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
+    Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
 
     this.saveStamp = saveStamp;
   }

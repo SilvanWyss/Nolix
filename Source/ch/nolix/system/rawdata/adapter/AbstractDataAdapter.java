@@ -1,6 +1,6 @@
 package ch.nolix.system.rawdata.adapter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
@@ -25,8 +25,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   protected AbstractDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
 
-    GlobalValidator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
-    GlobalValidator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
+    Validator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
+    Validator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
 
     this.dataReader = dataReader;
     this.dataWriter = dataWriter;

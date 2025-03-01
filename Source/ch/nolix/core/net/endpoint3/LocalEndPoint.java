@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -72,7 +72,7 @@ public final class LocalEndPoint extends EndPoint {
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counterpart is not null.
-    GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+    Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
     //Sets the counterpart of this local duplex controller.
     this.counterpart = counterpart;
@@ -98,13 +98,13 @@ public final class LocalEndPoint extends EndPoint {
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counterpart is not null.
-    GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+    Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
     //Sets the counterpart of this local duplex controller.
     this.counterpart = counterpart;
 
     //Asserts that the given target is not null or empty.
-    GlobalValidator.assertThat(target).thatIsNamed("target").isNotEmpty();
+    Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 
     //Sets the target of this local duplex controller.
     this.target = target;

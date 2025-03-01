@@ -1,6 +1,6 @@
 package ch.nolix.core.web.url;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.urlapi.IUrlTool;
 
@@ -16,7 +16,7 @@ public final class UrlTool implements IUrlTool {
   @Override
   public String getDisplayTextForUrl(final String url) {
 
-    GlobalValidator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotNull();
+    Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotNull();
 
     if (url.startsWith("http://www.")) {
       return url.substring(11);

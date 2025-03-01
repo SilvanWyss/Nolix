@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.function.Supplier;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
@@ -36,7 +36,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     final ISchemaAdapter schemaAdapter,
     final Supplier<IDataAdapterAndSchemaReader> rawDataAndSchemaReaderCreator) {
 
-    GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 
     SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
       schema,

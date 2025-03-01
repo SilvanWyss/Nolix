@@ -5,7 +5,7 @@ import java.util.Iterator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -38,11 +38,11 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
    */
   public ContainerViewIterator(final IContainer<E> parentContainer, final int startIndex, final int endIndex) {
 
-    GlobalValidator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
+    Validator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
+    Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
+    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(endIndex)
       .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isBiggerThanOrEquals(startIndex);

@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawschema.schemawriter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
@@ -21,7 +21,7 @@ public final class InternalSchemaWriter implements ChangeRequestable {
 
   public InternalSchemaWriter(final ISchemaWriter sqlSchemaWriter) {
 
-    GlobalValidator.assertThat(sqlSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
+    Validator.assertThat(sqlSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
 
     this.sqlSchemaWriter = sqlSchemaWriter;
   }

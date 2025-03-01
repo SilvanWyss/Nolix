@@ -1,7 +1,7 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.core.environment.runningjar.RunningJar;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
 record ServerHttpMessage(String serverIP, int serverPort) {
@@ -14,8 +14,8 @@ record ServerHttpMessage(String serverIP, int serverPort) {
     final String serverIP,
     final int serverPort) {
 
-    GlobalValidator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
-    GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
+    Validator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
+    Validator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
 
     this.serverIP = serverIP;
     this.serverPort = serverPort;

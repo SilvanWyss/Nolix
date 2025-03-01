@@ -1,7 +1,7 @@
 package ch.nolix.core.programcontrol.closepool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
@@ -80,7 +80,7 @@ public final class CloseController implements ICloseController {
   public void setParentClosePool(final IClosePool parentClosePool) {
 
     //Asserts that the given parentClosePool is not null.
-    GlobalValidator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
+    Validator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
 
     //Sets the parentClosePool of the current CloseController.
     this.parentClosePool = parentClosePool;

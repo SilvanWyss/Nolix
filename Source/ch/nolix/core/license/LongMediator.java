@@ -1,6 +1,6 @@
 package ch.nolix.core.license;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class LongMediator {
 
@@ -10,7 +10,7 @@ public final class LongMediator {
 
   LongMediator(final LicenseManager parentLicenseManager, final long value) {
 
-    GlobalValidator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
+    Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 
     this.parentLicenseManager = parentLicenseManager;
     this.value = value;

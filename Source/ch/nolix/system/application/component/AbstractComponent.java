@@ -3,7 +3,7 @@ package ch.nolix.system.application.component;
 import java.util.Optional;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.system.application.webapplication.WebClientSession;
@@ -26,7 +26,7 @@ implements IComponent {
 
   protected AbstractComponent(final C controller, final WebClientSession<S> webClientSession) {
 
-    GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
+    Validator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 
     this.controller = controller;
     this.controller.internalSetSession(webClientSession);

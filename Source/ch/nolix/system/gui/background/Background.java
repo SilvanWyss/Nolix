@@ -5,7 +5,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -56,7 +56,7 @@ public final class Background extends AbstractElement implements IBackground {
 
   private Background(final IColor color) {
 
-    GlobalValidator.assertThat(color).thatIsNamed(IColor.class).isNotNull();
+    Validator.assertThat(color).thatIsNamed(IColor.class).isNotNull();
 
     this.color = color;
     colorGradient = null;
@@ -66,7 +66,7 @@ public final class Background extends AbstractElement implements IBackground {
 
   private Background(final IColorGradient colorGradient) {
 
-    GlobalValidator.assertThat(colorGradient).thatIsNamed(IColorGradient.class).isNotNull();
+    Validator.assertThat(colorGradient).thatIsNamed(IColorGradient.class).isNotNull();
 
     color = null;
     this.colorGradient = colorGradient;
@@ -76,8 +76,8 @@ public final class Background extends AbstractElement implements IBackground {
 
   private Background(final IImage image, final ImageApplication imageApplication) {
 
-    GlobalValidator.assertThat(image).thatIsNamed(IImage.class).isNotNull();
-    GlobalValidator.assertThat(imageApplication).thatIsNamed(ImageApplication.class).isNotNull();
+    Validator.assertThat(image).thatIsNamed(IImage.class).isNotNull();
+    Validator.assertThat(imageApplication).thatIsNamed(ImageApplication.class).isNotNull();
 
     color = null;
     colorGradient = null;

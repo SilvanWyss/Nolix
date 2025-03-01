@@ -1,6 +1,6 @@
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
@@ -52,7 +52,7 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
 
   public YesNoDialogBuilder setConfirmAction(final Runnable confirmAction) {
 
-    GlobalValidator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
+    Validator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
 
     this.confirmAction = confirmAction;
 
@@ -61,7 +61,7 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
 
   public YesNoDialogBuilder setYesNoQuestion(final String yesNoQuestion) {
 
-    GlobalValidator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotNull();
+    Validator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotNull();
 
     this.yesNoQuestion = yesNoQuestion;
 

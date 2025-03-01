@@ -18,7 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
@@ -75,7 +75,7 @@ implements IContainer<E> {
   public final boolean containsAll(final Iterable<?> objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
+    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -123,7 +123,7 @@ implements IContainer<E> {
   public final boolean containsAll(final Object[] objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
+    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -150,7 +150,7 @@ implements IContainer<E> {
   public final boolean containsAny(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -198,7 +198,7 @@ implements IContainer<E> {
   public final boolean containsAnyOf(final Iterable<?> objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
+    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -228,7 +228,7 @@ implements IContainer<E> {
   public final boolean containsAnyOf(final Object[] objects) {
 
     //Asserts that the given objects is not null.
-    GlobalValidator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
+    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
@@ -471,7 +471,7 @@ implements IContainer<E> {
   public final boolean containsOne(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes found.
     var found = false;
@@ -542,7 +542,7 @@ implements IContainer<E> {
   public final boolean containsOnly(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -618,7 +618,7 @@ implements IContainer<E> {
   public final int getCount(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes count.
     var count = 0;
@@ -675,7 +675,7 @@ implements IContainer<E> {
   public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes local1BasedIndex.
     var local1BasedIndex = 1;
@@ -769,7 +769,7 @@ implements IContainer<E> {
   public final <C extends Comparable<C>> C getMax(final Function<E, C> comparableMapper) {
 
     //Asserts that the given comparableMapper is not null.
-    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
+    Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
     //Initializes max.
     C max = null;
@@ -813,7 +813,7 @@ implements IContainer<E> {
   public final double getMaxOrZero(Function<E, Number> numberMapper) {
 
     //Asserts that the given numberMapper is not null.
-    GlobalValidator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
+    Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
     //Initializes max.
     Double max = null;
@@ -922,7 +922,7 @@ implements IContainer<E> {
   public final <C extends Comparable<C>> C getMin(final Function<E, C> comparableMapper) {
 
     //Asserts that the given comparableMapper is not null.
-    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
+    Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
     //Initializes min.
     C min = null;
@@ -963,7 +963,7 @@ implements IContainer<E> {
   public final double getMinOrZero(final Function<E, Number> numberMapper) {
 
     //Asserts that the given numberMapper is not null.
-    GlobalValidator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
+    Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
     //Initializes min.
     Double min = null;
@@ -1030,7 +1030,7 @@ implements IContainer<E> {
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1057,7 +1057,7 @@ implements IContainer<E> {
   public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> comparableMapper) {
 
     //Asserts that the given comparableMapper is not null.
-    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
+    Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
     //Declares max.
     E max = null;
@@ -1105,7 +1105,7 @@ implements IContainer<E> {
   public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> comparableMapper) {
 
     //Asserts that the given comparableMapper is not null.
-    GlobalValidator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
+    Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
     //Declares min.
     E min = null;
@@ -1198,7 +1198,7 @@ implements IContainer<E> {
   public final <E2 extends E> E2 getStoredFirstOfType(final Class<E2> type) {
 
     //Asserts that the given type is not null.
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
     return (E2) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
@@ -1218,7 +1218,7 @@ implements IContainer<E> {
   public final IContainer<? extends IContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
 
     //Asserts that the given norm is not null.
-    GlobalValidator.assertThat(norm).thatIsNamed("norm").isNotNull();
+    Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
     //Initializes groups.
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
@@ -1285,7 +1285,7 @@ implements IContainer<E> {
   public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
 
     //Asserts that the given type is not null.
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
@@ -1321,7 +1321,7 @@ implements IContainer<E> {
   public final E getStoredOne(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElement.
     E selectedElement = null;
@@ -1367,7 +1367,7 @@ implements IContainer<E> {
   public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes otherElements.
     final var otherElements = createEmptyMutableList(new Marker<E>());
@@ -1400,7 +1400,7 @@ implements IContainer<E> {
   public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
 
     //Asserts that the given selector is not null.
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElements.
     final var selectedElements = createEmptyMutableList(new Marker<E>());
@@ -1447,7 +1447,7 @@ implements IContainer<E> {
   public final BigDecimal getSum(final Function<E, Number> valueMapper) {
 
     //Asserts that the given valueMapper is not null.
-    GlobalValidator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
+    Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
 
     //Initializes sum.
     var sum = BigDecimal.ZERO;
@@ -1477,7 +1477,7 @@ implements IContainer<E> {
   public final BigInteger getSumOfInts(final ToIntFunction<E> intMapper) {
 
     //Asserts that the given intMapper is not null.
-    GlobalValidator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
+    Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
     //Initializes sum.
     var sum = BigInteger.ZERO;
@@ -1600,7 +1600,7 @@ implements IContainer<E> {
   public final IContainer<E> getViewWithoutFirst(final int n) {
 
     //Asserts that the given n is not negative.
-    GlobalValidator.assertThat(n).thatIsNamed("n").isNotNegative();
+    Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
     //Gets the count.
     final var count = getCount();
@@ -1637,7 +1637,7 @@ implements IContainer<E> {
   public final IContainer<E> getViewWithoutLast(final int n) {
 
     //Asserts that the given n is not negative.
-    GlobalValidator.assertThat(n).thatIsNamed("n").isNotNegative();
+    Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
     //Gets the count.
     final var count = getCount();
@@ -1684,7 +1684,7 @@ implements IContainer<E> {
   public final <E2> IContainer<E2> to(final Function<E, E2> mapper) {
 
     //Asserts that the given mapper is not null.
-    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
+    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
@@ -1749,7 +1749,7 @@ implements IContainer<E> {
   public final byte[] toByteArray(final Function<E, Byte> byteMapper) {
 
     //Asserts that the given byteMapper is not null.
-    GlobalValidator.assertThat(byteMapper).thatIsNamed("byte mapper").isNotNull();
+    Validator.assertThat(byteMapper).thatIsNamed("byte mapper").isNotNull();
 
     //Creates array.
     final var array = new byte[getCount()];
@@ -1784,7 +1784,7 @@ implements IContainer<E> {
   public final char[] toCharArray(final Function<E, Character> charMapper) {
 
     //Asserts that the given charMapper is not null.
-    GlobalValidator.assertThat(charMapper).thatIsNamed("char mapper").isNotNull();
+    Validator.assertThat(charMapper).thatIsNamed("char mapper").isNotNull();
 
     //Creates array.
     final var array = new char[getCount()];
@@ -1837,7 +1837,7 @@ implements IContainer<E> {
   public final double[] toDoubleArray(final ToDoubleFunction<E> doubleMapper) {
 
     //Asserts that the given doubleMapper is not null.
-    GlobalValidator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
+    Validator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
 
     //Creates array.
     final var array = new double[getCount()];
@@ -1872,7 +1872,7 @@ implements IContainer<E> {
   public final int[] toIntArray(final ToIntFunction<E> intMapper) {
 
     //Asserts that the given intMapper is not null.
-    GlobalValidator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
+    Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
     //Creates array.
     final var array = new int[getCount()];
@@ -1908,7 +1908,7 @@ implements IContainer<E> {
   public final long[] toLongArray(final ToLongFunction<E> longMapper) {
 
     //Asserts that the given longMapper is not null.
-    GlobalValidator.assertThat(longMapper).thatIsNamed("long mapper").isNotNull();
+    Validator.assertThat(longMapper).thatIsNamed("long mapper").isNotNull();
 
     //Creates the array.
     final var array = new long[getCount()];
@@ -1947,7 +1947,7 @@ implements IContainer<E> {
   public final <E2> IContainer<E2> toMultiple(final Function<E, IContainer<E2>> multipleMapper) {
 
     //Asserts that the given multipleMapper is not null.
-    GlobalValidator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
+    Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
@@ -1980,7 +1980,7 @@ implements IContainer<E> {
   public <N extends Number> IContainer<N> toNumbers(final Function<E, N> numberMapper) {
 
     //Asserts that the given numberMapper is not null.
-    GlobalValidator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
+    Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 
     //Initializes numbers.
     final var numbers = createEmptyMutableList(new Marker<N>());
@@ -2115,7 +2115,7 @@ implements IContainer<E> {
   public final <E2> IContainer<E2> toWithOneBasedIndex(final BiFunction<Integer, E, E2> mapper) {
 
     //Asserts that the given mapper is not null.
-    GlobalValidator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
+    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
     final var list = createEmptyMutableList(new Marker<E2>());
@@ -2239,7 +2239,7 @@ implements IContainer<E> {
   private String toStringWhenContainsSeveralElements(final String separator) {
 
     //Asserts that the given separator is not null.
-    GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalog.SEPARATOR).isNotNull();
+    Validator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalog.SEPARATOR).isNotNull();
 
     //Creates a StringBuilder.
     final var stringBuilder = new StringBuilder();

@@ -1,6 +1,6 @@
 package ch.nolix.core.net.endpoint;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
@@ -16,7 +16,7 @@ final class SslServerEndPoint extends AbstractNetEndPoint {
 
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 
-    GlobalValidator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();
+    Validator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();
 
     this.channelHandlerContext = channelHandlerContext;
   }

@@ -2,7 +2,7 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.structurecontrolapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
@@ -45,7 +45,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   @Override
   public ILayer<?> build() {
 
-    GlobalValidator.assertThat(valueTaker).thatIsNamed("value taker").isNotNull();
+    Validator.assertThat(valueTaker).thatIsNamed("value taker").isNotNull();
 
     final var valueTextbox = new Textbox().setText(originalValue);
 

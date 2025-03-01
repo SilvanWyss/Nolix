@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
@@ -89,7 +89,7 @@ public final class LocalEndPoint extends EndPoint {
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counter part is not null.
-    GlobalValidator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
+    Validator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
 
     //Sets the counter part of this local end point.
     this.counterpart = counterPart;
@@ -112,13 +112,13 @@ public final class LocalEndPoint extends EndPoint {
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counter part is not null.
-    GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+    Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
     //Sets the counter part of this local end point.
     this.counterpart = counterpart;
 
     //Asserts that the given target is not null or empty.
-    GlobalValidator.assertThat(target).thatIsNamed("target").isNotEmpty();
+    Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 
     //Sets the target of this local end point.
     this.target = target;

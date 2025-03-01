@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -49,7 +49,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    */
   private AbsoluteOrRelativeInt(final double percentage) {
 
-    GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalog.PERCENTAGE).isNotNegative();
+    Validator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalog.PERCENTAGE).isNotNegative();
 
     isAbsolute = false;
     absoluteValue = 0;

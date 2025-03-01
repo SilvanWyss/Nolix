@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
@@ -19,9 +19,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     final DatabaseObjectState initialState,
     final String backReferencedEntityId) {
 
-    GlobalValidator.assertThat(parentMultiBackReference).thatIsNamed("parent MultiBackReference").isNotNull();
-    GlobalValidator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
-    GlobalValidator.assertThat(backReferencedEntityId).thatIsNamed("back referenced entity id").isNotBlank();
+    Validator.assertThat(parentMultiBackReference).thatIsNamed("parent MultiBackReference").isNotNull();
+    Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
+    Validator.assertThat(backReferencedEntityId).thatIsNamed("back referenced entity id").isNotBlank();
 
     this.parentMultiBackReference = parentMultiBackReference;
     state = initialState;

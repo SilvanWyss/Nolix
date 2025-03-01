@@ -3,7 +3,7 @@ package ch.nolix.core.commontypetool.arraytool;
 import java.util.NoSuchElementException;
 
 import ch.nolix.core.commontypetool.iteratorvalidator.IteratorValidator;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
 public final class ArrayIterator<E> implements CopyableIterator<E> {
@@ -16,7 +16,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
 
   private ArrayIterator(final E[] parrentArray) {
 
-    GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+    Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
@@ -24,8 +24,8 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
 
   private ArrayIterator(final E[] parrentArray, final int startIndex) {
 
-    GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
+    Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+    Validator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = startIndex;

@@ -6,7 +6,7 @@ import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.performanceanalysis.PerformanceAnalyzer;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.IPerformanceAnalyzer;
 import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.TimeComplexityFunctionCatalog;
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IActionMediator;
@@ -22,8 +22,8 @@ public final class ActionMediator<O> implements IActionMediator {
 
   private ActionMediator(final IntFunction<O> objectSupplier, final Consumer<O> action) {
 
-    GlobalValidator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
-    GlobalValidator.assertThat(action).thatIsNamed(LowerCaseVariableCatalog.ACTION).isNotNull();
+    Validator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
+    Validator.assertThat(action).thatIsNamed(LowerCaseVariableCatalog.ACTION).isNotNull();
 
     this.objectSupplier = objectSupplier;
     this.action = action;

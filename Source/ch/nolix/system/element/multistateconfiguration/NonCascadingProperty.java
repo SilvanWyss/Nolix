@@ -4,7 +4,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -21,7 +21,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
     super(name, stateClass, valueCreator, specificationCreator);
 
-    GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
+    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
   }
@@ -36,7 +36,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
-    GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
+    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
   }

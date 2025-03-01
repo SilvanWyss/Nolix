@@ -3,7 +3,7 @@ package ch.nolix.system.element.style;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -23,7 +23,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private AttachingAttribute(final INode<?> value) {
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = null;
     this.value = Node.fromNode(value);
@@ -31,8 +31,8 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private AttachingAttribute(final String tag, final INode<?> value) {
 
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = tag;
     this.value = Node.fromNode(value);
@@ -40,8 +40,8 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private AttachingAttribute(final String tag, final String value) {
 
-    GlobalValidator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = tag;
     this.value = Node.fromString(value);

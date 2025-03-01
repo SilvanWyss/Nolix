@@ -3,7 +3,7 @@ package ch.nolix.system.element.property;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -24,9 +24,9 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     final Consumer<INode<?>> adder,
     final Supplier<IContainer<INode<?>>> getter) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();
-    GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
+    Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(adder).thatIsNamed("adder").isNotNull();
+    Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
 
     this.name = name;
     this.adder = adder;

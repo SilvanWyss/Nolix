@@ -1,7 +1,7 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -15,7 +15,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
 
-    GlobalValidator.assertThat(request).thatIsNamed(LowerCaseVariableCatalog.REQUEST).isNotNull();
+    Validator.assertThat(request).thatIsNamed(LowerCaseVariableCatalog.REQUEST).isNotNull();
 
     latestGetDataFromHereRequest = request;
 
@@ -25,14 +25,14 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   @Override
   protected void runHere(final IChainedNode command) {
 
-    GlobalValidator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
+    Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
 
     latestRunHereCommand = command;
   }
 
   public IChainedNode getStoredLatestGetDataFromHereRequest() {
 
-    GlobalValidator
+    Validator
       .assertThat(latestGetDataFromHereRequest)
       .thatIsNamed("latest received data from here command")
       .isNotNull();
@@ -42,7 +42,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
 
   public IChainedNode getStoredLatestRunHereCommand() {
 
-    GlobalValidator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();
+    Validator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();
 
     return latestRunHereCommand;
   }

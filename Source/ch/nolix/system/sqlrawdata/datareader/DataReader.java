@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
@@ -29,7 +29,7 @@ public final class DataReader implements IDataReader {
     final DatabaseSchemaViewDto databaseSchemaView,
     final ISqlConnection sqlConnection) {
 
-    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
+    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
     this.internalDataReader = new InternalDataReader(databaseName, sqlConnection);

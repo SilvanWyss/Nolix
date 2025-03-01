@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -68,7 +68,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   @Override
   public void internalSetFile(final byte[] file) {
 
-    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
+    Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
 
     this.file = file; //NOSONAR: A Uploader operates on the original input.
   }

@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -116,7 +116,7 @@ public final class NetEndPoint extends EndPoint {
   NetEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint) {
 
     //Asserts that the given internalEndPoint is not null.
-    GlobalValidator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();
+    Validator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();
 
     //Sets the internalNetEndPoint of the current NetEndPoint.
     this.internalEndPoint = internalEndPoint;

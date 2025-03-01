@@ -11,7 +11,7 @@ import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -31,8 +31,8 @@ public abstract class SqlConnection implements ISqlConnection {
 
   protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 
-    GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
-    GlobalValidator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
+    Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+    Validator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
 
     this.sqlDatabaseEngine = sqlDatabaseEngine;
     this.connection = connection;
@@ -58,7 +58,7 @@ public abstract class SqlConnection implements ISqlConnection {
     final String userName,
     final String userPassword) {
 
-    GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+    Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 
     this.sqlDatabaseEngine = sqlDatabaseEngine;
 

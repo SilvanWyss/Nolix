@@ -7,7 +7,7 @@ import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -43,7 +43,7 @@ public final class IterableView<E> extends Container<E> {
   private <E2 extends E> IterableView(final Iterable<E2> container) {
 
     //Asserts that the given container is not null.
-    GlobalValidator
+    Validator
       .assertThat(container)
       .thatIsNamed(LowerCaseVariableCatalog.CONTAINER)
       .isNotNull();

@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
@@ -65,7 +65,7 @@ implements ILinkedList<E> {
    */
   public static <E2> LinkedList<E2> fromArray(final E2[] array) {
 
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
+    Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
     final var list = new LinkedList<E2>();
     list.addAtEnd(array);
@@ -159,7 +159,7 @@ implements ILinkedList<E> {
   public void addAtBegin(final Iterable<? extends E> elements) {
 
     //Asserts that the given elements is not null.
-    GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalog.ELEMENTS).isNotNull();
+    Validator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalog.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
     if (ITERABLE_EXAMINER.containsAny(elements)) {
@@ -618,7 +618,7 @@ implements ILinkedList<E> {
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> comparableMapper) {
 
-    GlobalValidator.assertThat(comparableMapper).thatIsNamed("comparable mapper").isNotNull();
+    Validator.assertThat(comparableMapper).thatIsNamed("comparable mapper").isNotNull();
 
     return getOrderedSubList(1, getCount(), comparableMapper);
   }
@@ -883,7 +883,7 @@ implements ILinkedList<E> {
   private void removeNextNode(final LinkedListNode<E> node) {
 
     //Asserts that the given node is not null.
-    GlobalValidator.assertThat(node).thatIsNamed(LowerCaseVariableCatalog.NODE).isNotNull();
+    Validator.assertThat(node).thatIsNamed(LowerCaseVariableCatalog.NODE).isNotNull();
 
     final var nextNode = node.getNextNode();
 

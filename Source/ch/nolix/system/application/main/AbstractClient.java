@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -266,7 +266,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   final void internalSetEndPoint(final IEndPoint endPoint) {
 
     //Asserts that the given endPoint is not null.
-    GlobalValidator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
+    Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
 
     //Asserts that the current Client is not already connected.
     assertIsNotConnected();

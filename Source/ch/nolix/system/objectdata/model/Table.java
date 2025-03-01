@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.core.container.cachingcontainer.CachingProperty;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
@@ -63,10 +63,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
     final String id,
     final Class<E> entityClass) {
 
-    GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-    GlobalValidator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
+    Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
 
     this.parentDatabase = parentDatabase;
     this.name = name;

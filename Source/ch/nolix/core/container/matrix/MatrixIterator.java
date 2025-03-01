@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -28,7 +28,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    */
   private MatrixIterator(final Matrix<E> parentMatrix) {
 
-    GlobalValidator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
+    Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     this.parentMatrix = parentMatrix;
     nextElement1BasedIndex = 1;
@@ -47,9 +47,9 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    */
   private MatrixIterator(final Matrix<E> parentMatrix, final int param1BasedStartIndex) {
 
-    GlobalValidator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
+    Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(param1BasedStartIndex)
       .thatIsNamed("start index")
       .isNotBiggerThan(parentMatrix.getCount());

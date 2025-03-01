@@ -3,7 +3,7 @@ package ch.nolix.core.errorcontrol.perfomancevalidator;
 import java.util.function.Consumer;
 import java.util.function.IntFunction;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IActionMediator;
 import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IObjectSupplierMediator;
 
@@ -13,7 +13,7 @@ public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<
 
   private ObjectSupplierMediator(final IntFunction<O> objectSupplier) {
 
-    GlobalValidator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
+    Validator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
 
     this.objectSupplier = objectSupplier;
   }

@@ -7,7 +7,7 @@ import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ICountingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
@@ -91,7 +91,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   public static <E2> ArrayList<E2> withInitialCapacity(final int initialCapacity) {
 
-    GlobalValidator
+    Validator
       .assertThat(initialCapacity)
       .thatIsNamed(LowerCaseVariableCatalog.INITIAL_CAPACITY)
       .isNotNegative();
@@ -128,8 +128,8 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @Override
   public void addAtEnd(final E element, @SuppressWarnings("unchecked") final E... elements) {
 
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
-    GlobalValidator.assertThatTheElements(elements).areNotNull();
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+    Validator.assertThatTheElements(elements).areNotNull();
 
     final var localElementCount = getCount();
     final var newElementCount = localElementCount + 1 + elements.length;
@@ -149,7 +149,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @Override
   public void addAtEnd(E[] elements) {
 
-    GlobalValidator.assertThatTheElements(elements).areNotNull();
+    Validator.assertThatTheElements(elements).areNotNull();
 
     final var localElementCount = getCount();
     final var newElementCount = localElementCount + elements.length;
@@ -202,7 +202,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1 based index").isBetween(1, getCount());
+    Validator.assertThat(param1BasedIndex).thatIsNamed("1 based index").isBetween(1, getCount());
 
     return elements[param1BasedIndex - 1];
   }

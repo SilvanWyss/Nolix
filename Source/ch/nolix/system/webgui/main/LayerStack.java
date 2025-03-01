@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.main;
 import java.util.Optional;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -22,7 +22,7 @@ public final class LayerStack implements ILayerStack {
 
   private LayerStack(final IWebGui<?> parentGui) {
 
-    GlobalValidator.assertThat(parentGui).thatIsNamed("parent gui").isNotNull();
+    Validator.assertThat(parentGui).thatIsNamed("parent gui").isNotNull();
 
     this.parentGui = parentGui;
   }
@@ -115,7 +115,7 @@ public final class LayerStack implements ILayerStack {
   @Override
   public ILayerStack setRemoveLayerAction(Runnable removeLayerAction) {
 
-    GlobalValidator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
+    Validator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
 
     this.removeLayerAction = removeLayerAction;
 

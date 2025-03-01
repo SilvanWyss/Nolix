@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -113,7 +113,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public void runHtmlEvent(final String htmlEvent) {
 
-    GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onclick");
+    Validator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onclick");
 
     if (hasLeftMouseButtonPressAction()) {
       leftMouseButtonPressAction.accept(this);
@@ -135,7 +135,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public IImageControl setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
       .isNotNull();
@@ -146,7 +146,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public IImageControl setLeftMouseButtonPressAction(final Consumer<IImageControl> leftMouseButtonPressAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
       .isNotNull();
@@ -159,7 +159,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
       .isNotNull();
@@ -171,7 +171,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   public IImageControl setLeftMouseButtonRelaseAction(
     final Consumer<IImageControl> leftMouseButtonReleaseAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
       .isNotNull();

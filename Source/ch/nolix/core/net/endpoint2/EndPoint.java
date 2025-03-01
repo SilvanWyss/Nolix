@@ -5,7 +5,7 @@ import java.util.function.UnaryOperator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
 import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
 
@@ -41,7 +41,7 @@ public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
   public void setReplier(final UnaryOperator<String> replier) {
 
     //Asserts that the given replier is not null.
-    GlobalValidator.assertThat(replier).thatIsNamed("replier").isNotNull();
+    Validator.assertThat(replier).thatIsNamed("replier").isNotNull();
 
     //Sets the replier of this end point.
     this.replier = replier;

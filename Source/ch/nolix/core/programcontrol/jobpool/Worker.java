@@ -1,6 +1,6 @@
 package ch.nolix.core.programcontrol.jobpool;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 final class Worker extends Thread {
 
@@ -8,7 +8,7 @@ final class Worker extends Thread {
 
   public Worker(final JobPool parentJobPool) {
 
-    GlobalValidator.assertThat(parentJobPool).thatIsNamed("parent job bool");
+    Validator.assertThat(parentJobPool).thatIsNamed("parent job bool");
 
     this.parentJobPool = parentJobPool;
 

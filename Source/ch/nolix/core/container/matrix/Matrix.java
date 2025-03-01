@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -104,7 +104,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   public Matrix<E> addColumn(final Iterable<E> elements) {
 
     //Asserts that the given elements are not null.
-    GlobalValidator.assertThatTheElements(elements).areNotNull();
+    Validator.assertThatTheElements(elements).areNotNull();
 
     final var lElements = ContainerView.forIterable(elements);
 
@@ -129,7 +129,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
       //Asserts that as many elements are given as the number of rows of the current
       //matrix.
-      GlobalValidator
+      Validator
         .assertThat(lElements.getCount())
         .thatIsNamed("number of the given elements")
         .isEqualTo(getRowCount());
@@ -194,7 +194,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   public Matrix<E> addRow(final Iterable<E> elements) {
 
     //Asserts that the given elements are not null.
-    GlobalValidator.assertThatTheElements(elements).areNotNull();
+    Validator.assertThatTheElements(elements).areNotNull();
 
     final var lElements = ContainerView.forIterable(elements);
 
@@ -219,7 +219,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
       //Asserts that as many elements are given as the number of columns of the
       //current matrix.
-      GlobalValidator
+      Validator
         .assertThat(lElements.getCount())
         .thatIsNamed("number of the given elements")
         .isEqualTo(getColumnCount());
@@ -517,7 +517,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
   public void setAt(final int index, final E element) {
 
     //Asserts that the given element is not null.
-    GlobalValidator
+    Validator
       .assertThat(element)
       .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
@@ -557,7 +557,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     assertContainsAt(param1BasedRowIndex, param1BasedColumnIndex);
 
     //Asserts that the given element is not null.
-    GlobalValidator
+    Validator
       .assertThat(element)
       .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
@@ -709,12 +709,12 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    */
   private void assertContainsAt(final int index) {
 
-    GlobalValidator
+    Validator
       .assertThat(index)
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(index)
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());
@@ -735,22 +735,22 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    */
   private void assertContainsAt(final int rowIndex, final int columnIndex) {
 
-    GlobalValidator
+    Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isNotBiggerThan(getRowCount());
 
-    GlobalValidator
+    Validator
       .assertThat(columnIndex)
       .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(columnIndex)
       .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isNotBiggerThan(getColumnCount());

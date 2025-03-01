@@ -3,7 +3,7 @@ package ch.nolix.system.element.property;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -23,9 +23,9 @@ public final class CatchingProperty<V> implements IProperty, INameHolder {
     final Consumer<V> setter,
     final Function<INode<?>, V> valueCreator) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 
     this.name = name;
     this.setter = setter;

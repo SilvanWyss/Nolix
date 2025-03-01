@@ -2,7 +2,7 @@ package ch.nolix.system.application.webapplicationrefreshqueue;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
@@ -17,7 +17,7 @@ public final class UpdateTicket {
 
   private UpdateTicket(final IWebGui<?> webGui, final boolean updateConstellationOrStyle) {
 
-    GlobalValidator.assertThat(webGui).thatIsNamed(IWebGui.class).isNotNull();
+    Validator.assertThat(webGui).thatIsNamed(IWebGui.class).isNotNull();
 
     this.updateConstellationOrStyle = updateConstellationOrStyle;
     this.webGui = webGui;

@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -41,9 +41,9 @@ public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequesta
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-    GlobalValidator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
 
     this.name = name;
     this.valueCreator = valueCreator;

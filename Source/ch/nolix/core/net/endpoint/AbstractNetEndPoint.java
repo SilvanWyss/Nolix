@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
@@ -33,7 +33,7 @@ public abstract class AbstractNetEndPoint extends EndPoint {
   AbstractNetEndPoint(final TargetInfoState targetInfoState) {
 
     //Asserts that the given targetInfoState is not null.
-    GlobalValidator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
+    Validator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
 
     if (targetInfoState == TargetInfoState.RECEIVED_TARGET_INFO) {
       confirmReceivedTargetInfo();
@@ -184,7 +184,7 @@ public abstract class AbstractNetEndPoint extends EndPoint {
         receiveMessage(rawMessage.substring(1));
         break;
       case CLOSE_MESSAGE:
-        GlobalValidator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
+        Validator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
         close();
         break;
       default:

@@ -1,6 +1,6 @@
 package ch.nolix.core.commontypetool.arraytool;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediatorWithStartIndex;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -13,9 +13,9 @@ public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediator
 
   private ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
 
-    GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
+    Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(startIndex)
       .thatIsNamed(LowerCaseVariableCatalog.START_INDEX)
       .isBetween(0, byteArray.length);

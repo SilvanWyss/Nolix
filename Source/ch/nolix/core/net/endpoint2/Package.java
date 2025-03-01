@@ -1,7 +1,7 @@
 package ch.nolix.core.net.endpoint2;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRole;
 
 /**
@@ -30,7 +30,7 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
     super(index, message);
 
     //Asserts that the given message role is not null.
-    GlobalValidator.assertThat(messageRole).isOfType(MessageRole.class);
+    Validator.assertThat(messageRole).isOfType(MessageRole.class);
 
     //Sets the message role of thsis zeta package.
     this.messageRole = messageRole;

@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -110,7 +110,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
   @Override
   public ILabel setText(final String text) {
 
-    GlobalValidator.assertThat(text).thatIsNamed(LowerCaseVariableCatalog.TEXT).isNotNull();
+    Validator.assertThat(text).thatIsNamed(LowerCaseVariableCatalog.TEXT).isNotNull();
 
     this.text.setValue(text);
 

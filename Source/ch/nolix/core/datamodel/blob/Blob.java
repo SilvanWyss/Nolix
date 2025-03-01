@@ -2,7 +2,7 @@ package ch.nolix.core.datamodel.blob;
 
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodelapi.blobapi.IBlob;
 
 public final class Blob implements IBlob {
@@ -11,7 +11,7 @@ public final class Blob implements IBlob {
 
   private Blob(final byte[] bytes) {
 
-    GlobalValidator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
+    Validator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 
     this.bytes = bytes; //NOSONAR: A BinaryObject operates on the original instance.
   }

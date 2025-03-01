@@ -2,7 +2,7 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -29,8 +29,8 @@ final class ServerSlot implements ISlot {
    */
   public ServerSlot(final String name, final AbstractServer<?> parentServer) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
     this.parentServer = parentServer;
     this.name = name;

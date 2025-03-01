@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -23,8 +23,8 @@ public final class WebClientPartialCounterpartUpdater {
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
 
-    GlobalValidator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
-    GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
+    Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
+    Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
     this.openStateRequestable = openStateRequestable;
     this.counterpartRunner = counterpartRunner;
@@ -47,7 +47,7 @@ public final class WebClientPartialCounterpartUpdater {
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
 
-    GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
+    Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
     if (updateConstellationOrStyle) {
       final var webGui = controls.getStoredFirst().getStoredParentGui();
@@ -65,7 +65,7 @@ public final class WebClientPartialCounterpartUpdater {
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
 
-    GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
+    Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
     final var webGui = controls.getStoredFirst().getStoredParentGui();
 

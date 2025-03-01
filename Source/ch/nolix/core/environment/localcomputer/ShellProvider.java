@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalog;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -19,7 +19,7 @@ public final class ShellProvider {
 
   public static void run(final String[] command) {
 
-    GlobalValidator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
+    Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
 
     final var runtimeCommand = createRuntimeCommandFromCommand(command);
 
@@ -48,12 +48,12 @@ public final class ShellProvider {
 
   public static void startFirefox(final String url, final int port) {
 
-    GlobalValidator
+    Validator
       .assertThat(url)
       .thatIsNamed(LowerCaseVariableCatalog.URL)
       .isNotBlank();
 
-    GlobalValidator
+    Validator
       .assertThat(port)
       .thatIsNamed(LowerCaseVariableCatalog.PORT)
       .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);

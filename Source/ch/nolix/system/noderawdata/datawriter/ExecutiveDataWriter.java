@@ -3,7 +3,7 @@ package ch.nolix.system.noderawdata.datawriter;
 import java.util.function.Consumer;
 
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.process.UpdaterCollector;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
@@ -24,7 +24,7 @@ public final class ExecutiveDataWriter {
 
   private ExecutiveDataWriter(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
+    Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
   }

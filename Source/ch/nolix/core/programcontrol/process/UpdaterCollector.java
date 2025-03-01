@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.process;
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
@@ -56,7 +56,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
   @Override
   public void updateObjectAndClear(final O object) {
 
-    GlobalValidator.assertThat(object).thatIsNamed(Object.class).isNotNull();
+    Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
 
     updateObjectAndClearWhenObjectIsNotNull(object);
   }

@@ -2,7 +2,7 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.environment.runningjar.RunningJar;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
@@ -21,8 +21,8 @@ public final class SslServerPage {
 
   private SslServerPage(final String domain, final int port) {
 
-    GlobalValidator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalog.DOMAIN).isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
+    Validator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalog.DOMAIN).isNotBlank();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 
     this.domain = domain;
     this.port = port;

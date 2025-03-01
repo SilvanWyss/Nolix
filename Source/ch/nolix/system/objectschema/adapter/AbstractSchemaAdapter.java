@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.adapter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
@@ -27,7 +27,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     final String databaseName,
     final ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter) {
 
-    GlobalValidator
+    Validator
       .assertThat(rawSchemaAdapter)
       .thatIsNamed(ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter.class)
       .isNotNull();

@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
@@ -30,7 +30,7 @@ public final class Database implements IDatabase {
   private Database(final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader, final ISchema schema) {
 
     RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
-    GlobalValidator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
+    Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 
     schemaTimestamp = rawDataAdapterAndSchemaReader.getSchemaTimestamp();
     this.rawDataAdapterAndSchemaReader = rawDataAdapterAndSchemaReader;

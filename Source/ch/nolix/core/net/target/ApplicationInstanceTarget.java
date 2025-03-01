@@ -1,6 +1,6 @@
 package ch.nolix.core.net.target;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 
@@ -19,8 +19,8 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 
     super(ipOrDomain, port, securityModeForConnections);
 
-    GlobalValidator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();
-    GlobalValidator.assertThat(applicationUrlInstanceName).thatIsNamed("application url instance name").isNotBlank();
+    Validator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();
+    Validator.assertThat(applicationUrlInstanceName).thatIsNamed("application url instance name").isNotBlank();
 
     this.applicationInstanceName = applicationInstanceName;
     this.applicationUrlInstanceName = applicationUrlInstanceName;

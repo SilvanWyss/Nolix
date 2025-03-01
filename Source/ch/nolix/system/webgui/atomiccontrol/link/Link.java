@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.web.url.UrlTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -126,7 +126,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   @Override
   public ILink setDisplayText(final String displayText) {
 
-    GlobalValidator.assertThat(displayText).thatIsNamed("dipslay text").isNotBlank();
+    Validator.assertThat(displayText).thatIsNamed("dipslay text").isNotBlank();
 
     this.displayText.setValue(displayText);
 
@@ -144,7 +144,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   @Override
   public ILink setUrl(final String url) {
 
-    GlobalValidator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotBlank();
+    Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotBlank();
 
     this.url.setValue(url);
 

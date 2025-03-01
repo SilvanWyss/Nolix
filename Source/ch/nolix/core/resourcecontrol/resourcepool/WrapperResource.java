@@ -1,7 +1,7 @@
 package ch.nolix.core.resourcecontrol.resourcepool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
@@ -18,7 +18,7 @@ implements GroupCloseable {
 
   protected WrapperResource(final R resource) {
 
-    GlobalValidator.assertThat(resource).fulfills(CloseStateRequestable::isOpen);
+    Validator.assertThat(resource).fulfills(CloseStateRequestable::isOpen);
 
     this.resource = resource;
   }
@@ -39,7 +39,7 @@ implements GroupCloseable {
 
   final void internalSetParentResourcePool(final ResourcePool<W, R> parentResourcePool) {
 
-    GlobalValidator
+    Validator
       .assertThat(parentResourcePool)
       .thatIsNamed("parent resource pool")
       .fulfills(CloseStateRequestable::isOpen);

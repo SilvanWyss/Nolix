@@ -2,7 +2,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
 
 /**
@@ -30,7 +30,7 @@ final class Waiter {
   public static void waitForSeconds(final int duractionInSeconds) {
 
     //Asserts that the given duractionInSeconds is not negative.
-    GlobalValidator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
+    Validator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 
     waitForMilliseconds(TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND * duractionInSeconds);
   }
@@ -45,7 +45,7 @@ final class Waiter {
   public static void waitForMilliseconds(final int durationInMilliseconds) {
 
     //Asserts that the given durationInMilliseconds is not negative.
-    GlobalValidator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
+    Validator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 
     try {
       Thread.sleep(durationInMilliseconds);

@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlschema.adapter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
@@ -31,7 +31,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
 
-    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
     RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
 
     this.sqlConnection = sqlConnection;

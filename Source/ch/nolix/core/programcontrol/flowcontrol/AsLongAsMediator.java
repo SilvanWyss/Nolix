@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAfterEveryMediator;
@@ -28,7 +28,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    */
   private AsLongAsMediator(final BooleanSupplier condition) {
 
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.condition = condition;
   }

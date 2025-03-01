@@ -4,7 +4,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -45,9 +45,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    */
   private ColorGradient(final DirectionInCanvas direction, final Color color1, final Color color2) {
 
-    GlobalValidator.assertThat(direction).thatIsNamed("direction").isNotNull();
-    GlobalValidator.assertThat(color1).thatIsNamed("color1").isNotNull();
-    GlobalValidator.assertThat(color2).thatIsNamed("color2").isNotNull();
+    Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
+    Validator.assertThat(color1).thatIsNamed("color1").isNotNull();
+    Validator.assertThat(color2).thatIsNamed("color2").isNotNull();
 
     this.direction = direction;
     this.color1 = color1;

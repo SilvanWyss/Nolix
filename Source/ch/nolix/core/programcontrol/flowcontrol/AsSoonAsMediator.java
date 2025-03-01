@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
@@ -20,7 +20,7 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
    */
   private AsSoonAsMediator(final BooleanSupplier condition) {
 
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.condition = condition;
   }
@@ -40,14 +40,14 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
   @Override
   public IFuture runInBackground(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     return new Future(new JobRunner(() -> runAsSoonAsConditionIsFulfilled(job), 1));
   }
 
   private void runAsSoonAsConditionIsFulfilled(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     FlowController.waitUntil(condition);
 

@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.logging.GlobalLogger;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -42,7 +42,7 @@ final class JobRunner extends Thread {
   public JobRunner(final Runnable job) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.job = job;
     maxRunCount = null;
@@ -64,10 +64,10 @@ final class JobRunner extends Thread {
   public JobRunner(final Runnable job, final BooleanSupplier condition) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
+    Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
 
     this.job = job;
     maxRunCount = null;
@@ -94,13 +94,13 @@ final class JobRunner extends Thread {
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     //Asserts that the given timeIntervalInMilliseconds is not negative.
-    GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
+    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
       .isNotNegative();
 
     this.job = job;
@@ -125,10 +125,10 @@ final class JobRunner extends Thread {
     final int maxRunCount) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given maxRunCount is not negative.
-    GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     this.job = job;
     this.maxRunCount = maxRunCount;
@@ -155,13 +155,13 @@ final class JobRunner extends Thread {
     final BooleanSupplier condition) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given maxRunCount is not negative.
-    GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.job = job;
     this.maxRunCount = maxRunCount;
@@ -192,16 +192,16 @@ final class JobRunner extends Thread {
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given max run count is not negative.
-    GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     //Asserts that the given timeIntervalInMilliseconds is not negative.
-    GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     this.job = job;
     this.maxRunCount = maxRunCount;
@@ -229,13 +229,13 @@ final class JobRunner extends Thread {
     final int timeIntervalInMilliseconds) {
 
     //Asserts that the given job is not null.
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Asserts that the given maxRunCount is not negative.
-    GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     //Asserts that the given timeIntervalInMilliseconds is not negative.
-    GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     this.job = job;
     this.maxRunCount = maxRunCount;

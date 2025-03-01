@@ -2,7 +2,7 @@ package ch.nolix.system.application.basewebapplication;
 
 import java.util.Optional;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
@@ -12,7 +12,7 @@ final class FrontendReader implements IFrontEndReader {
 
   private FrontendReader(final AbstractWebClient<?, ?> parentBackendWebClient) {
 
-    GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
+    Validator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
   }

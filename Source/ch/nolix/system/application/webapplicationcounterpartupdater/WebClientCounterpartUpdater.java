@@ -4,7 +4,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
@@ -21,8 +21,8 @@ public final class WebClientCounterpartUpdater {
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
 
-    GlobalValidator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
-    GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
+    Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
+    Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
     this.openStateRequestable = openStateRequestable;
     this.counterpartRunner = counterpartRunner;

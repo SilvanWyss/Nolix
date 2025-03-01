@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -26,7 +26,7 @@ implements IMultiStateConfiguration<C, S> {
 
   protected MultiStateConfiguration(final S baseState) {
 
-    GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
+    Validator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 
     availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
     this.baseState = availableStates.getStoredFirst(s -> s.hasEnumValue(baseState));
@@ -114,7 +114,7 @@ implements IMultiStateConfiguration<C, S> {
   @SuppressWarnings("unchecked")
   protected final void internalAddChild(final C child) {
 
-    GlobalValidator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
+    Validator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
 
     ((MultiStateConfiguration<?, S>) child).setParent(this);
   }
@@ -195,7 +195,7 @@ implements IMultiStateConfiguration<C, S> {
       @SuppressWarnings("unchecked")
       final var property = (AbstractProperty<S>) (field.get(this));
 
-      GlobalValidator.assertThat(property).isOfType(AbstractProperty.class);
+      Validator.assertThat(property).isOfType(AbstractProperty.class);
 
       return property;
     } catch (final IllegalAccessException illegalAccessException) {
@@ -226,7 +226,7 @@ implements IMultiStateConfiguration<C, S> {
       cp.setParentProperty(parentCascadingProperties.removeAndGetStoredFirst(pp -> pp.hasSameNameAs(cp)));
     }
 
-    GlobalValidator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties")
+    Validator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties")
       .isEmpty();
   }
 }

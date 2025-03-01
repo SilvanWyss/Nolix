@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
@@ -95,7 +95,7 @@ final class LinkedListNode<E> {
   public void setElement(final E element) {
 
     //Asserts that the given element is not null.
-    GlobalValidator
+    Validator
       .assertThat(element)
       .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
@@ -113,7 +113,7 @@ final class LinkedListNode<E> {
   public void setNextNode(final LinkedListNode<E> nextNode) {
 
     //Asserts that the given next node is not null.
-    GlobalValidator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
+    Validator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
 
     //Sets the next node of the current list node.
     this.nextNode = nextNode;

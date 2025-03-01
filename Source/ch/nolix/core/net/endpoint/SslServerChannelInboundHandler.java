@@ -1,7 +1,7 @@
 package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
@@ -15,7 +15,7 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
 
   public SslServerChannelInboundHandler(final SslServer parentWebSocketServer) {
 
-    GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
+    Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;
   }

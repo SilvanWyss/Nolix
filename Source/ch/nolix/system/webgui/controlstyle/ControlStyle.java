@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -437,7 +437,7 @@ implements IControlStyle<S> {
   @Override
   public final S setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
 
-    GlobalValidator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
+    Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 
     this.bottomBorderThickness.setValueForState(state, bottomBorderThickness);
 
@@ -447,7 +447,7 @@ implements IControlStyle<S> {
   @Override
   public final S setBottomPaddingForState(final ControlState state, final int bottomPadding) {
 
-    GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
+    Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 
     this.bottomPadding.setValueForState(state, bottomPadding);
 
@@ -483,7 +483,7 @@ implements IControlStyle<S> {
   @Override
   public final S setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
 
-    GlobalValidator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
+    Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 
     this.leftBorderThickness.setValueForState(state, leftBorderThickness);
 
@@ -493,7 +493,7 @@ implements IControlStyle<S> {
   @Override
   public final S setLeftPaddingForState(final ControlState state, final int leftPadding) {
 
-    GlobalValidator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
+    Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 
     this.leftPadding.setValueForState(state, leftPadding);
 
@@ -519,7 +519,7 @@ implements IControlStyle<S> {
   @Override
   public final S setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
 
-    GlobalValidator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
+    Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 
     this.rightBorderThickness.setValueForState(state, rightBorderThickness);
 
@@ -529,7 +529,7 @@ implements IControlStyle<S> {
   @Override
   public final S setRightPaddingForState(final ControlState state, final int rightPadding) {
 
-    GlobalValidator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
+    Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 
     this.rightPadding.setValueForState(state, rightPadding);
 
@@ -547,7 +547,7 @@ implements IControlStyle<S> {
   @Override
   public final S setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
 
-    GlobalValidator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
+    Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 
     this.topBorderThickness.setValueForState(state, topBorderThickness);
 
@@ -557,7 +557,7 @@ implements IControlStyle<S> {
   @Override
   public final S setTopPaddingForState(final ControlState state, final int topPadding) {
 
-    GlobalValidator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
+    Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 
     this.topPadding.setValueForState(state, topPadding);
 

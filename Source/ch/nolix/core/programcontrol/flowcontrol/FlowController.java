@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
@@ -189,7 +189,7 @@ public final class FlowController {
   public static ActionMediator waitAsLongAs(final BooleanSupplier condition) {
 
     //Asserts that the given condition is not null.
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     var i = 1;
     while (condition.getAsBoolean()) {

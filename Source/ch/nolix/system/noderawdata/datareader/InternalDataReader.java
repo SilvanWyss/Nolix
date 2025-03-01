@@ -1,6 +1,6 @@
 package ch.nolix.system.noderawdata.datareader;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.modelmapper.EntityLoadingDtoMapper;
@@ -38,7 +38,7 @@ public final class InternalDataReader {
 
   public InternalDataReader(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("database node").isNotNull();
+    Validator.assertThat(nodeDatabase).thatIsNamed("database node").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
   }

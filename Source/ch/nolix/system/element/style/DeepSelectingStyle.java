@@ -4,7 +4,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
@@ -287,7 +287,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
 
-    GlobalValidator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
+    Validator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
 
     String optionalSelectorType = null;
 
@@ -373,7 +373,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withSelectorType(final String selectorType) {
 
-    GlobalValidator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
+    Validator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
 
     String optionalSelectorId = null;
 

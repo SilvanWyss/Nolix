@@ -6,7 +6,7 @@ import java.net.SocketException;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
@@ -37,7 +37,7 @@ public final class ServerListener extends Worker implements CloseStateRequestabl
   private ServerListener(final Server parentServer) {
 
     //Asserts that the given parentServer is not null.
-    GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
+    Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
     //Sets the parentServer of the current ServerListener.
     this.parentServer = parentServer;

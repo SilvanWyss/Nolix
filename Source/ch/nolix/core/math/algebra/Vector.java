@@ -5,7 +5,7 @@ import java.util.Arrays;
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.GlobalNumberComparator;
 
 /**
@@ -160,7 +160,7 @@ public final class Vector {
    */
   public double getValueAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
+    Validator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
 
     return values[param1BasedIndex - 1];
   }

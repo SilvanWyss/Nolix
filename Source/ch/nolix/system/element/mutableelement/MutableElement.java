@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -211,7 +211,7 @@ public abstract class MutableElement implements IMutableElement {
       final var property = (IProperty) (field.get(this));
 
       //Asserts that the corresponding Property is not null.
-      GlobalValidator.assertThat(property).isOfType(IProperty.class);
+      Validator.assertThat(property).isOfType(IProperty.class);
 
       properties.addAtEnd(property);
     } catch (final IllegalAccessException illegalAccessException) {

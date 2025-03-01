@@ -1,6 +1,6 @@
 package ch.nolix.system.element.multistateconfiguration;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -14,7 +14,7 @@ public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder
 
   protected AbstractProperty(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
   }
@@ -34,7 +34,7 @@ public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder
 
   final void setParent(final MultiStateConfiguration<?, S> parent) {
 
-    GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
+    Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
 
     this.parent = parent;
   }

@@ -9,7 +9,7 @@ import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
 import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameType;
@@ -34,7 +34,7 @@ public final class WebSocketFrame {
     final boolean maskBit,
     final byte[] payload) {
 
-    GlobalValidator.assertThat(payload).thatIsNamed("payload").isNotNull();
+    Validator.assertThat(payload).thatIsNamed("payload").isNotNull();
 
     firstNibble = new WebSocketFrameFirstNibble(
       mFINBit,

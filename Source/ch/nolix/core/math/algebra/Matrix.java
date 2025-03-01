@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
@@ -49,7 +49,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   private Matrix(final int size) {
 
     //Asserts that the given size is positive.
-    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
+    Validator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
 
     values = new double[size][size];
   }
@@ -67,10 +67,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   private Matrix(final int rowCount, final int columnCount) {
 
     //Asserts that the given rowCount is positive.
-    GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalog.ROW_COUNT).isPositive();
+    Validator.assertThat(rowCount).thatIsNamed(LowerCaseVariableCatalog.ROW_COUNT).isPositive();
 
     //Asserts that the given columnCount is positive.
-    GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT).isPositive();
+    Validator.assertThat(columnCount).thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT).isPositive();
 
     values = new double[rowCount][columnCount];
   }
@@ -139,7 +139,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public static Matrix createRandomMatrix(final int size) {
 
     //Asserts that the given size is positive.
-    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
+    Validator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
 
     return createRandomMatrix(size, size);
   }
@@ -201,13 +201,13 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix add(final Matrix matrix) {
 
     //Asserts that the given Matrix has as many rows as the current Matrix.
-    GlobalValidator
+    Validator
       .assertThat(matrix.getRowCount())
       .thatIsNamed("number of rows of the given matrix")
       .isEqualTo(getRowCount());
 
     //Asserts that the given Matrix has as many columns as the current Matrix.
-    GlobalValidator
+    Validator
       .assertThat(matrix.getColumnCount())
       .thatIsNamed("number of columns of the given matrix")
       .isEqualTo(getColumnCount());
@@ -235,7 +235,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix appendAtRight(final Matrix matrix) {
 
     //Asserts that the given Matrix has as many rows as the current Matrix.
-    GlobalValidator
+    Validator
       .assertThat(matrix.getRowCount())
       .thatIsNamed("number of rows of the given matrix")
       .isEqualTo(getRowCount());
@@ -273,7 +273,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     //Asserts that as many row values are given than the number of columns of the
     //current Matrix.
     final var rowValueCount = rowValues.length + 1;
-    GlobalValidator.assertThat(rowValueCount).thatIsNamed("number of row values").isEqualTo(getColumnCount());
+    Validator.assertThat(rowValueCount).thatIsNamed("number of row values").isEqualTo(getColumnCount());
 
     var oldValues = values;
     values = Arrays.copyOf(values, oldValues.length + 1);
@@ -362,7 +362,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix getMatrixWithFirstColumns(int columnCount) {
 
     //Asserts that the given column count is valid.
-    GlobalValidator
+    Validator
       .assertThat(columnCount)
       .thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT)
       .isBetween(1, getColumnCount());
@@ -384,7 +384,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix getMatrixWithLastColumns(final int columnCount) {
 
     //Asserts that the given column count is valid.
-    GlobalValidator
+    Validator
       .assertThat(columnCount)
       .thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT)
       .isBetween(1, getColumnCount());
@@ -415,14 +415,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix getMinimalFactorMatrix(final Matrix solutionMatrix) {
 
     //Asserts that the given solution Matrix has 1 column.
-    GlobalValidator
+    Validator
       .assertThat(solutionMatrix.getColumnCount())
       .thatIsNamed("number of columns of the given soluction matrix")
       .isEqualTo(1);
 
     //Asserts that the given solution Matrix has as many rows as the current
     //Matrix.
-    GlobalValidator
+    Validator
       .assertThat(solutionMatrix.getRowCount())
       .thatIsNamed("number of rows of the given solution matrix")
       .isEqualTo(getRowCount());
@@ -454,7 +454,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
     //Asserts that the given Matrix has as many rows as the number of columns of
     //the current Matrix.
-    GlobalValidator
+    Validator
       .assertThat(matrix.getRowCount())
       .thatIsNamed("number of rows of the given matrix")
       .isEqualTo(getColumnCount());
@@ -606,14 +606,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public double getValue(final int rowIndex, final int columnIndex) {
 
     //Asserts that the current Matrix contains a row with the given row index.
-    GlobalValidator
+    Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isBetween(1, getRowCount());
 
     //Asserts that the current Matrix contains a column with the given column
     //index.
-    GlobalValidator
+    Validator
       .assertThat(columnIndex)
       .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isBetween(1, getColumnCount());
@@ -701,7 +701,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix multiplyRow(final int rowIndex, final double factor) {
 
     //Asserts that the current Matrix contains a row with the given row index.
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
+    Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     //Iterates the cells of the row with the given row index.
     for (var i = 0; i < getColumnCount(); i++) {
@@ -778,14 +778,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix setValue(final int rowIndex, final int columnIndex, final double value) {
 
     //Asserts that the current Matrix contains a row with the given row index.
-    GlobalValidator
+    Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
       .isBetween(1, getRowCount());
 
     //Asserts that the current Matrix contains a column with the given column
     //index.
-    GlobalValidator
+    Validator
       .assertThat(columnIndex)
       .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
       .isBetween(1, getColumnCount());
@@ -808,7 +808,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
     //Asserts that as many values are given as the current Matrix contains.
     final var valueCount = 1 + values.length;
-    GlobalValidator.assertThat(valueCount).isEqualTo(getColumnCount() * getRowCount());
+    Validator.assertThat(valueCount).isEqualTo(getColumnCount() * getRowCount());
 
     this.values[0][0] = value;
 
@@ -839,7 +839,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix setValues(final double[] values) {
 
     //Asserts that as many values are given as the current Matrix contains.
-    GlobalValidator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
+    Validator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
 
     //Iterates the rows of the current Matrix.
     for (var i = 0; i < getRowCount(); i++) {
@@ -887,10 +887,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix swapRows(int row1Index, int row2Index) {
 
     //Asserts that the current Matrix has a row with the given row 1 index.
-    GlobalValidator.assertThat(row1Index).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
+    Validator.assertThat(row1Index).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     //Asserts that the current Matrix has a row with the given row 2 index.
-    GlobalValidator.assertThat(row2Index).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
+    Validator.assertThat(row2Index).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     final double[] temp = values[row1Index - 1];
     values[row1Index - 1] = values[row2Index - 1];

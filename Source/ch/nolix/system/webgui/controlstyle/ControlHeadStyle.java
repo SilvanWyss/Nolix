@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
@@ -175,7 +175,7 @@ implements IControlHeadStyle<C> {
   @Override
   public final C setOpacityForState(final ControlState state, final double opacity) {
 
-    GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
+    Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
 
     this.opacity.setValueForState(state, opacity);
 
@@ -201,7 +201,7 @@ implements IControlHeadStyle<C> {
   @Override
   public final C setTextSizeForState(final ControlState state, final int textSize) {
 
-    GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();
+    Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();
 
     this.textSize.setValueForState(state, textSize);
 
@@ -210,7 +210,7 @@ implements IControlHeadStyle<C> {
 
   private double getOpacityFromString(final String string) {
 
-    GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
+    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
 
     if (!string.endsWith("%")) {
       return Double.valueOf(string);

@@ -8,7 +8,7 @@ import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.cachingcontainerapi.ICachingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
@@ -75,7 +75,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public String registerAndGetId(final E element) {
 
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     assertDoesNotContain(element);
 
@@ -88,8 +88,8 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   @Override
   public void registerAtId(final String id, final E element) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-    GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     assertDoesNotContainId(id);
     assertDoesNotContain(element);
@@ -104,7 +104,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
     if (pair.isEmpty()) {
 
-      GlobalValidator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+      Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
       final var id = createNextAutoId();
       elements.addAtEnd(new Pair<>(id, element));

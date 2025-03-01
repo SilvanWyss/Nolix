@@ -2,7 +2,7 @@ package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
 import java.util.Optional;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
@@ -20,8 +20,8 @@ public final class FieldBinding {
 
   public FieldBinding(final IField field, final IControl<?, ?> control) {
 
-    GlobalValidator.assertThat(field).thatIsNamed(IField.class).isNotNull();
-    GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
+    Validator.assertThat(field).thatIsNamed(IField.class).isNotNull();
+    Validator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
 
     this.field = field;
     this.control = control;
@@ -63,7 +63,7 @@ public final class FieldBinding {
 
   void setCurrentError(final Throwable currentError) {
 
-    GlobalValidator.assertThat(currentError).thatIsNamed("current error").isNotNull();
+    Validator.assertThat(currentError).thatIsNamed("current error").isNotNull();
 
     this.currentError = currentError;
     updateErrorLabelFrom(currentError);

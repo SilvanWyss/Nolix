@@ -8,20 +8,20 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.independent.arraytool.ArrayTool;
 
 /**
- * The {@link GlobalValidator} provides methods to validate arguments. Of the
- * {@link GlobalValidator} an instance cannot be created.
+ * The {@link Validator} provides methods to validate arguments. Of the
+ * {@link Validator} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-12-01
  */
-public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all validation methods.
+public final class Validator { //NOSONAR: The GlobalValidator bundles all validation methods.
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   /**
-   * Prevents that an instance of the {@link GlobalValidator} can be created.
+   * Prevents that an instance of the {@link Validator} can be created.
    */
-  private GlobalValidator() {
+  private Validator() {
   }
 
   /**

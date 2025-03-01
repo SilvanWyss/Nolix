@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.modelflyweight;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IFieldFlyWeight;
 
 public final class FieldFlyWeight implements IFieldFlyWeight {
@@ -9,7 +9,7 @@ public final class FieldFlyWeight implements IFieldFlyWeight {
 
   private FieldFlyWeight(final Runnable updateAction) {
 
-    GlobalValidator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
+    Validator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
 
     this.updateAction = updateAction;
   }

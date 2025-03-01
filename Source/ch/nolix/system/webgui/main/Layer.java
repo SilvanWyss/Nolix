@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -256,7 +256,7 @@ implements ILayer<Layer> {
   @Override
   public void internalSetParentGui(final IWebGui<?> parentGui) {
 
-    GlobalValidator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
+    Validator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
     LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
 
     this.parentGui = parentGui;
@@ -330,7 +330,7 @@ implements ILayer<Layer> {
   @Override
   public Layer setOpacity(final double opacity) {
 
-    GlobalValidator.assertThat(opacity).thatIsNamed("opacity").isBetween(0.0, 1.0);
+    Validator.assertThat(opacity).thatIsNamed("opacity").isBetween(0.0, 1.0);
 
     this.opacity.setValue(opacity);
 
@@ -385,7 +385,7 @@ implements ILayer<Layer> {
 
   private double getOpacityFromString(final String string) {
 
-    GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
+    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
 
     if (!string.endsWith("%")) {
       return Double.valueOf(string);

@@ -2,7 +2,7 @@ package ch.nolix.core.web.css;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -19,7 +19,7 @@ public final class CssRule implements ICssRule {
 
   private CssRule(final String selector, final IContainer<? extends ICssProperty> properties) {
 
-    GlobalValidator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     this.properties = properties.to(CssProperty::fromCssProperty);
     this.selector = selector;
@@ -63,7 +63,7 @@ public final class CssRule implements ICssRule {
   @Override
   public ICssRule withPrefixedSelector(final String selectorPrefix) {
 
-    GlobalValidator.assertThat(selectorPrefix).thatIsNamed("selector prefix").isNotNull();
+    Validator.assertThat(selectorPrefix).thatIsNamed("selector prefix").isNotNull();
 
     final var prefixedSelector = selectorPrefix + getSelector();
 

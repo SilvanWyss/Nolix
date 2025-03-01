@@ -1,7 +1,7 @@
 package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.commontypetool.iteratorvalidator.IteratorValidator;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
 public final class ArrayListIterator<E> implements CopyableIterator<E> {
@@ -16,8 +16,8 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
 
   private ArrayListIterator(final E[] parrentArray, final int maxNextIndex) {
 
-    GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
-    GlobalValidator.assertThat(maxNextIndex).thatIsNamed("max next index").isNotNegative();
+    Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+    Validator.assertThat(maxNextIndex).thatIsNamed("max next index").isNotNegative();
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     this.maxNextIndex = maxNextIndex;
@@ -26,9 +26,9 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
 
   private ArrayListIterator(final E[] parrentArray, final int startIndex, final int maxNexIndex) {
 
-    GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
-    GlobalValidator.assertThat(maxNexIndex).thatIsNamed("max next index").isBiggerThanOrEquals(startIndex);
+    Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+    Validator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
+    Validator.assertThat(maxNexIndex).thatIsNamed("max next index").isBiggerThanOrEquals(startIndex);
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     this.maxNextIndex = maxNexIndex;

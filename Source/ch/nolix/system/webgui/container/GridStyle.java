@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.container;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -106,7 +106,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
   @Override
   public IGridStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 
-    GlobalValidator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
+    Validator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 
     this.childControlMargin.setValueForState(state, childControlMargin);
 
@@ -124,7 +124,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
   @Override
   public IGridStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
 
-    GlobalValidator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
+    Validator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
 
     this.gridThickness.setValueForState(state, gridThickness);
 

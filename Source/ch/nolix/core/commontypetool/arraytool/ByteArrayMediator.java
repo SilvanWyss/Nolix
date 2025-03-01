@@ -1,6 +1,6 @@
 package ch.nolix.core.commontypetool.arraytool;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediatorWithStartIndex;
 
@@ -10,7 +10,7 @@ public final class ByteArrayMediator implements IByteArrayMediator {
 
   private ByteArrayMediator(final byte[] byteArray) {
 
-    GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
+    Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediator operates on the original instance.
   }

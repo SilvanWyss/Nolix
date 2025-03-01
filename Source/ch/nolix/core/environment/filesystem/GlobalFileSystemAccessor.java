@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -104,7 +104,7 @@ public final class GlobalFileSystemAccessor {
   public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 
     //Asserts that the if given path is not null or empty.
-    GlobalValidator.assertThat(path).thatIsNamed(LowerCaseVariableCatalog.PATH).isNotBlank();
+    Validator.assertThat(path).thatIsNamed(LowerCaseVariableCatalog.PATH).isNotBlank();
 
     //Creates file.
     try {

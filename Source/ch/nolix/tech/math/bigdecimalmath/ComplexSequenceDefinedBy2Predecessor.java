@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy2Predecessor;
 
@@ -23,9 +23,9 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
     final IComplexNumber secondValue,
     BinaryOperator<IComplexNumber> nextValueFunction) {
 
-    GlobalValidator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
-    GlobalValidator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
-    GlobalValidator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
+    Validator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
+    Validator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
+    Validator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
 
     this.firstValue = firstValue;
     this.secondValue = secondValue;

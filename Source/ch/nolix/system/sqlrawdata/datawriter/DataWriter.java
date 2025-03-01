@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawdata.datawriter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -31,7 +31,7 @@ public final class DataWriter implements IDataWriter {
     final DatabaseSchemaViewDto databaseSchemaView,
     final ISqlConnection sqlConnection) {
 
-    GlobalValidator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
+    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
     executiveDataWriter = new ExecutiveDataWriter(databaseName, sqlConnection);

@@ -1,7 +1,7 @@
 package ch.nolix.core.sql.connectionpool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
 import ch.nolix.core.programcontrol.usercontrol.CredentialBuilder;
 import ch.nolix.core.resourcecontrol.resourcepool.ResourcePool;
@@ -37,10 +37,10 @@ implements ISqlDatabaseTarget {
     final String loginName,
     final String loginPassword) {
 
-    GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isBetween(0, 65_535);
-    GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
-    GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+    Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isBetween(0, 65_535);
+    Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
+    Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 
     this.ipOrDomain = ipOrDomain;
     this.port = port;

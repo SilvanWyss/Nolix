@@ -3,7 +3,7 @@ package ch.nolix.core.license;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -99,7 +99,7 @@ public abstract class License implements INameHolder {
    */
   private String getFilteredKey(final String key) {
 
-    GlobalValidator.assertThat(key).thatIsNamed(LowerCaseVariableCatalog.KEY).isNotNull();
+    Validator.assertThat(key).thatIsNamed(LowerCaseVariableCatalog.KEY).isNotNull();
 
     return key
       .replace(StringCatalog.MINUS, StringCatalog.EMPTY_STRING)

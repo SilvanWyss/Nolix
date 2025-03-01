@@ -1,6 +1,6 @@
 package ch.nolix.system.application.basewebapplication;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
@@ -10,7 +10,7 @@ final class FrontendWriter implements IFrontEndWriter {
 
   private FrontendWriter(final AbstractWebClient<?, ?> parentBackendWebClient) {
 
-    GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
+    Validator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
   }

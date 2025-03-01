@@ -7,7 +7,7 @@ import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -31,7 +31,7 @@ public final class ArrayView<E> extends Container<E> {
    */
   private ArrayView(final E[] array) {
 
-    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
+    Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
     this.array = array; //NOSONAR: An ArrayView operates on the original instance.
   }
@@ -70,7 +70,7 @@ public final class ArrayView<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
+    Validator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
 
     return array[param1BasedIndex - 1];
   }

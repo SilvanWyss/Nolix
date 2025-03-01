@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
@@ -19,7 +19,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   private BackendClientSessionManager(final C parentClient) {
 
     //Asserts that the given parentClient is not null.
-    GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+    Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
     //Sets the parentClient of the current ClientSessionManager.
     this.parentClient = parentClient;
@@ -74,7 +74,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   public void pushSession(final AbstractSession<C, S> session) {
 
     //Asserts that the given session is not null.
-    GlobalValidator.assertThat(session).isOfType(AbstractSession.class);
+    Validator.assertThat(session).isOfType(AbstractSession.class);
 
     //Sets the given session to the Client of the current ClientSessionManager.
     session.internalSetParentClient(parentClient.asConcrete());

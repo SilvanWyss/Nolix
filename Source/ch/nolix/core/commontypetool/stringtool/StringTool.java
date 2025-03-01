@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
@@ -26,7 +26,7 @@ public final class StringTool implements IStringTool {
   @Override
   public String createStringWithoutLastCharacters(final String string, final int n) {
 
-    GlobalValidator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
+    Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
 
     return string.substring(0, string.length() - n);
   }
@@ -38,7 +38,7 @@ public final class StringTool implements IStringTool {
   public String createTabs(final int tabCount) {
 
     //Asserts that the given tabulatorCount is not negative.
-    GlobalValidator.assertThat(tabCount).thatIsNamed("tab count").isNotNegative();
+    Validator.assertThat(tabCount).thatIsNamed("tab count").isNotNegative();
 
     final var stringBuilder = new StringBuilder();
 

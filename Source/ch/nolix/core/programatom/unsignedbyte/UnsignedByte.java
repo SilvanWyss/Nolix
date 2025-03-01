@@ -1,7 +1,7 @@
 package ch.nolix.core.programatom.unsignedbyte;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
@@ -59,7 +59,7 @@ public final class UnsignedByte {
   public static UnsignedByte fromNumber(final int number) {
 
     //Asserts that the given number is in [0, 255].
-    GlobalValidator.assertThat(number).thatIsNamed(LowerCaseVariableCatalog.NUMBER).isBetween(0, 255);
+    Validator.assertThat(number).thatIsNamed(LowerCaseVariableCatalog.NUMBER).isBetween(0, 255);
 
     return new UnsignedByte((byte) (number - 128));
   }
@@ -79,7 +79,7 @@ public final class UnsignedByte {
    */
   public int getBitAtAsInt(final int index) {
 
-    GlobalValidator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isBetween(1, 8);
+    Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isBetween(1, 8);
 
     return (mByte >> (8 - index)) & 1;
   }

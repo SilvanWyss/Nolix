@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
@@ -58,7 +58,7 @@ public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
   public final void setReceiver(final Consumer<String> receiver) {
 
     //Asserts that the given receiver is not null.
-    GlobalValidator.assertThat(receiver).thatIsNamed(LowerCaseVariableCatalog.RECEIVER).isNotNull();
+    Validator.assertThat(receiver).thatIsNamed(LowerCaseVariableCatalog.RECEIVER).isNotNull();
 
     //Asserts that the current EndPoint is open.
     assertIsOpen();
@@ -105,7 +105,7 @@ public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
   protected final void setCustomTargetSlot(final String customTargetSlot) {
 
     //Asserts that the given customTargetSlot is not blank.
-    GlobalValidator.assertThat(customTargetSlot).thatIsNamed("custom target slot").isNotBlank();
+    Validator.assertThat(customTargetSlot).thatIsNamed("custom target slot").isNotBlank();
 
     //Asserts that the current EndPoint is open.
     assertIsOpen();

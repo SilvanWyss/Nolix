@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
@@ -102,7 +102,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
 
   private void updateStateForSetValue(final V value) {
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     internalValue = value;
   }

@@ -4,7 +4,7 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
@@ -253,7 +253,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   @Override
   public IMutableXmlNode setName(final String name) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
 
@@ -263,7 +263,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   @Override
   public IMutableXmlNode setValue(final String value) {
 
-    GlobalValidator.assertThat(value).isNotEmpty();
+    Validator.assertThat(value).isNotEmpty();
 
     this.value = value;
 

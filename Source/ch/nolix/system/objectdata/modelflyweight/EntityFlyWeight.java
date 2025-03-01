@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.modelflyweight;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
 
 public final class EntityFlyWeight implements IEntityFlyWeight {
@@ -9,7 +9,7 @@ public final class EntityFlyWeight implements IEntityFlyWeight {
 
   private EntityFlyWeight(final Runnable insertAction) {
 
-    GlobalValidator.assertThat(insertAction).thatIsNamed("insert action").isNotNull();
+    Validator.assertThat(insertAction).thatIsNamed("insert action").isNotNull();
 
     this.insertAction = insertAction;
   }

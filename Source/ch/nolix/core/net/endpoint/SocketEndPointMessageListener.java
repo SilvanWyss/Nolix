@@ -1,7 +1,7 @@
 package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.commontypetool.inputstreamtool.InputStreamTool;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
 
@@ -13,7 +13,7 @@ final class SocketEndPointMessageListener extends Worker {
 
   public SocketEndPointMessageListener(final SocketEndPoint parentNetEndPoint) {
 
-    GlobalValidator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+    Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
 
     this.parentNetEndPoint = parentNetEndPoint;
 

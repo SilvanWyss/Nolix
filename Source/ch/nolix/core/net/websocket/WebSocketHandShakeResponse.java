@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class WebSocketHandShakeResponse {
 
@@ -22,7 +22,7 @@ public final class WebSocketHandShakeResponse {
 
   public WebSocketHandShakeResponse(final String secWebSocketKey) {
 
-    GlobalValidator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
+    Validator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
 
     this.secWebSocketKey = secWebSocketKey;
 

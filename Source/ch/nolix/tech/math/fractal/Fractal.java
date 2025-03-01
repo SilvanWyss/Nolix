@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -47,47 +47,47 @@ public final class Fractal implements IFractal {
     final IntFunction<IColor> colorFunction,
     final int decimalPlaces) {
 
-    GlobalValidator
+    Validator
       .assertThat(realComponentInterval)
       .thatIsNamed("real component interval")
       .isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(imaginaryComponentInterval)
       .thatIsNamed("imaginary component interval")
       .isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(widthInPixel)
       .thatIsNamed("width in pixel")
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(heightInPixel)
       .thatIsNamed("height in pixel")
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(sequenceCreator)
       .thatIsNamed("sequence creator")
       .isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(sequencesMinDivergenceMagnitude)
       .thatIsNamed("sequences min divergence magnitude")
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(sequencesMaxIterationCount)
       .thatIsNamed("sequences max iteration count")
       .isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(colorFunction)
       .thatIsNamed("color function")
       .isNotNull();
 
-    GlobalValidator
+    Validator
       .assertThat(decimalPlaces)
       .thatIsNamed("big decimal scale")
       .isPositive();

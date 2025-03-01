@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
@@ -24,9 +24,9 @@ implements IAbstractBackReference<E> {
 
   protected AbstractBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
 
-    GlobalValidator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
+    Validator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
 
-    GlobalValidator
+    Validator
       .assertThat(backReferencedFieldName)
       .thatIsNamed("back referenced field name")
       .isNotBlank();

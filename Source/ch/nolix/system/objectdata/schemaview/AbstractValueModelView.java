@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
@@ -15,7 +15,7 @@ public abstract class AbstractValueModelView<V> implements IAbstractValueModelVi
 
   protected AbstractValueModelView(final Class<V> valueType) {
 
-    GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalog.VALUE_TYPE).isNotNull();
+    Validator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalog.VALUE_TYPE).isNotNull();
 
     this.valueType = valueType;
   }

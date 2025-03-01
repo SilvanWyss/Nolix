@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -16,7 +16,7 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
 
   protected AbstractReference(final String referencedTableName) {
 
-    GlobalValidator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
+    Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 
     this.referencedTableName = referencedTableName;
   }

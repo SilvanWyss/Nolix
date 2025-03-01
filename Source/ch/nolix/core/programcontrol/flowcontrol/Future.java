@@ -2,7 +2,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
@@ -23,7 +23,7 @@ public final class Future extends AbstractFuture {
   Future(final JobRunner jobRunner) {
 
     //Asserts that the given jobRunner is not null.
-    GlobalValidator.assertThat(jobRunner).isOfType(JobRunner.class);
+    Validator.assertThat(jobRunner).isOfType(JobRunner.class);
 
     //Sets the jobRunner of the current Future.
     this.jobRunner = jobRunner;

@@ -1,6 +1,6 @@
 package ch.nolix.system.application.maintestutil;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.application.main.AbstractSession;
 
@@ -10,7 +10,7 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
 
   private TestSession(final Class<?> clientClass) {
 
-    GlobalValidator.assertThat(clientClass).thatIsNamed("client class").isNotNull();
+    Validator.assertThat(clientClass).thatIsNamed("client class").isNotNull();
 
     this.clientClass = clientClass;
   }

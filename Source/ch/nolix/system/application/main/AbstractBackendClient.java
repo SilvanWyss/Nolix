@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 
 /**
@@ -188,7 +188,7 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   final void internalSetParentApplication(final Application<C, S> parentApplication) {
 
     //Asserts that the given parent application is not null.
-    GlobalValidator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
+    Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
 
     //Asserts that the current client does not reference its parent application.
     assertDoesNotReferenceParentApplication();

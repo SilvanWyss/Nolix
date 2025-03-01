@@ -1,7 +1,7 @@
 package ch.nolix.system.noderawschema.schemawriter;
 
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -61,7 +61,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private SchemaWriter(final IMutableNode<?> nodeDatabase) {
 
-    GlobalValidator.assertThat(nodeDatabase).thatIsNamed("database Node").isNotNull();
+    Validator.assertThat(nodeDatabase).thatIsNamed("database Node").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
 

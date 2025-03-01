@@ -7,7 +7,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -161,7 +161,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
       .isNotNull();
@@ -172,7 +172,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public IButton setLeftMouseButtonPressAction(final Consumer<IButton> leftMouseButtonPressAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
       .isNotNull();
@@ -185,7 +185,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
       .isNotNull();
@@ -196,7 +196,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
 
-    GlobalValidator
+    Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
       .isNotNull();

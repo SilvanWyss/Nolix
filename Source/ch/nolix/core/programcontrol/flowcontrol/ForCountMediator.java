@@ -4,7 +4,7 @@ import java.util.function.IntConsumer;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
@@ -26,7 +26,7 @@ public final class ForCountMediator {
    */
   private ForCountMediator(final int maxRunCount) {
 
-    GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     this.maxRunCount = maxRunCount;
   }
@@ -48,7 +48,7 @@ public final class ForCountMediator {
    */
   public void run(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     for (var i = 1; i <= maxRunCount; i++) {
       job.run();
@@ -63,7 +63,7 @@ public final class ForCountMediator {
    */
   public void run(final IntConsumer job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     for (var i = 1; i <= maxRunCount; i++) {
       job.accept(i);

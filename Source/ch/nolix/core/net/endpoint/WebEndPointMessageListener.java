@@ -1,6 +1,6 @@
 package ch.nolix.core.net.endpoint;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.websocket.WebSocketCompleteMessage;
 import ch.nolix.core.programcontrol.worker.BatchWorker;
 
@@ -10,7 +10,7 @@ final class WebEndPointMessageListener extends BatchWorker {
 
   private WebEndPointMessageListener(final WebSocketEndPoint parentWebEndPoint) {
 
-    GlobalValidator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
+    Validator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
 
     this.parentWebEndPoint = parentWebEndPoint;
 

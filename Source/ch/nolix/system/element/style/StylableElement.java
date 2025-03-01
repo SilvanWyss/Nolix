@@ -1,6 +1,6 @@
 package ch.nolix.system.element.style;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -30,7 +30,7 @@ implements IStylableElement<E> {
   @Override
   public final E addToken(final String token) {
 
-    GlobalValidator.assertThat(token).thatIsNamed(LowerCaseVariableCatalog.TOKEN).isNotBlank();
+    Validator.assertThat(token).thatIsNamed(LowerCaseVariableCatalog.TOKEN).isNotBlank();
 
     tokens.add(token);
 
@@ -108,7 +108,7 @@ implements IStylableElement<E> {
   @Override
   public final E setId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id.setValue(id);
 

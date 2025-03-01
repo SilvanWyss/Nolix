@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
@@ -13,7 +13,7 @@ final class ControlParent {
 
   private ControlParent(final IControl<?, ?> control) {
 
-    GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
+    Validator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
 
     layer = null;
     this.control = control;
@@ -21,7 +21,7 @@ final class ControlParent {
 
   private ControlParent(final ILayer<?> layer) {
 
-    GlobalValidator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
+    Validator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
 
     this.layer = layer;
     control = null;

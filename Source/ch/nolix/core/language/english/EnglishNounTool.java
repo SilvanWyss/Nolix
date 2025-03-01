@@ -1,7 +1,7 @@
 package ch.nolix.core.language.english;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.wordapi.EnglishArticleCatalog;
 
@@ -18,7 +18,7 @@ public final class EnglishNounTool {
 
   public String getPluralOfNoun(final String noun) {
 
-    GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalog.NOUN).isNotBlank();
+    Validator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalog.NOUN).isNotBlank();
 
     return switch (noun) {
       case "child" ->

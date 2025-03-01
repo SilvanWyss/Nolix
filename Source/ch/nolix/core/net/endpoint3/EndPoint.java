@@ -2,7 +2,7 @@ package ch.nolix.core.net.endpoint3;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -59,7 +59,7 @@ public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
   public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
 
     //Asserts that the given receiverController is not null.
-    GlobalValidator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
+    Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 
     //Sets the receiver controller of the current EndPoint.
     this.receiverController = receiverController;

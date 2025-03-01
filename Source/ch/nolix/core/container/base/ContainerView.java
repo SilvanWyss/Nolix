@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -51,16 +51,16 @@ public final class ContainerView<E> extends Container<E> {
    */
   private ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
 
-    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
-    GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
+    Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
+    Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
+    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(endIndex)
       .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isBiggerThanOrEquals(startIndex);
 
-    GlobalValidator
+    Validator
       .assertThat(endIndex)
       .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isNotBiggerThan(container.getCount());
@@ -108,9 +108,9 @@ public final class ContainerView<E> extends Container<E> {
   @Override
   public E getStoredAt1BasedIndex(final int param1BasedIndex) {
 
-    GlobalValidator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
+    Validator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
 
-    GlobalValidator
+    Validator
       .assertThat(param1BasedIndex)
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());

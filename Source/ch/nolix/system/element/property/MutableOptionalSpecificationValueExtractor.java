@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -28,10 +28,10 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     final BooleanSupplier valuePresenceChecker,
     final Supplier<Node> getter) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
-    GlobalValidator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
-    GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
+    Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
+    Validator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
+    Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
 
     this.name = name;
     this.setter = setter;

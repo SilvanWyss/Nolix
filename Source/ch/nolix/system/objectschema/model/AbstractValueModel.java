@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractValueModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
@@ -12,7 +12,7 @@ public abstract class AbstractValueModel<V> implements IAbstractValueModel<V> {
 
   protected AbstractValueModel(final DataType dataType) {
 
-    GlobalValidator.assertThat(dataType).thatIsNamed(DataType.class).isNotNull();
+    Validator.assertThat(dataType).thatIsNamed(DataType.class).isNotNull();
 
     this.dataType = dataType;
   }

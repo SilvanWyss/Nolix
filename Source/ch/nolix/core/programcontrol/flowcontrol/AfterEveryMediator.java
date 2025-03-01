@@ -5,7 +5,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAfterEveryMediator;
 
@@ -35,8 +35,8 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
 
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
-    GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     maxRunCount = null;
     this.condition = condition;
@@ -60,9 +60,9 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
 
-    GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
-    GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
-    GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
+    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     this.maxRunCount = maxRunCount;
     this.condition = condition;
@@ -176,7 +176,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   private void runWhenDoesNotHaveMaxRunCount(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     assertHasCondition();
 
@@ -194,7 +194,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   private void runWhenHasMaxRunCount(final Runnable job) {
 
-    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {

@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
@@ -16,7 +16,7 @@ implements IAbstractBackReferenceModelView<C, ITable<IEntity>> {
 
   protected AbstractBackReferenceModelView(final C backReferencedColumn) {
 
-    GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
+    Validator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 
     this.backReferencedColumn = backReferencedColumn;
   }

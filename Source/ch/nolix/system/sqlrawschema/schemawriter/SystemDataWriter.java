@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawschema.schemawriter;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.statementcreator.DatabasePropertiesStatementCreator;
@@ -23,7 +23,7 @@ public final class SystemDataWriter implements ChangeRequestable {
 
   public SystemDataWriter(final SqlCollector sqlCollector) {
 
-    GlobalValidator.assertThat(sqlCollector).thatIsNamed(SqlCollector.class).isNotNull();
+    Validator.assertThat(sqlCollector).thatIsNamed(SqlCollector.class).isNotNull();
 
     this.sqlCollector = sqlCollector;
   }

@@ -7,7 +7,7 @@ import java.net.Socket;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
@@ -36,9 +36,9 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
 
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 
-    GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
-    GlobalValidator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
-    GlobalValidator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
+    Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
+    Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
+    Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 
     peerType = PeerType.BACKEND;
     this.socket = socket;

@@ -4,7 +4,7 @@ import ch.nolix.application.serverdashboard.backend.datamodel.WebApplicationInfo
 import ch.nolix.application.serverdashboard.backend.tool.WebApplicationExtractor;
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDashboardService;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.application.main.AbstractServer;
@@ -18,7 +18,7 @@ public final class ServerDashboardService implements IServerDashboardService {
 
   private ServerDashboardService(final AbstractServer<?> server) {
 
-    GlobalValidator.assertThat(server).thatIsNamed(LowerCaseVariableCatalog.SERVER).isNotNull();
+    Validator.assertThat(server).thatIsNamed(LowerCaseVariableCatalog.SERVER).isNotNull();
 
     this.server = server;
   }

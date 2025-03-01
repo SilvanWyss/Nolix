@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -31,11 +31,11 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
 
-    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
-    GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
-    GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-    GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
+    Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+    Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
 
     this.name = name;
     this.setter = setter;

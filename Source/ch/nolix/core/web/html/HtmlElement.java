@@ -2,7 +2,7 @@ package ch.nolix.core.web.html;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -28,8 +28,8 @@ public final class HtmlElement implements IHtmlElement {
     final String innerText,
     final IContainer<? extends IHtmlElement> childElements) {
 
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotBlank();
-    GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotBlank();
+    Validator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
     this.type = type;
     this.attributes = attributes.to(HtmlAttribute::fromHtmlAttribute);

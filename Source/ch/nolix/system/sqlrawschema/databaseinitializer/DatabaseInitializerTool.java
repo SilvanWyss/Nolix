@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlrawschema.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
@@ -59,7 +59,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     final ISqlConnection sqlConnection,
     final String databaseName) {
 
-    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
 
     final var query = //
     DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createStatementToCreateSchemaTimestampEntry(schemaTimestamp);

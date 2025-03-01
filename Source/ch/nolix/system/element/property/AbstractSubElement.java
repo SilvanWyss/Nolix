@@ -2,7 +2,7 @@ package ch.nolix.system.element.property;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
@@ -18,7 +18,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
     final String attributePrefix,
     final E internalSubElement) {
 
-    GlobalValidator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
+    Validator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
 
     this.attributePrefix = attributePrefix;
     internalSetSubElement(internalSubElement);
@@ -60,7 +60,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
 
   protected final void internalSetSubElement(final E internalSubElement) {
 
-    GlobalValidator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
+    Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 
     if (this.internalSubElement != null && !isExchangable()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");

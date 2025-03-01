@@ -3,7 +3,7 @@ package ch.nolix.tech.math.bigdecimalmath;
 import java.math.BigDecimal;
 import java.util.function.IntFunction;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 public final class ComplexExplicitSequence extends AbstractSequence<IComplexNumber> {
@@ -12,7 +12,7 @@ public final class ComplexExplicitSequence extends AbstractSequence<IComplexNumb
 
   public ComplexExplicitSequence(final IntFunction<IComplexNumber> valueFunction) {
 
-    GlobalValidator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
+    Validator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
 
     this.valueFunction = valueFunction;
   }

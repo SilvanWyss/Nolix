@@ -8,7 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -278,7 +278,7 @@ implements IControl<C, S> {
   @Override
   public final void linkTo(final Object object) {
 
-    GlobalValidator.assertThat(object).thatIsNamed(Object.class).isNotNull();
+    Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
     assertIsNotLinkedAnObject();
 
     linkedObject = object;
@@ -493,7 +493,7 @@ implements IControl<C, S> {
 
   private void setParent(final ControlParent parent) {
 
-    GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
+    Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
     assertDoesNotBelongToParent();
 
     this.parent = parent;

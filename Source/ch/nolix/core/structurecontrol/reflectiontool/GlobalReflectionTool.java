@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Member;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.structurecontrol.reflectionexaminer.ExecutableExaminer;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.core.structurecontrol.reflectionexaminer.MemberExaminer;
@@ -47,7 +47,7 @@ public final class GlobalReflectionTool {
 
   public static Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
 
-    GlobalValidator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     var localClass = object.getClass();
     while (localClass != null) {

@@ -66,7 +66,7 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
   @Override
   public final void containsObjectOfType(Class<Object> type) {
 
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     final var argument = getStoredArgument();
 

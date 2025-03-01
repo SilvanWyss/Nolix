@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
@@ -30,7 +30,7 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   public ClientDataProviderController(final AbstractClient<?> parentClient) {
 
-    GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+    Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
     this.parentClient = parentClient;
   }

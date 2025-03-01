@@ -1,7 +1,7 @@
 package ch.nolix.system.element.property;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
@@ -33,7 +33,7 @@ public abstract class AbstractExtensionElement<E extends IRespondingMutableEleme
 
   protected final void internalSetExtensionElement(final E internalExtensionElement) {
 
-    GlobalValidator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
+    Validator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
 
     if (this.internalExtensionElement != null && !isExchangable()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");

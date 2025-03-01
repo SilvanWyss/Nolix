@@ -1,6 +1,6 @@
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends Application<C, S> {
 
@@ -15,8 +15,8 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
 
     super(applicationService);
 
-    GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
-    GlobalValidator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+    Validator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
+    Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 
     this.applicationName = applicationName;
     this.initialSessionClass = initialSessionClass;

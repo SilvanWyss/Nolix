@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.itemmenu.base;
 import java.util.function.Consumer;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -55,7 +55,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
 
-    GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+    Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
     this.selectAction = selectAction;
   }
@@ -184,7 +184,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   @Override
   public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
 
-    GlobalValidator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
+    Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
 
     this.parentMenu = parentMenu;
   }
@@ -214,7 +214,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   private void setId(final String id) {
 
-    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id.setValue(id);
   }

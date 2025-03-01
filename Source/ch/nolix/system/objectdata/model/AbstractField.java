@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
@@ -137,7 +137,7 @@ public abstract class AbstractField implements IField {
 
   final void internalSetParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
 
-    GlobalValidator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
+    Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 
     this.parentColumn = parentColumn;
   }
@@ -150,7 +150,7 @@ public abstract class AbstractField implements IField {
 
   final void internalSetParentEntity(final AbstractEntity parentEntity) {
 
-    GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
+    Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
     FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
 
     this.parentEntity = parentEntity;

@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
@@ -64,7 +64,7 @@ extends AbstractElement implements ITime {
    */
   private Time(final ZonedDateTime zonedDateTime) {
 
-    GlobalValidator.assertThat(zonedDateTime).thatIsNamed(ZonedDateTime.class).isNotNull();
+    Validator.assertThat(zonedDateTime).thatIsNamed(ZonedDateTime.class).isNotNull();
 
     internalZonedDateTime = zonedDateTime;
   }
@@ -98,7 +98,7 @@ extends AbstractElement implements ITime {
    */
   public static Time fromString(final String string) {
 
-    GlobalValidator.assertThat(string).thatIsNamed("string").isNotNull();
+    Validator.assertThat(string).thatIsNamed("string").isNotNull();
 
     final var values = string.split("-");
 

@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.linearcontainer;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
@@ -37,7 +37,7 @@ implements ILinearContainerStyle<S> {
   @Override
   public S setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 
-    GlobalValidator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
+    Validator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 
     this.childControlMargin.setValueForState(state, childControlMargin);
 

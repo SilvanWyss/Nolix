@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //record
@@ -14,8 +14,8 @@ public record HtmlElementEvent(String htmlElementId, String htmlEvent) implement
     final String htmlElementId,
     final String htmlEvent) {
 
-    GlobalValidator.assertThat(htmlElementId).thatIsNamed("HTML element id").isNotBlank();
-    GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isNotBlank();
+    Validator.assertThat(htmlElementId).thatIsNamed("HTML element id").isNotBlank();
+    Validator.assertThat(htmlEvent).thatIsNamed("HTML event").isNotBlank();
 
     this.htmlElementId = htmlElementId;
     this.htmlEvent = htmlEvent;

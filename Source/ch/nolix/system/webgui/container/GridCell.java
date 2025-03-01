@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.container;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
@@ -82,14 +82,14 @@ public final class GridCell extends MutableElement implements Clearable {
 
   private void setColumnIndex(final int columnIndex) {
 
-    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
+    Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     this.columnIndex.setValue(columnIndex);
   }
 
   private void setRowIndex(final int rowIndex) {
 
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
+    Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     this.rowIndex.setValue(rowIndex);
   }

@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.container;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -151,7 +151,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
   private void expandColumnsTo(final int columnIndex) {
 
-    GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
+    Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
@@ -171,7 +171,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
   private void expandRowsTo(final int rowIndex) {
 
-    GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
+    Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
