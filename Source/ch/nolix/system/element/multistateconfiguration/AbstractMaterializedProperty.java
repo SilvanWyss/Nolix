@@ -14,7 +14,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
-public abstract class MaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
+public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
 
   private static final String NONE_HEADER = "None";
 
@@ -29,7 +29,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
   protected final StateProperty<V>[] stateProperties;
 
   @SuppressWarnings("unchecked")
-  protected MaterializedProperty(
+  protected AbstractMaterializedProperty(
     final String name,
     final Class<S> stateClass,
     final Function<INode<?>, V> valueCreator,
@@ -49,7 +49,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
   }
 
   @SuppressWarnings("unchecked")
-  protected MaterializedProperty(
+  protected AbstractMaterializedProperty(
     final String name,
     final Class<S> stateClass,
     final Function<INode<?>, V> valueCreator,
@@ -164,7 +164,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
   @Override
   @SuppressWarnings("unchecked")
   protected void setFrom(AbstractProperty<S> property) {
-    setFrom((MaterializedProperty<S, V>) property);
+    setFrom((AbstractMaterializedProperty<S, V>) property);
   }
 
   @Override
@@ -186,7 +186,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Abstrac
     }
   }
 
-  private void setFrom(final MaterializedProperty<S, V> materializedProperty) {
+  private void setFrom(final AbstractMaterializedProperty<S, V> materializedProperty) {
     for (var i = 0; i < stateProperties.length; i++) {
       switch (materializedProperty.stateProperties[i].getAssignmentType()) {
         case STORING_VALUE:
