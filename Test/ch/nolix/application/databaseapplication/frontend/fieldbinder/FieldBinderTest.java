@@ -7,7 +7,7 @@ import ch.nolix.system.objectdata.model.Value;
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 
-final class GlobalFieldBinderTest extends StandardTest {
+final class FieldBinderTest extends StandardTest {
 
   @Test
   void testCase_createControlAndBindItWith() {
@@ -16,7 +16,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     final var value = Value.withInitialValue("");
 
     //execution
-    final var result = GlobalFieldBinder.createControlAndBindItWith(value);
+    final var result = FieldBinder.createControlAndBindItWith(value);
 
     //verification part 1
     expect(result.getStoredField()).is(value);
@@ -57,7 +57,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     expect(value.isEmpty());
 
     //execution
-    final var result = GlobalFieldBinder.createControlAndBindItWith(value);
+    final var result = FieldBinder.createControlAndBindItWith(value);
 
     //verification
     expect(result.getStoredField()).is(value);
@@ -74,7 +74,7 @@ final class GlobalFieldBinderTest extends StandardTest {
     final var value = Value.withInitialValue("zebra");
 
     //execution
-    final var result = GlobalFieldBinder.createControlAndBindItWith(value);
+    final var result = FieldBinder.createControlAndBindItWith(value);
 
     //verification
     expect(result.getStoredField()).is(value);

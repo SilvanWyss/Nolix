@@ -2,11 +2,11 @@ package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
-public final class GlobalFieldBinder {
+public final class FieldBinder {
 
   private static final FieldBinderFactory FIELD_BINDER_FACTORY = new FieldBinderFactory();
 
-  private GlobalFieldBinder() {
+  private FieldBinder() {
   }
 
   public static <F extends IField> FieldBinding createControlAndBindItWith(final F field) {
