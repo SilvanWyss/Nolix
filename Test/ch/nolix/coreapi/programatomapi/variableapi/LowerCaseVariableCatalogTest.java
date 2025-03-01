@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 
@@ -19,7 +19,7 @@ final class LowerCaseVariableCatalogTest extends StandardTest {
     final var exceptions = LinkedList.withElement(LowerCaseVariableCatalog.GUI, LowerCaseVariableCatalog.URL);
 
     //verification
-    for (final var c : GlobalReflectionTool.getStoredPublicStaticFieldValuesOfClass(LowerCaseVariableCatalog.class)) {
+    for (final var c : ReflectionTool.getStoredPublicStaticFieldValuesOfClass(LowerCaseVariableCatalog.class)) {
 
       expect(c).isOfType(String.class);
 

@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
@@ -26,19 +26,19 @@ public final class X11ColorCatalogExtractor {
       final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 
       x11Colors.addAtEnd(
-        new Pair<>(GlobalReflectionTool.getValueFromStaticField(csf),
-          GlobalReflectionTool.getValueFromStaticField(colorField)));
+        new Pair<>(ReflectionTool.getValueFromStaticField(csf),
+          ReflectionTool.getValueFromStaticField(colorField)));
     }
 
     return x11Colors;
   }
 
   private boolean declaresColor(final Field field) {
-    return GlobalReflectionTool.isStaticAndStoresValueOfGivenType(field, IColor.class);
+    return ReflectionTool.isStaticAndStoresValueOfGivenType(field, IColor.class);
   }
 
   private boolean declaresColorName(final Field field) {
-    return (GlobalReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
+    return (ReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
   }
 
   private ILinkedList<Field> getColorFields(final Class<?> paramClass) {

@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -44,7 +44,7 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
   }
 
   private static boolean isField(final java.lang.reflect.Field javaField) {
-    return GlobalReflectionTool.hasGivenTypeOrSuperType(javaField, AbstractField.class);
+    return ReflectionTool.hasGivenTypeOrSuperType(javaField, AbstractField.class);
   }
 
   private static void fillUpFieldFromEntityAndJavaFieldIntoList(

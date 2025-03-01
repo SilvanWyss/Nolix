@@ -2,7 +2,7 @@ package ch.nolix.template.graphic.texture;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -13,7 +13,7 @@ final class TextureCatalogTest extends StandardTest {
   void testCase_constantsOfTextureCatalog() {
 
     //verification
-    final var textures = GlobalReflectionTool.getStoredPublicStaticFieldValuesOfClass(TextureCatalog.class);
+    final var textures = ReflectionTool.getStoredPublicStaticFieldValuesOfClass(TextureCatalog.class);
 
     for (final var t : textures) {
 

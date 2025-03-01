@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.structurecontrol.reflectiontool.ClassTool;
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
@@ -285,7 +285,7 @@ implements IApplication<S> {
    */
   private C createBackendClientWithEndPoint(final IEndPoint endPoint) {
 
-    final C backendClient = GlobalReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
+    final C backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
     backendClient.internalSetEndPoint(endPoint);
 
     return backendClient;

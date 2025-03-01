@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
@@ -42,7 +42,7 @@ public abstract class AbstractField implements IField {
     }
 
     if (belongsToEntity()) {
-      return GlobalReflectionTool.getNameOfFirstFieldOfObjectThatStoresValue(getStoredParentEntity(), this);
+      return ReflectionTool.getNameOfFirstFieldOfObjectThatStoresValue(getStoredParentEntity(), this);
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate name");

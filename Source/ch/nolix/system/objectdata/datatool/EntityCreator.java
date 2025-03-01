@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.datatool;
 
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityCreator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
@@ -27,6 +27,6 @@ public final class EntityCreator implements IEntityCreator {
    */
   @Override
   public <E extends IEntity> E createEmptyEntityForEntityType(final Class<E> entityType) {
-    return GlobalReflectionTool.createInstanceFromDefaultConstructorOfClass(entityType);
+    return ReflectionTool.createInstanceFromDefaultConstructorOfClass(entityType);
   }
 }

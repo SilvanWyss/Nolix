@@ -16,7 +16,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
 
-public final class GlobalReflectionTool {
+public final class ReflectionTool {
 
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
@@ -30,7 +30,7 @@ public final class GlobalReflectionTool {
 
   private static final ObjectTool OBJECT_TOOL = new ObjectTool();
 
-  private GlobalReflectionTool() {
+  private ReflectionTool() {
   }
 
   public static boolean allParametersOfMethodAreOfType(final Executable executable, final Class<?> type) {

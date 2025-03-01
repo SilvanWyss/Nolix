@@ -43,7 +43,7 @@ public final class ClassTool implements IClassTool {
     for (final var f : paramClass.getDeclaredFields()) {
 
       //Handles the case that the current field is .
-      if (FIELD_EXAMINER.isStatic(f) && GlobalReflectionTool.isPublic(f)) {
+      if (FIELD_EXAMINER.isStatic(f) && ReflectionTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));
         } catch (final IllegalAccessException illegalAccessException) {

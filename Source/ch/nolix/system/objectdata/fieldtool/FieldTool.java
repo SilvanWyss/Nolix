@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.fieldtool;
 import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.structurecontrol.reflectiontool.GlobalReflectionTool;
+import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
@@ -65,7 +65,7 @@ public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
 
     final var fieldParentEntity = field.getStoredParentEntity();
 
-    final var entityField = GlobalReflectionTool.getFirstFieldOfObjectThatStoresValue(fieldParentEntity, field);
+    final var entityField = ReflectionTool.getFirstFieldOfObjectThatStoresValue(fieldParentEntity, field);
 
     final var fieldDeclaredType = (ParameterizedType) entityField.getGenericType();
 
