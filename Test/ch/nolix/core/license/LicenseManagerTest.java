@@ -8,7 +8,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
-final class GlobalLicenseManagerTest extends StandardTest {
+final class LicenseManagerTest extends StandardTest {
 
   private static final class TestLicense extends License {
 
