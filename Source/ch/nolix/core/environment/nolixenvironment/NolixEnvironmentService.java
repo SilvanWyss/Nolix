@@ -7,9 +7,9 @@ import java.nio.file.Path;
 
 import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
 
-public final class GlobalNolixEnvironmentProvider {
+public final class NolixEnvironmentService {
 
-  private GlobalNolixEnvironmentProvider() {
+  private NolixEnvironmentService() {
   }
 
   public static String getNolixConfigurationFilePath() {
