@@ -3,7 +3,7 @@ package ch.nolix.core.errorcontrol.logging;
 import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
 
-public final class GlobalLogger {
+public final class Logger {
 
   //static attribute
   private static boolean active = true;
@@ -14,7 +14,7 @@ public final class GlobalLogger {
   //static multi-attribute
   private static final List<LogHandler> logHandlers = new List<>();
 
-  private GlobalLogger() {
+  private Logger() {
   }
 
   //static initialization
@@ -52,7 +52,7 @@ public final class GlobalLogger {
   public static void logError(final Throwable error) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -66,7 +66,7 @@ public final class GlobalLogger {
   public static void logError(final String error) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -85,7 +85,7 @@ public final class GlobalLogger {
     final String errorPredicate) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -104,7 +104,7 @@ public final class GlobalLogger {
     final String errorPredicate) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -120,7 +120,7 @@ public final class GlobalLogger {
   public static void logFatalError(final String fatalError) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -136,7 +136,7 @@ public final class GlobalLogger {
   public static void logInfo(final String info) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -152,7 +152,7 @@ public final class GlobalLogger {
   public static void logInfo(final String valueName, final double value) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -168,7 +168,7 @@ public final class GlobalLogger {
   public static void logInfo(final String valueName, final long value) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }
@@ -184,7 +184,7 @@ public final class GlobalLogger {
   public static void logWarning(final String warning) {
     if (active) {
 
-      synchronized (GlobalLogger.class) {
+      synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
         }

@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.closepool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.logging.GlobalLogger;
+import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
@@ -128,7 +128,7 @@ final class ClosePool implements IClosePool {
     try {
       element.noteClose();
     } catch (final Throwable exception) { //NOSONAR: All Throwables must be caught.
-      GlobalLogger.logError(exception);
+      Logger.logError(exception);
     }
   }
 }

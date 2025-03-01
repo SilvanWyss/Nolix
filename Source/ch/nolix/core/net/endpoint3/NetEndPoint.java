@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logging.GlobalLogger;
+import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -269,7 +269,7 @@ public final class NetEndPoint extends EndPoint {
       return receiveAndGetReply(ChainedNode.fromString(message));
     } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
 
-      GlobalLogger.logError(error);
+      Logger.logError(error);
 
       if (error.getMessage() == null) {
         return MessageHeaderCatalog.ERROR_HEADER;

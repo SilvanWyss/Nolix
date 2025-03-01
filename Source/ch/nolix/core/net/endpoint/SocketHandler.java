@@ -13,7 +13,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.logging.GlobalLogger;
+import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
@@ -80,7 +80,7 @@ public final class SocketHandler {
 
     final var firstReveivedLine = INPUT_STREAM_TOOL.readLineFromInputStream(socketInputStream.get());
 
-    GlobalLogger.logInfo(
+    Logger.logInfo(
       "The current SocketHandler received the first line from the given socket: "
       + STRING_TOOL.getInSingleQuotes(firstReveivedLine));
 
@@ -110,7 +110,7 @@ public final class SocketHandler {
 
     if (WebSocketHandShakeRequest.canBe(lines)) {
 
-      GlobalLogger.logInfo(
+      Logger.logInfo(
         "The current SocketHandler has received the web socket opening handshake request: "
         + STRING_TOOL.getInSingleQuotes(lines.toString()));
 
@@ -118,7 +118,7 @@ public final class SocketHandler {
         .getWebSocketHandShakeResponse()
         .toString();
 
-      GlobalLogger.logInfo(
+      Logger.logInfo(
         "The current SocketHandler sends the opening handshake response: "
         + STRING_TOOL.getInSingleQuotes(openingHandshakeResponse));
 
@@ -177,7 +177,7 @@ public final class SocketHandler {
       return Optional.of(socket.getInputStream());
     } catch (final IOException ioException) {
 
-      GlobalLogger.logError(ioException);
+      Logger.logError(ioException);
 
       return Optional.empty();
     }
@@ -188,7 +188,7 @@ public final class SocketHandler {
       return Optional.of(socket.getOutputStream());
     } catch (final IOException ioException) {
 
-      GlobalLogger.logError(ioException);
+      Logger.logError(ioException);
 
       return Optional.empty();
     }

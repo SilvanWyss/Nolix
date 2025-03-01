@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logging.GlobalLogger;
+import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -116,7 +116,7 @@ final class ResultJobRunner<R> extends Thread {
       result = resultJob.get();
     } catch (final Throwable paramError) { //NOSONAR: Each Throwable must be caught here.
       error = paramError;
-      GlobalLogger.logError(paramError);
+      Logger.logError(paramError);
     } finally {
       running = false;
     }
