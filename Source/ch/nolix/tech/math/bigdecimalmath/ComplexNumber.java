@@ -5,7 +5,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.math.main.Calculator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
@@ -26,7 +26,7 @@ public final class ComplexNumber implements IComplexNumber {
     Validator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
     Validator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
 
-    final var decimalPlaces = GlobalCalculator.getMax(realComponent.scale(), imaginaryComponent.scale(), 10);
+    final var decimalPlaces = Calculator.getMax(realComponent.scale(), imaginaryComponent.scale(), 10);
     this.realComponent = realComponent.setScale(decimalPlaces, RoundingMode.HALF_UP);
     this.imaginaryComponent = imaginaryComponent.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
@@ -49,7 +49,7 @@ public final class ComplexNumber implements IComplexNumber {
     final var realComponentBigDecimal = BigDecimal.valueOf(realComponent);
     final var imaginaryComponentBigDecimal = BigDecimal.valueOf(imaginaryComponent);
 
-    final var decimalPlaces = GlobalCalculator.getMax(realComponentBigDecimal.scale(),
+    final var decimalPlaces = Calculator.getMax(realComponentBigDecimal.scale(),
       imaginaryComponentBigDecimal.scale(), 10);
 
     this.realComponent = realComponentBigDecimal.setScale(decimalPlaces, RoundingMode.HALF_UP);

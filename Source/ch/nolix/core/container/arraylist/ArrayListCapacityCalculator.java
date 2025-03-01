@@ -2,7 +2,7 @@ package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.math.main.Calculator;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 
 public final class ArrayListCapacityCalculator {
@@ -30,7 +30,7 @@ public final class ArrayListCapacityCalculator {
       return Integer.MAX_VALUE;
     }
 
-    return GlobalCalculator.getMax(requiredCapacity, 2 * actualCapacity);
+    return Calculator.getMax(requiredCapacity, 2 * actualCapacity);
   }
 
   /**

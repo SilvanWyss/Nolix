@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.math.main.Calculator;
 import ch.nolix.core.math.main.GlobalNumberComparator;
 import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
 import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
@@ -273,7 +273,7 @@ public final class Polynom {
     }
 
     final var degree = getDegree();
-    final var derivedDegree = GlobalCalculator.getMax(0, degree - deriveCount);
+    final var derivedDegree = Calculator.getMax(0, degree - deriveCount);
     final var derivedCoefficients = new double[derivedDegree + 1];
 
     for (var derivedCoefficientIndex = 0; derivedCoefficientIndex <= derivedDegree; derivedCoefficientIndex++) {

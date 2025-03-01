@@ -7,7 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.GlobalCalculator;
+import ch.nolix.core.math.main.Calculator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
@@ -162,7 +162,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
     for (var y = 1; y < heightInpixel; y += IMAGE_ROWS_PER_THREAD) {
 
       final var startImageRow = y;
-      final var endImageRow = GlobalCalculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
+      final var endImageRow = Calculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
 
       lFutures.addAtEnd(
         jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow)));

@@ -12,19 +12,19 @@ import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * The {@link GlobalCalculator} provides mathematical functions.
+ * The {@link Calculator} provides mathematical functions.
  * 
  * @author Silvan Wyss
  * @version 2016-05-01
  */
-public final class GlobalCalculator {
+public final class Calculator {
 
   private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
   /**
-   * Prevents that an instance of the {@link GlobalCalculator} can be created.
+   * Prevents that an instance of the {@link Calculator} can be created.
    */
-  private GlobalCalculator() {
+  private Calculator() {
   }
 
   /**
