@@ -7,7 +7,7 @@ import ch.nolix.core.programatom.function.GlobalFunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-final class GlobalSequencerTest extends StandardTest {
+final class FlowControllerTest extends StandardTest {
 
   @Test
   void testCase_runInBackground_whenFailingProcessIsGiven() {
