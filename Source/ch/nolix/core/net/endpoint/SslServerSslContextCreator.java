@@ -32,6 +32,8 @@ final class SslServerSslContextCreator {
 
   private static final String PASSWORD = "my_password";
 
+  private static final char[] PASSWORD_AS_CHAR_ARRAY = PASSWORD.toCharArray();
+
   private static final SslCertificateKeyReader SSL_CERTIFICATE_KEY_READER = new SslCertificateKeyReader();
 
   public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
@@ -42,12 +44,12 @@ final class SslServerSslContextCreator {
       final var key = getPrivateKey(paramSSLCertificate);
 
       final var keystore = KeyStore.getInstance("JKS");
-      keystore.load(null, PASSWORD.toCharArray());
+      keystore.load(null, PASSWORD_AS_CHAR_ARRAY);
       keystore.setCertificateEntry("cert-alias", cert);
-      keystore.setKeyEntry("key-alias", key, PASSWORD.toCharArray(), new Certificate[] { cert });
+      keystore.setKeyEntry("key-alias", key, PASSWORD_AS_CHAR_ARRAY, new Certificate[] { cert });
 
       final var keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-      keyManagerFactory.init(keystore, PASSWORD.toCharArray());
+      keyManagerFactory.init(keystore, PASSWORD_AS_CHAR_ARRAY);
 
       final var sslContext = SSLContext.getInstance("TLS");
       sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
