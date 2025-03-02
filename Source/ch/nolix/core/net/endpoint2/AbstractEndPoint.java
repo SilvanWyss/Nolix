@@ -13,7 +13,7 @@ import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
  * @author Silvan Wyss
  * @version 2017-05-21
  */
-public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint {
+public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
 
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 
@@ -48,7 +48,7 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is closed.
    */
   protected final void assertIsOpen() {
     if (isClosed()) {

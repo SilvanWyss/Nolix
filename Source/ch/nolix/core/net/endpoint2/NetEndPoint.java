@@ -15,13 +15,13 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link NetEndPoint} is a {@link EndPoint} that can send messages to an
+ * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to an
  * other {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
  * @version 2017-05-22
  */
-public final class NetEndPoint extends EndPoint {
+public final class NetEndPoint extends AbstractEndPoint {
 
   private int nextSentPackageIndex = 1;
 

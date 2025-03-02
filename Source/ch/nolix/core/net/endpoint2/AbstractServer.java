@@ -105,7 +105,7 @@ public abstract class AbstractServer implements IServer {
   /**
    * Lets the current {@link AbstractServer} take the given endPoint.
    * 
-   * @param endPoint
+   * @param abstractEndPoint
    * @throws ClosedArgumentException               if the given endPoint is
    *                                               closed.
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
@@ -120,14 +120,14 @@ public abstract class AbstractServer implements IServer {
    *                                               name that equals the target of
    *                                               the given endPoint.
    */
-  final void internalTakeBackendEndPoint(final EndPoint endPoint) {
+  final void internalTakeBackendEndPoint(final AbstractEndPoint abstractEndPoint) {
 
-    endPoint.assertIsOpen();
+    abstractEndPoint.assertIsOpen();
 
-    if (!endPoint.hasCustomTargetSlot()) {
-      getStoredDefaultSlot().takeBackendEndPoint(endPoint);
+    if (!abstractEndPoint.hasCustomTargetSlot()) {
+      getStoredDefaultSlot().takeBackendEndPoint(abstractEndPoint);
     } else {
-      getStoredSlotByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
+      getStoredSlotByName(abstractEndPoint.getCustomTargetSlot()).takeBackendEndPoint(abstractEndPoint);
     }
   }
 
