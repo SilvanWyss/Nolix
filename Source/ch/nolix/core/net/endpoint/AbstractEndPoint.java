@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-05-06
  */
-public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint {
+public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
 
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
@@ -68,7 +68,7 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is closed.
    */
   protected final void assertIsOpen() {
     if (isClosed()) {
@@ -77,8 +77,8 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @return the receiver of the current {@link EndPoint}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
+   * @return the receiver of the current {@link AbstractEndPoint}.
+   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
    *                                               does not have a receiver.
    */
   protected final Consumer<String> getStoredReceiver() {
@@ -95,12 +95,12 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * Sets the custom target slot of the current {@link EndPoint}.
+   * Sets the custom target slot of the current {@link AbstractEndPoint}.
    * 
    * @param customTargetSlot
    * @throws ArgumentIsNullException  if the given customTargetSlot is null.
    * @throws InvalidArgumentException if the given customTargetSlot is blank.
-   * @throws ClosedArgumentException  if the current {@link EndPoint} is closed.
+   * @throws ClosedArgumentException  if the current {@link AbstractEndPoint} is closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {
 
@@ -115,7 +115,7 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
+   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
    *                                               does not have a custom target
    *                                               slot.
    */
@@ -126,7 +126,7 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
+   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
    *                                               does not have a receiver.
    */
   private void assertHasReceiver() {

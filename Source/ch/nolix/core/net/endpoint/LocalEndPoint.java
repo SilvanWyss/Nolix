@@ -11,13 +11,13 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link LocalEndPoint} is an {@link EndPoint} that can send messages to
+ * A {@link LocalEndPoint} is an {@link AbstractEndPoint} that can send messages to
  * another {@link LocalEndPoint}.
  * 
  * @author Silvan Wyss
  * @version 2017-05-06
  */
-public final class LocalEndPoint extends EndPoint {
+public final class LocalEndPoint extends AbstractEndPoint {
 
   private final PeerType peerType;
 

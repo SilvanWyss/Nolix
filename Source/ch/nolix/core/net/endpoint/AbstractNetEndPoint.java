@@ -17,7 +17,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public abstract class AbstractNetEndPoint extends EndPoint {
+public abstract class AbstractNetEndPoint extends AbstractEndPoint {
 
   private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
 
