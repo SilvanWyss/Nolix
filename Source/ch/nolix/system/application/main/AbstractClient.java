@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.core.net.endpoint3.AbstractEndPoint;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -256,7 +256,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * Sets the {@link EndPoint} of the current {@link AbstractClient}.
+   * Sets the {@link AbstractEndPoint} of the current {@link AbstractClient}.
    * 
    * @param endPoint
    * @throws ArgumentIsNullException  if the given endPoint is null.
@@ -266,7 +266,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   final void internalSetEndPoint(final IEndPoint endPoint) {
 
     //Asserts that the given endPoint is not null.
-    Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
+    Validator.assertThat(endPoint).thatIsNamed(AbstractEndPoint.class).isNotNull();
 
     //Asserts that the current Client is not already connected.
     assertIsNotConnected();
@@ -302,7 +302,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return the {@link EndPoint} of the current {@link AbstractClient}.
+   * @return the {@link AbstractEndPoint} of the current {@link AbstractClient}.
    * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
    *                                      not connected.
    */

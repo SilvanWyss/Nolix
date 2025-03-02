@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class NetEndPoint extends EndPoint {
+public final class NetEndPoint extends AbstractEndPoint {
 
   private static final IStringTool STRING_TOOL = new StringTool();
 

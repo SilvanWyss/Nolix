@@ -14,13 +14,13 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint {
+public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
 
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   private IDataProviderController receiverController;
 
-  EndPoint() {
+  AbstractEndPoint() {
   }
 
   /**
@@ -66,7 +66,7 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is closed.
    */
   protected void assertIsOpen() {
     if (isClosed()) {
@@ -75,8 +75,8 @@ public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint
   }
 
   /**
-   * @return the receiver controller of the current {@link EndPoint}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
+   * @return the receiver controller of the current {@link AbstractEndPoint}.
+   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
    *                                               does not have a receiver
    *                                               controller.
    */

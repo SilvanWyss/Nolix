@@ -4,7 +4,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.core.net.endpoint3.AbstractEndPoint;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 
 /**
  * A {@link ClientDataProviderController} is a {@link IDataProviderController}
- * for the {@link EndPoint} of a {@link AbstractClient}.
+ * for the {@link AbstractEndPoint} of a {@link AbstractClient}.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01

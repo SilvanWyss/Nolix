@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.core.net.endpoint3.AbstractEndPoint;
 
 /**
  * @author Silvan Wyss
@@ -89,15 +89,15 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Sets the {@link EndPoint} of the current {@link AbstractBackendClient}.
+   * Sets the {@link AbstractEndPoint} of the current {@link AbstractBackendClient}.
    * 
-   * @param endPoint
+   * @param abstractEndPoint
    * @throws ArgumentIsNullException  if the given endPoint is null.
    * @throws InvalidArgumentException if the current {@link AbstractBackendClient} is
    *                                  already connected.
    */
-  protected final void setEndPoint(final EndPoint endPoint) {
-    internalSetEndPoint(endPoint);
+  protected final void setEndPoint(final AbstractEndPoint abstractEndPoint) {
+    internalSetEndPoint(abstractEndPoint);
   }
 
   /**
