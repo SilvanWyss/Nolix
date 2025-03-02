@@ -78,7 +78,7 @@ implements IAbstractBackReference<E> {
   protected abstract boolean referencesBackEntityWithId(String id);
 
   @Override
-  final void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
+  final void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
     //Does nothing.
   }
 

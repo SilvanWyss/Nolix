@@ -157,7 +157,7 @@ public abstract class AbstractField implements IField {
     setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
   }
 
-  abstract void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase();
+  abstract void updateBackReferencingFieldsWhenIsInsertedIntoDatabase();
 
   private DatabaseObjectState getStateWhenBelongsToEntity() {
 

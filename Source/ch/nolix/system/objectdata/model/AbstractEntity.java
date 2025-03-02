@@ -324,7 +324,7 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   private void updateBaseBackReferencesWhenIsInsertedIntoDatabase() {
-    getStoredFields().forEach(AbstractField::internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase);
+    getStoredFields().forEach(AbstractField::updateBackReferencingFieldsWhenIsInsertedIntoDatabase);
   }
 
   private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {

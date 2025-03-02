@@ -59,7 +59,7 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
   }
 
   @Override
-  final void internalUpdatePotentialBaseBackReferencesWhenIsInsertedIntoDatabase() {
+  final void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
     //Does nothing.
   }
 }
