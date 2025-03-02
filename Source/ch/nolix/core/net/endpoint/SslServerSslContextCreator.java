@@ -17,7 +17,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 
-//Javax imports
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 

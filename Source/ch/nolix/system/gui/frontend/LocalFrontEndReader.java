@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-//Javax imports
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;

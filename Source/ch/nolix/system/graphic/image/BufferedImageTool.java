@@ -5,7 +5,6 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 
-//Javax imports
 import javax.imageio.ImageIO;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
