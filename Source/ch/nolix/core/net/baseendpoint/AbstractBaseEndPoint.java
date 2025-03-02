@@ -7,7 +7,7 @@ import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
-public abstract class AbstractEndPoint implements IBaseEndPoint {
+public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
 
   private final ICloseController closeController = CloseController.forElement(this);
 

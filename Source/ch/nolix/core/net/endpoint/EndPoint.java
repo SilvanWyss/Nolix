@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.baseendpoint.AbstractEndPoint;
+import ch.nolix.core.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-05-06
  */
-public abstract class EndPoint extends AbstractEndPoint implements IEndPoint {
+public abstract class EndPoint extends AbstractBaseEndPoint implements IEndPoint {
 
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
