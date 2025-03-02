@@ -1,13 +1,23 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.core.datamodel.fliedvalue;
 
 import ch.nolix.core.datamodel.blob.Blob;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
 
-public final class ValueCreator {
+/**
+ * @author Silvan Wyss
+ * @version 2025-03-02
+ */
+public final class ValueMapper implements IValueMapper {
 
-  public Object createValueOfDataTypeFromString(final DataType dataType, final String string) {
-    return switch (dataType) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Object mapStringToValue(final String string, final DataType dataType) {
+    return //
+    switch (dataType) {
       case INTEGER_1BYTE ->
         Byte.valueOf(string);
       case INTEGER_2BYTE ->

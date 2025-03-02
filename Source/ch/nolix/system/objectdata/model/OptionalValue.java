@@ -1,7 +1,9 @@
 package ch.nolix.system.objectdata.model;
 
+import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
@@ -12,11 +14,11 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 
 public final class OptionalValue<V> extends AbstractValue<V> implements IOptionalValue<V> {
 
-  private static final ValueCreator VALUE_CREATOR = new ValueCreator();
-
   private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
   private static final IOptionalValueTool OPTIONAL_VALUE_TOOL = new OptionalValueTool();
+
+  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   private V internalValue;
 
@@ -92,10 +94,10 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   @Override
   public void setValueFromString(final String string) {
 
+    final var dataType = DataType.forType(OPTIONAL_VALUE_TOOL.getDataType(this));
+
     @SuppressWarnings("unchecked")
-    final var value = (V) VALUE_CREATOR.createValueOfDataTypeFromString(
-      DataType.forType(OPTIONAL_VALUE_TOOL.getDataType(this)),
-      string);
+    final var value = (V) VALUE_MAPPER.mapStringToValue(string, dataType);
 
     setValue(value);
   }

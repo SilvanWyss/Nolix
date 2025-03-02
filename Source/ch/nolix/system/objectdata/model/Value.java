@@ -1,6 +1,8 @@
 package ch.nolix.system.objectdata.model;
 
+import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
@@ -10,11 +12,11 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 
 public final class Value<V> extends AbstractValue<V> implements IValue<V> {
 
-  private static final ValueCreator VALUE_CREATOR = new ValueCreator();
-
   private static final IValueTool VALUE_TOOL = new ValueTool();
 
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
+
+  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   private V internalValue;
 
@@ -78,10 +80,10 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
   @Override
   public void setValueFromString(final String string) {
 
+    final var dataType = DataType.forType(VALUE_TOOL.getDataType(this));
+
     @SuppressWarnings("unchecked")
-    final var value = (V) VALUE_CREATOR.createValueOfDataTypeFromString(
-      DataType.forType(VALUE_TOOL.getDataType(this)),
-      string);
+    final var value = (V) VALUE_MAPPER.mapStringToValue(string, dataType);
 
     setValue(value);
   }
