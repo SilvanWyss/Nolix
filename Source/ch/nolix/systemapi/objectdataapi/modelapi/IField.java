@@ -26,6 +26,8 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
 
   boolean referencesBackEntity(IEntity entity);
 
+  boolean referencesBackEntityWithId(String id);
+
   boolean referencesBackField(IField field);
 
   boolean referencesEntity(IEntity entity);

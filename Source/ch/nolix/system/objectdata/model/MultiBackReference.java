@@ -75,9 +75,6 @@ implements IMultiBackReference<E> {
     return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
 
@@ -137,7 +134,7 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  protected boolean referencesBackEntityWithId(final String id) {
+  public boolean referencesBackEntityWithId(final String id) {
 
     final var entity = getStoredBackReferencedTable().getStoredEntityById(id);
 

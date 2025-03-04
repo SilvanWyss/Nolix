@@ -46,6 +46,11 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
   }
 
   @Override
+  public final boolean referencesBackEntityWithId(final String id) {
+    return false;
+  }
+
+  @Override
   public final boolean referencesBackField(final IField field) {
     return false;
   }

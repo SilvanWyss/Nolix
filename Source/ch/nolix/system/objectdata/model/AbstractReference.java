@@ -21,25 +21,16 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
     this.referencedTableName = referencedTableName;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final String getReferencedTableName() {
     return referencedTableName;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
     return ImmutableList.createEmpty();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final ITable<E> getStoredReferencedTable() {
 
@@ -48,17 +39,16 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
     return referencedTable;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final boolean referencesBackEntity(final IEntity entity) {
     return false;
   }
 
-  /**
-   * {@inheritDoc}
-   */
+  @Override
+  public final boolean referencesBackEntityWithId(final String id) {
+    return false;
+  }
+
   @Override
   public final boolean referencesBackField(final IField field) {
     return false;

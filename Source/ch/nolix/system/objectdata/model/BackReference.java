@@ -35,9 +35,6 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
     return new BackReference<>(tableName, backReferencedFieldName);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
@@ -100,7 +97,7 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
   }
 
   @Override
-  protected boolean referencesBackEntityWithId(final String id) {
+  public boolean referencesBackEntityWithId(final String id) {
     return (containsAny() && getBackReferencedEntityId().equals(id));
   }
 

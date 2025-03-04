@@ -49,9 +49,6 @@ implements IOptionalBackReference<E> {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
@@ -95,7 +92,7 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  protected boolean referencesBackEntityWithId(final String id) {
+  public boolean referencesBackEntityWithId(final String id) {
     return (containsAny() && getBackReferencedEntityId().equals(id));
   }
 
