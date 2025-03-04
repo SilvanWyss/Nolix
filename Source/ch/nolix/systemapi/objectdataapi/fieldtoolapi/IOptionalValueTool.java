@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IOptionalValue;
 
 public interface IOptionalValueTool extends IFieldTool {
 

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.modelapi;
+package ch.nolix.systemapi.objectdataapi.fieldapi;
 
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 

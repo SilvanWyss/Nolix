@@ -4,8 +4,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiValueEntry;
 
 public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 

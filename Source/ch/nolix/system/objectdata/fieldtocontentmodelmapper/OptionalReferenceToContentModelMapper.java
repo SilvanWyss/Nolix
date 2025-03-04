@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.model.OptionalReferenceModel;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IFieldToContentModelMapper;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;

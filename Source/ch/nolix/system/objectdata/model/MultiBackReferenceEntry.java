@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiBackReference;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
 
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
 

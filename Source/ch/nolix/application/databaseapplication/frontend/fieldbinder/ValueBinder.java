@@ -1,7 +1,7 @@
 package ch.nolix.application.databaseapplication.frontend.fieldbinder;
 
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 
 public final class ValueBinder extends AbstractFieldBinder<IValue<?>, ITextbox> {

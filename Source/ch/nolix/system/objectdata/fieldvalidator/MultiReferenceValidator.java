@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IMultiReferenceValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 
 public final class MultiReferenceValidator extends FieldValidator implements IMultiReferenceValidator {
 

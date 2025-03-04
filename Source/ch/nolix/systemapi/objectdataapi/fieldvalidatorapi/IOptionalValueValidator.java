@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.fieldvalidatorapi;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.fieldapi.IOptionalValue;
 
 public interface IOptionalValueValidator extends IFieldValidator {
 

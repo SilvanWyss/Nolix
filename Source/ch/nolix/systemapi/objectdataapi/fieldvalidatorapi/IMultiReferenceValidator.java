@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.fieldvalidatorapi;
 
+import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 
 public interface IMultiReferenceValidator extends IFieldValidator {
 
