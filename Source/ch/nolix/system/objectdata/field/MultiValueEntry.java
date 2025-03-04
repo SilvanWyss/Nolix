@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.system.objectdata.field;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;

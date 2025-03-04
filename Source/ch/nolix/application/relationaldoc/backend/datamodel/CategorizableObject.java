@@ -8,10 +8,10 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategor
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
+import ch.nolix.system.objectdata.field.Value;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.MultiBackReference;
 import ch.nolix.system.objectdata.model.MultiReference;
-import ch.nolix.system.objectdata.model.Value;
 
 public final class CategorizableObject extends Entity implements ICategorizableObject {
 

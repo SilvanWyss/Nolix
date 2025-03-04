@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.system.objectdata.field;
 
 import java.util.function.Predicate;
 
@@ -9,6 +9,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
+import ch.nolix.system.objectdata.model.AbstractValue;
 import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;

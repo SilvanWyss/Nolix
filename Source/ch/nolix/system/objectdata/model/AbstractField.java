@@ -131,7 +131,7 @@ public abstract class AbstractField implements IField {
     fieldFlyWeight.noteUpdate();
   }
 
-  final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
+  protected final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
     return parentEntity.internalGetStoredDataAndSchemaAdapter();
   }
 

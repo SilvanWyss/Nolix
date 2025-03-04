@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.system.objectdata.field;
 
 import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -7,6 +7,7 @@ import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
+import ch.nolix.system.objectdata.model.AbstractValue;
 import ch.nolix.systemapi.objectdataapi.fieldapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;

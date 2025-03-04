@@ -1,5 +1,8 @@
 package ch.nolix.system.objectdata.model;
 
+import ch.nolix.system.objectdata.field.MultiValue;
+import ch.nolix.system.objectdata.field.OptionalValue;
+import ch.nolix.system.objectdata.field.Value;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;

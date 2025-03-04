@@ -1,10 +1,11 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.system.objectdata.field;
 
 import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
+import ch.nolix.system.objectdata.model.AbstractValue;
 import ch.nolix.systemapi.objectdataapi.fieldapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
