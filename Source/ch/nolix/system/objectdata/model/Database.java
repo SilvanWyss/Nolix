@@ -65,9 +65,8 @@ public final class Database implements IDatabase {
 
   @Override
   @SuppressWarnings("unchecked")
-  public <E extends IEntity> ITable<E> getStoredTableByEntityType(
-    final Class<E> entityClass) {
-    return (ITable<E>) getStoredTableByName(entityClass.getSimpleName());
+  public <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType) {
+    return (ITable<E>) getStoredTableByName(entityType.getSimpleName());
   }
 
   @Override

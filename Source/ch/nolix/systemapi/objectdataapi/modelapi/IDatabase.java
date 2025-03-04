@@ -8,7 +8,7 @@ public interface IDatabase extends IDatabaseObject {
 
   <E extends IEntity> IContainer<E> getStoredEntitiesByType(Class<E> type);
 
-  <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityClass);
+  <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
   ITable<IEntity> getStoredTableByName(String name);
 
