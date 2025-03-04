@@ -50,6 +50,11 @@ public final class Database implements IDatabase {
   }
 
   @Override
+  public ITime getSchemaTimestamp() {
+    return schemaTimestamp;
+  }
+
+  @Override
   public DatabaseObjectState getState() {
 
     if (internalGetStoredDataAndSchemaAdapter().isClosed()) {
@@ -82,11 +87,6 @@ public final class Database implements IDatabase {
   @Override
   public IContainer<? extends ITable<IEntity>> getStoredTables() {
     return tables;
-  }
-
-  @Override
-  public ITime getSchemaTimestamp() {
-    return schemaTimestamp;
   }
 
   @Override

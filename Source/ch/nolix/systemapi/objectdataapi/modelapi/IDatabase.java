@@ -7,6 +7,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IDatabase extends IDatabaseObject, INameHolder {
 
+  ITime getSchemaTimestamp();
+
   <E extends IEntity> IContainer<E> getStoredEntitiesByType(Class<E> type);
 
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
@@ -14,8 +16,6 @@ public interface IDatabase extends IDatabaseObject, INameHolder {
   ITable<IEntity> getStoredTableByName(String name);
 
   IContainer<? extends ITable<IEntity>> getStoredTables();
-
-  ITime getSchemaTimestamp();
 
   <E extends IEntity> IDatabase insertEntity(E entity);
 }
