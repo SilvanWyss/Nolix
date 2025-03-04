@@ -44,9 +44,8 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
     }
 
     final var backReferencedField = //
-    (IAbstractReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(
-      getStoredBackReferencedEntity(),
-      getBackReferencedFieldName());
+    (IAbstractReference<IEntity>) //
+    ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);
   }
@@ -86,7 +85,8 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
 
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
-    return containsAny()
+    return //
+    containsAny()
     && entity != null
     && getBackReferencedEntityId().equals(entity.getId());
   }
