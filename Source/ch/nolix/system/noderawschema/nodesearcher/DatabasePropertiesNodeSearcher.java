@@ -9,11 +9,11 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public final class DatabasePropertiesNodeSearcher implements IDatabasePropertiesNodeSearcher {
 
   @Override
-  public String getNameFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
+  public String getDatabaseNameFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
 
-    final var nameNode = getStoredNameNodeFromDatabasePropertiesNode(databasePropertiesNode);
+    final var databaseNameNode = getStoredDatabaseNameNodeFromDatabasePropertiesNode(databasePropertiesNode);
 
-    return nameNode.getSingleChildNodeHeader();
+    return databaseNameNode.getSingleChildNodeHeader();
   }
 
   @Override
@@ -25,7 +25,7 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
   }
 
   @Override
-  public IMutableNode<?> getStoredNameNodeFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
+  public IMutableNode<?> getStoredDatabaseNameNodeFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
     return databasePropertiesNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 

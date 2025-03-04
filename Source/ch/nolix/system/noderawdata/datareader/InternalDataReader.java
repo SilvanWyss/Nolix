@@ -43,6 +43,10 @@ public final class InternalDataReader {
     this.nodeDatabase = nodeDatabase;
   }
 
+  public String getDatabaseName() {
+    return DATABASE_NODE_SEARCHER.getDatabaseNameFromNodeDatabase(nodeDatabase);
+  }
+
   public ITime getSchemaTimestamp() {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER

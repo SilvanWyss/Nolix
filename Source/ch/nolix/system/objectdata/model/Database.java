@@ -45,6 +45,11 @@ public final class Database implements IDatabase {
   }
 
   @Override
+  public String getName() {
+    return internalGetStoredDataAndSchemaAdapter().getDatabaseName();
+  }
+
+  @Override
   public DatabaseObjectState getState() {
 
     if (internalGetStoredDataAndSchemaAdapter().isClosed()) {

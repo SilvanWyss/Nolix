@@ -7,6 +7,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IDataReader extends GroupCloseable {
 
+  String getDatabaseName();
+
   ITime getSchemaTimestamp();
 
   IContainer<EntityLoadingDto> loadEntitiesOfTable(String tableName);

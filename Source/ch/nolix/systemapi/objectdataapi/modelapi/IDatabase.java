@@ -1,10 +1,11 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public interface IDatabase extends IDatabaseObject {
+public interface IDatabase extends IDatabaseObject, INameHolder {
 
   <E extends IEntity> IContainer<E> getStoredEntitiesByType(Class<E> type);
 

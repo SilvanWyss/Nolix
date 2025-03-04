@@ -36,17 +36,25 @@ final class InternalDataReader {
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
+  private final String databaseName;
+
   private final ISqlConnection sqlConnection;
 
   public InternalDataReader(
     final String databaseName,
     final ISqlConnection sqlConnection) {
 
+    Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     Validator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 
+    this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;
 
     sqlConnection.executeStatement("USE " + databaseName);
+  }
+
+  public String getDatabaseName() {
+    return databaseName;
   }
 
   public Time getSchemaTimestamp() {

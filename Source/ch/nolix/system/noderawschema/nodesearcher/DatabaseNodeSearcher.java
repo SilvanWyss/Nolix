@@ -18,11 +18,11 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
-  public String getNameFromNodeDatabase(IMutableNode<?> nodeDatabase) {
+  public String getDatabaseNameFromNodeDatabase(IMutableNode<?> nodeDatabase) {
 
     final var databasePropertiesNode = getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
-    return DATABASE_PROPERTIES_NODE_SEARCHER.getNameFromDatabasePropertiesNode(databasePropertiesNode);
+    return DATABASE_PROPERTIES_NODE_SEARCHER.getDatabaseNameFromDatabasePropertiesNode(databasePropertiesNode);
   }
 
   @Override

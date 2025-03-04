@@ -32,13 +32,18 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public ICloseController getStoredCloseController() {
-    return closeController;
+  public String getDatabaseName() {
+    return internalDataReader.getDatabaseName();
   }
 
   @Override
   public ITime getSchemaTimestamp() {
     return internalDataReader.getSchemaTimestamp();
+  }
+
+  @Override
+  public ICloseController getStoredCloseController() {
+    return closeController;
   }
 
   @Override

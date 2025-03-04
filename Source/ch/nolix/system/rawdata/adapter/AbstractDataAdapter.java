@@ -102,8 +102,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final ICloseController getStoredCloseController() {
-    return closeController;
+  public final String getDatabaseName() {
+    return dataReader.getDatabaseName();
   }
 
   @Override
@@ -114,6 +114,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   @Override
   public final ITime getSchemaTimestamp() {
     return dataReader.getSchemaTimestamp();
+  }
+
+  @Override
+  public final ICloseController getStoredCloseController() {
+    return closeController;
   }
 
   @Override
