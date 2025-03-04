@@ -12,16 +12,8 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameHolder, MandatorynessRequestable {
 
-  /**
-   * @return the {@link IAbstractBackReference}s that reference back the current
-   *         {@link IField}.
-   */
   IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis();
 
-  /**
-   * @return the {@link IAbstractReference}s the current {@link IField} references
-   *         back.
-   */
   IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis();
 
   IColumnView<ITable<IEntity>> getStoredParentColumn();
