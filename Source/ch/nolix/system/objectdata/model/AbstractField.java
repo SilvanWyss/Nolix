@@ -8,6 +8,7 @@ import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
@@ -17,7 +18,7 @@ import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class AbstractField implements IField {
 
-  private static final FieldValidator FIELD_VALIDATOR = new FieldValidator();
+  private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
 
@@ -49,6 +50,16 @@ public abstract class AbstractField implements IField {
   }
 
   @Override
+  public final DatabaseObjectState getState() {
+
+    if (!belongsToEntity()) {
+      return DatabaseObjectState.NEW;
+    }
+
+    return getStateWhenBelongsToEntity();
+  }
+
+  @Override
   public final IColumnView<ITable<IEntity>> getStoredParentColumn() {
 
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
@@ -62,16 +73,6 @@ public abstract class AbstractField implements IField {
     FIELD_VALIDATOR.assertBelongsToEntity(this);
 
     return parentEntity;
-  }
-
-  @Override
-  public final DatabaseObjectState getState() {
-
-    if (!belongsToEntity()) {
-      return DatabaseObjectState.NEW;
-    }
-
-    return getStateWhenBelongsToEntity();
   }
 
   @Override
@@ -95,7 +96,9 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final boolean isConnectedWithRealDatabase() {
-    return (belongsToEntity() && getStoredParentEntity().isConnectedWithRealDatabase());
+    return //
+    belongsToEntity()
+    && getStoredParentEntity().isConnectedWithRealDatabase();
   }
 
   @Override
@@ -132,7 +135,7 @@ public abstract class AbstractField implements IField {
   }
 
   protected final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
-    return parentEntity.internalGetStoredDataAndSchemaAdapter();
+    return getStoredParentEntity().internalGetStoredDataAndSchemaAdapter();
   }
 
   protected abstract void updateBackReferencingFieldsWhenIsInsertedIntoDatabase();
