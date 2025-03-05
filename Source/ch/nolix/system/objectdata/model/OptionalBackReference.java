@@ -9,6 +9,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 public final class OptionalBackReference<E extends IEntity> extends AbstractBackReference<E>
@@ -67,6 +68,11 @@ implements IOptionalBackReference<E> {
   @Override
   public ContentType getType() {
     return ContentType.OPTIONAL_BACK_REFERENCE;
+  }
+
+  @Override
+  public IContainer<IField> internalGetStoredSubFields() {
+    return ImmutableList.createEmpty();
   }
 
   @Override

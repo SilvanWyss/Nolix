@@ -20,6 +20,8 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
 
   ContentType getType();
 
+  IContainer<IField> internalGetStoredSubFields();
+
   void internalSetOptionalContent(Object content);
 
   boolean knowsParentColumn();

@@ -9,6 +9,7 @@ import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 
 public final class BackReference<E extends IEntity> extends AbstractBackReference<E> implements IBackReference<E> {
@@ -69,13 +70,18 @@ public final class BackReference<E extends IEntity> extends AbstractBackReferenc
   }
 
   @Override
-  public boolean isEmpty() {
-    return (backReferencedEntityId == null);
+  public IContainer<IField> internalGetStoredSubFields() {
+    return ImmutableList.createEmpty();
   }
 
   @Override
   public void internalSetOptionalContent(final Object content) {
     backReferencedEntityId = (String) content;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return (backReferencedEntityId == null);
   }
 
   @Override

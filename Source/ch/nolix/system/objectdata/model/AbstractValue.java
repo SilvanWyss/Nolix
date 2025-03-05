@@ -36,6 +36,11 @@ public abstract class AbstractValue<V> extends AbstractField implements IAbstrac
   }
 
   @Override
+  public final IContainer<IField> internalGetStoredSubFields() {
+    return ImmutableList.createEmpty();
+  }
+
+  @Override
   public final boolean referencesEntity(final IEntity entity) {
     return false;
   }

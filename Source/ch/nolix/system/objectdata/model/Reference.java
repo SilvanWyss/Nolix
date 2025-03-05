@@ -84,6 +84,11 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   }
 
   @Override
+  public IContainer<IField> internalGetStoredSubFields() {
+    return ImmutableList.createEmpty();
+  }
+
+  @Override
   public void internalSetOptionalContent(final Object content) {
     referencedEntityId = (String) content;
   }
