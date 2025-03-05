@@ -135,6 +135,8 @@ public abstract class AbstractField implements IField {
     return parentEntity.internalGetStoredDataAndSchemaAdapter();
   }
 
+  protected abstract void updateBackReferencingFieldsWhenIsInsertedIntoDatabase();
+
   final void internalSetParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
 
     Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
@@ -156,8 +158,6 @@ public abstract class AbstractField implements IField {
     this.parentEntity = parentEntity;
     setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
   }
-
-  abstract void updateBackReferencingFieldsWhenIsInsertedIntoDatabase();
 
   private DatabaseObjectState getStateWhenBelongsToEntity() {
 

@@ -142,7 +142,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   }
 
   @Override
-  void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }

@@ -177,7 +177,7 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
   }
 
   @Override
-  void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
       for (final var e : getAllStoredReferencedEntities()) {
         updateProbableBackReferenceForSetOrAddedEntity(e);
