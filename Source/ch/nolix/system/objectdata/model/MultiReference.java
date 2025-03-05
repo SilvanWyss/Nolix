@@ -177,7 +177,7 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
   }
 
   @Override
-  protected void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
     if (containsAny()) {
       for (final var e : getAllStoredReferencedEntities()) {
         updateProbableBackReferenceForSetOrAddedEntity(e);
@@ -212,7 +212,8 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
   }
 
   private IContainer<MultiReferenceEntry<E>> loadAllPersistedReferencedEntityIds() {
-    return internalGetStoredDataAndSchemaAdapter().loadMultiReferenceEntries(
+    return //
+    getStoredDataAndSchemaAdapter().loadMultiReferenceEntries(
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())

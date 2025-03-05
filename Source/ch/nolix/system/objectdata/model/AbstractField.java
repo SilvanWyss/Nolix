@@ -123,6 +123,10 @@ public abstract class AbstractField implements IField {
     fieldFlyWeight = FieldFlyWeight.wihUpdateAction(updateAction);
   }
 
+  protected final IDataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
+    return getStoredParentEntity().internalGetStoredDataAndSchemaAdapter();
+  }
+
   protected final void setAsEditedAndRunPotentialUpdateAction() {
 
     if (belongsToEntity()) {
@@ -134,11 +138,7 @@ public abstract class AbstractField implements IField {
     fieldFlyWeight.noteUpdate();
   }
 
-  protected final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
-    return getStoredParentEntity().internalGetStoredDataAndSchemaAdapter();
-  }
-
-  protected abstract void updateBackReferencingFieldsWhenIsInsertedIntoDatabase();
+  protected abstract void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase();
 
   final void internalSetParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
 

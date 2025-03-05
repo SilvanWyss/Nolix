@@ -76,7 +76,7 @@ implements IAbstractBackReference<E> {
   }
 
   @Override
-  protected final void updateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected final void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
     //Does nothing.
   }
 
