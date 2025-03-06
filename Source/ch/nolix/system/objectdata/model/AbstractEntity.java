@@ -14,6 +14,8 @@ import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi.IDatabaseObjectValidator;
+import ch.nolix.systemapi.objectdataapi.datavalidatorapi.IEntityValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -27,23 +29,21 @@ public abstract class AbstractEntity implements IEntity {
 
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
-  private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+  private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
-
-  private String id = IdCreator.createIdOf10HexadecimalCharacters();
-
-  private boolean gotExternalId;
-
-  private DatabaseObjectState state = DatabaseObjectState.NEW;
-
-  private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
+  private static final IEntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
   private ITable<? extends IEntity> parentTable;
 
+  private String id = IdCreator.createIdOf10HexadecimalCharacters();
+
+  private DatabaseObjectState state = DatabaseObjectState.NEW;
+
   private String saveStamp;
+
+  private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
 
   private IContainer<AbstractField> fields;
 
@@ -58,10 +58,11 @@ public abstract class AbstractEntity implements IEntity {
     ENTITY_VALIDATOR.assertCanBeDeleted(this);
 
     /*
-     * An Entity must not be referenced on deletion. This is validated. But an
-     * Entity must update all back referencing fields on deletion.
+     * An Entity must not be referenced on deletion. This will be validated. But the
+     * delete method of an Entity must update all abstract back references that
+     * references back the Entity.
      */
-    updateBackReferencingFieldsForDeletion();
+    updateAbstractBackReferencesThatReferencesBackThisForDeleteThis();
 
     updateStateForDeletion();
   }
@@ -93,13 +94,13 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   @Override
-  public final DatabaseObjectState getState() {
-    return state;
+  public final String getShortDescription() {
+    return (getClass().getSimpleName() + " (id: " + getId() + ")");
   }
 
   @Override
-  public final String getShortDescription() {
-    return (getClass().getSimpleName() + " " + getId());
+  public final DatabaseObjectState getState() {
+    return state;
   }
 
   @Override
@@ -112,43 +113,17 @@ public abstract class AbstractEntity implements IEntity {
     return getStoredFields();
   }
 
-  public final void internalSetEdited() {
-    switch (getState()) {
-      case NEW:
-        //Does nothing.
-        break;
-      case LOADED:
-        state = DatabaseObjectState.EDITED;
-        break;
-      case EDITED:
-        //Does nothing.
-        break;
-      case DELETED:
-        throw DeletedArgumentException.forArgument(this);
-      case CLOSED:
-        throw ClosedArgumentException.forArgument(this);
-    }
-  }
-
   @Override
-  public final void internalSetId(final String id) {
-
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-
-    if (gotExternalId) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "got already an external id");
-    }
-
-    this.id = id;
-    gotExternalId = true;
-  }
-
-  @Override
-  public final void internalSetLoaded() {
+  public final void internalSetLoadedAndIdAndSaveStamp(final String id, final String saveStamp) {
 
     DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
 
-    state = DatabaseObjectState.LOADED;
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
+
+    this.state = DatabaseObjectState.LOADED;
+    this.id = id;
+    this.saveStamp = saveStamp;
   }
 
   @Override
@@ -162,14 +137,6 @@ public abstract class AbstractEntity implements IEntity {
 
     this.parentTable = parentTable;
     getStoredFields().forEach(AbstractField::internalSetParentColumnFromParentTable);
-  }
-
-  @Override
-  public final void internalSetSaveStamp(final String saveStamp) {
-
-    Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
-
-    this.saveStamp = saveStamp;
   }
 
   @Override
@@ -219,7 +186,7 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public String toString() {
-    return (getClass().getSimpleName() + " (id: " + getId() + ")");
+    return getShortDescription();
   }
 
   protected final void initialize() {
@@ -230,21 +197,41 @@ public abstract class AbstractEntity implements IEntity {
     entityFlyweight = EntityFlyWeight.withInsertAction(insertAction);
   }
 
-  final void internalClose() {
-    state = DatabaseObjectState.CLOSED;
+  final void close() {
+    if (isOpen()) {
+      state = DatabaseObjectState.CLOSED;
+    }
   }
 
-  abstract IContainer<AbstractField> internalFindFields();
+  abstract IContainer<AbstractField> findFields();
 
-  final IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
+  final IDataAdapterAndSchemaReader getStoredRawDataAndSchemaAdapter() {
     return ((Table<?>) getStoredParentTable()).internalGetStoredDataAndSchemaAdapter();
   }
 
-  final void internalNoteInsertIntoDatabase() {
+  final void noteInsertIntoDatabase() {
 
     updateBaseBackReferencesWhenIsInsertedIntoDatabase();
 
     entityFlyweight.noteInsert();
+  }
+
+  final void setEdited() {
+    switch (getState()) {
+      case NEW:
+        //Does nothing.
+        break;
+      case LOADED:
+        state = DatabaseObjectState.EDITED;
+        break;
+      case EDITED:
+        //Does nothing.
+        break;
+      case DELETED:
+        throw DeletedArgumentException.forArgument(this);
+      case CLOSED:
+        throw ClosedArgumentException.forArgument(this);
+    }
   }
 
   private boolean extractedFields() {
@@ -259,9 +246,9 @@ public abstract class AbstractEntity implements IEntity {
 
   private void extractFieldsWhenNotExtracted() {
 
-    fields = internalFindFields();
+    fields = findFields();
 
-    fields.forEach(p -> p.internalSetParentEntity(this));
+    fields.forEach(f -> f.internalSetParentEntity(this));
   }
 
   private IContainer<AbstractField> getStoredFields() {
@@ -297,7 +284,7 @@ public abstract class AbstractEntity implements IEntity {
     backReference.setAsEditedAndRunPotentialUpdateAction();
   }
 
-  private void updateBackReferencingFieldsForDeletion() {
+  private void updateAbstractBackReferencesThatReferencesBackThisForDeleteThis() {
     ENTITY_SEARCHER
       .getStoredAbstractBackReferencesThatReferencesBackEntity(this)
       .forEach(this::updateBackReferencingFieldsForDeletion);

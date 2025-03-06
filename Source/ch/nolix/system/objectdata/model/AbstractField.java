@@ -124,13 +124,13 @@ public abstract class AbstractField implements IField {
   }
 
   protected final IDataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
-    return getStoredParentEntity().internalGetStoredDataAndSchemaAdapter();
+    return getStoredParentEntity().getStoredRawDataAndSchemaAdapter();
   }
 
   protected final void setAsEditedAndRunPotentialUpdateAction() {
 
     if (belongsToEntity()) {
-      getStoredParentEntity().internalSetEdited();
+      getStoredParentEntity().setEdited();
     }
 
     edited = true;

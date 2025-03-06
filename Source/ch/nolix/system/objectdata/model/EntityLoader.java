@@ -24,7 +24,6 @@ public final class EntityLoader {
 
     final var entity = ENTITY_CREATOR.createEmptyEntityForTable(table);
     entity.internalSetParentTable(table);
-    entity.internalSetLoaded();
 
     final var tableName = table.getName();
     final var entityLoadingDto = dataReader.loadEntity(tableName, id);

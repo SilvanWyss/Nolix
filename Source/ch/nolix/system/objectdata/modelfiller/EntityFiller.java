@@ -16,12 +16,14 @@ public final class EntityFiller implements IEntityFiller {
   @Override
   public void fillUpEntityFromEntityLoadingDto(final IEntity entity, final EntityLoadingDto entityLoadingDto) {
 
-    entity.internalSetId(entityLoadingDto.id());
-    entity.internalSetSaveStamp(entityLoadingDto.saveStamp());
-
+    final var id = entityLoadingDto.id();
+    final var saveStamp = entityLoadingDto.saveStamp();
+    final var contentFields = entityLoadingDto.contentFields();
     final var fields = entity.internalGetStoredFields();
 
-    for (final var f : entityLoadingDto.contentFields()) {
+    entity.internalSetLoadedAndIdAndSaveStamp(id, saveStamp);
+
+    for (final var f : contentFields) {
 
       final var field = fields.getStoredFirst(f2 -> f2.hasName(f.columnName()));
 

@@ -228,7 +228,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @SuppressWarnings("unchecked")
   void internalClose() {
-    ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::internalClose);
+    ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::close);
   }
 
   IContainer<IColumnView<ITable<IEntity>>> internalGetColumnsThatReferencesCurrentTable() {
@@ -242,7 +242,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   @SuppressWarnings("unchecked")
   void internalReset() {
 
-    ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::internalClose);
+    ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::close);
 
     loadedAllEntitiesInLocalData = false;
     entitiesInLocalData.clear();
@@ -269,7 +269,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
       final var entity = ENTITY_CREATOR.createEmptyEntityForTable(this);
       entity.internalSetParentTable(this);
-      entity.internalSetLoaded();
 
       ENTITY_FILLER.fillUpEntityFromEntityLoadingDto(entity, loadedEntity);
 
@@ -281,7 +280,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     entitiesInLocalData.addAtEnd(entity);
 
-    ((AbstractEntity) entity).internalNoteInsertIntoDatabase();
+    ((AbstractEntity) entity).noteInsertIntoDatabase();
   }
 
   private void loadAllEntitiesInLocalDataIfNotLoaded() {

@@ -18,13 +18,9 @@ extends Deletable, IDatabaseObject, IIdHolder, IOptionalSaveStampHolder, ITableC
 
   IContainer<? extends IField> internalGetStoredFields();
 
-  void internalSetId(String id);
-
-  void internalSetLoaded();
+  void internalSetLoadedAndIdAndSaveStamp(String loadedId, String saveStamp);
 
   void internalSetParentTable(ITable<? extends IEntity> parentTable);
-
-  void internalSetSaveStamp(final String saveStamp);
 
   boolean isReferencedInPersistedData();
 
