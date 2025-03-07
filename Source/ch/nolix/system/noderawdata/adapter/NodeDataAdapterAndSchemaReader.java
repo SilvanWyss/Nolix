@@ -4,11 +4,17 @@ import ch.nolix.core.document.node.FileNode;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawschema.adapter.NodeRawSchemaAdapter;
 import ch.nolix.system.rawdata.adapter.AbstractDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
 
+  private final IMutableNode<?> nodeDatabase;
+
   private NodeDataAdapterAndSchemaReader(final IMutableNode<?> nodeDatabase) {
+
     super(NodeDataAdapter.forNodeDatabase(nodeDatabase), NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase));
+
+    this.nodeDatabase = nodeDatabase;
   }
 
   public static NodeDataAdapterAndSchemaReader forNodeDatabase(final IMutableNode<?> nodeDatabase) {
@@ -19,6 +25,11 @@ public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAnd
 
     final var nodeDatabase = new FileNode(filePath);
 
-    return new NodeDataAdapterAndSchemaReader(nodeDatabase);
+    return forNodeDatabase(nodeDatabase);
+  }
+
+  @Override
+  public IDataAdapterAndSchemaReader createEmptyCopy() {
+    return forNodeDatabase(nodeDatabase);
   }
 }
