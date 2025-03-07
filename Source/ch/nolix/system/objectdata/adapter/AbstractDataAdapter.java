@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.system.objectdata.adapter;
 
 import java.util.function.Supplier;
 
@@ -7,6 +7,8 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
+import ch.nolix.system.objectdata.model.Database;
+import ch.nolix.system.objectdata.model.SchemaInitializer;
 import ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
@@ -24,13 +26,13 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private final IEntityTypeSet entityTypeSet;
 
-  private final IDataAdapterAndSchemaReader rawDataAndSchemaAdapter;
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private int saveCount;
 
   private Database database;
+
+  private IDataAdapterAndSchemaReader rawDataAndSchemaAdapter;
 
   protected AbstractDataAdapter(
     final String databaseName,
@@ -107,9 +109,9 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
     database.close();
 
-    final var newRawDataAndSchemaAdapter = rawDataAndSchemaAdapter.createEmptyCopy();
+    rawDataAndSchemaAdapter = rawDataAndSchemaAdapter.createEmptyCopy();
 
-    database = Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, newRawDataAndSchemaAdapter);
+    database = Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter);
   }
 
   @Override
@@ -127,7 +129,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private synchronized void saveChangesAndIncrementSaveCount() {
 
-    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, database.getStoredRawDataAdapterAndSchemaReader());
+    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, rawDataAndSchemaAdapter);
 
     saveCount++;
   }

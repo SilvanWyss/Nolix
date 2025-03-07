@@ -5,7 +5,6 @@ import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
 import ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi.IResourcePool;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
-import ch.nolix.system.objectdata.model.AbstractDataAdapter;
 import ch.nolix.system.objectschema.adapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlrawdata.adapter.MsSqlDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
