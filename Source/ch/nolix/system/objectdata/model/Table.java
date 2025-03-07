@@ -222,13 +222,14 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entitiesInLocalData;
   }
 
-  void internalAddColumn(final IColumnView<ITable<IEntity>> columnView) {
-    columnViews.addAtEnd(columnView);
+  void close() {
+    for (final var e : internalGetStoredEntitiesInLocalData()) {
+      ((AbstractEntity) e).close();
+    }
   }
 
-  @SuppressWarnings("unchecked")
-  void internalClose() {
-    ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::close);
+  void internalAddColumn(final IColumnView<ITable<IEntity>> columnView) {
+    columnViews.addAtEnd(columnView);
   }
 
   IContainer<IColumnView<ITable<IEntity>>> internalGetColumnsThatReferencesCurrentTable() {

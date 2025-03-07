@@ -2,8 +2,10 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
@@ -27,16 +29,19 @@ public final class Database implements IDatabase {
 
   private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
 
+  private final ICloseController closeController = CloseController.forElement(this);
+
   private Database(final IEntityTypeSet entityTypeSet,
     final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
 
     RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
     Validator.assertThat(entityTypeSet).thatIsNamed(IEntityTypeSet.class).isNotNull();
 
-    schemaTimestamp = rawDataAdapterAndSchemaReader.getSchemaTimestamp();
-    this.rawDataAdapterAndSchemaReader = rawDataAdapterAndSchemaReader;
     this.entityTypeSet = entityTypeSet;
-    tables = loadTables();
+    this.schemaTimestamp = rawDataAdapterAndSchemaReader.getSchemaTimestamp();
+    this.rawDataAdapterAndSchemaReader = rawDataAdapterAndSchemaReader;
+    createCloseDependencyTo(this.rawDataAdapterAndSchemaReader);
+    this.tables = loadTables();
   }
 
   public static Database withSchemaAndRawDataAdapterAndSchemaReader(
@@ -72,6 +77,11 @@ public final class Database implements IDatabase {
     }
 
     return DatabaseObjectState.LOADED;
+  }
+
+  @Override
+  public ICloseController getStoredCloseController() {
+    return closeController;
   }
 
   @Override
@@ -134,10 +144,14 @@ public final class Database implements IDatabase {
     return (getState() == DatabaseObjectState.NEW);
   }
 
-  void internalClose() {
+  @Override
+  public void noteClose() {
+
     for (final var t : getStoredTables()) {
-      ((Table<?>) t).internalClose();
+      ((Table<?>) t).close();
     }
+
+    rawDataAdapterAndSchemaReader.close();
   }
 
   IDataAdapterAndSchemaReader getStoredRawDataAdapterAndSchemaReader() {

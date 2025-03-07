@@ -40,16 +40,14 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 
-    SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
-      entityTypeSet,
-      schemaAdapter);
-
+    SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(entityTypeSet, schemaAdapter);
     schemaAdapter.close();
 
     this.rawDataAndSchemaAdapter = rawDataAndSchemaReaderCreator.get();
     this.databaseName = databaseName;
     this.entityTypeSet = entityTypeSet;
-    this.database = Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter);
+    this.database = //
+    Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter.createEmptyCopy());
 
     createCloseDependencyTo(rawDataAndSchemaAdapter);
   }
@@ -101,15 +99,17 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   @Override
   public final void noteClose() {
-    database.internalClose();
+    database.close();
   }
 
   @Override
   public final synchronized void reset() {
 
-    database.internalClose();
+    database.close();
 
-    database = Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter);
+    final var newRawDataAndSchemaAdapter = rawDataAndSchemaAdapter.createEmptyCopy();
+
+    database = Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, newRawDataAndSchemaAdapter);
   }
 
   @Override
