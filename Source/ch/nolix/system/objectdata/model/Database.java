@@ -27,7 +27,8 @@ public final class Database implements IDatabase {
 
   private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
 
-  private Database(final IEntityTypeSet entityTypeSet, final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
+  private Database(final IEntityTypeSet entityTypeSet,
+    final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
 
     RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
     Validator.assertThat(entityTypeSet).thatIsNamed(IEntityTypeSet.class).isNotNull();
@@ -42,6 +43,11 @@ public final class Database implements IDatabase {
     final IEntityTypeSet entityTypeSet,
     final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
     return new Database(entityTypeSet, rawDataAdapterAndSchemaReader);
+  }
+
+  @Override
+  public IEntityTypeSet getEntityTypeSet() {
+    return entityTypeSet;
   }
 
   @Override
@@ -136,10 +142,6 @@ public final class Database implements IDatabase {
 
   IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
     return rawDataAdapterAndSchemaReader;
-  }
-
-  IEntityTypeSet internalGetSchema() {
-    return entityTypeSet;
   }
 
   private ImmutableList<Table<IEntity>> loadTables() {

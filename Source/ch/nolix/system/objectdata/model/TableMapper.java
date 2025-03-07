@@ -16,9 +16,8 @@ public final class TableMapper {
 
     final var tableName = rawTableDto.name();
     final var tableId = rawTableDto.id();
-
-    final var entityType = //
-    (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(database.internalGetSchema(), tableName));
+    final var entityTypeSet = database.getEntityTypeSet();
+    final var entityType = (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, tableName));
 
     return Table.withParentDatabaseAndNameAndIdAndEntityType(database, tableName, tableId, entityType);
   }
