@@ -15,9 +15,9 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class Database implements IDatabase {
 
-  private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
-
   private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+
+  private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 
   private final ISchema schema;
 
@@ -27,7 +27,7 @@ public final class Database implements IDatabase {
 
   private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
 
-  private Database(final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader, final ISchema schema) {
+  private Database(final ISchema schema, final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
 
     RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
     Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
@@ -38,10 +38,10 @@ public final class Database implements IDatabase {
     tables = loadTables();
   }
 
-  public static Database withDataAndSchemaAdapterAndSchema(
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter,
-    final ISchema schema) {
-    return new Database(dataAndSchemaAdapter, schema);
+  public static Database withSchemaAndRawDataAdapterAndSchemaReader(
+    final ISchema schema,
+    final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
+    return new Database(schema, rawDataAdapterAndSchemaReader);
   }
 
   @Override

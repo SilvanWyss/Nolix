@@ -48,7 +48,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
     this.databaseName = databaseName;
     this.schema = schema;
-    this.database = Database.withDataAndSchemaAdapterAndSchema(rawDataAndSchemaAdapter, schema);
+    this.database = Database.withSchemaAndRawDataAdapterAndSchemaReader(schema, rawDataAndSchemaAdapter);
 
     createCloseDependencyTo(rawDataAndSchemaAdapter);
   }
