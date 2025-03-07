@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdataapi.schemamodelsearcherapi;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 
 /**
  * @author Silvan Wyss
@@ -11,10 +11,10 @@ public interface ISchemaSearcher {
 
   /**
    * @param name
-   * @param schema
+   * @param entityTypeSet
    * @return the entity type with the given name from the given schema.
    * @throws RuntimeException if the given schema does not contain an entity type
    *                          with the given name.
    */
-  Class<? extends IEntity> getEntityTypeByName(ISchema schema, String name);
+  Class<? extends IEntity> getEntityTypeByName(IEntityTypeSet entityTypeSet, String name);
 }

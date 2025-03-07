@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.schemamodel.Schema;
 
 final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
@@ -33,7 +32,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts plane.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -52,7 +51,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts planes and flights.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -77,7 +76,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts and saves planes and flights.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -104,7 +103,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts and saves plane.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -123,7 +122,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Plane.class, Flight.class);
+    final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
 
     //setup part 2: Creates and inserts and saves plane and flight.
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);

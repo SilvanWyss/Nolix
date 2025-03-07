@@ -8,8 +8,8 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -19,7 +19,7 @@ public final class Database implements IDatabase {
 
   private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 
-  private final ISchema schema;
+  private final IEntityTypeSet entityTypeSet;
 
   private final ITime schemaTimestamp;
 
@@ -27,21 +27,21 @@ public final class Database implements IDatabase {
 
   private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
 
-  private Database(final ISchema schema, final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
+  private Database(final IEntityTypeSet entityTypeSet, final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
 
     RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
-    Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
+    Validator.assertThat(entityTypeSet).thatIsNamed(IEntityTypeSet.class).isNotNull();
 
     schemaTimestamp = rawDataAdapterAndSchemaReader.getSchemaTimestamp();
     this.rawDataAdapterAndSchemaReader = rawDataAdapterAndSchemaReader;
-    this.schema = schema;
+    this.entityTypeSet = entityTypeSet;
     tables = loadTables();
   }
 
   public static Database withSchemaAndRawDataAdapterAndSchemaReader(
-    final ISchema schema,
+    final IEntityTypeSet entityTypeSet,
     final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
-    return new Database(schema, rawDataAdapterAndSchemaReader);
+    return new Database(entityTypeSet, rawDataAdapterAndSchemaReader);
   }
 
   @Override
@@ -138,8 +138,8 @@ public final class Database implements IDatabase {
     return rawDataAdapterAndSchemaReader;
   }
 
-  ISchema internalGetSchema() {
-    return schema;
+  IEntityTypeSet internalGetSchema() {
+    return entityTypeSet;
   }
 
   private ImmutableList<Table<IEntity>> loadTables() {

@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileExce
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.model.Entity;
-import ch.nolix.system.objectdata.schemamodel.Schema;
+import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.system.objectschema.model.ValueModel;
@@ -27,7 +27,7 @@ final class NodeDataAdapterTest extends StandardTest {
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = //
-    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
+    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(EntityTypeSet.EMPTY_SCHEMA);
 
     //setup verification
     expect(testUnit.isOpen()).isTrue();
@@ -45,7 +45,7 @@ final class NodeDataAdapterTest extends StandardTest {
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = //
-    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
+    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(EntityTypeSet.EMPTY_SCHEMA);
     testUnit.close();
 
     //setup verification
@@ -66,7 +66,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //execution
     final var result = //
-    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA);
+    NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(EntityTypeSet.EMPTY_SCHEMA);
 
     //verification
     expect(result.getSaveCount()).isEqualTo(0);
@@ -81,7 +81,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //execution & verification
     expectRunning(
-      () -> NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(Schema.EMPTY_SCHEMA) //
+      () -> NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(EntityTypeSet.EMPTY_SCHEMA) //
     )
       .throwsException()
       .withMessage("The database has a schema that does not suit.");
@@ -92,7 +92,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
 
@@ -112,7 +112,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 
     //execution
@@ -128,7 +128,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insertEntity(new Pet());
 
@@ -145,7 +145,7 @@ final class NodeDataAdapterTest extends StandardTest {
 
     //setup part 1: Creates a database.
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class);
     NodeDataAdapter
       .forNodeDatabase(nodeDatabase)
       .withName("my_database")

@@ -6,7 +6,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.noderawdata.adapter.NodeDataAdapterAndSchemaReader;
 import ch.nolix.system.objectdata.model.AbstractDataAdapter;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 
 public final class NodeDataAdapter extends AbstractDataAdapter {
 
@@ -15,18 +15,18 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
   private NodeDataAdapter(
     final String databaseName,
     final IMutableNode<?> nodeDatabase,
-    final ISchema schema) {
+    final IEntityTypeSet entityTypeSet) {
 
     super(
       databaseName,
-      schema,
+      entityTypeSet,
       NodeSchemaAdapter.forNodeDatabase(databaseName, nodeDatabase),
       () -> NodeDataAdapterAndSchemaReader.forNodeDatabase(nodeDatabase));
 
     this.nodeDatabase = nodeDatabase;
   }
 
-  public static WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAdapter>> forNodeDatabase(
+  public static WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, NodeDataAdapter>> forNodeDatabase(
     final IMutableNode<?> nodeDatabase) {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forNodeDatabase(nodeDatabase);
   }
@@ -34,11 +34,11 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
   public static NodeDataAdapter forDatabaseNameAndNodeDatabaseAndSchema(
     final String databaseName,
     final IMutableNode<?> nodeDatabase,
-    final ISchema schema) {
-    return new NodeDataAdapter(databaseName, nodeDatabase, schema);
+    final IEntityTypeSet entityTypeSet) {
+    return new NodeDataAdapter(databaseName, nodeDatabase, entityTypeSet);
   }
 
-  public static WithNameCaptor<AndSchemaCaptor<ISchema, NodeDataAdapter>> forTemporaryInMemoryDatabase() {
+  public static WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, NodeDataAdapter>> forTemporaryInMemoryDatabase() {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forTemporaryInMemoryNodeDatabase();
   }
 

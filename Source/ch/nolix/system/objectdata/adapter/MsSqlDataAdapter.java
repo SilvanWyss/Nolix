@@ -8,7 +8,7 @@ import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 import ch.nolix.system.objectdata.model.AbstractDataAdapter;
 import ch.nolix.system.objectschema.adapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlrawdata.adapter.MsSqlDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 
 public final class MsSqlDataAdapter extends AbstractDataAdapter {
 
@@ -20,10 +20,10 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
     final String databaseName,
     final String loginName,
     final String loginPassword,
-    final ISchema schema) {
+    final IEntityTypeSet entityTypeSet) {
     this(
       databaseName,
-      schema,
+      entityTypeSet,
       SqlConnectionPoolBuilder
         .createConnectionPool()
         .forIpOrDomain(ipOrDomain)
@@ -36,20 +36,20 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
 
   private MsSqlDataAdapter(
     final String databaseName,
-    final ISchema schema,
+    final IEntityTypeSet entityTypeSet,
     final IResourcePool<? extends ISqlConnection> sqlConnectionPool) {
-    this(databaseName, schema, sqlConnectionPool, sqlConnectionPool.borrowResource());
+    this(databaseName, entityTypeSet, sqlConnectionPool, sqlConnectionPool.borrowResource());
   }
 
   private MsSqlDataAdapter(
     final String databaseName,
-    final ISchema schema,
+    final IEntityTypeSet entityTypeSet,
     final IResourcePool<? extends ISqlConnection> sqlConnectionPool,
     final ISqlConnection sqlConnection) {
 
     super(
       databaseName,
-      schema,
+      entityTypeSet,
       MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(
         databaseName,
         UncloseableSqlConnection.forSqlConnection(sqlConnection)),

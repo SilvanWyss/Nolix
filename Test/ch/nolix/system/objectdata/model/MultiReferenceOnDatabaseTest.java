@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.schemamodel.Schema;
 
 final class MultiReferenceOnDatabaseTest extends StandardTest {
 
@@ -30,7 +29,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var john = new Person();
     nodeDataAdapter.insertEntity(john);
@@ -48,7 +47,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     final var odie = new Pet();
@@ -74,7 +73,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     final var odie = new Pet();
@@ -99,7 +98,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     final var odie = new Pet();
@@ -132,7 +131,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
     nodeDataAdapter.insertEntity(john);
@@ -150,7 +149,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Pet.class, Person.class);
+    final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
     nodeDataAdapter.insertEntity(john);

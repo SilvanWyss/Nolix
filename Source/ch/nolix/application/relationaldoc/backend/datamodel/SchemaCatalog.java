@@ -1,11 +1,11 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
-import ch.nolix.system.objectdata.schemamodel.Schema;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
+import ch.nolix.system.objectdata.model.EntityTypeSet;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 
 public final class SchemaCatalog {
 
-  public static final ISchema RELATIONAL_DOC_SCHEMA = Schema.withEntityType(
+  public static final IEntityTypeSet RELATIONAL_DOC_SCHEMA = EntityTypeSet.withEntityType(
     CategorizableField.class,
     CategorizableObject.class,
     CategorizableReferenceContent.class,

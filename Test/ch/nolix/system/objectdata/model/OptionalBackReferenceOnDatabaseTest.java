@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.schemamodel.Schema;
 
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
@@ -33,7 +32,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
@@ -50,7 +49,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
@@ -70,7 +69,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
@@ -93,7 +92,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
@@ -107,7 +106,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1:
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
@@ -132,7 +131,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
@@ -161,7 +160,7 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
-    final var schema = Schema.withEntityType(Person.class, Pet.class);
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);

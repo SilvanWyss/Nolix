@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.schemamodel;
+package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -7,15 +7,15 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 
-public final class Schema implements ISchema {
+public final class EntityTypeSet implements IEntityTypeSet {
 
-  public static final Schema EMPTY_SCHEMA = new Schema(ImmutableList.createEmpty());
+  public static final EntityTypeSet EMPTY_SCHEMA = new EntityTypeSet(ImmutableList.createEmpty());
 
   private final ImmutableList<Class<? extends IEntity>> entityTypes;
 
-  private Schema(final IContainer<Class<? extends IEntity>> entityTypes) {
+  private EntityTypeSet(final IContainer<Class<? extends IEntity>> entityTypes) {
 
     Validator.assertThat(entityTypes)
       .thatIsNamed(PluralLowerCaseVariableCatalog.ENTITY_TYPES)
@@ -25,7 +25,7 @@ public final class Schema implements ISchema {
   }
 
   @SuppressWarnings("unchecked")
-  public static Schema withEntityType(
+  public static EntityTypeSet withEntityType(
     final Class<?> entityType,
     final Class<?>... entityTypes) {
 
@@ -37,11 +37,11 @@ public final class Schema implements ISchema {
       allEntityTypes.addAtEnd((Class<IEntity>) et);
     }
 
-    return new Schema(allEntityTypes);
+    return new EntityTypeSet(allEntityTypes);
   }
 
-  public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
-    return new Schema(entityTypes);
+  public static EntityTypeSet withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
+    return new EntityTypeSet(entityTypes);
   }
 
   @Override

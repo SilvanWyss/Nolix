@@ -3,8 +3,8 @@ package ch.nolix.system.objectdata.schemamapper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.model.Table;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
-import ch.nolix.systemapi.objectdataapi.schemamodelapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public final class TableMapper implements ITableMapper {
@@ -18,9 +18,9 @@ public final class TableMapper implements ITableMapper {
   }
 
   @Override
-  public IContainer<ITable> mapSchemaToEmptyTables(final ISchema schema) {
+  public IContainer<ITable> mapSchemaToEmptyTables(final IEntityTypeSet entityTypeSet) {
 
-    final var entityTypes = schema.getEntityTypes();
+    final var entityTypes = entityTypeSet.getEntityTypes();
 
     return entityTypes.to(this::mapEntityTypeToEmptyTable);
   }
