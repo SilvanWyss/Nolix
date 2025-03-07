@@ -24,11 +24,13 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private final ISchema schema;
 
-  private final Database database;
+  private final IDataAdapterAndSchemaReader rawDataAndSchemaAdapter;
+
+  private final ICloseController closeController = CloseController.forElement(this);
 
   private int saveCount;
 
-  private final ICloseController closeController = CloseController.forElement(this);
+  private Database database;
 
   protected AbstractDataAdapter(
     final String databaseName,
@@ -44,8 +46,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
     schemaAdapter.close();
 
-    final var rawDataAndSchemaAdapter = rawDataAndSchemaReaderCreator.get();
-
+    this.rawDataAndSchemaAdapter = rawDataAndSchemaReaderCreator.get();
     this.databaseName = databaseName;
     this.schema = schema;
     this.database = Database.withSchemaAndRawDataAdapterAndSchemaReader(schema, rawDataAndSchemaAdapter);
@@ -105,7 +106,10 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   @Override
   public final synchronized void reset() {
-    database.internalReset();
+
+    database.internalClose();
+
+    database = Database.withSchemaAndRawDataAdapterAndSchemaReader(schema, rawDataAndSchemaAdapter);
   }
 
   @Override

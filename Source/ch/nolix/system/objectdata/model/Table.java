@@ -239,15 +239,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return parentDatabase.internalGetStoredDataAndSchemaAdapter();
   }
 
-  @SuppressWarnings("unchecked")
-  void internalReset() {
-
-    ((IContainer<AbstractEntity>) internalGetStoredEntitiesInLocalData()).forEach(AbstractEntity::close);
-
-    loadedAllEntitiesInLocalData = false;
-    entitiesInLocalData.clear();
-  }
-
   void internalSetColumns(final IContainer<IColumnView<ITable<IEntity>>> columnViews) {
     this.columnViews.clear();
     this.columnViews.addAtEnd(columnViews);

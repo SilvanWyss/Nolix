@@ -142,12 +142,6 @@ public final class Database implements IDatabase {
     return schema;
   }
 
-  void internalReset() {
-    for (final var t : getStoredTables()) {
-      ((Table<?>) t).internalReset();
-    }
-  }
-
   private ImmutableList<Table<IEntity>> loadTables() {
     return ImmutableList.forIterable(DATABASE_TABLE_LOADER.loadTablesForDatabase(this));
   }
