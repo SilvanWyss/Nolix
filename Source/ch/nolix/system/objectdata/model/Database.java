@@ -52,7 +52,7 @@ public final class Database implements IDatabase {
 
   @Override
   public String getName() {
-    return internalGetStoredDataAndSchemaAdapter().getDatabaseName();
+    return getStoredRawDataAdapterAndSchemaReader().getDatabaseName();
   }
 
   @Override
@@ -63,11 +63,11 @@ public final class Database implements IDatabase {
   @Override
   public DatabaseObjectState getState() {
 
-    if (internalGetStoredDataAndSchemaAdapter().isClosed()) {
+    if (getStoredRawDataAdapterAndSchemaReader().isClosed()) {
       return DatabaseObjectState.CLOSED;
     }
 
-    if (getStoredTables().containsAny(ITable::isEdited) || internalGetStoredDataAndSchemaAdapter().hasChanges()) {
+    if (getStoredTables().containsAny(ITable::isEdited) || getStoredRawDataAdapterAndSchemaReader().hasChanges()) {
       return DatabaseObjectState.EDITED;
     }
 
@@ -106,7 +106,7 @@ public final class Database implements IDatabase {
 
   @Override
   public boolean isClosed() {
-    return internalGetStoredDataAndSchemaAdapter().isClosed();
+    return getStoredRawDataAdapterAndSchemaReader().isClosed();
   }
 
   @Override
@@ -140,7 +140,7 @@ public final class Database implements IDatabase {
     }
   }
 
-  IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
+  IDataAdapterAndSchemaReader getStoredRawDataAdapterAndSchemaReader() {
     return rawDataAdapterAndSchemaReader;
   }
 

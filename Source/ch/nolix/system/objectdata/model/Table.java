@@ -236,7 +236,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
-    return parentDatabase.internalGetStoredDataAndSchemaAdapter();
+    return parentDatabase.getStoredRawDataAdapterAndSchemaReader();
   }
 
   void internalSetColumns(final IContainer<IColumnView<ITable<IEntity>>> columnViews) {
