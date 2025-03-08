@@ -1,10 +1,8 @@
-package ch.nolix.systemapi.objectdataapi.fieldapi;
+package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import java.util.Optional;
 
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
 public interface IMultiReferenceEntry<E extends IEntity> extends IDatabaseObject {
 

@@ -10,12 +10,12 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobjectapi.modelexaminerapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.fieldapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
 import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
 

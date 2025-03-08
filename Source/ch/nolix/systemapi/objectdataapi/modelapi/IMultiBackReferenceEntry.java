@@ -1,7 +1,6 @@
-package ch.nolix.systemapi.objectdataapi.fieldapi;
+package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 
 public interface IMultiBackReferenceEntry<E extends IEntity> extends IDatabaseObject {
 

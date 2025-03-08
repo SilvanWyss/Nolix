@@ -1,8 +1,6 @@
-package ch.nolix.systemapi.objectdataapi.fieldapi;
+package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 
 public interface IMultiBackReference<E extends IEntity> extends IAbstractBackReference<E> {
 

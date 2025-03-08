@@ -1,15 +1,14 @@
-package ch.nolix.system.objectdata.field;
+package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
 import ch.nolix.system.objectdata.fieldtool.ValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
-import ch.nolix.system.objectdata.model.AbstractValue;
-import ch.nolix.systemapi.objectdataapi.fieldapi.IValue;
 import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
 
 public final class Value<V> extends AbstractValue<V> implements IValue<V> {
 

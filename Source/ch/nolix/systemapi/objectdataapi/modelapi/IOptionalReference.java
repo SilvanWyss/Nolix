@@ -1,8 +1,6 @@
-package ch.nolix.systemapi.objectdataapi.fieldapi;
+package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 
 public interface IOptionalReference<E extends IEntity> extends Clearable, IAbstractReference<E> {
 

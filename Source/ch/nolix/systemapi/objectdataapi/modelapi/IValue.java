@@ -1,6 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.fieldapi;
-
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractValue;
+package ch.nolix.systemapi.objectdataapi.modelapi;
 
 public interface IValue<V> extends IAbstractValue<V> {
 

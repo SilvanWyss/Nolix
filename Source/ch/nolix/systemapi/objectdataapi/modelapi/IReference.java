@@ -1,7 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.fieldapi;
-
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
+package ch.nolix.systemapi.objectdataapi.modelapi;
 
 public interface IReference<E extends IEntity> extends IAbstractReference<E> {
 
