@@ -41,14 +41,14 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
     super(referencedTableName);
   }
 
-  public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> referencedEntityType) {
+  public static <E2 extends AbstractEntity> MultiReference<E2> forEntity(final Class<E2> referencedEntityType) {
 
     final var referencedTableName = referencedEntityType.getSimpleName();
 
     return new MultiReference<>(referencedTableName);
   }
 
-  public static <E2 extends Entity> MultiReference<E2> forTable(final String referencedTableName) {
+  public static <E2 extends AbstractEntity> MultiReference<E2> forTable(final String referencedTableName) {
     return new MultiReference<>(referencedTableName);
   }
 

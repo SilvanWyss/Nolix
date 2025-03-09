@@ -2,126 +2,131 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 
 public final class FieldFromColumnCreator {
 
-  public AbstractField createFieldFromColumnView(final IColumnView<ITable<IEntity>> columnView) {
+  private FieldFromColumnCreator() {
+  }
 
-    final var field = createEmptyFieldFromColumnView(columnView);
+  public static AbstractField createFieldFromAndWithColumnView(final IColumnView<ITable<IEntity>> columnView) {
+
+    final var field = createFieldFromColumnView(columnView);
 
     field.internalSetParentColumn(columnView);
 
     return field;
   }
 
-  private AbstractField createEmptyFieldFromColumnView(final IColumnView<ITable<IEntity>> columnView) {
-    return switch (columnView.getContentModel().getContentType()) {
+  private static AbstractField createFieldFromColumnView(final IColumnView<ITable<IEntity>> columnView) {
+
+    final var contentModelView = columnView.getContentModel();
+
+    return createFieldFromContentModelView(contentModelView);
+  }
+
+  @SuppressWarnings("unchecked")
+  private static AbstractField createFieldFromContentModelView(
+    final IContentModelView<ITable<IEntity>> contentModelView) {
+
+    final var contentType = contentModelView.getContentType();
+
+    return //
+    switch (contentType) {
       case VALUE ->
-        Value.withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
+        Value.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case OPTIONAL_VALUE ->
         OptionalValue
-          .withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
+          .withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case MULTI_VALUE ->
-        MultiValue.withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
+        MultiValue.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case REFERENCE ->
-        createEmptyReferenceFromReferenceColumn(columnView);
+        createReferenceFromAbstractReferenceModelView(
+          (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
       case OPTIONAL_REFERENCE ->
-        createEmptyOptionalReferenceFromOptionalReferenceColumn(columnView);
+        createOptionalReferenceFromAbstractReferenceModelView(
+          (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
       case MULTI_REFERENCE ->
-        createEmptyMultiReferenceFromMultiReferenceColumn(columnView);
+        createMultiReferenceFromAbstractReferenceModelView(
+          (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
       case BACK_REFERENCE ->
-        createEmptyBackReferenceFromBackReferenceColumn(columnView);
+        createBackReferenceFromAbstractBackReferenceModelView(
+          (IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
       case OPTIONAL_BACK_REFERENCE ->
-        createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(columnView);
+        createOptionalBackReferenceFromAbstractBackReferenceModelView(
+          (IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
       case MULTI_BACK_REFERENCE ->
-        createEmptyMultiBackReferenceFromMultiBackReferenceColumn(columnView);
+        createMultiBackReferenceFromAbstractBackReferenceModelView(
+          (IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
     };
   }
 
-  private AbstractField createEmptyReferenceFromReferenceColumn(final IColumnView<ITable<IEntity>> referenceColumn) {
+  private static Reference<AbstractEntity> createReferenceFromAbstractReferenceModelView(
+    final IAbstractReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
-    final var referencedtableName = //
-    referenceColumn
-      .getContentModel()
-      .asAbstractReferenceModel()
-      .getStoredReferencedTable()
-      .getName();
+    final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
     return Reference.forTable(referencedtableName);
   }
 
-  private AbstractField createEmptyOptionalReferenceFromOptionalReferenceColumn(
-    final IColumnView<ITable<IEntity>> optionalReferenceColumn) {
+  private static OptionalReference<AbstractEntity> createOptionalReferenceFromAbstractReferenceModelView(
+    final IAbstractReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
-    final var referencedtableName = //
-    optionalReferenceColumn
-      .getContentModel()
-      .asAbstractReferenceModel()
-      .getStoredReferencedTable()
-      .getName();
+    final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
     return OptionalReference.forTable(referencedtableName);
   }
 
-  private AbstractField createEmptyMultiReferenceFromMultiReferenceColumn(
-    final IColumnView<ITable<IEntity>> multiReferenceColumn) {
+  private static MultiReference<AbstractEntity> createMultiReferenceFromAbstractReferenceModelView(
+    final IAbstractReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
-    final var referencedtableName = //
-    multiReferenceColumn
-      .getContentModel()
-      .asAbstractReferenceModel()
-      .getStoredReferencedTable()
-      .getName();
+    final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
     return MultiReference.forTable(referencedtableName);
   }
 
-  private AbstractField createEmptyBackReferenceFromBackReferenceColumn(
-    final IColumnView<ITable<IEntity>> backReferenceColumn) {
+  private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(
+    final IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
+    abstractBackReferenceModelView) {
 
-    final var backReferencedColumn = backReferenceColumn
-      .getContentModel()
-      .asAbstractBackReferenceModel()
-      .getBackReferencedColumn();
-
-    final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
-
+    final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
+    final var backReferencedTable = backReferencedColumn.getStoredParentTable();
+    final var backReferencedTableName = backReferencedTable.getName();
     final var backReferencedFieldName = backReferencedColumn.getName();
 
-    return BackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName,
+    return //
+    BackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName, backReferencedFieldName);
+  }
+
+  private static OptionalBackReference<AbstractEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
+    final IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
+    abstractBackReferenceModelView) {
+
+    final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
+    final var backReferencedTable = backReferencedColumn.getStoredParentTable();
+    final var backReferencedTableName = backReferencedTable.getName();
+    final var backReferencedFieldName = backReferencedColumn.getName();
+
+    return //
+    OptionalBackReference.forEntityWithTableNameAndBackReferencedFieldName(
+      backReferencedTableName,
       backReferencedFieldName);
   }
 
-  private AbstractField createEmptyOptionalBackReferenceFromOptionalBackReferenceColumn(
-    final IColumnView<ITable<IEntity>> optionalBackReferenceColumn) {
+  private static MultiBackReference<AbstractEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
+    final IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
+    abstractBackReferenceModelView) {
 
-    final var backReferencedColumn = optionalBackReferenceColumn
-      .getContentModel()
-      .asAbstractBackReferenceModel()
-      .getBackReferencedColumn();
-
-    final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
-
+    final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
+    final var backReferencedTable = backReferencedColumn.getStoredParentTable();
+    final var backReferencedTableName = backReferencedTable.getName();
     final var backReferencedFieldName = backReferencedColumn.getName();
 
-    return OptionalBackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName,
-      backReferencedFieldName);
-  }
-
-  private AbstractField createEmptyMultiBackReferenceFromMultiBackReferenceColumn(
-    final IColumnView<ITable<IEntity>> multiBackReferenceColumn) {
-
-    final var backReferencedColumn = multiBackReferenceColumn
-      .getContentModel()
-      .asAbstractBackReferenceModel()
-      .getBackReferencedColumn();
-
-    final var backReferencedTableName = backReferencedColumn.getStoredParentTable().getName();
-
-    final var backReferencedFieldName = backReferencedColumn.getName();
-
-    return MultiBackReference.forBackReferencedTableAndBaseReference(backReferencedTableName,
-      backReferencedFieldName);
+    return //
+    MultiBackReference.forBackReferencedTableAndBaseReference(backReferencedTableName, backReferencedFieldName);
   }
 }

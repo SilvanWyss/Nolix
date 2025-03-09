@@ -37,7 +37,7 @@ implements IMultiBackReference<E> {
     super(backReferencedTableName, backReferencedBaseReferenceName);
   }
 
-  public static <E2 extends Entity> MultiBackReference<E2> forBackReferencedEntityTypeAndBaseReference(
+  public static <E2 extends AbstractEntity> MultiBackReference<E2> forBackReferencedEntityTypeAndBaseReference(
     final Class<E2> backReferencedEntityType,
     final String backReferencedBaseReferenceName) {
 
@@ -46,7 +46,7 @@ implements IMultiBackReference<E> {
     return forBackReferencedTableAndBaseReference(entityTypeName, backReferencedBaseReferenceName);
   }
 
-  public static <E2 extends Entity> MultiBackReference<E2> forBackReferencedTableAndBaseReference(
+  public static <E2 extends AbstractEntity> MultiBackReference<E2> forBackReferencedTableAndBaseReference(
     final String backReferencedTableName,
     final String backReferencedBaseReference) {
     return new MultiBackReference<>(backReferencedTableName, backReferencedBaseReference);

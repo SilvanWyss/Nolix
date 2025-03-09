@@ -4,8 +4,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public final class GeneralEntity extends AbstractEntity {
 
-  private static final FieldFromTableCreator FIELD_FROM_TABLE_EXTRACTOR = new FieldFromTableCreator();
-
   private final String tableName;
 
   private GeneralEntity(final Table<GeneralEntity> table) {
@@ -23,6 +21,6 @@ public final class GeneralEntity extends AbstractEntity {
 
   @Override
   IContainer<AbstractField> findFields() {
-    return FIELD_FROM_TABLE_EXTRACTOR.createFieldsFromTable(getStoredParentTable());
+    return FieldFromTableCreator.createFieldsFromTable(getStoredParentTable());
   }
 }
