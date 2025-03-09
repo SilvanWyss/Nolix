@@ -11,8 +11,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
 /**
  * The {@link StringToolUnit} provides methods to handle {@link String}s.
  * 
- * Of the {@link StringToolUnit} an instance cannot be created.
- * 
  * @author Silvan Wyss
  * @version 2016-01-01
  */
