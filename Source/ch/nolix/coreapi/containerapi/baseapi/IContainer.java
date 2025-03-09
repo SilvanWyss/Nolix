@@ -26,6 +26,7 @@ public interface IContainer<E>
 extends
 ArrayMappable<E>,
 EmptinessRequestable,
+FilterMultiSearchable<E>,
 ICountingContainer<E>,
 IndexRequestable<E>,
 IStatisticalConainer<E>,
