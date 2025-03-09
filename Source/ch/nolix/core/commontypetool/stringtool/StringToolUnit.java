@@ -9,14 +9,14 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPattern
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
- * The {@link StringTool} provides methods to handle {@link String}s.
+ * The {@link StringToolUnit} provides methods to handle {@link String}s.
  * 
- * Of the {@link StringTool} an instance cannot be created.
+ * Of the {@link StringToolUnit} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class StringTool implements IStringTool {
+public final class StringToolUnit implements IStringTool {
 
   /**
    * {@inheritDoc}

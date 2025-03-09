@@ -34,7 +34,7 @@ final class StringToolTest extends StandardTest {
     final String expectedResult) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.createStringWithoutLastCharacters(string, lastCharacterCount);
@@ -60,7 +60,7 @@ final class StringToolTest extends StandardTest {
   void testCase_createTabs(final int tabCount, final String expectedResult) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.createTabs(tabCount);
@@ -73,7 +73,7 @@ final class StringToolTest extends StandardTest {
   void testCase_createTabs_whenTheGivenTabCountIsNegative() {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution & verification
     expectRunning(() -> testUnit.createTabs(-1))
@@ -90,7 +90,7 @@ final class StringToolTest extends StandardTest {
   void testCase_getIngetInBraces(final String string, final String expectedResult) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.getInBraces(string);
@@ -103,7 +103,7 @@ final class StringToolTest extends StandardTest {
   void testCase_getInInBraces_whenTheGivenObjectIsNull() {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution & verification
     expectRunning(() -> testUnit.getInBraces(null))
@@ -116,7 +116,7 @@ final class StringToolTest extends StandardTest {
   void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution & verification
     expectRunning(() -> testUnit.getInSingleQuotes(null))
@@ -136,7 +136,7 @@ final class StringToolTest extends StandardTest {
   void testCase_toBoolean_whenTheGivenStringRepresentsFalse(final String string) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.toBoolean(string);
@@ -156,7 +156,7 @@ final class StringToolTest extends StandardTest {
   void testCase_toBoolean_whenTheGivenStringRepresentsTrue(final String string) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.toBoolean(string);
@@ -179,7 +179,7 @@ final class StringToolTest extends StandardTest {
   void testCase_toBoolean_whenTheGivenStringDoesNotRepresentABoolean(final String string) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution & verification
     expectRunning(() -> testUnit.toBoolean(string))
@@ -200,7 +200,7 @@ final class StringToolTest extends StandardTest {
   void testCase_toDouble_whenTheGivenStringDoesNotRepresentADouble(final String string) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution & verification
     expectRunning(() -> testUnit.toDouble(string))
@@ -239,7 +239,7 @@ final class StringToolTest extends StandardTest {
   void testCase_toCapitalSnakeCase(final String string, final String expectedResult) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.toCapitalSnakeCase(string);
@@ -278,7 +278,7 @@ final class StringToolTest extends StandardTest {
   void testCase_toPascalCase(final String string, final String expectedResult) {
 
     //setup
-    final var testUnit = new StringTool();
+    final var testUnit = new StringToolUnit();
 
     //execution
     final var result = testUnit.toPascalCase(string);

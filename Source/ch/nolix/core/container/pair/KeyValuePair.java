@@ -1,6 +1,6 @@
 package ch.nolix.core.container.pair;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.pairapi.IKeyValuePair;
@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final K key;
 

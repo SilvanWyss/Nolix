@@ -1,6 +1,6 @@
 package ch.nolix.core.web.css;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
@@ -8,7 +8,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 public final class Css implements ICss {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final IContainer<CssRule> rules;
 

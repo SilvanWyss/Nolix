@@ -1,6 +1,6 @@
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -31,7 +31,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  */
 public final class NetEndPoint extends AbstractEndPoint {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint;
 

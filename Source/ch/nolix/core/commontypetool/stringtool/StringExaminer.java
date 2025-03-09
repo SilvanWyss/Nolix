@@ -11,7 +11,7 @@ import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
  */
 public final class StringExaminer implements IStringExaminer {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   /**
    * {@inheritDoc}

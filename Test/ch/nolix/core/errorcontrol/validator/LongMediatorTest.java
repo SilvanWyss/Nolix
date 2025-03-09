@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -16,7 +16,7 @@ import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 
 final class LongMediatorTest extends StandardTest {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   @Test
   void testCase_isBetween_whenTheGivenArgumentIsSmallerThanTheGivenMin() {

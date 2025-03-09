@@ -1,6 +1,6 @@
 package ch.nolix.core.container.pair;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.math.main.NumberComparator;
 
 /**
@@ -13,7 +13,7 @@ public final class FloatPair {
 
   public static final double DEFAULT_VALUE = 0.0;
 
-  private static final StringTool STRING_TOOL = new StringTool();
+  private static final StringToolUnit STRING_TOOL = new StringToolUnit();
 
   private final double value1;
 

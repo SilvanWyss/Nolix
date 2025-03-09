@@ -1,6 +1,6 @@
 package ch.nolix.core.web.css;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
@@ -11,7 +11,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 public final class CssRule implements ICssRule {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final String selector;
 

@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawdata.sqlmapper.SqlValueMapper;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private static final ISqlValueMapper SQL_VALUE_MAPPER = new SqlValueMapper();
 

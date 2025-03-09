@@ -3,7 +3,7 @@ package ch.nolix.core.document.node;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -34,7 +34,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
   private static final INodeComparator NODE_COMPARATOR = new NodeComparator();
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   /**
    * @param string

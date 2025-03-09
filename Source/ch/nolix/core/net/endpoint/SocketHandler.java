@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 import ch.nolix.core.commontypetool.inputstreamtool.InputStreamTool;
-import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -27,7 +27,7 @@ public final class SocketHandler {
 
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
-  private static final IStringTool STRING_TOOL = new StringTool();
+  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   public void handleSocketForServer(final Socket socket, final Server server) {
 
