@@ -68,7 +68,7 @@ public final class FilterContainerView<E> extends Container<E> {
   public static <T> FilterContainerView<T> forContainerAndSelector(
     final IContainer<T> container,
     final Predicate<T> selector) {
-    return new FilterContainerView<T>(container, selector);
+    return new FilterContainerView<>(container, selector);
   }
 
   /**
