@@ -6,15 +6,16 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 
 public final class FieldFromColumnCreator {
 
-  public AbstractField createFieldForColumn(final IColumnView<ITable<IEntity>> columnView) {
+  public AbstractField createFieldFromColumnView(final IColumnView<ITable<IEntity>> columnView) {
 
-    final var field = createEmptyFieldFromColumn(columnView);
+    final var field = createEmptyFieldFromColumnView(columnView);
+
     field.internalSetParentColumn(columnView);
 
     return field;
   }
 
-  private AbstractField createEmptyFieldFromColumn(final IColumnView<ITable<IEntity>> columnView) {
+  private AbstractField createEmptyFieldFromColumnView(final IColumnView<ITable<IEntity>> columnView) {
     return switch (columnView.getContentModel().getContentType()) {
       case VALUE ->
         Value.withValueType(columnView.getContentModel().asAbstractValueModel().getValueType());
