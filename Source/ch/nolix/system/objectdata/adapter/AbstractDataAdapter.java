@@ -48,8 +48,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     this.rawDataAndSchemaAdapter = rawDataAndSchemaReaderCreator.get();
     this.databaseName = databaseName;
     this.entityTypeSet = entityTypeSet;
+
     this.database = //
-    Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter.createEmptyCopy());
+    Database.withEntityTypeSetAndRawDataAdapterAndSchemaReader(
+      entityTypeSet,
+      rawDataAndSchemaAdapter.createEmptyCopy());
 
     createCloseDependencyTo(rawDataAndSchemaAdapter);
   }
@@ -111,7 +114,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
     rawDataAndSchemaAdapter = rawDataAndSchemaAdapter.createEmptyCopy();
 
-    database = Database.withSchemaAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter);
+    database = Database.withEntityTypeSetAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter);
   }
 
   @Override

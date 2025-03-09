@@ -25,13 +25,14 @@ public final class Database implements IDatabase {
 
   private final ITime schemaTimestamp;
 
-  private final ImmutableList<? extends ITable<IEntity>> tables;
+  private final IContainer<? extends ITable<IEntity>> tables;
 
   private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private Database(final IEntityTypeSet entityTypeSet,
+  private Database(
+    final IEntityTypeSet entityTypeSet,
     final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
 
     RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
@@ -44,7 +45,7 @@ public final class Database implements IDatabase {
     this.tables = loadTables();
   }
 
-  public static Database withSchemaAndRawDataAdapterAndSchemaReader(
+  public static Database withEntityTypeSetAndRawDataAdapterAndSchemaReader(
     final IEntityTypeSet entityTypeSet,
     final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
     return new Database(entityTypeSet, rawDataAdapterAndSchemaReader);
@@ -72,7 +73,7 @@ public final class Database implements IDatabase {
       return DatabaseObjectState.CLOSED;
     }
 
-    if (getStoredTables().containsAny(ITable::isEdited) || getStoredRawDataAdapterAndSchemaReader().hasChanges()) {
+    if (getStoredTables().containsAny(ITable::isEdited)) {
       return DatabaseObjectState.EDITED;
     }
 
@@ -86,18 +87,24 @@ public final class Database implements IDatabase {
 
   @Override
   public <E extends IEntity> IContainer<E> getStoredEntitiesByType(final Class<E> type) {
-    return getStoredTableByEntityType(type).getStoredEntities();
+
+    final var table = getStoredTableByEntityType(type);
+
+    return table.getStoredEntities();
   }
 
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType) {
-    return (ITable<E>) getStoredTableByName(entityType.getSimpleName());
+
+    final var tableName = entityType.getSimpleName();
+
+    return (ITable<E>) getStoredTableByName(tableName);
   }
 
   @Override
   public ITable<IEntity> getStoredTableByName(final String name) {
-    return tables.getStoredFirst(t -> t.hasName(name));
+    return getStoredTables().getStoredFirst(t -> t.hasName(name));
   }
 
   @Override
@@ -109,7 +116,10 @@ public final class Database implements IDatabase {
   @SuppressWarnings("unchecked")
   public <E extends IEntity> IDatabase insertEntity(final E entity) {
 
-    getStoredTableByEntityType((Class<E>) entity.getClass()).insertEntity(entity);
+    final var entityType = (Class<E>) entity.getClass();
+    final var table = getStoredTableByEntityType(entityType);
+
+    table.insertEntity(entity);
 
     return this;
   }
@@ -120,6 +130,11 @@ public final class Database implements IDatabase {
   }
 
   @Override
+  public boolean isConnectedWithRealDatabase() {
+    return true;
+  }
+
+  @Override
   public boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
@@ -127,11 +142,6 @@ public final class Database implements IDatabase {
   @Override
   public boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
-  }
-
-  @Override
-  public boolean isConnectedWithRealDatabase() {
-    return true;
   }
 
   @Override
@@ -158,7 +168,7 @@ public final class Database implements IDatabase {
     return rawDataAdapterAndSchemaReader;
   }
 
-  private ImmutableList<Table<IEntity>> loadTables() {
+  private IContainer<Table<IEntity>> loadTables() {
     return ImmutableList.forIterable(DATABASE_TABLE_LOADER.loadTablesForDatabase(this));
   }
 }
