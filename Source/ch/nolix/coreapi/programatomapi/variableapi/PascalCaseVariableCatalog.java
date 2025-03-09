@@ -210,6 +210,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String ITEM = "Item";
 
+  public static final String ITERATOR = "Iterator";
+
   public static final String JOB = "Job";
 
   public static final String KEY = "Key";

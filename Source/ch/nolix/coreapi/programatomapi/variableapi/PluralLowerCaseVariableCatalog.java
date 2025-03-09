@@ -210,6 +210,8 @@ public final class PluralLowerCaseVariableCatalog {
 
   public static final String ITEMS = "items";
 
+  public static final String ITERATORS = "iterators";
+
   public static final String JOBS = "jobs";
 
   public static final String KEYS = "keys";

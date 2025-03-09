@@ -210,6 +210,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String ITEM = "item";
 
+  public static final String ITERATOR = "iterator";
+
   public static final String JOB = "job";
 
   public static final String KEY = "key";

@@ -210,6 +210,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String ITEMS = "Items";
 
+  public static final String ITERATORS = "Iterators";
+
   public static final String JOBS = "Jobs";
 
   public static final String KEYS = "Keys";
