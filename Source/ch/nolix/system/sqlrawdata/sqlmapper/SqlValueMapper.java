@@ -1,7 +1,6 @@
 package ch.nolix.system.sqlrawdata.sqlmapper;
 
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SqlKeywordCatalog;
 import ch.nolix.systemapi.rawdataapi.modelapi.StringContentFieldDto;
 import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
@@ -11,8 +10,6 @@ import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
  * @version 2024-12-28
  */
 public class SqlValueMapper implements ISqlValueMapper {
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   /**
    * {@inheritDoc}
@@ -26,6 +23,6 @@ public class SqlValueMapper implements ISqlValueMapper {
       return SqlKeywordCatalog.NULL;
     }
 
-    return STRING_TOOL.getInSingleQuotes(optionalContentString);
+    return StringTool.getInSingleQuotes(optionalContentString);
   }
 }

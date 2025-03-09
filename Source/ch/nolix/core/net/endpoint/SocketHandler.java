@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 import ch.nolix.core.commontypetool.inputstreamtool.InputStreamTool;
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -17,7 +17,6 @@ import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.SocketType;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
@@ -26,8 +25,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 public final class SocketHandler {
 
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   public void handleSocketForServer(final Socket socket, final Server server) {
 
@@ -82,7 +79,7 @@ public final class SocketHandler {
 
     Logger.logInfo(
       "The current SocketHandler received the first line from the given socket: "
-      + STRING_TOOL.getInSingleQuotes(firstReveivedLine));
+      + StringTool.getInSingleQuotes(firstReveivedLine));
 
     final var socketType = getSocketTypeFromFirstReceivedLine(firstReveivedLine);
 
@@ -112,7 +109,7 @@ public final class SocketHandler {
 
       Logger.logInfo(
         "The current SocketHandler has received the web socket opening handshake request: "
-        + STRING_TOOL.getInSingleQuotes(lines.toString()));
+        + StringTool.getInSingleQuotes(lines.toString()));
 
       final var openingHandshakeResponse = new WebSocketHandShakeRequest(lines)
         .getWebSocketHandShakeResponse()
@@ -120,7 +117,7 @@ public final class SocketHandler {
 
       Logger.logInfo(
         "The current SocketHandler sends the opening handshake response: "
-        + STRING_TOOL.getInSingleQuotes(openingHandshakeResponse));
+        + StringTool.getInSingleQuotes(openingHandshakeResponse));
 
       sendRawMessageToOutputStream(socketOutputStream, openingHandshakeResponse);
 

@@ -1,6 +1,6 @@
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -30,8 +29,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2016-01-01
  */
 public final class NetEndPoint extends AbstractEndPoint {
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint;
 
@@ -305,7 +302,7 @@ public final class NetEndPoint extends AbstractEndPoint {
       case MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER:
         return //
         MessageHeaderCatalog.MULTI_DATA_HEADER
-        + STRING_TOOL.getInParentheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
+        + StringTool.getInParentheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.MESSAGE, message);
     }

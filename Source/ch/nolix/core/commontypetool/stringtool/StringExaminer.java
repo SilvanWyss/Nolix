@@ -3,15 +3,12 @@ package ch.nolix.core.commontypetool.stringtool;
 import java.util.Locale;
 
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringExaminer;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 
 /**
  * @author Silvan Wyss
  * @version 2025-03-01
  */
 public final class StringExaminer implements IStringExaminer {
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   /**
    * {@inheritDoc}
@@ -30,7 +27,7 @@ public final class StringExaminer implements IStringExaminer {
   public boolean isPascalCase(final String string) {
     return //
     string != null
-    && string.equals(STRING_TOOL.toPascalCase(string));
+    && string.equals(StringTool.toPascalCase(string));
   }
 
   /**

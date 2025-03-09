@@ -3,13 +3,12 @@ package ch.nolix.core.document.node;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.nodeapi.INodeComparator;
@@ -33,8 +32,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   public static final String CLOSED_BRACKET_CODE = "$C";
 
   private static final INodeComparator NODE_COMPARATOR = new NodeComparator();
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   /**
    * @param string
@@ -286,7 +283,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final boolean toBoolean() {
-    return STRING_TOOL.toBoolean(toString());
+    return StringTool.toBoolean(toString());
   }
 
   /**
@@ -294,7 +291,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final double toDouble() {
-    return STRING_TOOL.toDouble(toString());
+    return StringTool.toDouble(toString());
   }
 
   /**
@@ -408,7 +405,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       }
 
       stringBuilder
-        .append(STRING_TOOL.createTabs(leadingTabulators))
+        .append(StringTool.createTabs(leadingTabulators))
         .append(CharacterCatalog.CLOSED_BRACKET);
     }
   }
@@ -431,7 +428,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
     final var stringBuilder = new StringBuilder();
 
-    stringBuilder.append(STRING_TOOL.createTabs(leadingTabulators));
+    stringBuilder.append(StringTool.createTabs(leadingTabulators));
 
     //Handles the case that the current specification has a header.
     if (hasHeader()) {

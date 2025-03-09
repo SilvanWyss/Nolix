@@ -1,9 +1,8 @@
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
@@ -12,8 +11,6 @@ public final class SslServerPage {
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalog.REQUIRE_JS);
 
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalog.NOLIX_JS);
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final String domain;
 
@@ -66,7 +63,7 @@ public final class SslServerPage {
   }
 
   private String getServerDomainInQuotes() {
-    return STRING_TOOL.getInSingleQuotes(getDomain());
+    return StringTool.getInSingleQuotes(getDomain());
   }
 
   private String getStartScript() {

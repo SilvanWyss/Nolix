@@ -1,17 +1,14 @@
 package ch.nolix.core.web.css;
 
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 public final class CssRule implements ICssRule {
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private final String selector;
 
@@ -57,7 +54,7 @@ public final class CssRule implements ICssRule {
 
   @Override
   public String toString() {
-    return (getSelector() + STRING_TOOL.getInBraces(getProperties().toConcatenatedString()));
+    return (getSelector() + StringTool.getInBraces(getProperties().toConcatenatedString()));
   }
 
   @Override

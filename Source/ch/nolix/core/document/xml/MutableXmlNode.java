@@ -1,11 +1,10 @@
 package ch.nolix.core.document.xml;
 
-import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
@@ -14,8 +13,6 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class MutableXmlNode implements IMutableXmlNode {
-
-  private static final IStringTool STRING_TOOL = new StringToolUnit();
 
   private String name;
 
@@ -58,7 +55,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
-      .append(STRING_TOOL.createTabs(leadingTabulatorCount))
+      .append(StringTool.createTabs(leadingTabulatorCount))
       .append('<')
       .append(mutableXmlNode.getName());
 
@@ -76,7 +73,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
       } else {
         stringBuilder
           .append(CharacterCatalog.NEW_LINE)
-          .append(STRING_TOOL.createTabs(leadingTabulatorCount + 1))
+          .append(StringTool.createTabs(leadingTabulatorCount + 1))
           .append(mutableXmlNode.getValue())
           .append(CharacterCatalog.NEW_LINE);
 
@@ -95,7 +92,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     if (mutableXmlNode.containsChildNodes()) {
-      stringBuilder.append(STRING_TOOL.createTabs(leadingTabulatorCount));
+      stringBuilder.append(StringTool.createTabs(leadingTabulatorCount));
     }
 
     stringBuilder
