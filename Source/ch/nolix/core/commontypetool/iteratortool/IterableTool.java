@@ -1,5 +1,6 @@
 package ch.nolix.core.commontypetool.iteratortool;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 
 public final class IterableTool implements IIterableTool {
@@ -16,5 +17,29 @@ public final class IterableTool implements IIterableTool {
     }
 
     return elementCount;
+  }
+
+  @Override
+  public <E> E getStoredAt1BasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
+
+    var iteratingOneBasedIndex = 1;
+
+    for (final var e : iterable) {
+
+      if (iteratingOneBasedIndex == oneBasedIndex) {
+        return e;
+      }
+
+      iteratingOneBasedIndex++;
+    }
+
+    final var count = iteratingOneBasedIndex - 1;
+
+    throw //
+    ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
+      "1-based index",
+      oneBasedIndex,
+      1,
+      count);
   }
 }
