@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi;
 
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 /**
  * @author Silvan Wyss
@@ -12,8 +12,8 @@ public interface IColumnDtoMapper {
 
   /**
    * @param column
-   * @return a new {@link TableDto} from the given column.
+   * @return new {@link ColumnDto}s from the given column.
    * @throws RuntimeException if the given column is null.
    */
-  ColumnDto mapColumnToColumnDto(IColumn column);
+  IContainer<ColumnDto> mapColumnToColumnDtos(IColumn column);
 }

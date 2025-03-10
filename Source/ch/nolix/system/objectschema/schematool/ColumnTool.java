@@ -58,7 +58,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public ContentType getFieldType(final IColumn column) {
-    return column.getContentModel().getContentType();
+
+    //TODO: Adjust
+    return column.getContentModels().getStoredFirst().getContentType();
   }
 
   @Override
@@ -68,28 +70,31 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-    return CONTENT_MODEL_EXAMINER.isAbstractBackReferenceModel(column.getContentModel());
+    return column.getContentModels().containsOnly(CONTENT_MODEL_EXAMINER::isAbstractBackReferenceModel);
   }
 
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-    return CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(column.getContentModel());
+    return column.getContentModels().containsOnly(CONTENT_MODEL_EXAMINER::isAbstractReferenceModel);
   }
 
   @Override
   public boolean isAValueColumn(final IColumn column) {
-    return CONTENT_MODEL_EXAMINER.isAbstractValueModel(column.getContentModel());
+    return column.getContentModels().containsOnly(CONTENT_MODEL_EXAMINER::isAbstractValueModel);
   }
 
   @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
 
-    final var contentModel = column.getContentModel();
+    //TODO: Adjust
+    final var contentModel = column.getContentModels().getStoredFirst();
 
     if (contentModel instanceof IAbstractBackReferenceModel abstractBackReferenceModel) {
 
       final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
-      final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
+
+      //TODO: Adjust
+      final var backReferencedColumnContentModel = backReferencedColumn.getContentModels().getStoredFirst();
 
       if (!CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(backReferencedColumnContentModel)) {
         return false;
@@ -105,11 +110,11 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
   public boolean referencesBackGivenColumn(
     final IColumn column,
     final IColumn probableBackReferencedColumn) {
-    return column.getContentModel().referencesBackColumn(probableBackReferencedColumn);
+    return column.getContentModels().containsAny(c -> c.referencesBackColumn(probableBackReferencedColumn));
   }
 
   @Override
   public boolean referencesGivenTable(final IColumn column, final ITable table) {
-    return column.getContentModel().referencesTable(table);
+    return column.getContentModels().containsAny(c -> c.referencesTable(table));
   }
 }

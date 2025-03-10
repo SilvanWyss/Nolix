@@ -22,7 +22,7 @@ public final class TableDtoMapper implements ITableDtoMapper {
     final var id = table.getId();
     final var name = table.getName();
     final var columns = table.getStoredColumns();
-    final var columnDtos = columns.to(COLUMN_DTO_MAPPER::mapColumnToColumnDto);
+    final var columnDtos = columns.toMultiple(COLUMN_DTO_MAPPER::mapColumnToColumnDtos);
 
     return new TableDto(id, name, columnDtos);
   }

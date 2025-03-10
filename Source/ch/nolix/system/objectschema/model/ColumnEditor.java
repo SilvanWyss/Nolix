@@ -1,5 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
@@ -37,11 +38,14 @@ public final class ColumnEditor implements IColumnEditor<Column> {
    * {@inheritDoc}
    */
   @Override
-  public void setContentModelToColumn(final Column column, final IContentModel contentModel) {
+  public void setContentModelsToColumn(final Column column, final IContainer<IContentModel> contentModels) {
+
+    //TODO: Adjust
+    final var contentModel = contentModels.getStoredFirst();
 
     COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(column, contentModel);
 
-    column.interanlSetContentModelAttribute(contentModel);
+    column.setContentModelsAttribute(contentModels);
 
     if (column.isConnectedWithRealDatabase()) {
 
