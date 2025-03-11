@@ -2,7 +2,7 @@ package ch.nolix.systemapi.noderawschemaapi.nodesearcherapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 
 public interface IContentModelNodeSearcher {
 

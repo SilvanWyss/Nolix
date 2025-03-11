@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.fieldproperty;
+package ch.nolix.systemapi.objectschemaapi.fieldproperty;
 
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

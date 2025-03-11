@@ -8,6 +8,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 
 final class ContentTypeTest extends StandardTest {
 

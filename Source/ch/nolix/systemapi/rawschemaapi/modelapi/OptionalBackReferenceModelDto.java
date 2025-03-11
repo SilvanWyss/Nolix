@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.rawschemaapi.modelapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 
 public record OptionalBackReferenceModelDto(DataType dataType, String backReferencedColumnId)
 implements IContentModelDto {

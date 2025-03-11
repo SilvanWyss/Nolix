@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.schemaview;
 
-import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 
 public final class ValueModelView<V> extends AbstractValueModelView<V> {
 

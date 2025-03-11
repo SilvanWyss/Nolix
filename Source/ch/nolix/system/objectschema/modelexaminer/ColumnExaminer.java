@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.modelexaminer;
 
-import ch.nolix.systemapi.objectdataapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.objectschemaapi.fieldproperty.BaseContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IColumnExaminer;
 

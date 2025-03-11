@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectdataapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalValueModel;
 
 public final class OptionalValueModel<V> extends AbstractValueModel<V> implements IOptionalValueModel<V> {
