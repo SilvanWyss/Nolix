@@ -26,4 +26,29 @@ final class SystemApiDependencyTest {
     //execution & verification
     rule.check(testUnit);
   }
+
+  @Test
+  void testCase_chnolixsystemapiobjectschemaapi_package() {
+
+    //setup
+    final var rule = //
+    ArchRuleDefinition
+      .classes()
+      .that()
+      .resideInAPackage("ch.nolix.systemapi.objectschemaapi..")
+      .and()
+      .haveNameNotMatching(".*Test$")
+      .should()
+      .onlyDependOnClassesThat()
+      .resideInAnyPackage(
+        "ch.nolix.coreapi..",
+        "ch.nolix.systemapi.databaseobjectapi..",
+        "ch.nolix.systemapi.objectschemaapi..",
+        "ch.nolix.systemapi.rawschemaapi..",
+        "java..");
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.systemapi.objectschemaapi..");
+
+    //execution & verification
+    rule.check(testUnit);
+  }
 }
