@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
@@ -15,12 +16,12 @@ public final class MultiValueTypeToContentModelMapper implements IFieldToContent
   private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   @Override
-  public IContentModel mapFieldToContentModel(
+  public IContainer<IContentModel> mapFieldToContentModels(
     final IMultiValue<?> field,
     final IContainer<ITable> referencedTables) {
 
     final var dataType = DataType.forType(FIELD_TOOL.getDataType(field));
 
-    return MultiValueModel.forDataType(dataType);
+    return ImmutableList.withElement(MultiValueModel.forDataType(dataType));
   }
 }

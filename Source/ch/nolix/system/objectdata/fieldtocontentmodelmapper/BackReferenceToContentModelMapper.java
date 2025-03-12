@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.model.BackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
@@ -10,7 +11,7 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 public final class BackReferenceToContentModelMapper implements IFieldToContentModelMapper<IBackReference<?>> {
 
   @Override
-  public IContentModel mapFieldToContentModel(
+  public IContainer<IContentModel> mapFieldToContentModels(
     final IBackReference<?> field,
     final IContainer<ITable> referencedTables) {
 
@@ -20,6 +21,6 @@ public final class BackReferenceToContentModelMapper implements IFieldToContentM
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 
-    return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
+    return ImmutableList.withElement(BackReferenceModel.forBackReferencedColumn(backReferencedColumn));
   }
 }

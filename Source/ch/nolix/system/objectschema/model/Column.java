@@ -42,31 +42,31 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   public Column(
     final String name,
-    final IContentModel contentModel) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModel);
+    final IContainer<IContentModel> contentModels) {
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModels);
   }
 
   private Column(
     final String id,
     final String name,
-    final IContentModel contentModel) {
+    final IContainer<IContentModel> contentModels) {
 
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);
 
-    //TODO: Adjust
-    setContentModels(ImmutableList.withElement(contentModel));
+    setContentModels(contentModels);
   }
 
+  //TODO: Adjust
   public static Column fromDto(final ColumnDto columnDto, final IContainer<ITable> tables) {
     return new Column(
       columnDto.id(),
       columnDto.name(),
-      CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModel(
+      ImmutableList.withElement(CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModel(
         columnDto.contentModel(),
-        tables));
+        tables)));
   }
 
   @Override
