@@ -29,8 +29,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
-  private static final ContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
-
   private final String id;
 
   private String name = INITIAL_HEADER;
@@ -64,7 +62,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return new Column(
       columnDto.id(),
       columnDto.name(),
-      ImmutableList.withElement(CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModel(
+      ImmutableList.withElement(ContentModelMapper.mapRawContentModelDtoToContentModel(
         columnDto.contentModel(),
         tables)));
   }
