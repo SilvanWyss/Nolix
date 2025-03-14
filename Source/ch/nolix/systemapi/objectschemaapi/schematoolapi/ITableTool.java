@@ -9,10 +9,10 @@ public interface ITableTool extends IDatabaseObjectExaminer {
 
   int getColumnCount(ITable table);
 
-  IContainer<IColumn> getStoredBackReferenceColumns(ITable table);
+  IContainer<? extends IColumn> getStoredBackReferenceColumns(ITable table);
 
-  IContainer<IColumn> getStoredBackReferencingColumns(ITable table);
+  IContainer<? extends IColumn> getStoredBackReferencingColumns(ITable table);
 
-  IContainer<IColumn> getStoredReferencingColumns(ITable table);
+  IContainer<? extends IColumn> getStoredReferencingColumns(ITable table);
 
 }

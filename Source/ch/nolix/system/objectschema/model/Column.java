@@ -12,12 +12,10 @@ import ch.nolix.system.objectschema.rawschemadtomapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.modeleditorapi.IColumnEditor;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
 
@@ -57,14 +55,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     setContentModels(contentModels);
   }
 
-  //TODO: Adjust
-  public static Column fromDto(final ColumnDto columnDto, final IContainer<ITable> tables) {
-    return new Column(
-      columnDto.id(),
-      columnDto.name(),
-      ImmutableList.withElement(ContentModelMapper.mapRawContentModelDtoToContentModel(
-        columnDto.contentModel(),
-        tables)));
+  public static Column withIdAndNameAndContentModels(
+    final String id,
+    final String name,
+    final IContainer<IContentModel> contentModels) {
+    return new Column(id, name, contentModels);
   }
 
   @Override
@@ -138,7 +133,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return this;
   }
 
-  IContainer<IColumn> getStoredBackReferencingColumns() {
+  IContainer<? extends IColumn> getStoredBackReferencingColumns() {
 
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
       return LinkedList.createEmpty();
@@ -178,7 +173,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     //Does nothing.
   }
 
-  private IContainer<IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
+  private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
 
     if (COLUMN_TOOL.belongsToDatabase(this)) {
       return COLUMN_TOOL

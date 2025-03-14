@@ -42,7 +42,7 @@ public interface IDatabaseTool extends IDatabaseObjectExaminer {
 
   void deleteTableWithGivenName(IDatabase database, String name);
 
-  IContainer<IColumn> getStoredAllBackReferenceColumns(IDatabase database);
+  IContainer<? extends IColumn> getStoredAllBackReferenceColumns(IDatabase database);
 
   ITable getStoredTableWithGivenName(IDatabase database, String name);
 

@@ -170,7 +170,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   }
 
   @Override
-  public IContainer<IColumn> getStoredAllBackReferenceColumns(final IDatabase database) {
+  public IContainer<? extends IColumn> getStoredAllBackReferenceColumns(final IDatabase database) {
     return database.getStoredTables().toMultiple(TABLE_TOOL::getStoredBackReferenceColumns);
   }
 

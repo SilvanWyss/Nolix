@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programstructure.data.IdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
@@ -31,7 +32,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   private Database parentDatabase;
 
-  private LinkedList<IColumn> columns = LinkedList.createEmpty();
+  private ILinkedList<Column> columns = LinkedList.createEmpty();
 
   private Table(final String id, final String name) {
 
@@ -116,7 +117,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   @Override
-  public IContainer<IColumn> getStoredColumns() {
+  public IContainer<? extends IColumn> getStoredColumns() {
 
     loadColumnsFromDatabaseIfNeeded();
 
@@ -144,11 +145,11 @@ public final class Table extends AbstractSchemaObject implements ITable {
     //Does not call getStoredColumns method to avoid that the columns need to be
     //loaded from the database.
     for (final var c : columns) {
-      ((Column) c).internalClose();
+      c.internalClose();
     }
   }
 
-  void addColumnAttribute(final IColumn column) {
+  void addColumnAttribute(final Column column) {
     columns.addAtEnd(column);
   }
 
@@ -188,13 +189,12 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
     final var tables = getStoredParentDatabase().getStoredTables();
 
-    columns = LinkedList.fromIterable(
-      internalGetStoredRawSchemaAdapter().loadColumnsByTableId(getId()).to(c -> Column.fromDto(c, tables)));
+    final var rawTableDto = internalGetStoredRawSchemaAdapter().loadTableById(getId());
+    columns = LinkedList.fromIterable(ColumnMapper.mapRawTableDtoToColumns(rawTableDto, tables));
 
     for (final var c : columns) {
-      final var column = (Column) c;
-      column.internalSetLoaded();
-      column.setParentTableAttribute(this);
+      c.internalSetLoaded();
+      c.setParentTableAttribute(this);
     }
   }
 

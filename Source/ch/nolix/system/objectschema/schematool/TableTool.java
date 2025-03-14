@@ -17,12 +17,12 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   }
 
   @Override
-  public IContainer<IColumn> getStoredBackReferenceColumns(final ITable table) {
+  public IContainer<? extends IColumn> getStoredBackReferenceColumns(final ITable table) {
     return table.getStoredColumns().getStoredSelected(COLUMN_TOOL::isABackReferenceColumn);
   }
 
   @Override
-  public IContainer<IColumn> getStoredBackReferencingColumns(final ITable table) {
+  public IContainer<? extends IColumn> getStoredBackReferencingColumns(final ITable table) {
 
     if (!table.belongsToDatabase()) {
       return getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(table);
@@ -32,7 +32,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   }
 
   @Override
-  public IContainer<IColumn> getStoredReferencingColumns(final ITable table) {
+  public IContainer<? extends IColumn> getStoredReferencingColumns(final ITable table) {
 
     if (!table.belongsToDatabase()) {
       return getStoredReferencingColumnsWhenDoesNotBelongToDatabase(table);
@@ -41,7 +41,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     return getStoredReferencingColumnsWhenBelongsToDatabase(table);
   }
 
-  private IContainer<IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
+  private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
 
     final var columns = table.getStoredParentDatabase().getStoredTables().toMultiple(ITable::getStoredColumns);
@@ -51,7 +51,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
       .getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
-  private IContainer<IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
+  private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
 
     final var columns = table.getStoredColumns();
@@ -59,7 +59,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
-  private IContainer<IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
+  private IContainer<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
     return table
       .getStoredParentDatabase()
       .getStoredTables()
@@ -67,7 +67,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
       .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
   }
 
-  private IContainer<IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
+  private IContainer<? extends IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
     return table.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
   }

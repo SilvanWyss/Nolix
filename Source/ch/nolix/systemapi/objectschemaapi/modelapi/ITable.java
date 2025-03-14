@@ -24,5 +24,5 @@ IIdHolder {
 
   FlatTableDto getFlatDto();
 
-  IContainer<IColumn> getStoredColumns();
+  IContainer<? extends IColumn> getStoredColumns();
 }
