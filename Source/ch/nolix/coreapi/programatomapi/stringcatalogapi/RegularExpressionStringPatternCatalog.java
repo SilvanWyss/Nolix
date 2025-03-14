@@ -1,5 +1,7 @@
 package ch.nolix.coreapi.programatomapi.stringcatalogapi;
 
+import java.util.regex.Pattern;
+
 /**
  * Of the {@link RegularExpressionStringPatternCatalog} an instance cannot be
  * created.
@@ -8,6 +10,8 @@ package ch.nolix.coreapi.programatomapi.stringcatalogapi;
  * @version 2023-07-23
  */
 public final class RegularExpressionStringPatternCatalog {
+
+  public static final String DOLLAR_PATTERN = Pattern.quote(StringCatalog.DOLLAR);
 
   public static final String DOT_PATTERN = ".";
 

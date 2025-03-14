@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
  */
 public final class RegularExpressionPatternCatalog {
 
+  public static final Pattern DOLLAR_PATTERN = Pattern.compile(RegularExpressionStringPatternCatalog.DOLLAR_PATTERN);
+
   public static final Pattern DOT_PATTERN = Pattern.compile(RegularExpressionStringPatternCatalog.DOT_PATTERN);
 
   public static final Pattern DOUBLE_PATTERN = Pattern.compile(RegularExpressionStringPatternCatalog.DOUBLE_PATTERN);
