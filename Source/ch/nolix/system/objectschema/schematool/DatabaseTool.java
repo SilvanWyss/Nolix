@@ -6,24 +6,20 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
-import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
+import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.ITableExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelmutationexaminer.ITableMutationExaminer;
+import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IDatabaseExaminer;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
 import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
 
 public final class DatabaseTool extends DatabaseObjectExaminer implements IDatabaseTool {
 
-  private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
+  private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
   private static final ITableTool TABLE_TOOL = new TableTool();
-
-  private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
@@ -41,7 +37,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
 
   @Override
   public void assertCanAddGivenTable(final IDatabase database, final ITable table) {
-    if (!canAddGivenTable(database, table)) {
+    if (!DATABASE_EXAMINER.canAddTable(database, table)) {
 
       if (table == null) {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TABLE);
@@ -55,7 +51,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
 
   @Override
   public void assertCanSetGivenNameToDatabase(final String name) {
-    if (!canSetGivenNameToDatabase(name)) {
+    if (!DATABASE_EXAMINER.canSetName(name)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         LowerCaseVariableCatalog.NAME,
         name,
@@ -67,7 +63,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   public void assertContainsTableReferencedByGivenColumn(
     final IDatabase database,
     final IColumn column) {
-    if (!containsTableReferencedByGivenColumn(database, column)) {
+    if (!DATABASE_EXAMINER.containsTableReferencedByColumn(database, column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         database,
         "does not contain a table that is referenced by the column " + column.getNameInQuotes());
@@ -78,7 +74,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   public void assertContainsTableWithColumnBackReferencedByGivenColumn(
     final IDatabase database,
     final IColumn column) {
-    if (!containsTableWithColumnBackReferencedByGivenColumn(database, column)) {
+    if (!DATABASE_EXAMINER.containsBackReferencededColumnByColumn(database, column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         this,
         "does not contain a table with a column that references back the column " + column.getName());
@@ -88,80 +84,17 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
 
   @Override
   public void assertContainsTableWithGivenColumn(final IDatabase database, final IColumn column) {
-    if (!containsTableWithGivenColumn(database, column)) {
+    if (!DATABASE_EXAMINER.containsTableWithColumn(database, column)) {
       throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, column);
     }
   }
 
   @Override
   public void assertDoesNotContainTableWithGivenName(final IDatabase database, final String name) {
-    if (containsTableWithGivenName(database, name)) {
+    if (DATABASE_EXAMINER.containsTableWithName(database, name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this,
         "contains a table with the name '" + name + "'");
     }
-  }
-
-  @Override
-  public boolean canAddGivenTable(final IDatabase database, final ITable table) {
-    return canAddTable(database)
-    && TABLE_MUTATION_EXAMINER.canBeAddedToDatabase(table)
-    && !containsTableWithGivenName(database, table.getName())
-    && canAddGivenTableBecauseOfColumns(database, table);
-  }
-
-  @Override
-  public boolean canAddTable(final IDatabase database) {
-    return database != null
-    && database.isOpen();
-  }
-
-  @Override
-  public boolean canSetGivenNameToDatabase(final String name) {
-    return !name.isBlank();
-  }
-
-  @Override
-  public boolean containsGivenTable(final IDatabase database, ITable table) {
-    return database.getStoredTables().contains(table);
-  }
-
-  @Override
-  public boolean containsTableReferencedByGivenColumn(
-    final IDatabase database,
-    final IColumn column) {
-
-    //This check is theoretically not necessary, but provides a better performance
-    //for some cases.
-    if (!COLUMN_TOOL.isAReferenceColumn(column)) {
-      return false;
-    }
-
-    return database.getStoredTables().containsAny(t -> COLUMN_TOOL.referencesGivenTable(column, t));
-  }
-
-  @Override
-  public boolean containsTableWithColumnBackReferencedByGivenColumn(
-    final IDatabase database,
-    final IColumn column) {
-
-    //This check is theoretically not necessary, but provides a better performance
-    //for some cases.
-    if (!COLUMN_TOOL.isABackReferenceColumn(column)) {
-      return false;
-    }
-
-    return database.getStoredTables()
-      .containsAny(t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
-  }
-
-  @Override
-  public boolean containsTableWithGivenColumn(final IDatabase database, final IColumn column) {
-    return database.getStoredTables().containsAny(t -> TABLE_EXAMINER.containsColumn(t, column));
-  }
-
-  @Override
-  public boolean containsTableWithGivenName(final IDatabase database, final String name) {
-    return database.getStoredTables().containsAny(t -> t.hasName(name));
   }
 
   @Override
@@ -182,33 +115,5 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   @Override
   public int getTableCount(final IDatabase database) {
     return database.getStoredTables().getCount();
-  }
-
-  private boolean canAddGivenTableBecauseOfColumns(final IDatabase database, final ITable table) {
-    return table.getStoredColumns().containsOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
-  }
-
-  private boolean canAddGivenTableBecauseOfGivenColumn(
-    final IDatabase database,
-    final ITable table,
-    final IColumn column) {
-    return switch (COLUMN_TOOL.getBaseFieldType(column)) {
-      case BASE_VALUE ->
-        true;
-      case BASE_REFERENCE ->
-        canAddGivenTableBecauseOfGivenReferenceColumn(database, table, column);
-      case BASE_BACK_REFERENCE ->
-        true;
-      default ->
-        true;
-    };
-  }
-
-  private boolean canAddGivenTableBecauseOfGivenReferenceColumn(
-    final IDatabase database,
-    final ITable table,
-    final IColumn referenceColumn) {
-    return containsTableReferencedByGivenColumn(database, referenceColumn)
-    || COLUMN_TOOL.referencesGivenTable(referenceColumn, table);
   }
 }

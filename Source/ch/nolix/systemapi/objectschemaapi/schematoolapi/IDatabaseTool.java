@@ -24,22 +24,6 @@ public interface IDatabaseTool extends IDatabaseObjectExaminer {
 
   void assertDoesNotContainTableWithGivenName(IDatabase database, String name);
 
-  boolean canAddGivenTable(IDatabase database, ITable table);
-
-  boolean canAddTable(IDatabase database);
-
-  boolean canSetGivenNameToDatabase(String name);
-
-  boolean containsGivenTable(IDatabase database, ITable table);
-
-  boolean containsTableReferencedByGivenColumn(IDatabase database, IColumn column);
-
-  boolean containsTableWithColumnBackReferencedByGivenColumn(IDatabase database, IColumn column);
-
-  boolean containsTableWithGivenColumn(IDatabase database, IColumn column);
-
-  boolean containsTableWithGivenName(IDatabase database, String name);
-
   void deleteTableWithGivenName(IDatabase database, String name);
 
   IContainer<? extends IColumn> getStoredAllBackReferenceColumns(IDatabase database);
