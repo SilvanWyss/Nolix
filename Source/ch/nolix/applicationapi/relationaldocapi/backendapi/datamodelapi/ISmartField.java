@@ -7,18 +7,18 @@ import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentM
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
-public interface ICategorizableField
+public interface ISmartField
 extends
-CATEGORIZABLE<ICategorizableField>,
-ContentTypeAssignable<ICategorizableField>,
+CATEGORIZABLE<ISmartField>,
+ContentTypeAssignable<ISmartField>,
 EmptinessRequestable,
-IFluentMutableNameHolder<ICategorizableField>,
-IFluentMutableCardinalityHolder<ICategorizableField>,
+IFluentMutableNameHolder<ISmartField>,
+IFluentMutableCardinalityHolder<ISmartField>,
 MandatorynessRequestable {
 
-  ICategorizableField getStoredBaseField();
+  ISmartField getStoredBaseField();
 
-  ICategorizableObject getStoredParentObject();
+  ISmartObject getStoredParentObject();
 
   IContent getStoredContent();
 

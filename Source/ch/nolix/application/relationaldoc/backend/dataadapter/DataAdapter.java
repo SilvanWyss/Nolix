@@ -1,10 +1,10 @@
 package ch.nolix.application.relationaldoc.backend.dataadapter;
 
-import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableObjectExaminer;
-import ch.nolix.application.relationaldoc.backend.datamodel.CategorizableObject;
+import ch.nolix.application.relationaldoc.backend.dataeexaminer.SmartObjectExaminer;
+import ch.nolix.application.relationaldoc.backend.datamodel.SmartObject;
 import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalog;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.dataadapterapi.IDataAdapter;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -13,7 +13,7 @@ import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 
 public final class DataAdapter implements IDataAdapter {
 
-  private static final CategorizableObjectExaminer CATEGORIZABLE_OBJECT_EXAMINER = new CategorizableObjectExaminer();
+  private static final SmartObjectExaminer CATEGORIZABLE_OBJECT_EXAMINER = new SmartObjectExaminer();
 
   private final ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter internalDataAdapter;
 
@@ -41,9 +41,9 @@ public final class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public ICategorizableObject createObject() {
+  public ISmartObject createObject() {
 
-    final var object = new CategorizableObject();
+    final var object = new SmartObject();
 
     internalDataAdapter.insertEntity(object);
 
@@ -56,9 +56,9 @@ public final class DataAdapter implements IDataAdapter {
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredTopLevelObjects() {
+  public IContainer<? extends ISmartObject> getStoredTopLevelObjects() {
 
-    final var objectTable = internalDataAdapter.getStoredTableByEntityType(CategorizableObject.class);
+    final var objectTable = internalDataAdapter.getStoredTableByEntityType(SmartObject.class);
     final var objects = objectTable.getStoredEntities();
 
     return objects.getStoredOthers(CATEGORIZABLE_OBJECT_EXAMINER::hasBaseTypes);

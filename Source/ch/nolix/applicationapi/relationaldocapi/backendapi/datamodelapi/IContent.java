@@ -6,5 +6,5 @@ import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
 public interface IContent extends AbstractnessRequestable, ContentTypeRequestable, EmptinessRequestable {
 
-  ICategorizableField getStoredParentField();
+  ISmartField getStoredParentField();
 }

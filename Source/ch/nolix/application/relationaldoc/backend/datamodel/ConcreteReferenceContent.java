@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.ConcreteReferenceContentValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -14,18 +14,18 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = //
   new ConcreteReferenceContentValidator();
 
-  private final BackReference<CategorizableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(CategorizableField.class, "concreteReferenceContent");
+  private final BackReference<SmartField> parentField = BackReference
+    .forEntityAndBackReferencedFieldName(SmartField.class, "concreteReferenceContent");
 
-  private final MultiReference<CategorizableObject> referencedObjects = //
-  MultiReference.forEntity(CategorizableObject.class);
+  private final MultiReference<SmartObject> referencedObjects = //
+  MultiReference.forEntity(SmartObject.class);
 
   public ConcreteReferenceContent() {
     initialize();
   }
 
   @Override
-  public IConcreteReferenceContent addObject(final ICategorizableObject object) {
+  public IConcreteReferenceContent addObject(final ISmartObject object) {
 
     CONCRETE_REFERENCE_CONTENT_VALIDATOR.assertCanAddObject(this, object);
 
@@ -35,17 +35,17 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   }
 
   @Override
-  public ICategorizableField getStoredParentField() {
+  public ISmartField getStoredParentField() {
     return parentField.getStoredBackReferencedEntity();
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredReferencedObjects() {
+  public IContainer<? extends ISmartObject> getStoredReferencedObjects() {
     return referencedObjects.getAllStoredReferencedEntities();
   }
 
   @Override
-  public ICategorizableObject getStoredReferencedType() {
+  public ISmartObject getStoredReferencedType() {
 
     final var baseField = getStoredParentField().getStoredBaseField();
 
@@ -65,7 +65,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   }
 
   @Override
-  public void removeObject(final ICategorizableObject object) {
+  public void removeObject(final ISmartObject object) {
 
     CONCRETE_REFERENCE_CONTENT_VALIDATOR.assertCanRemoveOneObject(this);
 

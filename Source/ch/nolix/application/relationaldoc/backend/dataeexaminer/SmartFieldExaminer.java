@@ -1,51 +1,51 @@
 package ch.nolix.application.relationaldoc.backend.dataeexaminer;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.dataexaminerapi.ICategorizableFieldExaminer;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.dataexaminerapi.ISmartFieldExaminer;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 
-public final class CategorizableFieldExaminer implements ICategorizableFieldExaminer {
+public final class SmartFieldExaminer implements ISmartFieldExaminer {
 
   @Override
-  public boolean allRealisingFieldsAreEmpty(final ICategorizableField field) {
+  public boolean allRealisingFieldsAreEmpty(final ISmartField field) {
 
     final var realisingFields = getStoredRealisingFields(field);
 
-    return realisingFields.containsOnly(ICategorizableField::isEmpty);
+    return realisingFields.containsOnly(ISmartField::isEmpty);
   }
 
   @Override
-  public boolean canBeSetAsAbstract(final ICategorizableField field) {
+  public boolean canBeSetAsAbstract(final ISmartField field) {
     return //
     field != null
     && canBeSetAsAbstractWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canBeSetAsConcrete(final ICategorizableField field) {
+  public boolean canBeSetAsConcrete(final ISmartField field) {
     return //
     field != null
     && canBeSetAsConcreteWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canBeSetForReferences(final ICategorizableField field) {
+  public boolean canBeSetForReferences(final ISmartField field) {
     return //
     field != null
     && canBeSetForReferencesWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canBeSetForValues(final ICategorizableField field) {
+  public boolean canBeSetForValues(final ISmartField field) {
     return //
     field != null
     && canBeSetForValuesWhenIsNotNull(field);
   }
 
   @Override
-  public boolean canSetCardinality(final ICategorizableField field, final Cardinality cardinality) {
+  public boolean canSetCardinality(final ISmartField field, final Cardinality cardinality) {
     return //
     field != null
     && cardinality != null
@@ -53,7 +53,7 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
   }
 
   @Override
-  public boolean canSetName(final ICategorizableField field, final String name) {
+  public boolean canSetName(final ISmartField field, final String name) {
     return //
     field != null
     && canSetName(name)
@@ -61,7 +61,7 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
   }
 
   @Override
-  public IContainer<? extends ICategorizableField> getStoredRealisingFields(final ICategorizableField field) {
+  public IContainer<? extends ISmartField> getStoredRealisingFields(final ISmartField field) {
 
     if (field == null || field.isConcrete()) {
       return ImmutableList.createEmpty();
@@ -71,43 +71,43 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
   }
 
   @Override
-  public boolean hasRealisingFields(final ICategorizableField field) {
+  public boolean hasRealisingFields(final ISmartField field) {
     return //
     field != null
     && hasRealisingFieldsWhenIsNotNull(field);
   }
 
-  private boolean canBeSetAsAbstractBecauseOfParentObject(final ICategorizableField field) {
+  private boolean canBeSetAsAbstractBecauseOfParentObject(final ISmartField field) {
     return //
     field != null
     && field.getStoredParentObject().isAbstract();
   }
 
-  private boolean canBeSetAsAbstractWhenIsNotNull(final ICategorizableField field) {
+  private boolean canBeSetAsAbstractWhenIsNotNull(final ISmartField field) {
     return //
     !field.inheritsFromBaseField()
     && canBeSetAsAbstractBecauseOfParentObject(field);
   }
 
-  private boolean canBeSetAsConcreteWhenIsNotNull(final ICategorizableField field) {
+  private boolean canBeSetAsConcreteWhenIsNotNull(final ISmartField field) {
     return allRealisingFieldsAreEmpty(field);
   }
 
-  private boolean canBeSetForReferencesWhenIsNotNull(final ICategorizableField field) {
+  private boolean canBeSetForReferencesWhenIsNotNull(final ISmartField field) {
     return //
     field.isForReferences()
     || hasRealisingFields(field);
   }
 
-  private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final ICategorizableField field) {
+  private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final ISmartField field) {
     return allRealisingFieldsAreEmpty(field);
   }
 
-  private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final ICategorizableField field) {
+  private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final ISmartField field) {
     return !field.inheritsFromBaseField();
   }
 
-  private boolean canBeSetForValuesWhenIsForReferences(final ICategorizableField field) {
+  private boolean canBeSetForValuesWhenIsForReferences(final ISmartField field) {
 
     if (field.isAbstract()) {
       return canBeSetForValuesWhenIsAbstractAndForReferences(field);
@@ -116,13 +116,13 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
     return canBeSetForValuesWhenIsConcreteAndForReferences(field);
   }
 
-  private boolean canBeSetForValuesWhenIsNotNull(final ICategorizableField field) {
+  private boolean canBeSetForValuesWhenIsNotNull(final ISmartField field) {
     return //
     field.isForValues()
     || canBeSetForValuesWhenIsForReferences(field);
   }
 
-  private boolean canSetCardinalityWhenIsNotNull(final ICategorizableField field, final Cardinality cardinality) {
+  private boolean canSetCardinalityWhenIsNotNull(final ISmartField field, final Cardinality cardinality) {
 
     if (field.getCardinality() == cardinality || cardinality == Cardinality.TO_MANY) {
       return true;
@@ -142,21 +142,21 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
   }
 
   private boolean canSetNameBecauseOfSubTypesOfParentObject(
-    final ICategorizableField field,
+    final ISmartField field,
     final String name) {
     return //
     field != null
     && field.getStoredParentObject().getStoredSubTypes().containsNone(cst -> cst.hasName(name));
   }
 
-  private boolean canSetNameWhenIsNotNull(final ICategorizableField field, final String name) {
+  private boolean canSetNameWhenIsNotNull(final ISmartField field, final String name) {
     return //
     field.getStoredParentObject().getStoredFields().containsNone(f -> f.hasName(name))
     && canSetNameBecauseOfSubTypesOfParentObject(field, name);
   }
 
-  private IContainer<? extends ICategorizableField> getStoredRealisingFieldsWhenIsAbstract(
-    final ICategorizableField field) {
+  private IContainer<? extends ISmartField> getStoredRealisingFieldsWhenIsAbstract(
+    final ISmartField field) {
     return //
     field
       .getStoredParentObject()
@@ -164,7 +164,7 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
       .toMultiples(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
   }
 
-  private boolean hasRealisingFieldsWhenIsNotNull(final ICategorizableField field) {
+  private boolean hasRealisingFieldsWhenIsNotNull(final ISmartField field) {
 
     final var realisingFields = getStoredRealisingFields(field);
 

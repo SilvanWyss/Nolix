@@ -1,10 +1,10 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
-import ch.nolix.application.relationaldoc.backend.datatool.CategorizableObjectTool;
-import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableFieldValidator;
-import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableObjectValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.application.relationaldoc.backend.datatool.SmartObjectTool;
+import ch.nolix.application.relationaldoc.backend.datavalidator.SmartFieldValidator;
+import ch.nolix.application.relationaldoc.backend.datavalidator.SmartObjectValidator;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
@@ -13,37 +13,37 @@ import ch.nolix.system.objectdata.model.MultiBackReference;
 import ch.nolix.system.objectdata.model.MultiReference;
 import ch.nolix.system.objectdata.model.Value;
 
-public final class CategorizableObject extends Entity implements ICategorizableObject {
+public final class SmartObject extends Entity implements ISmartObject {
 
   public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalog.FIELD;
 
   public static final boolean DEFAULT_ABSTRACT_FLAG = false;
 
-  private static final CategorizableObjectTool CATEGORIZABLE_OBJECT_TOOL = new CategorizableObjectTool();
+  private static final SmartObjectTool CATEGORIZABLE_OBJECT_TOOL = new SmartObjectTool();
 
-  private static final CategorizableObjectValidator CATEGORIZABLE_OBJECT_VALIDATOR = new CategorizableObjectValidator();
+  private static final SmartObjectValidator CATEGORIZABLE_OBJECT_VALIDATOR = new SmartObjectValidator();
 
-  private static final CategorizableFieldValidator CATEGORIZABLE_FIELD_VALIDATOR = new CategorizableFieldValidator();
+  private static final SmartFieldValidator CATEGORIZABLE_FIELD_VALIDATOR = new SmartFieldValidator();
 
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 
   private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
 
-  private final MultiReference<CategorizableObject> directBaseTypes = //
-  MultiReference.forEntity(CategorizableObject.class);
+  private final MultiReference<SmartObject> directBaseTypes = //
+  MultiReference.forEntity(SmartObject.class);
 
-  private final MultiBackReference<CategorizableObject> directSubTypes = //
-  MultiBackReference.forBackReferencedEntityTypeAndBaseReference(CategorizableObject.class, "directBaseTypes");
+  private final MultiBackReference<SmartObject> directSubTypes = //
+  MultiBackReference.forBackReferencedEntityTypeAndBaseReference(SmartObject.class, "directBaseTypes");
 
-  private final MultiReference<CategorizableField> declaredFields = //
-  MultiReference.forEntity(CategorizableField.class);
+  private final MultiReference<SmartField> declaredFields = //
+  MultiReference.forEntity(SmartField.class);
 
-  public CategorizableObject() {
+  public SmartObject() {
     initialize();
   }
 
   @Override
-  public ICategorizableObject addBaseType(final ICategorizableObject baseType) {
+  public ISmartObject addBaseType(final ISmartObject baseType) {
 
     CATEGORIZABLE_OBJECT_VALIDATOR.assertCanAddBaseType(this, baseType);
 
@@ -53,7 +53,7 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   }
 
   @Override
-  public ICategorizableObject addField(final ICategorizableField field) {
+  public ISmartObject addField(final ISmartField field) {
 
     CATEGORIZABLE_OBJECT_VALIDATOR.assertCanAddField(this, field);
 
@@ -70,42 +70,42 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredBaseTypes() {
+  public IContainer<? extends ISmartObject> getStoredBaseTypes() {
     return ContainerView
       .forIterable(
         getStoredDirectBaseTypes(),
-        getStoredDirectBaseTypes().toMultiples(ICategorizableObject::getStoredBaseTypes));
+        getStoredDirectBaseTypes().toMultiples(ISmartObject::getStoredBaseTypes));
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredConcreteSubTypes() {
-    return getStoredSubTypes().getStoredSelected(ICategorizableObject::isConcrete);
+  public IContainer<? extends ISmartObject> getStoredConcreteSubTypes() {
+    return getStoredSubTypes().getStoredSelected(ISmartObject::isConcrete);
   }
 
   @Override
-  public IContainer<? extends ICategorizableField> getStoredDeclaredFields() {
+  public IContainer<? extends ISmartField> getStoredDeclaredFields() {
     return declaredFields.getAllStoredReferencedEntities();
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredDirectBaseTypes() {
+  public IContainer<? extends ISmartObject> getStoredDirectBaseTypes() {
     return directBaseTypes.getAllStoredReferencedEntities();
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredDirectSubTypes() {
+  public IContainer<? extends ISmartObject> getStoredDirectSubTypes() {
     return directSubTypes.getAllStoredBackReferencedEntities();
   }
 
   @Override
-  public IContainer<? extends ICategorizableField> getStoredFields() {
+  public IContainer<? extends ISmartField> getStoredFields() {
     return ContainerView.forIterable(
-      getStoredDeclaredFields().getStoredOthers(ICategorizableField::inheritsFromBaseField),
-      getStoredDirectBaseTypes().toMultiples(ICategorizableObject::getStoredFields));
+      getStoredDeclaredFields().getStoredOthers(ISmartField::inheritsFromBaseField),
+      getStoredDirectBaseTypes().toMultiples(ISmartObject::getStoredFields));
   }
 
   @Override
-  public IContainer<? extends ICategorizableObject> getStoredSubTypes() {
+  public IContainer<? extends ISmartObject> getStoredSubTypes() {
     return CATEGORIZABLE_OBJECT_TOOL.getStoredSubTypesUsingSimplerMethods(this);
   }
 
@@ -115,18 +115,18 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   }
 
   @Override
-  public boolean isSubTypeOfObject(final ICategorizableObject object) {
+  public boolean isSubTypeOfObject(final ISmartObject object) {
     return object != null
     && isSubTypeOfObjectWhenObjectIsNotNull(object);
   }
 
   @Override
-  public void removeDirectBaseType(final ICategorizableObject directBaseType) {
+  public void removeDirectBaseType(final ISmartObject directBaseType) {
     directBaseTypes.removeEntity(directBaseType);
   }
 
   @Override
-  public void removeNonInheritedField(final ICategorizableField nonInheritedField) {
+  public void removeNonInheritedField(final ISmartField nonInheritedField) {
 
     CATEGORIZABLE_FIELD_VALIDATOR.assertDoesNotInheritFromAnotherField(nonInheritedField);
 
@@ -135,12 +135,12 @@ public final class CategorizableObject extends Entity implements ICategorizableO
     final var fieldName = nonInheritedField.getName();
 
     for (final var cst : getStoredConcreteSubTypes()) {
-      ((CategorizableObject) cst).removeFieldByName(fieldName);
+      ((SmartObject) cst).removeFieldByName(fieldName);
     }
   }
 
   @Override
-  public ICategorizableObject setAsAbstract() {
+  public ISmartObject setAsAbstract() {
 
     abstractFlag.setValue(true);
 
@@ -148,7 +148,7 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   }
 
   @Override
-  public ICategorizableObject setAsConcrete() {
+  public ISmartObject setAsConcrete() {
 
     CATEGORIZABLE_OBJECT_VALIDATOR.assertCanBeSetAsConcrete(this);
 
@@ -158,7 +158,7 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   }
 
   @Override
-  public ICategorizableObject setName(final String name) {
+  public ISmartObject setName(final String name) {
 
     CATEGORIZABLE_OBJECT_VALIDATOR.assertCanSetName(this, name);
 
@@ -167,16 +167,16 @@ public final class CategorizableObject extends Entity implements ICategorizableO
     return this;
   }
 
-  private void addRealisationOfFieldToAllConcreteSubTypesIfFieldIsAbstract(final ICategorizableField field) {
+  private void addRealisationOfFieldToAllConcreteSubTypesIfFieldIsAbstract(final ISmartField field) {
     if (field.isAbstract()) {
       addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(field);
     }
   }
 
-  private void addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(final ICategorizableField field) {
+  private void addRealisationOfFieldToAllConcreteSubTypesWhenFieldIsAbstract(final ISmartField field) {
     for (final var cst : getStoredConcreteSubTypes()) {
 
-      final var realisation = new CategorizableField().setAsConcrete();
+      final var realisation = new SmartField().setAsConcrete();
 
       switch (field.getContentType()) { //NOSONAR: Use switch statement to restrict criteria to content type.
         case VALUE:
@@ -191,7 +191,7 @@ public final class CategorizableObject extends Entity implements ICategorizableO
     }
   }
 
-  private boolean isSubTypeOfObjectWhenObjectIsNotNull(final ICategorizableObject object) {
+  private boolean isSubTypeOfObjectWhenObjectIsNotNull(final ISmartObject object) {
 
     for (final var dbt : getStoredDirectBaseTypes()) {
       if (dbt == object || dbt.getStoredDirectBaseTypes().containsAny(dbt2 -> dbt2.isSubTypeOfObject(object))) {

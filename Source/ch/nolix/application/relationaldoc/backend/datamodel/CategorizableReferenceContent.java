@@ -1,9 +1,9 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
-import ch.nolix.application.relationaldoc.backend.dataeexaminer.CategorizableFieldExaminer;
+import ch.nolix.application.relationaldoc.backend.dataeexaminer.SmartFieldExaminer;
 import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableReferenceContentValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.system.objectdata.model.BackReference;
@@ -11,27 +11,27 @@ import ch.nolix.system.objectdata.model.Reference;
 
 public final class CategorizableReferenceContent extends ReferenceContent implements ICategorizableReferenceContent {
 
-  private static final CategorizableFieldExaminer CATEGORIZABLE_FIELD_EVALUATOR = new CategorizableFieldExaminer();
+  private static final SmartFieldExaminer CATEGORIZABLE_FIELD_EVALUATOR = new SmartFieldExaminer();
 
   private static final CategorizableReferenceContentValidator ABSTRACT_REFERENCE_CONTENT_VALIDATOR = //
   new CategorizableReferenceContentValidator();
 
-  private final BackReference<CategorizableField> parentField = BackReference
-    .forEntityAndBackReferencedFieldName(CategorizableField.class, "categorizableReferenceContent");
+  private final BackReference<SmartField> parentField = BackReference
+    .forEntityAndBackReferencedFieldName(SmartField.class, "categorizableReferenceContent");
 
-  private final Reference<CategorizableObject> referencedType = Reference.forEntity(CategorizableObject.class);
+  private final Reference<SmartObject> referencedType = Reference.forEntity(SmartObject.class);
 
   public CategorizableReferenceContent() {
     initialize();
   }
 
   @Override
-  public ICategorizableField getStoredParentField() {
+  public ISmartField getStoredParentField() {
     return parentField.getStoredBackReferencedEntity();
   }
 
   @Override
-  public ICategorizableObject getStoredReferencedType() {
+  public ISmartObject getStoredReferencedType() {
     return referencedType.getStoredReferencedEntity();
   }
 
@@ -46,14 +46,14 @@ public final class CategorizableReferenceContent extends ReferenceContent implem
   }
 
   @Override
-  public ICategorizableReferenceContent setReferencedType(final ICategorizableObject referenceType) {
+  public ICategorizableReferenceContent setReferencedType(final ISmartObject referenceType) {
 
     setReferenceTypeIfWillChange(referenceType);
 
     return this;
   }
 
-  private void setReferenceTypeIfWillChange(final ICategorizableObject referenceType) {
+  private void setReferenceTypeIfWillChange(final ISmartObject referenceType) {
     if (getStoredReferencedType() != referenceType) {
 
       ABSTRACT_REFERENCE_CONTENT_VALIDATOR.assertCanSetReferenceType(this, referenceType);
@@ -62,7 +62,7 @@ public final class CategorizableReferenceContent extends ReferenceContent implem
     }
   }
 
-  private void setReferenceTypeWhenWillChange(final ICategorizableObject referenceType) {
+  private void setReferenceTypeWhenWillChange(final ISmartObject referenceType) {
 
     final var realisingFields = CATEGORIZABLE_FIELD_EVALUATOR.getStoredRealisingFields(getStoredParentField());
 

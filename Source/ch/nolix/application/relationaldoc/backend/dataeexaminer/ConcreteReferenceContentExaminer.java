@@ -1,6 +1,6 @@
 package ch.nolix.application.relationaldoc.backend.dataeexaminer;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
@@ -9,7 +9,7 @@ public final class ConcreteReferenceContentExaminer {
 
   public boolean canAddObject(
     final IConcreteReferenceContent concreteReferenceContent,
-    final ICategorizableObject object) {
+    final ISmartObject object) {
     return concreteReferenceContent != null
     && object != null
     && canAddObjectBecauseOfCardinality(concreteReferenceContent)
@@ -33,7 +33,7 @@ public final class ConcreteReferenceContentExaminer {
   //mehtod
   private boolean canAddObjectBecauseOfReferencedType(
     final IConcreteReferenceContent concreteReferenceContent,
-    final ICategorizableObject object) {
+    final ISmartObject object) {
 
     if (concreteReferenceContent == null) {
       return false;

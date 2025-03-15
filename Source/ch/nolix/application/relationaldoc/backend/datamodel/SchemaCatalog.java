@@ -6,8 +6,8 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 public final class SchemaCatalog {
 
   public static final IEntityTypeSet RELATIONAL_DOC_SCHEMA = EntityTypeSet.withEntityType(
-    CategorizableField.class,
-    CategorizableObject.class,
+    SmartField.class,
+    SmartObject.class,
     CategorizableReferenceContent.class,
     CategorizableValueContent.class,
     ConcreteReferenceContent.class,

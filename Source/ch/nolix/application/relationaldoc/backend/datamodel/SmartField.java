@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
-import ch.nolix.application.relationaldoc.backend.datavalidator.CategorizableFieldValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableObject;
+import ch.nolix.application.relationaldoc.backend.datavalidator.SmartFieldValidator;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IContent;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
@@ -12,16 +12,16 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.OptionalReference;
 import ch.nolix.system.objectdata.model.Value;
 
-public final class CategorizableField extends Entity implements ICategorizableField {
+public final class SmartField extends Entity implements ISmartField {
 
   public static final String DEFAULT_NAME = PluralPascalCaseVariableCatalog.FIELD;
 
   public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
 
-  private static final CategorizableFieldValidator CATEGORIZABLE_FIELD_VALIDATOR = new CategorizableFieldValidator();
+  private static final SmartFieldValidator CATEGORIZABLE_FIELD_VALIDATOR = new SmartFieldValidator();
 
-  private final BackReference<CategorizableObject> parentObject = BackReference
-    .forEntityAndBackReferencedFieldName(CategorizableObject.class, "declaredFields");
+  private final BackReference<SmartObject> parentObject = BackReference
+    .forEntityAndBackReferencedFieldName(SmartObject.class, "declaredFields");
 
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 
@@ -47,7 +47,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   private final OptionalReference<ConcreteReferenceContent> concreteReferenceContent = OptionalReference
     .forEntity(ConcreteReferenceContent.class);
 
-  public CategorizableField() {
+  public SmartField() {
     initialize();
   }
 
@@ -77,10 +77,10 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField getStoredBaseField() {
+  public ISmartField getStoredBaseField() {
     return getStoredParentObject()
       .getStoredDirectBaseTypes()
-      .toMultiples(ICategorizableObject::getStoredFields)
+      .toMultiples(ISmartObject::getStoredFields)
       .getStoredFirst(f -> f.hasSameNameAs(this));
   }
 
@@ -111,7 +111,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableObject getStoredParentObject() {
+  public ISmartObject getStoredParentObject() {
     return parentObject.getStoredBackReferencedEntity();
   }
 
@@ -143,7 +143,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField setAsAbstract() {
+  public ISmartField setAsAbstract() {
 
     CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetAsAbstract(this);
 
@@ -153,7 +153,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField setAsConcrete() {
+  public ISmartField setAsConcrete() {
 
     CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetAsConcrete(this);
 
@@ -163,7 +163,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField setCardinality(final Cardinality cardinality) {
+  public ISmartField setCardinality(final Cardinality cardinality) {
 
     CATEGORIZABLE_FIELD_VALIDATOR.assertCanSetCardinality(this, cardinality);
 
@@ -173,7 +173,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField setForReferences() {
+  public ISmartField setForReferences() {
 
     CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetForReferences(this);
 
@@ -183,7 +183,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField setForValues() {
+  public ISmartField setForValues() {
 
     CATEGORIZABLE_FIELD_VALIDATOR.assertCanBeSetForValues(this);
 
@@ -193,7 +193,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   }
 
   @Override
-  public ICategorizableField setName(final String name) {
+  public ISmartField setName(final String name) {
 
     if (inheritsFromBaseField()) {
       getStoredBaseField().setName(name);
