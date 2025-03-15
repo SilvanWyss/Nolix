@@ -30,7 +30,7 @@ public final class TableEditor {
 
       //TODO: Add addColumns method to ISchemaAdapter
       for (final var c : columnDtos) {
-        table.internalGetStoredRawSchemaAdapter().addColumn(tableName, c);
+        table.getStoredRawSchemaAdapter().addColumn(tableName, c);
       }
     }
 
@@ -45,7 +45,7 @@ public final class TableEditor {
 
     final var tableName = table.getName();
 
-    table.internalGetStoredRawSchemaAdapter().deleteTable(tableName);
+    table.getStoredRawSchemaAdapter().deleteTable(tableName);
 
     table.internalSetDeleted();
   }
@@ -60,7 +60,7 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
 
-      table.internalGetStoredRawSchemaAdapter().setTableName(oldTableName, name);
+      table.getStoredRawSchemaAdapter().setTableName(oldTableName, name);
 
       for (final var rc : referencingColumns) {
         ((Column) rc).internalSetContentModelToDatabase();
