@@ -125,7 +125,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+  public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     systemDataWriter.setColumnName(tableName, columnName, newColumnName);
     internalSchemaWriter.setColumnName(tableName, columnName, newColumnName);
   }

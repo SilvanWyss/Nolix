@@ -149,8 +149,8 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void setColumnName(final String tableName, final String columnName, final String newColumnName) {
-    schemaWriter.setColumnName(tableName, columnName, newColumnName);
+  public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
+    schemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
 
   @Override

@@ -75,7 +75,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
       final var tableName = column.getStoredParentTable().getName();
 
-      column.internalGetStoredRawSchemaAdapter().setColumnName(tableName, oldName, name);
+      column.internalGetStoredRawSchemaAdapter().renameColumn(tableName, oldName, name);
     }
 
     for (final var brc : backReferencingColumns) {
