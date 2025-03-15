@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
@@ -63,6 +64,13 @@ public final class SchemaWriter implements ISchemaWriter {
   public void addColumn(final String tableName, final ColumnDto column) {
     systemDataWriter.addColumn(tableName, column);
     internalSchemaWriter.addColumn(tableName, column);
+  }
+
+  @Override
+  public void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+    for (final var c : columns) {
+      addColumn(tableName, c);
+    }
   }
 
   @Override

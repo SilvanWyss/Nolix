@@ -39,8 +39,15 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void addColumn(final String tableName, ColumnDto column) {
+  public final void addColumn(final String tableName, final ColumnDto column) {
     schemaWriter.addColumn(tableName, column);
+  }
+
+  @Override
+  public final void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+    for (final var c : columns) {
+      addColumn(tableName, c);
+    }
   }
 
   @Override
@@ -154,7 +161,10 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public void setContentModel(String tableName, String columnName, IContentModelDto contentModel) {
+  public final void setContentModel(
+    final String tableName,
+    final String columnName,
+    final IContentModelDto contentModel) {
     schemaWriter.setContentModel(tableName, columnName, contentModel);
   }
 

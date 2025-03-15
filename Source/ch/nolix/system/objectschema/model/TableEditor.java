@@ -25,13 +25,11 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
 
+      final var rawSchemaAdapter = table.getStoredRawSchemaAdapter();
       final var tableName = table.getName();
       final var columnDtos = COLUMN_DTO_MAPPER.mapColumnToColumnDtos(column);
 
-      //TODO: Add addColumns method to ISchemaAdapter
-      for (final var c : columnDtos) {
-        table.getStoredRawSchemaAdapter().addColumn(tableName, c);
-      }
+      rawSchemaAdapter.addColumns(tableName, columnDtos);
     }
 
     table.internalSetEdited();
