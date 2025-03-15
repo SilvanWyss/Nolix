@@ -159,7 +159,7 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void setTableName(final String tableName, final String newTableName) {
-    schemaWriter.setTableName(tableName, newTableName);
+  public final void renameTable(final String tableName, final String newTableName) {
+    schemaWriter.renameTable(tableName, newTableName);
   }
 }

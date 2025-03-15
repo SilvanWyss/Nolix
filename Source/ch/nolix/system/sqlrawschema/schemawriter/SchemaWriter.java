@@ -138,7 +138,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setTableName(final String tableName, final String newTableName) {
+  public void renameTable(final String tableName, final String newTableName) {
     systemDataWriter.setTableName(tableName, newTableName);
     internalSchemaWriter.setTableName(tableName, newTableName);
   }

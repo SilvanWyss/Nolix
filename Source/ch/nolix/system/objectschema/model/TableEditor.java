@@ -60,7 +60,7 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
 
-      table.getStoredRawSchemaAdapter().setTableName(oldTableName, name);
+      table.getStoredRawSchemaAdapter().renameTable(oldTableName, name);
 
       for (final var rc : referencingColumns) {
         ((Column) rc).internalSetContentModelToDatabase();

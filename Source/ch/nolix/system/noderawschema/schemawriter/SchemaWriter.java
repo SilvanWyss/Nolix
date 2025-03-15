@@ -185,7 +185,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setTableName(final String tableName, final String newTableName) {
+  public void renameTable(final String tableName, final String newTableName) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
