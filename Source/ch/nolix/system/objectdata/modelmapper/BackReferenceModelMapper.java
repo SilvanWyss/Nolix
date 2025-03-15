@@ -17,7 +17,7 @@ implements IContentModelDtoToContentModelMapper<BackReferenceModelDto> {
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
     final var backReferencedColumnId = contentModelDto.backReferencedColumnId();
-    final var referencableColumns = referencableTables.toMultiple(ITable::getStoredColumns);
+    final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
     final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
     return BackReferenceModelView.forBackReferencedColumn(backReferencedColumn);

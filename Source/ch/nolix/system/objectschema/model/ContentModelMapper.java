@@ -64,7 +64,7 @@ public final class ContentModelMapper {
     if (rawContentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
 
       final var backReferenceColumnId = backReferenceModelDto.backReferencedColumnId();
-      final var columns = tables.toMultiple(ITable::getStoredColumns);
+      final var columns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = columns.getStoredFirst(c -> c.hasId(backReferenceColumnId));
 
       return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
@@ -73,7 +73,7 @@ public final class ContentModelMapper {
     if (rawContentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
 
       final var backReferencedColumnId = optionalBackReferenceModelDto.backReferencedColumnId();
-      final var columns = tables.toMultiple(ITable::getStoredColumns);
+      final var columns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = columns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
       return OptionalBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
@@ -82,7 +82,7 @@ public final class ContentModelMapper {
     if (rawContentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
 
       final var backReferencedColumnId = multiBackReferenceModelDto.backReferencedColumnId();
-      final var columns = tables.toMultiple(ITable::getStoredColumns);
+      final var columns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = columns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
       return MultiBackReferenceModel.forBackReferencedColumn(backReferencedColumn);

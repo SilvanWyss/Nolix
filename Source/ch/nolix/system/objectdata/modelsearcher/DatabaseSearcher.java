@@ -24,6 +24,6 @@ public final class DatabaseSearcher extends DatabaseObjectExaminer implements ID
       return ImmutableList.createEmpty();
     }
 
-    return database.getStoredTables().toMultiple(ITable::internalGetStoredEntitiesInLocalData);
+    return database.getStoredTables().toMultiples(ITable::internalGetStoredEntitiesInLocalData);
   }
 }

@@ -74,7 +74,7 @@ public final class CategorizableObject extends Entity implements ICategorizableO
     return ContainerView
       .forIterable(
         getStoredDirectBaseTypes(),
-        getStoredDirectBaseTypes().toMultiple(ICategorizableObject::getStoredBaseTypes));
+        getStoredDirectBaseTypes().toMultiples(ICategorizableObject::getStoredBaseTypes));
   }
 
   @Override
@@ -101,7 +101,7 @@ public final class CategorizableObject extends Entity implements ICategorizableO
   public IContainer<? extends ICategorizableField> getStoredFields() {
     return ContainerView.forIterable(
       getStoredDeclaredFields().getStoredOthers(ICategorizableField::inheritsFromBaseField),
-      getStoredDirectBaseTypes().toMultiple(ICategorizableObject::getStoredFields));
+      getStoredDirectBaseTypes().toMultiples(ICategorizableObject::getStoredFields));
   }
 
   @Override

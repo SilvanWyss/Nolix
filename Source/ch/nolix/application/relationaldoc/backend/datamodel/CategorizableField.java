@@ -80,7 +80,7 @@ public final class CategorizableField extends Entity implements ICategorizableFi
   public ICategorizableField getStoredBaseField() {
     return getStoredParentObject()
       .getStoredDirectBaseTypes()
-      .toMultiple(ICategorizableObject::getStoredFields)
+      .toMultiples(ICategorizableObject::getStoredFields)
       .getStoredFirst(f -> f.hasSameNameAs(this));
   }
 

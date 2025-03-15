@@ -44,7 +44,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
 
-    final var columns = table.getStoredParentDatabase().getStoredTables().toMultiple(ITable::getStoredColumns);
+    final var columns = table.getStoredParentDatabase().getStoredTables().toMultiples(ITable::getStoredColumns);
 
     return table
       .getStoredColumns()
@@ -63,7 +63,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     return table
       .getStoredParentDatabase()
       .getStoredTables()
-      .toMultiple(ITable::getStoredColumns)
+      .toMultiples(ITable::getStoredColumns)
       .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
   }
 

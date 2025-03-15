@@ -161,7 +161,7 @@ public final class CategorizableFieldExaminer implements ICategorizableFieldExam
     field
       .getStoredParentObject()
       .getStoredSubTypes()
-      .toMultiple(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
+      .toMultiples(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
   }
 
   private boolean hasRealisingFieldsWhenIsNotNull(final ICategorizableField field) {

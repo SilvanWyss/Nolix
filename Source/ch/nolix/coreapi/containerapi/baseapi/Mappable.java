@@ -34,7 +34,7 @@ public interface Mappable<E> {
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
-  <E2> IContainer<E2> toMultiple(Function<E, IContainer<E2>> multipleMapper);
+  <E2> IContainer<E2> toMultiples(Function<E, IContainer<E2>> multipleMapper);
 
   /**
    * @param numberMapper

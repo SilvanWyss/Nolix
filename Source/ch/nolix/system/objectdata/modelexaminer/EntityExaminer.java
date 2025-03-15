@@ -103,7 +103,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
       .getStoredParentTable()
       .getStoredParentDatabase()
       .getStoredTables()
-      .toMultiple(ITable::internalGetStoredEntitiesInLocalData).getStoredSelected(IEntity::isDeleted)
+      .toMultiples(ITable::internalGetStoredEntitiesInLocalData).getStoredSelected(IEntity::isDeleted)
       .to(IEntity::getId);
   }
 

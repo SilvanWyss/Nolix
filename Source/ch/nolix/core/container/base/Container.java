@@ -1955,7 +1955,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> toMultiple(final Function<E, IContainer<E2>> multipleMapper) {
+  public final <E2> IContainer<E2> toMultiples(final Function<E, IContainer<E2>> multipleMapper) {
 
     //Asserts that the given multipleMapper is not null.
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();

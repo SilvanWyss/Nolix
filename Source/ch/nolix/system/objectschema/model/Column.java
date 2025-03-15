@@ -179,7 +179,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
       return COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
-        .toMultiple(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
+        .toMultiples(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
 
     if (belongsToTable()) {
