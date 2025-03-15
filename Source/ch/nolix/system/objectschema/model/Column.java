@@ -152,12 +152,14 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   void internalSetContentModelToDatabase() {
 
+    final var table = getStoredParentTable();
+    final var tableName = table.getName();
     final var contentModelDtos = getContentModels().to(CONTENT_MODEL_DTO_MAPPER::mapContentModelToContentModelDto);
 
     //TODO: Adjust
     final var contentModelDto = contentModelDtos.getStoredFirst();
 
-    internalGetStoredRawSchemaAdapter().setColumnContentModel(getId(), contentModelDto);
+    internalGetStoredRawSchemaAdapter().setContentModel(tableName, getName(), contentModelDto);
   }
 
   void setNameAttribute(final String header) {

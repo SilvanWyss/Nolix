@@ -69,12 +69,10 @@ public final class SystemDataWriter implements ChangeRequestable {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void setColumnContentModel(
-    final String columnId,
-    final IContentModelDto contentModel) {
+  public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
 
     final var statement = //
-    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnContentModel(columnId, contentModel);
+    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetContentModel(tableName, columnName, contentModel);
 
     sqlCollector.addSqlStatement(statement);
   }

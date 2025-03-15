@@ -49,10 +49,12 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
     if (column.isConnectedWithRealDatabase()) {
 
-      final var columnId = column.getId();
+      final var table = column.getStoredParentTable();
+      final var tableName = table.getName();
+      final var columnName = column.getName();
       final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
 
-      column.internalGetStoredRawSchemaAdapter().setColumnContentModel(columnId, contentModelDto);
+      column.internalGetStoredRawSchemaAdapter().setContentModel(tableName, columnName, contentModelDto);
     }
 
     column.internalSetEdited();

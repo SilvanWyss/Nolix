@@ -131,10 +131,9 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setColumnContentModel(
-    final String columnId,
-    final IContentModelDto contentModel) {
-    systemDataWriter.setColumnContentModel(columnId, contentModel);
+  public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
+    systemDataWriter.setContentModel(tableName, columnName, contentModel);
+
   }
 
   @Override

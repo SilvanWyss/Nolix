@@ -171,11 +171,10 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setColumnContentModel(
-    final String columnId,
-    final IContentModelDto contentModel) {
+  public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
 
-    final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromNodeDatabase(nodeDatabase, columnId);
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
       NodeHeaderCatalog.CONTENT_MODEL,

@@ -138,7 +138,10 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   }
 
   @Override
-  public String createStatementToSetColumnContentModel(final String columnId, final IContentModelDto contentModel) {
+  public String createStatementToSetContentModel(
+    final String tableName,
+    final String columnName,
+    final IContentModelDto contentModel) {
 
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
@@ -150,13 +153,17 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + " = "
     + contentModelSqlDto.dataType()
     + ", "
-    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
+    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " = "
     + contentModelSqlDto.backReferencedColumnId()
-    + "WHERE"
-    + ColumnTableColumn.ID
+    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + ColumnTableColumn.PARENT_TABLE_ID
     + " = '"
-    + columnId
+    + tableName
+    + "' AND "
+    + ColumnTableColumn.NAME.getName()
+    + " = '"
+    + columnName
     + "'";
   }
 

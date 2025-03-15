@@ -154,8 +154,8 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void setColumnContentModel(final String columnId, final IContentModelDto contentModel) {
-    schemaWriter.setColumnContentModel(columnId, contentModel);
+  public void setContentModel(String tableName, String columnName, IContentModelDto contentModel) {
+    schemaWriter.setContentModel(tableName, columnName, contentModel);
   }
 
   @Override

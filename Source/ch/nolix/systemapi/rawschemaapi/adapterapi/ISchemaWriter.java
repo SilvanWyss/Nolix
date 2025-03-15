@@ -19,5 +19,5 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void renameTable(String tableName, String newTableName);
 
-  void setColumnContentModel(String columnId, IContentModelDto contentModelDto);
+  void setContentModel(String tableName, String columnName, IContentModelDto contentModel);
 }

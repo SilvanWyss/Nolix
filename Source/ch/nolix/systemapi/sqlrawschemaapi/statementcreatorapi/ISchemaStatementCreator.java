@@ -19,7 +19,7 @@ public interface ISchemaStatementCreator {
 
   String createStatementToSetColumnName(String tableName, String columnName, String newColumnName);
 
-  String createStatementToSetColumnContentModel(String columnId, IContentModelDto contentModel);
+  String createStatementToSetContentModel(String tableName, String columnName, IContentModelDto contentModel);
 
   String createStatementToSetTableName(String tableName, String newTableName);
 }
