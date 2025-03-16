@@ -19,17 +19,17 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private IDatabase database;
 
-  private final ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter;
+  private final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter;
 
   private int saveCount;
 
   protected AbstractSchemaAdapter(
     final String databaseName,
-    final ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter) {
+    final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter) {
 
     Validator
       .assertThat(rawSchemaAdapter)
-      .thatIsNamed(ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaAdapter.class)
+      .thatIsNamed(ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter.class)
       .isNotNull();
 
     this.rawSchemaAdapter = rawSchemaAdapter;

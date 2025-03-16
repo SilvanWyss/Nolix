@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
+import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.schemamodelsearcherapi.ISchemaSearcher;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 public final class TableMapper {
 

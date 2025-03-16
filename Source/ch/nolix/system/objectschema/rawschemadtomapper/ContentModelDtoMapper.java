@@ -1,6 +1,16 @@
 package ch.nolix.system.objectschema.rawschemadtomapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.MultiBackReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.MultiReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.MultiValueModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.OptionalBackReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.OptionalReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.OptionalValueModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.ReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiBackReferenceModel;
@@ -12,16 +22,6 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalValueModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IValueModel;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
-import ch.nolix.systemapi.rawschemaapi.modelapi.BackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.MultiReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.MultiValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.OptionalValueModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ReferenceModelDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
 
 /**
  * @author Silvan Wyss

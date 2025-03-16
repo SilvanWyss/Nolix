@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.rawdataapi.adapterapi;
 
 import ch.nolix.coreapi.structurecontrolapi.copierapi.EmptyCopyable;
-import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 
 /**
  * @author Silvan Wyss

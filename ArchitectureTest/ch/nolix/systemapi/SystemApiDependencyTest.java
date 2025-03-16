@@ -43,8 +43,8 @@ final class SystemApiDependencyTest {
       .resideInAnyPackage(
         "ch.nolix.coreapi..",
         "ch.nolix.systemapi.databaseobjectapi..",
+        "ch.nolix.systemapi.midschemaapi..",
         "ch.nolix.systemapi.objectschemaapi..",
-        "ch.nolix.systemapi.rawschemaapi..",
         "java..");
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix.systemapi.objectschemaapi..");
 

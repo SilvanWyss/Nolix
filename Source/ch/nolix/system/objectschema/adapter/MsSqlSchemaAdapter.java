@@ -9,7 +9,7 @@ public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
 
   MsSqlSchemaAdapter(
     String databaseName,
-    final ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter msSqlSchemaAdapter) {
+    final ch.nolix.system.sqlmidschema.adapter.MsSqlSchemaAdapter msSqlSchemaAdapter) {
     super(databaseName, msSqlSchemaAdapter);
   }
 
@@ -18,7 +18,7 @@ public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
     final ISqlConnection sqlConnection) {
     return new MsSqlSchemaAdapter(
       databaseName,
-      ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(
+      ch.nolix.system.sqlmidschema.adapter.MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(
         databaseName,
         sqlConnection));
   }

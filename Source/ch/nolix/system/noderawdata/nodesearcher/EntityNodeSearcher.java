@@ -1,8 +1,8 @@
 package ch.nolix.system.noderawdata.nodesearcher;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;
 import ch.nolix.systemapi.noderawdataapi.nodesearcherapi.IEntityNodeSearcher;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.FieldIndexCatalog;
 
 public final class EntityNodeSearcher implements IEntityNodeSearcher {
 

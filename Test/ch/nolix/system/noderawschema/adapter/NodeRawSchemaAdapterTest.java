@@ -6,9 +6,10 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ValueModelDto;
+import ch.nolix.system.nodemidschema.adapter.NodeRawSchemaAdapter;
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
 
 final class NodeRawSchemaAdapterTest extends StandardTest {
 

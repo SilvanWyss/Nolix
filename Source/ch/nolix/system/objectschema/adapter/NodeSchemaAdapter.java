@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPattern
 public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
 
   private NodeSchemaAdapter(final String databaseName, final IMutableNode<?> nodeDatabase) {
-    super(databaseName, ch.nolix.system.noderawschema.adapter.NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase));
+    super(databaseName, ch.nolix.system.nodemidschema.adapter.NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase));
   }
 
   public static NodeSchemaAdapter forNodeDatabase(final String databaseName, final IMutableNode<?> nodeDatabase) {

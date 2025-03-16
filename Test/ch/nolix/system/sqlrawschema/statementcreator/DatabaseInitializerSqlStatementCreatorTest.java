@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawschema.statementcreator;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.system.time.moment.Time;
 
 final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {

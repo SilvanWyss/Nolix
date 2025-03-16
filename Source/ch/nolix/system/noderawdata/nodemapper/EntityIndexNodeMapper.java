@@ -2,8 +2,8 @@ package ch.nolix.system.noderawdata.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityIndexNodeMapper;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 
 /**

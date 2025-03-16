@@ -1,8 +1,8 @@
 package ch.nolix.system.rawdata.schemaviewmapper;
 
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.IColumnSchemaViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
 /**
  * @author Silvan Wyss

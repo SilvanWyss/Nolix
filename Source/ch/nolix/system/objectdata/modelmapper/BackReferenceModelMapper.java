@@ -2,11 +2,11 @@ package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.schemaview.BackReferenceModelView;
+import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.modelmapperapi.IContentModelDtoToContentModelMapper;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
-import ch.nolix.systemapi.rawschemaapi.modelapi.BackReferenceModelDto;
 
 public final class BackReferenceModelMapper
 implements IContentModelDtoToContentModelMapper<BackReferenceModelDto> {

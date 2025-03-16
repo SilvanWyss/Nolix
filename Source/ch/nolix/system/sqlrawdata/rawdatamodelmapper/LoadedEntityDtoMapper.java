@@ -5,11 +5,11 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.rawdataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
-import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.sqlrawdataapi.rawdatamodelmapperapi.ILoadedEntityDtoMapper;
 

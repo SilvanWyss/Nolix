@@ -1,10 +1,10 @@
 package ch.nolix.system.objectschema.rawschemadtomapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
 
 /**
  * @author Silvan Wyss

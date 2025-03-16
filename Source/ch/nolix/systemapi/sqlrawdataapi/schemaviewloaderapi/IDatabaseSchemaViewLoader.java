@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlrawdataapi.schemaviewloaderapi;
 
+import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.DatabaseSchemaViewDto;
-import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
 
 /**
  * @author Silvan Wyss

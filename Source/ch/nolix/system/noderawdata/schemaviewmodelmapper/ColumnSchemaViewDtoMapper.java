@@ -1,9 +1,9 @@
 package ch.nolix.system.noderawdata.schemaviewmodelmapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.noderawschema.nodesearcher.ColumnNodeSearcher;
+import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
+import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.noderawdataapi.schemaviewmodelmapperapi.IColumnSchemaViewDtoMapper;
-import ch.nolix.systemapi.noderawschemaapi.nodesearcherapi.IColumnNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.ColumnSchemaViewDto;
 
 /**

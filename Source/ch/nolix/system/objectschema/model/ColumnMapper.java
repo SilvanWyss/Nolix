@@ -2,9 +2,9 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 public final class ColumnMapper {
 

@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlrawdata.adapter;
 
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlrawschema.adapter.MsSqlSchemaAdapter;
+import ch.nolix.system.sqlmidschema.adapter.MsSqlSchemaAdapter;
 
 public final class MsSqlDataAdapter extends AbstractSqlDataAdapter {
 

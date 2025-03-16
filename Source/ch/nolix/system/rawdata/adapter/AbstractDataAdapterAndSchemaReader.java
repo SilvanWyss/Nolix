@@ -3,12 +3,12 @@ package ch.nolix.system.rawdata.adapter;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
+import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.rawschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.flatmodelapi.FlatTableDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**

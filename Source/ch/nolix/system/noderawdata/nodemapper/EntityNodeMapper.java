@@ -5,13 +5,13 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.rawdata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IContentFieldNodeMapper;
 import ch.nolix.systemapi.noderawdataapi.nodemapperapi.IEntityNodeMapper;
-import ch.nolix.systemapi.noderawschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
-import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 /**
  * @author Silvan Wyss

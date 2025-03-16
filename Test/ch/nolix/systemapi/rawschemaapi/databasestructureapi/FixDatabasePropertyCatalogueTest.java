@@ -3,6 +3,7 @@ package ch.nolix.systemapi.rawschemaapi.databasestructureapi;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 
 final class FixDatabasePropertyCatalogueTest extends StandardTest {
 

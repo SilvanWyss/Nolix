@@ -3,16 +3,16 @@ package ch.nolix.system.sqlrawdata.statementcreator;
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlrawdata.sqlmapper.SqlValueMapper;
+import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.rawdataapi.modelapi.StringContentFieldDto;
-import ch.nolix.systemapi.rawschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.EntityIndexTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.sqlrawdataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IEntityStatementCreator;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.EntityIndexTableColumn;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {

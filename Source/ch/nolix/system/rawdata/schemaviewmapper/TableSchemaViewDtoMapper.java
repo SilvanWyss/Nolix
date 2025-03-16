@@ -1,10 +1,10 @@
 package ch.nolix.system.rawdata.schemaviewmapper;
 
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.IColumnSchemaViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewmapperapi.ITableSchemaViewDtoMapper;
 import ch.nolix.systemapi.rawdataapi.schemaviewmodel.TableSchemaViewDto;
-import ch.nolix.systemapi.rawschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
-import ch.nolix.systemapi.rawschemaapi.modelapi.TableDto;
 
 /**
  * @author Silvan Wyss

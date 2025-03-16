@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlrawdata.statementcreator;
 
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiBackReferenceEntryTableColumn;
 import ch.nolix.systemapi.sqlrawdataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.FixTableType;
-import ch.nolix.systemapi.sqlrawschemaapi.databasestructure.MultiBackReferenceEntryTableColumn;
 
 public final class MultiBackReferenceStatementCreator implements IMultiBackReferenceStatementCreator {
 
