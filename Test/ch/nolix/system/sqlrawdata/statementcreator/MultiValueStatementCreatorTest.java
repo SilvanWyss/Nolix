@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawdata.statementcreator;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
 
 final class MultiValueStatementCreatorTest extends StandardTest {
 

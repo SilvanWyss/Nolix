@@ -5,11 +5,11 @@ import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
+import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
-import ch.nolix.systemapi.rawdataapi.adapterapi.IDataReader;
 
 public final class Column extends ImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
 

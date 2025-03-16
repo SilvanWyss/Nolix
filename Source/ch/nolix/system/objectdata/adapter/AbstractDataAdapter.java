@@ -9,12 +9,12 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.system.objectdata.model.Database;
 import ch.nolix.system.objectdata.model.SchemaInitializer;
+import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {
 

@@ -14,6 +14,8 @@ import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.system.objectdata.modelsearcher.TableSearcher;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityCreator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
@@ -23,8 +25,6 @@ import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
 import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
 import ch.nolix.systemapi.objectdataapi.modelsearcherapi.ITableSearcher;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.rawdataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.rawdataapi.modelapi.EntityLoadingDto;
 
 public final class Table<E extends IEntity> implements ITable<E> {
 
