@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlmidschemaapi.rawschemadtomapperapi;
+package ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi;
 
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;

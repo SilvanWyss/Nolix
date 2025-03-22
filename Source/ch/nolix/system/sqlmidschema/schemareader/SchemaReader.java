@@ -4,16 +4,16 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.sqlmidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
-import ch.nolix.system.sqlmidschema.rawschemadtomapper.ColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.rawschemaflatdtomapper.TableFlatDtoMapper;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.rawschemadtomapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.rawschemaflatdtomapperapi.ITableFlatDtoMapper;
 
 public final class SchemaReader implements ISchemaReader {

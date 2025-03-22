@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlmidschema.rawschemadtomapper;
+package ch.nolix.system.sqlmidschema.modelmapper;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
