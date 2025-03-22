@@ -1,4 +1,4 @@
-package ch.nolix.system.nodemidschema.rawschemadtomapper;
+package ch.nolix.system.nodemidschema.modelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -13,8 +13,8 @@ import ch.nolix.systemapi.midschemaapi.modelapi.OptionalReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.OptionalValueModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
+import ch.nolix.systemapi.nodemidschemaapi.modelmapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IContentModelNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 
 /**
  * @author Silvan Wyss

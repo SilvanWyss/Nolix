@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.nodemidschemaapi.rawschemadtomapperapi;
+package ch.nolix.systemapi.nodemidschemaapi.modelmapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
