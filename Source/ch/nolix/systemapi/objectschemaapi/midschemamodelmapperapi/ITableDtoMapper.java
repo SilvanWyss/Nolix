@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi;
+package ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi;
 
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;

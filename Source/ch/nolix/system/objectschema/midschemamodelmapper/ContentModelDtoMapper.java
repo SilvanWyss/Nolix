@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.rawschemadtomapper;
+package ch.nolix.system.objectschema.midschemamodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
@@ -11,6 +11,7 @@ import ch.nolix.systemapi.midschemaapi.modelapi.OptionalReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.OptionalValueModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
+import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiBackReferenceModel;
@@ -21,7 +22,6 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalValueModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IValueModel;
-import ch.nolix.systemapi.objectschemaapi.rawschemadtomapperapi.IContentModelDtoMapper;
 
 /**
  * @author Silvan Wyss
