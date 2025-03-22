@@ -92,7 +92,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final String tableName) {
+  public IContainer<EntityLoadingDto> loadEntities(final String tableName) {
 
     final var tableSchemaView = getTableSchemaViewByTableName(tableName);
 
@@ -113,7 +113,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public boolean tableContainsEntityWithGivenValueAtGivenColumn(
+  public boolean tableContainsEntityWithValueAtColumn(
     final String tableName,
     final String columnName,
     final String value) {
@@ -124,7 +124,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+  public boolean tableContainsEntityWithValueAtColumnIgnoringEntities(
     final String tableName,
     final String columnName,
     final String value,
@@ -141,7 +141,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+  public boolean tableContainsEntity(final String tableName, final String id) {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 

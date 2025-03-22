@@ -77,7 +77,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
   @Override
   public boolean internalContainsGivenValueInPersistedData(final String value) {
     return //
-    midDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
+    midDataReader.tableContainsEntityWithValueAtColumn(
       getStoredParentTable().getName(),
       getName(),
       value);
@@ -88,7 +88,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     return //
-    midDataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    midDataReader.tableContainsEntityWithValueAtColumnIgnoringEntities(
       getStoredParentTable().getName(),
       getName(),
       value,

@@ -11,7 +11,9 @@ public interface IDataReader extends GroupCloseable {
 
   ITime getSchemaTimestamp();
 
-  IContainer<EntityLoadingDto> loadEntitiesOfTable(String tableName);
+  IContainer<EntityLoadingDto> loadEntities(String tableName);
+
+  EntityLoadingDto loadEntity(String tableName, String id);
 
   IContainer<String> loadMultiBackReferenceEntries(
     String tableName,
@@ -28,14 +30,12 @@ public interface IDataReader extends GroupCloseable {
     String entityId,
     String multiValueColumnName);
 
-  EntityLoadingDto loadEntity(String tableName, String id);
+  boolean tableContainsEntity(String tableName, String id);
 
-  boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
+  boolean tableContainsEntityWithValueAtColumn(String tableName, String columnName, String value);
 
-  boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+  boolean tableContainsEntityWithValueAtColumnIgnoringEntities(
     String tableName,
     String columnName,
     String value, IContainer<String> entitiesToIgnoreIds);
-
-  boolean tableContainsEntityWithGivenId(String tableName, String id);
 }

@@ -179,8 +179,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<EntityLoadingDto> loadEntitiesOfTable(final String tableName) {
-    return dataReader.loadEntitiesOfTable(tableName);
+  public final IContainer<EntityLoadingDto> loadEntities(final String tableName) {
+    return dataReader.loadEntities(tableName);
   }
 
   @Override
@@ -204,21 +204,21 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final boolean tableContainsEntityWithGivenValueAtGivenColumn(
+  public final boolean tableContainsEntityWithValueAtColumn(
     final String tableName,
     final String columnName,
     final String value) {
-    return dataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
+    return dataReader.tableContainsEntityWithValueAtColumn(tableName, columnName, value);
   }
 
   @Override
-  public final boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+  public final boolean tableContainsEntityWithValueAtColumnIgnoringEntities(
     final String tableName,
     final String columnName,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     return //
-    dataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    dataReader.tableContainsEntityWithValueAtColumnIgnoringEntities(
       tableName,
       columnName,
       value,
@@ -226,8 +226,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
-    return dataReader.tableContainsEntityWithGivenId(tableName, id);
+  public final boolean tableContainsEntity(final String tableName, final String id) {
+    return dataReader.tableContainsEntity(tableName, id);
   }
 
   @Override

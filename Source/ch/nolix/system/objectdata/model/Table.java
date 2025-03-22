@@ -84,7 +84,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public boolean containsEntityWithId(final String id) {
-    return getStoredMidDataAdapterAndSchemaReader().tableContainsEntityWithGivenId(getName(), id);
+    return getStoredMidDataAdapterAndSchemaReader().tableContainsEntity(getName(), id);
   }
 
   @Override
@@ -114,7 +114,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     if (entity.isEmpty()) {
 
-      if (getStoredMidDataAdapterAndSchemaReader().tableContainsEntityWithGivenId(getName(), id)) {
+      if (getStoredMidDataAdapterAndSchemaReader().tableContainsEntity(getName(), id)) {
 
         addEntityWithIdWhenIsNotAdded(id);
 
@@ -283,7 +283,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 
-    for (final var r : getStoredMidDataAdapterAndSchemaReader().loadEntitiesOfTable(getName())) {
+    for (final var r : getStoredMidDataAdapterAndSchemaReader().loadEntities(getName())) {
       insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(r);
     }
 
