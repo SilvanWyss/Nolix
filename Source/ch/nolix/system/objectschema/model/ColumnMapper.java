@@ -33,7 +33,7 @@ public final class ColumnMapper {
     final var midContentModels = midColumnDtos.to(ColumnDto::contentModel);
 
     final var contentModels = //
-    midContentModels.to(c -> ContentModelMapper.mapRawContentModelDtoToContentModel(c, tables));
+    midContentModels.to(c -> ContentModelMapper.mapMidContentModelDtoToContentModel(c, tables));
 
     return Column.withIdAndNameAndContentModels(id, name, contentModels);
   }

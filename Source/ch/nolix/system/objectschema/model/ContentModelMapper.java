@@ -21,23 +21,23 @@ public final class ContentModelMapper {
   private ContentModelMapper() {
   }
 
-  public static IContentModel mapRawContentModelDtoToContentModel(
-    final IContentModelDto rawContentModelDto,
+  public static IContentModel mapMidContentModelDtoToContentModel(
+    final IContentModelDto midContentModelDto,
     final IContainer<ITable> tables) {
 
-    if (rawContentModelDto instanceof ValueModelDto(DataType dataType)) {
+    if (midContentModelDto instanceof ValueModelDto(DataType dataType)) {
       return ValueModel.forDataType(dataType);
     }
 
-    if (rawContentModelDto instanceof OptionalValueModelDto(DataType dataType)) {
+    if (midContentModelDto instanceof OptionalValueModelDto(DataType dataType)) {
       return ValueModel.forDataType(dataType);
     }
 
-    if (rawContentModelDto instanceof MultiValueModelDto(DataType dataType)) {
+    if (midContentModelDto instanceof MultiValueModelDto(DataType dataType)) {
       return ValueModel.forDataType(dataType);
     }
 
-    if (rawContentModelDto instanceof ReferenceModelDto referenceModelDto) {
+    if (midContentModelDto instanceof ReferenceModelDto referenceModelDto) {
 
       final var referencedTableId = referenceModelDto.referencedTableId();
       final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
@@ -45,7 +45,7 @@ public final class ContentModelMapper {
       return ReferenceModel.forReferencedTable(referencedTable);
     }
 
-    if (rawContentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
+    if (midContentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
 
       final var referencedTableId = optionalReferenceModelDto.referencedTableId();
       final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
@@ -53,7 +53,7 @@ public final class ContentModelMapper {
       return OptionalReferenceModel.forReferencedTable(referencedTable);
     }
 
-    if (rawContentModelDto instanceof MultiReferenceModelDto multiBackReferenceModelDto) {
+    if (midContentModelDto instanceof MultiReferenceModelDto multiBackReferenceModelDto) {
 
       final var referencedTableId = multiBackReferenceModelDto.referencedTableId();
       final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
@@ -61,7 +61,7 @@ public final class ContentModelMapper {
       return MultiReferenceModel.forReferencedTable(referencedTable);
     }
 
-    if (rawContentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
+    if (midContentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
 
       final var backReferenceColumnId = backReferenceModelDto.backReferencedColumnId();
       final var columns = tables.toMultiples(ITable::getStoredColumns);
@@ -70,7 +70,7 @@ public final class ContentModelMapper {
       return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
     }
 
-    if (rawContentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
+    if (midContentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
 
       final var backReferencedColumnId = optionalBackReferenceModelDto.backReferencedColumnId();
       final var columns = tables.toMultiples(ITable::getStoredColumns);
@@ -79,7 +79,7 @@ public final class ContentModelMapper {
       return OptionalBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
     }
 
-    if (rawContentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
+    if (midContentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
 
       final var backReferencedColumnId = multiBackReferenceModelDto.backReferencedColumnId();
       final var columns = tables.toMultiples(ITable::getStoredColumns);
@@ -88,6 +88,6 @@ public final class ContentModelMapper {
       return MultiBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
     }
 
-    throw InvalidArgumentException.forArgument(rawContentModelDto);
+    throw InvalidArgumentException.forArgument(midContentModelDto);
   }
 }
