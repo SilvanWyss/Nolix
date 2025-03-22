@@ -189,8 +189,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
     final var tables = getStoredParentDatabase().getStoredTables();
 
-    final var rawTableDto = getStoredMidSchemaAdapter().loadTableById(getId());
-    columns = LinkedList.fromIterable(ColumnMapper.mapMidTableDtoToColumns(rawTableDto, tables));
+    final var midTableDto = getStoredMidSchemaAdapter().loadTableById(getId());
+    columns = LinkedList.fromIterable(ColumnMapper.mapMidTableDtoToColumns(midTableDto, tables));
 
     for (final var c : columns) {
       c.internalSetLoaded();
