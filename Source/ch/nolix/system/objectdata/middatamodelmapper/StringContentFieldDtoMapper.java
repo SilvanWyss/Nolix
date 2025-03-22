@@ -1,7 +1,8 @@
-package ch.nolix.system.objectdata.rawdatamodelmapper;
+package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
+import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IStringContentFieldDtoMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
@@ -12,7 +13,6 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
-import ch.nolix.systemapi.objectdataapi.rawdatamodelmapperapi.IStringContentFieldDtoMapper;
 
 /**
  * @author Silvan Wyss

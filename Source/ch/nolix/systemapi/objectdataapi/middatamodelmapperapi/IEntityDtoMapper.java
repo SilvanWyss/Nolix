@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdataapi.rawdatamodelmapperapi;
+package ch.nolix.systemapi.objectdataapi.middatamodelmapperapi;
 
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
