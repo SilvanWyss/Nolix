@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlmiddataapi.rawdatamodelmapperapi;
+package ch.nolix.systemapi.sqlmiddataapi.modelmapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;

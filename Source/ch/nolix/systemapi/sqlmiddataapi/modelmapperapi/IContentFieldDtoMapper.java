@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlmiddataapi.rawdatamodelmapperapi;
+package ch.nolix.systemapi.sqlmiddataapi.modelmapperapi;
 
 import ch.nolix.systemapi.middataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;

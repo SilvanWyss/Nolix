@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlmiddata.rawdatamodelmapper;
+package ch.nolix.system.sqlmiddata.modelmapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
@@ -10,8 +10,8 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
-import ch.nolix.systemapi.sqlmiddataapi.rawdatamodelmapperapi.IContentFieldDtoMapper;
-import ch.nolix.systemapi.sqlmiddataapi.rawdatamodelmapperapi.ILoadedEntityDtoMapper;
+import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IContentFieldDtoMapper;
+import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.ILoadedEntityDtoMapper;
 
 /**
  * @author Silvan Wyss
