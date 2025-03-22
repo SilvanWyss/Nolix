@@ -1,4 +1,4 @@
-package ch.nolix.system.sqlrawschema.statementcreator;
+package ch.nolix.system.sqlmidschema.statementcreator;
 
 import org.junit.jupiter.api.Test;
 
