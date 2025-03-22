@@ -11,11 +11,11 @@ public final class TableMapper {
 
   @SuppressWarnings("unchecked")
   public Table<IEntity> mapTableDtoToTableWithoutColumnsAndWithoutEntities(
-    final TableDto rawTableDto,
+    final TableDto midTableDto,
     final Database database) {
 
-    final var tableName = rawTableDto.name();
-    final var tableId = rawTableDto.id();
+    final var tableName = midTableDto.name();
+    final var tableId = midTableDto.id();
     final var entityTypeSet = database.getEntityTypeSet();
     final var entityType = (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, tableName));
 
