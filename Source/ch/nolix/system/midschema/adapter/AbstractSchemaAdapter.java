@@ -16,7 +16,7 @@ import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
+public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -24,7 +24,7 @@ public abstract class AbstractRawSchemaAdapter implements ISchemaAdapter {
 
   private final ISchemaWriter schemaWriter;
 
-  protected AbstractRawSchemaAdapter(
+  protected AbstractSchemaAdapter(
     final IDatabaseInitializer databaseInitializer,
     final Supplier<ISchemaReader> schemaReaderCreator,
     final Supplier<ISchemaWriter> schemaWriterCreator) {
