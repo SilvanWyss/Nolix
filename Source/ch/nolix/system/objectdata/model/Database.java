@@ -45,10 +45,10 @@ public final class Database implements IDatabase {
     this.tables = loadTables();
   }
 
-  public static Database withEntityTypeSetAndRawDataAdapterAndSchemaReader(
+  public static Database withEntityTypeSetAndMidDataAdapterAndSchemaReader(
     final IEntityTypeSet entityTypeSet,
-    final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
-    return new Database(entityTypeSet, rawDataAdapterAndSchemaReader);
+    final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
+    return new Database(entityTypeSet, midDataAdapterAndSchemaReader);
   }
 
   @Override

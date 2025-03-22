@@ -32,29 +32,29 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private Database database;
 
-  private IDataAdapterAndSchemaReader rawDataAndSchemaAdapter;
+  private IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
 
   protected AbstractDataAdapter(
     final String databaseName,
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter,
-    final Supplier<IDataAdapterAndSchemaReader> rawDataAndSchemaReaderCreator) {
+    final Supplier<IDataAdapterAndSchemaReader> midDataAdapterAndSchemaReader) {
 
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 
     SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(entityTypeSet, schemaAdapter);
     schemaAdapter.close();
 
-    this.rawDataAndSchemaAdapter = rawDataAndSchemaReaderCreator.get();
+    this.midDataAdapterAndSchemaReader = midDataAdapterAndSchemaReader.get();
     this.databaseName = databaseName;
     this.entityTypeSet = entityTypeSet;
 
     this.database = //
-    Database.withEntityTypeSetAndRawDataAdapterAndSchemaReader(
+    Database.withEntityTypeSetAndMidDataAdapterAndSchemaReader(
       entityTypeSet,
-      rawDataAndSchemaAdapter.createEmptyCopy());
+      this.midDataAdapterAndSchemaReader.createEmptyCopy());
 
-    createCloseDependencyTo(rawDataAndSchemaAdapter);
+    createCloseDependencyTo(this.midDataAdapterAndSchemaReader);
   }
 
   @Override
@@ -112,9 +112,9 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
     database.close();
 
-    rawDataAndSchemaAdapter = rawDataAndSchemaAdapter.createEmptyCopy();
+    midDataAdapterAndSchemaReader = midDataAdapterAndSchemaReader.createEmptyCopy();
 
-    database = Database.withEntityTypeSetAndRawDataAdapterAndSchemaReader(entityTypeSet, rawDataAndSchemaAdapter);
+    database = Database.withEntityTypeSetAndMidDataAdapterAndSchemaReader(entityTypeSet, midDataAdapterAndSchemaReader);
   }
 
   @Override
@@ -132,7 +132,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private synchronized void saveChangesAndIncrementSaveCount() {
 
-    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, rawDataAndSchemaAdapter);
+    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, midDataAdapterAndSchemaReader);
 
     saveCount++;
   }
