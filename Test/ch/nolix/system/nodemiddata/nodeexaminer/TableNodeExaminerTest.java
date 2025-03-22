@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawdata.nodeexaminer;
+package ch.nolix.system.nodemiddata.nodeexaminer;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -7,7 +7,6 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 
 final class TableNodeExaminerTest extends StandardTest {
 
