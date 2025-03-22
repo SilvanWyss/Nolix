@@ -11,29 +11,29 @@ public final class ColumnMapper {
   private ColumnMapper() {
   }
 
-  public static IContainer<Column> mapRawTableDtoToColumns(
-    final TableDto rawTableDto,
+  public static IContainer<Column> mapMidTableDtoToColumns(
+    final TableDto midTableDto,
     final IContainer<ITable> tables) {
 
-    final var rawColumns = rawTableDto.columns();
+    final var midColumns = midTableDto.columns();
 
-    final var rawColumnDtoGroups = //
-    rawColumns.getStoredInGroups(c -> RegularExpressionPatternCatalog.DOLLAR_PATTERN.split(c.name())[0]);
+    final var midColumnDtoGroups = //
+    midColumns.getStoredInGroups(c -> RegularExpressionPatternCatalog.DOLLAR_PATTERN.split(c.name())[0]);
 
-    return rawColumnDtoGroups.to(g -> mapRawColumnDtosToColumn(g, tables));
+    return midColumnDtoGroups.to(g -> mapMidColumnDtosToColumn(g, tables));
   }
 
-  private static Column mapRawColumnDtosToColumn(
-    final IContainer<ColumnDto> rawColumnDtos,
+  private static Column mapMidColumnDtosToColumn(
+    final IContainer<ColumnDto> midColumnDtos,
     final IContainer<ITable> tables) {
 
-    final var firstRawColumnDto = rawColumnDtos.getStoredFirst();
-    final var id = firstRawColumnDto.id();
-    final var name = firstRawColumnDto.name();
-    final var rawConentModels = rawColumnDtos.to(ColumnDto::contentModel);
+    final var firstMidColumnDto = midColumnDtos.getStoredFirst();
+    final var id = firstMidColumnDto.id();
+    final var name = firstMidColumnDto.name();
+    final var midContentModels = midColumnDtos.to(ColumnDto::contentModel);
 
     final var contentModels = //
-    rawConentModels.to(c -> ContentModelMapper.mapRawContentModelDtoToContentModel(c, tables));
+    midContentModels.to(c -> ContentModelMapper.mapRawContentModelDtoToContentModel(c, tables));
 
     return Column.withIdAndNameAndContentModels(id, name, contentModels);
   }
