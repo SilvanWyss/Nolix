@@ -17,35 +17,35 @@ final class DatabaseTableLoader {
 
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 
-    final var rawTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
+    final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 
-    final var tables = rawTables
+    final var tables = midTables
       .to(rt -> TABLE_MAPPER.mapTableDtoToTableWithoutColumnsAndWithoutEntities(rt, database));
 
-    addBaseValueColumnsToTablesFromRawTables(tables, rawTables);
-    addBaseReferenceColumnsToTablesFromRawTables(tables, rawTables, tables);
-    addBaseBackReferenceColumnsToTablesFromRawTables(tables, rawTables, tables);
+    addBaseValueColumnsToTablesFromMidTables(tables, midTables);
+    addBaseReferenceColumnsToTablesFromMidTables(tables, midTables, tables);
+    addBaseBackReferenceColumnsToTablesFromMidTables(tables, midTables, tables);
 
     return LinkedList.fromIterable(tables);
   }
 
-  private void addBaseValueColumnsToTablesFromRawTables(
+  private void addBaseValueColumnsToTablesFromMidTables(
     final IContainer<Table<IEntity>> tables,
-    final IContainer<TableDto> rawTables) {
+    final IContainer<TableDto> midTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
-      final var rawTable = rawTables.getStoredFirst(rt -> rt.name().equals(tableName));
-      addBaseValueColumnsToTableFromRawTable(t, rawTable);
+      final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
+      addBaseValueColumnsToTableFromMidTable(t, midTable);
     }
   }
 
-  private void addBaseValueColumnsToTableFromRawTable(
+  private void addBaseValueColumnsToTableFromMidTable(
     final Table<IEntity> table,
-    final TableDto rawTable) {
+    final TableDto midTable) {
 
-    final var rawBaseValueColumns = rawTable.columns().getStoredSelected(this::isBaseValue);
+    final var midBaseValueColumns = midTable.columns().getStoredSelected(this::isBaseValue);
 
-    for (final var c : rawBaseValueColumns) {
+    for (final var c : midBaseValueColumns) {
 
       final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
         c,
@@ -56,25 +56,25 @@ final class DatabaseTableLoader {
     }
   }
 
-  private void addBaseReferenceColumnsToTablesFromRawTables(
+  private void addBaseReferenceColumnsToTablesFromMidTables(
     final IContainer<Table<IEntity>> tables,
-    final IContainer<TableDto> rawTables,
+    final IContainer<TableDto> midTables,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
-      final var rawTable = rawTables.getStoredFirst(rt -> rt.name().equals(tableName));
-      addBaseReferenceColumnsToTableFromRawTable(t, rawTable, referencableTables);
+      final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
+      addBaseReferenceColumnsToTableFromMidTable(t, midTable, referencableTables);
     }
   }
 
-  private void addBaseReferenceColumnsToTableFromRawTable(
+  private void addBaseReferenceColumnsToTableFromMidTable(
     final Table<IEntity> table,
-    final TableDto rawTable,
+    final TableDto midTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var rawBaseReferenceColumns = rawTable.columns().getStoredSelected(this::isBaseReference);
+    final var midBaseReferenceColumns = midTable.columns().getStoredSelected(this::isBaseReference);
 
-    for (final var c : rawBaseReferenceColumns) {
+    for (final var c : midBaseReferenceColumns) {
 
       final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
         c,
@@ -85,25 +85,25 @@ final class DatabaseTableLoader {
     }
   }
 
-  private void addBaseBackReferenceColumnsToTablesFromRawTables(
+  private void addBaseBackReferenceColumnsToTablesFromMidTables(
     final IContainer<Table<IEntity>> tables,
-    final IContainer<TableDto> rawTables,
+    final IContainer<TableDto> midTables,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
-      final var rawTable = rawTables.getStoredFirst(rt -> rt.name().equals(tableName));
-      addBaseBackReferenceColumnsToTableFromRawTable(t, rawTable, referencableTables);
+      final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
+      addBaseBackReferenceColumnsToTableFromMidTable(t, midTable, referencableTables);
     }
   }
 
-  private void addBaseBackReferenceColumnsToTableFromRawTable(
+  private void addBaseBackReferenceColumnsToTableFromMidTable(
     final Table<IEntity> table,
-    final TableDto rawTable,
+    final TableDto midTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    final var rawBaseValueColumns = rawTable.columns().getStoredSelected(this::isBaseBackReference);
+    final var midBaseValueColumns = midTable.columns().getStoredSelected(this::isBaseBackReference);
 
-    for (final var c : rawBaseValueColumns) {
+    for (final var c : midBaseValueColumns) {
 
       final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
         c,
