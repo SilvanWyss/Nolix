@@ -8,9 +8,9 @@ import ch.nolix.system.sqlmidschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlmidschema.schemawriter.SchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public abstract class AbstractSqlRawSchemaAdapter extends AbstractSchemaAdapter {
+public abstract class AbstractSqlSchemaAdapter extends AbstractSchemaAdapter {
 
-  protected AbstractSqlRawSchemaAdapter(
+  protected AbstractSqlSchemaAdapter(
     final String databaseName,
     final ISqlConnection sqlConnection,
     final IQueryCreator sqlSchemaQueryCreator) {
