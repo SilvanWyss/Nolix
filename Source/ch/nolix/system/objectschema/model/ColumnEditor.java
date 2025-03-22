@@ -29,7 +29,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       column.getStoredParentTable().removeColumnAttribute(column);
     }
 
-    column.internalGetStoredRawSchemaAdapter().deleteColumn(column.getStoredParentTable().getName(), column.getName());
+    column.getStoredMidSchemaAdapter().deleteColumn(column.getStoredParentTable().getName(), column.getName());
 
     column.internalSetDeleted();
   }
@@ -54,7 +54,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       final var columnName = column.getName();
       final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
 
-      column.internalGetStoredRawSchemaAdapter().setContentModel(tableName, columnName, contentModelDto);
+      column.getStoredMidSchemaAdapter().setContentModel(tableName, columnName, contentModelDto);
     }
 
     column.internalSetEdited();
@@ -77,7 +77,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
       final var tableName = column.getStoredParentTable().getName();
 
-      column.internalGetStoredRawSchemaAdapter().renameColumn(tableName, oldName, name);
+      column.getStoredMidSchemaAdapter().renameColumn(tableName, oldName, name);
     }
 
     for (final var brc : backReferencingColumns) {

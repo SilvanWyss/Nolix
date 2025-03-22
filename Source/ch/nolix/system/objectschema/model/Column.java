@@ -114,7 +114,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   public boolean isEmpty() {
     return //
     isNew()
-    || internalGetStoredRawSchemaAdapter().columnIsEmpty(getStoredParentTable().getName(), getName());
+    || getStoredMidSchemaAdapter().columnIsEmpty(getStoredParentTable().getName(), getName());
   }
 
   @Override
@@ -142,8 +142,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
   }
 
-  ISchemaAdapter internalGetStoredRawSchemaAdapter() {
-    return ((Database) COLUMN_TOOL.getParentDatabase(this)).internalGetStoredRawSchemaAdapter();
+  ISchemaAdapter getStoredMidSchemaAdapter() {
+    return ((Database) COLUMN_TOOL.getParentDatabase(this)).getStoredMidSchemaAdapter();
   }
 
   void setContentModelsAttribute(final IContainer<IContentModel> contentModels) {
@@ -159,7 +159,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     //TODO: Adjust
     final var contentModelDto = contentModelDtos.getStoredFirst();
 
-    internalGetStoredRawSchemaAdapter().setContentModel(tableName, getName(), contentModelDto);
+    getStoredMidSchemaAdapter().setContentModel(tableName, getName(), contentModelDto);
   }
 
   void setNameAttribute(final String header) {

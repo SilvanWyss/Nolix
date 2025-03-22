@@ -21,18 +21,18 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private boolean loadedTablesFromDatabase;
 
-  private final ISchemaAdapter rawSchemaAdapter;
+  private final ISchemaAdapter midSchemaAdapter;
 
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
-  public Database(final String name, final ISchemaAdapter rawSchemaAdapter) {
+  public Database(final String name, final ISchemaAdapter midSchemaAdapter) {
 
     DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
-    Validator.assertThat(rawSchemaAdapter).thatIsNamed("raw schema adapter").isNotNull();
+    Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
 
     this.name = name;
-    this.rawSchemaAdapter = rawSchemaAdapter;
+    this.midSchemaAdapter = midSchemaAdapter;
 
     internalSetLoaded();
   }
@@ -74,12 +74,12 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
       return tables.getCount();
     }
 
-    return rawSchemaAdapter.getTableCount();
+    return midSchemaAdapter.getTableCount();
   }
 
   @Override
   public boolean isConnectedWithRealDatabase() {
-    return (rawSchemaAdapter != null);
+    return (midSchemaAdapter != null);
   }
 
   @Override
@@ -96,11 +96,11 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     tables.addAtEnd(table);
   }
 
-  ISchemaAdapter internalGetStoredRawSchemaAdapter() {
+  ISchemaAdapter getStoredMidSchemaAdapter() {
 
     DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
-    return rawSchemaAdapter;
+    return midSchemaAdapter;
   }
 
   void removeTableAttribute(final Table table) {
@@ -113,7 +113,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private void loadTablesFromDatabase() {
 
-    tables = LinkedList.fromIterable(internalGetStoredRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
+    tables = LinkedList.fromIterable(getStoredMidSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
     for (final var t : tables) {
       final var table = (Table) t;
       table.internalSetLoaded();

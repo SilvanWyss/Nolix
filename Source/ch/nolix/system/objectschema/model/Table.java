@@ -153,8 +153,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
     columns.addAtEnd(column);
   }
 
-  ISchemaAdapter getStoredRawSchemaAdapter() {
-    return getStoredParentDatabase().internalGetStoredRawSchemaAdapter();
+  ISchemaAdapter getStoredMidSchemaAdapter() {
+    return getStoredParentDatabase().getStoredMidSchemaAdapter();
   }
 
   void removeColumnAttribute(final Column column) {
@@ -189,7 +189,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
     final var tables = getStoredParentDatabase().getStoredTables();
 
-    final var rawTableDto = getStoredRawSchemaAdapter().loadTableById(getId());
+    final var rawTableDto = getStoredMidSchemaAdapter().loadTableById(getId());
     columns = LinkedList.fromIterable(ColumnMapper.mapRawTableDtoToColumns(rawTableDto, tables));
 
     for (final var c : columns) {

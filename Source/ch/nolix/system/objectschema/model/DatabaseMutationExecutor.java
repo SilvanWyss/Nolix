@@ -18,7 +18,7 @@ final class DatabaseMutationExecutor {
 
       final var tableDto = TABLE_DTO_MAPPER.mapTableToTableDto(table);
 
-      database.internalGetStoredRawSchemaAdapter().addTable(tableDto);
+      database.getStoredMidSchemaAdapter().addTable(tableDto);
     }
 
     database.internalSetEdited();

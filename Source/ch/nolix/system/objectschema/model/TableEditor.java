@@ -25,11 +25,11 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
 
-      final var rawSchemaAdapter = table.getStoredRawSchemaAdapter();
+      final var midSchemaAdapter = table.getStoredMidSchemaAdapter();
       final var tableName = table.getName();
       final var columnDtos = COLUMN_DTO_MAPPER.mapColumnToColumnDtos(column);
 
-      rawSchemaAdapter.addColumns(tableName, columnDtos);
+      midSchemaAdapter.addColumns(tableName, columnDtos);
     }
 
     table.internalSetEdited();
@@ -43,7 +43,7 @@ public final class TableEditor {
 
     final var tableName = table.getName();
 
-    table.getStoredRawSchemaAdapter().deleteTable(tableName);
+    table.getStoredMidSchemaAdapter().deleteTable(tableName);
 
     table.internalSetDeleted();
   }
@@ -58,7 +58,7 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
 
-      table.getStoredRawSchemaAdapter().renameTable(oldTableName, name);
+      table.getStoredMidSchemaAdapter().renameTable(oldTableName, name);
 
       for (final var rc : referencingColumns) {
         ((Column) rc).internalSetContentModelToDatabase();
