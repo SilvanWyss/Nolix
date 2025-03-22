@@ -5,7 +5,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2025-17-01
+ * @version 2025-01-17
  */
 public enum FixTable implements INameHolder {
   DATABASE_PROPERTY("DatabaseProperty"),
