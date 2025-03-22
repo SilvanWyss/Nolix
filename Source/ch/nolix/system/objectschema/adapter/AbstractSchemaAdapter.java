@@ -19,22 +19,22 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private IDatabase database;
 
-  private final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter;
+  private final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter midSchemaAdapter;
 
   private int saveCount;
 
   protected AbstractSchemaAdapter(
     final String databaseName,
-    final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter rawSchemaAdapter) {
+    final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter midSchemaAdapter) {
 
     Validator
-      .assertThat(rawSchemaAdapter)
+      .assertThat(midSchemaAdapter)
       .thatIsNamed(ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter.class)
       .isNotNull();
 
-    this.rawSchemaAdapter = rawSchemaAdapter;
+    this.midSchemaAdapter = midSchemaAdapter;
 
-    getStoredCloseController().createCloseDependencyTo(rawSchemaAdapter);
+    getStoredCloseController().createCloseDependencyTo(this.midSchemaAdapter);
 
     resetUsingDatabaseName(databaseName);
   }
@@ -74,7 +74,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   @Override
   public final boolean hasChanges() {
-    return rawSchemaAdapter.hasChanges();
+    return midSchemaAdapter.hasChanges();
   }
 
   @Override
@@ -91,7 +91,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     try {
 
       DATABASE_TOOL.assertAllBackReferencesAreValid(database);
-      rawSchemaAdapter.saveChanges();
+      midSchemaAdapter.saveChanges();
 
       saveCount++;
     } finally {
@@ -101,8 +101,8 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private void resetUsingDatabaseName(final String databaseName) {
 
-    database = new Database(databaseName, rawSchemaAdapter);
+    database = new Database(databaseName, midSchemaAdapter);
 
-    rawSchemaAdapter.reset();
+    midSchemaAdapter.reset();
   }
 }
