@@ -3,7 +3,7 @@ package ch.nolix.system.nodemiddata.adapter;
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
-import ch.nolix.system.nodemidschema.adapter.NodeRawSchemaAdapter;
+import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 
 public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
@@ -12,7 +12,7 @@ public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAnd
 
   private NodeDataAdapterAndSchemaReader(final IMutableNode<?> nodeDatabase) {
 
-    super(NodeDataAdapter.forNodeDatabase(nodeDatabase), NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase));
+    super(NodeDataAdapter.forNodeDatabase(nodeDatabase), NodeSchemaAdapter.forNodeDatabase(nodeDatabase));
 
     this.nodeDatabase = nodeDatabase;
   }

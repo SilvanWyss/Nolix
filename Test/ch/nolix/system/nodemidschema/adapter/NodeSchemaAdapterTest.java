@@ -1,4 +1,4 @@
-package ch.nolix.system.noderawschema.adapter;
+package ch.nolix.system.nodemidschema.adapter;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,12 +6,11 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.system.nodemidschema.adapter.NodeRawSchemaAdapter;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
 
-final class NodeRawSchemaAdapterTest extends StandardTest {
+final class NodeSchemaAdapterTest extends StandardTest {
 
   @Test
   void testCase_addColumn() {
@@ -34,7 +33,7 @@ final class NodeRawSchemaAdapterTest extends StandardTest {
       new ValueModelDto(DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
-    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
 
     //execution
@@ -59,7 +58,7 @@ final class NodeRawSchemaAdapterTest extends StandardTest {
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
 
     //Setups testUnit.
-    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //setup verification
     expect(testUnit.isChangeFree()).isTrue();
@@ -94,7 +93,7 @@ final class NodeRawSchemaAdapterTest extends StandardTest {
       new ValueModelDto(DataType.INTEGER_4BYTE));
 
     //Setups testUnit.
-    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
     testUnit.addColumn(tableName, columnDto);
     testUnit.saveChanges();
@@ -118,7 +117,7 @@ final class NodeRawSchemaAdapterTest extends StandardTest {
     final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups testUnit.
-    final var testUnit = NodeRawSchemaAdapter.forNodeDatabase(nodeDatabase);
+    final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
 
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
