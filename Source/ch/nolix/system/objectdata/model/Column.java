@@ -23,35 +23,35 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
 
   private final Table<IEntity> parentTable;
 
-  private final IDataReader rawDataReader;
+  private final IDataReader midDataReader;
 
   private Column(
     final String id,
     final String name,
     final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
-    final IDataReader rawDataReader) {
+    final IDataReader midDataReader) {
 
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();
     RESOURCE_VALIDATOR.assertIsOpen(parentTable);
-    RESOURCE_VALIDATOR.assertIsOpen(rawDataReader);
+    RESOURCE_VALIDATOR.assertIsOpen(midDataReader);
 
     this.id = id;
     this.name = name;
     this.contentModelView = contentModelView;
     this.parentTable = parentTable;
-    this.rawDataReader = rawDataReader;
+    this.midDataReader = midDataReader;
   }
 
-  static Column withIdAndNameAndContentModelViewAndParentTableAndRawDataReader(
+  static Column withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
     final String id,
     final String name,
     final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
-    final IDataReader rawDataReader) {
-    return new Column(name, id, contentModelView, parentTable, rawDataReader);
+    final IDataReader midDataReader) {
+    return new Column(name, id, contentModelView, parentTable, midDataReader);
   }
 
   @Override
@@ -77,7 +77,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
   @Override
   public boolean internalContainsGivenValueInPersistedData(final String value) {
     return //
-    rawDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
+    midDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
       getStoredParentTable().getName(),
       getName(),
       value);
@@ -88,7 +88,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     return //
-    rawDataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
+    midDataReader.tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
       getStoredParentTable().getName(),
       getName(),
       value,

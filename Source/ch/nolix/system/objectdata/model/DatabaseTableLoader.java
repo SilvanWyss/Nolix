@@ -47,7 +47,7 @@ final class DatabaseTableLoader {
 
     for (final var c : rawBaseValueColumns) {
 
-      final var column = COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(
+      final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
         c,
         table,
         ImmutableList.createEmpty());
@@ -76,7 +76,7 @@ final class DatabaseTableLoader {
 
     for (final var c : rawBaseReferenceColumns) {
 
-      final var column = COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(
+      final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
         c,
         table,
         referencableTables);
@@ -105,7 +105,7 @@ final class DatabaseTableLoader {
 
     for (final var c : rawBaseValueColumns) {
 
-      final var column = COLUMN_MAPPER.mapRawSchemaColumnDtoToColumnView(
+      final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
         c,
         table,
         referencableTables);
