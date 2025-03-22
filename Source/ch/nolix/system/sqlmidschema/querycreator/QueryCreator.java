@@ -4,7 +4,7 @@ import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyTableColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
 
@@ -23,7 +23,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT COUNT("
     + TableTableColumn.ID.getName()
     + ") FROM "
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + ";";
   }
 
@@ -46,7 +46,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.COLUMN.getName()
+    + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -73,7 +73,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.COLUMN.getName()
+    + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -92,7 +92,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.ID.getName()
     + " = '"
@@ -111,7 +111,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME.getName()
     + " = '"
@@ -130,7 +130,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getName();
+    + FixTable.TABLE.getName();
   }
 
   /**
@@ -142,7 +142,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT "
     + DatabasePropertyTableColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.DATABASE_PROPERTY.getName()
+    + FixTable.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + DatabasePropertyTableColumn.KEY.getName()
     + " = "

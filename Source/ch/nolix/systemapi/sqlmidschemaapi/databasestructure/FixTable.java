@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2025-17-01
  */
-public enum FixTableType implements INameHolder {
+public enum FixTable implements INameHolder {
   DATABASE_PROPERTY("DatabaseProperty"),
   TABLE(PascalCaseVariableCatalog.TABLE),
   COLUMN(PascalCaseVariableCatalog.COLUMN),
@@ -18,7 +18,7 @@ public enum FixTableType implements INameHolder {
 
   private final String name;
 
-  FixTableType(final String name) {
+  FixTable(final String name) {
     this.name = name;
   }
 

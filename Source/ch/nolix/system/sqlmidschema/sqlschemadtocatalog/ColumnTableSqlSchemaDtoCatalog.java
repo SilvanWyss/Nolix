@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.datatypeapi.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
@@ -36,7 +36,7 @@ public final class ColumnTableSqlSchemaDtoCatalog {
 
   public static final TableDto COLUMN_TABLE_SQL_DTO = //
   new TableDto(
-    FixTableType.COLUMN.getName(),
+    FixTable.COLUMN.getName(),
     ImmutableList.withElement(
       ID_SQL_DTO,
       PARENT_TABLE_ID_SQL_DTO,

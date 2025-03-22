@@ -8,7 +8,7 @@ import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTableType;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
 
@@ -24,7 +24,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
     return //
     "INSERT INTO "
-    + FixTableType.COLUMN.getName()
+    + FixTable.COLUMN.getName()
     + " ("
     + ColumnTableColumn.ID.getName()
     + ", "
@@ -50,7 +50,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ", "
     + contentModelSqlDto.backReferencedColumnId()
     + SpaceEnclosedSqlKeywordCatalog.FROM
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME.getName()
     + " = '"
@@ -62,7 +62,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToAddTable(final String tableId, final String tableName) {
     return //
     "INSERT INTO "
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + " ("
     + TableTableColumn.ID.getName()
     + ", "
@@ -92,7 +92,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return //
     "DELETE FROM "
-    + FixTableType.COLUMN.getName()
+    + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = "
@@ -108,7 +108,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToDeleteTable(final String tableName) {
     return //
     "DELETE FROM "
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
     + TableTableColumn.NAME
     + " = '"
@@ -121,7 +121,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     final String newColumnName) {
     return //
     "UPDATE "
-    + FixTableType.COLUMN.getName()
+    + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.NAME
     + " = '"
@@ -147,7 +147,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 
     return //
     "UPDATE "
-    + FixTableType.COLUMN.getName()
+    + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + ColumnTableColumn.DATA_TYPE
     + " = "
@@ -171,7 +171,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   public String createStatementToSetTableName(final String tableName, final String newTableName) {
     return //
     "UPDATE "
-    + FixTableType.TABLE.getName()
+    + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
     + TableTableColumn.NAME.getName()
     + " = '"
