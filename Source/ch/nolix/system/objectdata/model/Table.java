@@ -84,7 +84,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public boolean containsEntityWithId(final String id) {
-    return internalGetStoredDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id);
+    return getStoredMidDataAdapterAndSchemaReader().tableContainsEntityWithGivenId(getName(), id);
   }
 
   @Override
@@ -114,7 +114,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     if (entity.isEmpty()) {
 
-      if (internalGetStoredDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
+      if (getStoredMidDataAdapterAndSchemaReader().tableContainsEntityWithGivenId(getName(), id)) {
 
         addEntityWithIdWhenIsNotAdded(id);
 
@@ -228,16 +228,16 @@ public final class Table<E extends IEntity> implements ITable<E> {
     }
   }
 
+  IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
+    return parentDatabase.getStoredMidDataAdapterAndSchemaReader();
+  }
+
   void internalAddColumn(final IColumnView<ITable<IEntity>> columnView) {
     columnViews.addAtEnd(columnView);
   }
 
   IContainer<IColumnView<ITable<IEntity>>> internalGetColumnsThatReferencesCurrentTable() {
     return columnsThatReferenceCurrentTable.getValue();
-  }
-
-  IDataAdapterAndSchemaReader internalGetStoredDataAndSchemaAdapter() {
-    return parentDatabase.getStoredRawDataAdapterAndSchemaReader();
   }
 
   void internalSetColumns(final IContainer<IColumnView<ITable<IEntity>>> columnViews) {
@@ -247,7 +247,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {
 
-    final var entity = EntityLoader.loadEntityById(this, id, internalGetStoredDataAndSchemaAdapter());
+    final var entity = EntityLoader.loadEntityById(this, id, getStoredMidDataAdapterAndSchemaReader());
 
     entitiesInLocalData.addAtEnd(entity);
   }
@@ -283,7 +283,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 
-    for (final var r : internalGetStoredDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
+    for (final var r : getStoredMidDataAdapterAndSchemaReader().loadEntitiesOfTable(getName())) {
       insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(r);
     }
 

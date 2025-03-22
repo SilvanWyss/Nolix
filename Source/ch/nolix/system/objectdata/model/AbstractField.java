@@ -124,7 +124,7 @@ public abstract class AbstractField implements IField {
   }
 
   protected final IDataAdapterAndSchemaReader getStoredDataAndSchemaAdapter() {
-    return getStoredParentEntity().getStoredRawDataAndSchemaAdapter();
+    return getStoredParentEntity().getStoredMidDataAdapterAndSchemaReader();
   }
 
   protected final void setAsEditedAndRunPotentialUpdateAction() {

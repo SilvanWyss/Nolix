@@ -25,6 +25,6 @@ public final class ColumnMapper {
       midSchemaColumnDto.id(),
       contentModelView,
       parentTable,
-      parentTable.internalGetStoredDataAndSchemaAdapter());
+      parentTable.getStoredMidDataAdapterAndSchemaReader());
   }
 }

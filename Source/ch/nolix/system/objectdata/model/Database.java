@@ -27,21 +27,21 @@ public final class Database implements IDatabase {
 
   private final IContainer<? extends ITable<IEntity>> tables;
 
-  private final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader;
+  private final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private Database(
     final IEntityTypeSet entityTypeSet,
-    final IDataAdapterAndSchemaReader rawDataAdapterAndSchemaReader) {
+    final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
 
-    RESOURCE_VALIDATOR.assertIsOpen(rawDataAdapterAndSchemaReader);
+    RESOURCE_VALIDATOR.assertIsOpen(midDataAdapterAndSchemaReader);
     Validator.assertThat(entityTypeSet).thatIsNamed(IEntityTypeSet.class).isNotNull();
 
     this.entityTypeSet = entityTypeSet;
-    this.schemaTimestamp = rawDataAdapterAndSchemaReader.getSchemaTimestamp();
-    this.rawDataAdapterAndSchemaReader = rawDataAdapterAndSchemaReader;
-    createCloseDependencyTo(this.rawDataAdapterAndSchemaReader);
+    this.schemaTimestamp = midDataAdapterAndSchemaReader.getSchemaTimestamp();
+    this.midDataAdapterAndSchemaReader = midDataAdapterAndSchemaReader;
+    createCloseDependencyTo(this.midDataAdapterAndSchemaReader);
     this.tables = loadTables();
   }
 
@@ -58,7 +58,7 @@ public final class Database implements IDatabase {
 
   @Override
   public String getName() {
-    return getStoredRawDataAdapterAndSchemaReader().getDatabaseName();
+    return getStoredMidDataAdapterAndSchemaReader().getDatabaseName();
   }
 
   @Override
@@ -69,7 +69,7 @@ public final class Database implements IDatabase {
   @Override
   public DatabaseObjectState getState() {
 
-    if (getStoredRawDataAdapterAndSchemaReader().isClosed()) {
+    if (getStoredMidDataAdapterAndSchemaReader().isClosed()) {
       return DatabaseObjectState.CLOSED;
     }
 
@@ -126,7 +126,7 @@ public final class Database implements IDatabase {
 
   @Override
   public boolean isClosed() {
-    return getStoredRawDataAdapterAndSchemaReader().isClosed();
+    return getStoredMidDataAdapterAndSchemaReader().isClosed();
   }
 
   @Override
@@ -161,11 +161,11 @@ public final class Database implements IDatabase {
       ((Table<?>) t).close();
     }
 
-    rawDataAdapterAndSchemaReader.close();
+    midDataAdapterAndSchemaReader.close();
   }
 
-  IDataAdapterAndSchemaReader getStoredRawDataAdapterAndSchemaReader() {
-    return rawDataAdapterAndSchemaReader;
+  IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
+    return midDataAdapterAndSchemaReader;
   }
 
   private IContainer<Table<IEntity>> loadTables() {

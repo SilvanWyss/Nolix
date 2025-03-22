@@ -17,7 +17,7 @@ final class DatabaseTableLoader {
 
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 
-    final var rawTables = database.getStoredRawDataAdapterAndSchemaReader().loadTables();
+    final var rawTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 
     final var tables = rawTables
       .to(rt -> TABLE_MAPPER.mapTableDtoToTableWithoutColumnsAndWithoutEntities(rt, database));
