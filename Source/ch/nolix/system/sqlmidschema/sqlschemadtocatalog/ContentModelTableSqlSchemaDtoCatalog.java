@@ -1,0 +1,41 @@
+package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
+
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ContentModelColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschemaapi.datatypeapi.DataTypeTypeCatalog;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
+
+public final class ContentModelTableSqlSchemaDtoCatalog {
+
+  private static final ColumnDto CONTENT_TYPE_SQL_DTO = //
+  new ColumnDto(ContentModelColumn.CONTENT_TYPE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+
+  private static final ColumnDto DATA_TYPE_SQL_DTO = //
+  new ColumnDto(ContentModelColumn.DATA_TYPE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+
+  private static final ColumnDto REFERENCED_TABLE_ID_SQL_DTO = //
+  new ColumnDto(
+    ContentModelColumn.REFERENCED_TABLE_ID.getName(),
+    DataTypeTypeCatalog.TEXT,
+    ImmutableList.createEmpty());
+
+  private static final ColumnDto BACK_REFERENCED_COLUMN_ID_SQL_DTO = //
+  new ColumnDto(
+    ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName(),
+    DataTypeTypeCatalog.TEXT,
+    ImmutableList.createEmpty());
+
+  public static final TableDto CONTENT_MODEL_TABLE_SQL_DTO = //
+  new TableDto(
+    FixTable.COLUMN.getName(),
+    ImmutableList.withElement(
+      CONTENT_TYPE_SQL_DTO,
+      DATA_TYPE_SQL_DTO,
+      REFERENCED_TABLE_ID_SQL_DTO,
+      BACK_REFERENCED_COLUMN_ID_SQL_DTO));
+
+  private ContentModelTableSqlSchemaDtoCatalog() {
+  }
+}
