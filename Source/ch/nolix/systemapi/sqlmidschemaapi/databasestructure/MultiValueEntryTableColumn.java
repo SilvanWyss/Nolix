@@ -1,13 +1,11 @@
 package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
 public enum MultiValueEntryTableColumn implements INameHolder {
-  ENTITY_ID("EntityId"),
-  MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
-  VALUE(PascalCaseVariableCatalog.VALUE + CharacterCatalog.UNDERSCORE);
+  ENTITY_ID(MultiValueEntryColumnNameCatalog.ENTITY_ID),
+  MULTI_VALUE_COLUMN_ID(MultiValueEntryColumnNameCatalog.MULTI_VALUE_COLUMN_ID),
+  VALUE(MultiValueEntryColumnNameCatalog.VALUE);
 
   private final String name;
 
