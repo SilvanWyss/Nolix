@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmidschema.querycreator;
 
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
@@ -34,21 +34,21 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadCoumnsByTableId(final String tableId) {
     return //
     "SELECT "
-    + ColumnTableColumn.ID.getName()
+    + ColumnColumn.ID.getName()
     + ", "
-    + ColumnTableColumn.NAME.getName()
+    + ColumnColumn.NAME.getName()
     + ", "
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.CONTENT_TYPE.getName()
+    + ColumnColumn.CONTENT_TYPE.getName()
     + ", "
-    + ColumnTableColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE.getName()
     + ", "
-    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = '"
     + tableId
     + "'";
@@ -61,21 +61,21 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadColumnsByTableName(final String tableName) {
     return //
     "SELECT "
-    + ColumnTableColumn.ID.getName()
+    + ColumnColumn.ID.getName()
     + ", "
-    + ColumnTableColumn.NAME.getName()
+    + ColumnColumn.NAME.getName()
     + ", "
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.CONTENT_TYPE.getName()
+    + ColumnColumn.CONTENT_TYPE.getName()
     + ", "
-    + ColumnTableColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE.getName()
     + ", "
-    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = '"
     + tableName
     + "'";

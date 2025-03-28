@@ -7,7 +7,7 @@ import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
@@ -26,17 +26,17 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "INSERT INTO "
     + FixTable.COLUMN.getName()
     + " ("
-    + ColumnTableColumn.ID.getName()
+    + ColumnColumn.ID.getName()
     + ", "
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnTableColumn.NAME.getName()
+    + ColumnColumn.NAME.getName()
     + ", "
-    + ColumnTableColumn.CONTENT_TYPE.getName()
+    + ColumnColumn.CONTENT_TYPE.getName()
     + ", "
-    + ColumnTableColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE.getName()
     + ", "
-    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
     + ") SELECT '"
     + column.id()
     + "', "
@@ -94,11 +94,11 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "DELETE FROM "
     + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + tableName
     + " AND "
-    + ColumnTableColumn.NAME.getName()
+    + ColumnColumn.NAME.getName()
     + " = '"
     + columnName
     + "'";
@@ -123,15 +123,15 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "UPDATE "
     + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
-    + ColumnTableColumn.NAME
+    + ColumnColumn.NAME
     + " = '"
     + newColumnName
     + "' WHERE "
-    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = '"
     + tableName
     + "' AND "
-    + ColumnTableColumn.NAME.getName()
+    + ColumnColumn.NAME.getName()
     + " = '"
     + columnName
     + "'";
@@ -149,19 +149,19 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "UPDATE "
     + FixTable.COLUMN.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
-    + ColumnTableColumn.DATA_TYPE
+    + ColumnColumn.DATA_TYPE
     + " = "
     + contentModelSqlDto.dataType()
     + ", "
-    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " = "
     + contentModelSqlDto.backReferencedColumnId()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + ColumnTableColumn.PARENT_TABLE_ID
+    + ColumnColumn.PARENT_TABLE_ID
     + " = '"
     + tableName
     + "' AND "
-    + ColumnTableColumn.NAME.getName()
+    + ColumnColumn.NAME.getName()
     + " = '"
     + columnName
     + "'";

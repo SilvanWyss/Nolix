@@ -3,7 +3,7 @@ package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 
-public enum ColumnTableColumn implements INameHolder {
+public enum ColumnColumn implements INameHolder {
   ID(PascalCaseVariableCatalog.ID),
   PARENT_TABLE_ID("ParentTableId"),
   NAME(PascalCaseVariableCatalog.NAME),
@@ -13,7 +13,7 @@ public enum ColumnTableColumn implements INameHolder {
 
   private final String name;
 
-  ColumnTableColumn(final String name) {
+  ColumnColumn(final String name) {
     this.name = name;
   }
 
