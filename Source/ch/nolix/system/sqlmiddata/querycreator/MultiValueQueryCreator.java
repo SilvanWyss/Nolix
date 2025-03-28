@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryColumn;
 
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 
@@ -17,11 +17,11 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     "SELECT COUNT(*) FROM "
     + FixTable.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + value
     + "' AND "
-    + MultiValueEntryTableColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID.getName()
     + " NOT IN ("
     + entitiesToIgnoreIds.toString()
     + ");";
@@ -31,15 +31,15 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
   public String createQueryToLoadMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
     "SELECT "
-    + MultiValueEntryTableColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiValueEntryTableColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + multiValueColumnId
     + "';";
@@ -53,11 +53,11 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     "SELECT TOP 1 * FROM "
     + FixTable.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + columnId
     + "' AND "
-    + MultiValueEntryTableColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE.getName()
     + " = '"
     + value
     + "';";

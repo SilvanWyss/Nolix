@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryColumn;
 
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
 
@@ -13,11 +13,11 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     "DELETE FROM "
     + FixTable.MULTI_VALUE_ENTRY.getName()
     + " WHERE "
-    + MultiValueEntryTableColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + multiValueColumnId
     + "';";
@@ -32,15 +32,15 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     "DELETE FROM "
     + FixTable.MULTI_VALUE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiValueEntryTableColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
     + multiValueColumnId
     + "' AND "
-    + MultiValueEntryTableColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE.getName()
     + " = '"
     + entry
     + "';";
@@ -55,11 +55,11 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     "INSERT INTO "
     + FixTable.MULTI_VALUE_ENTRY.getName()
     + " ("
-    + MultiValueEntryTableColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID.getName()
     + ", "
-    + MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + ", "
-    + MultiValueEntryTableColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE.getName()
     + ") VALUES ('"
     + entityId
     + "', '"
