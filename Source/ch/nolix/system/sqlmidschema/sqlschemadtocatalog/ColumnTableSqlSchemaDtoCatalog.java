@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.datatypeapi.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 public final class ColumnTableSqlSchemaDtoCatalog {
 
   private static final ColumnDto ID_SQL_DTO = //
-  new ColumnDto(TableTableColumn.ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(TableColumn.ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto PARENT_TABLE_ID_SQL_DTO = //
   new ColumnDto(

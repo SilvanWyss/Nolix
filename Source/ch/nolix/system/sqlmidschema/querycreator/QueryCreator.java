@@ -5,7 +5,7 @@ import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
 
 /**
@@ -21,7 +21,7 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToGetTableCount() {
     return //
     "SELECT COUNT("
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + ") FROM "
     + FixTable.TABLE.getName()
     + ";";
@@ -88,13 +88,13 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadFlatTableById(final String id) {
     return //
     "SELECT "
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + ", "
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + " = '"
     + id
     + "'";
@@ -107,13 +107,13 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadFlatTableByName(final String name) {
     return //
     "SELECT "
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + ", "
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + " = '"
     + name
     + "'";
@@ -126,9 +126,9 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadFlatTables() {
     return //
     "SELECT "
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + ", "
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.TABLE.getName();
   }

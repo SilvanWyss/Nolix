@@ -2,13 +2,13 @@ package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
-public enum TableTableColumn implements INameHolder {
+public enum TableColumn implements INameHolder {
   ID(TableColumnNameCatalog.ID),
   NAME(TableColumnNameCatalog.NAME);
 
   private final String name;
 
-  TableTableColumn(final String name) {
+  TableColumn(final String name) {
     this.name = name;
   }
 

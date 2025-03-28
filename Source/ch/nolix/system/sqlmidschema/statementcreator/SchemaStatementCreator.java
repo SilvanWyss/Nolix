@@ -9,7 +9,7 @@ import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
 
 public final class SchemaStatementCreator implements ISchemaStatementCreator {
@@ -40,7 +40,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ") SELECT '"
     + column.id()
     + "', "
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + ", '"
     + column.name()
     + "', "
@@ -52,7 +52,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + " = '"
     + tableName
     + "'";
@@ -64,9 +64,9 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "INSERT INTO "
     + FixTable.TABLE.getName()
     + " ("
-    + TableTableColumn.ID.getName()
+    + TableColumn.ID.getName()
     + ", "
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + ") VALUES ('"
     + tableId
     + "', '"
@@ -110,7 +110,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "DELETE FROM "
     + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + TableTableColumn.NAME
+    + TableColumn.NAME
     + " = '"
     + tableName
     + "'";
@@ -173,11 +173,11 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     "UPDATE "
     + FixTable.TABLE.getName()
     + SpaceEnclosedSqlKeywordCatalog.SET
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + " = '"
     + newTableName
     + "' WHERE "
-    + TableTableColumn.NAME.getName()
+    + TableColumn.NAME.getName()
     + " = '"
     + tableName
     + "'";
