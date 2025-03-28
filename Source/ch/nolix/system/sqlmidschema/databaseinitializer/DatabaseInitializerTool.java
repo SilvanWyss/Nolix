@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
+import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ContentModelTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.EntityIndexTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.MultiBackReferenceEntryTableSqlSchemaDtoCatalog;
@@ -37,6 +38,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     //Adds schema tables.
     schemaWriter.addTable(TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO);
     schemaWriter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
+    schemaWriter.addTable(ContentModelTableSqlSchemaDtoCatalog.CONTENT_MODEL_TABLE_SQL_DTO);
 
     //Adds entity index table.
     schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
