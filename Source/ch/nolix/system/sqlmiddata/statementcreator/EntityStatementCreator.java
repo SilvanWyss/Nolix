@@ -11,7 +11,7 @@ import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.EntityIndexTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.EntityIndexColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -38,7 +38,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     "DELETE FROM "
     + FixTable.ENTITY_INDEX.getName()
     + " WHERE "
-    + EntityIndexTableColumn.ENTITY_ID.getName()
+    + EntityIndexColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "';";
@@ -97,9 +97,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     "INSERT INTO "
     + FixTable.ENTITY_INDEX.getName()
     + "("
-    + EntityIndexTableColumn.ENTITY_ID.getName()
+    + EntityIndexColumn.ENTITY_ID.getName()
     + ", "
-    + EntityIndexTableColumn.TABLE_ID.getName()
+    + EntityIndexColumn.TABLE_ID.getName()
     + ") VALUES ("
     + StringTool.getInSingleQuotes(tableId)
     + ", "
