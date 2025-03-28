@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiReferenceEntryTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiReferenceEntryColumn;
 
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {
 
@@ -15,11 +15,11 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     "DELETE FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId
     + "';";
@@ -34,15 +34,15 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     "DELETE FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId
     + "' AND "
-    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
     + " = '"
     + referencedEntityId
     + "';";
@@ -58,13 +58,13 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     "INSERT INTO "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + " ("
-    + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + ", "
-    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + ", "
-    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
     + ", "
-    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_TABLE_ID.getName()
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_TABLE_ID.getName()
     + ") VALUES ('"
     + entityId
     + "', '"

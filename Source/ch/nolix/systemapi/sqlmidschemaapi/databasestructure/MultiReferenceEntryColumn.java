@@ -2,7 +2,7 @@ package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
-public enum MultiReferenceEntryTableColumn implements INameHolder {
+public enum MultiReferenceEntryColumn implements INameHolder {
   MULTI_REFERENCE_COLUMN_ID(MultiReferenceEntryColumnNameCatalog.MULTI_REFERENCE_COLUMN_ID),
   ENTITY_ID(MultiReferenceEntryColumnNameCatalog.ENTITY_ID),
   REFERENCED_ENTITY_ID(MultiReferenceEntryColumnNameCatalog.REFERENCED_ENTITY_ID),
@@ -10,7 +10,7 @@ public enum MultiReferenceEntryTableColumn implements INameHolder {
 
   private final String name;
 
-  MultiReferenceEntryTableColumn(final String name) {
+  MultiReferenceEntryColumn(final String name) {
     this.name = name;
   }
 

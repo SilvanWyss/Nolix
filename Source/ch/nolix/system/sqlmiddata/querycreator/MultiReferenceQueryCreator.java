@@ -4,7 +4,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiReferenceEntryTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiReferenceEntryColumn;
 
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {
 
@@ -17,15 +17,15 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     "SELECT COUNT(*) FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + columnId
     + "' AND "
-    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
     + " = '"
     + referencedEntityId
     + "' AND "
-    + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " NOT IN ("
     + entitiesToIgnoreIds.toString()
     + ");";
@@ -36,15 +36,15 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String entityId,
     final String multiReferenceColumnId) {
     return "SELECT "
-    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId
     + "';";
@@ -57,11 +57,11 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     return "SELECT TOP 1 * FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId
     + "' AND "
-    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
     + " = '"
     + referencedEntityId
     + "';";
