@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiBackReferenceEntryTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiBackReferenceEntryColumn;
 
 public final class MultiBackReferenceStatementCreator implements IMultiBackReferenceStatementCreator {
 
@@ -14,11 +14,11 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     return "DELETE FROM "
     + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiBackReferenceEntryTableColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiBackReferenceColumnId
     + "';";
@@ -32,15 +32,15 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     return "DELETE FROM "
     + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
     + "' AND "
-    + MultiBackReferenceEntryTableColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiBackReferenceColumnId
     + "' AND "
-    + MultiBackReferenceEntryTableColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
     + " = '"
     + backReferencedEntityId
     + "'";
@@ -54,11 +54,11 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     return "INSERT INTO "
     + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + " ("
-    + MultiBackReferenceEntryTableColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + ", "
-    + MultiBackReferenceEntryTableColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + ", "
-    + MultiBackReferenceEntryTableColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
     + ") VALUES ('"
     + entityId
     + "', '"
