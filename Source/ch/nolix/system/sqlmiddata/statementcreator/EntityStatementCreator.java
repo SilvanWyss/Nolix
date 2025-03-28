@@ -10,7 +10,7 @@ import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IEntityStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.EntityIndexTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -50,11 +50,11 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     "IF NOT EXISTS (SELECT * FROM "
     + FixTable.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + DatabasePropertyTableColumn.KEY.getName()
+    + DatabasePropertyColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getName()
     + "' AND "
-    + DatabasePropertyTableColumn.VALUE.getName()
+    + DatabasePropertyColumn.VALUE.getName()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";

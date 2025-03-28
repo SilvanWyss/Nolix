@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmidschema.querycreator;
 import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableTableColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
@@ -140,11 +140,11 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadSchemaTimestamp() {
     return //
     "SELECT "
-    + DatabasePropertyTableColumn.VALUE.getName()
+    + DatabasePropertyColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + DatabasePropertyTableColumn.KEY.getName()
+    + DatabasePropertyColumn.KEY.getName()
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes();
   }

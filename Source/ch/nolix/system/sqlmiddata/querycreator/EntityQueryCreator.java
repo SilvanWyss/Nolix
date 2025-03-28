@@ -6,7 +6,7 @@ import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IEntityQueryCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyTableColumn;
+import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 
 public final class EntityQueryCreator implements IEntityQueryCreator {
@@ -80,11 +80,11 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
-    + DatabasePropertyTableColumn.VALUE.getName()
+    + DatabasePropertyColumn.VALUE.getName()
     + SpaceEnclosedSqlKeywordCatalog.FROM
     + FixTable.DATABASE_PROPERTY.getName()
     + SpaceEnclosedSqlKeywordCatalog.WHERE
-    + DatabasePropertyTableColumn.KEY.getName()
+    + DatabasePropertyColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getName()
     + "';";
