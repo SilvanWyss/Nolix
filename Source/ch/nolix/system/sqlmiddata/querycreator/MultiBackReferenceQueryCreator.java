@@ -9,6 +9,21 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
 
   @Override
   public String createQueryToLoadMultiBackReferenceEntries(
+    final String backReferencedTableName,
+    final String backReferencedSingleReferenceColumnName,
+    final String referencedEntityId) {
+    return //
+    "SELECT Id FROM "
+    + backReferencedTableName
+    + " WHERE "
+    + backReferencedSingleReferenceColumnName
+    + " = '"
+    + referencedEntityId
+    + "';";
+  }
+
+  @Override
+  public String createQueryToLoadMultiBackReferenceEntries(
     final String entityId,
     final String multiBackReferenceColumnId) {
     return //
