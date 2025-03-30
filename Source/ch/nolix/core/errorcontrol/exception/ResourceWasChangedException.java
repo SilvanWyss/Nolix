@@ -1,7 +1,7 @@
 package ch.nolix.core.errorcontrol.exception;
 
 /**
- * A {@link ResourceWasChangedInTheMeanwhileException} is a
+ * A {@link ResourceWasChangedException} is a
  * {@link RuntimeException} that is supposed to be thrown when a specific
  * resource was undesirably changed in the meanwhile. For thhis conext, a
  * resource can be e.g.: data, schema, file, connection.
@@ -10,29 +10,29 @@ package ch.nolix.core.errorcontrol.exception;
  * @version 2022-02-27
  */
 @SuppressWarnings("serial")
-public final class ResourceWasChangedInTheMeanwhileException extends RuntimeException {
+public final class ResourceWasChangedException extends RuntimeException {
 
   /**
-   * Creates a new {@link ResourceWasChangedInTheMeanwhileException} for the given
+   * Creates a new {@link ResourceWasChangedException} for the given
    * resource.
    * 
    * @param resource
    * @throws IllegalArgumentException if the given resource is null.
    * @throws IllegalArgumentException if the given resource is blank.
    */
-  private ResourceWasChangedInTheMeanwhileException(final String resource) {
+  private ResourceWasChangedException(final String resource) {
     super("The " + validateAndGetResource(resource) + " was changed in the meanwhile.");
   }
 
   /**
    * @param resource
-   * @return a new {@link ResourceWasChangedInTheMeanwhileException} for the given
+   * @return a new {@link ResourceWasChangedException} for the given
    *         resource.
    * @throws IllegalArgumentException if the given resource is null.
    * @throws IllegalArgumentException if the given resource is blank.
    */
-  public static ResourceWasChangedInTheMeanwhileException forResource(final String resource) {
-    return new ResourceWasChangedInTheMeanwhileException(resource);
+  public static ResourceWasChangedException forResource(final String resource) {
+    return new ResourceWasChangedException(resource);
   }
 
   /**

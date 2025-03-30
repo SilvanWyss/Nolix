@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
+import ch.nolix.core.errorcontrol.exception.ResourceWasChangedException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.system.objectdata.model.Entity;
@@ -167,7 +167,7 @@ final class NodeDataAdapterTest extends StandardTest {
     //execution & verification: Try to save the the changes to the database.
     expectRunning(testUnit::saveChanges)
       .throwsException()
-      .ofType(ResourceWasChangedInTheMeanwhileException.class)
+      .ofType(ResourceWasChangedException.class)
       .withMessage("The schema was changed in the meanwhile.");
   }
 }
