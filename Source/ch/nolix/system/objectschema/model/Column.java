@@ -42,6 +42,12 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModels);
   }
 
+  public Column(
+    final String name,
+    final IContentModel contentModels) {
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, ImmutableList.withElement(contentModels));
+  }
+
   private Column(
     final String id,
     final String name,
