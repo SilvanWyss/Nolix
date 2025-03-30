@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.exception.ResourceWasChangedException;
+import ch.nolix.core.errorcontrol.exception.ChangedResourceException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
@@ -109,7 +109,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     //execution: Tries to save changes.
     expectRunning(nodeDataAdapterB::saveChanges)
       .throwsException()
-      .ofType(ResourceWasChangedException.class)
+      .ofType(ChangedResourceException.class)
       .withMessage("The data was changed in the meanwhile.");
   }
 
@@ -139,7 +139,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     //execution & verification: Tries to save changes.
     expectRunning(nodeDataAdapterB::saveChanges)
       .throwsException()
-      .ofType(ResourceWasChangedException.class)
+      .ofType(ChangedResourceException.class)
       .withMessage("The data was changed in the meanwhile.");
   }
 

@@ -1,7 +1,7 @@
 package ch.nolix.system.nodemiddata.datawriter;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.exception.ResourceWasChangedException;
+import ch.nolix.core.errorcontrol.exception.ChangedResourceException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -104,7 +104,7 @@ public final class DataWriterActionProvider {
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
 
     if (!saveStampNode.hasHeader(entitySaveStamp)) {
-      throw ResourceWasChangedException.forResource("data");
+      throw ChangedResourceException.forResource("data");
     }
   }
 
@@ -166,7 +166,7 @@ public final class DataWriterActionProvider {
     DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
 
     if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
-      throw ResourceWasChangedException.forResource(LowerCaseVariableCatalog.SCHEMA);
+      throw ChangedResourceException.forResource(LowerCaseVariableCatalog.SCHEMA);
     }
   }
 
@@ -266,14 +266,14 @@ public final class DataWriterActionProvider {
       entityUpdate.id());
 
     if (entityNode.isEmpty()) {
-      throw ResourceWasChangedException.forResource("data");
+      throw ChangedResourceException.forResource("data");
     }
 
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode.get());
 
     final var saveStamp = saveStampNode.getHeader();
     if (!saveStamp.equals(entityUpdate.saveStamp())) {
-      throw ResourceWasChangedException.forResource("data");
+      throw ChangedResourceException.forResource("data");
     }
 
     final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
