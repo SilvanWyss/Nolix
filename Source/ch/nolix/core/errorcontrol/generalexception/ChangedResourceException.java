@@ -1,4 +1,4 @@
-package ch.nolix.core.errorcontrol.exception;
+package ch.nolix.core.errorcontrol.generalexception;
 
 /**
  * A {@link ChangedResourceException} is a

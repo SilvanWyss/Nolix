@@ -2,7 +2,7 @@ package ch.nolix.core.programatom.function;
 
 import java.util.Objects;
 
-import ch.nolix.core.errorcontrol.exception.GeneralException;
+import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 /**

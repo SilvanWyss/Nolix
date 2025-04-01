@@ -1,7 +1,7 @@
 package ch.nolix.system.nodemiddata.datawriter;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.exception.ChangedResourceException;
+import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;

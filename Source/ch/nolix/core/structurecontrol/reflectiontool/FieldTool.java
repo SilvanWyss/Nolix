@@ -2,7 +2,7 @@ package ch.nolix.core.structurecontrol.reflectiontool;
 
 import java.lang.reflect.Field;
 
-import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;

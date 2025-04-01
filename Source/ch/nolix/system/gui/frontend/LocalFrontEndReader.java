@@ -15,7 +15,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
-import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 

@@ -1,6 +1,6 @@
 package ch.nolix.core.net.endpoint;
 
-import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;

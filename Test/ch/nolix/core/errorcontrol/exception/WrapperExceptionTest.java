@@ -2,6 +2,7 @@ package ch.nolix.core.errorcontrol.exception;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class WrapperExceptionTest extends StandardTest {

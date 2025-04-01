@@ -3,7 +3,7 @@ package ch.nolix.core.structurecontrol.reflectiontool;
 import java.lang.reflect.Constructor;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;

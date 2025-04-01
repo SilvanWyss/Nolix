@@ -21,7 +21,7 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
-import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.net.ssl.SslCertificateKeyReader;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import io.netty.handler.ssl.SslContext;
