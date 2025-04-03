@@ -13,16 +13,16 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
 
   /**
    * Creates a new {@link ArgumentBelongsToParentException} for the given argument
-   * that belongs to the given parent.
+   * and argumentName and parent.
    * 
    * @param argument
+   * @param argumentName
    * @param parent
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    * @throws IllegalArgumentException if the given parent is null.
    */
-  private ArgumentBelongsToParentException(final Object argument, final Object parent) {
-
-    //Calls constructor of the base class.
-    super(argument, "belongs to a " + getTypeNameOfParent(parent));
+  private ArgumentBelongsToParentException(final Object argument, final String argumentName, final Object parent) {
+    super(argument, argumentName, "belongs to a " + getTypeNameOfParent(parent));
   }
 
   /**
@@ -33,7 +33,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * @throws IllegalArgumentException if the given parent is null.
    */
   public static ArgumentBelongsToParentException forArgumentAndParent(final Object argument, final Object parent) {
-    return new ArgumentBelongsToParentException(argument, parent);
+    return new ArgumentBelongsToParentException(argument, DEFAULT_ARGUMENT_NAME, parent);
   }
 
   /**
@@ -43,7 +43,6 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    */
   private static String getTypeNameOfParent(final Object parent) {
 
-    //Asserts that the given parent is not null.
     if (parent == null) {
       throw new IllegalArgumentException("The given parent is null.");
     }

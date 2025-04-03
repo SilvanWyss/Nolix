@@ -17,24 +17,39 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * 
    * @param argument
    */
-  private ArgumentDoesNotBelongToParentException(Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not belong to a parent");
+  private ArgumentDoesNotBelongToParentException(final Object argument) {
+    super(argument, DEFAULT_ARGUMENT_NAME, "does not belong to a parent");
   }
 
   /**
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
-   * argument and parentType.
+   * argument and argumentName.
    * 
    * @param argument
+   * @param argumentName
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  private ArgumentDoesNotBelongToParentException(final Object argument, final String argumentName) {
+    super(argument, argumentName, "does not belong to a parent");
+  }
+
+  /**
+   * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
+   * argument, argumentName and parentType.
+   * 
+   * @param argument
+   * @param argumentName
    * @param parentType
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    * @throws IllegalArgumentException if the given parentType is null.
    */
-  private ArgumentDoesNotBelongToParentException(final Object argument, final Class<?> parentType) {
+  private ArgumentDoesNotBelongToParentException(
+    final Object argument,
+    final String argumentName,
+    final Class<?> parentType) {
 
     //Calls constructor of the base class.
-    super(argument, "does not belong to a " + getNameOfParentType(parentType));
+    super(argument, argumentName, "does not belong to a " + getNameOfParentType(parentType));
   }
 
   /**
@@ -55,7 +70,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
   public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
     final Object argument,
     final Class<?> parentType) {
-    return new ArgumentDoesNotBelongToParentException(argument, parentType);
+    return new ArgumentDoesNotBelongToParentException(argument, DEFAULT_ARGUMENT_NAME, parentType);
   }
 
   /**

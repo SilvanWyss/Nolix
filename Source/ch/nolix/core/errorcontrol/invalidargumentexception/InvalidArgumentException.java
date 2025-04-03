@@ -1,24 +1,26 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException} that is
  * supposed to be thrown when a given argument is not valid.
  * 
- * A {@link InvalidArgumentException} stores the name of the argument the
- * {@link InvalidArgumentException} was created for. A
- * {@link InvalidArgumentException} stores the argument
+ * A {@link InvalidArgumentException} stores the argument the
  * {@link InvalidArgumentException} was created for.
  * 
- * The name of a {@link InvalidArgumentException} should be builded according to
- * one of the following patterns. -[A]ArgumentException
- * -Non[PA]ArgumentException -Argument[P]Exception Whereas: -[A] is an
- * adjective. -[PA] is a grammatically positive adjective. -[P] is a predicate.
+ * A {@link InvalidArgumentException} stores the name of the argument the
+ * {@link InvalidArgumentException} was created for.
  * 
- * Examples of names of {@link InvalidArgumentException}s:
- * -NegativeArgumentException -NonPositiveArgumentException
- * -ArgumentIsOutOfRangeException
+ * The name of a {@link InvalidArgumentException} class should be builded
+ * according to one of the following patterns: [A]ArgumentException,
+ * Non[PA]ArgumentExceptio, Argument[P]Exception. Whereas: [A] is an adjective,
+ * [PA] is a grammatically positive adjective, [P] is a predicate.
+ * 
+ * Examples of names of {@link InvalidArgumentException} classes:
+ * NegativeArgumentException, NonPositiveArgumentException,
+ * ArgumentIsOutOfRangeException
  * 
  * @author Silvan Wyss
  * @version 2016-12-01
@@ -26,21 +28,17 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
 
-  private static final int MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH = 200;
+  protected static final String DEFAULT_ARGUMENT_NAME = "argument";
 
-  private static final String DEFAULT_ARGUMENT_NAME = "argument";
+  private static final int MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH = 200;
 
   private static final String ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME = "instance of an anonymous class";
 
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
-  private static final char DOT = '.';
-
-  private static final char ELLIPSIS = 0x2026;
+  private final transient Object argument;
 
   private final String argumentName;
-
-  private final transient Object argument;
 
   private final String errorPredicate;
 
@@ -50,9 +48,7 @@ public class InvalidArgumentException extends RuntimeException {
    * @param argument
    */
   protected InvalidArgumentException(final Object argument) {
-
-    //Calls other constructor.
-    this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
+    this(argument, getNameOfArgument(argument), DEFAULT_ERROR_PREDICATE);
   }
 
   /**
@@ -358,7 +354,7 @@ public class InvalidArgumentException extends RuntimeException {
     }
 
     //Asserts that the given errorPredicate does not end with a dot.
-    if (errorPredicate.charAt(errorPredicate.length() - 1) == DOT) {
+    if (errorPredicate.charAt(errorPredicate.length() - 1) == CharacterCatalog.DOT) {
       throw new IllegalArgumentException("The given error predicate '" + errorPredicate + "' ends with a dot.");
     }
 
@@ -416,7 +412,8 @@ public class InvalidArgumentException extends RuntimeException {
 
     //Handles the case that the length of the stringRepresentation is bigger than
     //the max argument name length.
-    return (" '" + stringRepresentation.substring(0, MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH) + ELLIPSIS + "' ");
+    return (" '" + stringRepresentation.substring(0, MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH)
+    + CharacterCatalog.ELLIPSIS + "' ");
   }
 
   /**
