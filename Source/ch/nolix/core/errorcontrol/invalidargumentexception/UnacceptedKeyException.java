@@ -22,7 +22,7 @@ public final class UnacceptedKeyException extends InvalidArgumentException {
   private UnacceptedKeyException(final String key) {
 
     //Calls constructor of the base class.
-    super(ARGUMENT_NAME, key, ERROR_PREDICATE);
+    super((Object) key, ARGUMENT_NAME, ERROR_PREDICATE);
   }
 
   /**

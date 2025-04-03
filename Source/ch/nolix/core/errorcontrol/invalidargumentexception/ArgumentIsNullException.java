@@ -21,7 +21,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
   private ArgumentIsNullException(final Class<?> argumentType) {
 
     //Calls constructor of the base class.
-    super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
+    super((Object) null, getNameOfArgumentType(argumentType), ERROR_PREDICATE);
   }
 
   /**
@@ -34,7 +34,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
   private ArgumentIsNullException(final String argumentName) {
 
     //Calls constructor of the base class.
-    super(argumentName, null, ERROR_PREDICATE);
+    super((Object) null, argumentName, ERROR_PREDICATE);
   }
 
   /**

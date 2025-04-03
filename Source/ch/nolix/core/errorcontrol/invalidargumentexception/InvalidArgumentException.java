@@ -72,6 +72,23 @@ public class InvalidArgumentException extends RuntimeException {
   }
 
   /**
+   * Creates a new {@link InvalidArgumentException} for the given argument and
+   * argumentName and errorPredicate.
+   * 
+   * @param argument
+   * @param argumentName
+   * @param errorPredicate
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given errorPredicate is null or blank
+   *                                  or ends with a dot.
+   */
+  protected InvalidArgumentException(final Object argument, final String argumentName, final String errorPredicate) {
+
+    //Calls other constructor.
+    this(getValidArgumentNameOfArgumentName(argumentName), argument, errorPredicate);
+  }
+
+  /**
    * Creates a new {@link InvalidArgumentException} for the given argument,
    * errorPredicate and cause.
    * 
