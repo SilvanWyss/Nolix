@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentNamePreparator;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
@@ -35,6 +37,8 @@ public class InvalidArgumentException extends RuntimeException {
   private static final String ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME = "instance of an anonymous class";
 
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
+
+  private static final IExceptionArgumentNamePreparator EXCEPTION_ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
 
   private final transient Object argument;
 
@@ -81,7 +85,9 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final Object argument, final String argumentName, final String errorPredicate) {
 
     //Calls other constructor.
-    this(getValidArgumentNameOfArgumentName(argumentName), argument, errorPredicate);
+    this(EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameOfArgumentName(argumentName),
+      argument,
+      errorPredicate);
   }
 
   /**
@@ -101,7 +107,7 @@ public class InvalidArgumentException extends RuntimeException {
 
     super(
       "The given "
-      + getValidArgumentNameOfArgumentName(argumentName)
+      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameOfArgumentName(argumentName)
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
       + getValidErrorPredicateOfErrorPredicate(errorPredicate)
       + ".");
@@ -134,7 +140,7 @@ public class InvalidArgumentException extends RuntimeException {
 
     super(
       "The given "
-      + getValidArgumentNameOfArgumentName(argumentName)
+      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameOfArgumentName(argumentName)
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
       + getValidErrorPredicateOfErrorPredicate(errorPredicate)
       + ".",
@@ -277,27 +283,6 @@ public class InvalidArgumentException extends RuntimeException {
 
     //Handles the case that the given paramClass is anonymous.
     return getNameOfArgumentThatIsInstanceOfAnonymousClass(paramClass);
-  }
-
-  /**
-   * @param argumentName
-   * @return a valid argument name of the given argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  private static String getValidArgumentNameOfArgumentName(final String argumentName) {
-
-    //Asserts that the given argumentName is not null.
-    if (argumentName == null) {
-      throw new IllegalArgumentException("The given argument name is null.");
-    }
-
-    //Asserts that the given argumentName is not blank.
-    if (argumentName.isBlank()) {
-      throw new IllegalArgumentException("The given argument name is blank.");
-    }
-
-    return argumentName;
   }
 
   /**
