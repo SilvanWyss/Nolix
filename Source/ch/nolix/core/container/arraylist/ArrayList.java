@@ -263,6 +263,7 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
+   * @param requiredCapacity
    * @return the target capacity for the current {@link ArrayList} and the given
    *         requiredCapacity for the case when the current {@link ArrayList}
    *         needs to grow for the given requiredCapacity.

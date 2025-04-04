@@ -70,6 +70,8 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   /**
    * @param elementConditions
    * @param sequenceConditions
+   * @param <T>                is the type of the elements of the new
+   *                           {@link SequencePattern}.
    * @return a new {@link SequencePattern} with the given elementConditions and
    *         sequenceConditions.
    * @throws ArgumentIsNullException if the given elementConditions is null.
@@ -79,9 +81,9 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @throws ArgumentIsNullException if one of the given sequenceConditions is
    *                                 null.
    */
-  private static <E2> SequencePattern<E2> withElementConditionsAndSequenceConditions(
-    final IContainer<Predicate<E2>> elementConditions,
-    final IContainer<Predicate<IContainer<E2>>> sequenceConditions) {
+  private static <T> SequencePattern<T> withElementConditionsAndSequenceConditions(
+    final IContainer<Predicate<T>> elementConditions,
+    final IContainer<Predicate<IContainer<T>>> sequenceConditions) {
     return new SequencePattern<>(elementConditions, sequenceConditions);
   }
 
