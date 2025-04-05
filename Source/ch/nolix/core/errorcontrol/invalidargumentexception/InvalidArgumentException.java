@@ -1,7 +1,9 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentNamePreparator;
+import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionCausePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
@@ -37,6 +39,8 @@ public class InvalidArgumentException extends RuntimeException {
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
   private static final IExceptionArgumentNamePreparator EXCEPTION_ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
+
+  private static final IExceptionCausePreparator EXCEPTION_CAUSE_PREPARATOR = new ExceptionCausePreparator();
 
   private final transient Object argument;
 
@@ -142,7 +146,7 @@ public class InvalidArgumentException extends RuntimeException {
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
       + getValidErrorPredicateOfErrorPredicate(errorPredicate)
       + ".",
-      getValidCauseOfCause(cause));
+      EXCEPTION_CAUSE_PREPARATOR.getValidatedCauseFromCause(cause));
 
     this.argumentName = argumentName;
     this.argument = argument;
@@ -221,22 +225,6 @@ public class InvalidArgumentException extends RuntimeException {
     final Object argument,
     final String errorPredicate) {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
-  }
-
-  /**
-   * @param cause
-   * @return a valid cause of the given cause
-   * @throws IllegalArgumentException if the given cause is null.
-   * 
-   */
-  private static Throwable getValidCauseOfCause(final Throwable cause) {
-
-    //Asserts that the given cause is not null.
-    if (cause == null) {
-      throw new IllegalArgumentException("The given cause is null.");
-    }
-
-    return cause;
   }
 
   /**
