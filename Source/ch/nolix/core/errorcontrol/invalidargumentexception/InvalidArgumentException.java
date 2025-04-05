@@ -34,8 +34,6 @@ public class InvalidArgumentException extends RuntimeException {
 
   private static final int MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH = 200;
 
-  private static final String ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME = "instance of an anonymous class";
-
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
   private static final IExceptionArgumentNamePreparator EXCEPTION_ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
@@ -52,7 +50,7 @@ public class InvalidArgumentException extends RuntimeException {
    * @param argument
    */
   protected InvalidArgumentException(final Object argument) {
-    this(argument, getNameOfArgument(argument), DEFAULT_ERROR_PREDICATE);
+    this(argument, EXCEPTION_ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), DEFAULT_ERROR_PREDICATE);
   }
 
   /**
@@ -68,7 +66,7 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final Object argument, final String errorPredicate) {
 
     //Calls other constructor.
-    this(getNameOfArgument(argument), argument, errorPredicate);
+    this(EXCEPTION_ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), argument, errorPredicate);
   }
 
   /**
@@ -223,66 +221,6 @@ public class InvalidArgumentException extends RuntimeException {
     final Object argument,
     final String errorPredicate) {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
-  }
-
-  /**
-   * @param argument
-   * @return a argument name for the given argument.
-   */
-  private static String getNameOfArgument(final Object argument) {
-
-    //Handles the case that the given argument is null.
-    if (argument == null) {
-      return DEFAULT_ARGUMENT_NAME;
-    }
-
-    //Handles the case that the given argument is not null.
-    return getNameOfArgumentThatIsInstanceOfClass(argument.getClass());
-  }
-
-  /**
-   * @param anonymousClass
-   * @return a name of an argument that is an instance of the given paramClass.
-   * @throws IllegalArgumentException if the given anonymousClass is null.
-   */
-  private static String getNameOfArgumentThatIsInstanceOfAnonymousClass(final Class<?> anonymousClass) {
-
-    //Handles the case that the given anonymousClass is null.
-    if (anonymousClass == null) {
-      throw new IllegalArgumentException("The given class is null.");
-    }
-
-    //Gets the super class of the given anonymousClass.
-    final var superClass = anonymousClass.getSuperclass();
-
-    //Handles the case that the super class is null.
-    if (superClass == null) {
-      return ANONYMOUS_CLASS_INSTANCE_ARGUMENT_NAME;
-    }
-
-    //Handles the case that the super class is not null.
-    return getNameOfArgumentThatIsInstanceOfClass(superClass);
-  }
-
-  /**
-   * @param paramClass
-   * @return a name of an argument that is an instance of the given paramClass.
-   * @throws IllegalArgumentException if the given paramClass is null.
-   */
-  private static String getNameOfArgumentThatIsInstanceOfClass(final Class<?> paramClass) {
-
-    //Handles the case that the given paramClass is null.
-    if (paramClass == null) {
-      throw new IllegalArgumentException("The given class is null.");
-    }
-
-    //Handles the case that the given paramClass is not anonymous.
-    if (!paramClass.isAnonymousClass()) {
-      return paramClass.getSimpleName();
-    }
-
-    //Handles the case that the given paramClass is anonymous.
-    return getNameOfArgumentThatIsInstanceOfAnonymousClass(paramClass);
   }
 
   /**
