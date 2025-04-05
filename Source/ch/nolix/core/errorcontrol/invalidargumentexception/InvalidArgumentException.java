@@ -87,7 +87,7 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final Object argument, final String argumentName, final String errorPredicate) {
 
     //Calls other constructor.
-    this(EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameOfArgumentName(argumentName),
+    this(EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName),
       argument,
       errorPredicate);
   }
@@ -109,7 +109,7 @@ public class InvalidArgumentException extends RuntimeException {
 
     super(
       "The given "
-      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameOfArgumentName(argumentName)
+      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
       + getValidErrorPredicateOfErrorPredicate(errorPredicate)
       + ".");
@@ -142,7 +142,7 @@ public class InvalidArgumentException extends RuntimeException {
 
     super(
       "The given "
-      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameOfArgumentName(argumentName)
+      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
       + getValidErrorPredicateOfErrorPredicate(errorPredicate)
       + ".",

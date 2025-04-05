@@ -27,7 +27,7 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
    * {@inheritDoc}
    */
   @Override
-  public String getValidatedArgumentNameOfArgumentName(final String argumentName) {
+  public String getValidatedArgumentNameFromArgumentName(final String argumentName) {
 
     if (argumentName == null) {
       throw new IllegalArgumentException("The given argument name is null.");
