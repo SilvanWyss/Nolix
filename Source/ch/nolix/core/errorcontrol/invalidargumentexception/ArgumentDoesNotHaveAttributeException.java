@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 /**
  * A {@link ArgumentDoesNotHaveAttributeException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument does undesirably not have a specific attribute.
+ * argument does undesirably not have a given attribute.
  * 
  * @author Silvan Wyss
  * @version 2019-01-31
@@ -13,83 +13,75 @@ import java.util.NoSuchElementException;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {
 
+  private static final String DEFAULT_ATTRIBUTE_NAME = "attribute";
+
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argument and attributeType.
    * 
-   * @param argument
+   * @param argument      - Can be null.
    * @param attributeType
    * @throws IllegalArgumentException if the given attributeType is null.
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not have a " + getNameOfAttributeType(attributeType));
+    super(argument, DEFAULT_ARGUMENT_NAME, "does not have a " + getNameOfAttributeType(attributeType));
   }
 
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argument and attributeName.
    * 
-   * @param argument
+   * @param argument      - Can be null.
    * @param attributeName
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
+    super(
+      argument,
+      DEFAULT_ARGUMENT_NAME,
+      "does not have a " + getValidatedAttributeNameFromAttributeName(attributeName));
   }
 
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   * argumentName, argument and attributeType.
+   * argument, argumentName and attributeType.
    * 
+   * @param argument      - Can be null.
    * @param argumentName
-   * @param argument
    * @param attributeType
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    * @throws IllegalArgumentException if the given attributeType is null.
    */
   private ArgumentDoesNotHaveAttributeException(
-    final String argumentName,
     final Object argument,
+    final String argumentName,
     final Class<?> attributeType) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not have a " + getNameOfAttributeType(attributeType));
+    super(argument, argumentName, "does not have a " + getNameOfAttributeType(attributeType));
   }
 
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   * argumentName, argument and attributeName.
+   * argument, argumentName and attributeName.
    * 
+   * @param argument      - Can be null.
    * @param argumentName
-   * @param argument
    * @param attributeName
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
   private ArgumentDoesNotHaveAttributeException(
-    final String argumentName,
     final Object argument,
+    final String argumentName,
     final String attributeName) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
+    super(argument, argumentName, "does not have a " + getValidatedAttributeNameFromAttributeName(attributeName));
   }
 
   /**
-   * @param argument
+   * @param argument      - Can be null.
    * @param attributeName
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
    *         argument and attributeName.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeName(
     final Object argument,
@@ -98,7 +90,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
   }
 
   /**
-   * @param argument
+   * @param argument      - Can be null.
    * @param attributeType
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
    *         argument and attributeType.
@@ -111,38 +103,35 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
   }
 
   /**
+   * @param argument      - Can be null.
    * @param argumentName
-   * @param argument
    * @param attributeName
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   *         argumentName, argument and attributeName.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   *         argument, argumentName and attributeName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
-  public static ArgumentDoesNotHaveAttributeException forArgumentNameAndArgumentAndAttributeName(
-    final String argumentName,
+  public static ArgumentDoesNotHaveAttributeException forArgumentAndArgumentNameAndAttributeName(
     final Object argument,
+    final String argumentName,
     final String attributeName) {
-    return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeName);
+    return new ArgumentDoesNotHaveAttributeException(argument, argumentName, attributeName);
   }
 
   /**
+   * @param argument      - Can be null.
    * @param argumentName
-   * @param argument
    * @param attributeType
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   *         argumentName, argument and attributeType.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   *         argument, argumentName and attributeType.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    * @throws IllegalArgumentException if the given attributeType is null.
    */
-  public static ArgumentDoesNotHaveAttributeException forArgumentNameAndArgumentAndAttributeType(
+  public static ArgumentDoesNotHaveAttributeException forArgumentAndArgumentNameAndAttributeType(
     final String argumentName,
     final Object argument,
     final Class<?> attributeType) {
-    return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeType);
+    return new ArgumentDoesNotHaveAttributeException(argument, argumentName, attributeType);
   }
 
   /**
@@ -152,28 +141,30 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    */
   private static String getNameOfAttributeType(final Class<?> attributeType) {
 
-    //Asserts that the given attribtueType is not null.
     if (attributeType == null) {
       throw new IllegalArgumentException("The given attribute type is null.");
     }
 
-    return attributeType.getSimpleName();
+    final var name = attributeType.getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
+    }
+
+    return DEFAULT_ATTRIBUTE_NAME;
   }
 
   /**
    * @param attributeName
-   * @return a valid attribute name of the given attributeName.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @return a validated attribute name from the given attributeName.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
-  private static String getValidAttributeNameOfAttributeName(final String attributeName) {
+  private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {
 
-    //Asserts that the given attributeName is not null.
     if (attributeName == null) {
       throw new IllegalArgumentException("The given attribute name is null.");
     }
 
-    //Asserts that the given attributeName is not blank.
     if (attributeName.isBlank()) {
       throw new IllegalArgumentException("The given attribute name is blank.");
     }
