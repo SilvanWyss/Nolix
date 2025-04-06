@@ -2,7 +2,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 /**
  * A {@link UnsupportedCaseException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument does support a certain case.
+ * is supposed to be thrown when a given argument is undesirable not a supported
+ * case.
  * 
  * @author Silvan Wyss
  * @version 2021-03-23
@@ -15,82 +16,72 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
   private static final String ERROR_PREDICATE = "is not supported";
 
   /**
-   * Creates a new {@link UnsupportedCaseException} for the given pCase.
+   * Creates a new {@link UnsupportedCaseException} for the given paramCase.
    *
-   * @param pCase
-   * @throws IllegalArgumentException if the given pCase is null.
+   * @param paramCase
+   * @throws IllegalArgumentException if the given paramCase is null.
    */
-  private UnsupportedCaseException(final Enum<?> pCase) {
-
-    //Calls constructor of the base class.
-    super((Object) getNameOfCase(pCase), ARGUMENT_NAME, ERROR_PREDICATE);
+  private UnsupportedCaseException(final Enum<?> paramCase) {
+    super((Object) getNameOfCase(paramCase), ARGUMENT_NAME, ERROR_PREDICATE);
   }
 
   /**
-   * Creates a new {@link UnsupportedCaseException} for the given pCase.
+   * Creates a new {@link UnsupportedCaseException} for the given paramCase.
    *
-   * @param pCase
-   * @throws IllegalArgumentException if the given pCase is null.
-   * @throws IllegalArgumentException if the given pCase is blank.
+   * @param paramCase
+   * @throws IllegalArgumentException if the given paramCase is null or blank.
    */
-  private UnsupportedCaseException(final String pCase) {
-
-    //Calls constructor of the base class.
-    super((Object) getValidCaseOfCase(pCase), ARGUMENT_NAME, ERROR_PREDICATE);
+  private UnsupportedCaseException(final String paramCase) {
+    super((Object) getNameOfCase(paramCase), ARGUMENT_NAME, ERROR_PREDICATE);
   }
 
   /**
-   * @param pCase
-   * @return a new {@link UnsupportedCaseException} for the given pCase.
-   * @throws IllegalArgumentException if the given pCase is null.
+   * @param paramCase
+   * @return a new {@link UnsupportedCaseException} for the given paramCase.
+   * @throws IllegalArgumentException if the given paramCase is null.
    */
-  public static UnsupportedCaseException forCase(final Enum<?> pCase) {
-    return new UnsupportedCaseException(pCase);
+  public static UnsupportedCaseException forCase(final Enum<?> paramCase) {
+    return new UnsupportedCaseException(paramCase);
   }
 
   /**
-   * @param pCase
-   * @return a new {@link UnsupportedCaseException} for the given pCase.
-   * @throws IllegalArgumentException if the given pCase is null.
-   * @throws IllegalArgumentException if the given pCase is blank.
+   * @param paramCase
+   * @return a new {@link UnsupportedCaseException} for the given paramCase.
+   * @throws IllegalArgumentException if the given pCase is null or blank.
    */
-  public static UnsupportedCaseException forCase(final String pCase) {
-    return new UnsupportedCaseException(pCase);
+  public static UnsupportedCaseException forCase(final String paramCase) {
+    return new UnsupportedCaseException(paramCase);
   }
 
   /**
-   * @param pCase
-   * @return the name of the given pCase.
-   * @throws IllegalArgumentException if the given pCase is null.
+   * @param paramCase
+   * @return the name of the given paramCase.
+   * @throws IllegalArgumentException if the given paramCase is null.
    */
-  private static String getNameOfCase(final Enum<?> pCase) {
+  private static String getNameOfCase(final Enum<?> paramCase) {
 
-    //Asserts that the given case is not null.
-    if (pCase == null) {
+    if (paramCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }
 
-    return pCase.toString();
+    return paramCase.name();
   }
 
   /**
-   * @param pCase
-   * @return a valid case of the given pCase.
-   * @throws IllegalArgumentException if the given pCase is null.
-   * @throws IllegalArgumentException if the given pCase is blank.
+   * @param paramCase
+   * @return the name of the given paramCase.
+   * @throws IllegalArgumentException if the given paramCase is null or blank.
    */
-  private static String getValidCaseOfCase(final String pCase) {
+  private static String getNameOfCase(String paramCase) {
 
-    //Asserts that the given case is not null.
-    if (pCase == null) {
+    if (paramCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }
 
-    //Asserts that the given case is not blank.
-    if (pCase.isBlank()) {
+    if (paramCase.isBlank()) {
       throw new IllegalArgumentException("The given case is blank.");
     }
 
-    return pCase;
+    return paramCase;
   }
 }
