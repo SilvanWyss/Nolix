@@ -11,11 +11,13 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {
 
+  private static final String DEFAULT_PARENT_TYPE_NAME = Object.class.getSimpleName();
+
   /**
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument.
    * 
-   * @param argument
+   * @param argument - Can be null.
    */
   private ArgumentDoesNotBelongToParentException(final Object argument) {
     super(argument, DEFAULT_ARGUMENT_NAME, "does not belong to a parent");
@@ -25,7 +27,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument and argumentName.
    * 
-   * @param argument
+   * @param argument     - Can be null.
    * @param argumentName
    * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
@@ -37,7 +39,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument, argumentName and parentType.
    * 
-   * @param argument
+   * @param argument     - Can be null.
    * @param argumentName
    * @param parentType
    * @throws IllegalArgumentException if the given argumentName is null or blank.
@@ -47,13 +49,11 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     final Object argument,
     final String argumentName,
     final Class<?> parentType) {
-
-    //Calls constructor of the base class.
     super(argument, argumentName, "does not belong to a " + getNameOfParentType(parentType));
   }
 
   /**
-   * @param argument
+   * @param argument - Can be null.
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
    *         argument.
    */
@@ -62,10 +62,11 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
   }
 
   /**
-   * @param argument
+   * @param argument   - Can be null.
    * @param parentType
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
    *         argument and parentType.
+   * @throws IllegalArgumentException if the given parentType is null.
    */
   public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
     final Object argument,
@@ -80,11 +81,16 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    */
   private static String getNameOfParentType(final Class<?> parentType) {
 
-    //Asserts that the given parent type is not null.
     if (parentType == null) {
       throw new IllegalArgumentException("The given parent type is null.");
     }
 
-    return parentType.getSimpleName();
+    final var name = parentType.getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
+    }
+
+    return DEFAULT_PARENT_TYPE_NAME;
   }
 }
