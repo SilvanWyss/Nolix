@@ -51,10 +51,10 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
       throw new IllegalArgumentException("The given class is null.");
     }
 
-    final var simpleName = paramClass.getSimpleName();
+    final var argumentName = paramClass.getSimpleName();
 
-    if (simpleName != null && !simpleName.isEmpty()) {
-      return simpleName;
+    if (argumentName != null && !argumentName.isEmpty()) {
+      return argumentName;
     }
 
     return DEFAULT_ARGUMENT_NAME;
