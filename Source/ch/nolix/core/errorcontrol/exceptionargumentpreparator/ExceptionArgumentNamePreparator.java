@@ -16,11 +16,11 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
   @Override
   public String getNameOfArgument(final Object argument) {
 
-    if (argument == null) {
-      return DEFAULT_ARGUMENT_NAME;
+    if (argument != null) {
+      return getNameOfArgumentThatIsInstanceOfClass(argument.getClass());
     }
 
-    return getNameOfArgumentThatIsInstanceOfClass(argument.getClass());
+    return DEFAULT_ARGUMENT_NAME;
   }
 
   /**
