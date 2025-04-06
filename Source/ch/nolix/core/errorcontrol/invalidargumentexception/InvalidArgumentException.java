@@ -1,13 +1,13 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentNamePreparator;
+import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionCausePreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionErrorPredicatePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException} that is
@@ -36,9 +36,10 @@ public class InvalidArgumentException extends RuntimeException {
 
   protected static final String DEFAULT_ARGUMENT_NAME = "argument";
 
-  private static final int MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH = 200;
-
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
+
+  private static final IExceptionArgumentStringRepresentaionPreparator EXCEPTION_ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
+  new ExceptionArgumentStringRepresentaionPreparator();
 
   private static final IExceptionArgumentNamePreparator EXCEPTION_ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
 
@@ -114,7 +115,8 @@ public class InvalidArgumentException extends RuntimeException {
     super(
       "The given "
       + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
-      + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
+      + EXCEPTION_ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+        .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + EXCEPTION_ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
       + ".");
 
@@ -147,7 +149,8 @@ public class InvalidArgumentException extends RuntimeException {
     super(
       "The given "
       + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
-      + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
+      + EXCEPTION_ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+        .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
       + EXCEPTION_ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
       + ".",
       EXCEPTION_CAUSE_PREPARATOR.getValidatedCauseFromCause(cause));
@@ -229,61 +232,6 @@ public class InvalidArgumentException extends RuntimeException {
     final Object argument,
     final String errorPredicate) {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
-  }
-
-  /**
-   * @param argument
-   * @return a valid {@link String} representation of the given argument.
-   */
-  private static String getValidStringRepresentationOfArgument(final Object argument) {
-
-    //Handles the case that the given argument is null.
-    if (argument == null) {
-      return StringCatalog.EMPTY_STRING;
-    }
-
-    try {
-
-      //Gets the String representation of the given argument.
-      final var string = argument.toString();
-
-      //Handles the case that the String representation is null.
-      if (string == null) {
-        return StringCatalog.NULL_HEADER;
-      }
-
-      //Handles the case that the String representation is not null.
-      return string;
-    } catch (final Throwable error) { //NOSONAR: Each Throwable must be caught here.
-      return StringCatalog.EMPTY_STRING;
-    }
-  }
-
-  /**
-   * @param argument
-   * @return a valid {@link String} representation of the given argument with
-   *         puffer to next words in text.
-   */
-  private static String getValidStringRepresentationWithPufferToNextWordsOfArgument(final Object argument) {
-
-    //Gets the String Representation of the given argument.
-    final var stringRepresentation = getValidStringRepresentationOfArgument(argument);
-
-    //Handles the case that the stringRepresentation is blank.
-    if (stringRepresentation.isBlank()) {
-      return StringCatalog.SPACE;
-    }
-
-    //Handles the case that the length of the stringRepresentation is not bigger
-    //than the max argument name length.
-    if (stringRepresentation.length() <= MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH) {
-      return (" '" + stringRepresentation + "' ");
-    }
-
-    //Handles the case that the length of the stringRepresentation is bigger than
-    //the max argument name length.
-    return (" '" + stringRepresentation.substring(0, MAX_ARGUMENT_STRING_REPRESENTATION_LENGTH)
-    + CharacterCatalog.ELLIPSIS + "' ");
   }
 
   /**
