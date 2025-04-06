@@ -17,7 +17,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * Creates a new {@link ArgumentBelongsToParentException} for the given
    * argument, argumentName and parent.
    * 
-   * @param argument
+   * @param argument     - Can be null.
    * @param argumentName
    * @param parent
    * @throws IllegalArgumentException if the given argumentName is null or blank.
@@ -28,7 +28,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
   }
 
   /**
-   * @param argument
+   * @param argument - Can be null.
    * @param parent
    * @return a new {@link ArgumentBelongsToParentException} for the given argument
    *         and parent.
