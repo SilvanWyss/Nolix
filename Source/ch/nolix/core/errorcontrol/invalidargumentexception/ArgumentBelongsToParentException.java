@@ -11,9 +11,11 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentBelongsToParentException extends InvalidArgumentException {
 
+  private static final String DEFAULT_TYPE_NAME = Object.class.getSimpleName();
+
   /**
-   * Creates a new {@link ArgumentBelongsToParentException} for the given argument
-   * and argumentName and parent.
+   * Creates a new {@link ArgumentBelongsToParentException} for the given
+   * argument, argumentName and parent.
    * 
    * @param argument
    * @param argumentName
@@ -22,14 +24,14 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * @throws IllegalArgumentException if the given parent is null.
    */
   private ArgumentBelongsToParentException(final Object argument, final String argumentName, final Object parent) {
-    super(argument, argumentName, "belongs to a " + getTypeNameOfParent(parent));
+    super(argument, argumentName, "belongs to a " + getTypeNameOfObject(parent));
   }
 
   /**
    * @param argument
    * @param parent
    * @return a new {@link ArgumentBelongsToParentException} for the given argument
-   *         that belongs to the given parent.
+   *         and parent.
    * @throws IllegalArgumentException if the given parent is null.
    */
   public static ArgumentBelongsToParentException forArgumentAndParent(final Object argument, final Object parent) {
@@ -37,16 +39,22 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
   }
 
   /**
-   * @param parent
-   * @return the name of the type of the given parent.
-   * @throws IllegalArgumentException if the given parent is null.
+   * @param object
+   * @return the name of the type of the given object.
+   * @throws IllegalArgumentException if the given object is null.
    */
-  private static String getTypeNameOfParent(final Object parent) {
+  private static String getTypeNameOfObject(final Object object) {
 
-    if (parent == null) {
-      throw new IllegalArgumentException("The given parent is null.");
+    if (object == null) {
+      throw new IllegalArgumentException("The given object is null.");
     }
 
-    return parent.getClass().getSimpleName();
+    final var name = object.getClass().getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
+    }
+
+    return DEFAULT_TYPE_NAME;
   }
 }
