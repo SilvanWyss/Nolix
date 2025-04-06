@@ -70,9 +70,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public void contains(final Object element) {
     if (!ITERABLE_EXAMINER.containsElement(getStoredArgument(), element)) {
-      throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
-        getArgumentName(),
+      throw ArgumentDoesNotContainElementException.forArgumentAndArgumentNameAndElement(
         getStoredArgument(),
+        getArgumentName(),
         element);
     }
   }

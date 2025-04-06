@@ -17,40 +17,41 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument.
    * 
-   * @param argument
+   * @param argument - Can be null.
    */
   private ArgumentDoesNotContainElementException(final Object argument) {
-    super(argument, "does not contain such an element");
+    super(argument, DEFAULT_ARGUMENT_NAME, "does not contain such an element");
   }
 
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument and element.
    * 
-   * @param argument
-   * @param element
+   * @param argument - Can be null.
+   * @param element  - Can be null.
    */
   private ArgumentDoesNotContainElementException(final Object argument, final Object element) {
-    super(argument, "does not contain the given " + getNameForElement(element));
+    super(argument, "does not contain the given " + getNameOfElement(element));
   }
 
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
-   * argumentName, argument and element.
+   * argument, argumentName and element.
    * 
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @param element
+   * @param element      - Can be null.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
   private ArgumentDoesNotContainElementException(
-    final String argumentName,
     final Object argument,
+    final String argumentName,
     final Object element) {
-    super(argumentName, argument, "does not contain the given " + getNameForElement(element));
+    super(argumentName, argument, "does not contain the given " + getNameOfElement(element));
   }
 
   /**
-   * @param argument
+   * @param argument - Can be null.
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
    *         argument.
    */
@@ -59,8 +60,23 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
   }
 
   /**
-   * @param argument
-   * @param element
+   * @param argument     - Can be null.
+   * @param argumentName
+   * @param element      - Can be null.
+   * @return a new {@link ArgumentDoesNotContainElementException} for the given
+   *         argument, argumentName and element.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  public static ArgumentDoesNotContainElementException forArgumentAndArgumentNameAndElement(
+    final Object argument,
+    final String argumentName,
+    final Object element) {
+    return new ArgumentDoesNotContainElementException(argument, argumentName, element);
+  }
+
+  /**
+   * @param argument - Can be null.
+   * @param element  - Can be null.
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
    *         argument and element.
    */
@@ -71,31 +87,31 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
   }
 
   /**
-   * @param argumentName
-   * @param argument
-   * @param element
-   * @return a new {@link ArgumentDoesNotContainElementException} for the given
-   *         argumentName, argument and element.
+   * @param element - Can be null.
+   * @return a name of the given element.
    */
-  public static ArgumentDoesNotContainElementException forArgumentNameAndArgumentAndElement(
-    final String argumentName,
-    final Object argument,
-    final Object element) {
-    return new ArgumentDoesNotContainElementException(argumentName, argument, element);
+  private static String getNameOfElement(final Object element) {
+
+    if (element != null) {
+      return getNameOfElementWhenIsNotNull(element);
+    }
+
+    return DEFAULT_ELEMENT_NAME;
   }
 
   /**
    * @param element
-   * @return the name of the given element.
+   * @return a name of the given element for the case that the given element is
+   *         not null.
    */
-  private static String getNameForElement(final Object element) {
+  private static String getNameOfElementWhenIsNotNull(final Object element) {
 
-    //Handles the case that the given element is null.
-    if (element == null) {
-      return DEFAULT_ELEMENT_NAME;
+    final var name = element.getClass().getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
     }
 
-    //Handles the case that the given element is not null.
-    return element.getClass().getSimpleName();
+    return DEFAULT_ELEMENT_NAME;
   }
 }

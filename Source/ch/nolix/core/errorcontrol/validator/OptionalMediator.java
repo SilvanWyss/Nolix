@@ -59,7 +59,7 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     || argument.isEmpty()
     || argument.get() == object) {
       throw //
-      ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(getArgumentName(), argument, object);
+      ArgumentDoesNotContainElementException.forArgumentAndArgumentNameAndElement(argument, getArgumentName(), object);
     }
   }
 
