@@ -17,9 +17,9 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
    * Creates a new {@link ArgumentContainsElementException} for the given
    * argument, argumentName and element.
    * 
-   * @param argument
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param element
+   * @param element      - Can be null.
    * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
   private ArgumentContainsElementException(final Object argument, final String argumentName, final Object element) {
@@ -27,8 +27,8 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
   }
 
   /**
-   * @param argument
-   * @param element
+   * @param argument - Can be null.
+   * @param element  - Can be null.
    * @return a new {@link ArgumentContainsElementException} for the given argument
    *         and element.
    */
@@ -37,17 +37,32 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
   }
 
   /**
-   * @param element
+   * @param element - Can be null.
    * @return the name of the given element.
    */
   private static String getNameOfElement(final Object element) {
 
-    //Handles the case that the given element is null.
-    if (element == null) {
-      return DEFAULT_ELEMENT_NAME;
+    if (element != null) {
+      return getNameOfElementWhenIsNotNull(element);
     }
 
-    //Handles the case that the given element is not null.
-    return element.getClass().getSimpleName();
+    return DEFAULT_ELEMENT_NAME;
+  }
+
+  /**
+   * @param element
+   * @return the name of the given element for the case that the given element is
+   *         not null.
+   * @throws NullPointerException if the given element is null.
+   */
+  private static String getNameOfElementWhenIsNotNull(final Object element) {
+
+    final var name = element.getClass().getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
+    }
+
+    return DEFAULT_ELEMENT_NAME;
   }
 }
