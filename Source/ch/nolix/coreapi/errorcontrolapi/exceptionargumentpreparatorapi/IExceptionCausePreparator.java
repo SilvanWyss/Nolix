@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi;
 
 /**
- * A {@link IExceptionCausePreparator} provides method to prepare causes for
+ * A {@link IExceptionCausePreparator} provides methods to prepare causes for
  * {@link Exception}s.
  * 
  * @author Silvan Wyss

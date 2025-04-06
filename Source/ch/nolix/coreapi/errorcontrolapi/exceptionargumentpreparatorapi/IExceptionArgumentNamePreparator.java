@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi;
 
 /**
- * A {@link IExceptionArgumentNamePreparator} provides method to prepare
+ * A {@link IExceptionArgumentNamePreparator} provides methods to prepare
  * argument names for {@link Exception}s.
  * 
  * @author Silvan Wyss
