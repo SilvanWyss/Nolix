@@ -2,8 +2,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentNamePreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionCausePreparator;
+import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionErrorPredicatePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 
@@ -39,6 +41,8 @@ public class InvalidArgumentException extends RuntimeException {
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
   private static final IExceptionArgumentNamePreparator EXCEPTION_ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
+
+  private static final IExceptionErrorPredicatePreparator EXCEPTION_ERROR_PREDICATE_PREPARATOR = new ExceptionErrorPredicatePreparator();
 
   private static final IExceptionCausePreparator EXCEPTION_CAUSE_PREPARATOR = new ExceptionCausePreparator();
 
@@ -111,7 +115,7 @@ public class InvalidArgumentException extends RuntimeException {
       "The given "
       + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
-      + getValidErrorPredicateOfErrorPredicate(errorPredicate)
+      + EXCEPTION_ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
       + ".");
 
     this.argumentName = argumentName;
@@ -144,7 +148,7 @@ public class InvalidArgumentException extends RuntimeException {
       "The given "
       + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
       + getValidStringRepresentationWithPufferToNextWordsOfArgument(argument)
-      + getValidErrorPredicateOfErrorPredicate(errorPredicate)
+      + EXCEPTION_ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
       + ".",
       EXCEPTION_CAUSE_PREPARATOR.getValidatedCauseFromCause(cause));
 
@@ -225,33 +229,6 @@ public class InvalidArgumentException extends RuntimeException {
     final Object argument,
     final String errorPredicate) {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
-  }
-
-  /**
-   * @param errorPredicate
-   * @return a valid error predicate of the given errorPredicate.
-   * @throws IllegalArgumentException if the given errorPredicate is null.
-   * @throws IllegalArgumentException if the given errorPredicate is blank.
-   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
-   */
-  private static String getValidErrorPredicateOfErrorPredicate(final String errorPredicate) {
-
-    //Asserts that the given errorPredicate is not null.
-    if (errorPredicate == null) {
-      throw new IllegalArgumentException("The given error predicate is null.");
-    }
-
-    //Asserts that the given errorPredicate is not blank.
-    if (errorPredicate.isBlank()) {
-      throw new IllegalArgumentException("The given error predicate is blank.");
-    }
-
-    //Asserts that the given errorPredicate does not end with a dot.
-    if (errorPredicate.charAt(errorPredicate.length() - 1) == CharacterCatalog.DOT) {
-      throw new IllegalArgumentException("The given error predicate '" + errorPredicate + "' ends with a dot.");
-    }
-
-    return errorPredicate;
   }
 
   /**
