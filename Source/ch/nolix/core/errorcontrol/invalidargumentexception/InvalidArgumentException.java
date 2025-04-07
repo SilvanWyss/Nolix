@@ -19,12 +19,12 @@ import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptio
  * A {@link InvalidArgumentException} stores the name of the argument the
  * {@link InvalidArgumentException} was created for.
  * 
- * The name of a {@link InvalidArgumentException} class should be builded
- * according to one of the following patterns: [A]ArgumentException,
- * Non[PA]ArgumentExceptio, Argument[P]Exception. Whereas: [A] is an adjective,
- * [PA] is a grammatically positive adjective, [P] is a predicate.
+ * Let [A] be an adjective, [PA] a grammatically positive adjective and [P] a
+ * predicate. The name of a {@link InvalidArgumentException} class should match
+ * one of the following patterns: [A]ArgumentException, Non[PA]ArgumentExceptio,
+ * Argument[P]Exception.
  * 
- * Examples of names of {@link InvalidArgumentException} classes:
+ * Examples of {@link InvalidArgumentException} names:
  * NegativeArgumentException, NonPositiveArgumentException,
  * ArgumentIsOutOfRangeException
  * 
@@ -38,14 +38,14 @@ public class InvalidArgumentException extends RuntimeException {
 
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
-  private static final IExceptionArgumentStringRepresentaionPreparator EXCEPTION_ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
+  private static final IExceptionArgumentStringRepresentaionPreparator ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
   new ExceptionArgumentStringRepresentaionPreparator();
 
-  private static final IExceptionArgumentNamePreparator EXCEPTION_ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
+  private static final IExceptionArgumentNamePreparator ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
 
-  private static final IExceptionErrorPredicatePreparator EXCEPTION_ERROR_PREDICATE_PREPARATOR = new ExceptionErrorPredicatePreparator();
+  private static final IExceptionErrorPredicatePreparator ERROR_PREDICATE_PREPARATOR = new ExceptionErrorPredicatePreparator();
 
-  private static final IExceptionCausePreparator EXCEPTION_CAUSE_PREPARATOR = new ExceptionCausePreparator();
+  private static final IExceptionCausePreparator CAUSE_PREPARATOR = new ExceptionCausePreparator();
 
   private final transient Object argument;
 
@@ -59,7 +59,7 @@ public class InvalidArgumentException extends RuntimeException {
    * @param argument
    */
   protected InvalidArgumentException(final Object argument) {
-    this(argument, EXCEPTION_ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), DEFAULT_ERROR_PREDICATE);
+    this(argument, ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), DEFAULT_ERROR_PREDICATE);
   }
 
   /**
@@ -75,7 +75,7 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final Object argument, final String errorPredicate) {
 
     //Calls other constructor.
-    this(EXCEPTION_ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), argument, errorPredicate);
+    this(ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), argument, errorPredicate);
   }
 
   /**
@@ -92,7 +92,7 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final Object argument, final String argumentName, final String errorPredicate) {
 
     //Calls other constructor.
-    this(EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName),
+    this(ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName),
       argument,
       errorPredicate);
   }
@@ -114,10 +114,10 @@ public class InvalidArgumentException extends RuntimeException {
 
     super(
       "The given "
-      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
-      + EXCEPTION_ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
+      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
-      + EXCEPTION_ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
+      + ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
       + ".");
 
     this.argumentName = argumentName;
@@ -148,12 +148,12 @@ public class InvalidArgumentException extends RuntimeException {
 
     super(
       "The given "
-      + EXCEPTION_ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
-      + EXCEPTION_ARGUMENT_STRING_REPRESENTAION_PREPARATOR
+      + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName)
+      + ARGUMENT_STRING_REPRESENTAION_PREPARATOR
         .getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(argument)
-      + EXCEPTION_ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
+      + ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicate)
       + ".",
-      EXCEPTION_CAUSE_PREPARATOR.getValidatedCauseFromCause(cause));
+      CAUSE_PREPARATOR.getValidatedCauseFromCause(cause));
 
     this.argumentName = argumentName;
     this.argument = argument;
