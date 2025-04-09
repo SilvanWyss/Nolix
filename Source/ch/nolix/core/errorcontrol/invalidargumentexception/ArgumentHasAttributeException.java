@@ -1,8 +1,10 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentHasAttributeException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument has undesirably a certain
+ * that is supposed to be thrown when a given argument has undesirably a given
  * attribute.
  * 
  * @author Silvan Wyss
@@ -17,13 +19,10 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
    * 
    * @param argument
    * @param attributeName
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
   private ArgumentHasAttributeException(final Object argument, final String attributeName) {
-
-    //Calls constructor of the base class.
-    super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));
+    super(argument, new ErrorPredicateDto("has a " + getValidatedAttributeNameFromAttributeName(attributeName)));
   }
 
   /**
@@ -31,8 +30,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
    * @param attributeName
    * @return a new {@link ArgumentHasAttributeException} for the given argument
    *         and attributeName.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
   public static ArgumentHasAttributeException forArgumentAndAttributeName(
     final Object argument,
@@ -42,18 +40,15 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 
   /**
    * @param attributeName
-   * @return a valid attribute name of the given attribtueName.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
+   * @return a validated attribute name from the given attribtueName.
+   * @throws IllegalArgumentException if the given attributeName is null or blank.
    */
-  private static String getValidttributeNameOfAttributeName(final String attributeName) {
+  private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {
 
-    //Asserts that the given attributeName is not null.
     if (attributeName == null) {
       throw new IllegalArgumentException("The given attribute name is null.");
     }
 
-    //Asserts that the given attributeName is not blank.
     if (attributeName.isBlank()) {
       throw new IllegalArgumentException("The given attribute name is blank.");
     }
