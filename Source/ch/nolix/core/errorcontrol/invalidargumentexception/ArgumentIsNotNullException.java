@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentIsNotNullException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably not (!)
@@ -17,23 +19,14 @@ public final class ArgumentIsNotNullException extends InvalidArgumentException {
    * Creates a new {@link ArgumentIsNotNullException} for the given argument.
    * 
    * @param argument
-   * @throws IllegalArgumentException if the given argument is null.
    */
   private ArgumentIsNotNullException(final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, ERROR_PREDICATE);
-
-    //Asserts that the given argument is not null.
-    if (argument == null) {
-      throw new IllegalArgumentException("The given argument is null.");
-    }
+    super(argument, new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
    * @param argument
    * @return a new {@link ArgumentIsNotNullException} for the given argument.
-   * @throws IllegalArgumentException if the given argument is null.
    */
   public static ArgumentIsNotNullException forArgument(final Object argument) {
     return new ArgumentIsNotNullException(argument);
