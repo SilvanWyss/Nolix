@@ -19,8 +19,6 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentType is null.
    */
   private ArgumentIsNullException(final Class<?> argumentType) {
-
-    //Calls constructor of the base class.
     super((Object) null, getNameOfArgumentType(argumentType), ERROR_PREDICATE);
   }
 
@@ -28,20 +26,16 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
    * Creates a new {@link ArgumentIsNullException} for the given argumentName.
    * 
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
   private ArgumentIsNullException(final String argumentName) {
-
-    //Calls constructor of the base class.
     super((Object) null, argumentName, ERROR_PREDICATE);
   }
 
   /**
    * @param argumentName
    * @return a new {@link ArgumentIsNullException} for the given argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
   public static ArgumentIsNullException forArgumentName(final String argumentName) {
     return new ArgumentIsNullException(argumentName);
@@ -63,7 +57,6 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
    */
   private static String getNameOfArgumentType(final Class<?> argumentType) {
 
-    //Asserts that the given argumentType is not null.
     if (argumentType == null) {
       throw new IllegalArgumentException("The given argument type is null.");
     }
