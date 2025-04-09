@@ -2,6 +2,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import java.util.NoSuchElementException;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentDoesNotHaveAttributeException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -24,7 +26,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeType is null.
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
-    super(argument, DEFAULT_ARGUMENT_NAME, "does not have a " + getNameOfAttributeType(attributeType));
+    super(argument, new ErrorPredicateDto("does not have a " + getNameOfAttributeType(attributeType)));
   }
 
   /**
@@ -38,8 +40,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
   private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
     super(
       argument,
-      DEFAULT_ARGUMENT_NAME,
-      "does not have a " + getValidatedAttributeNameFromAttributeName(attributeName));
+      new ErrorPredicateDto("does not have a " + getValidatedAttributeNameFromAttributeName(attributeName)));
   }
 
   /**

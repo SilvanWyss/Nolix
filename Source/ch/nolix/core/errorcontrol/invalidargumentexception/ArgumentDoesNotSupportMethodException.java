@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentDoesNotSupportMethodException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -15,24 +17,22 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
    * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
    * argument and methodName.
    * 
-   * @param argument
+   * @param argument   - Can be null.
    * @param methodName
-   * @throws IllegalArgumentException if the given methodName is null.
-   * @throws IllegalArgumentException if the given methodName is blank.
+   * @throws IllegalArgumentException if the given methodName is null or blank.
    */
   private ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not support the " + getValidMethodNameOfMethodName(methodName) + " method");
+    super(
+      argument,
+      new ErrorPredicateDto("does not support the " + getValidatedMethodNameFromMethodName(methodName) + " method"));
   }
 
   /**
-   * @param argument
+   * @param argument   - Can be null.
    * @param methodName
    * @return new {@link ArgumentDoesNotSupportMethodException} for the given
    *         argument and methodName.
-   * @throws IllegalArgumentException if the given methodName is null.
-   * @throws IllegalArgumentException if the given methodName is blank.
+   * @throws IllegalArgumentException if the given methodName is null or blank.
    */
   public static ArgumentDoesNotSupportMethodException forArgumentAndMethodName(
     final Object argument,
@@ -42,18 +42,15 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 
   /**
    * @param methodName
-   * @return a valid method name of the given methodName.
-   * @throws IllegalArgumentException if the given methodName is null.
-   * @throws IllegalArgumentException if the given methodName is blank.
+   * @return a validated method name from the given methodName.
+   * @throws IllegalArgumentException if the given methodName is null or blank.
    */
-  private static String getValidMethodNameOfMethodName(final String methodName) {
+  private static String getValidatedMethodNameFromMethodName(final String methodName) {
 
-    //Asserts that the given methodName is not null.
     if (methodName == null) {
       throw new IllegalArgumentException("The given method name is null.");
     }
 
-    //Asserts that the given methodName is not blank.
     if (methodName.isBlank()) {
       throw new IllegalArgumentException("The given method name is blank.");
     }

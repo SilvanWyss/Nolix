@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentDoesNotBelongToParentException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -20,7 +22,21 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * @param argument - Can be null.
    */
   private ArgumentDoesNotBelongToParentException(final Object argument) {
-    super(argument, DEFAULT_ARGUMENT_NAME, "does not belong to a parent");
+    super(argument, new ErrorPredicateDto("does not belong to a parent"));
+  }
+
+  /**
+   * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
+   * argument and parentType.
+   * 
+   * @param argument   - Can be null.
+   * @param parentType
+   * @throws IllegalArgumentException if the given parentType is null.
+   */
+  private ArgumentDoesNotBelongToParentException(
+    final Object argument,
+    final Class<?> parentType) {
+    super(argument, new ErrorPredicateDto("does not belong to a " + getNameOfParentType(parentType)));
   }
 
   /**
@@ -71,7 +87,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
   public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
     final Object argument,
     final Class<?> parentType) {
-    return new ArgumentDoesNotBelongToParentException(argument, DEFAULT_ARGUMENT_NAME, parentType);
+    return new ArgumentDoesNotBelongToParentException(argument, parentType);
   }
 
   /**

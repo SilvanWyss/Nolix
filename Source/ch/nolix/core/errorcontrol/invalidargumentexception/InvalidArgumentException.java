@@ -8,6 +8,7 @@ import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptio
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
 
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException} that is
@@ -34,7 +35,7 @@ import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptio
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
 
-  protected static final String DEFAULT_ARGUMENT_NAME = "argument";
+  private static final String DEFAULT_ARGUMENT_NAME = "argument";
 
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
@@ -63,6 +64,23 @@ public class InvalidArgumentException extends RuntimeException {
   }
 
   /**
+   * Creates a new {@link InvalidArgumentException} for the given argument and the
+   * errorPredicate of the given errorPredicateDto.
+   * 
+   * @param argument          - Can be null.
+   * @param errorPredicateDto
+   * @throws NullPointerException     if the given errorPredicateDto is null.
+   * @throws IllegalArgumentException if the errorPredicate of the given
+   *                                  errorPredicateDto is null or blank.
+   */
+  protected InvalidArgumentException(final Object argument, final ErrorPredicateDto errorPredicateDto) {
+    this(
+      argument,
+      ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument),
+      ERROR_PREDICATE_PREPARATOR.getValidErrorPredicateFromErrorPredicate(errorPredicateDto.errorPredicate()));
+  }
+
+  /**
    * Creates a new {@link InvalidArgumentException} for the given argument and
    * errorPredicate.
    * 
@@ -75,11 +93,11 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final Object argument, final String errorPredicate) {
 
     //Calls other constructor.
-    this(ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), argument, errorPredicate);
+    this(argument, ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), errorPredicate);
   }
 
   /**
-   * Creates a new {@link InvalidArgumentException} for the given argument and
+   * Creates a new {@link InvalidArgumentException} for the given argument,
    * argumentName and errorPredicate.
    * 
    * @param argument
@@ -90,9 +108,8 @@ public class InvalidArgumentException extends RuntimeException {
    *                                  or ends with a dot.
    */
   protected InvalidArgumentException(final Object argument, final String argumentName, final String errorPredicate) {
-
-    //Calls other constructor.
-    this(ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName),
+    this(
+      ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentName),
       argument,
       errorPredicate);
   }

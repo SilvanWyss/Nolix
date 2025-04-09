@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentBelongsToParentException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -12,6 +14,18 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 public final class ArgumentBelongsToParentException extends InvalidArgumentException {
 
   private static final String DEFAULT_TYPE_NAME = Object.class.getSimpleName();
+
+  /**
+   * Creates a new {@link ArgumentBelongsToParentException} for the given argument
+   * and parent.
+   * 
+   * @param argument - Can be null.
+   * @param parent
+   * @throws IllegalArgumentException if the given parent is null.
+   */
+  private ArgumentBelongsToParentException(final Object argument, final Object parent) {
+    super(argument, new ErrorPredicateDto("belongs to a " + getTypeNameOfObject(parent)));
+  }
 
   /**
    * Creates a new {@link ArgumentBelongsToParentException} for the given
@@ -35,7 +49,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * @throws IllegalArgumentException if the given parent is null.
    */
   public static ArgumentBelongsToParentException forArgumentAndParent(final Object argument, final Object parent) {
-    return new ArgumentBelongsToParentException(argument, DEFAULT_ARGUMENT_NAME, parent);
+    return new ArgumentBelongsToParentException(argument, parent);
   }
 
   /**

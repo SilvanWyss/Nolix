@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentDoesNotContainElementException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -20,7 +22,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    * @param argument - Can be null.
    */
   private ArgumentDoesNotContainElementException(final Object argument) {
-    super(argument, DEFAULT_ARGUMENT_NAME, "does not contain such an element");
+    super(argument, new ErrorPredicateDto("does not contain such an element"));
   }
 
   /**
@@ -31,7 +33,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    * @param element  - Can be null.
    */
   private ArgumentDoesNotContainElementException(final Object argument, final Object element) {
-    super(argument, "does not contain the given " + getNameOfElement(element));
+    super(argument, new ErrorPredicateDto("does not contain the given " + getNameOfElement(element)));
   }
 
   /**

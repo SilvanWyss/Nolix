@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentContainsElementException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
@@ -12,6 +14,17 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 public final class ArgumentContainsElementException extends InvalidArgumentException {
 
   private static final String DEFAULT_ELEMENT_NAME = "element";
+
+  /**
+   * Creates a new {@link ArgumentContainsElementException} for the given argument
+   * and element.
+   * 
+   * @param argument - Can be null.
+   * @param element  - Can be null.
+   */
+  private ArgumentContainsElementException(final Object argument, final Object element) {
+    super(argument, new ErrorPredicateDto("contains already the given " + getNameOfElement(element)));
+  }
 
   /**
    * Creates a new {@link ArgumentContainsElementException} for the given
@@ -33,7 +46,7 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
    *         and element.
    */
   public static ArgumentContainsElementException forArgumentAndElement(final Object argument, final Object element) {
-    return new ArgumentContainsElementException(argument, DEFAULT_ARGUMENT_NAME, element);
+    return new ArgumentContainsElementException(argument, element);
   }
 
   /**
