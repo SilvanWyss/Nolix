@@ -92,9 +92,9 @@ public class LongMediator extends Mediator {
    */
   public final void isBetween(final long min, final long max) {
     if (argument < min || argument > max) {
-      throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-        getArgumentName(),
+      throw ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
         argument,
+        getArgumentName(),
         min,
         max);
     }

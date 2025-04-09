@@ -1,9 +1,11 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ArgumentIsOutOfRangeException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably not in a
- * certain range.
+ * given range.
  * 
  * @author Silvan Wyss
  * @version 2016-03-01
@@ -15,69 +17,94 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.
    * 
-   * @param argument
+   * @param argument - Can be null.
    * @param min
    * @param max
    */
   private ArgumentIsOutOfRangeException(final double argument, final double min, final double max) {
+    super(argument, new ErrorPredicateDto("is not in [" + min + ", " + max + "]"));
+  }
 
-    //Calls constructor of the base class.
-    super(argument, "is not in [" + min + ", " + max + "]");
+  /**
+   * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument,
+   * argumentName and range defined by the given min and max.
+   * 
+   * @param argument
+   * @param argumentName
+   * @param min
+   * @param max
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  private ArgumentIsOutOfRangeException(
+    final double argument,
+    final String argumentName,
+    final double min,
+    final double max) {
+    super(argument, argumentName, "is not in [" + min + ", " + max + "]");
   }
 
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.
    * 
-   * @param argument
+   * @param argument - Can be null.
    * @param min
    * @param max
    */
   private ArgumentIsOutOfRangeException(final long argument, final long min, final long max) {
-
-    //Calls constructor of the base class.
-    super(argument, "is not in [" + min + ", " + max + "]");
+    super(argument, new ErrorPredicateDto("is not in [" + min + ", " + max + "]"));
   }
 
   /**
-   * Creates a new {@link ArgumentIsOutOfRangeException} for the given
-   * argumentName, argument and range defined by the given min and max.
+   * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument,
+   * argumentName and range defined by the given min and max.
    * 
-   * @param argumentName
    * @param argument
+   * @param argumentName
    * @param min
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
   private ArgumentIsOutOfRangeException(
-    final String argumentName,
-    final double argument,
-    final double min,
-    final double max) {
-    //Calls constructor of the base class.
-    super(argumentName, argument, "is not in [" + min + ", " + max + "]");
-  }
-
-  /**
-   * Creates a new {@link ArgumentIsOutOfRangeException} for the given
-   * argumentName, argument and range defined by the given min and max.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param min
-   * @param max
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  private ArgumentIsOutOfRangeException(
-    final String argumentName,
     final long argument,
+    final String argumentName,
     final long min,
     final long max) {
-
-    //Calls constructor of the base class.
     super(argumentName, argument, "is not in [" + min + ", " + max + "]");
+  }
+
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link ArgumentIsOutOfRangeException} for the given argument,
+   *         argumentName and range defined by the given min and max.
+   * @param min
+   * @param max
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  public static ArgumentIsOutOfRangeException forArgumentAndArgumentNameAndRangeWithMinAndMax(
+    final double argument,
+    final String argumentName,
+    final double min,
+    final double max) {
+    return new ArgumentIsOutOfRangeException(argument, argumentName, min, max);
+  }
+
+  /**
+   * @param argument
+   * @param argumentName
+   * @return a new {@link ArgumentIsOutOfRangeException} for the given argument,
+   *         argumentName and range defined by the given min and max.
+   * @param min
+   * @param max
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  public static ArgumentIsOutOfRangeException forArgumentAndArgumentNameAndRangeWithMinAndMax(
+    final long argument,
+    final String argumentName,
+    final long min,
+    final long max) {
+    return new ArgumentIsOutOfRangeException(argument, argumentName, min, max);
   }
 
   /**
@@ -106,41 +133,5 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
     final long min,
     final long max) {
     return new ArgumentIsOutOfRangeException(argument, min, max);
-  }
-
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link ArgumentIsOutOfRangeException} for the given
-   *         argumentName, argument and range defined by the given min and max.
-   * @param min
-   * @param max
-   * @throws IllegalArgumentException if the given argument name is null.
-   * @throws IllegalArgumentException if the given argument name is blank.
-   */
-  public static ArgumentIsOutOfRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
-    final String argumentName,
-    final double argument,
-    final double min,
-    final double max) {
-    return new ArgumentIsOutOfRangeException(argumentName, argument, min, max);
-  }
-
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link ArgumentIsOutOfRangeException} for the given
-   *         argumentName, argument and range defined by the given min and max.
-   * @param min
-   * @param max
-   * @throws IllegalArgumentException if the given argument name is null.
-   * @throws IllegalArgumentException if the given argument name is blank.
-   */
-  public static ArgumentIsOutOfRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
-    final String argumentName,
-    final long argument,
-    final long min,
-    final long max) {
-    return new ArgumentIsOutOfRangeException(argumentName, argument, min, max);
   }
 }

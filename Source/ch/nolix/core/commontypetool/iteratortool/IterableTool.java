@@ -36,9 +36,9 @@ public final class IterableTool implements IIterableTool {
     final var count = iteratingOneBasedIndex - 1;
 
     throw //
-    ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      "1-based index",
+    ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
       oneBasedIndex,
+      "1-based index",
       1,
       count);
   }

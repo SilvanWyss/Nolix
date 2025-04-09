@@ -352,9 +352,9 @@ implements ILinkedList<E> {
       index++;
     }
 
-    throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      "1-based index",
+    throw ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
       param1BasedIndex,
+      "1-based index",
       1,
       getCount());
   }

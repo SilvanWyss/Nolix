@@ -98,9 +98,9 @@ public final class IterableView<E> extends Container<E> {
       i++;
     }
 
-    throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      "1-based index",
+    throw ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
       param1BasedIndex,
+      "1-based index",
       1,
       getCount());
   }

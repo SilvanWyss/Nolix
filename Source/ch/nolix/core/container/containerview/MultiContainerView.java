@@ -89,9 +89,9 @@ public final class MultiContainerView<E> extends Container<E> {
     }
 
     throw //
-    ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      "1-based index",
+    ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
       param1BasedIndex,
+      "1-based index",
       1,
       getCount());
   }
