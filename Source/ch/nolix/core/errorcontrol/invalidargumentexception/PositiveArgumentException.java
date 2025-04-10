@@ -13,31 +13,25 @@ public final class PositiveArgumentException extends InvalidArgumentException {
   private static final String ERROR_PREDICATE = "is positive";
 
   /**
-   * Creates a new {@link PositiveArgumentException} for the given argumentName
-   * and argument.
+   * Creates a new {@link PositiveArgumentException} for the given argument and
+   * argumentName.
    * 
-   * @param argumentName
    * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private PositiveArgumentException(final String argumentName, final long argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
+  private PositiveArgumentException(final long argument, final String argumentName) {
+    super(argument, argumentName, ERROR_PREDICATE);
   }
 
   /**
-   * @param argumentName
    * @param argument
-   * @return a new {@link PositiveArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @return a new {@link PositiveArgumentException} for the given argument and
+   *         argumentName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  public static PositiveArgumentException forArgumentNameAndArgument(
-    final String argumentName,
-    final long argument) {
-    return new PositiveArgumentException(argumentName, argument);
+  public static PositiveArgumentException forArgumentAndArgumentName(final long argument, final String argumentName) {
+    return new PositiveArgumentException(argument, argumentName);
   }
 }
