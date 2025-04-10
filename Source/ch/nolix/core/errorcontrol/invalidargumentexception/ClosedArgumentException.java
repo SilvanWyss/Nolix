@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ClosedArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when an argument is undesirably closed.
@@ -18,24 +20,19 @@ public final class ClosedArgumentException extends InvalidArgumentException {
    * @param argument
    */
   private ClosedArgumentException(final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, ERROR_PREDICATE);
+    super(argument, new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
-   * Creates a new {@link ClosedArgumentException} for the given argumentName and
-   * argument.
+   * Creates a new {@link ClosedArgumentException} for the given argument and
+   * argumentName.
    * 
-   * @param argumentName
    * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private ClosedArgumentException(final String argumentName, final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
+  private ClosedArgumentException(final Object argument, final String argumentName) {
+    super(argument, argumentName, ERROR_PREDICATE);
   }
 
   /**
@@ -47,16 +44,13 @@ public final class ClosedArgumentException extends InvalidArgumentException {
   }
 
   /**
-   * @param argumentName
    * @param argument
-   * @return a new {@link ClosedArgumentException} for the given argumentName and
-   *         argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @return a new {@link ClosedArgumentException} for the given argument and
+   *         argumentName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  public static ClosedArgumentException forArgumentNameAndArgument(
-    final String argumentName,
-    final Object argument) {
-    return new ClosedArgumentException(argumentName, argument);
+  public static ClosedArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {
+    return new ClosedArgumentException(argument, argumentName);
   }
 }
