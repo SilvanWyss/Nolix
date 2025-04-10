@@ -132,7 +132,7 @@ public class DoubleMediator extends Mediator {
     //Asserts that the argument of this named long mediator is not bigger than the
     //given value.
     if (argument > value) {
-      throw BiggerArgumentException.forArgumentNameAndArgumentAndMax(getArgumentName(), argument, value);
+      throw BiggerArgumentException.forArgumentAndArgumentNameAndMax(argument, getArgumentName(), value);
     }
   }
 

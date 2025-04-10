@@ -233,7 +233,7 @@ public class LongMediator extends Mediator {
    */
   public final void isNotBiggerThan(final long value) {
     if (argument > value) {
-      throw BiggerArgumentException.forArgumentNameAndArgumentAndMax(getArgumentName(), argument, value);
+      throw BiggerArgumentException.forArgumentAndArgumentNameAndMax(argument, getArgumentName(), value);
     }
   }
 
@@ -312,7 +312,7 @@ public class LongMediator extends Mediator {
    */
   public final void isSmallerThanOrEquals(final long value) {
     if (argument > value) {
-      throw BiggerArgumentException.forArgumentNameAndArgumentAndMax(getArgumentName(), argument, value);
+      throw BiggerArgumentException.forArgumentAndArgumentNameAndMax(argument, getArgumentName(), value);
     }
   }
 
