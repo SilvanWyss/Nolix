@@ -36,7 +36,7 @@ public final class DoubleDeviationMediator extends Mediator {
 
     //Asserts that the given max deviation is not negative.
     if (maxDeviation < 0.0) {
-      throw NegativeArgumentException.forArgumentNameAndArgument("max deviation", maxDeviation);
+      throw NegativeArgumentException.forArgumentAndArgumentName(maxDeviation, "max deviation");
     }
 
     this.argument = argument;

@@ -290,9 +290,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
     //Asserts that the given element count is not negative.
     if (elementCount < 0) {
-      throw NegativeArgumentException.forArgumentNameAndArgument(
-        LowerCaseVariableCatalog.ELEMENT_COUNT,
-        elementCount);
+      throw NegativeArgumentException.forArgumentAndArgumentName(elementCount, LowerCaseVariableCatalog.ELEMENT_COUNT);
     }
 
     //Asserts that the argument of this container mediator is not null.
