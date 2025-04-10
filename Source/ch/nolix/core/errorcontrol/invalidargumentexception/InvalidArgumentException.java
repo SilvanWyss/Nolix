@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentN
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionCausePreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionErrorPredicatePreparator;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentStringRepresentaionPreparator;
@@ -61,6 +62,23 @@ public class InvalidArgumentException extends RuntimeException {
    */
   protected InvalidArgumentException(final Object argument) {
     this(argument, ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), DEFAULT_ERROR_PREDICATE);
+  }
+
+  /**
+   * Creates a new {@link InvalidArgumentException} for the given argument and the
+   * argumentName of the given argumentNameDto.
+   * 
+   * @param argument
+   * @param argumentNameDto
+   * @throws NullPointerException     if the given argumentNameDto is null.
+   * @throws IllegalArgumentException if the argumentName of the given
+   *                                  argumentNameDto is null or blank.
+   */
+  protected InvalidArgumentException(final Object argument, final ArgumentNameDto argumentNameDto) {
+    this(
+      argument,
+      ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName()),
+      DEFAULT_ERROR_PREDICATE);
   }
 
   /**

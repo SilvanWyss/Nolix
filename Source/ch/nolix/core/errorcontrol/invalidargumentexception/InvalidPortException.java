@@ -1,5 +1,6 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
@@ -14,14 +15,19 @@ public final class InvalidPortException extends InvalidArgumentException {
 
   private static final String ARGUMENT_NAME = LowerCaseVariableCatalog.PORT;
 
-  private static final String ERROR_PREDICATE = "is not valid";
-
+  /**
+   * Creates a new {@link InvalidPortException} for the given port.
+   * 
+   * @param port
+   */
   private InvalidPortException(final long port) {
-
-    //Calls constructor of the base class.
-    super(ARGUMENT_NAME, port, ERROR_PREDICATE);
+    super(port, new ArgumentNameDto(ARGUMENT_NAME));
   }
 
+  /**
+   * @param port
+   * @return a new {@link InvalidPortException} for the given port.
+   */
   public static InvalidPortException forPort(final long port) {
     return new InvalidPortException(port);
   }
