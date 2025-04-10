@@ -1,8 +1,10 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link EqualArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument equals undesirably a certain
+ * is supposed to be thrown when a given argument equals undesirably a given
  * value.
  * 
  * @author Silvan Wyss
@@ -15,92 +17,76 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * Creates a new {@link EqualArgumentException} for the given argument and
    * equalValue.
    * 
-   * @param argument
-   * @param equalValue
+   * @param argument   - Can be null.
+   * @param equalValue - Can be null.
    */
   private EqualArgumentException(final Object argument, final Object equalValue) {
-
-    //Calls constructor of the base class.
-    super(argument, "equals " + equalValue);
+    super(argument, new ErrorPredicateDto("equals " + equalValue));
   }
 
   /**
-   * Creates a new {@link EqualArgumentException} for the given argumentName,
-   * argument and equalValue.
+   * Creates a new {@link EqualArgumentException} for the given argument,
+   * argumentName and equalValue.
    * 
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @param equalValue
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param equalValue   - Can be null.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private EqualArgumentException(final String argumentName, final double argument, final double equalValue) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "equals " + equalValue);
+  private EqualArgumentException(final double argument, final String argumentName, final double equalValue) {
+    super(argument, argumentName, "equals " + equalValue);
   }
 
   /**
-   * Creates a new {@link EqualArgumentException} for the given argumentName,
-   * argument and equalValue.
+   * Creates a new {@link EqualArgumentException} for the given argument,
+   * argumentName and equalValue.
    * 
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @param equalValue
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param equalValue   - Can be null.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private EqualArgumentException(final String argumentName, final long argument, final long equalValue) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "equals " + equalValue);
+  private EqualArgumentException(final long argument, final String argumentName, final long equalValue) {
+    super(argument, argumentName, "equals " + equalValue);
   }
 
   /**
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @param equalValue
-   * @return a new {@link EqualArgumentException} for the given argument and
-   *         equalValue.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param equalValue   - Can be null.
+   * @return a new {@link EqualArgumentException} for the given argument,
+   *         argumentName and equalValue.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  public static EqualArgumentException forArgumentNameAndArgumentAndEqualValue(
-    final String argumentName,
+  public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
     final double argument,
-    final double equalValue) {
-
-    //Calls constructor of the base class.
-    return new EqualArgumentException(argumentName, argument, equalValue);
-  }
-
-  /**
-   * @param argumentName
-   * @param argument
-   * @param equalValue
-   * @return a new {@link EqualArgumentException} for the given argument and
-   *         equalValue.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static EqualArgumentException forArgumentNameAndArgumentAndEqualValue(
     final String argumentName,
-    final long argument,
-    final long equalValue) {
-
-    //Calls constructor of the base class.
-    return new EqualArgumentException(argumentName, argument, equalValue);
+    final double equalValue) {
+    return new EqualArgumentException(argument, argumentName, equalValue);
   }
 
   /**
-   * @param argument
-   * @param equalValue
+   * @param argument     - Can be null.
+   * @param argumentName
+   * @param equalValue   - Can be null.
+   * @return a new {@link EqualArgumentException} for the given argument,
+   *         argumentName and equalValue.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
+    final long argument,
+    final String argumentName,
+    final long equalValue) {
+    return new EqualArgumentException(argument, argumentName, equalValue);
+  }
+
+  /**
+   * @param argument   - Can be null.
+   * @param equalValue - Can be null.
    * @return a new {@link EqualArgumentException} for the given argument and
    *         equalValue.
    */
   public static EqualArgumentException forArgumentAndEqualValue(final Object argument, final Object equalValue) {
-
-    //Calls constructor of the base class.
     return new EqualArgumentException(argument, equalValue);
   }
 }

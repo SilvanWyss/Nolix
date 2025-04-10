@@ -145,7 +145,7 @@ public class DoubleMediator extends Mediator {
 
     //Asserts that the argument of this double mediator does not equal the given value.
     if (NumberComparator.areEqual(argument, value)) {
-      throw EqualArgumentException.forArgumentNameAndArgumentAndEqualValue(getArgumentName(), argument, value);
+      throw EqualArgumentException.forArgumentAndArgumentNameAndEqualValue(argument, getArgumentName(), value);
     }
   }
 

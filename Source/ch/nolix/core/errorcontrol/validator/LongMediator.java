@@ -211,7 +211,7 @@ public class LongMediator extends Mediator {
    */
   public final void isNotEqualTo(final long value) {
     if (argument == value) {
-      throw EqualArgumentException.forArgumentNameAndArgumentAndEqualValue(getArgumentName(), argument, value);
+      throw EqualArgumentException.forArgumentAndArgumentNameAndEqualValue(argument, getArgumentName(), value);
     }
   }
 
