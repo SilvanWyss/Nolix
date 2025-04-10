@@ -4,11 +4,11 @@ import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentN
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionCausePreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionErrorPredicatePreparator;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
-import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
 
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException} that is

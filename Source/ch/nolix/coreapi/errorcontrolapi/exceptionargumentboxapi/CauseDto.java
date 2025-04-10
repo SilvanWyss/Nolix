@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.valueboxapi;
+package ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi;
 
 /**
  * @author Silvan Wyss

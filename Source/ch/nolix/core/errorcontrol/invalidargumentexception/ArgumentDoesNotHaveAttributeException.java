@@ -2,7 +2,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import java.util.NoSuchElementException;
 
-import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentDoesNotHaveAttributeException} is a

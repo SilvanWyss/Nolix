@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.coreapi.valueboxapi.ErrorPredicateDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentHasAttributeException} is a {@link InvalidArgumentException}
