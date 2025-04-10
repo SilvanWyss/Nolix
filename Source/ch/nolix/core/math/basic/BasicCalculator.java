@@ -99,7 +99,7 @@ public final class BasicCalculator implements IBasicCalculator {
     }
 
     if (count == 0) {
-      throw EmptyArgumentException.forArgumentNameAndArgument(PluralLowerCaseVariableCatalog.VALUES, values);
+      throw EmptyArgumentException.forArgumentAndArgumentName(values, PluralLowerCaseVariableCatalog.VALUES);
     }
 
     return (sum / count);

@@ -89,7 +89,7 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     final var argument = getStoredArgument();
 
     if (argument.isEmpty()) {
-      throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
+      throw EmptyArgumentException.forArgumentAndArgumentName(argument, getArgumentName());
     }
   }
 

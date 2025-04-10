@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link EmptyArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument is undesirably empty.
@@ -15,46 +17,40 @@ public final class EmptyArgumentException extends InvalidArgumentException {
   /**
    * Creates a new {@link EmptyArgumentException} for the given argument.
    * 
-   * @param argument
+   * @param argument - Can be null.
    */
   private EmptyArgumentException(final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, ERROR_PREDICATE);
+    super(argument, new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
-   * Creates a new {@link EmptyArgumentException} for the given argumentName and
-   * argument.
+   * Creates a new {@link EmptyArgumentException} for the given argument and
+   * argumentName.
    * 
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private EmptyArgumentException(final String argumentName, final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
+  private EmptyArgumentException(final Object argument, final String argumentName) {
+    super(argument, argumentName, ERROR_PREDICATE);
   }
 
   /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link EmptyArgumentException} for the given argumentName and
-   *         argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static EmptyArgumentException forArgumentNameAndArgument(final String argumentName, final Object argument) {
-    return new EmptyArgumentException(argumentName, argument);
-  }
-
-  /**
-   * @param argument
+   * @param argument - Can be null.
    * @return a new {@link EmptyArgumentException} for the given argument.
    */
   public static EmptyArgumentException forArgument(final Object argument) {
     return new EmptyArgumentException(argument);
+  }
+
+  /**
+   * @param argument     - Can be null.
+   * @param argumentName
+   * @return a new {@link EmptyArgumentException} for the given argumente and
+   *         argumentName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   */
+  public static EmptyArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {
+    return new EmptyArgumentException(argument, argumentName);
   }
 }
