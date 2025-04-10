@@ -42,9 +42,7 @@ public final class SqlRecord extends Container<String> implements ISqlRecord {
     if (oneBasedIndex < 1) {
 
       throw //
-      NonPositiveArgumentException.forArgumentNameAndArgument(
-        LowerCaseVariableCatalog.ONE_BASED_INDEX,
-        oneBasedIndex);
+      NonPositiveArgumentException.forArgumentAndArgumentName(oneBasedIndex, LowerCaseVariableCatalog.ONE_BASED_INDEX);
     }
 
     if (values == null) {

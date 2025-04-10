@@ -285,7 +285,7 @@ public class LongMediator extends Mediator {
    */
   public final void isPositive() {
     if (argument < 1) {
-      throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
+      throw NonPositiveArgumentException.forArgumentAndArgumentName(argument, getArgumentName());
     }
   }
 

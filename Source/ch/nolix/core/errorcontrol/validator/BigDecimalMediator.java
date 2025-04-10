@@ -50,7 +50,7 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 
     //Asserts that the argument of the current BigDecimalValidator is positive.
     if (getStoredArgument().compareTo(BigDecimal.ZERO) <= 0) {
-      throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
+      throw NonPositiveArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
     }
   }
 }

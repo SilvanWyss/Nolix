@@ -16,89 +16,77 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
   private static final String ERROR_PREDICATE = "is not positive";
 
   /**
-   * Creates a new {@link NonPositiveArgumentException} for the given argumentName
-   * and argument.
+   * Creates a new {@link NonPositiveArgumentException} for the given argument and
+   * argumentName.
    * 
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private NonPositiveArgumentException(final String argumentName, final BigDecimal argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
+  private NonPositiveArgumentException(final BigDecimal argument, final String argumentName) {
+    super(argument, argumentName, ERROR_PREDICATE);
   }
 
   /**
-   * Creates a new {@link NonPositiveArgumentException} for the given argumentName
-   * and argument.
+   * Creates a new {@link NonPositiveArgumentException} for the given argument and
+   * argumentName.
    * 
-   * @param argumentName
    * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private NonPositiveArgumentException(final String argumentName, final double argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
+  private NonPositiveArgumentException(final double argument, final String argumentName) {
+    super(argument, argumentName, ERROR_PREDICATE);
   }
 
   /**
-   * Creates a new {@link NonPositiveArgumentException} for the given argumentName
-   * and argument.
+   * Creates a new {@link NonPositiveArgumentException} for the given argument and
+   * argumentName.
    * 
-   * @param argumentName
    * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private NonPositiveArgumentException(final String argumentName, final long argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
+  private NonPositiveArgumentException(final long argument, final String argumentName) {
+    super(argument, argumentName, ERROR_PREDICATE);
   }
 
   /**
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @return a new {@link NonPositiveArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @return a new {@link NonPositiveArgumentException} for the given argument and
+   *         argumentName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  public static NonPositiveArgumentException forArgumentNameAndArgument(
-    final String argumentName,
-    final BigDecimal argument) {
-    return new NonPositiveArgumentException(argumentName, argument);
+  public static NonPositiveArgumentException forArgumentAndArgumentName(
+    final BigDecimal argument,
+    final String argumentName) {
+    return new NonPositiveArgumentException(argument, argumentName);
   }
 
   /**
-   * @param argumentName
    * @param argument
-   * @return a new {@link NonPositiveArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @return a new {@link NonPositiveArgumentException} for the given argument and
+   *         argumentName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  public static NonPositiveArgumentException forArgumentNameAndArgument(
-    final String argumentName,
-    final double argument) {
-    return new NonPositiveArgumentException(argumentName, argument);
+  public static NonPositiveArgumentException forArgumentAndArgumentName(
+    final double argument,
+    final String argumentName) {
+    return new NonPositiveArgumentException(argument, argumentName);
   }
 
   /**
-   * @param argumentName
    * @param argument
-   * @return a new {@link NonPositiveArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @param argumentName
+   * @return a new {@link NonPositiveArgumentException} for the given argument and
+   *         argumentName.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  public static NonPositiveArgumentException forArgumentNameAndArgument(
-    final String argumentName,
-    final long argument) {
-    return new NonPositiveArgumentException(argumentName, argument);
+  public static NonPositiveArgumentException forArgumentAndArgumentName(
+    final long argument,
+    final String argumentName) {
+    return new NonPositiveArgumentException(argument, argumentName);
   }
 }
