@@ -33,7 +33,7 @@ public class FileSystemItemAccessorUnit {
 
     //Asserts that the given file path does not point to a directory.
     if (!internalAccessor.exists()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.PATH,
         path,
         "is not a file system item");

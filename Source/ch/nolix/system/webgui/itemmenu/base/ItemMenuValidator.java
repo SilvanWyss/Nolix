@@ -21,9 +21,9 @@ public final class ItemMenuValidator implements IItemMenuValidator {
   public void assertCanAddItem(IItemMenu<?, ?> itemMenu, IItemMenuItem<?> item) {
     if (!ITEM_MENU_EXAMINER.canAddItem(itemMenu, item)) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        "item menu",
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         itemMenu,
+        "item menu",
         "cannot add the given item '" + item + "'");
     }
   }

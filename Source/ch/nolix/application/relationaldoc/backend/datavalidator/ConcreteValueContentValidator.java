@@ -13,7 +13,7 @@ public final class ConcreteValueContentValidator {
 
   public void assertCanAddValue(final IConcreteValueContent concreteValueContent, final String value) {
     if (!CONCRETE_VALUE_CONTENT_EVALUATOR.canAddValue(concreteValueContent, value)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.VALUE, value);
+      throw InvalidArgumentException.forArgumentAndArgumentName(value, LowerCaseVariableCatalog.VALUE);
     }
   }
 

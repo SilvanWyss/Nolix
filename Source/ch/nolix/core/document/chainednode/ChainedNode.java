@@ -881,7 +881,7 @@ public final class ChainedNode implements IChainedNode {
 
     //Asserts that the given header is not blank.
     if (header.isBlank()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.HEADER,
         header,
         "is blank");

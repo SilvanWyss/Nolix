@@ -34,7 +34,7 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
 
       nextArgumentCaptorAsNext = nextArgumentCaptor;
     } else {
-      throw InvalidArgumentException.forArgumentNameAndArgument("next argument captor", nextArgumentCaptor);
+      throw InvalidArgumentException.forArgumentAndArgumentName(nextArgumentCaptor, "next argument captor");
     }
   }
 

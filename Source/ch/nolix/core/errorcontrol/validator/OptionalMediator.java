@@ -43,9 +43,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     || argument.isEmpty()
     || !argument.get().equals(object)) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "does not contain an element that equals the given Object '" + object + "'");
     }
   }
@@ -74,9 +74,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     || argument.isEmpty()
     || !type.isAssignableFrom(argument.get().getClass())) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "does not contain an element that is of the given type '" + type + "'");
     }
   }
@@ -103,9 +103,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     if (argument == null //NOSONAR: The argument can be null.
     || argument.isEmpty()) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not present");
     }
   }

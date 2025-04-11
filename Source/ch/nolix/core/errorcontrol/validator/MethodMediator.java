@@ -22,9 +22,10 @@ public class MethodMediator extends ArgumentMediator<Method> {
     isNotNull();
 
     if (getStoredArgument().getAnnotations().length != 0) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "has annotations");
     }
 
@@ -36,9 +37,10 @@ public class MethodMediator extends ArgumentMediator<Method> {
     isNotNull();
 
     if (getStoredArgument().getReturnType() != void.class) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "returns something");
     }
 
@@ -54,9 +56,10 @@ public class MethodMediator extends ArgumentMediator<Method> {
     isNotNull();
 
     if (getStoredArgument().getAnnotation(annotationType) == null) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not have the annotation '" + annotationType.getName() + "'");
     }
 
@@ -73,9 +76,10 @@ public class MethodMediator extends ArgumentMediator<Method> {
 
     for (final var p : getStoredArgument().getParameters()) {
       if (!p.getType().isAssignableFrom(type)) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           getStoredArgument(),
+          getArgumentName(),
           "has a parameter '" + p.getName() + "', that is not a " + type.getName());
       }
     }
@@ -90,9 +94,10 @@ public class MethodMediator extends ArgumentMediator<Method> {
     }
 
     if (getStoredArgument().getReturnType() != returnType) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not have the return type '" + returnType.getName() + "'");
     }
 

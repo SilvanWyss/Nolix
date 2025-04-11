@@ -185,7 +185,7 @@ public final class NetEndPoint extends AbstractEndPoint {
       case MessageHeaderCatalog.ERROR_HEADER ->
         throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REPLY, reply);
+        throw InvalidArgumentException.forArgumentAndArgumentName(reply, LowerCaseVariableCatalog.REPLY);
     };
   }
 
@@ -247,7 +247,7 @@ public final class NetEndPoint extends AbstractEndPoint {
         case MessageHeaderCatalog.ERROR_HEADER:
           throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
         default:
-          throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REPLY, reply);
+          throw InvalidArgumentException.forArgumentAndArgumentName(reply, LowerCaseVariableCatalog.REPLY);
       }
     }
   }
@@ -304,7 +304,7 @@ public final class NetEndPoint extends AbstractEndPoint {
         MessageHeaderCatalog.MULTI_DATA_HEADER
         + StringTool.getInParentheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.MESSAGE, message);
+        throw InvalidArgumentException.forArgumentAndArgumentName(message, LowerCaseVariableCatalog.MESSAGE);
     }
   }
 }

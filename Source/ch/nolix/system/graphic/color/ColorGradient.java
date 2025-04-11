@@ -71,7 +71,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
         from3Attributes(attributes);
       default ->
         throw //
-        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.SPECIFICATION, specification);
+        InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableCatalog.SPECIFICATION);
     };
   }
 

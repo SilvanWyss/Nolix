@@ -58,9 +58,10 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
       //Asserts that the current argument is bigger than the given value.
       if (a <= value) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          i + "th argument",
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
+          i + "th argument",
           "is not bigger than " + value);
       }
 
@@ -138,9 +139,10 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
       //Asserts that the current argument is smaller than the given value.
       if (a >= value) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          i + "the argument",
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
+          i + "the argument",
           "is not smaller than " + value);
       }
 

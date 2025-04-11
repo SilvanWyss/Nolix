@@ -90,9 +90,10 @@ public class DoubleMediator extends Mediator {
     //Asserts that the argument of this double mediator is bigger than the given
     //value.
     if (argument <= value) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not bigger than " + value);
     }
   }
@@ -209,9 +210,10 @@ public class DoubleMediator extends Mediator {
     //Asserts that the argument of this double mediator is smaller than the given
     //value.
     if (argument >= value) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not smaller than " + value);
     }
   }

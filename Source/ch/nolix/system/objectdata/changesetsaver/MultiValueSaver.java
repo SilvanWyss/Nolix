@@ -29,9 +29,7 @@ final class MultiValueSaver {
         saveMultiValueEntryDeletion(multiValueEntry, dataAndSchemaAdapter);
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(
-          "state of multi value",
-          multiValueEntryState);
+        throw InvalidArgumentException.forArgumentAndArgumentName(multiValueEntryState, "state of multi value");
     }
   }
 

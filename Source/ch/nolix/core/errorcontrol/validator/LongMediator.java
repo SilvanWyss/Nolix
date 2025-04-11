@@ -108,9 +108,10 @@ public class LongMediator extends Mediator {
    */
   public final void isBiggerThan(final long value) {
     if (argument <= value) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not bigger than " + value);
     }
   }
@@ -123,9 +124,10 @@ public class LongMediator extends Mediator {
    */
   public final void isBiggerThanOrEquals(final long value) {
     if (argument < value) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not bigger than or equal to " + value);
     }
   }
@@ -171,9 +173,10 @@ public class LongMediator extends Mediator {
       }
     }
 
-    throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-      getArgumentName(),
+    throw //
+    InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
       argument,
+      getArgumentName(),
       "does not equal one of {" + ARRAY_TOOL.createString(values) + "}");
   }
 
@@ -297,9 +300,10 @@ public class LongMediator extends Mediator {
    */
   public final void isSmallerThan(final long value) {
     if (argument >= value) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not smaller than " + value);
     }
   }

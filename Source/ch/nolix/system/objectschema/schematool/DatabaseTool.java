@@ -52,7 +52,7 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   @Override
   public void assertCanSetGivenNameToDatabase(final String name) {
     if (!DATABASE_EXAMINER.canSetName(name)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.NAME,
         name,
         "cannot be set to database");

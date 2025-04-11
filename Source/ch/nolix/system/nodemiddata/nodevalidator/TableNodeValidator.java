@@ -21,9 +21,9 @@ public final class TableNodeValidator implements ITableNodeValidator {
   public void assertTableNodeContainsEntityWithId(final IMutableNode<?> tableNode, final String entityId) {
     if (!TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, entityId)) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        "table node",
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         tableNode,
+        "table node",
         "does not contain an entity with the id '" + entityId + "'");
     }
   }
@@ -35,9 +35,9 @@ public final class TableNodeValidator implements ITableNodeValidator {
   public void assertTableNodeDoesNotContainEntityWithId(final IMutableNode<?> tableNode, final String entityId) {
     if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, entityId)) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        "table node",
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         tableNode,
+        "table node",
         "contains an entity with the id '" + entityId + "'");
     }
   }

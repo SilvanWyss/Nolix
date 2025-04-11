@@ -55,9 +55,10 @@ final class FileReader {
         receiveFileFromCounterpart(file);
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(
-          "receive optional file commoand",
-          receiveOptionalFileCommand);
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentName(
+          receiveOptionalFileCommand,
+          "receive optional file commoand");
     }
   }
 

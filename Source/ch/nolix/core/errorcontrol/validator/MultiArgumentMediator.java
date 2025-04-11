@@ -83,9 +83,10 @@ public class MultiArgumentMediator<A> {
 
       //Asserts that the current argument fulfills the given condition.
       if (!condition.test(a)) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          index + "th argument",
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
+          index + "th argument",
           "does not fulfil the given condition");
       }
 

@@ -102,9 +102,8 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
           subStyles.addAtEnd(DeepSelectingStyle.fromSpecification(a));
           break;
         default:
-          throw InvalidArgumentException.forArgumentNameAndArgument(
-            LowerCaseVariableCatalog.SPECIFICATION,
-            specification);
+          throw //
+          InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableCatalog.SPECIFICATION);
       }
     }
 

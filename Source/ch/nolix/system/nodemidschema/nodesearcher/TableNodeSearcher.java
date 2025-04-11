@@ -26,7 +26,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
       local1BasedColumnIndex++;
     }
 
-    throw InvalidArgumentException.forArgumentNameAndArgument("column name", columnName);
+    throw InvalidArgumentException.forArgumentAndArgumentName(columnName, "column name");
   }
 
   @Override

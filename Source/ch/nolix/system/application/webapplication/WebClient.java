@@ -27,7 +27,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
-    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REQUEST, request);
+    throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableCatalog.REQUEST);
   }
 
   @Override
@@ -37,7 +37,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
         runGuiCommand(command.getNextNode());
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.COMMAND, command);
+        throw InvalidArgumentException.forArgumentAndArgumentName(command, LowerCaseVariableCatalog.COMMAND);
     }
   }
 
@@ -95,7 +95,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.COMMAND, command);
+        throw InvalidArgumentException.forArgumentAndArgumentName(command, LowerCaseVariableCatalog.COMMAND);
     }
   }
 
@@ -123,7 +123,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
         runSetUserInputsCommand(guiCommand);
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", guiCommand);
+        throw InvalidArgumentException.forArgumentAndArgumentName(guiCommand, "GUI command");
     }
   }
 

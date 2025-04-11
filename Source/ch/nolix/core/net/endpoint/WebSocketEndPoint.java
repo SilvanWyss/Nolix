@@ -95,7 +95,7 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
         close();
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument("control frame", controlFrame);
+        throw InvalidArgumentException.forArgumentAndArgumentName(controlFrame, "control frame");
     }
   }
 

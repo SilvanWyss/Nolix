@@ -138,7 +138,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 
   private void assertDoesNotContainId(final String id) {
     if (containsWithId(id)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.ID,
         id,
         "is already used");

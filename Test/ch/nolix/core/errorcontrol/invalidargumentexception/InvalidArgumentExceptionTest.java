@@ -61,9 +61,9 @@ final class InvalidArgumentExceptionTest extends StandardTest {
     final var amount = BigDecimal.valueOf(10.5);
 
     //execution
-    final var result = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-      "amount",
+    final var result = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
       amount,
+      "amount",
       "is not a whole number");
 
     //verification

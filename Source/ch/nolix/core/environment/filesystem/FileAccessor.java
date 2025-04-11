@@ -39,7 +39,7 @@ public final class FileAccessor extends FileSystemItemAccessorUnit {
     //Asserts that the file system item with the given file path is acutally a
     //file.
     if (!FileSystemAccessor.isFile(filePath)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.FILE_PATH,
         filePath,
         "is not a file");

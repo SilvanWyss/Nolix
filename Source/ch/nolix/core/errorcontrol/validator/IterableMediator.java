@@ -156,9 +156,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     for (final var e : argument) {
       if (ITERABLE_EXAMINER.containsElementMultipleTimes(argument, e)) {
         throw //
-        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           argument,
+          getArgumentName(),
           "contains the element '" + e + "' multiple times.");
       }
     }
@@ -188,9 +188,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     for (final var e : getStoredArgument()) {
 
       if (!Objects.equals(e, elements[index])) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          (index + 1) + "th element",
+        throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           e,
+          (index + 1) + "th element",
           "does not equal the element '" + elements[index] + "'");
       }
 
@@ -214,9 +214,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
       if (e != elements[index]) {
         throw //
-        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          (index + 1) + "th element",
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           e,
+          (index + 1) + "th element",
           "is not the same as the element '" + elements[index] + "'");
       }
 
@@ -236,9 +236,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
       if (e != element) {
         throw //
-        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          index + "th element",
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           e,
+          index + "th element",
           "is not the same as the element '" + element + "'");
       }
 
@@ -255,9 +255,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
     if (!ITERABLE_EXAMINER.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not contain an element with the String representation '" + stringRepresentation + "'");
     }
   }
@@ -272,9 +272,10 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void containsOnce(final Object element) {
     if (!ITERABLE_EXAMINER.containsElementOnce(getStoredArgument(),
       element)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not contain the the given element once");
     }
   }
@@ -307,9 +308,10 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
       //Asserts that the argument of this container mediator
       //contains not more elements than the given element count says.
       if (actualElementCount > elementCount) {
-        throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           getStoredArgument(),
+          getArgumentName(),
           "contains more than " + elementCount + " elements");
       }
 
@@ -319,9 +321,10 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     //Asserts that the argument of this container mediator
     //contains not less elements than the given element count says.
     if (actualElementCount < elementCount) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "contains less than " + elementCount + " elements");
     }
   }
@@ -389,9 +392,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
       if (e == null) {
         throw //
-        InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           argument,
+          getArgumentName(),
           "contains a null element at the " + oneBasedndex + "th one-based index.");
       }
 

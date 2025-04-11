@@ -16,9 +16,10 @@ public final class SmartObjectValidator implements ISmartObjectValidator {
     final ISmartObject smartObject,
     final ISmartObject baseType) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canAddBaseType(smartObject, baseType)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalog.BASE_TYPE,
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         baseType,
+        LowerCaseVariableCatalog.BASE_TYPE,
         "cannot be added to the SmartObject");
     }
   }
@@ -28,9 +29,10 @@ public final class SmartObjectValidator implements ISmartObjectValidator {
     final ISmartObject smartObject,
     final ISmartField smartField) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canAddField(smartObject, smartField)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        LowerCaseVariableCatalog.FIELD,
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         smartField,
+        LowerCaseVariableCatalog.FIELD,
         "cannot be added to the SmartObject");
     }
   }
@@ -45,7 +47,7 @@ public final class SmartObjectValidator implements ISmartObjectValidator {
   @Override
   public void assertCanSetName(final ISmartObject smartObject, final String name) {
     if (!CATEGORIZABLE_OBJECT_EVALUATOR.canSetName(smartObject, name)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.NAME, name);
+      throw InvalidArgumentException.forArgumentAndArgumentName(name, LowerCaseVariableCatalog.NAME);
     }
   }
 }

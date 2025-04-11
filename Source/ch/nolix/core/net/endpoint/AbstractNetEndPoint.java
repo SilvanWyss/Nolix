@@ -170,7 +170,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
       case DEFAULT_TARGET_MESSAGE:
 
         if (!rawMessage.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
-          throw InvalidArgumentException.forArgumentNameAndArgument(RAW_MESSAGE_VARIABLE_NAME, rawMessage);
+          throw InvalidArgumentException.forArgumentAndArgumentName(rawMessage, RAW_MESSAGE_VARIABLE_NAME);
         }
 
         confirmReceivedTargetInfo();
@@ -188,7 +188,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
         close();
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument(RAW_MESSAGE_VARIABLE_NAME, rawMessage);
+        throw InvalidArgumentException.forArgumentAndArgumentName(rawMessage, RAW_MESSAGE_VARIABLE_NAME);
     }
   }
 }

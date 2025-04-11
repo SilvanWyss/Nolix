@@ -49,7 +49,7 @@ public final class SmartFieldValidator implements ISmartFieldValidator {
   @Override
   public void assertCanSetName(final ISmartField smartField, final String name) {
     if (!CATEGORIZABLE_FIELD_EXAMINER.canSetName(smartField, name)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.NAME, name);
+      throw InvalidArgumentException.forArgumentAndArgumentName(name, LowerCaseVariableCatalog.NAME);
     }
   }
 

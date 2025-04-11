@@ -154,7 +154,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
       case "onmouseup" ->
         releaseLeftMouseButton();
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument("HTML event", htmlEvent);
+        throw InvalidArgumentException.forArgumentAndArgumentName(htmlEvent, "HTML event");
     }
   }
 

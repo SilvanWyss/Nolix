@@ -66,7 +66,7 @@ implements IMultiStateConfiguration<C, S> {
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
     if (!addedOrChangedAttribute(attribute)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.ATTRIBUTE, attribute);
+      throw InvalidArgumentException.forArgumentAndArgumentName(attribute, LowerCaseVariableCatalog.ATTRIBUTE);
     }
   }
 

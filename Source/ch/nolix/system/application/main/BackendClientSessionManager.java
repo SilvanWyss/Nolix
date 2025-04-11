@@ -115,9 +115,10 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     assertContainsCurrentSession();
 
     if (!currentSessionIsTopSession()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        "current Session",
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredCurrentSession(),
+        "current Session",
         "is not the top Session");
     }
   }

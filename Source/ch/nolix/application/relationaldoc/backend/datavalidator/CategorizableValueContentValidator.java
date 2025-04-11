@@ -15,7 +15,7 @@ public final class CategorizableValueContentValidator {
     final ICategorizableValueContent categorizableValueContent,
     final DataType dataType) {
     if (!ABSTRACT_VALUE_CONTENT_EVALUATOR.canSetDataType(categorizableValueContent, dataType)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.DATA_TYPE, dataType);
+      throw InvalidArgumentException.forArgumentAndArgumentName(dataType, LowerCaseVariableCatalog.DATA_TYPE);
     }
   }
 }

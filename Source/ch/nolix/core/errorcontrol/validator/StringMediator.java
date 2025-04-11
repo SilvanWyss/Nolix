@@ -72,9 +72,10 @@ public class StringMediator extends ArgumentMediator<String> {
     //Asserts that the argument of the current StringMediator does not have the
     //given length.
     if (getStoredArgument().length() != length) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not have the length " + length);
     }
   }
@@ -126,9 +127,10 @@ public class StringMediator extends ArgumentMediator<String> {
 
     //Asserts that the the argument of the current StringMediator is not blank.
     if (getStoredArgument().isBlank()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "is blank");
     }
   }
@@ -149,9 +151,10 @@ public class StringMediator extends ArgumentMediator<String> {
     //Asserts that the argument of the current StringMediator is not longer than
     //the given max length says.
     if (getStoredArgument().length() > maxLength) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "is longer than " + maxLength);
     }
   }
@@ -172,9 +175,10 @@ public class StringMediator extends ArgumentMediator<String> {
     //Asserts that the argument of the current StringMediator is not shorter than
     //the given min length says.
     if (getStoredArgument().length() < minLength) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "has the length " + getStoredArgument().length() + " and is therefore shorter than " + minLength);
     }
   }
@@ -194,9 +198,9 @@ public class StringMediator extends ArgumentMediator<String> {
     //regularExpression.
     if (!getStoredArgument().matches(regularExpression)) {
       throw //
-      InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not match the regular expression '" + regularExpression + "'");
     }
   }
@@ -215,9 +219,10 @@ public class StringMediator extends ArgumentMediator<String> {
     isNotNull();
 
     if (!getStoredArgument().startsWith(prefix)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "does not start with the prefix '" + prefix + "'");
     }
   }

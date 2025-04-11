@@ -178,9 +178,10 @@ public abstract class AbstractField implements IField {
       case CLOSED ->
         DatabaseObjectState.CLOSED;
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(
-          LowerCaseVariableCatalog.STATE,
-          getStoredParentEntity().getState());
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentName(
+          getStoredParentEntity().getState(),
+          LowerCaseVariableCatalog.STATE);
     };
   }
 

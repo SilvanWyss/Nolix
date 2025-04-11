@@ -177,7 +177,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
       }
     }
 
-    throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.SPECIFICATION, specification);
+    throw InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableCatalog.SPECIFICATION);
   }
 
   private void extractStateProperties() {

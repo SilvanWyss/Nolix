@@ -40,7 +40,7 @@ abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 
     //Asserts that the given argumentName is not blank.
     if (argumentName.isBlank()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         "argument name",
         argumentName,
         "is blank");

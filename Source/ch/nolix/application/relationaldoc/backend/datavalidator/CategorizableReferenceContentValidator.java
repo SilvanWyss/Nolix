@@ -14,7 +14,7 @@ public final class CategorizableReferenceContentValidator {
     final CategorizableReferenceContent categorizableReferenceContent,
     final ISmartObject referenceType) {
     if (!ABSTRACT_REFERENCE_CONTENT_EVALUATOR.canSetReferenceType(categorizableReferenceContent, referenceType)) {
-      throw InvalidArgumentException.forArgumentNameAndArgument("reference type", referenceType);
+      throw InvalidArgumentException.forArgumentAndArgumentName(referenceType, "reference type");
     }
   }
 }

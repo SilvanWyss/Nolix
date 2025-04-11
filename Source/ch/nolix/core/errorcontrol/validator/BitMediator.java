@@ -19,18 +19,20 @@ public class BitMediator extends Mediator {
 
   public final void isCleared() {
     if (argument) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not cleared");
     }
   }
 
   public final void isSet() {
     if (!argument) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
+        getArgumentName(),
         "is not set");
     }
   }

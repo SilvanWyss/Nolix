@@ -51,7 +51,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
       case NEW_TAB ->
         HtmlAttribute.withNameAndValue("target", "_blank");
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.TARGET, target);
+        throw InvalidArgumentException.forArgumentAndArgumentName(target, LowerCaseVariableCatalog.TARGET);
     };
   }
 }

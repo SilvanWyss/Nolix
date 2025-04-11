@@ -37,7 +37,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
 
     //Asserts that the file system item with the given path is actually a folder.
     if (!FileSystemAccessor.isFolder(path)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.PATH,
         path,
         "is not a folder");

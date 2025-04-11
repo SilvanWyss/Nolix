@@ -163,9 +163,9 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
         element.addOrChangeAttribute(aa.getValue());
       } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
 
-        final var invalidArgumentException = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "attaching attribute",
+        final var invalidArgumentException = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           aa,
+          "attaching attribute",
           "could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'");
 
         invalidArgumentException.initCause(error);

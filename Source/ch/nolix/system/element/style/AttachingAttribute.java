@@ -89,7 +89,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
         new AttachingAttribute(attributes.getStoredAt1BasedIndex(1).toString(), attributes.getStoredAt1BasedIndex(2));
       default ->
         throw //
-        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.SPECIFICATION, specification);
+        InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableCatalog.SPECIFICATION);
     };
   }
 

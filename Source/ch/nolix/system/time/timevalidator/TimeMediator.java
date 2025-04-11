@@ -19,9 +19,10 @@ public class TimeMediator extends ArgumentMediator<ITime> {
     isNotNull();
 
     if (!getStoredArgument().isAfter(time)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "is not after " + time);
     }
   }
@@ -31,9 +32,10 @@ public class TimeMediator extends ArgumentMediator<ITime> {
     isNotNull();
 
     if (!getStoredArgument().isBefore(time)) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         getStoredArgument(),
+        getArgumentName(),
         "is not before " + time);
     }
   }

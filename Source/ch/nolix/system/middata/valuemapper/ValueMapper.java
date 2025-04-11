@@ -32,7 +32,7 @@ public final class ValueMapper implements IValueMapper {
       case STRING ->
         string;
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.DATA_TYPE, dataType);
+        throw InvalidArgumentException.forArgumentAndArgumentName(dataType, LowerCaseVariableCatalog.DATA_TYPE);
     };
   }
 }

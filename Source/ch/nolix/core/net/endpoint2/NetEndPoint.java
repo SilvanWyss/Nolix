@@ -15,8 +15,8 @@ import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to an
- * other {@link NetEndPoint}.
+ * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to
+ * an other {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
  * @version 2017-05-22
@@ -304,7 +304,7 @@ public final class NetEndPoint extends AbstractEndPoint {
       case ERROR_RESPONSE ->
         throw GeneralException.withErrorMessage(response.getStoredContent());
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.REPLY, response);
+        throw InvalidArgumentException.forArgumentAndArgumentName(response, LowerCaseVariableCatalog.REPLY);
     };
   }
 

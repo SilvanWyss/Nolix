@@ -42,7 +42,7 @@ public final class EnglishNounTool {
     if (firstLetter < 65
     || (firstLetter > 90 && firstLetter < 97)
     || firstLetter > 122) {
-      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalog.LETTER, firstLetter);
+      throw InvalidArgumentException.forArgumentAndArgumentName(firstLetter, LowerCaseVariableCatalog.LETTER);
     }
 
     //Enumerates the given letter.

@@ -32,7 +32,7 @@ public final class MultiReferenceSaver {
         deleteMultiReferenceEntry(multiReferenceEntry, dataAndSchemaAdapter);
         break;
       default:
-        throw InvalidArgumentException.forArgumentNameAndArgument("state of multi reference", state);
+        throw InvalidArgumentException.forArgumentAndArgumentName(state, "state of multi reference");
     }
   }
 
