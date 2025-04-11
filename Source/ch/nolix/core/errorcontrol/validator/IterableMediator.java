@@ -357,7 +357,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
     //Asserts that the argument of this container mediator is empty.
     if (!ITERABLE_EXAMINER.isEmpty(getStoredArgument())) {
-      throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
+      throw NonEmptyArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
     }
   }
 
