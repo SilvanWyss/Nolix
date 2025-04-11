@@ -39,7 +39,7 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
     //Asserts that the argument of the current BigDecimalValidator is not smaller
     //than the given value.
     if (getStoredArgument().compareTo(value) < 0) {
-      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), getStoredArgument(), value);
+      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getStoredArgument(), getArgumentName(), value);
     }
   }
 

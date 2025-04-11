@@ -265,7 +265,7 @@ public class LongMediator extends Mediator {
    */
   public final void isNotSmallerThan(final int min) {
     if (getArgument() < min) {
-      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), getArgument(), min);
+      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgument(), getArgumentName(), min);
     }
   }
 

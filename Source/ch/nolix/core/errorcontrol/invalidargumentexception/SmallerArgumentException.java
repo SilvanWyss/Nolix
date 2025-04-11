@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * A {@link SmallerArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument is undesirably smaller than a
- * certain limit.
+ * given min.
  * 
  * @author Silvan Wyss
  * @version 2016-03-01
@@ -14,84 +14,74 @@ import java.math.BigDecimal;
 public final class SmallerArgumentException extends InvalidArgumentException {
 
   /**
-   * Creates a new {@link SmallerArgumentException} for the given argumentName,
-   * argument and limit.
+   * Creates a new {@link SmallerArgumentException} for the given argument,
+   * argumentName and min.
    * 
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @param limit
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given limit is null.
+   * @param min
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given min is null.
    */
-  private SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "is smaller than " + getValidLimitOfLimit(limit));
+  private SmallerArgumentException(final BigDecimal argument, final String argumentName, final BigDecimal min) {
+    super(argument, argumentName, "is smaller than " + getValidatedMinFromMin(min));
   }
 
   /**
-   * Creates a new {@link SmallerArgumentException} for the given argumentName,
-   * argument and limit.
+   * Creates a new {@link SmallerArgumentException} for the given argument,
+   * argumentName and min.
    * 
-   * @param argumentName
    * @param argument
-   * @param limit
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given limit is null.
+   * @param argumentName
+   * @param min
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
-  private SmallerArgumentException(final String argumentName, final double argument, final double limit) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "is smaller than " + limit);
+  private SmallerArgumentException(final double argument, final String argumentName, final double min) {
+    super(argument, argumentName, "is smaller than " + min);
   }
 
   /**
+   * @param argument     - Can be null.
    * @param argumentName
-   * @param argument
-   * @param limit
-   * @return a new {@link SmallerArgumentException} for the given argumentName,
-   *         argument and limit.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given limit is null.
+   * @param min
+   * @return a new {@link SmallerArgumentException} for the given argument,
+   *         argumentName and mint.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given min is null.
    */
   public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
-    final String argumentName,
     final BigDecimal argument,
-    final BigDecimal limit) {
-    return new SmallerArgumentException(argumentName, argument, limit);
+    final String argumentName,
+    final BigDecimal min) {
+    return new SmallerArgumentException(argument, argumentName, min);
   }
 
   /**
-   * @param argumentName
    * @param argument
-   * @param limit
-   * @return a new {@link SmallerArgumentException} for the given argumentName,
-   *         argument and limit.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given limit is null.
+   * @param argumentName
+   * @param min
+   * @return a new {@link SmallerArgumentException} for the given argument,
+   *         argumentName and mint.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    */
   public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
-    final String argumentName,
     final double argument,
-    final double limit) {
-    return new SmallerArgumentException(argumentName, argument, limit);
+    final String argumentName,
+    final double min) {
+    return new SmallerArgumentException(argument, argumentName, min);
   }
 
   /**
-   * @param limit
-   * @return a valid limit of the given limit.
-   * @throws IllegalArgumentException if the given limit is null.
+   * @param min
+   * @return a validated min from the given min.
+   * @throws IllegalArgumentException if the given min is null.
    */
-  private static BigDecimal getValidLimitOfLimit(final BigDecimal limit) {
+  private static BigDecimal getValidatedMinFromMin(final BigDecimal min) {
 
-    if (limit == null) {
-      throw new IllegalArgumentException("The given limit is null.");
+    if (min == null) {
+      throw new IllegalArgumentException("The given minimum is null.");
     }
 
-    return limit;
+    return min;
   }
 }
