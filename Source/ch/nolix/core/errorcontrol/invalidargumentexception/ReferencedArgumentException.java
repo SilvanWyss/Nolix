@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link ReferencedArgumentException} is a {@link InvalidArgumentException}
  * that is supposed to be thrown when a given argument is undesirably
@@ -16,16 +18,14 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
   /**
    * Creates a new {@link ReferencedArgumentException} for the given argument.
    * 
-   * @param argument
+   * @param argument - Can be null.
    */
   private ReferencedArgumentException(final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, ERROR_PREDICATE);
+    super(argument, new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
-   * @param argument
+   * @param argument - Can be null.
    * @return a new {@link ReferencedArgumentException} for the given argument.
    */
   public static ReferencedArgumentException forArgument(final Object argument) {
