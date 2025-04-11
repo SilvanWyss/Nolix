@@ -99,22 +99,6 @@ public class InvalidArgumentException extends RuntimeException {
   }
 
   /**
-   * Creates a new {@link InvalidArgumentException} for the given argument and
-   * errorPredicate.
-   * 
-   * @param argument
-   * @param errorPredicate
-   * @throws IllegalArgumentException if the given errorPredicate is null.
-   * @throws IllegalArgumentException if the given errorPredicate is blank.
-   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
-   */
-  protected InvalidArgumentException(final Object argument, final String errorPredicate) {
-
-    //Calls other constructor.
-    this(argument, ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument), errorPredicate);
-  }
-
-  /**
    * Creates a new {@link InvalidArgumentException} for the given argument,
    * argumentName and errorPredicate.
    * 
@@ -204,18 +188,17 @@ public class InvalidArgumentException extends RuntimeException {
   }
 
   /**
-   * @param argument
+   * @param argument       - Can be null.
    * @param errorPredicate
    * @return a new {@link InvalidArgumentException} for the given argument and
    *         errorPredicate.
-   * @throws IllegalArgumentException if the given errorPredicate is null.
-   * @throws IllegalArgumentException if the given errorPredicate is blank.
-   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+   * @throws IllegalArgumentException if the given errorPredicate is null or blank
+   *                                  or ends with a dot.
    */
   public static InvalidArgumentException forArgumentAndErrorPredicate(
     final Object argument,
     final String errorPredicate) {
-    return new InvalidArgumentException(argument, errorPredicate);
+    return new InvalidArgumentException(argument, new ErrorPredicateDto(errorPredicate));
   }
 
   /**
