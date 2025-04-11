@@ -1,15 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
- * A {@link NonNegativeArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably not (!)
- * negative.
+ * A {@link NonNegativeArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably not (!) negative.
  * 
  * @author Silvan Wyss
  * @version 2016-12-01
  */
 @SuppressWarnings("serial")
-public final class NonNegativeArgumentException extends InvalidArgumentException {
+public final class NonNegativeArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is not negative";
 
@@ -19,10 +22,10 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    * 
    * @param argument
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private NonNegativeArgumentException(final double argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -31,10 +34,10 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    * 
    * @param argument
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private NonNegativeArgumentException(final long argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -42,7 +45,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    * @param argumentName
    * @return a new {@link NonNegativeArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonNegativeArgumentException forArgumentAndArgumentName(
     final double argument,
@@ -55,7 +58,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    * @param argumentName
    * @return a new {@link NonNegativeArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonNegativeArgumentException forArgumentAndArgumentName(
     final long argument,

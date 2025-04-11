@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
@@ -45,7 +44,8 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)).throwsException()
-      .ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link UnequalArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument does undesirably not equal a
- * given value.
+ * A {@link UnequalArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument does undesirably not equal a given value.
  * 
  * @author Silvan Wyss
  * @version 2017-01-01
  */
 @SuppressWarnings("serial")
-public final class UnequalArgumentException extends InvalidArgumentException {
+public final class UnequalArgumentException extends AbstractInvalidArgumentException {
 
   private static final String DEFAULT_VALUE_NAME = Object.class.getSimpleName();
 
@@ -21,7 +22,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * 
    * @param argument - Can be null.
    * @param value
-   * @throws IllegalArgumentException if the given value is null.
+   * @throws RuntimeException if the given value is null.
    */
   private UnequalArgumentException(final Object argument, final Object value) {
     super(argument, new ErrorPredicateDto("does not equal the " + getNameOfValue(value) + " '" + value + "'"));
@@ -34,11 +35,14 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @param argument
    * @param argumentName
    * @param value
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given value is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given value is null.
    */
   private UnequalArgumentException(final Object argument, final String argumentName, final Object value) {
-    super(argument, argumentName, "does not equal the " + getNameOfValue(value) + " '" + value + "'");
+    super(
+      argument,
+      new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("does not equal the " + getNameOfValue(value) + " '" + value + "'"));
   }
 
   /**
@@ -47,8 +51,8 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @param value
    * @return a new {@link UnequalArgumentException} for the given argument,
    *         argumentName and value.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given value is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given value is null.
    */
   public static UnequalArgumentException forArgumentAndArgumentNameAndValue(
     final Object argument,
@@ -62,7 +66,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @param value
    * @return a new {@link UnequalArgumentException} for the given argument and
    *         value.
-   * @throws IllegalArgumentException if the given value is null.
+   * @throws RuntimeException if the given value is null.
    */
   public static UnequalArgumentException forArgumentAndValue(final Object argument, final Object value) {
     return new UnequalArgumentException(argument, value);
@@ -71,7 +75,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
   /**
    * @param value
    * @return the name of the given value.
-   * @throws IllegalArgumentException if the given value is null.
+   * @throws RuntimeException if the given value is null.
    */
   private static String getNameOfValue(final Object value) {
 

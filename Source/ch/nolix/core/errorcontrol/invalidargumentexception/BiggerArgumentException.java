@@ -1,15 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
- * A {@link BiggerArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument is undesirably bigger than a
- * given max.
+ * A {@link BiggerArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably bigger than a given max.
  * 
  * @author Silvan Wyss
  * @version 2016-03-01
  */
 @SuppressWarnings("serial")
-public final class BiggerArgumentException extends InvalidArgumentException {
+public final class BiggerArgumentException extends AbstractInvalidArgumentException {
 
   /**
    * Creates a new {@link BiggerArgumentException} for the given argument,
@@ -18,10 +21,10 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    * @param argument
    * @param argumentName
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private BiggerArgumentException(final double argument, final String argumentName, final double max) {
-    super(argument, argumentName, "is bigger than " + max);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is bigger than " + max));
   }
 
   /**
@@ -31,10 +34,10 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    * @param argument
    * @param argumentName
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private BiggerArgumentException(final long argument, final String argumentName, final long max) {
-    super(argument, argumentName, "is bigger than " + max);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is bigger than " + max));
   }
 
   /**
@@ -43,7 +46,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    * @param max
    * @return a new {@link BiggerArgumentException} for the given argument,
    *         argumentName and max.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static BiggerArgumentException forArgumentAndArgumentNameAndMax(
     final double argument,
@@ -58,7 +61,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    * @param max
    * @return a new {@link BiggerArgumentException} for the given argument,
    *         argumentName and max.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static BiggerArgumentException forArgumentAndArgumentNameAndMax(
     final long argument,

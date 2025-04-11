@@ -3,7 +3,6 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class AndNameCaptorTest extends StandardTest {
@@ -33,7 +32,9 @@ final class AndNameCaptorTest extends StandardTest {
     final var testUnit = new AndNameCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.andName("my_name")).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.andName("my_name"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

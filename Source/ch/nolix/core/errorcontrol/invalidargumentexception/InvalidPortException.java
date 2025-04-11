@@ -4,14 +4,14 @@ import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link InvalidPortException} is a {@link InvalidArgumentException} that is
- * supposed to be thrown when a given port is not valid.
+ * A {@link InvalidPortException} is a {@link AbstractInvalidArgumentException}
+ * that is supposed to be thrown when a given port is not valid.
  * 
  * @author Silvan Wyss
  * @version 2021-07-16
  */
 @SuppressWarnings("serial")
-public final class InvalidPortException extends InvalidArgumentException {
+public final class InvalidPortException extends AbstractInvalidArgumentException {
 
   private static final String ARGUMENT_NAME = LowerCaseVariableCatalog.PORT;
 

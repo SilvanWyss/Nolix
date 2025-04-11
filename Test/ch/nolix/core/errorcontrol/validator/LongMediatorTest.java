@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
@@ -328,7 +329,7 @@ final class LongMediatorTest extends StandardTest {
     //verification & execution
     expectRunning(() -> testUnit.isSmallerThanOrEquals(100))
       .throwsException()
-      .ofType(InvalidArgumentException.class)
+      .ofType(BiggerArgumentException.class)
       .withMessage("The given value '120' is bigger than 100.");
   }
 }

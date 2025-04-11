@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentDoesNotContainElementException} is a
- * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument does undesirably not contain a given element.
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument does undesirably not contain a given element.
  * 
  * @author Silvan Wyss
  * @version 2021-07-15
  */
 @SuppressWarnings("serial")
-public final class ArgumentDoesNotContainElementException extends InvalidArgumentException {
+public final class ArgumentDoesNotContainElementException extends AbstractInvalidArgumentException {
 
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
@@ -43,13 +44,16 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    * @param argument     - Can be null.
    * @param argumentName
    * @param element      - Can be null.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private ArgumentDoesNotContainElementException(
     final Object argument,
     final String argumentName,
     final Object element) {
-    super(argumentName, argument, "does not contain the given " + getNameOfElement(element));
+    super(
+      argument,
+      new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("does not contain the given " + getNameOfElement(element)));
   }
 
   /**
@@ -67,7 +71,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    * @param element      - Can be null.
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
    *         argument, argumentName and element.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ArgumentDoesNotContainElementException forArgumentAndArgumentNameAndElement(
     final Object argument,

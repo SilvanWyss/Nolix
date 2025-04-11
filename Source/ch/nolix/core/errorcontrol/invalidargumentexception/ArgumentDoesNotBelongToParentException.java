@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentDoesNotBelongToParentException} is a
- * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument does undesirably not belong to a parent.
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument does undesirably not belong to a parent.
  * 
  * @author Silvan Wyss
  * @version 2022-01-30
  */
 @SuppressWarnings("serial")
-public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {
+public final class ArgumentDoesNotBelongToParentException extends AbstractInvalidArgumentException {
 
   private static final String DEFAULT_PARENT_TYPE_NAME = Object.class.getSimpleName();
 
@@ -31,7 +32,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * 
    * @param argument   - Can be null.
    * @param parentType
-   * @throws IllegalArgumentException if the given parentType is null.
+   * @throws RuntimeException if the given parentType is null.
    */
   private ArgumentDoesNotBelongToParentException(
     final Object argument,
@@ -45,10 +46,10 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * 
    * @param argument     - Can be null.
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private ArgumentDoesNotBelongToParentException(final Object argument, final String argumentName) {
-    super(argument, argumentName, "does not belong to a parent");
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("does not belong to a parent"));
   }
 
   /**
@@ -58,14 +59,17 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * @param argument     - Can be null.
    * @param argumentName
    * @param parentType
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given parentType is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given parentType is null.
    */
   private ArgumentDoesNotBelongToParentException(
     final Object argument,
     final String argumentName,
     final Class<?> parentType) {
-    super(argument, argumentName, "does not belong to a " + getNameOfParentType(parentType));
+    super(
+      argument,
+      new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("does not belong to a " + getNameOfParentType(parentType)));
   }
 
   /**
@@ -82,7 +86,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    * @param parentType
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
    *         argument and parentType.
-   * @throws IllegalArgumentException if the given parentType is null.
+   * @throws RuntimeException if the given parentType is null.
    */
   public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
     final Object argument,
@@ -93,7 +97,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
   /**
    * @param parentType
    * @return the name of the given parentType.
-   * @throws IllegalArgumentException if the given parentType is null.
+   * @throws RuntimeException if the given parentType is null.
    */
   private static String getNameOfParentType(final Class<?> parentType) {
 

@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentBelongsToParentException} is a
- * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument belongs undesirably to a parent.
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument belongs undesirably to a parent.
  * 
  * @author Silvan Wyss
  * @version 2019-10-01
  */
 @SuppressWarnings("serial")
-public final class ArgumentBelongsToParentException extends InvalidArgumentException {
+public final class ArgumentBelongsToParentException extends AbstractInvalidArgumentException {
 
   private static final String DEFAULT_TYPE_NAME = Object.class.getSimpleName();
 
@@ -21,7 +22,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * 
    * @param argument - Can be null.
    * @param parent
-   * @throws IllegalArgumentException if the given parent is null.
+   * @throws RuntimeException if the given parent is null.
    */
   private ArgumentBelongsToParentException(final Object argument, final Object parent) {
     super(argument, new ErrorPredicateDto("belongs to a " + getTypeNameOfObject(parent)));
@@ -34,11 +35,12 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * @param argument     - Can be null.
    * @param argumentName
    * @param parent
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given parent is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given parent is null.
    */
   private ArgumentBelongsToParentException(final Object argument, final String argumentName, final Object parent) {
-    super(argument, argumentName, "belongs to a " + getTypeNameOfObject(parent));
+    super(argument, new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("belongs to a " + getTypeNameOfObject(parent)));
   }
 
   /**
@@ -46,7 +48,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    * @param parent
    * @return a new {@link ArgumentBelongsToParentException} for the given argument
    *         and parent.
-   * @throws IllegalArgumentException if the given parent is null.
+   * @throws RuntimeException if the given parent is null.
    */
   public static ArgumentBelongsToParentException forArgumentAndParent(final Object argument, final Object parent) {
     return new ArgumentBelongsToParentException(argument, parent);
@@ -55,7 +57,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
   /**
    * @param object
    * @return the name of the type of the given object.
-   * @throws IllegalArgumentException if the given object is null.
+   * @throws RuntimeException if the given object is null.
    */
   private static String getTypeNameOfObject(final Object object) {
 

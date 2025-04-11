@@ -2,15 +2,19 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import java.math.BigDecimal;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
- * A {@link NegativeArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably negative.
+ * A {@link NegativeArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably negative.
  * 
  * @author Silvan Wyss
  * @version 2016-03-01
  */
 @SuppressWarnings("serial")
-public final class NegativeArgumentException extends InvalidArgumentException {
+public final class NegativeArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is negative";
 
@@ -20,10 +24,10 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * 
    * @param argument     - Can be null.
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private NegativeArgumentException(final BigDecimal argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -32,10 +36,10 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * 
    * @param argument     - Can be null.
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private NegativeArgumentException(final double argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -44,10 +48,10 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * 
    * @param argument     - Can be null.
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private NegativeArgumentException(final long argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -55,7 +59,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * @param argumentName - Can be null.
    * @return a new {@link NegativeArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
     final BigDecimal argument,
@@ -68,7 +72,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * @param argumentName - Can be null.
    * @return a new {@link NegativeArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
     final double argument,
@@ -81,7 +85,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * @param argumentName - Can be null.
    * @return a new {@link NegativeArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
     final long argument,

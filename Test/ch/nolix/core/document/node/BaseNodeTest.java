@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
@@ -18,7 +18,7 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     final N testUnit = createNodeWithHeaderAndChildNodes("a");
 
     //execution & verification
-    expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 
   @Test
@@ -105,7 +105,7 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
     final N testUnit = createBlankNode();
 
     //execution
-    expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 
   @Test

@@ -2,16 +2,19 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 import java.math.BigDecimal;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
- * A {@link SmallerArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument is undesirably smaller than a
- * given min.
+ * A {@link SmallerArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably smaller than a given min.
  * 
  * @author Silvan Wyss
  * @version 2016-03-01
  */
 @SuppressWarnings("serial")
-public final class SmallerArgumentException extends InvalidArgumentException {
+public final class SmallerArgumentException extends AbstractInvalidArgumentException {
 
   /**
    * Creates a new {@link SmallerArgumentException} for the given argument,
@@ -20,11 +23,14 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @param argument     - Can be null.
    * @param argumentName
    * @param min
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given min is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given min is null.
    */
   private SmallerArgumentException(final BigDecimal argument, final String argumentName, final BigDecimal min) {
-    super(argument, argumentName, "is smaller than " + getValidatedMinFromMin(min));
+    super(
+      argument,
+      new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("is smaller than " + getValidatedMinFromMin(min)));
   }
 
   /**
@@ -34,10 +40,10 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @param argument
    * @param argumentName
    * @param min
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private SmallerArgumentException(final double argument, final String argumentName, final double min) {
-    super(argument, argumentName, "is smaller than " + min);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is smaller than " + min));
   }
 
   /**
@@ -46,8 +52,8 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @param min
    * @return a new {@link SmallerArgumentException} for the given argument,
    *         argumentName and mint.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given min is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given min is null.
    */
   public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
     final BigDecimal argument,
@@ -62,7 +68,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @param min
    * @return a new {@link SmallerArgumentException} for the given argument,
    *         argumentName and mint.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
     final double argument,
@@ -74,7 +80,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
   /**
    * @param min
    * @return a validated min from the given min.
-   * @throws IllegalArgumentException if the given min is null.
+   * @throws RuntimeException if the given min is null.
    */
   private static BigDecimal getValidatedMinFromMin(final BigDecimal min) {
 

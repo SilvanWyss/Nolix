@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class WithIpOrDomainCaptorTest extends StandardTest {
@@ -44,7 +43,9 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
     final var testUnit = new WithIpOrDomainCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.withIpOrDomain("nolix.ch")).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.withIpOrDomain("nolix.ch"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

@@ -2,8 +2,8 @@ package ch.nolix.system.application.main;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class BackendClientSessionManagerTest extends StandardTest {
@@ -42,7 +42,7 @@ final class BackendClientSessionManagerTest extends StandardTest {
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
 
     //execution & verification
-    expectRunning(testUnit::popCurrentSession).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(testUnit::popCurrentSession).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

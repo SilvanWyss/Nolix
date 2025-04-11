@@ -3,15 +3,15 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link ArgumentIsNotNullException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably not (!)
- * null.
+ * A {@link ArgumentIsNotNullException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably not (!) null.
  * 
  * @author Silvan Wyss
  * @version 2017-01-08
  */
 @SuppressWarnings("serial")
-public final class ArgumentIsNotNullException extends InvalidArgumentException {
+public final class ArgumentIsNotNullException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is not null";
 

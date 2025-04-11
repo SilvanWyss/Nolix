@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
@@ -19,7 +18,9 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.forNodeDatabase(database)).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.forNodeDatabase(database))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

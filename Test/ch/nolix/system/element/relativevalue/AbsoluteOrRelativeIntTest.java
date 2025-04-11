@@ -3,7 +3,7 @@ package ch.nolix.system.element.relativevalue;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -46,7 +46,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     //execution & verification
     expectRunning(testUnit::getAbsoluteValue)
       .throwsException()
-      .ofType(InvalidArgumentException.class)
+      .ofType(ArgumentDoesNotHaveAttributeException.class)
       .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(20%)' does not have a absolute value.");
   }
 
@@ -59,7 +59,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
     //execution & verification
     expectRunning(testUnit::getPercentage)
       .throwsException()
-      .ofType(InvalidArgumentException.class)
+      .ofType(ArgumentDoesNotHaveAttributeException.class)
       .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(500)' does not have a percentage.");
   }
 

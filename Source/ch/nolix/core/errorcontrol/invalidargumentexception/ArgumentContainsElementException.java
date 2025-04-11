@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentContainsElementException} is a
- * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument contains undesirably a given element.
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument contains undesirably a given element.
  * 
  * @author Silvan Wyss
  * @version 2021-07-15
  */
 @SuppressWarnings("serial")
-public final class ArgumentContainsElementException extends InvalidArgumentException {
+public final class ArgumentContainsElementException extends AbstractInvalidArgumentException {
 
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
@@ -33,10 +34,13 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
    * @param argument     - Can be null.
    * @param argumentName
    * @param element      - Can be null.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private ArgumentContainsElementException(final Object argument, final String argumentName, final Object element) {
-    super(argument, argumentName, "contains already the given " + getNameOfElement(element));
+    super(
+      argument,
+      new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("contains already the given " + getNameOfElement(element)));
   }
 
   /**
@@ -66,7 +70,7 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
    * @param element
    * @return the name of the given element for the case that the given element is
    *         not null.
-   * @throws NullPointerException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   private static String getNameOfElementWhenIsNotNull(final Object element) {
 

@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ToDatabaseNameCaptorTest extends StandardTest {
@@ -26,7 +25,9 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
     final var testUnit = new ToDatabaseNameCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.toDatabase("my_database")).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.toDatabase("my_database"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

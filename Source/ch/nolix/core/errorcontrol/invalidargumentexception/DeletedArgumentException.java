@@ -3,14 +3,15 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link DeletedArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument is undesirably deleted.
+ * A {@link DeletedArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably deleted.
  * 
  * @author Silvan Wyss
  * @version 2021-07-12
  */
 @SuppressWarnings("serial")
-public final class DeletedArgumentException extends InvalidArgumentException {
+public final class DeletedArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is deleted";
 

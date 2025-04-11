@@ -3,7 +3,6 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class AndLoginPasswordCaptorTest extends StandardTest {
@@ -35,7 +34,7 @@ final class AndLoginPasswordCaptorTest extends StandardTest {
     //execution & verification
     expectRunning(() -> testUnit.andLoginPassword("my_login_password"))
       .throwsException()
-      .ofType(InvalidArgumentException.class);
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

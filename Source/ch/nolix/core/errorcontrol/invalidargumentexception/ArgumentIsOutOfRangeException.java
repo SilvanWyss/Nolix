@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link ArgumentIsOutOfRangeException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably not in a
- * given range.
+ * A {@link ArgumentIsOutOfRangeException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably not in a given range.
  * 
  * @author Silvan Wyss
  * @version 2016-03-01
  */
 @SuppressWarnings("serial")
-public final class ArgumentIsOutOfRangeException extends InvalidArgumentException {
+public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgumentException {
 
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
@@ -33,14 +34,14 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @param argumentName
    * @param min
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private ArgumentIsOutOfRangeException(
     final double argument,
     final String argumentName,
     final double min,
     final double max) {
-    super(argument, argumentName, "is not in [" + min + ", " + max + "]");
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is not in [" + min + ", " + max + "]"));
   }
 
   /**
@@ -63,14 +64,14 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @param argumentName
    * @param min
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private ArgumentIsOutOfRangeException(
     final long argument,
     final String argumentName,
     final long min,
     final long max) {
-    super(argumentName, argument, "is not in [" + min + ", " + max + "]");
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is not in [" + min + ", " + max + "]"));
   }
 
   /**
@@ -80,7 +81,7 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    *         argumentName and range defined by the given min and max.
    * @param min
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ArgumentIsOutOfRangeException forArgumentAndArgumentNameAndRangeWithMinAndMax(
     final double argument,
@@ -97,7 +98,7 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    *         argumentName and range defined by the given min and max.
    * @param min
    * @param max
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ArgumentIsOutOfRangeException forArgumentAndArgumentNameAndRangeWithMinAndMax(
     final long argument,

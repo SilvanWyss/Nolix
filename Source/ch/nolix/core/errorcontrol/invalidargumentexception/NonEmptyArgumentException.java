@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link NonEmptyArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably not (!)
- * empty.
+ * A {@link NonEmptyArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably not (!) empty.
  * 
  * @author Silvan Wyss
  * @version 2017-01-01
  */
 @SuppressWarnings("serial")
-public final class NonEmptyArgumentException extends InvalidArgumentException {
+public final class NonEmptyArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is not empty";
 
@@ -30,10 +31,10 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
    * 
    * @param argument     - Can be null.
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private NonEmptyArgumentException(final Object argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -49,7 +50,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
    * @param argumentName
    * @return a new {@link NonEmptyArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static NonEmptyArgumentException forArgumentAndArgumentName(
     final Object argument,

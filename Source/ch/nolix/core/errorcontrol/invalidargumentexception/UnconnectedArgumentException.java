@@ -3,15 +3,15 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link UnconnectedArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirable not
- * connected.
+ * A {@link UnconnectedArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirable not connected.
  * 
  * @author Silvan Wyss
  * @version 2020-07-24
  */
 @SuppressWarnings("serial")
-public final class UnconnectedArgumentException extends InvalidArgumentException {
+public final class UnconnectedArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is not connected";
 

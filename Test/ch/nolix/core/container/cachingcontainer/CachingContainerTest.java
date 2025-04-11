@@ -2,7 +2,7 @@ package ch.nolix.core.container.cachingcontainer;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class CachingContainerTest extends StandardTest {
@@ -39,7 +39,9 @@ final class CachingContainerTest extends StandardTest {
     final var testUnit = new CachingContainer<String>();
 
     //execution
-    expectRunning(() -> testUnit.getStoredById("G")).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.getStoredById("G"))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

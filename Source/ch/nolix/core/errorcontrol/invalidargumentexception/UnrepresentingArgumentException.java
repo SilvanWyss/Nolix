@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
  * A {@link UnrepresentingArgumentException} is a
- * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument does undesirable not represent an object of a given type.
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument does undesirable not represent an object of a given type.
  * 
  * @author Silvan Wyss
  * @version 2017-03-05
  */
 @SuppressWarnings("serial")
-public final class UnrepresentingArgumentException extends InvalidArgumentException {
+public final class UnrepresentingArgumentException extends AbstractInvalidArgumentException {
 
   private static final String DEFAULT_TYPE_NAME = Object.class.getSimpleName();
 
@@ -25,7 +26,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * 
    * @param argument - Can be null.
    * @param type
-   * @throws IllegalArgumentException if the given type is null.
+   * @throws RuntimeException if the given type is null.
    */
   private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
     super(argument, new ErrorPredicateDto("does not represent " + getPronounAndNameOfType(type)));
@@ -38,11 +39,14 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * @param argument
    * @param argumentName
    * @param type
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given type is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given type is null.
    */
   private UnrepresentingArgumentException(final Object argument, final String argumentName, final Class<?> type) {
-    super(argument, argumentName, "does not represent " + getPronounAndNameOfType(type));
+    super(
+      argument,
+      new ArgumentNameDto(argumentName),
+      new ErrorPredicateDto("does not represent " + getPronounAndNameOfType(type)));
   }
 
   /**
@@ -51,8 +55,8 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * @param type
    * @return a new {@link UnrepresentingArgumentException} for the given argument,
    *         argumentName and type.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
-   * @throws IllegalArgumentException if the given type is null.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given type is null.
    */
   public static UnrepresentingArgumentException forArgumentAndArgumentNameAndType(
     final Object argument,
@@ -66,7 +70,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * @param type
    * @return a new {@link UnrepresentingArgumentException} for the given argument
    *         and type.
-   * @throws IllegalArgumentException if the given type is null.
+   * @throws RuntimeException if the given type is null.
    */
   public static UnrepresentingArgumentException forArgumentAndType(final Object argument, final Class<?> type) {
     return new UnrepresentingArgumentException(argument, type);
@@ -75,7 +79,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
   /**
    * @param type
    * @return the name of the given type.
-   * @throws IllegalArgumentException if the given type is null.
+   * @throws RuntimeException if the given type is null.
    */
   private static String getNameOfType(final Class<?> type) {
 
@@ -95,7 +99,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
   /**
    * @param type
    * @return the pronoun and name of the given type.
-   * @throws IllegalArgumentException if the given type is null.
+   * @throws RuntimeException if the given type is null.
    */
   private static String getPronounAndNameOfType(final Class<?> type) {
 
@@ -108,7 +112,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
   /**
    * @param noun
    * @return the pronoun for the given noun.
-   * @throws IllegalArgumentException if the given noun is null or blank.
+   * @throws RuntimeException if the given noun is null or blank.
    */
   private static String getPronounForNoun(final String noun) {
 

@@ -1,15 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
- * A {@link UnsupportedCaseException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument is undesirable not a supported
- * case.
+ * A {@link UnsupportedCaseException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirable not a supported case.
  * 
  * @author Silvan Wyss
  * @version 2021-03-23
  */
 @SuppressWarnings("serial")
-public final class UnsupportedCaseException extends InvalidArgumentException {
+public final class UnsupportedCaseException extends AbstractInvalidArgumentException {
 
   private static final String ARGUMENT_NAME = "case";
 
@@ -19,26 +22,26 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    * Creates a new {@link UnsupportedCaseException} for the given paramCase.
    *
    * @param paramCase
-   * @throws IllegalArgumentException if the given paramCase is null.
+   * @throws RuntimeException if the given paramCase is null.
    */
   private UnsupportedCaseException(final Enum<?> paramCase) {
-    super((Object) getNameOfCase(paramCase), ARGUMENT_NAME, ERROR_PREDICATE);
+    super(getNameOfCase(paramCase), new ArgumentNameDto(ARGUMENT_NAME), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
    * Creates a new {@link UnsupportedCaseException} for the given paramCase.
    *
    * @param paramCase
-   * @throws IllegalArgumentException if the given paramCase is null or blank.
+   * @throws RuntimeException if the given paramCase is null or blank.
    */
   private UnsupportedCaseException(final String paramCase) {
-    super((Object) getNameOfCase(paramCase), ARGUMENT_NAME, ERROR_PREDICATE);
+    super(getNameOfCase(paramCase), new ArgumentNameDto(ARGUMENT_NAME), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
    * @param paramCase
    * @return a new {@link UnsupportedCaseException} for the given paramCase.
-   * @throws IllegalArgumentException if the given paramCase is null.
+   * @throws RuntimeException if the given paramCase is null.
    */
   public static UnsupportedCaseException forCase(final Enum<?> paramCase) {
     return new UnsupportedCaseException(paramCase);
@@ -47,7 +50,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
   /**
    * @param paramCase
    * @return a new {@link UnsupportedCaseException} for the given paramCase.
-   * @throws IllegalArgumentException if the given pCase is null or blank.
+   * @throws RuntimeException if the given pCase is null or blank.
    */
   public static UnsupportedCaseException forCase(final String paramCase) {
     return new UnsupportedCaseException(paramCase);
@@ -56,7 +59,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
   /**
    * @param paramCase
    * @return the name of the given paramCase.
-   * @throws IllegalArgumentException if the given paramCase is null.
+   * @throws RuntimeException if the given paramCase is null.
    */
   private static String getNameOfCase(final Enum<?> paramCase) {
 
@@ -70,7 +73,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
   /**
    * @param paramCase
    * @return the name of the given paramCase.
-   * @throws IllegalArgumentException if the given paramCase is null or blank.
+   * @throws RuntimeException if the given paramCase is null or blank.
    */
   private static String getNameOfCase(String paramCase) {
 

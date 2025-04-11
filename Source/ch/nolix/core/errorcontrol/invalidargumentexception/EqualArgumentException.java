@@ -1,17 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link EqualArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when a given argument equals undesirably a given
- * value.
+ * A {@link EqualArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument equals undesirably a given value.
  * 
  * @author Silvan Wyss
  * @version 2017-10-14
  */
 @SuppressWarnings("serial")
-public final class EqualArgumentException extends InvalidArgumentException {
+public final class EqualArgumentException extends AbstractInvalidArgumentException {
 
   /**
    * Creates a new {@link EqualArgumentException} for the given argument and
@@ -31,10 +32,10 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * @param argument     - Can be null.
    * @param argumentName
    * @param equalValue   - Can be null.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private EqualArgumentException(final double argument, final String argumentName, final double equalValue) {
-    super(argument, argumentName, "equals " + equalValue);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("equals " + equalValue));
   }
 
   /**
@@ -44,10 +45,10 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * @param argument     - Can be null.
    * @param argumentName
    * @param equalValue   - Can be null.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private EqualArgumentException(final long argument, final String argumentName, final long equalValue) {
-    super(argument, argumentName, "equals " + equalValue);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("equals " + equalValue));
   }
 
   /**
@@ -56,7 +57,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * @param equalValue   - Can be null.
    * @return a new {@link EqualArgumentException} for the given argument,
    *         argumentName and equalValue.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
     final double argument,
@@ -71,7 +72,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * @param equalValue   - Can be null.
    * @return a new {@link EqualArgumentException} for the given argument,
    *         argumentName and equalValue.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
     final long argument,

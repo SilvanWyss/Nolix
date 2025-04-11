@@ -1,16 +1,18 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link ClosedArgumentException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when an argument is undesirably closed.
+ * A {@link ClosedArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when
+ * an argument is undesirably closed.
  * 
  * @author Silvan Wyss
  * @version 2019-01-26
  */
 @SuppressWarnings("serial")
-public final class ClosedArgumentException extends InvalidArgumentException {
+public final class ClosedArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is closed";
 
@@ -29,10 +31,10 @@ public final class ClosedArgumentException extends InvalidArgumentException {
    * 
    * @param argument
    * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   private ClosedArgumentException(final Object argument, final String argumentName) {
-    super(argument, argumentName, ERROR_PREDICATE);
+    super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
@@ -48,7 +50,7 @@ public final class ClosedArgumentException extends InvalidArgumentException {
    * @param argumentName
    * @return a new {@link ClosedArgumentException} for the given argument and
    *         argumentName.
-   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank.
    */
   public static ClosedArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {
     return new ClosedArgumentException(argument, argumentName);

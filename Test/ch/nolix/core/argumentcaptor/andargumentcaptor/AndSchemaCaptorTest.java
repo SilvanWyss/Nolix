@@ -3,7 +3,6 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
@@ -34,7 +33,9 @@ final class AndSchemaCaptorTest extends StandardTest {
     final var testUnit = new AndSchemaCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.andSchema(new VoidObject())).throwsException().ofType(InvalidArgumentException.class);
+    expectRunning(() -> testUnit.andSchema(new VoidObject()))
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test

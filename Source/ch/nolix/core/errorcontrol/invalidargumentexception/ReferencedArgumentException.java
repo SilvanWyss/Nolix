@@ -3,15 +3,15 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
- * A {@link ReferencedArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably
- * referenced.
+ * A {@link ReferencedArgumentException} is a
+ * {@link AbstractInvalidArgumentException} that is supposed to be thrown when a
+ * given argument is undesirably referenced.
  * 
  * @author Silvan Wyss
  * @version 2021-07-16
  */
 @SuppressWarnings("serial")
-public final class ReferencedArgumentException extends InvalidArgumentException {
+public final class ReferencedArgumentException extends AbstractInvalidArgumentException {
 
   private static final String ERROR_PREDICATE = "is referenced";
 

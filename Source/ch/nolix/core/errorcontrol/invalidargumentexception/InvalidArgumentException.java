@@ -12,24 +12,6 @@ import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptio
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
 
 /**
- * A {@link InvalidArgumentException} is a {@link RuntimeException} that is
- * supposed to be thrown when a given argument is not valid.
- * 
- * A {@link InvalidArgumentException} stores the argument the
- * {@link InvalidArgumentException} was created for.
- * 
- * A {@link InvalidArgumentException} stores the name of the argument the
- * {@link InvalidArgumentException} was created for.
- * 
- * Let [A] be an adjective, [PA] a grammatically positive adjective and [P] a
- * predicate. The name of a {@link InvalidArgumentException} class should match
- * one of the following patterns: [A]ArgumentException, Non[PA]ArgumentExceptio,
- * Argument[P]Exception.
- * 
- * Examples of {@link InvalidArgumentException} names:
- * NegativeArgumentException, NonPositiveArgumentException,
- * ArgumentIsOutOfRangeException
- * 
  * @author Silvan Wyss
  * @version 2016-12-01
  */
