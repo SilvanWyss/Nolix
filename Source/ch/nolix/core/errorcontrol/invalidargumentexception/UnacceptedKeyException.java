@@ -17,16 +17,14 @@ public final class UnacceptedKeyException extends InvalidArgumentException {
   /**
    * Creates a new {@link UnacceptedKeyException} for the given key.
    * 
-   * @param key
+   * @param key - Can be null.
    */
   private UnacceptedKeyException(final String key) {
-
-    //Calls constructor of the base class.
     super((Object) key, ARGUMENT_NAME, ERROR_PREDICATE);
   }
 
   /**
-   * @param key
+   * @param key - Can be null.
    * @return a new {@link UnacceptedKeyException} for the given key.
    */
   public static UnacceptedKeyException forKey(final String key) {
