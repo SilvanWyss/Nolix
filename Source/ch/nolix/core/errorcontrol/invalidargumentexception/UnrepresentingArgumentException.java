@@ -1,9 +1,11 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link UnrepresentingArgumentException} is a
  * {@link InvalidArgumentException} that is supposed to be thrown when a given
- * argument does undesirable not represent an object of a certain type.
+ * argument does undesirable not represent an object of a given type.
  * 
  * @author Silvan Wyss
  * @version 2017-03-05
@@ -11,39 +13,52 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends InvalidArgumentException {
 
-  private static final String PRONOUN_A = "a";
+  private static final String DEFAULT_TYPE_NAME = Object.class.getSimpleName();
 
-  private static final String PRONOUN_AN = "an";
+  private static final String A = "a";
+
+  private static final String AN = "an";
 
   /**
    * Creates a new {@link UnrepresentingArgumentException} for the given argument
    * and type.
    * 
-   * @param argument
+   * @param argument - Can be null.
    * @param type
    * @throws IllegalArgumentException if the given type is null.
    */
   private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
+    super(argument, new ErrorPredicateDto("does not represent " + getPronounAndNameOfType(type)));
   }
 
   /**
-   * Creates a new {@link UnrepresentingArgumentException} for the given
-   * argumentName, argument and type.
+   * Creates a new {@link UnrepresentingArgumentException} for the given argument,
+   * argumentName and type.
    * 
-   * @param argumentName
    * @param argument
+   * @param argumentName
    * @param type
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
    * @throws IllegalArgumentException if the given type is null.
    */
-  private UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
+  private UnrepresentingArgumentException(final Object argument, final String argumentName, final Class<?> type) {
+    super(argument, argumentName, "does not represent " + getPronounAndNameOfType(type));
+  }
 
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
+  /**
+   * @param argument
+   * @param argumentName
+   * @param type
+   * @return a new {@link UnrepresentingArgumentException} for the given argument,
+   *         argumentName and type.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given type is null.
+   */
+  public static UnrepresentingArgumentException forArgumentAndArgumentNameAndType(
+    final Object argument,
+    final String argumentName,
+    final Class<?> type) {
+    return new UnrepresentingArgumentException(argument, argumentName, type);
   }
 
   /**
@@ -58,35 +73,36 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
   }
 
   /**
-   * @param argumentName
-   * @param argument
-   * @param type
-   * @return a new {@link UnrepresentingArgumentException} for the given
-   *         argumentName, argument and type.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given type is null.
-   */
-  public static UnrepresentingArgumentException forArgumentNameAndArgumentAndType(
-    final String argumentName,
-    final Object argument,
-    final Class<?> type) {
-    return new UnrepresentingArgumentException(argumentName, argument, type);
-  }
-
-  /**
    * @param type
    * @return the name of the given type.
    * @throws IllegalArgumentException if the given type is null.
    */
   private static String getNameOfType(final Class<?> type) {
 
-    //Asserts that the given type is not null.
     if (type == null) {
       throw new IllegalArgumentException("The given type is null.");
     }
 
-    return type.getSimpleName();
+    final var name = type.getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
+    }
+
+    return DEFAULT_TYPE_NAME;
+  }
+
+  /**
+   * @param type
+   * @return the pronoun and name of the given type.
+   * @throws IllegalArgumentException if the given type is null.
+   */
+  private static String getPronounAndNameOfType(final Class<?> type) {
+
+    final var name = getNameOfType(type);
+    final var pronoun = getPronounForNoun(name);
+
+    return (pronoun + " " + name);
   }
 
   /**
@@ -96,12 +112,10 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    */
   private static String getPronounForNoun(final String noun) {
 
-    //Asserts that the given noun is not null.
     if (noun == null) {
       throw new IllegalArgumentException("The given noun is null.");
     }
 
-    //Asserts that the given noun is not blank.
     if (noun.isBlank()) {
       throw new IllegalArgumentException("The given noun is blank.");
     }
@@ -119,21 +133,9 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
       'o',
       'U',
       'u' ->
-        PRONOUN_AN;
+        AN;
       default ->
-        PRONOUN_A;
+        A;
     };
-  }
-
-  /**
-   * @param type
-   * @return the type name with the pronoun for the given type.
-   * @throws IllegalArgumentException if the given type is null.
-   */
-  private static String getTypeNameWithPronounOfType(final Class<?> type) {
-
-    final var typeName = getNameOfType(type);
-
-    return (getPronounForNoun(typeName) + " " + typeName);
   }
 }

@@ -125,9 +125,10 @@ public final class Background extends AbstractElement implements IBackground {
 
   private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
     final INode<?> specification) {
-    return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-      LowerCaseVariableCatalog.SPECIFICATION,
+    return //
+    UnrepresentingArgumentException.forArgumentAndArgumentNameAndType(
       specification,
+      LowerCaseVariableCatalog.SPECIFICATION,
       Background.class);
   }
 
