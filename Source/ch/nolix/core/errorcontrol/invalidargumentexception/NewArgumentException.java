@@ -1,8 +1,10 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link NewArgumentException} is a {@link InvalidArgumentException} that is
- * supposed to be thrown when a given argument is undesirably not new.
+ * supposed to be thrown when a given argument is undesirably new.
  * 
  * @author Silvan Wyss
  * @version 2021-07-16
@@ -15,16 +17,14 @@ public final class NewArgumentException extends InvalidArgumentException {
   /**
    * Creates a new {@link NewArgumentException} for the given argument.
    * 
-   * @param argument
+   * @param argument - Can be null.
    */
   private NewArgumentException(final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, ERROR_PREDICATE);
+    super(argument, new ErrorPredicateDto(ERROR_PREDICATE));
   }
 
   /**
-   * @param argument
+   * @param argument - Can be null.
    * @return a new {@link NewArgumentException} for the given argument.
    */
   public static NewArgumentException forArgument(final Object argument) {
