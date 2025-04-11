@@ -23,22 +23,22 @@ public class ByteMediator extends Mediator {
     final var actualBits = new UnsignedByte(argument).toBitString();
 
     if (!actualBits.equals(expectedBits)) {
-      throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(
-        getArgumentName(),
+      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(
         new UnsignedByte(argument).toBitString(),
+        getArgumentName(),
         expectedBits);
     }
   }
 
   public void isEqualTo(final byte value) {
     if (argument != value) {
-      throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
+      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(argument, getArgumentName(), value);
     }
   }
 
   public void isEqualTo(final int value) {
     if (argument != value) {
-      throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
+      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(argument, getArgumentName(), value);
     }
   }
 }

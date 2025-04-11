@@ -59,7 +59,7 @@ public final class DoubleDeviationMediator extends Mediator {
      * this named double deviation mediator.
      */
     if (Math.abs(value - argument) > maxDeviation) {
-      throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), value, argument);
+      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(value, getArgumentName(), argument);
     }
   }
 }

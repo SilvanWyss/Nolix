@@ -1,5 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+
 /**
  * A {@link UnequalArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument does undesirably not equal a
@@ -11,33 +13,48 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {
 
+  private static final String DEFAULT_VALUE_NAME = Object.class.getSimpleName();
+
   /**
    * Creates a new {@link UnequalArgumentException} for the given argument and
    * value.
    * 
-   * @param argument
+   * @param argument - Can be null.
    * @param value
+   * @throws IllegalArgumentException if the given value is null.
    */
   private UnequalArgumentException(final Object argument, final Object value) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
+    super(argument, new ErrorPredicateDto("does not equal the " + getNameOfValue(value) + " '" + value + "'"));
   }
 
   /**
-   * Creates a new {@link UnequalArgumentException} for the given argument and
-   * value.
+   * Creates a new {@link UnequalArgumentException} for the given argument,
+   * argumentName and value.
    * 
-   * @param argumentName
    * @param argument
+   * @param argumentName
    * @param value
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given value is null.
    */
-  private UnequalArgumentException(final String argumentName, final Object argument, final Object value) {
+  private UnequalArgumentException(final Object argument, final String argumentName, final Object value) {
+    super(argument, argumentName, "does not equal the " + getNameOfValue(value) + " '" + value + "'");
+  }
 
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
+  /**
+   * @param argument
+   * @param argumentName
+   * @param value
+   * @return a new {@link UnequalArgumentException} for the given argument,
+   *         argumentName and value.
+   * @throws IllegalArgumentException if the given argumentName is null or blank.
+   * @throws IllegalArgumentException if the given value is null.
+   */
+  public static UnequalArgumentException forArgumentAndArgumentNameAndValue(
+    final Object argument,
+    final String argumentName,
+    final Object value) {
+    return new UnequalArgumentException(argument, argumentName, value);
   }
 
   /**
@@ -45,40 +62,29 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @param value
    * @return a new {@link UnequalArgumentException} for the given argument and
    *         value.
+   * @throws IllegalArgumentException if the given value is null.
    */
   public static UnequalArgumentException forArgumentAndValue(final Object argument, final Object value) {
     return new UnequalArgumentException(argument, value);
   }
 
   /**
-   * @param argumentName
-   * @param argument
    * @param value
-   * @return a new {@link UnequalArgumentException} for the given argumentName,
-   *         argument and value.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static UnequalArgumentException forArgumentNameAndArgumentAndValue(
-    final String argumentName,
-    final Object argument,
-    final Object value) {
-    return new UnequalArgumentException(argumentName, argument, value);
-  }
-
-  /**
-   * @param value
-   * @return a name for the given value.
+   * @return the name of the given value.
    * @throws IllegalArgumentException if the given value is null.
    */
-  private static String getNameForValue(final Object value) {
+  private static String getNameOfValue(final Object value) {
 
-    //Asserts that the given argument is not null.
     if (value == null) {
-      throw new IllegalArgumentException("The given value is null");
+      throw new IllegalArgumentException("The given value is null.");
     }
 
-    //Returns a name for the given value.
-    return value.getClass().getSimpleName();
+    final var name = value.getClass().getSimpleName();
+
+    if (name != null && !name.isEmpty()) {
+      return name;
+    }
+
+    return DEFAULT_VALUE_NAME;
   }
 }
