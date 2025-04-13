@@ -6,20 +6,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.IServer;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 
 /**
  * @author Silvan Wyss
  * @version 2017-05-06
  */
 public abstract class AbstractServer implements IServer {
-
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -121,7 +118,7 @@ public abstract class AbstractServer implements IServer {
   final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
 
     //Asserts that the given endPoint is open.
-    RESOURCE_VALIDATOR.assertIsOpen(endPoint);
+    ResourceValidator.assertIsOpen(endPoint);
 
     //Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {

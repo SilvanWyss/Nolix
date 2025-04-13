@@ -2,11 +2,10 @@ package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.flatmodelmapper.FlatTableDtoMapper;
 import ch.nolix.system.sqlschema.modelmapper.ColumnDtoMapper;
@@ -19,8 +18,6 @@ import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
-
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
@@ -38,7 +35,7 @@ public final class SchemaReader implements ISchemaReader {
     final IQueryCreator queryCreator) {
 
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
-    RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
+    ResourceValidator.assertIsOpen(sqlConnection);
     Validator.assertThat(queryCreator).thatIsNamed(IQueryCreator.class).isNotNull();
 
     this.sqlConnection = sqlConnection;

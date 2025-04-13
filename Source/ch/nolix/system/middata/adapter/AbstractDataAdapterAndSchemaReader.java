@@ -1,8 +1,7 @@
 package ch.nolix.system.middata.adapter;
 
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
@@ -19,15 +18,13 @@ public abstract class AbstractDataAdapterAndSchemaReader
 extends AbstractDataAdapter
 implements IDataAdapterAndSchemaReader {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
-
   private final ISchemaReader schemaReader;
 
   protected AbstractDataAdapterAndSchemaReader(final IDataAdapter dataAdapter, final ISchemaReader schemaReader) {
 
     super(dataAdapter, dataAdapter);
 
-    RESOURCE_VALIDATOR.assertIsOpen(schemaReader);
+    ResourceValidator.assertIsOpen(schemaReader);
 
     this.schemaReader = schemaReader;
 

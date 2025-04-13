@@ -2,12 +2,11 @@ package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
@@ -16,8 +15,6 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
-
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private static final IStatementCreator STATEMENT_CREATOR = new StatementCreator();
 
@@ -32,7 +29,7 @@ public final class SchemaWriter implements ISchemaWriter {
   private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
 
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
-    RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
+    ResourceValidator.assertIsOpen(sqlConnection);
 
     this.sqlConnection = sqlConnection;
     createCloseDependencyTo(sqlConnection);

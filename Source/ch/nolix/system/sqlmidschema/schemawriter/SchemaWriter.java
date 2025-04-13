@@ -2,12 +2,11 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaWriter;
@@ -17,8 +16,6 @@ import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
-
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();
@@ -40,7 +37,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
 
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
-    RESOURCE_VALIDATOR.assertIsOpen(sqlConnection);
+    ResourceValidator.assertIsOpen(sqlConnection);
 
     this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;

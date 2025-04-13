@@ -1,10 +1,9 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
@@ -12,8 +11,6 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 
 public final class Column extends ImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
-
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private final String id;
 
@@ -35,8 +32,8 @@ public final class Column extends ImmutableDatabaseObject implements IColumnView
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();
-    RESOURCE_VALIDATOR.assertIsOpen(parentTable);
-    RESOURCE_VALIDATOR.assertIsOpen(midDataReader);
+    ResourceValidator.assertIsOpen(parentTable);
+    ResourceValidator.assertIsOpen(midDataReader);
 
     this.id = id;
     this.name = name;
