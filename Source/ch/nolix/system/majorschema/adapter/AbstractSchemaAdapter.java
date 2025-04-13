@@ -9,7 +9,6 @@ import ch.nolix.systemapi.majorschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.majorschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.majorschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
@@ -110,11 +109,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-    schemaWriter.renameColumn(tableName, columnName, newColumnName);
-  }
-
-  @Override
   public final void renameTable(final String tableName, final String newTableName) {
     schemaWriter.renameTable(tableName, newTableName);
   }
@@ -122,12 +116,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   @Override
   public final void reset() {
     schemaWriter.reset();
-  }
-
-  @Override
-  public final void setContentModels(final String tableName, final String columnName,
-    IContainer<IContentModelDto> contentModels) {
-    schemaWriter.setContentModels(tableName, columnName, contentModels);
   }
 
   @Override
