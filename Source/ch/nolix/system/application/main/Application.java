@@ -172,8 +172,8 @@ implements IApplication<S> {
   }
 
   /**
-   * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of the
-   *         current {@link Application}.
+   * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of
+   *         the current {@link Application}.
    */
   @SuppressWarnings("unchecked")
   protected final AbstractSession<C, S> createInitialSession() {
@@ -181,7 +181,8 @@ implements IApplication<S> {
   }
 
   /**
-   * @return the initial {@link AbstractSession} class of the current {@link Application}.
+   * @return the initial {@link AbstractSession} class of the current
+   *         {@link Application}.
    */
   protected abstract Class<?> getInitialSessionClass();
 
@@ -236,7 +237,6 @@ implements IApplication<S> {
    *                                          belongs already to a
    *                                          {@link AbstractServer}.
    */
-  @SuppressWarnings("resource")
   private void assertDoesNotBelongToServer() {
     if (belongsToServer()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentServer());
