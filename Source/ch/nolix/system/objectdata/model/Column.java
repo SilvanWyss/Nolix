@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 
 public final class Column extends ImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private final String id;
 

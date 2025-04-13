@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmidschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
 

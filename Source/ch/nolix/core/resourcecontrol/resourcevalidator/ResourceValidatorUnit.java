@@ -10,7 +10,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
  * @author Silvan Wyss
  * @version 2024-12-19
  */
-public class ResourceValidator implements IResourceValidator {
+public class ResourceValidatorUnit implements IResourceValidator {
 
   private static final IResourceExaminer RESOURCE_EXAMINER = new ResourceExaminer();
 

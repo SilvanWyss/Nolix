@@ -1,7 +1,7 @@
 package ch.nolix.core.sql.connection;
 
 import ch.nolix.core.programcontrol.closepool.UncloseableCloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
@@ -21,7 +21,7 @@ import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
  */
 public final class UncloseableSqlConnection implements ISqlConnection {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private final ISqlConnection sqlConnection;
 

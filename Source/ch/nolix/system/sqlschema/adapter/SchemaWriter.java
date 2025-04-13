@@ -2,7 +2,7 @@ package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private static final IStatementCreator STATEMENT_CREATOR = new StatementCreator();
 

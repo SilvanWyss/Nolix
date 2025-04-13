@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.endpoint3api.IServer;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
@@ -19,7 +19,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidat
  */
 public abstract class AbstractServer implements IServer {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidator();
+  private static final IResourceValidator RESOURCE_VALIDATOR = new ResourceValidatorUnit();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
