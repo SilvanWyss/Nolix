@@ -1,10 +1,10 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.ConcreteReferenceContentValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.MultiReference;

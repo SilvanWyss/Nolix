@@ -1,9 +1,9 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.SmartFieldValidator;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IContent;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;

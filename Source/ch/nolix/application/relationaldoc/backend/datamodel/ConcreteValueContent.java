@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.datamodel;
 
 import ch.nolix.application.relationaldoc.backend.datavalidator.ConcreteValueContentValidator;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteValueContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IValueContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.DataType;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

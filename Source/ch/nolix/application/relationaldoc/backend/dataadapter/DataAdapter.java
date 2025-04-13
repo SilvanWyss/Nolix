@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.dataadapter;
 
 import ch.nolix.application.relationaldoc.backend.dataeexaminer.SmartObjectExaminer;
-import ch.nolix.application.relationaldoc.backend.datamodel.SmartObject;
 import ch.nolix.application.relationaldoc.backend.datamodel.SchemaCatalog;
+import ch.nolix.application.relationaldoc.backend.datamodel.SmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.dataadapterapi.IDataAdapter;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.core.errorcontrol.validator.Validator;

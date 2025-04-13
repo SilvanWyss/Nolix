@@ -1,8 +1,8 @@
 package ch.nolix.application.relationaldoc.backend.dataeexaminer;
 
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ICategorizableReferenceContent;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 
 public final class ConcreteReferenceContentExaminer {

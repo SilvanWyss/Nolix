@@ -2,8 +2,8 @@ package ch.nolix.application.relationaldoc.backend.datavalidator;
 
 import ch.nolix.application.relationaldoc.backend.dataeexaminer.ConcreteReferenceContentExaminer;
 import ch.nolix.application.relationaldoc.backend.datamodel.ConcreteReferenceContent;
-import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IConcreteReferenceContent;
+import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 public final class ConcreteReferenceContentValidator {
