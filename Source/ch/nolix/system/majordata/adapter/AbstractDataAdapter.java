@@ -16,7 +16,7 @@ import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public final class AbstractDataAdapter implements IDataAdapter {
+public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
