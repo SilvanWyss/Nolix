@@ -1,7 +1,6 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlmiddata.sqlmapper.SqlValueMapper;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
@@ -49,7 +48,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return //
     "IF NOT EXISTS (SELECT * FROM "
     + FixTable.DATABASE_PROPERTY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + DatabasePropertyColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getName()

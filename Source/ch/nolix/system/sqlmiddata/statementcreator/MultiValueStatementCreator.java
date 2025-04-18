@@ -1,6 +1,5 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiValueStatementCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryColumn;
@@ -31,7 +30,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     return //
     "DELETE FROM "
     + FixTable.MULTI_VALUE_ENTRY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId

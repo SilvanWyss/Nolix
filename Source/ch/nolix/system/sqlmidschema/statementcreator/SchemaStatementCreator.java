@@ -2,7 +2,6 @@ package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
@@ -49,9 +48,9 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + contentModelSqlDto.dataType()
     + ", "
     + contentModelSqlDto.backReferencedColumnId()
-    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + " FROM "
     + FixTable.TABLE.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + TableColumn.NAME.getName()
     + " = '"
     + tableName
@@ -93,7 +92,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return //
     "DELETE FROM "
     + FixTable.COLUMN.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + tableName
@@ -109,7 +108,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return //
     "DELETE FROM "
     + FixTable.TABLE.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + TableColumn.NAME
     + " = '"
     + tableName
@@ -122,7 +121,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return //
     "UPDATE "
     + FixTable.COLUMN.getName()
-    + SpaceEnclosedSqlKeywordCatalog.SET
+    + " SET "
     + ColumnColumn.NAME
     + " = '"
     + newColumnName
@@ -148,7 +147,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return //
     "UPDATE "
     + FixTable.COLUMN.getName()
-    + SpaceEnclosedSqlKeywordCatalog.SET
+    + " SET "
     + ColumnColumn.DATA_TYPE
     + " = "
     + contentModelSqlDto.dataType()
@@ -156,7 +155,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " = "
     + contentModelSqlDto.backReferencedColumnId()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID
     + " = '"
     + tableName
@@ -172,7 +171,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
     return //
     "UPDATE "
     + FixTable.TABLE.getName()
-    + SpaceEnclosedSqlKeywordCatalog.SET
+    + " SET "
     + TableColumn.NAME.getName()
     + " = '"
     + newTableName

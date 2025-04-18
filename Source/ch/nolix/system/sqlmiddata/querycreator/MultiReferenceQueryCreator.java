@@ -1,7 +1,6 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiReferenceEntryColumn;
@@ -16,7 +15,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     return //
     "SELECT COUNT(*) FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + columnId
@@ -37,9 +36,9 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String multiReferenceColumnId) {
     return "SELECT "
     + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
-    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + " FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
@@ -56,7 +55,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiReferenceColumnId

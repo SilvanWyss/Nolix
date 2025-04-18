@@ -1,7 +1,6 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
@@ -30,7 +29,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + columnName
     + ") FROM "
     + tableName
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + columnName
     + " = '"
     + value
@@ -48,7 +47,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + columnName
     + ") FROM "
     + tableName
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + columnName
     + " = '"
     + value
@@ -61,7 +60,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadEntitiesOfTable(final TableSchemaViewDto tableView) {
     return "SELECT Id, SaveStamp, "
     + tableView.columnSchemaViews().to(ColumnSchemaViewDto::name).toStringWithSeparator(", ")
-    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + " FROM "
     + tableView.name()
     + ";";
   }
@@ -70,7 +69,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadEntity(String id, TableSchemaViewDto tableView) {
     return "SELECT Id, SaveStamp, "
     + tableView.columnSchemaViews().to(ColumnSchemaViewDto::name).toStringWithSeparator(", ")
-    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + " FROM "
     + tableView.name()
     + " WHERE Id = '"
     + id
@@ -81,9 +80,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
     + DatabasePropertyColumn.VALUE.getName()
-    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + " FROM "
     + FixTable.DATABASE_PROPERTY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + DatabasePropertyColumn.KEY.getName()
     + " = '"
     + DatabaseProperty.SCHEMA_TIMESTAMP.getName()

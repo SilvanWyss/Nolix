@@ -1,6 +1,5 @@
 package ch.nolix.system.sqlmidschema.statementcreator;
 
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
@@ -14,7 +13,7 @@ public final class DatabasePropertiesStatementCreator implements IDatabaseProper
     return //
     "UPDATE "
     + FixTable.DATABASE_PROPERTY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.SET
+    + " SET "
     + DatabasePropertyColumn.VALUE.getName()
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()

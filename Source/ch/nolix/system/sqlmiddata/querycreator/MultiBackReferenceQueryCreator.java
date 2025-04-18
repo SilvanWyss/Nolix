@@ -1,6 +1,5 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
-import ch.nolix.coreapi.sqlapi.syntaxapi.SpaceEnclosedSqlKeywordCatalog;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiBackReferenceEntryColumn;
@@ -29,9 +28,9 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     return //
     "SELECT "
     + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
-    + SpaceEnclosedSqlKeywordCatalog.FROM
+    + " FROM "
     + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
     + entityId
@@ -49,7 +48,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     return //
     "SELECT TOP 1 * FROM "
     + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
-    + SpaceEnclosedSqlKeywordCatalog.WHERE
+    + " WHERE "
     + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + " = '"
     + multiBackReferenceColumnId
