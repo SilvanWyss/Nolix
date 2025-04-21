@@ -17,6 +17,6 @@ final class ImageControlHtmlBuilderTest extends ControlHtmlBuilderTest<ImageCont
 
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
-    return "<img />";
+    return "<img alt=\"\" />";
   }
 }

@@ -2,6 +2,8 @@ package ch.nolix.coreapi.webapi.htmlapi;
 
 public final class HtmlAttributeNameCatalog {
 
+  public static final String ALT = "alt";
+
   public static final String CLASS = "class";
 
   public static final String ID = "id";

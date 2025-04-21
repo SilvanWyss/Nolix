@@ -11,6 +11,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
@@ -26,17 +27,25 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
 
+  public static final String DEFAULT_ALTERNATE_TEXT = StringCatalog.EMPTY_STRING;
+
   private static final String IMAGE_HEADER = PascalCaseVariableCatalog.IMAGE;
+
+  private static final String ALTERNATE_TEXT_HEADER = "AlternateText";
 
   private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();
 
   private static final ImageControlCssBuilder CSS_BUILDER = new ImageControlCssBuilder();
 
-  private final MutableOptionalValue<MutableImage> image = new MutableOptionalValue<>(
+  private final MutableOptionalValue<MutableImage> image = //
+  new MutableOptionalValue<>(
     IMAGE_HEADER,
     this::setImage,
     MutableImage::fromSpecification,
     MutableImage::getSpecification);
+
+  private final MutableValue<String> alternateText = //
+  MutableValue.forString(ALTERNATE_TEXT_HEADER, DEFAULT_ALTERNATE_TEXT, this::setAlternateText);
 
   private Consumer<IImageControl> leftMouseButtonPressAction;
 
@@ -58,6 +67,11 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public boolean isEmpty() {
     return image.isEmpty();
+  }
+
+  @Override
+  public String getAlternateText() {
+    return alternateText.getValue();
   }
 
   @Override
@@ -118,6 +132,14 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     if (hasLeftMouseButtonPressAction()) {
       leftMouseButtonPressAction.accept(this);
     }
+  }
+
+  @Override
+  public IImageControl setAlternateText(final String alternateText) {
+
+    this.alternateText.setValue(alternateText);
+
+    return this;
   }
 
   @Override

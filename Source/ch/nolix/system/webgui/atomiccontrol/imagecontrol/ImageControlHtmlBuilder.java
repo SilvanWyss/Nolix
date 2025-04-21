@@ -25,11 +25,19 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 
     if (imageControl.containsAny()) {
-      htmlAttributes.addAtEnd(
-        HtmlAttribute.withNameAndValue(
-          HtmlAttributeNameCatalog.SRC,
-          "data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString()));
+
+      final var srcAttribute = //
+      HtmlAttribute.withNameAndValue(
+        HtmlAttributeNameCatalog.SRC,
+        "data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString());
+
+      htmlAttributes.addAtEnd(srcAttribute);
     }
+
+    final var altAttribute = //
+    HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ALT, imageControl.getAlternateText());
+
+    htmlAttributes.addAtEnd(altAttribute);
 
     return htmlAttributes;
   }

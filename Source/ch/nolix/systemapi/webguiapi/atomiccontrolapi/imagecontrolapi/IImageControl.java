@@ -9,6 +9,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
 
+  String getAlternateText();
+
   IMutableImage<?> getStoredImage();
 
   boolean hasLeftMouseButtonPressAction();
@@ -18,6 +20,8 @@ public interface IImageControl extends Clearable, IControl<IImageControl, IImage
   void removeLeftMouseButtonPressAction();
 
   void removeLeftMouseButtonReleaseAction();
+
+  IImageControl setAlternateText(String alternateText);
 
   IImageControl setImage(IImage image);
 
