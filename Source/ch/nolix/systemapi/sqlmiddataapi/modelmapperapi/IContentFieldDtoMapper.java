@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmiddataapi.modelmapperapi;
 
-import ch.nolix.systemapi.middataapi.modelapi.ContentFieldDto;
+import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 
 /**
@@ -12,8 +12,8 @@ public interface IContentFieldDtoMapper {
   /**
    * @param string
    * @param columnView
-   * @return a new {@link ContentFieldDto} from the given string using the given
-   *         columnView.
+   * @return a new {@link ObjectValueFieldDto} from the given string using the
+   *         given columnView.
    */
-  ContentFieldDto<Object> mapStringToContentFieldDtoUsingColumnView(String string, ColumnSchemaViewDto columnView);
+  ObjectValueFieldDto mapStringToContentFieldDtoUsingColumnView(String string, ColumnSchemaViewDto columnView);
 }

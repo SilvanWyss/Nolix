@@ -2,8 +2,8 @@ package ch.nolix.systemapi.sqlmiddataapi.modelmapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.systemapi.middataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
+import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 
@@ -16,9 +16,9 @@ public interface ILoadedEntityDtoMapper {
   /**
    * @param sqlRecord
    * @param columnViews
-   * @return new {@link ContentFieldDto}s from the given sqlRecord.
+   * @return new {@link ObjectValueFieldDto}s from the given sqlRecord.
    */
-  IContainer<ContentFieldDto<Object>> mapSqlRecordToContentFieldDtos(
+  IContainer<ObjectValueFieldDto> mapSqlRecordToContentFieldDtos(
     ISqlRecord sqlRecord,
     IContainer<ColumnSchemaViewDto> columnViews);
 

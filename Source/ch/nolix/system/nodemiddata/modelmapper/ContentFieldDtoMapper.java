@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
-import ch.nolix.systemapi.middataapi.modelapi.ContentFieldDto;
+import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
@@ -24,19 +24,20 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public ContentFieldDto<Object> mapContentFieldNodeToContentFieldDto(
+  public ObjectValueFieldDto mapContentFieldNodeToContentFieldDto(
     final INode<?> contentFieldNode,
     final ColumnSchemaViewDto columnInfo) {
 
     if (contentFieldNode.containsChildNodes()) {
-      return new ContentFieldDto<>(columnInfo.name(), null);
+      return new ObjectValueFieldDto(columnInfo.name(), null);
     }
 
     if (!contentFieldNode.hasHeader()) {
-      return new ContentFieldDto<>(columnInfo.name(), null);
+      return new ObjectValueFieldDto(columnInfo.name(), null);
     }
 
-    return new ContentFieldDto<>(
+    return //
+    new ObjectValueFieldDto(
       columnInfo.name(),
       VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), columnInfo.dataType()));
   }
@@ -45,11 +46,11 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ContentFieldDto<Object>> mapEntityNodeToContentFieldDtos(
+  public IContainer<ObjectValueFieldDto> mapEntityNodeToContentFieldDtos(
     final IMutableNode<?> entityNode,
     final TableSchemaViewDto tableView) {
 
-    final ILinkedList<ContentFieldDto<Object>> contentFields = LinkedList.createEmpty();
+    final ILinkedList<ObjectValueFieldDto> contentFields = LinkedList.createEmpty();
 
     for (final var c : tableView.columnSchemaViews()) {
 

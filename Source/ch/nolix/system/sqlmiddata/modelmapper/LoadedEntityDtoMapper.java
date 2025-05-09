@@ -5,8 +5,8 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.systemapi.middataapi.modelapi.ContentFieldDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
+import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
@@ -33,11 +33,11 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   }
 
   @Override
-  public IContainer<ContentFieldDto<Object>> mapSqlRecordToContentFieldDtos(
+  public IContainer<ObjectValueFieldDto> mapSqlRecordToContentFieldDtos(
     final ISqlRecord sqlRecord,
     final IContainer<ColumnSchemaViewDto> columnViews) {
 
-    final ILinkedList<ContentFieldDto<Object>> contentFieldDtos = LinkedList.createEmpty();
+    final ILinkedList<ObjectValueFieldDto> contentFieldDtos = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecord.iterator();
 
     //Skips meta fields.
