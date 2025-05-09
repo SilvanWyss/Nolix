@@ -17,7 +17,7 @@ public final class FieldFromColumnCreator {
 
     final var field = createFieldFromColumnView(columnView);
 
-    field.internalSetParentColumn(columnView);
+    field.setParentColumn(columnView);
 
     return field;
   }

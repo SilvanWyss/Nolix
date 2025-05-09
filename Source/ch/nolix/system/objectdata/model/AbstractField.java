@@ -140,20 +140,24 @@ public abstract class AbstractField implements IField {
 
   protected abstract void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase();
 
-  final void internalSetParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
+  final void setParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
 
     Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 
     this.parentColumn = parentColumn;
   }
 
-  final void internalSetParentColumnFromParentTable() {
+  final void setParentColumnFromParentTable() {
+
     final var name = getName();
-    parentColumn = getStoredParentEntity().getStoredParentTable().getStoredColumns()
-      .getStoredFirst(c -> c.hasName(name));
+
+    final var localParentColumn = //
+    getStoredParentEntity().getStoredParentTable().getStoredColumns().getStoredFirst(c -> c.hasName(name));
+
+    setParentColumn(localParentColumn);
   }
 
-  final void internalSetParentEntity(final AbstractEntity parentEntity) {
+  final void setParentEntity(final AbstractEntity parentEntity) {
 
     Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
     FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
@@ -196,7 +200,7 @@ public abstract class AbstractField implements IField {
 
   private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final AbstractEntity parentEntity) {
     if (parentEntity.belongsToTable()) {
-      internalSetParentColumnFromParentTable();
+      setParentColumnFromParentTable();
     }
   }
 }

@@ -136,7 +136,7 @@ public abstract class AbstractEntity implements IEntity {
     }
 
     this.parentTable = parentTable;
-    getStoredFields().forEach(AbstractField::internalSetParentColumnFromParentTable);
+    getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }
 
   @Override
@@ -248,7 +248,7 @@ public abstract class AbstractEntity implements IEntity {
 
     fields = findFields();
 
-    fields.forEach(f -> f.internalSetParentEntity(this));
+    fields.forEach(f -> f.setParentEntity(this));
   }
 
   private IContainer<AbstractField> getStoredFields() {
