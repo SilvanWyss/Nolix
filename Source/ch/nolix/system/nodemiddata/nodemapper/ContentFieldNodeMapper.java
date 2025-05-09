@@ -2,7 +2,7 @@ package ch.nolix.system.nodemiddata.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
+import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
 
 /**
@@ -15,12 +15,12 @@ public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapStringContentFieldDtoToContentFieldNode(final StringContentFieldDto stringContentFieldDto) {
+  public INode<?> mapStringContentFieldDtoToContentFieldNode(final StringValueFieldDto stringValueFieldDto) {
 
-    final var optionalContentString = stringContentFieldDto.optionalContentString();
+    final var nullableValue = stringValueFieldDto.nullableValue();
 
-    if (optionalContentString != null) {
-      return Node.fromString(optionalContentString);
+    if (nullableValue != null) {
+      return Node.fromString(nullableValue);
     }
 
     return Node.EMPTY_NODE;

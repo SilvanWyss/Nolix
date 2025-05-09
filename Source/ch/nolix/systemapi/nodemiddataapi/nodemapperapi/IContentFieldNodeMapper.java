@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.nodemiddataapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
+import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
 
 /**
  * @author Silvan Wyss
@@ -10,9 +10,9 @@ import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
 public interface IContentFieldNodeMapper {
 
   /**
-   * @param stringContentFieldDto
+   * @param stringValueFieldDto
    * @return a bew content field node from the given stringContentFieldDto.
    * @throws RuntimeException if the given stringContentFieldDto is null.
    */
-  INode<?> mapStringContentFieldDtoToContentFieldNode(StringContentFieldDto stringContentFieldDto);
+  INode<?> mapStringContentFieldDtoToContentFieldNode(StringValueFieldDto stringValueFieldDto);
 }

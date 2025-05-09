@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmiddataapi.sqlmapperapi;
 
-import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
+import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
 
 /**
  * @author Silvan Wyss
@@ -9,9 +9,9 @@ import ch.nolix.systemapi.middataapi.modelapi.StringContentFieldDto;
 public interface ISqlValueMapper {
 
   /**
-   * @param stringContentFieldDto
+   * @param stringValueFieldDto
    * @return a SQL value from the given stringContentFieldDto
    * @throws RuntimeException if the given stringContentFieldDto is not valid.
    */
-  String mapStringContentFieldDtoToSqlValue(StringContentFieldDto stringContentFieldDto);
+  String mapStringContentFieldDtoToSqlValue(StringValueFieldDto stringValueFieldDto);
 }
