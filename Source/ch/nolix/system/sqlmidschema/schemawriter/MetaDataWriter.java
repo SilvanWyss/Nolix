@@ -12,7 +12,7 @@ import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IDatabasePropertie
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public final class SystemDataWriter implements ChangeRequestable {
+public final class MetaDataWriter implements ChangeRequestable {
 
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
@@ -21,7 +21,7 @@ public final class SystemDataWriter implements ChangeRequestable {
 
   private final SqlCollector sqlCollector;
 
-  public SystemDataWriter(final SqlCollector sqlCollector) {
+  public MetaDataWriter(final SqlCollector sqlCollector) {
 
     Validator.assertThat(sqlCollector).thatIsNamed(SqlCollector.class).isNotNull();
 

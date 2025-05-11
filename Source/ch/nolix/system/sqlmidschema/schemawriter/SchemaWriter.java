@@ -26,7 +26,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private int saveCount;
 
-  private final SystemDataWriter systemDataWriter;
+  private final MetaDataWriter metaDataWriter;
 
   private final InternalSchemaWriter internalSchemaWriter;
 
@@ -41,7 +41,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
     this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;
-    this.systemDataWriter = new SystemDataWriter(sqlCollector);
+    this.metaDataWriter = new MetaDataWriter(sqlCollector);
 
     final var sqlSchemaWriter = //
     ch.nolix.system.sqlschema.adapter.SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
@@ -59,7 +59,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
-    systemDataWriter.addColumn(tableName, column);
+    metaDataWriter.addColumn(tableName, column);
     internalSchemaWriter.addColumn(tableName, column);
   }
 
@@ -72,19 +72,19 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addTable(final TableDto table) {
-    systemDataWriter.addTable(table);
+    metaDataWriter.addTable(table);
     internalSchemaWriter.addTable(table);
   }
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
-    systemDataWriter.deleteColumn(tableName, columnName);
+    metaDataWriter.deleteColumn(tableName, columnName);
     internalSchemaWriter.deleteColumn(tableName, columnName);
   }
 
   @Override
   public void deleteTable(final String tableName) {
-    systemDataWriter.deleteTable(tableName);
+    metaDataWriter.deleteTable(tableName);
     internalSchemaWriter.deleteTable(tableName);
   }
 
@@ -100,7 +100,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public boolean hasChanges() {
-    return (systemDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
+    return (metaDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
   }
 
   @Override
@@ -119,7 +119,7 @@ public final class SchemaWriter implements ISchemaWriter {
     try {
 
       sqlConnection.executeStatement("USE " + databaseName);
-      systemDataWriter.setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
+      metaDataWriter.setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
       sqlCollector.addSqlStatements(internalSchemaWriter.getSqlStatements());
       sqlCollector.executeAndClearUsingConnection(sqlConnection);
 
@@ -131,19 +131,19 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-    systemDataWriter.renameColumn(tableName, columnName, newColumnName);
+    metaDataWriter.renameColumn(tableName, columnName, newColumnName);
     internalSchemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
 
   @Override
   public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
-    systemDataWriter.setContentModel(tableName, columnName, contentModel);
+    metaDataWriter.setContentModel(tableName, columnName, contentModel);
 
   }
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-    systemDataWriter.renameTable(tableName, newTableName);
+    metaDataWriter.renameTable(tableName, newTableName);
     internalSchemaWriter.renameTable(tableName, newTableName);
   }
 }
