@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlschemaapi.modelapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqlschemaapi.columnconstaintproperty.ConstraintType;
+import ch.nolix.systemapi.sqlschemaapi.constaintproperty.ColumnConstraint;
 
-public record ConstraintDto(ConstraintType type, IContainer<String> parameters) {
+public record ConstraintDto(ColumnConstraint type, IContainer<String> parameters) {
 }
