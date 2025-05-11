@@ -1,0 +1,46 @@
+package ch.nolix.system.sqlschema.modelmapper;
+
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.ITableDtoMapper;
+
+/**
+ * @author Silvan Wyss
+ * @version 2025-05-11
+ */
+public final class TableDtoMapper implements ITableDtoMapper {
+
+  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public TableDto mapSqlRecordsWithNameAndDataTypeToTableDto(
+    final String tableName,
+    final IContainer<ISqlRecord> sqlRecordsWithNameAndDataType) {
+
+    final var columns = sqlRecordsWithNameAndDataType.to(COLUMN_DTO_MAPPER::mapSqlRecordWithNameAndDataTypeToColumnDto);
+
+    return new TableDto(tableName, columns);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<TableDto> mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(
+    final IContainer<ISqlRecord> sqlRecordsWithTableNameAndNameAndDataType) {
+
+    final var columns = //
+    sqlRecordsWithTableNameAndNameAndDataType.to(
+      COLUMN_DTO_MAPPER::mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto);
+
+    final var columnsGroupedByTable = columns.getStoredInGroups(ColumnDto::name);
+
+    return columnsGroupedByTable.to(c -> new TableDto(c.getStoredFirst().name(), c));
+  }
+}

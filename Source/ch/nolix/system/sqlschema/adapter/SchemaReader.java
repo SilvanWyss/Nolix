@@ -7,16 +7,15 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlschema.modelmapper.ColumnDtoMapper;
+import ch.nolix.system.sqlschema.modelmapper.TableDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+  private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -67,9 +66,8 @@ public final class SchemaReader implements ISchemaReader {
 
     final var query = queryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-    final var columns = sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordWithNameAndDataTypeToColumnDto);
 
-    return new TableDto(tableName, columns);
+    return TABLE_DTO_MAPPER.mapSqlRecordsWithNameAndDataTypeToTableDto(tableName, sqlRecords);
   }
 
   @Override
@@ -77,10 +75,8 @@ public final class SchemaReader implements ISchemaReader {
 
     final var query = queryCreator.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-    final var columns = sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto);
-    final var columnsGroupedByTable = columns.getStoredInGroups(ColumnDto::name);
 
-    return columnsGroupedByTable.to(c -> new TableDto(c.getStoredFirst().name(), c));
+    return TABLE_DTO_MAPPER.mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(sqlRecords);
   }
 
   @Override
