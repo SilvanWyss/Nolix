@@ -4,9 +4,9 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
 
 public final class DataTypeTypeCatalog {
 
-  public static final DataTypeDto INTEGER = DataTypeDto.withName("INT");
+  public static final DataTypeDto INTEGER = new DataTypeDto("INT", null);
 
-  public static final DataTypeDto TEXT = DataTypeDto.withNameAndParameter("NVARCHAR", "MAX");
+  public static final DataTypeDto TEXT = new DataTypeDto("NVARCHAR", "MAX");
 
   private DataTypeTypeCatalog() {
   }

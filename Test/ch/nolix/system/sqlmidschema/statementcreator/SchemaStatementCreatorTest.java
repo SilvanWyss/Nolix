@@ -15,7 +15,7 @@ final class SchemaStatementCreatorTest extends StandardTest {
   void testCase_createStatementToAddColumn() {
 
     //setup
-    final var dataTypeDto = DataTypeDto.withNameAndParameter("nvarchar", "100");
+    final var dataTypeDto = new DataTypeDto("nvarchar", "100");
     final var columnDto = new ColumnDto("Name", dataTypeDto, ImmutableList.createEmpty());
     final var testUnit = new StatementCreator();
 
@@ -33,8 +33,8 @@ final class SchemaStatementCreatorTest extends StandardTest {
     final var tableDto = new TableDto(
       "Pet",
       ImmutableList.withElement(
-        new ColumnDto("Name", DataTypeDto.withNameAndParameter("nvarchar", "100"), ImmutableList.createEmpty()),
-        new ColumnDto("WeightInKilogram", DataTypeDto.withName("float"), ImmutableList.createEmpty())));
+        new ColumnDto("Name", new DataTypeDto("nvarchar", "100"), ImmutableList.createEmpty()),
+        new ColumnDto("WeightInKilogram", new DataTypeDto("float", null), ImmutableList.createEmpty())));
     final var testUnit = new StatementCreator();
 
     //execution

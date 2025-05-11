@@ -77,10 +77,10 @@ public final class StatementCreator implements IStatementCreator {
 
   private String getDataTypeAsSql(final DataTypeDto dataType) {
 
-    final var optionalParameter = dataType.optionalParameter();
+    final var parameter = dataType.nullableParameter();
 
-    if (optionalParameter.isPresent()) {
-      return (dataType.name() + "(" + optionalParameter.get() + ")");
+    if (parameter != null) {
+      return (dataType.name() + "(" + parameter + ")");
     }
 
     return dataType.name();
