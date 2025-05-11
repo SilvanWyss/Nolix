@@ -17,9 +17,9 @@ public interface ISchemaStatementCreator {
 
   String createStatementToDeleteTable(String tableName);
 
-  String createStatementToSetColumnName(String tableName, String columnName, String newColumnName);
+  String createStatementToRenameColumn(String tableName, String columnName, String newColumnName);
+
+  String createStatementToRenameTable(String tableName, String newTableName);
 
   String createStatementToSetContentModel(String tableName, String columnName, IContentModelDto contentModel);
-
-  String createStatementToSetTableName(String tableName, String newTableName);
 }

@@ -61,11 +61,19 @@ public final class SystemDataWriter implements ChangeRequestable {
     return sqlCollector.containsAny();
   }
 
-  public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+  public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
 
     final var statement = //
-    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetColumnName(tableName, columnName, newColumnName);
+    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
 
+    sqlCollector.addSqlStatement(statement);
+  }
+
+  public void renameTable(final String tableName, final String newTableName) {
+  
+    final var statement = //
+    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
+  
     sqlCollector.addSqlStatement(statement);
   }
 
@@ -80,14 +88,6 @@ public final class SystemDataWriter implements ChangeRequestable {
   public void setSchemaTimestamp(ITime schemaTimestamp) {
 
     final var statement = DATABASE_PROPERTIES_STATEMENT_CREATOR.createStatementToSetSchemaTimestamp(schemaTimestamp);
-
-    sqlCollector.addSqlStatement(statement);
-  }
-
-  public void setTableName(final String tableName, final String newTableName) {
-
-    final var statement = //
-    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetTableName(tableName, newTableName);
 
     sqlCollector.addSqlStatement(statement);
   }

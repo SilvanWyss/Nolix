@@ -51,15 +51,15 @@ public final class InternalSchemaWriter implements ChangeRequestable {
     return sqlSchemaWriter.hasChanges();
   }
 
-  public void reset() {
-    sqlSchemaWriter.reset();
-  }
-
-  public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+  public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     sqlSchemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
 
-  public void setTableName(final String tableName, final String newTableName) {
+  public void renameTable(final String tableName, final String newTableName) {
     sqlSchemaWriter.renameTable(tableName, newTableName);
+  }
+
+  public void reset() {
+    sqlSchemaWriter.reset();
   }
 }

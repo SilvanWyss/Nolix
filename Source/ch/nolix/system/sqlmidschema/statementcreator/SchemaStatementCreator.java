@@ -116,7 +116,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   }
 
   @Override
-  public String createStatementToSetColumnName(final String tableName, final String columnName,
+  public String createStatementToRenameColumn(final String tableName, final String columnName,
     final String newColumnName) {
     return //
     "UPDATE "
@@ -167,7 +167,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   }
 
   @Override
-  public String createStatementToSetTableName(final String tableName, final String newTableName) {
+  public String createStatementToRenameTable(final String tableName, final String newTableName) {
     return //
     "UPDATE "
     + FixTable.TABLE.getName()

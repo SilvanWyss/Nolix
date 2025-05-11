@@ -131,8 +131,8 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-    systemDataWriter.setColumnName(tableName, columnName, newColumnName);
-    internalSchemaWriter.setColumnName(tableName, columnName, newColumnName);
+    systemDataWriter.renameColumn(tableName, columnName, newColumnName);
+    internalSchemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
 
   @Override
@@ -143,7 +143,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-    systemDataWriter.setTableName(tableName, newTableName);
-    internalSchemaWriter.setTableName(tableName, newTableName);
+    systemDataWriter.renameTable(tableName, newTableName);
+    internalSchemaWriter.renameTable(tableName, newTableName);
   }
 }
