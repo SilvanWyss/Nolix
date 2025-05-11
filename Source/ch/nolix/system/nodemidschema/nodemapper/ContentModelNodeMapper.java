@@ -4,6 +4,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.MultiBackReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.MultiReferenceModelDto;
@@ -21,6 +22,17 @@ import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.IContentModelNodeMapper
  * @version 2024-09-12
  */
 public final class ContentModelNodeMapper implements IContentModelNodeMapper {
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public INode<?> mapColumnDtoToContentModelNode(final ColumnDto columnDto) {
+
+    final var contentModel = columnDto.contentModel();
+
+    return mapContentModelDtoToNode(contentModel);
+  }
 
   /**
    * {@inheritDoc}

@@ -1,6 +1,7 @@
 package ch.nolix.systemapi.nodemidschemaapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 
 /**
@@ -10,8 +11,15 @@ import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 public interface IContentModelNodeMapper {
 
   /**
+   * @param columnDto
+   * @return a new content model {@link INode} from the given columnDto.
+   * @throws RuntimeException if the given columnDto is null.
+   */
+  INode<?> mapColumnDtoToContentModelNode(ColumnDto columnDto);
+
+  /**
    * @param contentModelDto
-   * @return a new {@link INode} from the given contentModelDto.
+   * @return a new content model {@link INode} from the given contentModelDto.
    * @throws RuntimeException if the given contentModelDto is null.
    */
   INode<?> mapContentModelDtoToNode(IContentModelDto contentModelDto);
