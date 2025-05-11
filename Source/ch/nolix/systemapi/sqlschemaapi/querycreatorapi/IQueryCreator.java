@@ -2,6 +2,8 @@ package ch.nolix.systemapi.sqlschemaapi.querycreatorapi;
 
 public interface IQueryCreator {
 
+  String createQueryToLoadColumnsOfAllTables();
+
   String createQueryToLoadNameAndDataTypeOfColumns(String tableName);
 
   String createQueryToLoadNameOfTables();
