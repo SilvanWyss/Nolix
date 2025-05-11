@@ -10,7 +10,7 @@ public interface ISchemaReader extends GroupCloseable {
 
   IContainer<TableDto> loadTables();
 
-  boolean tableExists();
+  boolean tableExist();
 
   boolean tableExists(String tableName);
 }

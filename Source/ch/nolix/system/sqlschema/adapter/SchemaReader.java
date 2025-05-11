@@ -79,7 +79,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public boolean tableExists() {
+  public boolean tableExist() {
 
     final var query = queryCreator.createQueryToLoadNameOfTables();
     final var records = sqlConnection.getRecordsFromQuery(query);
