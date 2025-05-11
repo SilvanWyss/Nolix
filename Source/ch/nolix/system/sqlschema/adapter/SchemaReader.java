@@ -7,11 +7,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlschema.flatmodelmapper.FlatTableDtoMapper;
 import ch.nolix.system.sqlschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlschemaapi.flatmodelapi.FlatTableDto;
-import ch.nolix.systemapi.sqlschemaapi.flatmodelmapperapi.IFlatTableDtoMapper;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.IColumnDtoMapper;
@@ -20,8 +17,6 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 public final class SchemaReader implements ISchemaReader {
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
-
-  private static final IFlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -74,15 +69,6 @@ public final class SchemaReader implements ISchemaReader {
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
     return sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordToColumnDto);
-  }
-
-  @Override
-  public IContainer<FlatTableDto> loadFlatTables() {
-
-    final var query = queryCreator.createQueryToLoadNameOfTables();
-    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-
-    return sqlRecords.to(FLAT_TABLE_DTO_MAPPER::mapSqlRecordToFlatTableDto);
   }
 
   @Override

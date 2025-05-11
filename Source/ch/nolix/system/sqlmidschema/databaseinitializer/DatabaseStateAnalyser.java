@@ -24,7 +24,7 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
       return DatabaseState.INITIALIZED;
     }
 
-    if (schemaReader.loadFlatTables().isEmpty()) {
+    if (!schemaReader.tableExists()) {
       return DatabaseState.UNINITIALIZED;
     }
 

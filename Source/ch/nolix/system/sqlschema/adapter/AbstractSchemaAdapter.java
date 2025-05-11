@@ -8,7 +8,6 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqlschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
@@ -91,11 +90,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   @Override
   public final IContainer<ColumnDto> loadColumns(final String tableName) {
     return schemaReader.loadColumns(tableName);
-  }
-
-  @Override
-  public final IContainer<FlatTableDto> loadFlatTables() {
-    return schemaReader.loadFlatTables();
   }
 
   @Override
