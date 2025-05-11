@@ -8,6 +8,8 @@ public interface ISchemaReader extends GroupCloseable {
 
   boolean columnIsEmpty(String tableName, String columnName);
 
+  TableDto loadTable(String tableName);
+
   IContainer<TableDto> loadTables();
 
   boolean tableExist();
