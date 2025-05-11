@@ -43,6 +43,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final void addAdditionalSqlStatements(final IContainer<String> additionalSqlStatements) {
+    schemaWriter.addAdditionalSqlStatements(additionalSqlStatements);
+  }
+
+  @Override
   public final void addColumn(final String tableName, final ColumnDto column) {
     schemaWriter.addColumn(tableName, column);
   }

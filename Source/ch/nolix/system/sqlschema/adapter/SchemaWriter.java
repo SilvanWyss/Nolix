@@ -1,10 +1,12 @@
 package ch.nolix.system.sqlschema.adapter;
 
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
@@ -24,6 +26,8 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private final SqlCollector sqlCollector = new SqlCollector();
 
+  private final IArrayList<String> addiditionalSqlStatements = ArrayList.createEmpty();
+
   private int saveCount;
 
   private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
@@ -41,6 +45,11 @@ public final class SchemaWriter implements ISchemaWriter {
     final String databaseName,
     final ISqlConnection sqlConnection) {
     return new SchemaWriter(databaseName, sqlConnection);
+  }
+
+  @Override
+  public void addAdditionalSqlStatements(IContainer<String> additionalSqlStatements) {
+    addiditionalSqlStatements.addAtEnd(additionalSqlStatements);
   }
 
   @Override
@@ -119,11 +128,13 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void reset() {
     sqlCollector.clear();
+    addiditionalSqlStatements.clear();
   }
 
   @Override
   public void saveChanges() {
     try {
+      sqlCollector.addSqlStatements(addiditionalSqlStatements);
       sqlCollector.executeAndClearUsingConnection(sqlConnection);
       saveCount++;
     } finally {
