@@ -58,7 +58,7 @@ public final class StatementCreator implements IStatementCreator {
 
   private String getConstraintAsSql(final ConstraintDto constraint) {
 
-    var sql = constraint.type().toString().replace(StringCatalog.UNDERSCORE, StringCatalog.SPACE);
+    var sql = constraint.constraint().toString().replace(StringCatalog.UNDERSCORE, StringCatalog.SPACE);
 
     if (constraint.parameters().containsAny()) {
       getConstraintParametersAsSql(constraint);
