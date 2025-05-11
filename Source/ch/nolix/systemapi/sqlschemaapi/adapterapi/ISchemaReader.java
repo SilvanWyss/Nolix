@@ -8,7 +8,7 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 public interface ISchemaReader extends GroupCloseable {
 
-  boolean columnsIsEmpty(String tableName, String columnName);
+  boolean columnIsEmpty(String tableName, String columnName);
 
   IContainer<ColumnDto> loadColumns(String tableName);
 

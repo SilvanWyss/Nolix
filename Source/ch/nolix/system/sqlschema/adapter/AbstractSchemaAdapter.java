@@ -54,8 +54,8 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final boolean columnsIsEmpty(final String tableName, final String columnName) {
-    return schemaReader.columnsIsEmpty(tableName, columnName);
+  public final boolean columnIsEmpty(final String tableName, final String columnName) {
+    return schemaReader.columnIsEmpty(tableName, columnName);
   }
 
   @Override

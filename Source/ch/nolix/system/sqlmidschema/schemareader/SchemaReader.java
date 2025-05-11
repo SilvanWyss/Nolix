@@ -53,7 +53,7 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
-    return sqlSchemaReader.columnsIsEmpty(tableName, columnName);
+    return sqlSchemaReader.columnIsEmpty(tableName, columnName);
   }
 
   @Override

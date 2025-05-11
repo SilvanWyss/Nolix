@@ -54,7 +54,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public boolean columnsIsEmpty(final String tableName, final String columnName) {
+  public boolean columnIsEmpty(final String tableName, final String columnName) {
 
     final var query = queryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName);
     final var records = sqlConnection.getRecordsFromQuery(query);
