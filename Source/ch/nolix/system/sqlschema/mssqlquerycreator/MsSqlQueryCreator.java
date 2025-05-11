@@ -15,11 +15,6 @@ public final class MsSqlQueryCreator implements IQueryCreator {
   }
 
   @Override
-  public String createQueryToLoadNameOfTables() {
-    return "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES";
-  }
-
-  @Override
   public String createQueryToLoadTable(final String tableName) {
     return ("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + tableName + "';");
   }
