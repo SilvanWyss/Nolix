@@ -35,4 +35,14 @@ public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, ICont
    * @throws RuntimeException if one of the given elements is null.
    */
   void addAtEnd(E[] elements);
+
+  /**
+   * Adds the given elements at the end of the current {@link IArrayList}. The
+   * elements will be added in the given order.
+   * 
+   * @param elements
+   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if one of the given elements is null.
+   */
+  void addAtEnd(IContainer<E> elements);
 }

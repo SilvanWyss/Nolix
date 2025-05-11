@@ -160,6 +160,33 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(n+m) when the current
+   * {@link ArrayList} contains n elements and m elements are given.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void addAtEnd(IContainer<E> elements) {
+
+    Validator.assertThatTheElements(elements).areNotNull();
+
+    final var newElementCount = getCount() + elements.getCount();
+
+    growAtLeastToRequiredCapacity(newElementCount);
+
+    var index = getCount() - 1;
+
+    for (final var e : elements) {
+
+      this.elements[index] = e;
+
+      index++;
+    }
+
+    elementCount = newElementCount;
+  }
+
+  /**
    * The time complexity of this implementation is O(1).
    * 
    * {@inheritDoc}
