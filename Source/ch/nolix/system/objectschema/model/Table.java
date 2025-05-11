@@ -1,6 +1,5 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -82,7 +81,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
   public Table addColumnWithNameAndContentModel(
     final String name,
     final IContentModel contentModel) {
-    return addColumn(new Column(name, ImmutableList.withElement(contentModel)));
+    return addColumn(new Column(name, contentModel));
   }
 
   @Override

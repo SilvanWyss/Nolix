@@ -1,6 +1,5 @@
 package ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 
@@ -12,8 +11,8 @@ public interface IColumnDtoMapper {
 
   /**
    * @param column
-   * @return new {@link ColumnDto}s from the given column.
+   * @return a new {@link ColumnDto} from the given column.
    * @throws RuntimeException if the given column is null.
    */
-  IContainer<ColumnDto> mapColumnToColumnDtos(IColumn column);
+  ColumnDto mapColumnToMidSchemaColumnDto(IColumn column);
 }

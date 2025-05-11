@@ -1,6 +1,5 @@
 package ch.nolix.systemapi.objectschemaapi.modeleditorapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 
@@ -21,15 +20,15 @@ public interface IColumnEditor<C extends IColumn> {
   void deleteColumn(C column);
 
   /**
-   * Lets the current {@link IColumnEditor} set the given contentModels to the
+   * Lets the current {@link IColumnEditor} set the given contentModel to the
    * given column.
    * 
    * @param column
-   * @param contentModels
-   * @throws RuntimeException if the current {@link IColumnEditor} cannot set one
-   *                          of the given contentModels to the given column
+   * @param contentModel
+   * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
+   *                          given contentModel to the given column
    */
-  void setContentModelsToColumn(C column, IContainer<IContentModel> contentModels);
+  void setContentModelToColumn(C column, IContentModel contentModel);
 
   /**
    * Lets the current {@link IColumnEditor} set the given name to the given

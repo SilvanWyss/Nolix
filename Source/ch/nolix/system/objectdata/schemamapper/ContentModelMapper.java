@@ -57,50 +57,50 @@ implements IContentModelMapper {
   new MultiBackReferenceToContentModelMapper();
 
   @Override
-  public IContainer<IContentModel> mapFieldToContentModels(
+  public IContentModel mapFieldToContentModel(
     final IField field,
     final IContainer<ITable> referencedTables) {
 
     if (field instanceof IValue<?> value) {
-      return VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(value, referencedTables);
+      return VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(value, referencedTables);
     }
 
     if (field instanceof IOptionalValue<?> optionalValue) {
       return //
-      OPTIONAL_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(optionalValue, referencedTables);
+      OPTIONAL_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(optionalValue, referencedTables);
     }
 
     if (field instanceof IMultiValue<?> multiValue) {
-      return MULTI_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(multiValue, referencedTables);
+      return MULTI_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiValue, referencedTables);
     }
 
     if (field instanceof IReference<?> reference) {
-      return REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(reference, referencedTables);
+      return REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(reference, referencedTables);
     }
 
     if (field instanceof IOptionalReference<?> optionalReference) {
       return //
-      OPTIONAL_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(optionalReference,
+      OPTIONAL_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(optionalReference,
         referencedTables);
     }
 
     if (field instanceof IMultiReference<?> multiReference) {
       return //
-      MULTI_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(multiReference, referencedTables);
+      MULTI_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiReference, referencedTables);
     }
 
     if (field instanceof IBackReference<?> backReference) {
-      return BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(backReference,
+      return BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(backReference,
         referencedTables);
     }
 
     if (field instanceof IOptionalBackReference<?> optionalBackReference) {
       return OPTIONAL_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER
-        .mapFieldToContentModels(optionalBackReference, referencedTables);
+        .mapFieldToContentModel(optionalBackReference, referencedTables);
     }
 
     if (field instanceof IMultiBackReference<?> multiBackReference) {
-      return MULTI_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModels(multiBackReference,
+      return MULTI_BACK_REFERENCE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiBackReference,
         referencedTables);
     }
 

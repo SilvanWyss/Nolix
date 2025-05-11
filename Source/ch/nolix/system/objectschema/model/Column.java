@@ -1,6 +1,5 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programstructure.data.IdCreator;
@@ -31,41 +30,34 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private String name = INITIAL_HEADER;
 
-  private IContainer<IContentModel> contentModels = //
-  ImmutableList.withElement(ValueModel.forDataType(DataType.INTEGER_4BYTE));
+  private IContentModel contentModel = ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
   private Table parentTable;
 
   public Column(
     final String name,
-    final IContainer<IContentModel> contentModels) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModels);
-  }
-
-  public Column(
-    final String name,
-    final IContentModel contentModels) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, ImmutableList.withElement(contentModels));
+    final IContentModel contentModel) {
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModel);
   }
 
   private Column(
     final String id,
     final String name,
-    final IContainer<IContentModel> contentModels) {
+    final IContentModel contentModel) {
 
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);
 
-    setContentModels(contentModels);
+    setContentModel(contentModel);
   }
 
-  public static Column withIdAndNameAndContentModels(
+  public static Column withIdAndNameAndContentModel(
     final String id,
     final String name,
-    final IContainer<IContentModel> contentModels) {
-    return new Column(id, name, contentModels);
+    final IContentModel contentModel) {
+    return new Column(id, name, contentModel);
   }
 
   @Override
@@ -89,8 +81,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
-  public IContainer<IContentModel> getContentModels() {
-    return contentModels;
+  public IContentModel getContentModel() {
+    return contentModel;
   }
 
   @Override
@@ -124,9 +116,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
-  public Column setContentModels(final IContainer<IContentModel> contentModels) {
+  public Column setContentModel(final IContentModel contentModel) {
 
-    COLUMN_EDITOR.setContentModelsToColumn(this, contentModels);
+    COLUMN_EDITOR.setContentModelToColumn(this, contentModel);
 
     return this;
   }
@@ -152,18 +144,18 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).getStoredMidSchemaAdapter();
   }
 
-  void setContentModelsAttribute(final IContainer<IContentModel> contentModels) {
-    this.contentModels = contentModels;
+  void setContentModelAttribute(final IContentModel contentModel) {
+
+    Validator.assertThat(contentModel).thatIsNamed(IContentModel.class).isNotNull();
+
+    this.contentModel = contentModel;
   }
 
   void internalSetContentModelToDatabase() {
 
     final var table = getStoredParentTable();
     final var tableName = table.getName();
-    final var contentModelDtos = getContentModels().to(CONTENT_MODEL_DTO_MAPPER::mapContentModelToContentModelDto);
-
-    //TODO: Adjust
-    final var contentModelDto = contentModelDtos.getStoredFirst();
+    final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(getContentModel());
 
     getStoredMidSchemaAdapter().setContentModel(tableName, getName(), contentModelDto);
   }

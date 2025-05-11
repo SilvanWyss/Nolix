@@ -1,6 +1,5 @@
 package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.model.MultiBackReferenceModel;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
@@ -12,7 +11,7 @@ public final class MultiBackReferenceToContentModelMapper
 implements IFieldToContentModelMapper<IMultiBackReference<?>> {
 
   @Override
-  public IContainer<IContentModel> mapFieldToContentModels(
+  public IContentModel mapFieldToContentModel(
     final IMultiBackReference<?> field,
     final IContainer<ITable> referencedTables) {
 
@@ -22,6 +21,6 @@ implements IFieldToContentModelMapper<IMultiBackReference<?>> {
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 
-    return ImmutableList.withElement(MultiBackReferenceModel.forBackReferencedColumn(backReferencedColumn));
+    return MultiBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
   }
 }

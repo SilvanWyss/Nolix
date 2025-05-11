@@ -7,5 +7,5 @@ import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface IContentModelMapper {
 
-  IContainer<IContentModel> mapFieldToContentModels(IField field, IContainer<ITable> referencedTables);
+  IContentModel mapFieldToContentModel(IField field, IContainer<ITable> referencedTables);
 }

@@ -14,6 +14,6 @@ public final class ColumnMapper implements IColumnMapper {
 
   @Override
   public IColumn mapFieldToColumn(final IField field, final IContainer<ITable> referencedTables) {
-    return new Column(field.getName(), CONTENT_MODEL_MAPPER.mapFieldToContentModels(field, referencedTables));
+    return new Column(field.getName(), CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, referencedTables));
   }
 }

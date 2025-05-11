@@ -27,9 +27,9 @@ public final class TableEditor {
 
       final var midSchemaAdapter = table.getStoredMidSchemaAdapter();
       final var tableName = table.getName();
-      final var columnDtos = COLUMN_DTO_MAPPER.mapColumnToColumnDtos(column);
+      final var columnDto = COLUMN_DTO_MAPPER.mapColumnToMidSchemaColumnDto(column);
 
-      midSchemaAdapter.addColumns(tableName, columnDtos);
+      midSchemaAdapter.addColumn(tableName, columnDto);
     }
 
     table.internalSetEdited();

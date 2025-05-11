@@ -1,6 +1,5 @@
 package ch.nolix.system.objectschema.midschemamodelmapper;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IContentModelDtoMapper;
@@ -18,13 +17,13 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ColumnDto> mapColumnToColumnDtos(final IColumn column) {
+  public ColumnDto mapColumnToMidSchemaColumnDto(final IColumn column) {
 
     final var id = column.getId();
     final var name = column.getName();
-    final var contentModels = column.getContentModels();
-    final var contentModelDtos = contentModels.to(CONTENT_MODEL_DTO_MAPPER::mapContentModelToContentModelDto);
+    final var contentModel = column.getContentModel();
+    final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
 
-    return contentModelDtos.to(c -> new ColumnDto(id, name, c));
+    return new ColumnDto(id, name, contentModelDto);
   }
 }

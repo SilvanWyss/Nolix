@@ -1,7 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
@@ -17,24 +16,19 @@ public final class ColumnMapper {
 
     final var midColumns = midTableDto.columns();
 
-    final var midColumnDtoGroups = //
-    midColumns.getStoredInGroups(c -> RegularExpressionPatternCatalog.DOLLAR_PATTERN.split(c.name())[0]);
-
-    return midColumnDtoGroups.to(g -> mapMidColumnDtosToColumn(g, tables));
+    return midColumns.to(c -> mapMidColumnDtoToColumn(c, tables));
   }
 
-  private static Column mapMidColumnDtosToColumn(
-    final IContainer<ColumnDto> midColumnDtos,
+  private static Column mapMidColumnDtoToColumn(
+    final ColumnDto midColumnDto,
     final IContainer<ITable> tables) {
 
-    final var firstMidColumnDto = midColumnDtos.getStoredFirst();
-    final var id = firstMidColumnDto.id();
-    final var name = firstMidColumnDto.name();
-    final var midContentModels = midColumnDtos.to(ColumnDto::contentModel);
+    final var id = midColumnDto.id();
+    final var name = midColumnDto.name();
+    final var midContentModel = midColumnDto.contentModel();
 
-    final var contentModels = //
-    midContentModels.to(c -> ContentModelMapper.mapMidContentModelDtoToContentModel(c, tables));
+    final var contentModel = ContentModelMapper.mapMidContentModelDtoToContentModel(midContentModel, tables);
 
-    return Column.withIdAndNameAndContentModels(id, name, contentModels);
+    return Column.withIdAndNameAndContentModel(id, name, contentModel);
   }
 }

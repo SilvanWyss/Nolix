@@ -22,5 +22,5 @@ public interface IFieldToContentModelMapper<F extends IField> {
    * @return a new {@link IContentModel} from the given field using the given
    *         referencedTables.
    */
-  IContainer<IContentModel> mapFieldToContentModels(F field, IContainer<ITable> referencedTables);
+  IContentModel mapFieldToContentModel(F field, IContainer<ITable> referencedTables);
 }
