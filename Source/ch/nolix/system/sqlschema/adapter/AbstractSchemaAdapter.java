@@ -129,6 +129,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final boolean tableExists() {
+    return schemaReader.tableExists();
+  }
+
+  @Override
   public final boolean tableExists(final String tableName) {
     return schemaReader.tableExists(tableName);
   }
