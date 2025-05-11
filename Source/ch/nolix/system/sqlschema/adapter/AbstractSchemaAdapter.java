@@ -83,11 +83,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final IContainer<String> getSqlStatements() {
-    return schemaWriter.getSqlStatements();
-  }
-
-  @Override
   public final boolean hasChanges() {
     return schemaWriter.hasChanges();
   }

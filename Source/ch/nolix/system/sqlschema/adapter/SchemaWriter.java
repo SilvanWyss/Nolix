@@ -95,11 +95,6 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public IContainer<String> getSqlStatements() {
-    return sqlCollector.getSqlStatements();
-  }
-
-  @Override
   public boolean hasChanges() {
     return sqlCollector.containsAny();
   }

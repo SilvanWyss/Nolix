@@ -17,8 +17,6 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void deleteTable(String tableName);
 
-  IContainer<String> getSqlStatements();
-
   void renameColumn(String tableName, String columnName, String newColumnName);
 
   void renameTable(String tableName, String newTableName);
