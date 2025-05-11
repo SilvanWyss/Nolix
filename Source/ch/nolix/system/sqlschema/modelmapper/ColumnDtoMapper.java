@@ -36,5 +36,4 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
 
     return new ColumnDto(name, dataType, ImmutableList.createEmpty());
   }
-
 }
