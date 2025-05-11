@@ -4,9 +4,9 @@ public interface IQueryCreator {
 
   String createQueryToCountTables();
 
-  String createQueryToLoadNameAndDataTypeOfColumns(String tableName);
+  String createQueryToCountTables(String tableName);
 
-  String createQueryToLoadTable(String tableName);
+  String createQueryToLoadNameAndDataTypeOfColumns(String tableName);
 
   String createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
 

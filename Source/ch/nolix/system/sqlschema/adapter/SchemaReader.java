@@ -101,9 +101,9 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public boolean tableExists(String tableName) {
 
-    final var query = queryCreator.createQueryToLoadTable(tableName);
-    final var records = sqlConnection.getRecordsFromQuery(query);
+    final var query = queryCreator.createQueryToCountTables(tableName);
+    final var records = sqlConnection.getSingleRecordFromQuery(query);
 
-    return records.containsAny();
+    return (Integer.valueOf(records.getStoredFirst()) > 0);
   }
 }
