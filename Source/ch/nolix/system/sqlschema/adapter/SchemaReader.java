@@ -63,15 +63,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<ColumnDto> loadColumns(final String tableName) {
-
-    final var query = queryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName);
-    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-
-    return sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordToColumnDto);
-  }
-
-  @Override
   public IContainer<TableDto> loadTables() {
 
     final var query = queryCreator.createQueryToLoadColumnsOfAllTables();
