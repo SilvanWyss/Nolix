@@ -71,6 +71,15 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
+  public int loadTableCount() {
+
+    final var query = queryCreator.createQueryToCountTables();
+    final var record = sqlConnection.getSingleRecordFromQuery(query);
+
+    return Integer.valueOf(record.getStoredFirst());
+  }
+
+  @Override
   public IContainer<TableDto> loadTables() {
 
     final var query = queryCreator.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
@@ -86,11 +95,7 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public boolean tableExist() {
-
-    final var query = queryCreator.createQueryToLoadNameOfTables();
-    final var records = sqlConnection.getRecordsFromQuery(query);
-
-    return records.containsAny();
+    return (loadTableCount() > 0);
   }
 
   @Override

@@ -5,6 +5,11 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 public final class MsSqlQueryCreator implements IQueryCreator {
 
   @Override
+  public String createQueryToCountTables() {
+    return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES;";
+  }
+
+  @Override
   public String createQueryToLoadNameAndDataTypeOfColumns(final String tableName) {
     return "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + tableName + "';";
   }

@@ -93,6 +93,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final int loadTableCount() {
+    return schemaReader.loadTableCount();
+  }
+
+  @Override
   public final IContainer<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
