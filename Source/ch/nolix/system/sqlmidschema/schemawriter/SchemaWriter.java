@@ -41,7 +41,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
     this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;
-    this.metaDataWriter = new MetaDataWriter(sqlCollector);
+    this.metaDataWriter = MetaDataWriter.forSqlCollector(sqlCollector);
 
     final var sqlSchemaWriter = //
     ch.nolix.system.sqlschema.adapter.SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
@@ -100,7 +100,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public boolean hasChanges() {
-    return (metaDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
+    return sqlCollector.containsAny();
   }
 
   @Override

@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
-import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
+import ch.nolix.coreapi.sqlapi.sqltoolapi.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlmidschema.statementcreator.SchemaStatementCreator;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
@@ -12,20 +12,24 @@ import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IDatabasePropertie
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
-public final class MetaDataWriter implements ChangeRequestable {
+public final class MetaDataWriter {
 
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
   private static final ISchemaStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = new SchemaStatementCreator();
 
-  private final SqlCollector sqlCollector;
+  private final ISqlCollector sqlCollector;
 
-  public MetaDataWriter(final SqlCollector sqlCollector) {
+  private MetaDataWriter(final ISqlCollector sqlCollector) {
 
     Validator.assertThat(sqlCollector).thatIsNamed(SqlCollector.class).isNotNull();
 
     this.sqlCollector = sqlCollector;
+  }
+
+  public static MetaDataWriter forSqlCollector(final ISqlCollector sqlCollector) {
+    return new MetaDataWriter(sqlCollector);
   }
 
   public void addColumn(final String tableName, final ColumnDto column) {
@@ -56,11 +60,6 @@ public final class MetaDataWriter implements ChangeRequestable {
     sqlCollector.addSqlStatement(statement);
   }
 
-  @Override
-  public boolean hasChanges() {
-    return sqlCollector.containsAny();
-  }
-
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
 
     final var statement = //
@@ -70,10 +69,10 @@ public final class MetaDataWriter implements ChangeRequestable {
   }
 
   public void renameTable(final String tableName, final String newTableName) {
-  
+
     final var statement = //
     SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
-  
+
     sqlCollector.addSqlStatement(statement);
   }
 
