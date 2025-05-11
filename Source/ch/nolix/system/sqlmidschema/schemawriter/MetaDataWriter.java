@@ -4,12 +4,12 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sqlapi.sqltoolapi.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
-import ch.nolix.system.sqlmidschema.statementcreator.SchemaStatementCreator;
+import ch.nolix.system.sqlmidschema.statementcreator.MetaDataStatementCreator;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IMetaDataStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class MetaDataWriter {
@@ -17,7 +17,7 @@ public final class MetaDataWriter {
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
-  private static final ISchemaStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = new SchemaStatementCreator();
+  private static final IMetaDataStatementCreator META_DATA_STATEMENT_CREATOR = new MetaDataStatementCreator();
 
   private final ISqlCollector sqlCollector;
 
@@ -34,28 +34,28 @@ public final class MetaDataWriter {
 
   public void addColumn(final String tableName, final ColumnDto column) {
 
-    final var statement = SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
+    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
 
     sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteColumn(String tableName, String columnName) {
 
-    final var statement = SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
+    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
 
     sqlCollector.addSqlStatement(statement);
   }
 
   public void addTable(final TableDto table) {
 
-    final var statements = SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementsToAddTable(table);
+    final var statements = META_DATA_STATEMENT_CREATOR.createStatementsToAddTable(table);
 
     sqlCollector.addSqlStatements(statements);
   }
 
   public void deleteTable(final String tableName) {
 
-    final var statement = SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToDeleteTable(tableName);
+    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteTable(tableName);
 
     sqlCollector.addSqlStatement(statement);
   }
@@ -63,7 +63,7 @@ public final class MetaDataWriter {
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
 
     final var statement = //
-    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
+    META_DATA_STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
 
     sqlCollector.addSqlStatement(statement);
   }
@@ -71,7 +71,7 @@ public final class MetaDataWriter {
   public void renameTable(final String tableName, final String newTableName) {
 
     final var statement = //
-    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
+    META_DATA_STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
 
     sqlCollector.addSqlStatement(statement);
   }
@@ -79,7 +79,7 @@ public final class MetaDataWriter {
   public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
 
     final var statement = //
-    SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR.createStatementToSetContentModel(tableName, columnName, contentModel);
+    META_DATA_STATEMENT_CREATOR.createStatementToSetContentModel(tableName, columnName, contentModel);
 
     sqlCollector.addSqlStatement(statement);
   }

@@ -9,9 +9,9 @@ import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IMetaDataStatementCreator;
 
-public final class SchemaStatementCreator implements ISchemaStatementCreator {
+public final class MetaDataStatementCreator implements IMetaDataStatementCreator {
 
   private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
 
