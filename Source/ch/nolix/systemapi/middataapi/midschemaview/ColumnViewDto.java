@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.middataapi.schemaviewmodel;
+package ch.nolix.systemapi.middataapi.midschemaview;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
  * @param contentType
  * @param dataType
  */
-public record ColumnSchemaViewDto(
+public record ColumnViewDto(
 String id,
 String name,
 int oneBasedOrdinalIndex,

@@ -2,7 +2,7 @@ package ch.nolix.system.nodemiddata.schemaviewmodelmapper;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemiddataapi.schemaviewmodelmapperapi.IColumnSchemaViewDtoMapper;
@@ -22,7 +22,7 @@ public final class TableSchemaViewDtoMapper implements ITableSchemaViewDtoMapper
    * {@inheritDoc}
    */
   @Override
-  public TableSchemaViewDto mapTableNodeToTableViewDto(final IMutableNode<?> tableNode) {
+  public TableViewDto mapTableNodeToTableViewDto(final IMutableNode<?> tableNode) {
 
     final var id = TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
     final var name = TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
@@ -35,6 +35,6 @@ public final class TableSchemaViewDtoMapper implements ITableSchemaViewDtoMapper
         c,
         FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + i));
 
-    return new TableSchemaViewDto(id, name, columnViews);
+    return new TableViewDto(id, name, columnViews);
   }
 }

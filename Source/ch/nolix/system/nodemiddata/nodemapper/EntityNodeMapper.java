@@ -4,10 +4,10 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.middata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.system.middata.midschemaviewsearcher.TableViewDtoSearcher;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.middataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityNodeMapper;
@@ -26,7 +26,7 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
   @Override
   public INode<?> mapEntityCreationDtoToEntityNode(
     final EntityCreationDto newEntity,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final long saveStamp) {
 
     final var fieldNodes = mapEntityCreationDtoToFieldNodes(newEntity, saveStamp, tableView);
@@ -37,7 +37,7 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
   private IContainer<INode<?>> mapEntityCreationDtoToFieldNodes(
     final EntityCreationDto newEntity,
     final long saveStamp,
-    final TableSchemaViewDto tableView) {
+    final TableViewDto tableView) {
 
     final var size = //
     FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnSchemaViews().getCount();

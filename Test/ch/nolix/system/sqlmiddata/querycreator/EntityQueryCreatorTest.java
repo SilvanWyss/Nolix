@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 
 final class EntityQueryCreatorTest extends StandardTest {
@@ -31,12 +31,12 @@ final class EntityQueryCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableInfo = new TableSchemaViewDto(
+    final var tableInfo = new TableViewDto(
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnSchemaViewDto("ccccccc1", "name", 0, ContentType.VALUE, DataType.STRING),
-        new ColumnSchemaViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE, DataType.INTEGER_4BYTE)));
+        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE, DataType.STRING),
+        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
@@ -51,12 +51,12 @@ final class EntityQueryCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableInfo = new TableSchemaViewDto(
+    final var tableInfo = new TableViewDto(
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnSchemaViewDto("ccccccc1", "name", 0, ContentType.VALUE, DataType.STRING),
-        new ColumnSchemaViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE, DataType.INTEGER_4BYTE)));
+        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE, DataType.STRING),
+        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);

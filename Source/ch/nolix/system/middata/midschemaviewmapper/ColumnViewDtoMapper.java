@@ -1,20 +1,20 @@
-package ch.nolix.system.middata.schemaviewmapper;
+package ch.nolix.system.middata.midschemaviewmapper;
 
-import ch.nolix.systemapi.middataapi.schemaviewmapperapi.IColumnSchemaViewDtoMapper;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewmapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 
 /**
  * @author Silvan Wyss
  * @version 2025-01-10
  */
-public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapper {
+public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public ColumnSchemaViewDto mapColumnDtoToColumnSchemaViewDto(
+  public ColumnViewDto mapMidSchemaColumnDtoToColumnViewDto(
     final ColumnDto columnDto,
     final int oneBasedColumnOrdinalIndex) {
 
@@ -24,6 +24,6 @@ public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapp
     final var contentType = contentModel.getContentType();
     final var dataType = contentModel.getDataType();
 
-    return new ColumnSchemaViewDto(id, name, oneBasedColumnOrdinalIndex, contentType, dataType);
+    return new ColumnViewDto(id, name, oneBasedColumnOrdinalIndex, contentType, dataType);
   }
 }

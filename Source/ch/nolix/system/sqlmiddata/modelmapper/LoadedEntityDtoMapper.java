@@ -5,10 +5,10 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.ILoadedEntityDtoMapper;
@@ -24,7 +24,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   @Override
   public EntityLoadingDto mapSqlRecordToEntityLoadingDto(
     final ISqlRecord sqlRecord,
-    final TableSchemaViewDto tableView) {
+    final TableViewDto tableView) {
     return //
     new EntityLoadingDto(
       sqlRecord.getStoredAt1BasedIndex(1),
@@ -35,7 +35,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   @Override
   public IContainer<ObjectValueFieldDto> mapSqlRecordToContentFieldDtos(
     final ISqlRecord sqlRecord,
-    final IContainer<ColumnSchemaViewDto> columnViews) {
+    final IContainer<ColumnViewDto> columnViews) {
 
     final ILinkedList<ObjectValueFieldDto> contentFieldDtos = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecord.iterator();

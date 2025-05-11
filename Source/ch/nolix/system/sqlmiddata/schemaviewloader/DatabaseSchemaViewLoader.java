@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlmiddata.schemaviewloader;
 
-import ch.nolix.system.middata.schemaviewmapper.TableSchemaViewDtoMapper;
-import ch.nolix.systemapi.middataapi.schemaviewmapperapi.ITableSchemaViewDtoMapper;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.DatabaseSchemaViewDto;
+import ch.nolix.system.middata.midschemaviewmapper.TableViewDtoMapper;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewmapperapi.ITableViewDtoMapper;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi.IDatabaseSchemaViewLoader;
 
@@ -12,17 +12,17 @@ import ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi.IDatabaseSchemaViewL
  */
 public final class DatabaseSchemaViewLoader implements IDatabaseSchemaViewLoader {
 
-  private static final ITableSchemaViewDtoMapper TABLE_DEFINITION_MAPPER = new TableSchemaViewDtoMapper();
+  private static final ITableViewDtoMapper TABLE_DEFINITION_MAPPER = new TableViewDtoMapper();
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public DatabaseSchemaViewDto loadDatabaseSchemaView(final String databaseName, final ISchemaReader schemaAdapter) {
+  public DatabaseViewDto loadDatabaseSchemaView(final String databaseName, final ISchemaReader schemaAdapter) {
 
     final var tables = schemaAdapter.loadTables();
-    final var tableSchemaViews = tables.to(TABLE_DEFINITION_MAPPER::mapTableDtoToTableSchemaViewDto);
+    final var tableSchemaViews = tables.to(TABLE_DEFINITION_MAPPER::mapMidSchemaTableDtoToTableViewDto);
 
-    return new DatabaseSchemaViewDto(databaseName, tableSchemaViews);
+    return new DatabaseViewDto(databaseName, tableSchemaViews);
   }
 }

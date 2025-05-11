@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.nodemiddataapi.schemaviewmodelmapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
 
 /**
  * @author Silvan Wyss
@@ -12,9 +12,9 @@ public interface IColumnSchemaViewDtoMapper {
   /**
    * @param columnNode
    * @param oneBasedColumnOrdinalIndex
-   * @return a new {@link ColumnSchemaViewDto} from the given columnNode and
+   * @return a new {@link ColumnViewDto} from the given columnNode and
    *         oneBasedColumnOrdinalIndex.
    * @throws RuntimeException if the given columnNode is null.
    */
-  ColumnSchemaViewDto mapColumnNodeToColumnViewDto(IMutableNode<?> columnNode, int oneBasedColumnOrdinalIndex);
+  ColumnViewDto mapColumnNodeToColumnViewDto(IMutableNode<?> columnNode, int oneBasedColumnOrdinalIndex);
 }

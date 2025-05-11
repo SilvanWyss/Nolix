@@ -5,12 +5,12 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.middata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.system.middata.midschemaviewsearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.middataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.DatabaseSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataReader implements IDataReader {
@@ -19,13 +19,13 @@ public final class DataReader implements IDataReader {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseSchemaViewDto databaseSchemaView;
+  private final DatabaseViewDto databaseSchemaView;
 
   private final InternalDataReader internalDataReader;
 
-  public DataReader(final IMutableNode<?> nodeDatabase, final DatabaseSchemaViewDto databaseSchemaView) {
+  public DataReader(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
 
-    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
+    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
     this.internalDataReader = new InternalDataReader(nodeDatabase);
@@ -134,7 +134,7 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  private TableSchemaViewDto getTableSchemaViewByTableName(final String tableName) {
+  private TableViewDto getTableSchemaViewByTableName(final String tableName) {
     return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }

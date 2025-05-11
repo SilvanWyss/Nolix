@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi;
 
-import ch.nolix.systemapi.middataapi.schemaviewmodel.DatabaseSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 
 /**
@@ -12,9 +12,9 @@ public interface IDatabaseSchemaViewLoader {
   /**
    * @param databaseName
    * @param schemaAdapter
-   * @return a new {@link DatabaseSchemaViewDto} with the given databaseName from
+   * @return a new {@link DatabaseViewDto} with the given databaseName from
    *         the given schemaAdapter.
    * @throws RuntimeException if the given schemaAdapter is null.
    */
-  DatabaseSchemaViewDto loadDatabaseSchemaView(String databaseName, ISchemaReader schemaAdapter);
+  DatabaseViewDto loadDatabaseSchemaView(String databaseName, ISchemaReader schemaAdapter);
 }

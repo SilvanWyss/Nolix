@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlmiddata.modelmapper;
 
 import ch.nolix.system.middata.valuemapper.ValueMapper;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
 import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IContentFieldDtoMapper;
 
@@ -20,7 +20,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public ObjectValueFieldDto mapStringToContentFieldDtoUsingColumnView(
     final String string,
-    final ColumnSchemaViewDto columnView) {
+    final ColumnViewDto columnView) {
 
     final var columnName = columnView.name();
     final var dataType = columnView.dataType();

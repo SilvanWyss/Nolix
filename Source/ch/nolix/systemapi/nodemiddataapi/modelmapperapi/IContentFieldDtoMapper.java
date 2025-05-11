@@ -3,9 +3,9 @@ package ch.nolix.systemapi.nodemiddataapi.modelmapperapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 
 /**
  * @author Silvan Wyss
@@ -22,7 +22,7 @@ public interface IContentFieldDtoMapper {
    */
   ObjectValueFieldDto mapContentFieldNodeToContentFieldDto(
     INode<?> contentFieldNode,
-    ColumnSchemaViewDto supportingColumnInfo);
+    ColumnViewDto supportingColumnInfo);
 
   /**
    * @param entityNode
@@ -32,5 +32,5 @@ public interface IContentFieldDtoMapper {
    */
   IContainer<ObjectValueFieldDto> mapEntityNodeToContentFieldDtos(
     IMutableNode<?> entityNode,
-    TableSchemaViewDto tableView);
+    TableViewDto tableView);
 }

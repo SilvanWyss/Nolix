@@ -4,15 +4,15 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.middata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.system.middata.midschemaviewsearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.DatabaseSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -21,13 +21,13 @@ public final class DataWriter implements IDataWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseSchemaViewDto databaseSchemaView;
+  private final DatabaseViewDto databaseSchemaView;
 
   private final ExecutiveDataWriter executiveDataWriter;
 
-  public DataWriter(final IMutableNode<?> nodeDatabase, final DatabaseSchemaViewDto databaseSchemaView) {
+  public DataWriter(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
 
-    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
+    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
     this.executiveDataWriter = ExecutiveDataWriter.forNodeDatabase(nodeDatabase);
@@ -214,7 +214,7 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.updateEntity(getTableViewByTableName(tableName), entityUpdate);
   }
 
-  private TableSchemaViewDto getTableViewByTableName(final String tableName) {
+  private TableViewDto getTableViewByTableName(final String tableName) {
     return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }

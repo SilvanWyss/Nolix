@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.system.middata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.system.middata.midschemaviewsearcher.TableViewDtoSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemiddata.nodemapper.ContentFieldNodeMapper;
@@ -17,12 +17,12 @@ import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemiddata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
@@ -110,9 +110,9 @@ public final class DataWriterActionProvider {
 
   public static void deleteMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final String entityId,
-    final ColumnSchemaViewDto multiBackReferenceColumnInfo,
+    final ColumnViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -182,7 +182,7 @@ public final class DataWriterActionProvider {
 
   public static void insertEntity(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final EntityCreationDto newEntity) {
 
     insertEntityIndex(nodeDatabase, tableView.id(), newEntity);
@@ -203,9 +203,9 @@ public final class DataWriterActionProvider {
 
   public static void insertMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final String entityId,
-    final ColumnSchemaViewDto multiBackReferenceColumnInfo,
+    final ColumnViewDto multiBackReferenceColumnInfo,
     final String backReferencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase,
@@ -237,9 +237,9 @@ public final class DataWriterActionProvider {
 
   public static void insertMultiValueEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final String entityId,
-    final ColumnSchemaViewDto multiValueColumnInfo,
+    final ColumnViewDto multiValueColumnInfo,
     final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
@@ -256,7 +256,7 @@ public final class DataWriterActionProvider {
 
   public static void updateEntity(
     final IMutableNode<?> database,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final EntityUpdateDto entityUpdate) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database,
@@ -302,7 +302,7 @@ public final class DataWriterActionProvider {
 
   private static void updateEntityNode(
     final IMutableNode<?> entityNode,
-    final TableSchemaViewDto tableView,
+    final TableViewDto tableView,
     final EntityUpdateDto entityUpdate) {
     for (final var f : entityUpdate.updatedContentFields()) {
 

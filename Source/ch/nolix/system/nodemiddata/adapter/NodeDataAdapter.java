@@ -5,7 +5,7 @@ import ch.nolix.system.middata.adapter.AbstractDataAdapter;
 import ch.nolix.system.nodemiddata.datareader.DataReader;
 import ch.nolix.system.nodemiddata.datawriter.DataWriter;
 import ch.nolix.system.nodemiddata.schemaviewmodelmapper.DatabaseSchemaViewDtoMapper;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.DatabaseSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
 import ch.nolix.systemapi.nodemiddataapi.schemaviewmodelmapperapi.IDatabaseSchemaViewDtoMapper;
 
 public final class NodeDataAdapter extends AbstractDataAdapter {
@@ -18,7 +18,7 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
 
   private NodeDataAdapter(
     final IMutableNode<?> nodeDatabase,
-    final DatabaseSchemaViewDto databaseSchemaView) {
+    final DatabaseViewDto databaseSchemaView) {
     super(new DataReader(nodeDatabase, databaseSchemaView), new DataWriter(nodeDatabase, databaseSchemaView));
   }
 

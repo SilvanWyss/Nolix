@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.middataapi.schemaviewmodel;
+package ch.nolix.systemapi.middataapi.midschemaview;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
@@ -9,5 +9,5 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @param name
  * @param columnSchemaViews
  */
-public record TableSchemaViewDto(String id, String name, IContainer<ColumnSchemaViewDto> columnSchemaViews) {
+public record TableViewDto(String id, String name, IContainer<ColumnViewDto> columnSchemaViews) {
 }

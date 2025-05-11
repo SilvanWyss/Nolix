@@ -4,16 +4,16 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.middata.schemaviewdtosearcher.TableViewDtoSearcher;
+import ch.nolix.system.middata.midschemaviewsearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
+import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.schemaviewdtosearcherapi.ITableViewDtoSearcher;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.DatabaseSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -22,16 +22,16 @@ public final class DataWriter implements IDataWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseSchemaViewDto databaseSchemaView;
+  private final DatabaseViewDto databaseSchemaView;
 
   private final ExecutiveDataWriter executiveDataWriter;
 
   private DataWriter(
     final String databaseName,
-    final DatabaseSchemaViewDto databaseSchemaView,
+    final DatabaseViewDto databaseSchemaView,
     final ISqlConnection sqlConnection) {
 
-    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseSchemaViewDto.class).isNotNull();
+    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseViewDto.class).isNotNull();
 
     this.databaseSchemaView = databaseSchemaView;
     executiveDataWriter = new ExecutiveDataWriter(databaseName, sqlConnection);
@@ -41,7 +41,7 @@ public final class DataWriter implements IDataWriter {
 
   public static DataWriter forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
     final String databaseName,
-    final DatabaseSchemaViewDto databaseSchemaView,
+    final DatabaseViewDto databaseSchemaView,
     final ISqlConnection sqlConnection) {
     return new DataWriter(databaseName, databaseSchemaView, sqlConnection);
   }
@@ -186,7 +186,7 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  private ColumnSchemaViewDto getColumnDefinitionByTableNameAndColumnName(
+  private ColumnViewDto getColumnDefinitionByTableNameAndColumnName(
     final String tableName,
     final String columnName) {
 
@@ -195,7 +195,7 @@ public final class DataWriter implements IDataWriter {
     return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableSchemaView, columnName);
   }
 
-  private TableSchemaViewDto getTableSchmeaViewByTableName(final String tableName) {
+  private TableViewDto getTableSchmeaViewByTableName(final String tableName) {
     return databaseSchemaView.tableSchemaViews().getStoredFirst(t -> t.name().equals(tableName));
   }
 }

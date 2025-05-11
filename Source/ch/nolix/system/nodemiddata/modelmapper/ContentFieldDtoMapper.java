@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.nodemiddataapi.modelmapperapi.IContentFieldDtoMapper;
 
@@ -26,7 +26,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public ObjectValueFieldDto mapContentFieldNodeToContentFieldDto(
     final INode<?> contentFieldNode,
-    final ColumnSchemaViewDto columnInfo) {
+    final ColumnViewDto columnInfo) {
 
     if (contentFieldNode.containsChildNodes()) {
       return new ObjectValueFieldDto(columnInfo.name(), null);
@@ -48,7 +48,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public IContainer<ObjectValueFieldDto> mapEntityNodeToContentFieldDtos(
     final IMutableNode<?> entityNode,
-    final TableSchemaViewDto tableView) {
+    final TableViewDto tableView) {
 
     final ILinkedList<ObjectValueFieldDto> contentFields = LinkedList.createEmpty();
 

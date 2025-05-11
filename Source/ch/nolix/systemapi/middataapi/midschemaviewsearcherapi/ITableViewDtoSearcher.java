@@ -1,7 +1,7 @@
-package ch.nolix.systemapi.middataapi.schemaviewdtosearcherapi;
+package ch.nolix.systemapi.middataapi.midschemaviewsearcherapi;
 
-import ch.nolix.systemapi.middataapi.schemaviewmodel.ColumnSchemaViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 
 /**
  * @author Silvan Wyss
@@ -10,22 +10,22 @@ import ch.nolix.systemapi.middataapi.schemaviewmodel.TableSchemaViewDto;
 public interface ITableViewDtoSearcher {
 
   /**
-   * @param tableSchemaViewDto
+   * @param tableViewDto
    * @param columnId
    * @return the column view of the column with the given columnId from the given
    *         tableViewDto.
    * @throws RuntimeException if the given tableViewDto does not contain a column
    *                          view of a column with the given columnId.
    */
-  ColumnSchemaViewDto getColumnViewByColumnId(TableSchemaViewDto tableSchemaViewDto, String columnId);
+  ColumnViewDto getColumnViewByColumnId(TableViewDto tableViewDto, String columnId);
 
   /**
-   * @param tableSchemaViewDto
+   * @param tableViewDto
    * @param columnName
    * @return the column view of the column with the given columnName from the
    *         given tableViewDto.
    * @throws RuntimeException if the given tableViewDto does not contain a column
    *                          view of a column with the given columnName.
    */
-  ColumnSchemaViewDto getColumnViewByColumnName(TableSchemaViewDto tableSchemaViewDto, String columnName);
+  ColumnViewDto getColumnViewByColumnName(TableViewDto tableViewDto, String columnName);
 }
