@@ -10,9 +10,18 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 public interface IColumnDtoMapper {
 
   /**
-   * @param sqlRecord
-   * @return a new {@link ColumnDto} from the given sqlRecord.
-   * @throws RuntimeException if the given sqlRecord is null.
+   * @param sqlRecordWithNameAndDataType
+   * @return a new {@link ColumnDto} from the given sqlRecordWithNameAndDataType.
+   * @throws RuntimeException if the given sqlRecordWithNameAndDataType is null.
    */
-  ColumnDto mapSqlRecordToColumnDto(ISqlRecord sqlRecord);
+  ColumnDto mapSqlRecordWithNameAndDataTypeToColumnDto(ISqlRecord sqlRecordWithNameAndDataType);
+
+  /**
+   * @param sqlRecordWithTableNameAndNameAndDataType
+   * @return a new {@link ColumnDto} from the given
+   *         sqlRecordWithTableNameAndNameAndDataType.
+   * @throws RuntimeException if the given
+   *                          sqlRecordWithTableNameAndNameAndDataType is null.
+   */
+  ColumnDto mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto(ISqlRecord sqlRecordWithTableNameAndNameAndDataType);
 }

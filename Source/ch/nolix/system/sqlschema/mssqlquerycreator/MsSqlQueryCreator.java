@@ -5,13 +5,8 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 public final class MsSqlQueryCreator implements IQueryCreator {
 
   @Override
-  public String createQueryToLoadColumnsOfAllTables() {
-    return "SELECT COLUMN_NAME, DATA_TYPE, TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS;";
-  }
-
-  @Override
   public String createQueryToLoadNameAndDataTypeOfColumns(final String tableName) {
-    return "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + tableName + "'";
+    return "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + tableName + "';";
   }
 
   @Override
@@ -21,13 +16,18 @@ public final class MsSqlQueryCreator implements IQueryCreator {
 
   @Override
   public String createQueryToLoadTable(final String tableName) {
-    return ("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + tableName + "'");
+    return ("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + tableName + "';");
+  }
+
+  @Override
+  public String createQueryToLoadTableNameAndNameAndDataTypeOfColumns() {
+    return "SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS;";
   }
 
   @Override
   public String createQueryToLoadTopFirstRecordWhereColumnIsNotNull(
     final String tableName,
     final String columnName) {
-    return ("SELECT TOP 1 " + columnName + " FROM " + tableName + " WHERE " + columnName + " NOT NULL");
+    return ("SELECT TOP 1 " + columnName + " FROM " + tableName + " WHERE " + columnName + " NOT NULL;");
   }
 }

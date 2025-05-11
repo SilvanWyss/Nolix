@@ -67,7 +67,7 @@ public final class SchemaReader implements ISchemaReader {
 
     final var query = queryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-    final var columns = sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordToColumnDto);
+    final var columns = sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordWithNameAndDataTypeToColumnDto);
 
     return new TableDto(tableName, columns);
   }
@@ -75,12 +75,12 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public IContainer<TableDto> loadTables() {
 
-    final var query = queryCreator.createQueryToLoadColumnsOfAllTables();
+    final var query = queryCreator.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-    final var columns = sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordToColumnDto);
+    final var columns = sqlRecords.to(COLUMN_DTO_MAPPER::mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto);
     final var columnsGroupedByTable = columns.getStoredInGroups(ColumnDto::name);
 
-    return columnsGroupedByTable.to(g -> new TableDto(g.getStoredFirst().name(), g));
+    return columnsGroupedByTable.to(c -> new TableDto(c.getStoredFirst().name(), c));
   }
 
   @Override

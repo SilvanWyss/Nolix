@@ -16,11 +16,25 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public ColumnDto mapSqlRecordToColumnDto(final ISqlRecord sqlRecord) {
+  public ColumnDto mapSqlRecordWithNameAndDataTypeToColumnDto(final ISqlRecord sqlRecordWithNameAndDataType) {
 
-    final var name = sqlRecord.getStoredAt1BasedIndex(1);
-    final var dataType = new DataTypeDto(sqlRecord.getStoredAt1BasedIndex(2), null);
+    final var name = sqlRecordWithNameAndDataType.getStoredAt1BasedIndex(1);
+    final var dataType = new DataTypeDto(sqlRecordWithNameAndDataType.getStoredAt1BasedIndex(2), null);
 
     return new ColumnDto(name, dataType, ImmutableList.createEmpty());
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ColumnDto mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto(
+    final ISqlRecord sqlRecordWithTableNameAndNameAndDataType) {
+
+    final var name = sqlRecordWithTableNameAndNameAndDataType.getStoredAt1BasedIndex(2);
+    final var dataType = new DataTypeDto(sqlRecordWithTableNameAndNameAndDataType.getStoredAt1BasedIndex(3), null);
+
+    return new ColumnDto(name, dataType, ImmutableList.createEmpty());
+  }
+
 }
