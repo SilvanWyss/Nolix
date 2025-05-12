@@ -62,21 +62,21 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
+  public int getTableCount() {
+  
+    final var query = queryCreator.createQueryToGetTableCount();
+    final var record = sqlConnection.getSingleRecordFromQuery(query);
+  
+    return Integer.valueOf(record.getStoredFirst());
+  }
+
+  @Override
   public TableDto loadTable(String tableName) {
 
     final var query = queryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
     return TABLE_DTO_MAPPER.mapSqlRecordsWithNameAndDataTypeToTableDto(tableName, sqlRecords);
-  }
-
-  @Override
-  public int loadTableCount() {
-
-    final var query = queryCreator.createQueryToGetTableCount();
-    final var record = sqlConnection.getSingleRecordFromQuery(query);
-
-    return Integer.valueOf(record.getStoredFirst());
   }
 
   @Override
@@ -95,7 +95,7 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public boolean tableExist() {
-    return (loadTableCount() > 0);
+    return (getTableCount() > 0);
   }
 
   @Override

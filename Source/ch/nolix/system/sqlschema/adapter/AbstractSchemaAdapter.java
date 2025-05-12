@@ -93,8 +93,8 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final int loadTableCount() {
-    return schemaReader.loadTableCount();
+  public final int getTableCount() {
+    return schemaReader.getTableCount();
   }
 
   @Override
