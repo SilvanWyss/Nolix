@@ -15,8 +15,6 @@ public interface ISchemaReader extends GroupCloseable {
 
   IContainer<ColumnDto> loadColumnsByTableName(String tableName);
 
-  IContainer<ColumnDto> loadColumnsByTableId(String tableId);
-
   FlatTableDto loadFlatTableById(String id);
 
   FlatTableDto loadFlatTableByName(String name);

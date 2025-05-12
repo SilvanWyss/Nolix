@@ -42,11 +42,6 @@ implements IDataAdapterAndSchemaReader {
   }
 
   @Override
-  public final IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
-    return schemaReader.loadColumnsByTableId(tableId);
-  }
-
-  @Override
   public final IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
     return schemaReader.loadColumnsByTableName(tableName);
   }

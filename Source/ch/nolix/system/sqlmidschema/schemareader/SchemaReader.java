@@ -72,15 +72,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<ColumnDto> loadColumnsByTableId(final String tableId) {
-
-    final var query = QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId);
-    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-
-    return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
-  }
-
-  @Override
   public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
 
     final var query = QUERY_CREATOR.createQueryToLoadColumnsByTableName(tableName);
@@ -147,6 +138,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   private TableDto loadTable(final FlatTableDto flatTable) {
-    return new TableDto(flatTable.id(), flatTable.name(), loadColumnsByTableId(flatTable.id()));
+    return new TableDto(flatTable.id(), flatTable.name(), loadColumnsByTableName(flatTable.name()));
   }
 }
