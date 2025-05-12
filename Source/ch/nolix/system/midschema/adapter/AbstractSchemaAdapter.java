@@ -121,11 +121,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final TableDto loadTableById(final String id) {
-    return schemaReader.loadTableById(id);
-  }
-
-  @Override
   public final TableDto loadTableByName(final String name) {
     return schemaReader.loadTableByName(name);
   }

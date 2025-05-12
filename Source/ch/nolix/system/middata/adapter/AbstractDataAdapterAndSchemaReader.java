@@ -67,11 +67,6 @@ implements IDataAdapterAndSchemaReader {
   }
 
   @Override
-  public final TableDto loadTableById(final String id) {
-    return schemaReader.loadTableById(id);
-  }
-
-  @Override
   public final TableDto loadTableByName(final String name) {
     return schemaReader.loadTableByName(name);
   }

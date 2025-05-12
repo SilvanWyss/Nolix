@@ -118,18 +118,13 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public TableDto loadTableById(final String id) {
-    return loadTable(loadFlatTableById(id));
-  }
-
-  @Override
   public TableDto loadTableByName(final String name) {
     return loadTable(loadFlatTableByName(name));
   }
 
   @Override
   public IContainer<TableDto> loadTables() {
-    return loadFlatTables().to(t -> loadTableById(t.id()));
+    return loadFlatTables().to(t -> loadTableByName(t.name()));
   }
 
   @Override

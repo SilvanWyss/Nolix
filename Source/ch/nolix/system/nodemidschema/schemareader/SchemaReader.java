@@ -117,14 +117,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public TableDto loadTableById(final String id) {
-
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, id);
-
-    return loadTableFromTableNode(tableNode);
-  }
-
-  @Override
   public TableDto loadTableByName(final String name) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name);
