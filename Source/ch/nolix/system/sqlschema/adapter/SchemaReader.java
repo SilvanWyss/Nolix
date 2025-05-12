@@ -73,7 +73,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public int loadTableCount() {
 
-    final var query = queryCreator.createQueryToCountTables();
+    final var query = queryCreator.createQueryToGetTableCount();
     final var record = sqlConnection.getSingleRecordFromQuery(query);
 
     return Integer.valueOf(record.getStoredFirst());
@@ -101,7 +101,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public boolean tableExists(String tableName) {
 
-    final var query = queryCreator.createQueryToCountTables(tableName);
+    final var query = queryCreator.createQueryToGetTableCount(tableName);
     final var records = sqlConnection.getSingleRecordFromQuery(query);
 
     return (Integer.valueOf(records.getStoredFirst()) > 0);

@@ -5,12 +5,12 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 public final class MsSqlQueryCreator implements IQueryCreator {
 
   @Override
-  public String createQueryToCountTables() {
+  public String createQueryToGetTableCount() {
     return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES;";
   }
 
   @Override
-  public String createQueryToCountTables(final String tableName) {
+  public String createQueryToGetTableCount(final String tableName) {
     return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + tableName + "';";
   }
 
