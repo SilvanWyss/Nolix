@@ -5,14 +5,14 @@ import java.util.function.Predicate;
 /**
  * @author Silvan Wyss
  * @version 2025-03-09
- * @param <E> is the type of the elements of a {@link FilterMultiSearchable}.
+ * @param <E> is the type of the elements of a {@link ViewProvidingMultiSearchable}.
  */
-public interface FilterMultiSearchable<E> {
+public interface ViewProvidingMultiSearchable<E> {
 
   /**
    * @param selector
    * @return a new {@link IContainer} view with the elements the given selector
-   *         selects from the current {@link FilterMultiSearchable}. Ignores null
+   *         selects from the current {@link ViewProvidingMultiSearchable}. Ignores null
    *         elements.
    * @throws RuntimeException if the given selector is null.
    */
