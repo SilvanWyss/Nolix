@@ -14,6 +14,7 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.containerview.FilterContainerView;
+import ch.nolix.core.container.containerview.MappingContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -1437,16 +1438,6 @@ implements IContainer<E> {
     return selectedElements;
   }
 
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewOfStoredSelected(final Predicate<E> selector) {
-    return FilterContainerView.forContainerAndSelector(this, selector);
-  }
-
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -1550,6 +1541,27 @@ implements IContainer<E> {
 
     //Calculates and returns the variance.
     return sumOfSquaredDifferencesToAverage.divide(elementCount, MathContext.DECIMAL32).doubleValue();
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link Container} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public <T> IContainer<T> getViewOf(final Function<E, T> mapper) {
+    return MappingContainerView.forContainerAndMapper(this, mapper);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final IContainer<E> getViewOfStoredSelected(final Predicate<E> selector) {
+    return FilterContainerView.forContainerAndSelector(this, selector);
   }
 
   /**

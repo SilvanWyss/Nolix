@@ -26,7 +26,6 @@ public interface IContainer<E>
 extends
 ArrayMappable<E>,
 EmptinessRequestable,
-ViewProvidingMultiSearchable<E>,
 ICountingContainer<E>,
 IndexRequestable<E>,
 IStatisticalConainer<E>,
@@ -37,7 +36,9 @@ MaterializationRequestable,
 MultiSearchable<E>,
 SingleSearchable<E>,
 StoringRequestable<E>,
-StringMappable {
+StringMappable,
+ViewProvidingMappable<E>,
+ViewProvidingMultiSearchable<E> {
 
   /**
    * @param comparableMapper
