@@ -167,8 +167,8 @@ public final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
-    return internalContainer.getStoredAt1BasedIndex(param1BasedIndex);
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return internalContainer.getStoredAtOneBasedIndex(oneBasedIndex);
   }
 
   /**

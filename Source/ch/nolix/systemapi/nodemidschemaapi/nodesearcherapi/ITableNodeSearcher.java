@@ -5,7 +5,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface ITableNodeSearcher {
 
-  int get1BasedIndexOfColumnInTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
+  int getOneBasedIndexOfColumnInTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
 
   IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
 

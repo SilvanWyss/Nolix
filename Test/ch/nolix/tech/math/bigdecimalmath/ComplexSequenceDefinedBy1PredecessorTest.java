@@ -47,7 +47,7 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   }
 
   @Test
-  void test_getSquaredMagnitudeOfValueAt1BasedIndex() {
+  void test_getSquaredMagnitudeOfValueAtOneBasedIndex() {
 
     //setup
     final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
@@ -55,14 +55,14 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
       p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 
     //execution & verification
-    expect(testUnit.getSquaredMagnitudeOfValueAt1BasedIndex(1)).isEqualTo(BigDecimal.valueOf(0.0).setScale(20));
-    expect(testUnit.getSquaredMagnitudeOfValueAt1BasedIndex(2)).isEqualTo(BigDecimal.valueOf(1.0).setScale(20));
-    expect(testUnit.getSquaredMagnitudeOfValueAt1BasedIndex(3)).isEqualTo(BigDecimal.valueOf(4.0).setScale(20));
-    expect(testUnit.getSquaredMagnitudeOfValueAt1BasedIndex(4)).isEqualTo(BigDecimal.valueOf(25.0).setScale(20));
+    expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(1)).isEqualTo(BigDecimal.valueOf(0.0).setScale(20));
+    expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(2)).isEqualTo(BigDecimal.valueOf(1.0).setScale(20));
+    expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(3)).isEqualTo(BigDecimal.valueOf(4.0).setScale(20));
+    expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(4)).isEqualTo(BigDecimal.valueOf(25.0).setScale(20));
   }
 
   @Test
-  void test_getValueAt1BasedIndex() {
+  void test_getValueAtOneBasedIndex() {
 
     //setup
     final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
@@ -70,9 +70,9 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
       p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 
     //execution & verification
-    expect(testUnit.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0, 20));
-    expect(testUnit.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0, 20));
-    expect(testUnit.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0, 20));
-    expect(testUnit.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0, 20));
   }
 }

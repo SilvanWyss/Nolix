@@ -147,8 +147,8 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final N getStoredChildNodeAt1BasedIndex(final int index) {
-    return getStoredChildNodes().getStoredAt1BasedIndex(index);
+  public final N getStoredChildNodeAtOneBasedIndex(final int index) {
+    return getStoredChildNodes().getStoredAtOneBasedIndex(index);
   }
 
   /**

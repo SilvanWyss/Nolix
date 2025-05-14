@@ -324,7 +324,7 @@ implements ILinkedList<E> {
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
-   * @param param1BasedIndex
+   * @param oneBasedIndex
    * @return the element at the given index.
    * @throws NonPositiveArgumentException          if the given index is not
    *                                               positive.
@@ -334,9 +334,9 @@ implements ILinkedList<E> {
    *                                               index.
    */
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
-    if (containsAny() && param1BasedIndex == getCount()) {
+    if (containsAny() && oneBasedIndex == getCount()) {
       return lastNode.getElement();
     }
 
@@ -345,7 +345,7 @@ implements ILinkedList<E> {
     for (final var e : this) {
 
       //Asserts that the current index is the given index.
-      if (index == param1BasedIndex) {
+      if (index == oneBasedIndex) {
         return e;
       }
 
@@ -353,7 +353,7 @@ implements ILinkedList<E> {
     }
 
     throw ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
-      param1BasedIndex,
+      oneBasedIndex,
       "1-based index",
       1,
       getCount());

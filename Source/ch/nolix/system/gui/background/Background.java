@@ -96,8 +96,8 @@ public final class Background extends AbstractElement implements IBackground {
         withColorGradient(ColorGradient.fromSpecification(childNode));
       case IMAGE_HEADER ->
         withImageAndImageApplication(
-          Image.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(1)),
-          ImageApplication.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(2)));
+          Image.fromSpecification(specification.getStoredChildNodeAtOneBasedIndex(1)),
+          ImageApplication.fromSpecification(specification.getStoredChildNodeAtOneBasedIndex(2)));
       case TRANSPARENCY_HEADER ->
         TRANSPARENT_BACKGROUND;
       default ->

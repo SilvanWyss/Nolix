@@ -379,7 +379,7 @@ public abstract class ContainerTest extends StandardTest {
     //verification
     expect(list.getCount()).isEqualTo(6);
     for (var i = 1; i <= 6; i++) {
-      expect(testUnit.getStoredAt1BasedIndex(i)).isEqualTo(list.getStoredAt1BasedIndex(i));
+      expect(testUnit.getStoredAtOneBasedIndex(i)).isEqualTo(list.getStoredAtOneBasedIndex(i));
     }
   }
 
@@ -390,13 +390,13 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     //execution
-    final var result = testUnit.getViewFrom1BasedStartIndex(4);
+    final var result = testUnit.getViewFromOneBasedStartIndex(4);
 
     //verification
     expect(result.getCount()).isEqualTo(3);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("xxxx");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xxxxx");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxxxxx");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("xxxx");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xxxxx");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("xxxxxx");
   }
 
   @Test
@@ -496,25 +496,25 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   @Test
-  final void testCase_get1BasedIndexOfFirst_whenIsEmpty() {
+  final void testCase_getOneBasedIndexOfFirst_whenIsEmpty() {
 
     //setup
     final var testUnit = createEmptyContainerForType(String.class);
 
     //execution & verification
-    expectRunning(() -> testUnit.get1BasedIndexOfFirst(e -> e.startsWith("x")))
+    expectRunning(() -> testUnit.getOneBasedIndexOfFirst(e -> e.startsWith("x")))
       .throwsException()
       .ofType(ArgumentDoesNotContainElementException.class);
   }
 
   @Test
-  final void testCase_get1BasedIndexOfFirst_whenContainsAMatchingElement() {
+  final void testCase_getOneBasedIndexOfFirst_whenContainsAMatchingElement() {
 
     //setup
     final var testUnit = createContainerWithElements("wx", "xx", "yx", "zx");
 
     //execution
-    final var result = testUnit.get1BasedIndexOfFirst(e -> e.startsWith("y"));
+    final var result = testUnit.getOneBasedIndexOfFirst(e -> e.startsWith("y"));
 
     //verification
     expect(result).isEqualTo(3);
@@ -875,9 +875,9 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(3);
-    expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("x", "y");
-    expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("xx", "yy");
-    expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
+    expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("x", "y");
+    expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("xx", "yy");
+    expect(result.getStoredAtOneBasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
   }
 
   @Test
@@ -963,9 +963,9 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(3);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("xxx");
   }
 
   @Test
@@ -1179,12 +1179,12 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(6);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
-    expect(result.getStoredAt1BasedIndex(4)).isEqualTo("xxxx");
-    expect(result.getStoredAt1BasedIndex(5)).isEqualTo("xxxxx");
-    expect(result.getStoredAt1BasedIndex(6)).isEqualTo("xxxxxx");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("xxx");
+    expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("xxxx");
+    expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxx");
+    expect(result.getStoredAtOneBasedIndex(6)).isEqualTo("xxxxxx");
   }
 
   @Test
@@ -1198,12 +1198,12 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(6);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("elephant");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("jaguar");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("lion");
-    expect(result.getStoredAt1BasedIndex(4)).isEqualTo("python");
-    expect(result.getStoredAt1BasedIndex(5)).isEqualTo("shark");
-    expect(result.getStoredAt1BasedIndex(6)).isEqualTo("zebra");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("elephant");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("jaguar");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("lion");
+    expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("python");
+    expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("shark");
+    expect(result.getStoredAtOneBasedIndex(6)).isEqualTo("zebra");
   }
 
   @Test
@@ -1266,12 +1266,12 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(6);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("10");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("20");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("30");
-    expect(result.getStoredAt1BasedIndex(4)).isEqualTo("40");
-    expect(result.getStoredAt1BasedIndex(5)).isEqualTo("50");
-    expect(result.getStoredAt1BasedIndex(6)).isEqualTo("60");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("10");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("20");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("30");
+    expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("40");
+    expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("50");
+    expect(result.getStoredAtOneBasedIndex(6)).isEqualTo("60");
   }
 
   @Test
@@ -1294,15 +1294,15 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     //execution
-    final var result = testUnit.getViewTo1BasedEndIndex(5);
+    final var result = testUnit.getViewToOneBasedEndIndex(5);
 
     //verification
     expect(result.getCount()).isEqualTo(5);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
-    expect(result.getStoredAt1BasedIndex(4)).isEqualTo("xxxx");
-    expect(result.getStoredAt1BasedIndex(5)).isEqualTo("xxxxx");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("xxx");
+    expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("xxxx");
+    expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxx");
   }
 
   @Test
@@ -1331,11 +1331,11 @@ public abstract class ContainerTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(5);
-    expect(result.getStoredAt1BasedIndex(1)).isEqualTo("xx");
-    expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xxx");
-    expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxxx");
-    expect(result.getStoredAt1BasedIndex(4)).isEqualTo("xxxxx");
-    expect(result.getStoredAt1BasedIndex(5)).isEqualTo("xxxxxx");
+    expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("xx");
+    expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xxx");
+    expect(result.getStoredAtOneBasedIndex(3)).isEqualTo("xxxx");
+    expect(result.getStoredAtOneBasedIndex(4)).isEqualTo("xxxxx");
+    expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxxx");
   }
 
   protected abstract <E> IContainer<E> createContainerWithElements(

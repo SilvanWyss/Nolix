@@ -77,14 +77,14 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
   Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
   /**
-   * @param param1BasedIndex
-   * @return the child {@link INode} at the given param1BasedIndex from the
+   * @param oneBasedIndex
+   * @return the child {@link INode} at the given oneBasedIndex from the
    *         current {@link INode}.
    * @throws RuntimeException if the given index is not positive.
    * @throws RuntimeException if the current {@link INode} does not contain a
-   *                          child {@link INode} at the given param1BasedIndex.
+   *                          child {@link INode} at the given oneBasedIndex.
    */
-  N getStoredChildNodeAt1BasedIndex(int param1BasedIndex);
+  N getStoredChildNodeAtOneBasedIndex(int oneBasedIndex);
 
   /**
    * @return the child {@link INode}s of the current {@link INode}.

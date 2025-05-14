@@ -50,8 +50,8 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   }
 
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
-    return elements.getStoredAt1BasedIndex(param1BasedIndex).getStoredElement2();
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return elements.getStoredAtOneBasedIndex(oneBasedIndex).getStoredElement2();
   }
 
   @Override

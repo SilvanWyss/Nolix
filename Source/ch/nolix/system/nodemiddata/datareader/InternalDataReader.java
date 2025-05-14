@@ -77,7 +77,7 @@ public final class InternalDataReader {
 
     final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
 
-    final var multiBackReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiBackReferenceColumnIndex);
+    final var multiBackReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnIndex);
 
     return multiBackReferenceNode.getChildNodesHeaders();
   }
@@ -94,7 +94,7 @@ public final class InternalDataReader {
 
     final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
 
-    final var multiReferenceNode = entityNode.getStoredChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+    final var multiReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnIndex);
 
     return multiReferenceNode.getChildNodesHeaders();
   }
@@ -111,7 +111,7 @@ public final class InternalDataReader {
 
     final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
 
-    final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
+    final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnIndex);
 
     return multiValueNode
       .getStoredChildNodes()
@@ -154,12 +154,12 @@ public final class InternalDataReader {
     final var tableNode = //
     DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.name());
 
-    final var local1BasedColumnIndex = columnInfo.oneBasedOrdinalIndex();
+    final var localOneBasedColumnIndex = columnInfo.oneBasedOrdinalIndex();
 
     return //
-    TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
       tableNode,
-      local1BasedColumnIndex,
+      localOneBasedColumnIndex,
       value,
       entitiesToIgnoreIds);
   }

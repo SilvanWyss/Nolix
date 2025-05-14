@@ -17,12 +17,12 @@ public final class EntityNodeExaminer implements IEntityNodeExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(
+  public boolean fieldNodeOfEntityNodeAtOneBasedColumnIndexIsEmpty(
     final IMutableNode<?> entityNode,
-    final int param1BasedColumnIndex) {
+    final int oneBasedColumnIndex) {
 
-    final var fieldNode = ENTITY_NODE_SEARCHER.getStoredFieldNodeFromEntityNodeAt1BasedColumnIndex(entityNode,
-      param1BasedColumnIndex);
+    final var fieldNode = ENTITY_NODE_SEARCHER.getStoredFieldNodeFromEntityNodeAtOneBasedColumnIndex(entityNode,
+      oneBasedColumnIndex);
 
     return fieldNode.isBlank();
   }

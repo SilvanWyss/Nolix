@@ -61,7 +61,7 @@ public final class LayerCssBuilder {
       return 0;
     }
 
-    return layer.getStoredParentGui().getStoredLayers().get1BasedIndexOfFirstOccurrenceOf(layer);
+    return layer.getStoredParentGui().getStoredLayers().getOneBasedIndexOfFirstOccurrenceOf(layer);
   }
 
   private CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {

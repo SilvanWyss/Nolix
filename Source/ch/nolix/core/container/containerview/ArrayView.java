@@ -68,11 +68,11 @@ public final class ArrayView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
-    Validator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
+    Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
 
-    return array[param1BasedIndex - 1];
+    return array[oneBasedIndex - 1];
   }
 
   /**

@@ -54,7 +54,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
     for (final var c : tableView.columnSchemaViews()) {
 
-      final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(c.oneBasedOrdinalIndex());
+      final var contentFieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(c.oneBasedOrdinalIndex());
       final var contentFieldDto = mapContentFieldNodeToContentFieldDto(contentFieldNode, c);
 
       contentFields.addAtEnd(contentFieldDto);

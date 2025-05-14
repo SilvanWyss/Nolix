@@ -17,7 +17,7 @@ public interface IndexRequestable<E> {
    * @throws RuntimeException if the current {@link IndexRequestable} does not
    *                          contain an element the given selector selects.
    */
-  int get1BasedIndexOfFirst(Predicate<E> selector);
+  int getOneBasedIndexOfFirst(Predicate<E> selector);
 
   /**
    * @param object
@@ -26,7 +26,7 @@ public interface IndexRequestable<E> {
    * @throws RuntimeException if the current {@link IndexRequestable} does not
    *                          contain an element that equals the given object.
    */
-  int get1BasedIndexOfFirstEqualElement(Object object);
+  int getOneBasedIndexOfFirstEqualElement(Object object);
 
   /**
    * @param object
@@ -35,5 +35,5 @@ public interface IndexRequestable<E> {
    * @throws RuntimeException if the current {@link IndexRequestable} does not
    *                          contain the given object.
    */
-  int get1BasedIndexOfFirstOccurrenceOf(Object object);
+  int getOneBasedIndexOfFirstOccurrenceOf(Object object);
 }

@@ -10,9 +10,9 @@ public interface IEntityNodeExaminer {
 
   /**
    * @param entityNode
-   * @param param1BasedColumnIndex
+   * @param oneBasedColumnIndex
    * @return true if the field node of the given entity node at the given
-   *         param1BasedColumnIndex is empty, false otherwise.
+   *         oneBasedColumnIndex is empty, false otherwise.
    */
-  boolean fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(IMutableNode<?> entityNode, int param1BasedColumnIndex);
+  boolean fieldNodeOfEntityNodeAtOneBasedColumnIndexIsEmpty(IMutableNode<?> entityNode, int oneBasedColumnIndex);
 }

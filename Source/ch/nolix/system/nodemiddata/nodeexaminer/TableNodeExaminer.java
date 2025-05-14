@@ -9,17 +9,17 @@ import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalo
 public final class TableNodeExaminer implements ITableNodeExaminer {
 
   @Override
-  public boolean tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+  public boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
     final IMutableNode<?> tableNode,
-    final int param1BasedIndex,
+    final int oneBasedIndex,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     tableNode.containsChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(param1BasedIndex).hasHeader(value)
+      && a.getStoredChildNodeAtOneBasedIndex(oneBasedIndex).hasHeader(value)
       && !entitiesToIgnoreIds
-        .containsEqualing(a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
+        .containsEqualing(a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
   }
 
   @Override
@@ -39,7 +39,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
           return false;
         }
 
-        final var field = a.getStoredChildNodeAt1BasedIndex(valueIndex);
+        final var field = a.getStoredChildNodeAtOneBasedIndex(valueIndex);
         return (field.hasHeader(value) || field.containsChildNodeWithHeader(value));
       });
   }
@@ -52,6 +52,6 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     return //
     tableNode.containsChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(valueIndex).hasHeader(header));
+      && a.getStoredChildNodeAtOneBasedIndex(valueIndex).hasHeader(header));
   }
 }

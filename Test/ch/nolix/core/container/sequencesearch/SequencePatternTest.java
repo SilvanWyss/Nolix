@@ -23,10 +23,10 @@ final class SequencePatternTest extends StandardTest {
 
     //verification
     expect(result).hasElementCount(4);
-    expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(4)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(3)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(4)).containsExactlyEqualing("A", "B");
   }
 
   @Test
@@ -45,10 +45,10 @@ final class SequencePatternTest extends StandardTest {
 
     //verification
     expect(result).hasElementCount(4);
-    expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(4)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(3)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(4)).containsExactlyEqualing("A", "B");
   }
 
   @Test
@@ -68,10 +68,10 @@ final class SequencePatternTest extends StandardTest {
 
     //verification
     expect(result).hasElementCount(4);
-    expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(4)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(3)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(4)).containsExactlyEqualing("A", "B");
   }
 
   @Test
@@ -91,10 +91,10 @@ final class SequencePatternTest extends StandardTest {
 
     //verification
     expect(result).hasElementCount(4);
-    expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("A", "B");
-    expect(result.getStoredAt1BasedIndex(4)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(3)).containsExactlyEqualing("A", "B");
+    expect(result.getStoredAtOneBasedIndex(4)).containsExactlyEqualing("A", "B");
   }
 
   @Test

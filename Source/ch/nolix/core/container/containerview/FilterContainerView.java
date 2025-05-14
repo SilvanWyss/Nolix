@@ -103,8 +103,8 @@ public final class FilterContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int oneBasedIndex) {
-    return ITERABLE_TOOL.getStoredAt1BasedIndex(this, oneBasedIndex);
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return ITERABLE_TOOL.getStoredAtOneBasedIndex(this, oneBasedIndex);
   }
 
   /**

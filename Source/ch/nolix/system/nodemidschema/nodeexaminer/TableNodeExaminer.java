@@ -22,12 +22,12 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
   @Override
   public boolean columnOfTableNodeIsEmptyByColumnName(final IMutableNode<?> tableNode, final String columnName) {
 
-    final var local1BasedColumnIndex = TABLE_NODE_SEARCHER.get1BasedIndexOfColumnInTableNodeByColumnName(tableNode,
+    final var localOneBasedColumnIndex = TABLE_NODE_SEARCHER.getOneBasedIndexOfColumnInTableNodeByColumnName(tableNode,
       columnName);
     final var entityNodes = TABLE_NODE_SEARCHER.getStoredEntityNodesFromTableNode(tableNode);
 
     for (final var e : entityNodes) {
-      if (ENTITY_NODE_EXAMINER.fieldNodeOfEntityNodeAt1BasedColumnIndexIsEmpty(e, local1BasedColumnIndex)) {
+      if (ENTITY_NODE_EXAMINER.fieldNodeOfEntityNodeAtOneBasedColumnIndexIsEmpty(e, localOneBasedColumnIndex)) {
         return false;
       }
     }

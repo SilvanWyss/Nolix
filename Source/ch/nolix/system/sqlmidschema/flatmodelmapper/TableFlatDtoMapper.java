@@ -10,8 +10,8 @@ public final class TableFlatDtoMapper implements ITableFlatDtoMapper {
   @Override
   public FlatTableDto mapTableTableSqlRecordToFlatTableDto(final ISqlRecord tableTableSqlRecord) {
 
-    final var tableId = tableTableSqlRecord.getStoredAt1BasedIndex(TableTableFieldIndexCatalog.ID_INDEX);
-    final var tableName = tableTableSqlRecord.getStoredAt1BasedIndex(TableTableFieldIndexCatalog.NAME_INDEX);
+    final var tableId = tableTableSqlRecord.getStoredAtOneBasedIndex(TableTableFieldIndexCatalog.ID_INDEX);
+    final var tableName = tableTableSqlRecord.getStoredAtOneBasedIndex(TableTableFieldIndexCatalog.NAME_INDEX);
 
     return new FlatTableDto(tableId, tableName);
   }

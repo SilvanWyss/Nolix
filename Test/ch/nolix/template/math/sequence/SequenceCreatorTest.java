@@ -14,11 +14,11 @@ final class SequenceCreatorTest extends StandardTest {
     final var result = SequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
 
     //verification
-    expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(result.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(2)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(3)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(4)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(5)).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
   @Test
@@ -28,11 +28,11 @@ final class SequenceCreatorTest extends StandardTest {
     final var result = SequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
 
     //verification
-    expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0));
-    expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0));
-    expect(result.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0));
-    expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(26.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(5)).isEqualTo(new ComplexNumber(26.0, 0.0));
   }
 
   @Test
@@ -42,10 +42,10 @@ final class SequenceCreatorTest extends StandardTest {
     final var result = SequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));
 
     //verification
-    expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 1.0));
-    expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(1.0, 3.0));
-    expect(result.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(-7.0, 7.0));
-    expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(1.0, -97.0));
+    expect(result.getValueAtOneBasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result.getValueAtOneBasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 1.0));
+    expect(result.getValueAtOneBasedIndex(3)).isEqualTo(new ComplexNumber(1.0, 3.0));
+    expect(result.getValueAtOneBasedIndex(4)).isEqualTo(new ComplexNumber(-7.0, 7.0));
+    expect(result.getValueAtOneBasedIndex(5)).isEqualTo(new ComplexNumber(1.0, -97.0));
   }
 }

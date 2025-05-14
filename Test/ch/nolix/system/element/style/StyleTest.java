@@ -101,8 +101,8 @@ final class StyleTest extends StandardTest {
     expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(2);
-    expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);
-    expect(subStyles.getStoredAt1BasedIndex(2)).is(subStyle2);
+    expect(subStyles.getStoredAtOneBasedIndex(1)).is(subStyle1);
+    expect(subStyles.getStoredAtOneBasedIndex(2)).is(subStyle2);
   }
 
   @Test
@@ -141,9 +141,9 @@ final class StyleTest extends StandardTest {
     expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(4);
-    expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);
-    expect(subStyles.getStoredAt1BasedIndex(2)).is(subStyle2);
-    expect(subStyles.getStoredAt1BasedIndex(3)).is(subStyle3);
-    expect(subStyles.getStoredAt1BasedIndex(4)).is(subStyle4);
+    expect(subStyles.getStoredAtOneBasedIndex(1)).is(subStyle1);
+    expect(subStyles.getStoredAtOneBasedIndex(2)).is(subStyle2);
+    expect(subStyles.getStoredAtOneBasedIndex(3)).is(subStyle3);
+    expect(subStyles.getStoredAtOneBasedIndex(4)).is(subStyle4);
   }
 }

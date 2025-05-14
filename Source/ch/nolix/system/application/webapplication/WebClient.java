@@ -147,8 +147,8 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
     for (final var p : guiCommand.getChildNodes()) {
 
-      final var internalControlId = p.getChildNodeAt1BasedIndex(1).getHeader();
-      final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
+      final var internalControlId = p.getChildNodeAtOneBasedIndex(1).getHeader();
+      final var userInput = p.getChildNodeAtOneBasedIndex(2).getHeaderOrEmptyString();
       final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
 
       //The Control could be removed on the server in the meanwhile.

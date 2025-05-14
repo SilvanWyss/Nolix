@@ -19,6 +19,6 @@ public final class TableNodeEditor implements ITableNodeEditor {
     return //
     tableNode.removeAndGetStoredFirstChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
+      && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }
 }

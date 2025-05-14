@@ -44,8 +44,8 @@ public final class MatrixColumn<E> extends Container<E> {
   }
 
   @Override
-  public E getStoredAt1BasedIndex(final int rowIndex) {
-    return parentMatrix.getStoredAt1BasedRowIndexAndColumnIndex(rowIndex, getColumnIndex());
+  public E getStoredAtOneBasedIndex(final int rowIndex) {
+    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(rowIndex, getColumnIndex());
   }
 
   @Override

@@ -10,13 +10,13 @@ public interface IEntityNodeSearcher {
 
   /**
    * @param entityNode
-   * @param param1BasedColumnIndex
+   * @param oneBasedColumnIndex
    * @return the field node of the given entityNode at the given
-   *         param1BasedColumnIndex.
+   *         oneBasedColumnIndex.
    * @throws RuntimeException if given entityNode does not contain a field node
-   *                          with the given param1BasedColumnIndex.
+   *                          with the given oneBasedColumnIndex.
    */
-  IMutableNode<?> getStoredFieldNodeFromEntityNodeAt1BasedColumnIndex(
+  IMutableNode<?> getStoredFieldNodeFromEntityNodeAtOneBasedColumnIndex(
     IMutableNode<?> entityNode,
-    int param1BasedColumnIndex);
+    int oneBasedColumnIndex);
 }

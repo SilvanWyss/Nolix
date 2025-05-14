@@ -34,7 +34,7 @@ final class ContainerViewTest extends ContainerTest {
   }
 
   @Test
-  void testCase_getStoredAt1BasedIndex() {
+  void testCase_getStoredAtOneBasedIndex() {
 
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
@@ -45,15 +45,15 @@ final class ContainerViewTest extends ContainerTest {
     final var testUnit = ContainerView.forArray(array1, array2, array3);
 
     //verification
-    expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("apple");
-    expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("banana");
-    expect(testUnit.getStoredAt1BasedIndex(3)).isEqualTo("cerish");
-    expect(testUnit.getStoredAt1BasedIndex(4)).isEqualTo("antelope");
-    expect(testUnit.getStoredAt1BasedIndex(5)).isEqualTo("baboon");
-    expect(testUnit.getStoredAt1BasedIndex(6)).isEqualTo("elephant");
-    expect(testUnit.getStoredAt1BasedIndex(7)).isEqualTo("flower");
-    expect(testUnit.getStoredAt1BasedIndex(8)).isEqualTo("tree");
-    expect(testUnit.getStoredAt1BasedIndex(9)).isEqualTo("palm");
+    expect(testUnit.getStoredAtOneBasedIndex(1)).isEqualTo("apple");
+    expect(testUnit.getStoredAtOneBasedIndex(2)).isEqualTo("banana");
+    expect(testUnit.getStoredAtOneBasedIndex(3)).isEqualTo("cerish");
+    expect(testUnit.getStoredAtOneBasedIndex(4)).isEqualTo("antelope");
+    expect(testUnit.getStoredAtOneBasedIndex(5)).isEqualTo("baboon");
+    expect(testUnit.getStoredAtOneBasedIndex(6)).isEqualTo("elephant");
+    expect(testUnit.getStoredAtOneBasedIndex(7)).isEqualTo("flower");
+    expect(testUnit.getStoredAtOneBasedIndex(8)).isEqualTo("tree");
+    expect(testUnit.getStoredAtOneBasedIndex(9)).isEqualTo("palm");
   }
 
   @Test

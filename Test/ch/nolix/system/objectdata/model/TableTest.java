@@ -66,7 +66,7 @@ final class TableTest extends StandardTest {
 
     //verification
     expect(result.getCount()).isEqualTo(1);
-    final var loadedPerson = result.getStoredAt1BasedIndex(1);
+    final var loadedPerson = result.getStoredAtOneBasedIndex(1);
     expect(loadedPerson.getId()).isEqualTo(person.getId());
     expect(loadedPerson.getFirstName()).isEqualTo("Donald");
     expect(loadedPerson.getLastName()).isEqualTo("Duck");

@@ -674,13 +674,13 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
+  public final int getOneBasedIndexOfFirst(final Predicate<E> selector) {
 
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
-    //Initializes local1BasedIndex.
-    var local1BasedIndex = 1;
+    //Initializes localOneBasedIndex.
+    var localOneBasedIndex = 1;
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -688,12 +688,12 @@ implements IContainer<E> {
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
 
-        //Returns the local1BasedIndex.
-        return local1BasedIndex;
+        //Returns the localOneBasedIndex.
+        return localOneBasedIndex;
       }
 
-      //Increments the local1BasedIndex.
-      local1BasedIndex++;
+      //Increments the localOneBasedIndex.
+      localOneBasedIndex++;
     }
 
     //Creates and throws a new ArgumentDoesNotContainElementException. 
@@ -707,10 +707,10 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirstEqualElement(final Object object) {
+  public final int getOneBasedIndexOfFirstEqualElement(final Object object) {
 
-    //Initializes local1BasedIndex.
-    var local1BasedIndex = 1;
+    //Initializes localOneBasedIndex.
+    var localOneBasedIndex = 1;
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -718,12 +718,12 @@ implements IContainer<E> {
       //Handles the case that the current element equals the given object.
       if (Objects.equals(e, object)) {
 
-        //Returns the local1BasedIndex.
-        return local1BasedIndex;
+        //Returns the localOneBasedIndex.
+        return localOneBasedIndex;
       }
 
       //Handles the case that the current element does not equals the given object.
-      local1BasedIndex++;
+      localOneBasedIndex++;
     }
 
     //Creates and throws a new InvalidArgumentException. 
@@ -740,21 +740,21 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirstOccurrenceOf(final Object object) {
+  public final int getOneBasedIndexOfFirstOccurrenceOf(final Object object) {
 
-    //Initializes local1BasedIndex.
-    var local1BasedIndex = 1;
+    //Initializes localOneBasedIndex.
+    var localOneBasedIndex = 1;
 
     //Iterates the current Container.
     for (final var e : this) {
 
       //Handles the case that the current element is the given object.
       if (e == object) {
-        return local1BasedIndex;
+        return localOneBasedIndex;
       }
 
       //Handles the case that the current element is not the given object.
-      local1BasedIndex++;
+      localOneBasedIndex++;
     }
 
     //Creates and throws a new ArgumentDoesNotContainElementException. 
@@ -880,10 +880,10 @@ implements IContainer<E> {
       final var postMedianIndex = preMedianIndex + 1;
 
       //Calculates the preMedian.
-      final var preMedian = orderedValues.getStoredAt1BasedIndex(preMedianIndex).doubleValue();
+      final var preMedian = orderedValues.getStoredAtOneBasedIndex(preMedianIndex).doubleValue();
 
       //Calculates the postMedian
-      final var postMedian = orderedValues.getStoredAt1BasedIndex(postMedianIndex).doubleValue();
+      final var postMedian = orderedValues.getStoredAtOneBasedIndex(postMedianIndex).doubleValue();
 
       //Calculates and returns the median.
       return 0.5 * (preMedian + postMedian);
@@ -893,7 +893,7 @@ implements IContainer<E> {
     final var medianIndex = (valueCount / 2) + 1;
 
     //Calculates and returns the median.
-    return orderedValues.getStoredAt1BasedIndex(medianIndex).doubleValue();
+    return orderedValues.getStoredAtOneBasedIndex(medianIndex).doubleValue();
   }
 
   /**
@@ -1289,7 +1289,7 @@ implements IContainer<E> {
   public final E getStoredLast() {
 
     //Calls other method.
-    return getStoredAt1BasedIndex(getCount());
+    return getStoredAtOneBasedIndex(getCount());
   }
 
   /**
@@ -1570,10 +1570,10 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewFrom1BasedStartIndex(final int param1BasedStartIndex) {
+  public final IContainer<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
 
     //Calls other method.
-    return getViewFrom1BasedStartIndexTo1BasedEndIndex(param1BasedStartIndex, getCount());
+    return getViewFromOneBasedStartIndexToOneBasedEndIndex(oneBasedStartIndex, getCount());
   }
 
   /**
@@ -1582,12 +1582,12 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(
-    final int param1BasedStartIndex,
-    final int param1BasedEndIndex) {
+  public final IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
 
     //Creates and returns a new ContainerView.
-    return ContainerView.forContainerAndStartIndexAndEndIndex(this, param1BasedStartIndex, param1BasedEndIndex);
+    return ContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**
@@ -1596,10 +1596,10 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewTo1BasedEndIndex(final int param1BasedEndIndex) {
+  public final IContainer<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
 
     //Calls other method.
-    return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, param1BasedEndIndex);
+    return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, oneBasedEndIndex);
   }
 
   /**
@@ -1632,7 +1632,7 @@ implements IContainer<E> {
     if (count > n) {
 
       //Creates and returns a new view IContainer.
-      return getViewFrom1BasedStartIndexTo1BasedEndIndex(n + 1, count);
+      return getViewFromOneBasedStartIndexToOneBasedEndIndex(n + 1, count);
     }
 
     //Handles the case that the current Container contains n or less elements.
@@ -1669,7 +1669,7 @@ implements IContainer<E> {
     if (count > 0) {
 
       //Creates and returns a new view IContainer.
-      return getViewFrom1BasedStartIndexTo1BasedEndIndex(1, count - n);
+      return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, count - n);
     }
 
     //Handles the case that the current Container contains n or less elements.

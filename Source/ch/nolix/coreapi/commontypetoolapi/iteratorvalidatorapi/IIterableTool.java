@@ -4,5 +4,5 @@ public interface IIterableTool {
 
   int getCount(Iterable<?> iterable);
 
-  <E> E getStoredAt1BasedIndex(final Iterable<E> iterable, int oneBasedIndex);
+  <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, int oneBasedIndex);
 }

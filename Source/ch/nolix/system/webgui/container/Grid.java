@@ -48,9 +48,9 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   @Override
-  public boolean containsControlAt1BasedRowAndColumnIndex(final int param1BasedRowIndex,
-    final int param1BasedColumnIndex) {
-    return cells.getStoredAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex).containsAny();
+  public boolean containsControlAtOneBasedRowAndColumnIndex(final int oneBasedRowIndex,
+    final int oneBasedColumnIndex) {
+    return cells.getStoredAtOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex).containsAny();
   }
 
   @Override
@@ -59,10 +59,10 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   @Override
-  public IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(
-    final int param1BasedRowIndex,
-    final int param1BasedColumnIndex) {
-    return cells.getStoredAt1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex)
+  public IControl<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(
+    final int oneBasedRowIndex,
+    final int oneBasedColumnIndex) {
+    return cells.getStoredAtOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex)
       .getStoredControl();
   }
 
@@ -86,11 +86,11 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
   @Override
   public IGrid insertControlAtRowAndColumn(
-    final int param1BasedRowIndex,
-    final int param1BasedColumnIndex,
+    final int oneBasedRowIndex,
+    final int oneBasedColumnIndex,
     final IControl<?, ?> control) {
 
-    final var cell = GridCell.with1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex);
+    final var cell = GridCell.withOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex);
     cell.setControl(control);
     addCell(cell);
 
@@ -141,7 +141,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
     expandTo(cell.getRowIndex(), cell.getColumnIndex());
 
-    cells.setAt1BasedRowIndexAndColumnIndex(cell.getRowIndex(), cell.getColumnIndex(), cell);
+    cells.setAtOneBasedRowIndexAndColumnIndex(cell.getRowIndex(), cell.getColumnIndex(), cell);
   }
 
   private void expandTo(final int rowCount, final int columnCount) {
@@ -154,7 +154,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     if (cells.isEmpty()) {
-      cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
+      cells.addRow(GridCell.withOneBasedRowIndexAndColumnIndex(1, 1));
     }
 
     for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
@@ -162,7 +162,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
       final ILinkedList<GridCell> column = LinkedList.createEmpty();
 
       for (var ri = 1; ri <= getRowCount(); ri++) {
-        column.addAtEnd(GridCell.with1BasedRowIndexAndColumnIndex(ri, ci));
+        column.addAtEnd(GridCell.withOneBasedRowIndexAndColumnIndex(ri, ci));
       }
 
       cells.addColumn(column);
@@ -174,7 +174,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     if (cells.isEmpty()) {
-      cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
+      cells.addRow(GridCell.withOneBasedRowIndexAndColumnIndex(1, 1));
     }
 
     for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
@@ -182,7 +182,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
       final ILinkedList<GridCell> row = LinkedList.createEmpty();
 
       for (var ci = 1; ci <= getColumnCount(); ci++) {
-        row.addAtEnd(GridCell.with1BasedRowIndexAndColumnIndex(ri, ci));
+        row.addAtEnd(GridCell.withOneBasedRowIndexAndColumnIndex(ri, ci));
       }
 
       cells.addRow(row);

@@ -13,9 +13,9 @@ public final class EntityNodeSearcher implements IEntityNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IMutableNode<?> getStoredFieldNodeFromEntityNodeAt1BasedColumnIndex(
+  public IMutableNode<?> getStoredFieldNodeFromEntityNodeAtOneBasedColumnIndex(
     final IMutableNode<?> entityNode,
-    final int param1BasedColumnIndex) {
-    return entityNode.getStoredChildNodeAt1BasedIndex(param1BasedColumnIndex);
+    final int oneBasedColumnIndex) {
+    return entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedColumnIndex);
   }
 }

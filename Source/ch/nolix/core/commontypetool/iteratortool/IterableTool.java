@@ -20,7 +20,7 @@ public final class IterableTool implements IIterableTool {
   }
 
   @Override
-  public <E> E getStoredAt1BasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
+  public <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
 
     var iteratingOneBasedIndex = 1;
 

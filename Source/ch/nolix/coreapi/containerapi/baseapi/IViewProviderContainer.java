@@ -8,39 +8,39 @@ package ch.nolix.coreapi.containerapi.baseapi;
 public interface IViewProviderContainer<E> {
 
   /**
-   * @param param1BasedStartIndex
+   * @param oneBasedStartIndex
    * @return a new view of the current {@link IViewProviderContainer} from the
-   *         given param1BasedStartIndex.
-   * @throws RuntimeException if the given param1BasedStartIndex is bigger than
+   *         given oneBasedStartIndex.
+   * @throws RuntimeException if the given oneBasedStartIndex is bigger than
    *                          the number of elements of the current
    *                          {@link IContainer}.
    */
-  IContainer<E> getViewFrom1BasedStartIndex(int param1BasedStartIndex);
+  IContainer<E> getViewFromOneBasedStartIndex(int oneBasedStartIndex);
 
   /**
-   * @param param1BasedStartIndex
-   * @param param1BasedEndIndex
+   * @param oneBasedStartIndex
+   * @param oneBasedEndIndex
    * @return a new view of the current {@link IViewProviderContainer} from the
-   *         given param1BasedStartIndex to the given param1BasedEndIndex.
-   * @throws RuntimeException if the given param1BasedStartIndex is not positive.
-   * @throws RuntimeException if the given param1BasedStartIndex is smaller than
-   *                          the given param1BasedEndIndex.
-   * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
+   *         given oneBasedStartIndex to the given oneBasedEndIndex.
+   * @throws RuntimeException if the given oneBasedStartIndex is not positive.
+   * @throws RuntimeException if the given oneBasedStartIndex is smaller than
+   *                          the given oneBasedEndIndex.
+   * @throws RuntimeException if the given oneBasedEndIndex is bigger than the
    *                          number of elements of the current
    *                          {@link IContainer}.
    */
-  IContainer<E> getViewFrom1BasedStartIndexTo1BasedEndIndex(int param1BasedStartIndex, int param1BasedEndIndex);
+  IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(int oneBasedStartIndex, int oneBasedEndIndex);
 
   /**
-   * @param param1BasedEndIndex
+   * @param oneBasedEndIndex
    * @return a new view {@link IContainer} of the current
-   *         {@link IViewProviderContainer} to the given param1BasedEndIndex.
-   * @throws RuntimeException if the given param1BasedEndIndex is not positive.
-   * @throws RuntimeException if the given param1BasedEndIndex is bigger than the
+   *         {@link IViewProviderContainer} to the given oneBasedEndIndex.
+   * @throws RuntimeException if the given oneBasedEndIndex is not positive.
+   * @throws RuntimeException if the given oneBasedEndIndex is bigger than the
    *                          number of the elements of the current
    *                          {@link IContainer}.
    */
-  IContainer<E> getViewTo1BasedEndIndex(int param1BasedEndIndex);
+  IContainer<E> getViewToOneBasedEndIndex(int oneBasedEndIndex);
 
   /**
    * @return a new view {@link IContainer} view of the current

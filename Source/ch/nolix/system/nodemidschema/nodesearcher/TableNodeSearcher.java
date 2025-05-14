@@ -13,17 +13,17 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
-  public int get1BasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
+  public int getOneBasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
 
-    var local1BasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;
+    var localOneBasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;
 
     for (final var c : getStoredColumnNodesFromTableNode(tableNode)) {
 
       if (COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(c).equals(columnName)) {
-        return local1BasedColumnIndex;
+        return localOneBasedColumnIndex;
       }
 
-      local1BasedColumnIndex++;
+      localOneBasedColumnIndex++;
     }
 
     throw InvalidArgumentException.forArgumentAndArgumentName(columnName, "column name");

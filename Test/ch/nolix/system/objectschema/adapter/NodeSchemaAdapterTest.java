@@ -26,8 +26,8 @@ final class NodeSchemaAdapterTest extends StandardTest {
     //verification part 2
     expect(database.getHeader()).isEqualTo("Database");
     expect(database.getChildNodeCount()).isEqualTo(2);
-    expect(database.getStoredChildNodeAt1BasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
-    expect(database.getStoredChildNodeAt1BasedIndex(2).getHeader()).isEqualTo("EntityIndexes");
+    expect(database.getStoredChildNodeAtOneBasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
+    expect(database.getStoredChildNodeAtOneBasedIndex(2).getHeader()).isEqualTo("EntityIndexes");
   }
 
   @Test

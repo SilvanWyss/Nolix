@@ -20,8 +20,8 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
     final String entityId,
     final String multiReferenceColumnId) {
 
-    final var referencedEntityId = multiReferenceEntryNode.getStoredChildNodeAt1BasedIndex(1).getHeader();
-    final var referencedEntityTableId = multiReferenceEntryNode.getStoredChildNodeAt1BasedIndex(2).getHeader();
+    final var referencedEntityId = multiReferenceEntryNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
+    final var referencedEntityTableId = multiReferenceEntryNode.getStoredChildNodeAtOneBasedIndex(2).getHeader();
 
     return //
     new MultiReferenceEntryDto(

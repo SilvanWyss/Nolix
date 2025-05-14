@@ -407,8 +407,8 @@ public final class ChainedNode implements IChainedNode {
    *                                               given index.
    */
   @Override
-  public ChainedNode getChildNodeAt1BasedIndex(final int index) {
-    return childNodes.getStoredAt1BasedIndex(index);
+  public ChainedNode getChildNodeAtOneBasedIndex(final int index) {
+    return childNodes.getStoredAtOneBasedIndex(index);
   }
 
   /**

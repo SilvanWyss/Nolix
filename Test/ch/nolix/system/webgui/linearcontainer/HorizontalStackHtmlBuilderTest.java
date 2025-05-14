@@ -26,9 +26,9 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
     expect(result.getInnerText().isEmpty()).isTrue();
     final var childElements = result.getChildElements();
     expect(childElements).hasElementCount(3);
-    expect(childElements.getStoredAt1BasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
-    expect(childElements.getStoredAt1BasedIndex(2).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
-    expect(childElements.getStoredAt1BasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(2).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
   }
 
   @Override

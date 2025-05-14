@@ -110,8 +110,8 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    */
   private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
 
-    final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
-    final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
+    final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
+    final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
 
     return //
     withColors(
@@ -126,9 +126,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    */
   private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
 
-    final var directionSpecification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
-    final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
-    final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
+    final var directionSpecification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
+    final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
+    final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(3));
 
     return //
     new ColorGradient(

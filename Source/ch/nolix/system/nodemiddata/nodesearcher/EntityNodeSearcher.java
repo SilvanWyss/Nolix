@@ -24,11 +24,11 @@ public final class EntityNodeSearcher implements IEntityNodeSearcher {
 
   @Override
   public IMutableNode<?> getStoredIdNodeFromEntityNode(final IMutableNode<?> entityNode) {
-    return entityNode.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX);
+    return entityNode.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX);
   }
 
   @Override
   public IMutableNode<?> getStoredSaveStampNodeFromEntityNode(final IMutableNode<?> entityNode) {
-    return entityNode.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.SAVE_STAMP_INDEX);
+    return entityNode.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.SAVE_STAMP_INDEX);
   }
 }

@@ -738,7 +738,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
     values = new double[newValues.getCount()][values.length];
     for (var i = 0; i < newValues.getCount(); i++) {
-      values[i] = newValues.getStoredAt1BasedIndex(i + 1);
+      values[i] = newValues.getStoredAtOneBasedIndex(i + 1);
     }
 
     return this;

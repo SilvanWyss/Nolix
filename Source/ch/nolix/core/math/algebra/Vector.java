@@ -150,19 +150,19 @@ public final class Vector {
   }
 
   /**
-   * @param param1BasedIndex
+   * @param oneBasedIndex
    * @return the value of the current {@link Vector} at the given
-   *         param1BasedIndex.
-   * @throws ArgumentIsOutOfRangeException if the given param1BasedIndex is not
-   *                                       positive or the given param1BasedIndex
+   *         oneBasedIndex.
+   * @throws ArgumentIsOutOfRangeException if the given oneBasedIndex is not
+   *                                       positive or the given oneBasedIndex
    *                                       is bigger than the size of the current
    *                                       {@link Vector}.
    */
-  public double getValueAt1BasedIndex(final int param1BasedIndex) {
+  public double getValueAtOneBasedIndex(final int oneBasedIndex) {
 
-    Validator.assertThat(param1BasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
+    Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
 
-    return values[param1BasedIndex - 1];
+    return values[oneBasedIndex - 1];
   }
 
   @Override

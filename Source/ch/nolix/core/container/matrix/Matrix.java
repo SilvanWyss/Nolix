@@ -384,15 +384,15 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    *                                      {@link Matrix}.
    */
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
-    return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(param1BasedIndex), getColumnIndexOf(param1BasedIndex));
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return getStoredAtOneBasedRowIndexAndColumnIndex(getRowIndexOf(oneBasedIndex), getColumnIndexOf(oneBasedIndex));
   }
 
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @param param1BasedRowIndex
-   * @param param1BasedColumnIndex
+   * @param oneBasedRowIndex
+   * @param oneBasedColumnIndex
    * @return the element of the current {@link Matrix} at the given row index and
    *         column index.
    * @throws NonPositiveArgumentException if the given row index is not positive.
@@ -407,13 +407,13 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public E getStoredAt1BasedRowIndexAndColumnIndex(final int param1BasedRowIndex, final int param1BasedColumnIndex) {
+  public E getStoredAtOneBasedRowIndexAndColumnIndex(final int oneBasedRowIndex, final int oneBasedColumnIndex) {
 
     //Asserts that the current matrix contains an element at the given row index
     //and column index.
-    assertContainsAt(param1BasedRowIndex, param1BasedColumnIndex);
+    assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
 
-    return (E) elements[param1BasedRowIndex - 1][param1BasedColumnIndex - 1];
+    return (E) elements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
   }
 
   /**
@@ -532,8 +532,8 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    * 
    * The time complexity of this implementation is O(1).
    * 
-   * @param param1BasedRowIndex
-   * @param param1BasedColumnIndex
+   * @param oneBasedRowIndex
+   * @param oneBasedColumnIndex
    * @param element
    * @throws NonPositiveArgumentException if the given row index is not positive.
    * @throws BiggerArgumentException      if the given row index is bigger than
@@ -547,14 +547,14 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
    * @throws ArgumentIsNullException      if the given element is null.
    */
   @Override
-  public void setAt1BasedRowIndexAndColumnIndex(
-    final int param1BasedRowIndex,
-    final int param1BasedColumnIndex,
+  public void setAtOneBasedRowIndexAndColumnIndex(
+    final int oneBasedRowIndex,
+    final int oneBasedColumnIndex,
     final E element) {
 
     //Asserts that the current matrix contains an element at the given row index
     //and column index.
-    assertContainsAt(param1BasedRowIndex, param1BasedColumnIndex);
+    assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
 
     //Asserts that the given element is not null.
     Validator
@@ -562,7 +562,7 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
       .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
 
-    elements[param1BasedRowIndex - 1][param1BasedColumnIndex - 1] = element;
+    elements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1] = element;
   }
 
   /**

@@ -180,7 +180,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   @Override
   public IColor getPixel(final int xPosition, final int yPosition) {
-    return pixels.getStoredAt1BasedRowIndexAndColumnIndex(yPosition, xPosition);
+    return pixels.getStoredAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition);
   }
 
   @Override
@@ -258,7 +258,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
     deletePixelArraySpecificationAndBufferedImage();
 
-    pixels.setAt1BasedRowIndexAndColumnIndex(yPosition, xPosition, color);
+    pixels.setAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition, color);
 
     return this;
   }
@@ -445,7 +445,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     for (var y = 0; y < getHeight(); y++) {
       for (var x = 0; x < getWidth(); x++) {
 
-        final var pixel = pixels.getStoredAt1BasedRowIndexAndColumnIndex(y + 1, x + 1);
+        final var pixel = pixels.getStoredAtOneBasedRowIndexAndColumnIndex(y + 1, x + 1);
 
         lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
       }
@@ -460,7 +460,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     for (var y = 0; y < getHeight(); y++) {
       for (var x = 0; x < getWidth(); x++) {
 
-        final var pixel = pixels.getStoredAt1BasedRowIndexAndColumnIndex(y + 1, x + 1);
+        final var pixel = pixels.getStoredAtOneBasedRowIndexAndColumnIndex(y + 1, x + 1);
 
         lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
       }

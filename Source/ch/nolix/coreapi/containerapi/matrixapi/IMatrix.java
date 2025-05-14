@@ -9,11 +9,11 @@ public interface IMatrix<E> extends Clearable, IContainer<E> {
 
   IContainer<? extends IContainer<E>> getColumns();
 
-  E getStoredAt1BasedRowIndexAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex);
+  E getStoredAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
 
   int getRowCount();
 
   IContainer<? extends IContainer<E>> getRows();
 
-  void setAt1BasedRowIndexAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex, E element);
+  void setAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex, E element);
 }

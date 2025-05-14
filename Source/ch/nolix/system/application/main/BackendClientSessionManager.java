@@ -132,7 +132,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   private int getCurrentSessionIndex() {
-    return sessionStack.get1BasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
+    return sessionStack.getOneBasedIndexOfFirstOccurrenceOf(getStoredCurrentSession());
   }
 
   private AbstractSession<C, S> getStoredTopSession() {

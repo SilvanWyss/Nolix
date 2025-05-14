@@ -76,12 +76,12 @@ public final class MultiContainerView<E> extends Container<E> {
   }
 
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
     var i = 1;
     for (final var e : this) {
 
-      if (i == param1BasedIndex) {
+      if (i == oneBasedIndex) {
         return e;
       }
 
@@ -90,7 +90,7 @@ public final class MultiContainerView<E> extends Container<E> {
 
     throw //
     ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
-      param1BasedIndex,
+      oneBasedIndex,
       "1-based index",
       1,
       getCount());

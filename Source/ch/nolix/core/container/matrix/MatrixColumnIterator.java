@@ -11,7 +11,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 
   private final MatrixColumn<E> parentMatrixColumn;
 
-  private int nextElement1BasedRowIndex = 1;
+  private int nextElementOneBasedRowIndex = 1;
 
   private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
 
@@ -20,17 +20,17 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
     this.parentMatrixColumn = parentMatrixColumn;
   }
 
-  private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn, final int nextElement1BasedRowIndex) {
+  private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn, final int nextElementOneBasedRowIndex) {
 
     Validator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
 
     Validator
-      .assertThat(nextElement1BasedRowIndex)
+      .assertThat(nextElementOneBasedRowIndex)
       .thatIsNamed("next element 1-based row index")
       .isPositive();
 
     this.parentMatrixColumn = parentMatrixColumn;
-    this.nextElement1BasedRowIndex = nextElement1BasedRowIndex;
+    this.nextElementOneBasedRowIndex = nextElementOneBasedRowIndex;
   }
 
   public static <E2> MatrixColumnIterator<E2> forMatrixColumn(final MatrixColumn<E2> matrixColumn) {
@@ -39,12 +39,12 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 
   @Override
   public CopyableIterator<E> createCopy() {
-    return new MatrixColumnIterator<>(parentMatrixColumn, nextElement1BasedRowIndex);
+    return new MatrixColumnIterator<>(parentMatrixColumn, nextElementOneBasedRowIndex);
   }
 
   @Override
   public boolean hasNext() {
-    return (nextElement1BasedRowIndex <= parentMatrixColumn.getCount());
+    return (nextElementOneBasedRowIndex <= parentMatrixColumn.getCount());
   }
 
   @Override
@@ -65,9 +65,9 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 
   private E nextWhenHasNext() {
 
-    final var element = parentMatrixColumn.getStoredAt1BasedIndex(nextElement1BasedRowIndex);
+    final var element = parentMatrixColumn.getStoredAtOneBasedIndex(nextElementOneBasedRowIndex);
 
-    nextElement1BasedRowIndex++;
+    nextElementOneBasedRowIndex++;
 
     return element;
   }

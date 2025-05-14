@@ -17,7 +17,7 @@ public final class JobMerger {
   private void runJobs(IContainer<Runnable> jobs) {
     for (var i = 1; i <= jobs.getCount(); i++) {
       try {
-        jobs.getStoredAt1BasedIndex(i).run();
+        jobs.getStoredAtOneBasedIndex(i).run();
       } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
         throw WrapperException.forErrorMessageAndError(
           "An error occured by running the " + i + "th job of the given " + jobs.getCount() + " jobs.",

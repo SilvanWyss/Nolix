@@ -58,6 +58,6 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
       return getSecondValue();
     }
 
-    return nextValueFunction.apply(getValueAt1BasedIndex(index - 2), getValueAt1BasedIndex(index - 1));
+    return nextValueFunction.apply(getValueAtOneBasedIndex(index - 2), getValueAtOneBasedIndex(index - 1));
   }
 }

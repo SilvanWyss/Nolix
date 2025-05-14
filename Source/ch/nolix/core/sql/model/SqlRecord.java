@@ -101,8 +101,8 @@ public final class SqlRecord extends Container<String> implements ISqlRecord {
    * {@inheritDoc}
    */
   @Override
-  public String getStoredAt1BasedIndex(final int param1BasedIndex) {
-    return values.getStoredAt1BasedIndex(param1BasedIndex);
+  public String getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return values.getStoredAtOneBasedIndex(oneBasedIndex);
   }
 
   /**

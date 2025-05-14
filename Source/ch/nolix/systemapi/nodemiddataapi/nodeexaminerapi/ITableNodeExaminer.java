@@ -5,9 +5,9 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 public interface ITableNodeExaminer {
 
-  boolean tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+  boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
     IMutableNode<?> tableNode,
-    int param1BasedIndex,
+    int oneBasedIndex,
     String value,
     IContainer<String> entitiesToIgnoreIds);
 

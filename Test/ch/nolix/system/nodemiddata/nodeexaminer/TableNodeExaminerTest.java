@@ -24,8 +24,8 @@ final class TableNodeExaminerTest extends StandardTest {
   "4, Duck, id2, true",
   "4, Duck, id3, true"
   })
-  void testCase_tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
-    final int param1BasedColumnIndex,
+  void testCase_tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
+    final int oneBasedColumnIndex,
     final String value,
     final String ingoredEntityId,
     final boolean expectedResult) {
@@ -56,9 +56,9 @@ final class TableNodeExaminerTest extends StandardTest {
 
     //execution
     final var result = //
-    testUnit.tableNodeContainsEntityNodeWithFieldAtGiven1BasedIndexWithGivenValueIgnoringGivenEntities(
+    testUnit.tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
       tableNode,
-      param1BasedColumnIndex,
+      oneBasedColumnIndex,
       value,
       ImmutableList.withElement(ingoredEntityId));
 

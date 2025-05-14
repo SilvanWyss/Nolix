@@ -60,11 +60,11 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 
   private HtmlElement createHtmlElementForCellOfGrid(final IGrid grid, final int rowIndex, final int columnIndex) {
 
-    if (!grid.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
+    if (!grid.containsControlAtOneBasedRowAndColumnIndex(rowIndex, columnIndex)) {
       return HtmlElement.withType(HtmlElementTypeCatalog.TD);
     }
 
-    final var childControl = grid.getStoredChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
+    final var childControl = grid.getStoredChildControlAtOneBasedRowAndColumnIndex(rowIndex, columnIndex);
     final var childControlHtmlElement = childControl.getHtml();
     return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalog.TD, childControlHtmlElement);
   }

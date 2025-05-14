@@ -61,7 +61,7 @@ final class InternalDataReader {
     return Time.fromString(
       sqlConnection
         .getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToLoadSchemaTimestamp())
-        .getStoredAt1BasedIndex(1));
+        .getStoredAtOneBasedIndex(1));
   }
 
   public IContainer<String> loadMultiBackReferenceEntries(
@@ -72,7 +72,7 @@ final class InternalDataReader {
       entityId,
       multiBackReferenceColumnInfo.id());
 
-    return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAt1BasedIndex(1));
+    return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAtOneBasedIndex(1));
   }
 
   public IContainer<String> loadMultiReferenceEntries(
@@ -83,7 +83,7 @@ final class InternalDataReader {
         MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(
           entityId,
           multiReferenceColumnInfo.id()))
-      .to(r -> r.getStoredAt1BasedIndex(1));
+      .to(r -> r.getStoredAtOneBasedIndex(1));
   }
 
   public IContainer<Object> loadMultiValueEntries(
@@ -94,7 +94,7 @@ final class InternalDataReader {
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
           entityId,
           multiValueColumnInfo.id()))
-      .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAt1BasedIndex(1), multiValueColumnInfo.dataType()));
+      .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnInfo.dataType()));
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {
@@ -172,7 +172,7 @@ final class InternalDataReader {
     final var entityCount = Integer.valueOf(
       sqlConnection
         .getSingleRecordFromQuery(ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenId(tableName, id))
-        .getStoredAt1BasedIndex(1));
+        .getStoredAtOneBasedIndex(1));
 
     return entityCount > 0;
   }
@@ -243,7 +243,7 @@ final class InternalDataReader {
           tableName,
           singleColumnName,
           value))
-        .getStoredAt1BasedIndex(1)) > 0;
+        .getStoredAtOneBasedIndex(1)) > 0;
   }
 
   private boolean tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(

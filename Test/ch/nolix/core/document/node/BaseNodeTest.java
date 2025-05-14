@@ -35,15 +35,15 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   }
 
   @Test
-  void testCase_getStoredChildNodeAt1BasedIndex() {
+  void testCase_getStoredChildNodeAtOneBasedIndex() {
 
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
     //execution
-    final N result1 = testUnit.getStoredChildNodeAt1BasedIndex(1);
-    final N result2 = testUnit.getStoredChildNodeAt1BasedIndex(2);
-    final N result3 = testUnit.getStoredChildNodeAt1BasedIndex(3);
+    final N result1 = testUnit.getStoredChildNodeAtOneBasedIndex(1);
+    final N result2 = testUnit.getStoredChildNodeAtOneBasedIndex(2);
+    final N result3 = testUnit.getStoredChildNodeAtOneBasedIndex(3);
 
     //verification part 1
     expect(result1.toString()).isEqualTo("b");
@@ -52,13 +52,13 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
     //verification part 2
     expectRunning(
-      () -> testUnit.getStoredChildNodeAt1BasedIndex(-1)).throwsException()
+      () -> testUnit.getStoredChildNodeAtOneBasedIndex(-1)).throwsException()
       .ofType(ArgumentIsOutOfRangeException.class);
     expectRunning(
-      () -> testUnit.getStoredChildNodeAt1BasedIndex(0)).throwsException()
+      () -> testUnit.getStoredChildNodeAtOneBasedIndex(0)).throwsException()
       .ofType(ArgumentIsOutOfRangeException.class);
     expectRunning(
-      () -> testUnit.getStoredChildNodeAt1BasedIndex(4)).throwsException()
+      () -> testUnit.getStoredChildNodeAtOneBasedIndex(4)).throwsException()
       .ofType(ArgumentIsOutOfRangeException.class);
   }
 

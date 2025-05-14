@@ -106,16 +106,16 @@ public final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAt1BasedIndex(final int param1BasedIndex) {
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
-    Validator.assertThat(param1BasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
+    Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
 
     Validator
-      .assertThat(param1BasedIndex)
+      .assertThat(oneBasedIndex)
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());
 
-    return container.getStoredAt1BasedIndex(startIndex + param1BasedIndex - 1);
+    return container.getStoredAtOneBasedIndex(startIndex + oneBasedIndex - 1);
   }
 
   /**

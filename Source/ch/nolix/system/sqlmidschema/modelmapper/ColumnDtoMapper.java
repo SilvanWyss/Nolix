@@ -21,7 +21,7 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final ISqlRecord columnTableSqlRecord) {
 
     final var contentType = //
-    ContentType.valueOf(columnTableSqlRecord.getStoredAt1BasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX));
+    ContentType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX));
 
     return //
     switch (contentType) {

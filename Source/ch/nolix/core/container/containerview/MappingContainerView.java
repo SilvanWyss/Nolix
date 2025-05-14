@@ -76,9 +76,9 @@ public final class MappingContainerView<E, T> extends Container<T> {
    * {@inheritDoc}
    */
   @Override
-  public T getStoredAt1BasedIndex(final int param1BasedIndex) {
+  public T getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
-    final var element = container.getStoredAt1BasedIndex(param1BasedIndex);
+    final var element = container.getStoredAtOneBasedIndex(oneBasedIndex);
 
     return mapper.apply(element);
   }

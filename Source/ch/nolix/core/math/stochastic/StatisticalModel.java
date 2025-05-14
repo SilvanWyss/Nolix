@@ -41,7 +41,7 @@ public abstract class StatisticalModel {
       forecasts.addAtEnd(calculateNextValue());
     }
 
-    return forecasts.getStoredAt1BasedIndex(index);
+    return forecasts.getStoredAtOneBasedIndex(index);
   }
 
   protected abstract double calculateNextValue();
@@ -63,6 +63,6 @@ public abstract class StatisticalModel {
       return inputValues[getInputValuesCount() + forecasts.getCount() - index];
     }
 
-    return forecasts.getStoredAt1BasedIndex(forecasts.getCount() - index + 1);
+    return forecasts.getStoredAtOneBasedIndex(forecasts.getCount() - index + 1);
   }
 }

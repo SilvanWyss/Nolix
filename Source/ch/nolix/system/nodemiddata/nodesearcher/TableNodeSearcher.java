@@ -16,7 +16,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
     final String id) {
     return tableNode.getOptionalStoredFirstChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
+      && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }
 
   @Override
@@ -28,7 +28,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
   public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
     return tableNode.getStoredFirstChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
-      && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
+      && a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).hasHeader(id));
   }
 
   @Override

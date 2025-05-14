@@ -16,7 +16,7 @@ abstract class AbstractSequence<V> implements ISequence<V> {
     final int maxIterationCount) {
 
     for (var i = 1; i <= maxIterationCount; i++) {
-      if (getSquaredMagnitudeOfValueAt1BasedIndex(i).compareTo(limit) > 0) {
+      if (getSquaredMagnitudeOfValueAtOneBasedIndex(i).compareTo(limit) > 0) {
         return i;
       }
     }
@@ -25,19 +25,19 @@ abstract class AbstractSequence<V> implements ISequence<V> {
   }
 
   @Override
-  public BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(final int param1BasedIndex) {
+  public BigDecimal getSquaredMagnitudeOfValueAtOneBasedIndex(final int oneBasedIndex) {
 
-    calculateValuesAndSquaredMagnitudesToIndex(param1BasedIndex);
+    calculateValuesAndSquaredMagnitudesToIndex(oneBasedIndex);
 
-    return valuesAndSquaredMagnitudes.get(param1BasedIndex - 1).getStoredElement2();
+    return valuesAndSquaredMagnitudes.get(oneBasedIndex - 1).getStoredElement2();
   }
 
   @Override
-  public V getValueAt1BasedIndex(final int param1BasedIndex) {
+  public V getValueAtOneBasedIndex(final int oneBasedIndex) {
 
-    calculateValuesAndSquaredMagnitudesToIndex(param1BasedIndex);
+    calculateValuesAndSquaredMagnitudesToIndex(oneBasedIndex);
 
-    return valuesAndSquaredMagnitudes.get(param1BasedIndex - 1).getStoredElement1();
+    return valuesAndSquaredMagnitudes.get(oneBasedIndex - 1).getStoredElement1();
   }
 
   protected abstract BigDecimal calculateSquaredMagnitudeForValue(V value);

@@ -27,8 +27,8 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
     final TableViewDto tableView) {
     return //
     new EntityLoadingDto(
-      sqlRecord.getStoredAt1BasedIndex(1),
-      sqlRecord.getStoredAt1BasedIndex(2),
+      sqlRecord.getStoredAtOneBasedIndex(1),
+      sqlRecord.getStoredAtOneBasedIndex(2),
       mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnSchemaViews()));
   }
 

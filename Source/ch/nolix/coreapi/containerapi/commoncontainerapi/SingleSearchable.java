@@ -31,12 +31,12 @@ public interface SingleSearchable<E> {
   Optional<E> getOptionalStoredFirst(Predicate<? super E> selector);
 
   /**
-   * @param param1BasedIndex
-   * @return the element at the given param1BasedIndex. The element can be null.
+   * @param oneBasedIndex
+   * @return the element at the given oneBasedIndex. The element can be null.
    * @throws RuntimeException if the current {@link SingleSearchable} does not
-   *                          contain an element at the given param1BasedIndex.
+   *                          contain an element at the given oneBasedIndex.
    */
-  E getStoredAt1BasedIndex(int param1BasedIndex);
+  E getStoredAtOneBasedIndex(int oneBasedIndex);
 
   /**
    * @param comparableMapper
