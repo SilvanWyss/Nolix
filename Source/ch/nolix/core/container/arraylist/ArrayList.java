@@ -2,6 +2,7 @@ package ch.nolix.core.container.arraylist;
 
 import java.util.function.Function;
 
+import ch.nolix.core.commontypetool.arraytool.ArraySorter;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -263,7 +264,16 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
    */
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
+
+    final var localElements = elements.clone();
+
+    ArraySorter.sortArray(localElements, getCount(), norm);
+
+    final var orderedList = new ArrayList<E>();
+    orderedList.elementCount = elementCount;
+    orderedList.elements = localElements;
+
+    return orderedList;
   }
 
   /**
