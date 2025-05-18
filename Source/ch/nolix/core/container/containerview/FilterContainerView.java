@@ -130,7 +130,7 @@ public final class FilterContainerView<E> extends AbstractContainer<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return FilterIterator.forIteratorAndSelector(container.iterator(), selector);
+    return FilterContainerViewIterator.forIteratorAndSelector(container.iterator(), selector);
   }
 
   /**
