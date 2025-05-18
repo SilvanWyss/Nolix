@@ -14,6 +14,7 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.containerview.FilterContainerView;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.containerview.MappingContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -1587,7 +1588,7 @@ implements IContainer<E> {
     final int oneBasedEndIndex) {
 
     //Creates and returns a new ContainerView.
-    return ContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**

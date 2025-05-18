@@ -1,7 +1,10 @@
-package ch.nolix.core.container.base;
+package ch.nolix.core.container.containerview;
 
 import java.util.function.Function;
 
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -14,18 +17,19 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link ContainerView} can iterate over a part of another container.
+ * A {@link IntervallContainerView} can iterate over a part of another
+ * container.
  * 
- * A {@link ContainerView} must not use the methods of the accessed container
- * except the iterator method. The reason is that the accessed container can be
- * a specialized container that does not use its iterator in any of its declared
- * or overwritten method.
+ * A {@link IntervallContainerView} must not use the methods of the accessed
+ * container except the iterator method. The reason is that the accessed
+ * container can be a specialized container that does not use its iterator in
+ * any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
  * @version 2017-08-27
- * @param <E> is the type of the elements of a {@link ContainerView}.
+ * @param <E> is the type of the elements of a {@link IntervallContainerView}.
  */
-public final class ContainerView<E> extends Container<E> {
+public final class IntervallContainerView<E> extends Container<E> {
 
   private final Container<E> container;
 
@@ -34,8 +38,8 @@ public final class ContainerView<E> extends Container<E> {
   private final int endIndex;
 
   /**
-   * Creates a new {@link ContainerView} with the given container, startIndex and
-   * endIndex.
+   * Creates a new {@link IntervallContainerView} with the given container,
+   * startIndex and endIndex.
    * 
    * @param container
    * @param startIndex
@@ -49,7 +53,7 @@ public final class ContainerView<E> extends Container<E> {
    *                                      number of elements of the given
    *                                      container.
    */
-  private ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
+  private IntervallContainerView(final Container<E> container, final int startIndex, final int endIndex) {
 
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
@@ -75,9 +79,9 @@ public final class ContainerView<E> extends Container<E> {
    * @param startIndex
    * @param endIndex
    * @param <E2>       is the type of the elements of the created
-   *                   {@link ContainerView}.
-   * @return a new {@link ContainerView} with the given container, startIndex and
-   *         endIndex.
+   *                   {@link IntervallContainerView}.
+   * @return a new {@link IntervallContainerView} with the given container,
+   *         startIndex and endIndex.
    * @throws ArgumentIsNullException      if the given container is null.
    * @throws NonPositiveArgumentException if the given startIndex is not positive.
    * @throws NonPositiveArgumentException if the given endIndex is not positive.
@@ -87,11 +91,11 @@ public final class ContainerView<E> extends Container<E> {
    *                                      number of elements of the given
    *                                      container.
    */
-  public static <E2> ContainerView<E2> forContainerAndStartIndexAndEndIndex(
+  public static <E2> IntervallContainerView<E2> forContainerAndStartIndexAndEndIndex(
     final Container<E2> container,
     final int startIndex,
     final int endIndex) {
-    return new ContainerView<>(container, startIndex, endIndex);
+    return new IntervallContainerView<>(container, startIndex, endIndex);
   }
 
   /**
@@ -131,7 +135,7 @@ public final class ContainerView<E> extends Container<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return new ContainerViewIterator<>(
+    return new IntervallContainerViewIterator<>(
       container,
       startIndex,
       endIndex);
@@ -142,7 +146,7 @@ public final class ContainerView<E> extends Container<E> {
    */
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return container.createEmptyMutableList(new Marker<E>()).toOrderedList(norm);
+    return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
   /**
@@ -158,6 +162,6 @@ public final class ContainerView<E> extends Container<E> {
    */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return container.createEmptyMutableList(marker);
+    return LinkedList.createEmpty();
   }
 }

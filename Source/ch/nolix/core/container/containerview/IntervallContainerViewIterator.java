@@ -1,4 +1,4 @@
-package ch.nolix.core.container.base;
+package ch.nolix.core.container.containerview;
 
 import java.util.Iterator;
 
@@ -13,9 +13,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @version 2017-08-27
- * @param <E> is the type of the elements of a {@link ContainerViewIterator}.
+ * @param <E> is the type of the elements of a {@link IntervallContainerViewIterator}.
  */
-final class ContainerViewIterator<E> implements CopyableIterator<E> {
+final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
 
   private final IContainer<E> parentContainer;
 
@@ -26,7 +26,7 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
   private int currentIndex;
 
   /**
-   * Creates a new {@link ContainerViewIterator} for the given parentContainer,
+   * Creates a new {@link IntervallContainerViewIterator} for the given parentContainer,
    * startIndex and endIndex.
    * 
    * @param parentContainer
@@ -36,7 +36,7 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
    * @throws NonPositiveArgumentException if the given startIndex is not positive.
    * @throws NonPositiveArgumentException if the given endIndex is not positive.
    */
-  public ContainerViewIterator(final IContainer<E> parentContainer, final int startIndex, final int endIndex) {
+  public IntervallContainerViewIterator(final IContainer<E> parentContainer, final int startIndex, final int endIndex) {
 
     Validator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
@@ -64,11 +64,11 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public CopyableIterator<E> createCopy() {
-    return new ContainerViewIterator<>(parentContainer, currentIndex, endIndex);
+    return new IntervallContainerViewIterator<>(parentContainer, currentIndex, endIndex);
   }
 
   /**
-   * @return true if the current {@link ContainerViewIterator} has a next element.
+   * @return true if the current {@link IntervallContainerViewIterator} has a next element.
    */
   @Override
   public boolean hasNext() {
@@ -76,9 +76,9 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
   }
 
   /**
-   * @return the next element of the current {@link ContainerViewIterator}.
+   * @return the next element of the current {@link IntervallContainerViewIterator}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ContainerViewIterator}
+   *                                               {@link IntervallContainerViewIterator}
    *                                               does not have a next element.
    */
   @Override
