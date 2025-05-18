@@ -12,6 +12,11 @@ public interface IQueryCreator {
   String createQueryToGetTableCount();
 
   /**
+   * @return a query to load columns.
+   */
+  String createQueryToLoadColumns();
+
+  /**
    * @param tableId
    * @return a query to load the columns of the table with the given tableId.
    */
