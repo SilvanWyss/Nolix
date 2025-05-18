@@ -113,11 +113,11 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private void loadTablesFromDatabase() {
 
-    tables = LinkedList.fromIterable(getStoredMidSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
-    for (final var t : tables) {
-      final var table = (Table) t;
-      table.internalSetLoaded();
-      table.setParentDatabase(this);
+    final var loadedTables = TableLoader.loadTables(getStoredMidSchemaAdapter());
+
+    for (final var t : loadedTables) {
+      t.setParentDatabase(this);
+      tables.addAtEnd(t);
     }
 
     loadedTablesFromDatabase = true;

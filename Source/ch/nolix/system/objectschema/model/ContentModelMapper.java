@@ -21,9 +21,9 @@ public final class ContentModelMapper {
   private ContentModelMapper() {
   }
 
-  public static IContentModel mapMidContentModelDtoToContentModel(
+  public static IContentModel mapMidSchemaContentModelDtoToContentModel(
     final IContentModelDto midContentModelDto,
-    final IContainer<ITable> tables) {
+    final IContainer<? extends ITable> tables) {
 
     if (midContentModelDto instanceof ValueModelDto(DataType dataType)) {
       return ValueModel.forDataType(dataType);

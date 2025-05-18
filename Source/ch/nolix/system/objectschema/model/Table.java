@@ -27,8 +27,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   private String name;
 
-  private boolean loadedColumnsFromDatabase;
-
   private Database parentDatabase;
 
   private ILinkedList<Column> columns = LinkedList.createEmpty();
@@ -43,6 +41,10 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   public static Table fromFlatDto(final FlatTableDto flatTableDto) {
     return new Table(flatTableDto.id(), flatTableDto.name());
+  }
+
+  public static Table withIdAndName(final String id, final String name) {
+    return new Table(id, name);
   }
 
   public static Table withName(final String name) {
@@ -117,9 +119,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public IContainer<? extends IColumn> getStoredColumns() {
-
-    loadColumnsFromDatabaseIfNeeded();
-
     return columns;
   }
 
@@ -176,34 +175,5 @@ public final class Table extends AbstractSchemaObject implements ITable {
     if (!belongsToDatabase()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Database.class);
     }
-  }
-
-  private boolean hasLoadedColumnsFromDatabase() {
-    return loadedColumnsFromDatabase;
-  }
-
-  private void loadColumnsFromDatabase() {
-
-    loadedColumnsFromDatabase = true;
-
-    final var tables = getStoredParentDatabase().getStoredTables();
-
-    final var midTableDto = getStoredMidSchemaAdapter().loadTableByName(getName());
-    columns = LinkedList.fromIterable(ColumnMapper.mapMidTableDtoToColumns(midTableDto, tables));
-
-    for (final var c : columns) {
-      c.internalSetLoaded();
-      c.setParentTableAttribute(this);
-    }
-  }
-
-  private void loadColumnsFromDatabaseIfNeeded() {
-    if (needsToLoadColumnsFromDatabase()) {
-      loadColumnsFromDatabase();
-    }
-  }
-
-  private boolean needsToLoadColumnsFromDatabase() {
-    return (isLoaded() && !hasLoadedColumnsFromDatabase());
   }
 }
