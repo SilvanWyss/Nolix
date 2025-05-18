@@ -24,10 +24,10 @@ public final class MultiContainerView<E> extends AbstractContainer<E> {
 
     final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
 
-    localContainers.addAtEnd(ArrayView.forArray(array));
+    localContainers.addAtEnd(ArrayContainerView.forArray(array));
 
     for (final var a : arrays) {
-      localContainers.addAtEnd(ArrayView.forArray(a));
+      localContainers.addAtEnd(ArrayContainerView.forArray(a));
     }
 
     containers = localContainers;

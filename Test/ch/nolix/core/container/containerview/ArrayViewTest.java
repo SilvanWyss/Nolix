@@ -15,7 +15,7 @@ final class ArrayViewTest extends ContainerTest {
   void testCase_forArray_whenTheGivenArrayIsNull() {
 
     //execution & verification
-    expectRunning(() -> ArrayView
+    expectRunning(() -> ArrayContainerView
       .forArray(null)).throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given array is null.");
@@ -25,11 +25,11 @@ final class ArrayViewTest extends ContainerTest {
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-    return ArrayView.forArray(ARRAY_TOOL.createArrayWithElement(element, elements));
+    return ArrayContainerView.forArray(ARRAY_TOOL.createArrayWithElement(element, elements));
   }
 
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
-    return ArrayView.createEmpty();
+    return ArrayContainerView.createEmpty();
   }
 }

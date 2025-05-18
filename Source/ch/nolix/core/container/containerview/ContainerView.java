@@ -131,7 +131,7 @@ public final class ContainerView<E> extends AbstractContainer<E> {
 
     @SuppressWarnings("unchecked")
     final var container = //
-    MultiContainerView.forIterable(iterable, ImmutableList.withElement(element), ArrayView.forArray(elements));
+    MultiContainerView.forIterable(iterable, ImmutableList.withElement(element), ArrayContainerView.forArray(elements));
 
     return new ContainerView<>(container);
   }

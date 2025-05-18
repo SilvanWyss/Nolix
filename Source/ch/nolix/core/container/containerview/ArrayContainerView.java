@@ -17,19 +17,19 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @version 2017-11-26
- * @param <E> is the type of the elements of a {@link ArrayView}.
+ * @param <E> is the type of the elements of a {@link ArrayContainerView}.
  */
-public final class ArrayView<E> extends AbstractContainer<E> {
+public final class ArrayContainerView<E> extends AbstractContainer<E> {
 
   private final E[] array;
 
   /**
-   * Creates a new {@link ArrayView} for the given array.
+   * Creates a new {@link ArrayContainerView} for the given array.
    * 
    * @param array
    * @throws ArgumentIsNullException if the given array is null.
    */
-  private ArrayView(final E[] array) {
+  private ArrayContainerView(final E[] array) {
 
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
@@ -37,23 +37,23 @@ public final class ArrayView<E> extends AbstractContainer<E> {
   }
 
   /**
-   * @return a new {@link ArrayView} for a new empty array.
+   * @return a new {@link ArrayContainerView} for a new empty array.
    * @param <E2> is the types of the elements of the array of the
-   *             {@link ArrayView}.
+   *             {@link ArrayContainerView}.
    */
   @SuppressWarnings("unchecked")
-  public static <E2> ArrayView<E2> createEmpty() {
+  public static <E2> ArrayContainerView<E2> createEmpty() {
     return forArray((E2[]) new Object[0]);
   }
 
   /**
    * @param array
    * @param <E2>  is the type of the elements of the given array.
-   * @return a new {@link ArrayView} for the given array.
+   * @return a new {@link ArrayContainerView} for the given array.
    * @throws ArgumentIsNullException if the given array is null.
    */
-  public static <E2> ArrayView<E2> forArray(final E2[] array) {
-    return new ArrayView<>(array);
+  public static <E2> ArrayContainerView<E2> forArray(final E2[] array) {
+    return new ArrayContainerView<>(array);
   }
 
   /**
