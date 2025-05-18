@@ -39,10 +39,10 @@ public final class MultiContainerView<E> extends AbstractContainer<E> {
 
     final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
 
-    localContainers.addAtEnd(IterableView.forIterable(iterable));
+    localContainers.addAtEnd(IterableContainerView.forIterable(iterable));
 
     for (final var i : iterables) {
-      localContainers.addAtEnd(IterableView.forIterable(i));
+      localContainers.addAtEnd(IterableContainerView.forIterable(i));
     }
 
     containers = localContainers;

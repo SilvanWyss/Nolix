@@ -17,30 +17,30 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @version 2017-11-26
- * @param <E> is the type of the elements of a {@link IterableView}.
+ * @param <E> is the type of the elements of a {@link IterableContainerView}.
  */
-public final class IterableView<E> extends AbstractContainer<E> {
+public final class IterableContainerView<E> extends AbstractContainer<E> {
 
   private final Iterable<E> iterable;
 
   /**
-   * Creates a new {@link IterableView} for a new empty container.
+   * Creates a new {@link IterableContainerView} for a new empty container.
    */
-  public IterableView() {
+  public IterableContainerView() {
 
     //Calls other constructor.
     this(LinkedList.createEmpty());
   }
 
   /**
-   * Creates a new {@link IterableView} for the given container.
+   * Creates a new {@link IterableContainerView} for the given container.
    * 
    * @param container
    * @param <E2>      is the type of the elements of the given container.
    * @throws ArgumentIsNullException if the given container is null.
    */
   @SuppressWarnings("unchecked")
-  private <E2 extends E> IterableView(final Iterable<E2> container) {
+  private <E2 extends E> IterableContainerView(final Iterable<E2> container) {
 
     //Asserts that the given container is not null.
     Validator
@@ -55,11 +55,11 @@ public final class IterableView<E> extends AbstractContainer<E> {
   /**
    * @param iterable
    * @param <E2>     is the type of the elements of the given iterable.
-   * @return a new {@link IterableView} for the given iterable.
+   * @return a new {@link IterableContainerView} for the given iterable.
    * @throws ArgumentIsNullException if the given iterable is null.
    */
-  public static <E2> IterableView<E2> forIterable(final Iterable<? extends E2> iterable) {
-    return new IterableView<>(iterable);
+  public static <E2> IterableContainerView<E2> forIterable(final Iterable<? extends E2> iterable) {
+    return new IterableContainerView<>(iterable);
   }
 
   /**
@@ -128,7 +128,7 @@ public final class IterableView<E> extends AbstractContainer<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return IterableViewIterator.forIterable(iterable);
+    return IterableContainerViewIterator.forIterable(iterable);
   }
 
   /**
@@ -141,9 +141,9 @@ public final class IterableView<E> extends AbstractContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n). if the current
-   * {@link IterableView} contains n elements.
+   * {@link IterableContainerView} contains n elements.
    * 
-   * @return a {@link String} representation of the current {@link IterableView}.
+   * @return a {@link String} representation of the current {@link IterableContainerView}.
    */
   @Override
   public String toString() {

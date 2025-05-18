@@ -5,7 +5,7 @@ import java.util.Iterator;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
-final class IterableViewIterator<E> implements CopyableIterator<E> {
+final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
 
   private final Iterable<E> parentIterable;
 
@@ -13,7 +13,7 @@ final class IterableViewIterator<E> implements CopyableIterator<E> {
 
   private int iterationCount;
 
-  private IterableViewIterator(final Iterable<E> parentIterable) {
+  private IterableContainerViewIterator(final Iterable<E> parentIterable) {
 
     Validator.assertThat(parentIterable).thatIsNamed("parent iterable").isNotNull();
 
@@ -22,7 +22,7 @@ final class IterableViewIterator<E> implements CopyableIterator<E> {
     iterationCount = 0;
   }
 
-  private IterableViewIterator(final Iterable<E> parentIterable, final int iterationCount) {
+  private IterableContainerViewIterator(final Iterable<E> parentIterable, final int iterationCount) {
 
     Validator.assertThat(iterationCount).thatIsNamed("iteration count").isNotNegative();
 
@@ -36,13 +36,13 @@ final class IterableViewIterator<E> implements CopyableIterator<E> {
     this.iterationCount = iterationCount;
   }
 
-  public static <E2> IterableViewIterator<E2> forIterable(final Iterable<E2> iterable) {
-    return new IterableViewIterator<>(iterable);
+  public static <E2> IterableContainerViewIterator<E2> forIterable(final Iterable<E2> iterable) {
+    return new IterableContainerViewIterator<>(iterable);
   }
 
   @Override
   public CopyableIterator<E> createCopy() {
-    return new IterableViewIterator<>(parentIterable, iterationCount);
+    return new IterableContainerViewIterator<>(parentIterable, iterationCount);
   }
 
   @Override
