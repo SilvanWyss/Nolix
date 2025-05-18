@@ -1,4 +1,4 @@
-package ch.nolix.core.container.containerview;
+package ch.nolix.core.container.linkedlist;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

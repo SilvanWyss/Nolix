@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalog;

@@ -1,6 +1,7 @@
 package ch.nolix.core.container.containerview;
 
 import ch.nolix.core.container.base.ContainerTest;
+import ch.nolix.core.container.linkedlist.FilterContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public final class FilterContainerViewTest extends ContainerTest {

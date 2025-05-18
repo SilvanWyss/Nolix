@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;

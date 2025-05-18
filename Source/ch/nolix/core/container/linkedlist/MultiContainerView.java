@@ -1,18 +1,13 @@
-package ch.nolix.core.container.containerview;
+package ch.nolix.core.container.linkedlist;
 
-import java.util.function.Function;
-
-import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
-public final class MultiContainerView<E> extends AbstractContainer<E> {
+public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
 
   private final IContainer<IContainer<E>> containers;
 
@@ -97,29 +92,12 @@ public final class MultiContainerView<E> extends AbstractContainer<E> {
   }
 
   @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  @Override
   public boolean isMaterialized() {
     return false;
   }
 
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return containers.toMultiples(c -> c).toOrderedList(norm);
-  }
-
-  @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
-  }
-
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 }

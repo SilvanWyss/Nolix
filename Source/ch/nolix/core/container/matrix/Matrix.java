@@ -4,9 +4,8 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.containerview.IntervallContainerView;
+import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
+import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -22,14 +21,14 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link Matrix} is a {@link AbstractContainer} that stores its elements in rows and
- * columns. A {@link Matrix} is clearable.
+ * A {@link Matrix} is a {@link AbstractContainer} that stores its elements in
+ * rows and columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
  * @version 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> extends AbstractContainer<E> implements IMatrix<E> {
+public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMatrix<E> {
 
   private Object[][] elements = new Object[0][0];
 
@@ -418,18 +417,6 @@ public final class Matrix<E> extends AbstractContainer<E> implements IMatrix<E> 
   }
 
   /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  /**
    * @param rowIndex
    * @return the row of the current {@link Matrix} at the given row index.
    * @throws NonPositiveArgumentException if the given row index is not positive.
@@ -635,14 +622,6 @@ public final class Matrix<E> extends AbstractContainer<E> implements IMatrix<E> 
     return leftRotatedMatrix;
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
-  }
-
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -703,14 +682,6 @@ public final class Matrix<E> extends AbstractContainer<E> implements IMatrix<E> 
     }
 
     return stringBuilder.toString();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 
   /**

@@ -1,19 +1,12 @@
 package ch.nolix.core.container.matrix;
 
-import java.util.function.Function;
-
-import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.containerview.IntervallContainerView;
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-public final class MatrixColumn<E> extends AbstractContainer<E> {
+public final class MatrixColumn<E> extends AbstractExtendedContainer<E> {
 
   private final Matrix<E> parentMatrix;
 
@@ -50,13 +43,6 @@ public final class MatrixColumn<E> extends AbstractContainer<E> {
   }
 
   @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  @Override
   public boolean isMaterialized() {
     return false;
   }
@@ -67,17 +53,7 @@ public final class MatrixColumn<E> extends AbstractContainer<E> {
   }
 
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
-  }
-
-  @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
-  }
-
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 }

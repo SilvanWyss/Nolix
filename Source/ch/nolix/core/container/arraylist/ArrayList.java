@@ -1,12 +1,6 @@
 package ch.nolix.core.container.arraylist;
 
-import java.util.function.Function;
-
-import ch.nolix.core.commontypetool.arraytool.ArraySorter;
-import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.containerview.IntervallContainerView;
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -14,7 +8,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ICountingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -23,7 +16,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2024-01-30
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
-public final class ArrayList<E> extends AbstractContainer<E> implements IArrayList<E> {
+public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {
 
   private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
 
@@ -242,20 +235,6 @@ public final class ArrayList<E> extends AbstractContainer<E> implements IArrayLi
    * {@inheritDoc}
    */
   @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-
-    //Creates and returns a new ContainerView.
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return true;
   }
@@ -271,27 +250,6 @@ public final class ArrayList<E> extends AbstractContainer<E> implements IArrayLi
   }
 
   /**
-   * This implementation uses the merge sort algorithm. The complexity of this
-   * implementation is O(n*log(n)) if the current {@link ArrayList} contains n
-   * elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-
-    final var localElements = elements.clone();
-
-    ArraySorter.sortArray(localElements, getCount(), norm);
-
-    final var orderedList = new ArrayList<E>();
-    orderedList.elementCount = elementCount;
-    orderedList.elements = localElements;
-
-    return orderedList;
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link ArrayList} contains n elements.
    * 
@@ -300,16 +258,6 @@ public final class ArrayList<E> extends AbstractContainer<E> implements IArrayLi
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 
   /**

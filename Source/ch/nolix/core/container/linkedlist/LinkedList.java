@@ -1,12 +1,9 @@
 package ch.nolix.core.container.linkedlist;
 
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableExaminer;
 import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -15,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableExaminer;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
@@ -23,15 +19,15 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
- * A {@link LinkedList} is a {@link AbstractContainer} that can add elements at the
- * begin or end. A {@link LinkedList} is clearable.
+ * A {@link LinkedList} is a {@link AbstractContainer} that can add elements at
+ * the begin or end. A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
-extends AbstractContainer<E>
+extends AbstractExtendedContainer<E>
 implements ILinkedList<E> {
 
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
@@ -340,9 +336,9 @@ implements ILinkedList<E> {
    * @throws NonPositiveArgumentException          if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractContainer} does not
-   *                                               contain an element at the given
-   *                                               index.
+   *                                               {@link AbstractContainer} does
+   *                                               not contain an element at the
+   *                                               given index.
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
@@ -368,18 +364,6 @@ implements ILinkedList<E> {
       "1-based index",
       1,
       getCount());
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**
@@ -623,22 +607,6 @@ implements ILinkedList<E> {
   }
 
   /**
-   * The complexity of this implementation is O(n*log(n)) if the current
-   * {@link AbstractContainer} contains n elements.
-   * 
-   * This implementation uses the merge sort algorithm.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> comparableMapper) {
-
-    Validator.assertThat(comparableMapper).thatIsNamed("comparable mapper").isNotNull();
-
-    return getOrderedSubList(1, getCount(), comparableMapper);
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 
@@ -647,14 +615,6 @@ implements ILinkedList<E> {
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 
   /**
@@ -727,81 +687,6 @@ implements ILinkedList<E> {
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
-  }
-
-  /**
-   * @param startIndex
-   * @param endIndex
-   * @param norm
-   * @param <C>        is the type of the {@link Comparable}s the given norm
-   *                   returns.
-   * @return a new {@link LinkedList} with the elements from the given start index
-   *         to the given end index ordered according to the given norm.
-   */
-  @SuppressWarnings({ "unchecked", "rawtypes" })
-  private <C extends Comparable<C>> LinkedList<E> getOrderedSubList(
-    final int startIndex,
-    final int endIndex,
-    final Function<E, C> norm) {
-
-    //Searches for the start node.
-    var startNode = firstNode;
-    for (var i = 1; i < startIndex; i++) {
-      startNode = startNode.getNextNode();
-    }
-
-    //Calculates the length of the sub list.
-    final var length = (endIndex - startIndex) + 1;
-
-    //Handles the case when the sub list contains 1 element.
-    if (length == 1) {
-      return LinkedList.withElement(startNode.getElement());
-    }
-
-    //Handles the case when the sub list contains 2 elements.
-    if (length == 2) {
-
-      final var list = new LinkedList<E>();
-
-      final Comparable element1Value = norm.apply(startNode.getElement());
-      final Comparable element2Value = norm.apply(startNode.getNextNode().getElement());
-      if (element1Value.compareTo(element2Value) > 0) {
-        list.addAtEnd(startNode.getNextNode().getElement());
-        list.addAtEnd(startNode.getElement());
-      } else {
-        list.addAtEnd(startNode.getElement());
-        list.addAtEnd(startNode.getNextNode().getElement());
-      }
-
-      return list;
-    }
-
-    //Handles the case when the sub list contains more than 2 elements.
-    final var list = new LinkedList<E>();
-    final var middleIndex = startIndex + length / 2;
-    final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
-    final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);
-    for (var i = 1; i <= length; i++) {
-      if (subList1.isEmpty()) {
-        list.addAtEnd(subList2.getStoredFirst());
-        subList2.removeFirst();
-      } else if (subList2.isEmpty()) {
-        list.addAtEnd(subList1.getStoredFirst());
-        subList1.removeFirst();
-
-      } else {
-        final Comparable value1 = norm.apply(subList1.getStoredFirst());
-        final Comparable value2 = norm.apply(subList2.getStoredFirst());
-        if (value1.compareTo(value2) > 0) {
-          list.addAtEnd(subList2.getStoredFirst());
-          subList2.removeFirst();
-        } else {
-          list.addAtEnd(subList1.getStoredFirst());
-          subList1.removeFirst();
-        }
-      }
-    }
-    return list;
   }
 
   /**

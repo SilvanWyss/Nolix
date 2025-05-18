@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.base.ContainerTest;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.linkedlist.MultiContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 final class MultiContainerViewTest extends ContainerTest {

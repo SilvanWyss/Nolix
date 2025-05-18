@@ -3,6 +3,7 @@ package ch.nolix.core.container.containerview;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.base.ContainerTest;
+import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 final class ContainerViewTest extends ContainerTest {

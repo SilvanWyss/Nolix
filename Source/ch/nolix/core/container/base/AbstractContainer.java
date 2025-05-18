@@ -13,8 +13,7 @@ import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
-import ch.nolix.core.container.containerview.FilterContainerView;
-import ch.nolix.core.container.containerview.MappingContainerView;
+import ch.nolix.core.container.linkedlist.MappingContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -1552,16 +1551,6 @@ implements IContainer<E> {
   @Override
   public <T> IContainer<T> getViewOf(final Function<E, T> mapper) {
     return MappingContainerView.forContainerAndMapper(this, mapper);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewOfStoredSelected(final Predicate<E> selector) {
-    return FilterContainerView.forContainerAndSelector(this, selector);
   }
 
   /**

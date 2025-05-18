@@ -1,4 +1,4 @@
-package ch.nolix.core.container.containerview;
+package ch.nolix.core.container.linkedlist;
 
 import java.util.Iterator;
 

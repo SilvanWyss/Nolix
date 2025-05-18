@@ -1,22 +1,17 @@
 package ch.nolix.core.container.cachingcontainer;
 
 import java.util.Optional;
-import java.util.function.Function;
 
-import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.containerview.IntervallContainerView;
+import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.cachingcontainerapi.ICachingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-public final class CachingContainer<E> extends AbstractContainer<E> implements ICachingContainer<E> {
+public final class CachingContainer<E> extends AbstractExtendedContainer<E> implements ICachingContainer<E> {
 
   private static final String AUTO_ID_PREFIX = "Z";
 
@@ -58,13 +53,6 @@ public final class CachingContainer<E> extends AbstractContainer<E> implements I
   @Override
   public E getStoredById(final String id) {
     return elements.getStoredFirst(e -> e.getStoredElement1().equals(id)).getStoredElement2();
-  }
-
-  @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   @Override
@@ -118,16 +106,6 @@ public final class CachingContainer<E> extends AbstractContainer<E> implements I
     }
 
     return pair.get().getStoredElement1();
-  }
-
-  @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-    return LinkedList.fromIterable(this).toOrderedList(norm);
-  }
-
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 
   private void assertDoesNotContain(final E element) {

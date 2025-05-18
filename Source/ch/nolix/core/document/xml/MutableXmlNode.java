@@ -1,7 +1,7 @@
 package ch.nolix.core.document.xml;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;

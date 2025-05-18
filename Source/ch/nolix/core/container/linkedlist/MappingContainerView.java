@@ -1,17 +1,14 @@
-package ch.nolix.core.container.containerview;
+package ch.nolix.core.container.linkedlist;
 
 import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
@@ -21,7 +18,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @param <T> is the type of the elements a {@link MappingContainerView} maps
  *            from its elements.
  */
-public final class MappingContainerView<E, T> extends AbstractContainer<T> {
+public final class MappingContainerView<E, T> extends AbstractExtendedContainer<T> {
 
   private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
@@ -87,16 +84,6 @@ public final class MappingContainerView<E, T> extends AbstractContainer<T> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<T> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return false;
   }
@@ -107,21 +94,5 @@ public final class MappingContainerView<E, T> extends AbstractContainer<T> {
   @Override
   public CopyableIterator<T> iterator() {
     return MappingContainerViewIterator.forIteratorAndMapper(container.iterator(), mapper);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public <C extends Comparable<C>> IContainer<T> toOrderedList(final Function<T, C> comparableMapper) {
-    return LinkedList.fromIterable(this).toOrderedList(comparableMapper);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 }

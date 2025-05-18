@@ -1,16 +1,9 @@
-package ch.nolix.core.container.containerview;
-
-import java.util.function.Function;
+package ch.nolix.core.container.linkedlist;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
@@ -19,7 +12,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2017-11-26
  * @param <E> is the type of the elements of a {@link ArrayContainerView}.
  */
-public final class ArrayContainerView<E> extends AbstractContainer<E> {
+public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
 
   private final E[] array;
 
@@ -79,16 +72,6 @@ public final class ArrayContainerView<E> extends AbstractContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return false;
   }
@@ -105,23 +88,7 @@ public final class ArrayContainerView<E> extends AbstractContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> comparableMapper) {
-    return LinkedList.fromIterable(this).toOrderedList(comparableMapper);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 }

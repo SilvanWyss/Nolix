@@ -1,17 +1,10 @@
 package ch.nolix.core.sql.model;
 
-import java.util.function.Function;
-
-import ch.nolix.core.container.base.AbstractContainer;
-import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
@@ -22,7 +15,7 @@ import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
  * @author Silvan Wyss
  * @version 2024-12-28
  */
-public final class SqlRecord extends AbstractContainer<String> implements ISqlRecord {
+public final class SqlRecord extends AbstractExtendedContainer<String> implements ISqlRecord {
 
   private final int oneBasedIndex;
 
@@ -110,16 +103,6 @@ public final class SqlRecord extends AbstractContainer<String> implements ISqlRe
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isMaterialized() {
     return true;
   }
@@ -130,21 +113,5 @@ public final class SqlRecord extends AbstractContainer<String> implements ISqlRe
   @Override
   public CopyableIterator<String> iterator() {
     return values.iterator();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public <C extends Comparable<C>> IContainer<String> toOrderedList(final Function<String, C> comparableMapper) {
-    return values.toOrderedList(comparableMapper);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected <E2> ILinkedList<E2> createEmptyMutableList(Marker<E2> marker) {
-    return LinkedList.createEmpty();
   }
 }
