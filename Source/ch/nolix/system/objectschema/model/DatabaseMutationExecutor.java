@@ -21,6 +21,6 @@ final class DatabaseMutationExecutor {
       database.getStoredMidSchemaAdapter().addTable(tableDto);
     }
 
-    database.internalSetEdited();
+    database.setEdited();
   }
 }

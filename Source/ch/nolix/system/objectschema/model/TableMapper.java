@@ -35,7 +35,7 @@ public final class TableMapper {
     final var name = midSchemaTableDto.name();
     final var table = Table.withIdAndName(id, name);
 
-    table.internalSetLoaded();
+    table.setLoaded();
 
     return table;
   }

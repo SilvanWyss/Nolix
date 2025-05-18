@@ -30,7 +30,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
     column.getStoredMidSchemaAdapter().deleteColumn(column.getStoredParentTable().getName(), column.getName());
 
-    column.internalSetDeleted();
+    column.setDeleted();
   }
 
   /**
@@ -53,7 +53,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       column.getStoredMidSchemaAdapter().setContentModel(tableName, columnName, contentModelDto);
     }
 
-    column.internalSetEdited();
+    column.setEdited();
   }
 
   /**
@@ -80,6 +80,6 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       ((Column) brc).internalSetContentModelToDatabase();
     }
 
-    column.internalSetEdited();
+    column.setEdited();
   }
 }

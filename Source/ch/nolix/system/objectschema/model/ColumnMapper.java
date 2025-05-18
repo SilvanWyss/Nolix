@@ -31,7 +31,7 @@ public final class ColumnMapper {
     final var contentModel = ContentModelMapper.mapMidSchemaContentModelDtoToContentModel(midContentModel, tables);
     final var column = Column.withIdAndNameAndContentModel(id, name, contentModel);
 
-    column.internalSetLoaded();
+    column.setLoaded();
     column.setParentTableAttribute(parentTable);
 
     return column;

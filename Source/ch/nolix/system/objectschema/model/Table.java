@@ -143,7 +143,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
     //Does not call getStoredColumns method to avoid that the columns need to be
     //loaded from the database.
     for (final var c : columns) {
-      c.internalClose();
+      c.close();
     }
   }
 

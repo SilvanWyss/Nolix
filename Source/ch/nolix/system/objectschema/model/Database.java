@@ -34,7 +34,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     this.name = name;
     this.midSchemaAdapter = midSchemaAdapter;
 
-    internalSetLoaded();
+    setLoaded();
   }
 
   @Override
@@ -88,7 +88,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     //Does not call getStoredTables method to avoid that the tables need to be
     //loaded from the database.
     for (final var t : tables) {
-      ((Table) t).internalClose();
+      ((Table) t).close();
     }
   }
 

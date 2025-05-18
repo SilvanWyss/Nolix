@@ -32,7 +32,7 @@ public final class TableEditor {
       midSchemaAdapter.addColumn(tableName, columnDto);
     }
 
-    table.internalSetEdited();
+    table.setEdited();
   }
 
   public static void deleteTable(final Table table) {
@@ -45,7 +45,7 @@ public final class TableEditor {
 
     table.getStoredMidSchemaAdapter().deleteTable(tableName);
 
-    table.internalSetDeleted();
+    table.setDeleted();
   }
 
   public static void setNameToTable(final Table table, final String name) {
@@ -69,6 +69,6 @@ public final class TableEditor {
       }
     }
 
-    table.internalSetEdited();
+    table.setEdited();
   }
 }

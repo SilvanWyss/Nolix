@@ -43,14 +43,14 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
 
   protected abstract void noteClose();
 
-  final void internalClose() {
+  final void close() {
 
     state = DatabaseObjectState.CLOSED;
 
     noteClose();
   }
 
-  final void internalSetDeleted() {
+  final void setDeleted() {
     state = switch (getState()) {
       case NEW ->
         throw NewArgumentException.forArgument(this);
@@ -65,7 +65,7 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
     };
   }
 
-  final void internalSetEdited() {
+  final void setEdited() {
     switch (getState()) {
       case NEW:
         break;
@@ -81,7 +81,7 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
     }
   }
 
-  final void internalSetLoaded() {
+  final void setLoaded() {
     state = switch (getState()) {
       case NEW ->
         DatabaseObjectState.LOADED;
