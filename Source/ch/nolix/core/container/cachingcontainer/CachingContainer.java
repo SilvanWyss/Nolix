@@ -3,7 +3,7 @@ package ch.nolix.core.container.cachingcontainer;
 import java.util.Optional;
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -16,7 +16,7 @@ import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-public final class CachingContainer<E> extends Container<E> implements ICachingContainer<E> {
+public final class CachingContainer<E> extends AbstractContainer<E> implements ICachingContainer<E> {
 
   private static final String AUTO_ID_PREFIX = "Z";
 

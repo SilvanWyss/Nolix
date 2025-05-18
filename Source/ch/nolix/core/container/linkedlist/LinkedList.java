@@ -4,7 +4,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableExaminer;
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -23,7 +23,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 
 /**
- * A {@link LinkedList} is a {@link Container} that can add elements at the
+ * A {@link LinkedList} is a {@link AbstractContainer} that can add elements at the
  * begin or end. A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
@@ -31,7 +31,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
-extends Container<E>
+extends AbstractContainer<E>
 implements ILinkedList<E> {
 
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
@@ -333,14 +333,14 @@ implements ILinkedList<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * @param oneBasedIndex
    * @return the element at the given index.
    * @throws NonPositiveArgumentException          if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link Container} does not
+   *                                               {@link AbstractContainer} does not
    *                                               contain an element at the given
    *                                               index.
    */
@@ -624,7 +624,7 @@ implements ILinkedList<E> {
 
   /**
    * The complexity of this implementation is O(n*log(n)) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * This implementation uses the merge sort algorithm.
    * 

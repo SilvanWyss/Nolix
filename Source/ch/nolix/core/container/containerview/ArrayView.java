@@ -3,7 +3,7 @@ package ch.nolix.core.container.containerview;
 import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -19,7 +19,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2017-11-26
  * @param <E> is the type of the elements of a {@link ArrayView}.
  */
-public final class ArrayView<E> extends Container<E> {
+public final class ArrayView<E> extends AbstractContainer<E> {
 
   private final E[] array;
 

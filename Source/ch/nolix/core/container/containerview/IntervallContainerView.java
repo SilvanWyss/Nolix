@@ -2,7 +2,7 @@ package ch.nolix.core.container.containerview;
 
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -29,9 +29,9 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2017-08-27
  * @param <E> is the type of the elements of a {@link IntervallContainerView}.
  */
-public final class IntervallContainerView<E> extends Container<E> {
+public final class IntervallContainerView<E> extends AbstractContainer<E> {
 
-  private final Container<E> container;
+  private final AbstractContainer<E> abstractContainer;
 
   private final int startIndex;
 
@@ -53,7 +53,7 @@ public final class IntervallContainerView<E> extends Container<E> {
    *                                      number of elements of the given
    *                                      container.
    */
-  private IntervallContainerView(final Container<E> container, final int startIndex, final int endIndex) {
+  private IntervallContainerView(final AbstractContainer<E> container, final int startIndex, final int endIndex) {
 
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
@@ -69,7 +69,7 @@ public final class IntervallContainerView<E> extends Container<E> {
       .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isNotBiggerThan(container.getCount());
 
-    this.container = container;
+    this.abstractContainer = container;
     this.startIndex = startIndex;
     this.endIndex = endIndex;
   }
@@ -92,7 +92,7 @@ public final class IntervallContainerView<E> extends Container<E> {
    *                                      container.
    */
   public static <E2> IntervallContainerView<E2> forContainerAndStartIndexAndEndIndex(
-    final Container<E2> container,
+    final AbstractContainer<E2> container,
     final int startIndex,
     final int endIndex) {
     return new IntervallContainerView<>(container, startIndex, endIndex);
@@ -119,7 +119,7 @@ public final class IntervallContainerView<E> extends Container<E> {
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());
 
-    return container.getStoredAtOneBasedIndex(startIndex + oneBasedIndex - 1);
+    return abstractContainer.getStoredAtOneBasedIndex(startIndex + oneBasedIndex - 1);
   }
 
   /**
@@ -146,7 +146,7 @@ public final class IntervallContainerView<E> extends Container<E> {
   @Override
   public CopyableIterator<E> iterator() {
     return new IntervallContainerViewIterator<>(
-      container,
+      abstractContainer,
       startIndex,
       endIndex);
   }

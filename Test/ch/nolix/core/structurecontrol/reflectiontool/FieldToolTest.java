@@ -3,7 +3,7 @@ package ch.nolix.core.structurecontrol.reflectiontool;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -42,7 +42,7 @@ final class FieldToolTest extends StandardTest {
     final var testUnit = new FieldTool();
 
     //execution
-    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, Container.class);
+    final var result = testUnit.hasGivenTypeOrSuperType(studentsField, AbstractContainer.class);
 
     //verification
     expect(result).isTrue();

@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.containerview.IntervallContainerView;
@@ -19,13 +19,13 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 /**
- * A {@link ImmutableList} is a {@link Container} that is not mutable.
+ * A {@link ImmutableList} is a {@link AbstractContainer} that is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2022-07-08
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
-public final class ImmutableList<E> extends Container<E> {
+public final class ImmutableList<E> extends AbstractContainer<E> {
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 

@@ -2,7 +2,7 @@ package ch.nolix.core.container.containerview;
 
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
-public final class MultiContainerView<E> extends Container<E> {
+public final class MultiContainerView<E> extends AbstractContainer<E> {
 
   private final IContainer<IContainer<E>> containers;
 

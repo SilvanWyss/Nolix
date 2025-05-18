@@ -2,7 +2,7 @@ package ch.nolix.core.container.matrix;
 
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-public final class MatrixRow<E> extends Container<E> {
+public final class MatrixRow<E> extends AbstractContainer<E> {
 
   private final Matrix<E> parentMatrix;
 

@@ -33,16 +33,16 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
- * @param <E> is the type of the elements of a {@link Container}.
+ * @param <E> is the type of the elements of a {@link AbstractContainer}.
  */
-public abstract class Container<E> //NOSONAR: A Control is a principal object thus it has many methods.
+public abstract class AbstractContainer<E> //NOSONAR: An AbstractContainer is a principal object thus it has many methods.
 implements IContainer<E> {
 
   private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -67,7 +67,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -97,7 +97,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -115,7 +115,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -144,7 +144,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -172,7 +172,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -190,7 +190,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -220,7 +220,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -267,7 +267,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -292,7 +292,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * The current {@link Container} contains m elements.
+   * The current {@link AbstractContainer} contains m elements.
    * 
    * The given iterable contains n elements.
    * 
@@ -312,7 +312,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -366,7 +366,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -380,7 +380,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -396,7 +396,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -411,7 +411,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -465,7 +465,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -502,7 +502,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -536,7 +536,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -563,7 +563,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -585,7 +585,7 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -612,7 +612,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -642,7 +642,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -669,7 +669,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -702,7 +702,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -735,7 +735,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -763,7 +763,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -807,7 +807,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -851,7 +851,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -898,7 +898,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -916,7 +916,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1024,7 +1024,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1051,7 +1051,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1067,7 +1067,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1115,7 +1115,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1186,7 +1186,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1207,7 +1207,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1225,10 +1225,10 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link Container} contains m elements.
+   * -The current {@link AbstractContainer} contains m elements.
    * 
-   * -The given norm assignes the elements of the current {@link Container} in n
-   * groups.
+   * -The given norm assignes the elements of the current
+   * {@link AbstractContainer} in n groups.
    * 
    * {@inheritDoc}
    */
@@ -1281,7 +1281,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(1) or O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1294,7 +1294,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1331,7 +1331,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1377,7 +1377,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1410,7 +1410,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1441,7 +1441,7 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1471,7 +1471,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1501,7 +1501,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1545,7 +1545,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1685,7 +1685,7 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1721,7 +1721,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1750,7 +1750,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1785,7 +1785,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1820,7 +1820,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1838,7 +1838,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1873,7 +1873,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1909,7 +1909,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1945,10 +1945,10 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current * {@link Container} contains m elements.
+   * -The current * {@link AbstractContainer} contains m elements.
    * 
    * -On average, the given multipleMapper maps n elements from an element of the
-   * current {@link Container}.
+   * current {@link AbstractContainer}.
    * 
    * {@inheritDoc}
    */
@@ -1981,7 +1981,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2021,7 +2021,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2041,7 +2041,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2062,7 +2062,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2082,7 +2082,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2095,7 +2095,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2116,7 +2116,7 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -2167,7 +2167,8 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @throws EmptyArgumentException if the current {@link Container} is empty.
+   * @throws EmptyArgumentException if the current {@link AbstractContainer} is
+   *                                empty.
    */
   private void assertIsNotEmpty() {
     if (isEmpty()) {
@@ -2237,12 +2238,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link Container} contains n elements.
+   * {@link AbstractContainer} contains n elements.
    * 
    * @param separator
-   * @return a {@link String} representation of the current {@link Container}
-   *         using the given separator for the case that the current
-   *         {@link Container} contains several elements.
+   * @return a {@link String} representation of the current
+   *         {@link AbstractContainer} using the given separator for the case that
+   *         the current {@link AbstractContainer} contains several elements.
    * @throws ArgumentIsNullException if the given separator is null.
    */
   private String toStringWhenContainsSeveralElements(final String separator) {

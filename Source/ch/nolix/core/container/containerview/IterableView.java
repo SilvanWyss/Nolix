@@ -2,7 +2,7 @@ package ch.nolix.core.container.containerview;
 
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -19,7 +19,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2017-11-26
  * @param <E> is the type of the elements of a {@link IterableView}.
  */
-public final class IterableView<E> extends Container<E> {
+public final class IterableView<E> extends AbstractContainer<E> {
 
   private final Iterable<E> iterable;
 

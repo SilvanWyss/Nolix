@@ -2,7 +2,7 @@ package ch.nolix.core.sql.model;
 
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -22,7 +22,7 @@ import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
  * @author Silvan Wyss
  * @version 2024-12-28
  */
-public final class SqlRecord extends Container<String> implements ISqlRecord {
+public final class SqlRecord extends AbstractContainer<String> implements ISqlRecord {
 
   private final int oneBasedIndex;
 

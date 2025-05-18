@@ -4,7 +4,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2025-03-09
  * @param <E> is the type of the elements of a {@link FilterContainerView}.
  */
-public final class FilterContainerView<E> extends Container<E> {
+public final class FilterContainerView<E> extends AbstractContainer<E> {
 
   private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 

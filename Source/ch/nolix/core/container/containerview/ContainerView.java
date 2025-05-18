@@ -2,7 +2,7 @@ package ch.nolix.core.container.containerview;
 
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -23,7 +23,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2017-07-01
  * @param <E> is the type of the elements of a {@link ContainerView}.
  */
-public final class ContainerView<E> extends Container<E> {
+public final class ContainerView<E> extends AbstractContainer<E> {
 
   private final IContainer<E> internalContainer;
 

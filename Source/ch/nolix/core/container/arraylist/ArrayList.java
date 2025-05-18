@@ -3,7 +3,7 @@ package ch.nolix.core.container.arraylist;
 import java.util.function.Function;
 
 import ch.nolix.core.commontypetool.arraytool.ArraySorter;
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -23,7 +23,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @version 2024-01-30
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
-public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
+public final class ArrayList<E> extends AbstractContainer<E> implements IArrayList<E> {
 
   private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
 

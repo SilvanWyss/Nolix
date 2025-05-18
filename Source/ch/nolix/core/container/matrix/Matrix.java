@@ -3,7 +3,7 @@ package ch.nolix.core.container.matrix;
 import java.util.Arrays;
 import java.util.function.Function;
 
-import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.containerview.IntervallContainerView;
@@ -22,14 +22,14 @@ import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link Matrix} is a {@link Container} that stores its elements in rows and
+ * A {@link Matrix} is a {@link AbstractContainer} that stores its elements in rows and
  * columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
  * @version 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> extends Container<E> implements IMatrix<E> {
+public final class Matrix<E> extends AbstractContainer<E> implements IMatrix<E> {
 
   private Object[][] elements = new Object[0][0];
 
