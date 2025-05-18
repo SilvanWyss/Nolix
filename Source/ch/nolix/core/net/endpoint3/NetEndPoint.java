@@ -1,8 +1,8 @@
 package ch.nolix.core.net.endpoint3;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.AbstractNode;

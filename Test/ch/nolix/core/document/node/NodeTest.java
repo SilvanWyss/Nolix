@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.core.container.linkedlist.ContainerView;
+import ch.nolix.core.container.containerview.ContainerView;
 
 final class NodeTest extends BaseNodeTest<Node> {
 

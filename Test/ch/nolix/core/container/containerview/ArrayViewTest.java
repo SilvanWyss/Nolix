@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.container.base.ContainerTest;
-import ch.nolix.core.container.linkedlist.ArrayContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 

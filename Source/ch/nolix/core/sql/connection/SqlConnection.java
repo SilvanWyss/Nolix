@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.core.container.linkedlist.ContainerView;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;

@@ -1,11 +1,11 @@
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.containerview;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
-final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
+public final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
 
   private final CopyableIterator<IContainer<E>> mainIterator;
 

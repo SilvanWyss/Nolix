@@ -10,7 +10,7 @@ import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
-import ch.nolix.core.container.linkedlist.ContainerView;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;

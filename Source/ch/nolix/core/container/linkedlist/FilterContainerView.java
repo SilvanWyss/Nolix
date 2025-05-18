@@ -3,6 +3,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
@@ -72,7 +73,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @param selector
    * @param <T>      is the type of the given element and elements of the given
    *                 array.
-   * @return a new {@link ContainerView} for the given element and array.
+   * @return a new {@link FilterContainerView} for the given element and array.
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if the given selector is null.
    */

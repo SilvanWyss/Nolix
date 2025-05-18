@@ -2,7 +2,7 @@ package ch.nolix.core.document.node;
 
 import java.util.function.Predicate;
 
-import ch.nolix.core.container.linkedlist.ContainerView;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

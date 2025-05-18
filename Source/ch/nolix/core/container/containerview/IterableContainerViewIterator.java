@@ -1,11 +1,11 @@
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.containerview;
 
 import java.util.Iterator;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 
-final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
+public final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
 
   private final Iterable<E> parentIterable;
 

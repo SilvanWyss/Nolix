@@ -5,7 +5,7 @@ import ch.nolix.application.relationaldoc.backend.datavalidator.SmartFieldValida
 import ch.nolix.application.relationaldoc.backend.datavalidator.SmartObjectValidator;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartField;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartObject;
-import ch.nolix.core.container.linkedlist.ContainerView;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
 import ch.nolix.system.objectdata.model.Entity;

@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 import ch.nolix.core.container.base.AbstractContainer;
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
-import ch.nolix.core.container.linkedlist.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;

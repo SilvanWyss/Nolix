@@ -1,7 +1,6 @@
 package ch.nolix.core.container.containerview;
 
 import ch.nolix.core.container.base.ContainerTest;
-import ch.nolix.core.container.linkedlist.IterableContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
