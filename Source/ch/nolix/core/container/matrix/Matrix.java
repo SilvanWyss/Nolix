@@ -6,6 +6,7 @@ import java.util.function.Function;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -414,6 +415,18 @@ public final class Matrix<E> extends Container<E> implements IMatrix<E> {
     assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
 
     return (E) elements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**

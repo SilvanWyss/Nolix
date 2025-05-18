@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import ch.nolix.core.commontypetool.iteratortool.IterableExaminer;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -321,6 +322,16 @@ implements ILinkedList<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * @return the number of elements of the current {@link LinkedList}.
+   */
+  @Override
+  public int getCount() {
+    return elementCount;
+  }
+
+  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
    * 
@@ -362,11 +373,13 @@ implements ILinkedList<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @return the number of elements of the current {@link LinkedList}.
+   * {@inheritDoc}
    */
   @Override
-  public int getCount() {
-    return elementCount;
+  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**
@@ -378,6 +391,8 @@ implements ILinkedList<E> {
   }
 
   /**
+   * The time complexity of this implementation is O(1).
+   * 
    * {@inheritDoc}
    */
   @Override

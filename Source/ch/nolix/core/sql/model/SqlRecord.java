@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -103,6 +104,16 @@ public final class SqlRecord extends Container<String> implements ISqlRecord {
   @Override
   public String getStoredAtOneBasedIndex(final int oneBasedIndex) {
     return values.getStoredAtOneBasedIndex(oneBasedIndex);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<String> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**

@@ -175,6 +175,16 @@ public final class ContainerView<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
+  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public int hashCode() {
     return internalContainer.hashCode();
   }

@@ -14,7 +14,6 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.containerview.FilterContainerView;
-import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.containerview.MappingContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -1575,20 +1574,6 @@ implements IContainer<E> {
 
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(oneBasedStartIndex, getCount());
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
-    final int oneBasedStartIndex,
-    final int oneBasedEndIndex) {
-
-    //Creates and returns a new ContainerView.
-    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**

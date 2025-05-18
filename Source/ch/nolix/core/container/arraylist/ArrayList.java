@@ -5,6 +5,7 @@ import java.util.function.Function;
 import ch.nolix.core.commontypetool.arraytool.ArraySorter;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -233,6 +234,20 @@ public final class ArrayList<E> extends Container<E> implements IArrayList<E> {
     Validator.assertThat(oneBasedIndex).thatIsNamed("1 based index").isBetween(1, getCount());
 
     return elements[oneBasedIndex - 1];
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+
+    //Creates and returns a new ContainerView.
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**

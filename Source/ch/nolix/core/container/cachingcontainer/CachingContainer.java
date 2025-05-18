@@ -5,6 +5,7 @@ import java.util.function.Function;
 
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -59,9 +60,13 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return elements.getStoredFirst(e -> e.getStoredElement1().equals(id)).getStoredElement2();
   }
 
-  /**
-   * {@inheritDoc}
-   */
+  @Override
+  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
+  }
+
   @Override
   public boolean isMaterialized() {
     return true;
@@ -120,9 +125,6 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return LinkedList.createEmpty();

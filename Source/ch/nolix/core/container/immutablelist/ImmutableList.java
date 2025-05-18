@@ -9,6 +9,7 @@ import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.containerview.IntervallContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -155,6 +156,16 @@ public final class ImmutableList<E> extends Container<E> {
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(1, getCount());
 
     return elements[oneBasedIndex - 1];
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
   }
 
   /**

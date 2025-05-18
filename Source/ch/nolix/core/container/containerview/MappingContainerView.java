@@ -87,6 +87,16 @@ public final class MappingContainerView<E, T> extends Container<T> {
    * {@inheritDoc}
    */
   @Override
+  public IContainer<T> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isMaterialized() {
     return false;
   }
