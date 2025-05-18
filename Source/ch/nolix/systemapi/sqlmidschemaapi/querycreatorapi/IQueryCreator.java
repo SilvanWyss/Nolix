@@ -24,12 +24,6 @@ public interface IQueryCreator {
   String createQueryToLoadColumnsByTableName(String tableName);
 
   /**
-   * @param id
-   * @return a query to load the flat table with the given id.
-   */
-  String createQueryToLoadFlatTableById(String id);
-
-  /**
    * @param name
    * @return a query to load the flat table with the given name.
    */

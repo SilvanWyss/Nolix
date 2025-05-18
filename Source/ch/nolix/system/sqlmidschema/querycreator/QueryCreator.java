@@ -84,25 +84,6 @@ public final class QueryCreator implements IQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadFlatTableById(final String id) {
-    return //
-    "SELECT "
-    + TableColumn.ID.getName()
-    + ", "
-    + TableColumn.NAME.getName()
-    + " FROM "
-    + FixTable.TABLE.getName()
-    + " WHERE "
-    + TableColumn.ID.getName()
-    + " = '"
-    + id
-    + "'";
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String createQueryToLoadFlatTableByName(final String name) {
     return //
     "SELECT "

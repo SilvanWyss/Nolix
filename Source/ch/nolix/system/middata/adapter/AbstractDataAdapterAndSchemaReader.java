@@ -47,11 +47,6 @@ implements IDataAdapterAndSchemaReader {
   }
 
   @Override
-  public final FlatTableDto loadFlatTableById(String id) {
-    return schemaReader.loadFlatTableById(id);
-  }
-
-  @Override
   public final FlatTableDto loadFlatTableByName(final String name) {
     return schemaReader.loadFlatTableByName(name);
   }
