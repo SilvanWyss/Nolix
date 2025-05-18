@@ -7,6 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
  * @version 2025-03-28
  */
 public enum ContentModelColumn implements INameHolder {
+  ID(ContentModelColumnNameCatalog.ID),
   CONTENT_TYPE(ContentModelColumnNameCatalog.CONTENT_TYPE),
   DATA_TYPE(ContentModelColumnNameCatalog.DATA_TYPE),
   REFERENCED_TABLE_ID(ContentModelColumnNameCatalog.REFERENCED_TABLE_ID),
