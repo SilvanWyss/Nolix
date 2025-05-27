@@ -44,5 +44,5 @@ public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, ICont
    * @throws RuntimeException if the given elements is null.
    * @throws RuntimeException if one of the given elements is null.
    */
-  void addAtEnd(IContainer<E> elements);
+  void addAtEnd(Iterable<? extends E> elements);
 }

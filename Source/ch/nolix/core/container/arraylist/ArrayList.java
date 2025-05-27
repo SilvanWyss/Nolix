@@ -1,9 +1,11 @@
 package ch.nolix.core.container.arraylist;
 
+import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ICountingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
@@ -17,6 +19,8 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {
+
+  private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
   private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
 
@@ -114,6 +118,15 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     return withInitialCapacity(initialCapacity);
   }
 
+  private static int getCountOfIterable(final Iterable<?> iterable) {
+
+    if (iterable instanceof final IContainer container) {
+      return container.getCount();
+    }
+
+    return ITERABLE_TOOL.getCount(iterable);
+  }
+
   /**
    * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
@@ -161,11 +174,11 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * {@inheritDoc}
    */
   @Override
-  public void addAtEnd(IContainer<E> elements) {
+  public void addAtEnd(final Iterable<? extends E> elements) {
 
     Validator.assertThatTheElements(elements).areNotNull();
 
-    final var newElementCount = getCount() + elements.getCount();
+    final var newElementCount = getCount() + getCountOfIterable(elements);
 
     growAtLeastToRequiredCapacity(newElementCount);
 
