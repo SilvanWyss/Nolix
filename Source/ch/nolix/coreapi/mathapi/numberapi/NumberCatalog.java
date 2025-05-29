@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.mathapi.basicapi;
+package ch.nolix.coreapi.mathapi.numberapi;
 
 /**
  * The {@link NumberCatalog} provides numbers that are important mathematical
