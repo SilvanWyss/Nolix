@@ -20,7 +20,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -36,8 +35,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalo
  */
 public abstract class AbstractContainer<E> //NOSONAR: An AbstractContainer is a principal object thus it has many methods.
 implements IContainer<E> {
-
-  private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -261,7 +258,7 @@ implements IContainer<E> {
     }
 
     //Handles the case that the given iterable is not a IContainer.
-    return (getCount() == ITERABLE_TOOL.getCount(iterable));
+    return (getCount() == IterableTool.getCount(iterable));
   }
 
   /**
@@ -342,7 +339,7 @@ implements IContainer<E> {
     }
 
     //Handles the case that the given iterable is not a IContainer.
-    return (getCount() < ITERABLE_TOOL.getCount(iterable));
+    return (getCount() < IterableTool.getCount(iterable));
   }
 
   /**
@@ -360,7 +357,7 @@ implements IContainer<E> {
     }
 
     //Handles the case that the given container is not a IContainer.
-    return (getCount() > ITERABLE_TOOL.getCount(iterable));
+    return (getCount() > IterableTool.getCount(iterable));
   }
 
   /**

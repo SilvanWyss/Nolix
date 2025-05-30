@@ -13,10 +13,9 @@ final class GetCountMethodTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = null;
-    final var testUnit = new IterableTool();
 
     //execution & verification
-    expectRunning(() -> testUnit.getCount(iterable)).throwsException();
+    expectRunning(() -> IterableTool.getCount(iterable)).throwsException();
   }
 
   @Test
@@ -24,10 +23,9 @@ final class GetCountMethodTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>();
-    final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.getCount(iterable);
+    final var result = IterableTool.getCount(iterable);
 
     //verification
     expect(result).isEqualTo(0);
@@ -38,10 +36,9 @@ final class GetCountMethodTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "antelope" });
-    final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.getCount(iterable);
+    final var result = IterableTool.getCount(iterable);
 
     //verification
     expect(result).isEqualTo(1);
@@ -52,10 +49,9 @@ final class GetCountMethodTest extends StandardTest {
 
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "antelope", "elephant" });
-    final var testUnit = new IterableTool();
 
     //execution
-    final var result = testUnit.getCount(iterable);
+    final var result = IterableTool.getCount(iterable);
 
     //verification
     expect(result).isEqualTo(2);

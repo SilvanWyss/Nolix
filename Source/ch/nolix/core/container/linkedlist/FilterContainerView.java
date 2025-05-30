@@ -6,7 +6,6 @@ import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
@@ -18,8 +17,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link FilterContainerView}.
  */
 public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
-
-  private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
   private final IContainer<E> container;
 
@@ -92,7 +89,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public int getCount() {
-    return ITERABLE_TOOL.getCount(this);
+    return IterableTool.getCount(this);
   }
 
   /**
@@ -100,7 +97,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    return ITERABLE_TOOL.getStoredAtOneBasedIndex(this, oneBasedIndex);
+    return IterableTool.getStoredAtOneBasedIndex(this, oneBasedIndex);
   }
 
   /**

@@ -1,45 +1,30 @@
 package ch.nolix.core.commontypetool.iteratortool;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableExaminer;
 import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableTool;
 
-public final class IterableTool implements IIterableTool {
+public final class IterableTool {
 
-  @Override
-  public int getCount(final Iterable<?> iterable) {
+  private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
-    final var iterator = iterable.iterator();
-    var elementCount = 0;
+  private static final IIterableTool ITERABLE_TOOL = new IterableToolUnit();
 
-    while (iterator.hasNext()) {
-      elementCount++;
-      iterator.next();
-    }
-
-    return elementCount;
+  private IterableTool() {
   }
 
-  @Override
-  public <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
+  public static boolean containsAny(final Iterable<?> iterable) {
+    return ITERABLE_EXAMINER.containsAny(iterable);
+  }
 
-    var iteratingOneBasedIndex = 1;
+  public static int getCount(final Iterable<?> iterable) {
+    return ITERABLE_TOOL.getCount(iterable);
+  }
 
-    for (final var e : iterable) {
+  public static <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
+    return ITERABLE_TOOL.getStoredAtOneBasedIndex(iterable, oneBasedIndex);
+  }
 
-      if (iteratingOneBasedIndex == oneBasedIndex) {
-        return e;
-      }
-
-      iteratingOneBasedIndex++;
-    }
-
-    final var count = iteratingOneBasedIndex - 1;
-
-    throw //
-    ArgumentIsOutOfRangeException.forArgumentAndArgumentNameAndRangeWithMinAndMax(
-      oneBasedIndex,
-      "1-based index",
-      1,
-      count);
+  public static boolean isEmpty(final Iterable<?> iterable) {
+    return ITERABLE_EXAMINER.isEmpty(iterable);
   }
 }

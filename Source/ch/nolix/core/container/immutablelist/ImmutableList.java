@@ -23,8 +23,6 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  private static final IterableTool ITERABLE_TOOL = new IterableTool();
-
   private final E[] elements;
 
   /**
@@ -87,7 +85,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
       return immutableList;
     }
 
-    final var elementCount = ITERABLE_TOOL.getCount(container);
+    final var elementCount = IterableTool.getCount(container);
     final var elements = new Object[elementCount];
     var index = 0;
     for (final var e : container) {

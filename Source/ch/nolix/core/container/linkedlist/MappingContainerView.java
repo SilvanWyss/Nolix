@@ -6,7 +6,6 @@ import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -19,8 +18,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  *            from its elements.
  */
 public final class MappingContainerView<E, T> extends AbstractExtendedContainer<T> {
-
-  private static final IIterableTool ITERABLE_TOOL = new IterableTool();
 
   private final IContainer<E> container;
 
@@ -66,7 +63,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    */
   @Override
   public int getCount() {
-    return ITERABLE_TOOL.getCount(this);
+    return IterableTool.getCount(this);
   }
 
   /**
