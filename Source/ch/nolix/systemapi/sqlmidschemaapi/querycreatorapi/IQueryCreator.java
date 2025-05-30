@@ -24,11 +24,6 @@ public interface IQueryCreator {
   String createQueryToLoadColumnsByTableName(String tableName);
 
   /**
-   * @return a query to load the flat tables.
-   */
-  String createQueryToLoadFlatTables();
-
-  /**
    * @return a query to load the joined columns.
    */
   String createQueryToLoadJoinedColumns();

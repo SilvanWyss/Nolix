@@ -4,16 +4,13 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlmidschema.flatmodelmapper.TableFlatDtoMapper;
 import ch.nolix.system.sqlmidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.flatmodelmapperapi.ITableFlatDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
@@ -21,8 +18,6 @@ import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
 public final class SchemaReader implements ISchemaReader {
 
   private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
-
-  private static final ITableFlatDtoMapper FLAT_TABLE_DTO_MAPPER = new TableFlatDtoMapper();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
@@ -82,15 +77,6 @@ public final class SchemaReader implements ISchemaReader {
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
     return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
-  }
-
-  @Override
-  public IContainer<FlatTableDto> loadFlatTables() {
-
-    final var query = QUERY_CREATOR.createQueryToLoadFlatTables();
-    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-
-    return sqlRecords.to(FLAT_TABLE_DTO_MAPPER::mapTableTableSqlRecordToFlatTableDto);
   }
 
   @Override

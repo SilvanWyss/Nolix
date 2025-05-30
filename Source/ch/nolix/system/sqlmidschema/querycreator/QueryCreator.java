@@ -85,20 +85,6 @@ public final class QueryCreator implements IQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadFlatTables() {
-    return //
-    "SELECT "
-    + TableColumn.ID.getName()
-    + ", "
-    + TableColumn.NAME.getName()
-    + " FROM "
-    + FixTable.TABLE.getName();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String createQueryToLoadJoinedColumns() {
     return //
     "SELECT "

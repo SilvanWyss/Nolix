@@ -5,7 +5,6 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.system.nodemidschema.flatmodelmapper.FlatTableDtoMapper;
 import ch.nolix.system.nodemidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.nodemidschema.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
@@ -13,10 +12,8 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.nodemidschemaapi.flatmodelmapperapi.IFlatTableDtoMapper;
 import ch.nolix.systemapi.nodemidschemaapi.modelmapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.nodemidschemaapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
@@ -33,8 +30,6 @@ public final class SchemaReader implements ISchemaReader {
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
-
-  private static final IFlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
@@ -78,14 +73,6 @@ public final class SchemaReader implements ISchemaReader {
     final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
     return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
-  }
-
-  @Override
-  public IContainer<FlatTableDto> loadFlatTables() {
-
-    final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
-
-    return tableNodes.to(FLAT_TABLE_DTO_MAPPER::mapTableNodeToFlatTableDto);
   }
 
   @Override
