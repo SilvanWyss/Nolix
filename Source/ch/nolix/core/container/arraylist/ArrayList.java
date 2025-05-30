@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.commoncontainerapi.ICountingContainer;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.CountRequestable;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
@@ -108,7 +108,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    *         the given container.
    * @throws NullPointerException if the given container is null.
    */
-  public static <E2> ArrayList<E2> withInitialCapacityFromSizeOfContainer(final ICountingContainer<?> container) {
+  public static <E2> ArrayList<E2> withInitialCapacityFromSizeOfContainer(final CountRequestable<?> container) {
 
     final var initialCapacity = container.getCount();
 

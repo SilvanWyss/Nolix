@@ -3,7 +3,7 @@ package ch.nolix.coreapi.containerapi.baseapi;
 import java.util.function.Function;
 
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ArrayMappable;
-import ch.nolix.coreapi.containerapi.commoncontainerapi.ICountingContainer;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.CountRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IStatisticalConainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IndexRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IterableWithCopyableIterator;
@@ -26,7 +26,7 @@ public interface IContainer<E>
 extends
 ArrayMappable<E>,
 EmptinessRequestable,
-ICountingContainer<E>,
+CountRequestable<E>,
 IFilter<E>,
 IndexRequestable<E>,
 IStatisticalConainer<E>,
