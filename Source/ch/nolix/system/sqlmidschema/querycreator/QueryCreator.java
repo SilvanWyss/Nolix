@@ -58,33 +58,6 @@ public final class QueryCreator implements IQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadColumnsByTableName(final String tableName) {
-    return //
-    "SELECT "
-    + ColumnColumn.ID.getName()
-    + ", "
-    + ColumnColumn.NAME.getName()
-    + ", "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
-    + ", "
-    + ColumnColumn.CONTENT_TYPE.getName()
-    + ", "
-    + ColumnColumn.DATA_TYPE.getName()
-    + ", "
-    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
-    + " FROM "
-    + FixTable.COLUMN.getName()
-    + " WHERE "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
-    + " = '"
-    + tableName
-    + "'";
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public String createQueryToLoadJoinedColumns() {
     return //
     "SELECT "

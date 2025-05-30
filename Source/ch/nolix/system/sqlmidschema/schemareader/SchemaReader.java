@@ -4,22 +4,17 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlmidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 
   private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
-
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
@@ -68,15 +63,6 @@ public final class SchemaReader implements ISchemaReader {
     final var value = sqlRecord.getStoredOne();
 
     return Integer.valueOf(value);
-  }
-
-  @Override
-  public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
-
-    final var query = QUERY_CREATOR.createQueryToLoadColumnsByTableName(tableName);
-    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-
-    return sqlRecords.to(COLUMN_DTO_MAPPER::mapColumnTableSqlRecordToColumnDto);
   }
 
   @Override

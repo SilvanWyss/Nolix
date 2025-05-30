@@ -18,12 +18,6 @@ public interface IQueryCreator {
   String createQueryToLoadCoumnsByTableId(String tableId);
 
   /**
-   * @param tableName
-   * @return a query to load the columns of the table with the given tableName.
-   */
-  String createQueryToLoadColumnsByTableName(String tableName);
-
-  /**
    * @return a query to load the joined columns.
    */
   String createQueryToLoadJoinedColumns();

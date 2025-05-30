@@ -67,15 +67,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
-
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
-
-    return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
-  }
-
-  @Override
   public Time loadSchemaTimestamp() {
 
     final var databasePropertiesNode = //

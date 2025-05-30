@@ -95,11 +95,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final IContainer<ColumnDto> loadColumnsByTableName(final String tableName) {
-    return schemaReader.loadColumnsByTableName(tableName);
-  }
-
-  @Override
   public final ITime loadSchemaTimestamp() {
     return schemaReader.loadSchemaTimestamp();
   }
