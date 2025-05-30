@@ -1,12 +1,12 @@
 package ch.nolix.core.container.containerview;
 
+import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
@@ -19,7 +19,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
 
   private MultiContainerView(final E[] array, @SuppressWarnings("unchecked") final E[]... arrays) {
 
-    final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
+    final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
 
     localContainers.addAtEnd(ArrayContainerView.forArray(array));
 
@@ -34,7 +34,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     final Iterable<? extends E> iterable,
     @SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
 
-    final ILinkedList<IContainer<E>> localContainers = LinkedList.createEmpty();
+    final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
 
     localContainers.addAtEnd(IterableContainerView.forIterable(iterable));
 

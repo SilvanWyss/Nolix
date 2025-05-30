@@ -1,4 +1,4 @@
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

@@ -2,7 +2,7 @@ package ch.nolix.core.container.cachingcontainer;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
+import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

@@ -1,7 +1,7 @@
 package ch.nolix.core.container.containerview;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
+import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;

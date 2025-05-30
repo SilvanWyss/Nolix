@@ -13,7 +13,7 @@ import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
-import ch.nolix.core.container.linkedlist.MappingContainerView;
+import ch.nolix.core.container.arraylist.MappingContainerView;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

@@ -1,7 +1,7 @@
 package ch.nolix.core.container.containerview;
 
-import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -24,7 +24,7 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
   public IterableContainerView() {
 
     //Calls other constructor.
-    this(LinkedList.createEmpty());
+    this(ArrayList.createEmpty());
   }
 
   /**

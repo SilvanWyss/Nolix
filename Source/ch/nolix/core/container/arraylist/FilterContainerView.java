@@ -1,4 +1,4 @@
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.arraylist;
 
 import java.util.function.Predicate;
 
@@ -46,7 +46,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    *            {@link FilterContainerView}.
    */
   public static <T> FilterContainerView<T> createEmpty() {
-    return forContainerAndSelector(LinkedList.createEmpty(), x -> true);
+    return forContainerAndSelector(ArrayList.createEmpty(), x -> true);
   }
 
   /**

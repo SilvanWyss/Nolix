@@ -1,4 +1,4 @@
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.arraylist;
 
 import java.util.function.Predicate;
 

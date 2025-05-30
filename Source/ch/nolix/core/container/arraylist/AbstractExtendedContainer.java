@@ -1,10 +1,9 @@
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.arraylist;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.arraytool.ArraySorter;
-import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -63,7 +62,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> 
 
     ArraySorter.sortArray(array, getCount(), norm);
 
-    return LinkedList.fromArray(array);
+    return ArrayList.withElements(array);
   }
 
   /**

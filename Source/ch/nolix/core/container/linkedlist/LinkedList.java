@@ -3,6 +3,7 @@ package ch.nolix.core.container.linkedlist;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.iteratortool.IterableExaminer;
+import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

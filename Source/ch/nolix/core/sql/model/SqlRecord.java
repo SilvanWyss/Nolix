@@ -1,7 +1,7 @@
 package ch.nolix.core.sql.model;
 
+import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
