@@ -114,7 +114,11 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public TableDto loadTableByName(final String name) {
-    return loadTable(loadFlatTableByName(name));
+
+    final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns(name);
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+
+    return TABLE_DTO_MAPPER.mapJoinedColumnSqlRecordsToTableDto(sqlRecords);
   }
 
   @Override
@@ -129,9 +133,5 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public void noteClose() {
     //Does nothing.
-  }
-
-  private TableDto loadTable(final FlatTableDto flatTable) {
-    return new TableDto(flatTable.id(), flatTable.name(), loadColumnsByTableName(flatTable.name()));
   }
 }

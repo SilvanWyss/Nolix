@@ -137,20 +137,60 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " FROM "
-    + FixTable.COLUMN.name()
+    + FixTable.COLUMN.getName()
     + " INNER JOIN "
-    + FixTable.TABLE.name()
+    + FixTable.TABLE.getName()
     + " ON "
-    + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.name()
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
     + " INNER JOIN ON "
-    + FixTable.CONTENT_MODEL.name()
+    + FixTable.CONTENT_MODEL.getName()
     + " ON "
-    + FixTable.COLUMN.name() + "." + ColumnColumn.CONTENT_MODEL.name()
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
     + " = "
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.ID.getName()
     + ";";
+  }
+
+  @Override
+  public String createQueryToLoadJoinedColumns(String tableName) {
+    return //
+    "SELECT "
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + ", "
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.NAME.getName()
+    + ", "
+    + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
+    + ", "
+    + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
+    + ", "
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.CONTENT_TYPE.getName()
+    + ", "
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.DATA_TYPE.getName()
+    + ", "
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.REFERENCED_TABLE_ID.getName()
+    + ", "
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + " FROM "
+    + FixTable.COLUMN.getName()
+    + " INNER JOIN "
+    + FixTable.TABLE.getName()
+    + " ON "
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
+    + " = "
+    + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
+    + " INNER JOIN ON "
+    + FixTable.CONTENT_MODEL.getName()
+    + " ON "
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
+    + " = "
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.ID.getName()
+    + " WHERE "
+    + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
+    + " = '"
+    + tableName
+    + "';";
   }
 
   /**
