@@ -2,9 +2,9 @@ package ch.nolix.coreapi.containerapi.baseapi;
 
 import java.util.function.Function;
 
+import ch.nolix.coreapi.containerapi.commoncontainerapi.AggregationRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ArrayMappable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.CountRequestable;
-import ch.nolix.coreapi.containerapi.commoncontainerapi.AggregationRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IndexRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IterableWithCopyableIterator;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.SingleSearchable;
@@ -24,22 +24,22 @@ import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
  */
 public interface IContainer<E>
 extends
-ArrayMappable<E>,
-EmptinessRequestable,
-CountRequestable<E>,
-Filterable<E>,
-IndexRequestable<E>,
 AggregationRequestable<E>,
-IterableWithCopyableIterator<E>,
+ArrayMappable<E>,
+CountRequestable<E>,
+EmptinessRequestable,
+Filterable<E>,
+Groupable<E>,
+IFilteringContainerViewProvider<E>,
 IIntervallContainerViewProvider<E>,
+IMappingContainerViewProvider<E>,
+IndexRequestable<E>,
+IterableWithCopyableIterator<E>,
 Mappable<E>,
 MaterializationRequestable,
-Groupable<E>,
 SingleSearchable<E>,
 StoringRequestable<E>,
-StringMappable,
-IMappingContainerViewProvider<E>,
-IFilteringContainerViewProvider<E> {
+StringMappable {
 
   /**
    * @param comparableMapper
