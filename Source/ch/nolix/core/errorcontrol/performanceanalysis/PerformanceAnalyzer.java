@@ -45,15 +45,21 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
       if (passed) {
 
-        if (stopWatch.getTotalRunningTimeInMilliseconds() > 500 || maxRunCount >= 9_765_625 /* 5^10 */) {
+        final var resultIsFinal = //
+        resultIsFinalAccordingToTotalRunningTimeInMillisecondsAndTotalRunCount(
+          stopWatch.getTotalRunningTimeInMilliseconds(),
+          maxRunCount);
+
+        if (resultIsFinal) {
           return true;
         }
-
-        maxRunCount *= 5;
       }
+
+      maxRunCount *= 5;
     }
 
     return false;
+
   }
 
   private <O> boolean onObjectsFromObjectSupplierUpToMaxRunCountActionRunsWithGivenOrLowerTimeComplexity(
@@ -64,7 +70,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
     var latestTimeComplexityInvariant = 0.0;
 
-    for (var runCount = 25; runCount <= maxRunCount; runCount *= 5) {
+    for (var runCount = 5; runCount <= maxRunCount; runCount *= 5) {
 
       final var optionalTimeComplexityInvariant = //
       getOpionalTimeComplexityInvariantOfActionOnObjectFromObjectSupplierByRunCountAndTimeComplexityFunction(
@@ -127,5 +133,20 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
   private int getRuntimeOfActionInMilliseconds(final Runnable actionOnObject) {
     return (int) RUNTIME_METER.getRuntimeOfActionInMilliseconds(actionOnObject);
+  }
+
+  private boolean resultIsFinalAccordingToTotalRunningTimeInMillisecondsAndTotalRunCount(
+    final long totalRunningTimeInMilliseconds,
+    final int totalRunCount) {
+
+    if (totalRunningTimeInMilliseconds > 500) {
+      return (totalRunCount >= 5);
+    }
+
+    if (totalRunningTimeInMilliseconds > 100) {
+      return (totalRunCount >= 15_625 /* 5^6 */);
+    }
+
+    return (totalRunCount >= 390_625 /* 5^8 */);
   }
 }
