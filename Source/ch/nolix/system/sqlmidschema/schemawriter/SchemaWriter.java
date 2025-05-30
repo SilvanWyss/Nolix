@@ -56,7 +56,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
     metaDataWriter.addColumn(tableName, column);
-    sqlSchemaWriter.addColumn(tableName, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDto(column));
+    sqlSchemaWriter.addColumns(tableName, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDtos(column));
   }
 
   @Override

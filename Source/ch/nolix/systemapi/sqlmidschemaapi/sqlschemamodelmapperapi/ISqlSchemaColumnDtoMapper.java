@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi;
 
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 
 /**
@@ -10,9 +11,9 @@ public interface ISqlSchemaColumnDtoMapper {
 
   /**
    * @param columnDto
-   * @return a new {@link ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto} from
+   * @return new {@link ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto}s from
    *         the given columnDto.
    * @throws RuntimeException if the given columnDto is null.
    */
-  ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto mapColumnDtoToSqlSchemaColumnDto(ColumnDto columnDto);
+  IContainer<ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(ColumnDto columnDto);
 }
