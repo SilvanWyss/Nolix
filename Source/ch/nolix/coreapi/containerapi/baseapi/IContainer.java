@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ArrayMappable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.CountRequestable;
-import ch.nolix.coreapi.containerapi.commoncontainerapi.IStatisticalConainer;
+import ch.nolix.coreapi.containerapi.commoncontainerapi.AggregationRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IndexRequestable;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.IterableWithCopyableIterator;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.SingleSearchable;
@@ -29,7 +29,7 @@ EmptinessRequestable,
 CountRequestable<E>,
 IFilter<E>,
 IndexRequestable<E>,
-IStatisticalConainer<E>,
+AggregationRequestable<E>,
 IterableWithCopyableIterator<E>,
 IIntervallContainerViewProvider<E>,
 IMappingProvider<E>,
