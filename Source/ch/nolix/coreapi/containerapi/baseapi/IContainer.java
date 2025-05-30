@@ -27,6 +27,7 @@ extends
 ArrayMappable<E>,
 EmptinessRequestable,
 ICountingContainer<E>,
+IFilter<E>,
 IndexRequestable<E>,
 IStatisticalConainer<E>,
 IterableWithCopyableIterator<E>,
