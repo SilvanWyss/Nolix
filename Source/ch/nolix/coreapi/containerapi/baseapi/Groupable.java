@@ -5,14 +5,14 @@ import java.util.function.Function;
 /**
  * @author Silvan Wyss
  * @version 2024-11-12
- * @param <E> is the type of the elements a {@link MultiSearchable}.
+ * @param <E> is the type of the elements a {@link Groupable}.
  */
-public interface MultiSearchable<E> {
+public interface Groupable<E> {
 
   /**
    * @param norm
    * @return a new {@link IContainer} with the elements of the current
-   *         {@link MultiSearchable} grouped by the given norm. Ignores null
+   *         {@link Groupable} grouped by the given norm. Ignores null
    *         elements.
    * @throws RuntimeException if the given norm is null.
    */
