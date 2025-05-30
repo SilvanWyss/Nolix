@@ -11,6 +11,8 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void addColumn(String tableName, ColumnDto column);
 
+  void addColumns(String tableName, IContainer<ColumnDto> columns);
+
   void addTable(TableDto table);
 
   void deleteColumn(String tableName, String columnName);

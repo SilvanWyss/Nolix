@@ -53,6 +53,13 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+    for (final var c : columns) {
+      addColumn(tableName, c);
+    }
+  }
+
+  @Override
   public final void addTable(final TableDto table) {
     schemaWriter.addTable(table);
   }

@@ -61,6 +61,13 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
+  public final void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+    for (final var c : columns) {
+      addColumn(tableName, c);
+    }
+  }
+
+  @Override
   public void addTable(final TableDto table) {
 
     final var statement = STATEMENT_CREATOR.createStatementToAddTable(table);
