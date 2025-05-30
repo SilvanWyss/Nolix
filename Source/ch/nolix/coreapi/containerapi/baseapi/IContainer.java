@@ -39,7 +39,7 @@ SingleSearchable<E>,
 StoringRequestable<E>,
 StringMappable,
 IMappingContainerViewProvider<E>,
-IFilterContainerViewProvider<E> {
+IFilteringContainerViewProvider<E> {
 
   /**
    * @param comparableMapper
