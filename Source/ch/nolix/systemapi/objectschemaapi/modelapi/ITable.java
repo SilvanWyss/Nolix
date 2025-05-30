@@ -6,7 +6,6 @@ import ch.nolix.coreapi.componentapi.datamodelcomponentapi.IDatabaseComponent;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
-import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
 
 public interface ITable
 extends
@@ -21,8 +20,6 @@ IIdHolder {
   ITable addColumns(IContainer<IColumn> columns);
 
   ITable addColumnWithNameAndContentModel(String name, IContentModel contentModel);
-
-  FlatTableDto getFlatDto();
 
   IContainer<? extends IColumn> getStoredColumns();
 }

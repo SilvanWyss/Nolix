@@ -10,7 +10,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.midschemaapi.flatmodelapi.FlatTableDto;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
@@ -37,10 +36,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
     this.id = id;
     setName(name);
-  }
-
-  public static Table fromFlatDto(final FlatTableDto flatTableDto) {
-    return new Table(flatTableDto.id(), flatTableDto.name());
   }
 
   public static Table withIdAndName(final String id, final String name) {
@@ -92,11 +87,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
     MUTATION_VALIDATOR.assertCanDeleteTable(this);
 
     TableEditor.deleteTable(this);
-  }
-
-  @Override
-  public FlatTableDto getFlatDto() {
-    return new FlatTableDto(getId(), getName());
   }
 
   @Override
