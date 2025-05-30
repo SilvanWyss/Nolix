@@ -27,7 +27,7 @@ extends
 ArrayMappable<E>,
 EmptinessRequestable,
 CountRequestable<E>,
-IFilter<E>,
+Filterable<E>,
 IndexRequestable<E>,
 AggregationRequestable<E>,
 IterableWithCopyableIterator<E>,
