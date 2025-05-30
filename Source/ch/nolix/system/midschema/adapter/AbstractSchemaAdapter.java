@@ -101,11 +101,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final FlatTableDto loadFlatTableByName(final String name) {
-    return schemaReader.loadFlatTableByName(name);
-  }
-
-  @Override
   public final IContainer<FlatTableDto> loadFlatTables() {
     return schemaReader.loadFlatTables();
   }

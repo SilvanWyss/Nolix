@@ -81,14 +81,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public FlatTableDto loadFlatTableByName(final String name) {
-
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name);
-
-    return FLAT_TABLE_DTO_MAPPER.mapTableNodeToFlatTableDto(tableNode);
-  }
-
-  @Override
   public IContainer<FlatTableDto> loadFlatTables() {
 
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);

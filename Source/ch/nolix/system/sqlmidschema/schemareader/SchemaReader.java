@@ -85,15 +85,6 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public FlatTableDto loadFlatTableByName(final String name) {
-
-    final var query = QUERY_CREATOR.createQueryToLoadFlatTableByName(name);
-    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
-
-    return FLAT_TABLE_DTO_MAPPER.mapTableTableSqlRecordToFlatTableDto(sqlRecord);
-  }
-
-  @Override
   public IContainer<FlatTableDto> loadFlatTables() {
 
     final var query = QUERY_CREATOR.createQueryToLoadFlatTables();
