@@ -15,4 +15,11 @@ public interface IColumnDtoMapper {
    * @throws RuntimeException if the given columnTableSqlRecord is null.
    */
   ColumnDto mapColumnTableSqlRecordToColumnDto(ISqlRecord columnTableSqlRecord);
+
+  /**
+   * @param joinedColumnDto
+   * @return a new {@link ColumnDto} from the given joinedColumnDto.
+   * @throws RuntimeException if the given joinedColumnDto is null.
+   */
+  ColumnDto mapJoinedColumnSqlRecordToColumnDto(ISqlRecord joinedColumnDto);
 }

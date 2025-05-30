@@ -47,4 +47,11 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
         throw InvalidArgumentException.forArgument(contentType);
     };
   }
+
+  @Override
+  public ColumnDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnDto) {
+
+    //TODO: Update
+    return mapColumnTableSqlRecordToColumnDto(joinedColumnDto);
+  }
 }

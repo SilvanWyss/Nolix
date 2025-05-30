@@ -12,11 +12,6 @@ public interface IQueryCreator {
   String createQueryToGetTableCount();
 
   /**
-   * @return a query to load columns.
-   */
-  String createQueryToLoadColumns();
-
-  /**
    * @param tableId
    * @return a query to load the columns of the table with the given tableId.
    */
@@ -38,6 +33,11 @@ public interface IQueryCreator {
    * @return a query to load the flat tables.
    */
   String createQueryToLoadFlatTables();
+
+  /**
+   * @return a query to load columns.
+   */
+  String createQueryToLoadJoinedColumns();
 
   /**
    * @return a query to load the schema timestamp.

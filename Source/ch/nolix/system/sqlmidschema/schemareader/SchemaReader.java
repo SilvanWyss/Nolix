@@ -6,6 +6,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlmidschema.flatmodelmapper.TableFlatDtoMapper;
 import ch.nolix.system.sqlmidschema.modelmapper.ColumnDtoMapper;
+import ch.nolix.system.sqlmidschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
@@ -14,15 +15,18 @@ import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlmidschemaapi.flatmodelmapperapi.ITableFlatDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.ITableDtoMapper;
 import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 
   private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
 
-  private static final ITableFlatDtoMapper TABLE_DTO_MAPPER = new TableFlatDtoMapper();
+  private static final ITableFlatDtoMapper FLAT_TABLE_DTO_MAPPER = new TableFlatDtoMapper();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
+
+  private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -86,7 +90,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadFlatTableByName(name);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
-    return TABLE_DTO_MAPPER.mapTableTableSqlRecordToFlatTableDto(sqlRecord);
+    return FLAT_TABLE_DTO_MAPPER.mapTableTableSqlRecordToFlatTableDto(sqlRecord);
   }
 
   @Override
@@ -95,7 +99,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToLoadFlatTables();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
-    return sqlRecords.to(TABLE_DTO_MAPPER::mapTableTableSqlRecordToFlatTableDto);
+    return sqlRecords.to(FLAT_TABLE_DTO_MAPPER::mapTableTableSqlRecordToFlatTableDto);
   }
 
   @Override
@@ -115,7 +119,11 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<TableDto> loadTables() {
-    return loadFlatTables().to(t -> loadTableByName(t.name()));
+
+    final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns();
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+
+    return TABLE_DTO_MAPPER.mapJoinedColumnSqlRecordsToTableDtos(sqlRecords);
   }
 
   @Override
