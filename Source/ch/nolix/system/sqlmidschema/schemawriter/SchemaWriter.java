@@ -2,7 +2,6 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.sqltool.SqlCollector;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
@@ -58,13 +57,6 @@ public final class SchemaWriter implements ISchemaWriter {
   public void addColumn(final String tableName, final ColumnDto column) {
     metaDataWriter.addColumn(tableName, column);
     sqlSchemaWriter.addColumn(tableName, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDto(column));
-  }
-
-  @Override
-  public void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
-    for (final var c : columns) {
-      addColumn(tableName, c);
-    }
   }
 
   @Override
