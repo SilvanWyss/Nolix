@@ -22,6 +22,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
+import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
@@ -1235,7 +1236,7 @@ implements IContainer<E> {
     Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
     //Initializes groups.
-    final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
+    final var groups = createEmptyMutableList(new Marker<IArrayList<E>>());
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1997,7 +1998,7 @@ implements IContainer<E> {
       } else {
 
         //Adds the Numebr the given numberMapper maps from the current element.
-        numbers.addAtBegin(numberMapper.apply(e));
+        numbers.addAtEnd(numberMapper.apply(e));
       }
     }
 
@@ -2014,13 +2015,19 @@ implements IContainer<E> {
   @Override
   public final IContainer<E> toReversedList() {
 
-    //Creates a ILinkedList.
     final var reversedList = createEmptyMutableList(new Marker<E>());
 
-    //Iterates the current Container.
+    @SuppressWarnings("unchecked")
+    final var array = (E[]) new Object[(getCount())];
+
+    var index = getCount() - 1;
+
     for (final var e : this) {
-      reversedList.addAtBegin(e);
+      array[index] = e;
+      index--;
     }
+
+    reversedList.addAtEnd(array);
 
     return reversedList;
   }
@@ -2148,7 +2155,7 @@ implements IContainer<E> {
    *               contain.
    * @return a new empty {@link ILinkedList}.
    */
-  protected abstract <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker);
+  protected abstract <E2> IArrayList<E2> createEmptyMutableList(final Marker<E2> marker);
 
   /**
    * The time complexity of this implementation is O(1).

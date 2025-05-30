@@ -125,6 +125,25 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   }
 
   /**
+   * The time complexity of this implementation is O(n) when the current
+   * {@link ArrayList} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void addAtEnd(final E element) {
+
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+
+    final var localElementCount = getCount();
+    final var newElementCount = localElementCount + 1;
+
+    growAtLeastToRequiredCapacity(newElementCount);
+    this.elements[localElementCount] = element;
+    elementCount = newElementCount;
+  }
+
+  /**
    * The time complexity of this implementation is O(n+m) when the current
    * {@link ArrayList} contains n elements and m elements are given.
    * 
@@ -179,7 +198,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
 
     growAtLeastToRequiredCapacity(newElementCount);
 
-    var index = getCount() - 1;
+    var index = getCount();
 
     for (final var e : elements) {
 

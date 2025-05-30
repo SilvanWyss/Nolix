@@ -76,7 +76,6 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
   public ISequencePattern<E> withCondition(final Predicate<E> condition) {
 
     final IArrayList<Predicate<E>> conditions = ArrayList.withInitialCapacity(count);
@@ -94,7 +93,6 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    *         paramCount says.
    * @throws NegativeArgumentException if the given paramCount is negative.
    */
-  @SuppressWarnings("unchecked")
   private IContainer<Predicate<E>> createBlanks(final int paramCount) {
 
     final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);

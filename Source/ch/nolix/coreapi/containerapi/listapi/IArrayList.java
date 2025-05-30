@@ -15,6 +15,14 @@ import ch.nolix.coreapi.structurecontrolapi.copierapi.Copyable;
 public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IContainer<E> {
 
   /**
+   * Adds the given element at the end of the current {@link IArrayList}.
+   * 
+   * @param element
+   * @throws RuntimeException if the given elements is null.
+   */
+  void addAtEnd(E element);
+
+  /**
    * Adds the given given elements at the end of the current {@link IArrayList}.
    * The elements will be added in the given order.
    * 

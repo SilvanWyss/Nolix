@@ -4,10 +4,11 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.arraytool.ArraySorter;
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.containerapi.listapi.IArrayList;
 
 /**
  * @author Silvan Wyss
@@ -71,7 +72,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> 
    * {@inheritDoc}
    */
   @Override
-  protected final <E2> ILinkedList<E2> createEmptyMutableList(Marker<E2> marker) {
-    return LinkedList.createEmpty();
+  protected final <E2> IArrayList<E2> createEmptyMutableList(Marker<E2> marker) {
+    return ArrayList.createEmpty();
   }
 }
