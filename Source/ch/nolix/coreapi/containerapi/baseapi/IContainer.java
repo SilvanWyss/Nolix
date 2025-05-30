@@ -30,15 +30,15 @@ ICountingContainer<E>,
 IndexRequestable<E>,
 IStatisticalConainer<E>,
 IterableWithCopyableIterator<E>,
-IViewProviderContainer<E>,
-Mappable<E>,
+IIntervallContainerViewProvider<E>,
+IMappingProvider<E>,
 MaterializationRequestable,
 MultiSearchable<E>,
 SingleSearchable<E>,
 StoringRequestable<E>,
 StringMappable,
-ViewProvidingMappable<E>,
-ViewProvidingMultiSearchable<E> {
+IMappingContainerViewProvider<E>,
+IFilterContainerViewProvider<E> {
 
   /**
    * @param comparableMapper

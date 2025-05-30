@@ -3,13 +3,13 @@ package ch.nolix.coreapi.containerapi.baseapi;
 /**
  * @author Silvan Wyss
  * @version 2024-07-28
- * @param <E> is the type of the elements of a {@link IViewProviderContainer}.
+ * @param <E> is the type of the elements of a {@link IIntervallContainerViewProvider}.
  */
-public interface IViewProviderContainer<E> {
+public interface IIntervallContainerViewProvider<E> {
 
   /**
    * @param oneBasedStartIndex
-   * @return a new view of the current {@link IViewProviderContainer} from the
+   * @return a new view of the current {@link IIntervallContainerViewProvider} from the
    *         given oneBasedStartIndex.
    * @throws RuntimeException if the given oneBasedStartIndex is bigger than
    *                          the number of elements of the current
@@ -20,7 +20,7 @@ public interface IViewProviderContainer<E> {
   /**
    * @param oneBasedStartIndex
    * @param oneBasedEndIndex
-   * @return a new view of the current {@link IViewProviderContainer} from the
+   * @return a new view of the current {@link IIntervallContainerViewProvider} from the
    *         given oneBasedStartIndex to the given oneBasedEndIndex.
    * @throws RuntimeException if the given oneBasedStartIndex is not positive.
    * @throws RuntimeException if the given oneBasedStartIndex is smaller than
@@ -34,7 +34,7 @@ public interface IViewProviderContainer<E> {
   /**
    * @param oneBasedEndIndex
    * @return a new view {@link IContainer} of the current
-   *         {@link IViewProviderContainer} to the given oneBasedEndIndex.
+   *         {@link IIntervallContainerViewProvider} to the given oneBasedEndIndex.
    * @throws RuntimeException if the given oneBasedEndIndex is not positive.
    * @throws RuntimeException if the given oneBasedEndIndex is bigger than the
    *                          number of the elements of the current
@@ -44,8 +44,8 @@ public interface IViewProviderContainer<E> {
 
   /**
    * @return a new view {@link IContainer} view of the current
-   *         {@link IViewProviderContainer} without the first element.
-   * @throws RuntimeException if the current {@link IViewProviderContainer} is
+   *         {@link IIntervallContainerViewProvider} without the first element.
+   * @throws RuntimeException if the current {@link IIntervallContainerViewProvider} is
    *                          empty.
    */
   IContainer<E> getViewWithoutFirst();
@@ -53,15 +53,15 @@ public interface IViewProviderContainer<E> {
   /**
    * @param n
    * @return a new view {@link IContainer} view of the current
-   *         {@link IViewProviderContainer} without the first n elements.
+   *         {@link IIntervallContainerViewProvider} without the first n elements.
    * @throws RuntimeException if the given n is negative.
    */
   IContainer<E> getViewWithoutFirst(int n);
 
   /**
    * @return a new view {@link IContainer} view of the current
-   *         {@link IViewProviderContainer} without the last element.
-   * @throws RuntimeException if the current {@link IViewProviderContainer} is
+   *         {@link IIntervallContainerViewProvider} without the last element.
+   * @throws RuntimeException if the current {@link IIntervallContainerViewProvider} is
    *                          empty.
    */
   IContainer<E> getViewWithoutLast();
@@ -69,7 +69,7 @@ public interface IViewProviderContainer<E> {
   /**
    * @param n
    * @return a new view {@link IContainer} of the current
-   *         {@link IViewProviderContainer} without the last n elements.
+   *         {@link IIntervallContainerViewProvider} without the last n elements.
    * @throws RuntimeException if the given n is negative.
    */
   IContainer<E> getViewWithoutLast(int n);
