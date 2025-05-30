@@ -95,13 +95,13 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final ITime loadSchemaTimestamp() {
-    return schemaReader.loadSchemaTimestamp();
+  public final ITime getSchemaTimestamp() {
+    return schemaReader.getSchemaTimestamp();
   }
 
   @Override
-  public final TableDto loadTableByName(final String name) {
-    return schemaReader.loadTableByName(name);
+  public final TableDto loadTable(final String tableName) {
+    return schemaReader.loadTable(tableName);
   }
 
   @Override

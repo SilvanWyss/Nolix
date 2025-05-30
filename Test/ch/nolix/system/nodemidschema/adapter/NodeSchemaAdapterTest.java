@@ -42,7 +42,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
     //verification
     expect(testUnit.isChangeFree()).isTrue();
-    expect(testUnit.loadTableByName(tableName).columns()).contains(c -> c.name().equals(columnName));
+    expect(testUnit.loadTable(tableName).columns()).contains(c -> c.name().equals(columnName));
   }
 
   @Test
@@ -104,7 +104,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
     //verification
     expect(testUnit.isChangeFree()).isTrue();
-    expect(testUnit.loadTableByName(tableName).columns()).isEmpty();
+    expect(testUnit.loadTable(tableName).columns()).isEmpty();
   }
 
   @Test

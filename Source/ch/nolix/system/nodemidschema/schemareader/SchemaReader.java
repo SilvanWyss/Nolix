@@ -67,7 +67,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public Time loadSchemaTimestamp() {
+  public Time getSchemaTimestamp() {
 
     final var databasePropertiesNode = //
     DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
@@ -79,9 +79,9 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public TableDto loadTableByName(final String name) {
+  public TableDto loadTable(final String tableName) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, name);
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return loadTableFromTableNode(tableNode);
   }

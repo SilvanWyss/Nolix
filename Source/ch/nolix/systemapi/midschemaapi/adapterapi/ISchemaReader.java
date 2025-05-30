@@ -9,11 +9,11 @@ public interface ISchemaReader extends GroupCloseable {
 
   boolean columnIsEmpty(String tableName, String columnName);
 
+  ITime getSchemaTimestamp();
+
   int getTableCount();
 
-  TableDto loadTableByName(String name);
+  TableDto loadTable(String tableName);
 
   IContainer<TableDto> loadTables();
-
-  ITime loadSchemaTimestamp();
 }

@@ -66,7 +66,7 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public Time loadSchemaTimestamp() {
+  public Time getSchemaTimestamp() {
 
     final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
@@ -76,9 +76,9 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   @Override
-  public TableDto loadTableByName(final String name) {
+  public TableDto loadTable(final String tableName) {
 
-    final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns(name);
+    final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
     return TABLE_DTO_MAPPER.mapJoinedColumnSqlRecordsToTableDto(sqlRecords);

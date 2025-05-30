@@ -6,7 +6,6 @@ import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
  * @author Silvan Wyss
@@ -40,13 +39,8 @@ implements IDataAdapterAndSchemaReader {
   }
 
   @Override
-  public final ITime loadSchemaTimestamp() {
-    return schemaReader.loadSchemaTimestamp();
-  }
-
-  @Override
-  public final TableDto loadTableByName(final String name) {
-    return schemaReader.loadTableByName(name);
+  public final TableDto loadTable(final String tableName) {
+    return schemaReader.loadTable(tableName);
   }
 
   @Override
