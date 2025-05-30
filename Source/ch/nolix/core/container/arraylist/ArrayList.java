@@ -5,7 +5,7 @@ import ch.nolix.core.container.linkedlist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
+import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.commoncontainerapi.ICountingContainer;
 import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;

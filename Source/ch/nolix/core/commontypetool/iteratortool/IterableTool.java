@@ -1,7 +1,7 @@
 package ch.nolix.core.commontypetool.iteratortool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableTool;
+import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableTool;
 
 public final class IterableTool implements IIterableTool {
 

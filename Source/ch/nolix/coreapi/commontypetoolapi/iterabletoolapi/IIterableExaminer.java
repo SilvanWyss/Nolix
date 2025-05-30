@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi;
+package ch.nolix.coreapi.commontypetoolapi.iterabletoolapi;
 
 public interface IIterableExaminer {
 

@@ -1,6 +1,6 @@
 package ch.nolix.core.commontypetool.iteratortool;
 
-import ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi.IIterableExaminer;
+import ch.nolix.coreapi.commontypetoolapi.iterabletoolapi.IIterableExaminer;
 
 public final class IterableExaminer implements IIterableExaminer {
 
