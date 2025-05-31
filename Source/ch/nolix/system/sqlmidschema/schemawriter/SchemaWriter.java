@@ -104,8 +104,12 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
+
+    final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
+
     metaDataWriter.renameColumn(tableName, columnName, newColumnName);
     sqlSchemaWriter.renameColumn(tableName, columnName, newColumnName);
+    sqlSchemaWriter.renameColumnIfExists(tableName, columnName, referencedTableColumnName);
   }
 
   @Override
