@@ -125,6 +125,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final void renameColumnIfExists(final String tableName, final String columnName, final String newColumnName) {
+    schemaWriter.renameColumnIfExists(tableName, columnName, newColumnName);
+  }
+
+  @Override
   public final void renameTable(final String tableName, final String newTableName) {
     schemaWriter.renameTable(tableName, newTableName);
   }

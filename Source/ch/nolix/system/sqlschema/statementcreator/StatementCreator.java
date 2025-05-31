@@ -31,14 +31,14 @@ public final class StatementCreator implements IStatementCreator {
   @Override
   public String createStatementToDeleteColumnIfExists(final String tableName, final String columnName) {
     return //
-    "IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='DBO' AND TABLE_NAME ='"
+    "IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='"
     + tableName
     + "' AND COLUMN_NAME = '"
     + columnName
     + "')"
     + "BEGIN ALTER TABLE "
     + tableName
-    + " DROP COLUMN " 
+    + " DROP COLUMN "
     + columnName
     + " END;";
   }
@@ -54,6 +54,26 @@ public final class StatementCreator implements IStatementCreator {
     final String columnName,
     final String newColumnName) {
     return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";");
+  }
+
+  @Override
+  public String createStatementToRenameColumnIfExists(
+    final String tableName,
+    final String columnName,
+    final String newColumnName) {
+    return //
+    "IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='"
+    + tableName
+    + "' AND COLUMN_NAME = '"
+    + columnName
+    + "')"
+    + "BEGIN ALTER TABLE "
+    + tableName
+    + " RENAME COLUMN "
+    + columnName
+    + " TO "
+    + newColumnName
+    + " END;";
   }
 
   @Override

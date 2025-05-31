@@ -128,6 +128,14 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
+  public void renameColumnIfExists(final String tableName, final String columnName, final String newColumnName) {
+
+    final var statement = STATEMENT_CREATOR.createStatementToRenameColumnIfExists(tableName, columnName, newColumnName);
+
+    sqlCollector.addSqlStatement(statement);
+  }
+
+  @Override
   public void renameTable(final String tableName, final String newTableName) {
 
     final var statement = STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);

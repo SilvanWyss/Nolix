@@ -23,5 +23,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void renameColumn(String tableName, String columnName, String newColumnName);
 
+  void renameColumnIfExists(String tableName, String columnName, String newColumnName);
+
   void renameTable(String tableName, String newTableName);
 }

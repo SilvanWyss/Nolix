@@ -17,5 +17,7 @@ public interface IStatementCreator {
 
   String createStatementToRenameColumn(String tableName, String columnName, String newColumnName);
 
+  String createStatementToRenameColumnIfExists(String tableName, String columnName, String newColumnName);
+
   String createStatementToRenameTable(String tableName, String newTableName);
 }
