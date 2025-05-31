@@ -2,6 +2,7 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.sqltool.SqlCollector;
+import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
@@ -67,8 +68,12 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
+
+    final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
+
     metaDataWriter.deleteColumn(tableName, columnName);
     sqlSchemaWriter.deleteColumn(tableName, columnName);
+    sqlSchemaWriter.deleteColumnIfExists(tableName, referencedTableColumnName);
   }
 
   @Override
