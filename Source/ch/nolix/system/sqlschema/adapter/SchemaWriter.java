@@ -61,7 +61,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public final void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+  public void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
     for (final var c : columns) {
       addColumn(tableName, c);
     }
@@ -79,6 +79,14 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteColumn(final String tableName, final String columnName) {
 
     final var statement = STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
+
+    sqlCollector.addSqlStatement(statement);
+  }
+
+  @Override
+  public void deleteColumnIfExists(final String tableName, final String columnName) {
+
+    final var statement = STATEMENT_CREATOR.createStatementToDeleteColumnIfExists(tableName, columnName);
 
     sqlCollector.addSqlStatement(statement);
   }

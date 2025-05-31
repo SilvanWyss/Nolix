@@ -75,6 +75,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final void deleteColumnIfExists(final String tableName, final String columnName) {
+    schemaWriter.deleteColumnIfExists(tableName, columnName);
+  }
+
+  @Override
   public final void deleteTable(final String tableName) {
     schemaWriter.deleteTable(tableName);
   }
