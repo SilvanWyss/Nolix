@@ -11,6 +11,8 @@ public interface IStatementCreator {
 
   String createStatementToDeleteColumn(String tableName, String columnName);
 
+  String createStatementToDeleteColumnIfExists(String tableName, String columnName);
+
   String createStatementToDeleteTable(String tableName);
 
   String createStatementToRenameColumn(String tableName, String columnName, String newColumnName);

@@ -16,7 +16,8 @@ public final class StatementCreator implements IStatementCreator {
 
   @Override
   public String createStatementToAddTable(TableDto table) {
-    return "CREATE TABLE "
+    return //
+    "CREATE TABLE "
     + table.name()
     + " (" + table.columns().to(this::getColumnAsSql).toStringWithSeparator(", ")
     + ");";
@@ -25,6 +26,21 @@ public final class StatementCreator implements IStatementCreator {
   @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return ("ALTER TABLE " + tableName + " DROP COLUMN " + columnName + ";");
+  }
+
+  @Override
+  public String createStatementToDeleteColumnIfExists(final String tableName, final String columnName) {
+    return //
+    "IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='DBO' AND TABLE_NAME ='"
+    + tableName
+    + "' AND COLUMN_NAME = '"
+    + columnName
+    + "')"
+    + "BEGIN ALTER TABLE "
+    + tableName
+    + " DROP COLUMN " 
+    + columnName
+    + " END;";
   }
 
   @Override
