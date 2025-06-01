@@ -1,8 +1,8 @@
-package ch.nolix.system.sqlschema.mssqlquerycreator;
+package ch.nolix.system.sqlschema.querycreator;
 
 import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public final class MsSqlQueryCreator implements IQueryCreator {
+public final class QueryCreator implements IQueryCreator {
 
   @Override
   public String createQueryToGetTableCount() {
